@@ -1,0 +1,906 @@
+;; Object scan/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "scan/"
+  :tables
+  (list
+    (semanticdb-table "ScanCondition.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/ops/scan/ScanCondition.h" include (:system-flag t) nil [1 44])
+            ("ha3/sql/ops/scan/ConditionVisitor.h" include (:system-flag t) nil [45 91])
+            ("suez/turing/expression/syntax/SyntaxParser.h" include nil nil [92 147])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [149 169])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [191 195]))                  
+                :type "int")
+                nil [171 196])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [211 215])
+                    ("" variable (:type ("ScanCondition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [216 230]))                  
+                :type "int")
+                nil [197 231])
+            ("ScanCondition" function
+               (:constructor-flag t
+                :parent "ScanCondition"
+                :type ("ScanCondition" type (:type "class") nil nil))
+                nil [233 268])
+            ("ScanCondition" function
+               (:destructor-flag t
+                :parent "ScanCondition"
+                :type "void")
+                nil [270 306])
+            ("LeafCondition" function
+               (:constructor-flag t
+                :parent "LeafCondition"
+                :arguments 
+                  ( ("simpleVal" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("autil_rapidjson::SimpleValue" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [337 383]))                  
+                :type ("LeafCondition" type (:type "class") nil nil))
+                nil [308 414])
+            ("createCondition" function
+               (:pointer 1
+                :parent "ScanCondition"
+                :arguments 
+                  ( ("type" variable (:type ("ScanConditionType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [462 485]))                  
+                :type ("ScanCondition" type (:type "class") nil nil))
+                nil [416 840])
+            ("createLeafCondition" function
+               (:pointer 1
+                :parent "ScanCondition"
+                :arguments 
+                  ( ("simpleVal" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("autil_rapidjson::SimpleValue" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [892 938]))                  
+                :type ("ScanCondition" type (:type "class") nil nil))
+                nil [842 983])
+            ("accept" function
+               (:parent "AndCondition"
+                :arguments 
+                  ( ("visitor" variable
+                       (:pointer 1
+                        :type ("ConditionVisitor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1011 1037]))                  
+                :type "void")
+                nil [985 1079])
+            ("accept" function
+               (:parent "OrCondition"
+                :arguments 
+                  ( ("visitor" variable
+                       (:pointer 1
+                        :type ("ConditionVisitor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1106 1132]))                  
+                :type "void")
+                nil [1081 1173])
+            ("accept" function
+               (:parent "NotCondition"
+                :arguments 
+                  ( ("visitor" variable
+                       (:pointer 1
+                        :type ("ConditionVisitor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1201 1227]))                  
+                :type "void")
+                nil [1175 1269])
+            ("accept" function
+               (:parent "LeafCondition"
+                :arguments 
+                  ( ("visitor" variable
+                       (:pointer 1
+                        :type ("ConditionVisitor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1298 1324]))                  
+                :type "void")
+                nil [1271 1367])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1387 1391]))                  
+                :type "int")
+                nil [1369 1392]))          
+      :file "ScanCondition.cpp"
+      :pointmax 1393
+      :fsize 1392
+      :lastmodtime '(23604 4077 594470 263000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Ha3ScanIteratorCreator.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("autil/legacy/RapidJsonCommon.h" include (:system-flag t) nil [1 42])
+            ("ha3/search/QueryExecutorCreator.h" include (:system-flag t) nil [43 87])
+            ("ha3/search/LayerMetasCreator.h" include (:system-flag t) nil [88 129])
+            ("ha3/common/ErrorDefine.h" include (:system-flag t) nil [130 165])
+            ("ha3/sql/ops/scan/Ha3ScanConditionVisitor.h" include (:system-flag t) nil [166 219])
+            ("ha3/sql/ops/scan/Ha3ScanIteratorCreator.h" include (:system-flag t) nil [220 272])
+            ("ha3/sql/ops/scan/ScanConditionParser.h" include (:system-flag t) nil [273 322])
+            ("ha3/sql/ops/scan/IndexPartitionReaderUtil.h" include (:system-flag t) nil [323 377])
+            ("suez/turing/expression/syntax/SyntaxExpr.h" include (:system-flag t) nil [378 431])
+            ("suez/turing/expression/provider/FunctionProvider.h" include (:system-flag t) nil [432 493])
+            ("indexlib/common/exception.h" include nil nil [494 532])
+            ("indexlib/index/index_partition_reader.h" include (:system-flag t) nil [533 583])
+            ("set" include (:system-flag t) nil [584 598])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [600 620])
+            ("autil_rapidjson" using (:type ("autil_rapidjson" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [621 653])
+            ("autil::mem_pool" using (:type ("autil::mem_pool" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [654 686])
+            ("suez::turing" using (:type ("suez::turing" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [687 716])
+            ("matchdoc" using (:type ("matchdoc" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [717 742])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [761 768]))                  
+                :type "int")
+                nil [743 769])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [788 795]))                  
+                :type "int")
+                nil [770 796])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [814 820]))                  
+                :type "int")
+                nil [797 821])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("config" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [839 846]))                  
+                :type "int")
+                nil [822 847])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [869 873]))                  
+                :type "int")
+                nil [849 874])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [889 893])
+                    ("" variable (:type ("Ha3ScanIteratorCreator" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [894 917]))                  
+                :type "int")
+                nil [875 918])
+            ("Ha3ScanIteratorCreator" function
+               (:constructor-flag t
+                :parent "Ha3ScanIteratorCreator"
+                :type ("Ha3ScanIteratorCreator" type (:type "class") nil nil))
+                nil [920 1021])
+            ("Ha3ScanIteratorCreator" function
+               (:destructor-flag t
+                :parent "Ha3ScanIteratorCreator"
+                :type "void")
+                nil [1023 1076])
+            ("init" function
+               (:parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("param" variable
+                       (:reference 1
+                        :type ("Ha3ScanIteratorCreatorParam" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1112 1147]))                  
+                :type "bool")
+                nil [1078 2494])
+            ("initLayerMeta" function
+               (:parent "Ha3ScanIteratorCreator"
+                :type "bool")
+                nil [2496 2979])
+            ("createHa3ScanIterator" function
+               (:pointer 1
+                :parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("conditionInfo" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3054 3087])
+                    ("indexInfo" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3088 3112]))                  
+                :type ("Ha3ScanIterator" type (:type "class") nil nil))
+                nil [2982 4482])
+            ("createQueryExecutor" function
+               (:pointer 1
+                :parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("QueryPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4543 4565])
+                    ("indexPartitionReader" variable
+                       (:reference 1
+                        :type ("IndexPartitionReaderWrapperPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4574 4627])
+                    ("mainTableName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4636 4669])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4678 4706])
+                    ("timeoutTerminator" variable
+                       (:pointer 1
+                        :type ("TimeoutTerminator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4715 4752])
+                    ("layerMeta" variable
+                       (:pointer 1
+                        :type ("LayerMeta" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4761 4782]))                  
+                :type ("QueryExecutor" type (:type "class") nil nil))
+                nil [4484 6114])
+            ("parseIndexSet" function
+               (:parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("indexStr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6159 6182])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6183 6194])
+                    ("indexSet" variable
+                       (:reference 1
+                        :type ("set" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6195 6217]))                  
+                :type "bool")
+                nil [6116 6730])
+            ("doCreateHa3ScanIterator" function
+               (:pointer 1
+                :parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("queryExecutor" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("QueryExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6798 6836])
+                    ("filterWrapper" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("FilterWrapperPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6845 6883])
+                    ("indexPartitionReaderWrapper" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionReaderWrapperPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6892 6958])
+                    ("matchDocAllocator" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MatchDocAllocatorPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6967 7013])
+                    ("timeoutTerminator" variable
+                       (:pointer 1
+                        :type ("TimeoutTerminator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7022 7059])
+                    ("layerMeta" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("LayerMeta" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7064 7091]))                  
+                :type ("Ha3ScanIterator" type (:type "class") nil nil))
+                nil [6733 8379])
+            ("createFilter" function
+               (:pointer 1
+                :parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("filterStr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8435 8459])
+                    ("attributeExpressionCreator" variable
+                       (:pointer 1
+                        :type ("AttributeExpressionCreator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8468 8523])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8532 8560]))                  
+                :type ("Filter" type (:type "class") nil nil))
+                nil [8381 9120])
+            ("createFilterWrapper" function
+               (:parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("filterStr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9171 9200])
+                    ("attrExprCreator" variable
+                       (:pointer 1
+                        :type ("AttributeExpressionCreator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9210 9254])
+                    ("matchDocAllocator" variable
+                       (:pointer 1
+                        :type ("MatchDocAllocator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9264 9301])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9310 9338])
+                    ("filterWrapper" variable
+                       (:reference 1
+                        :type ("FilterWrapperPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9339 9371]))                  
+                :type "bool")
+                nil [9122 10032])
+            ("createLayerMetas" function
+               (:parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("indexPartitionReader" variable
+                       (:reference 1
+                        :type ("IndexPartitionReaderWrapperPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10098 10151])
+                    ("mainTableName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10160 10193])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10202 10230]))                  
+                :type ("LayerMetasPtr" type (:type "class") nil nil))
+                nil [10034 10556])
+            ("updateQuota" function
+               (:parent "Ha3ScanIteratorCreator"
+                :arguments 
+                  ( ("layerMetas" variable
+                       (:reference 1
+                        :type ("LayerMetasPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10599 10625]))                  
+                :type "void")
+                nil [10558 10852])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10872 10876]))                  
+                :type "int")
+                nil [10854 10877]))          
+      :file "Ha3ScanIteratorCreator.cpp"
+      :pointmax 10879
+      :fsize 9950
+      :lastmodtime '(23606 57020 747152 471000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ScanCondition.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_SCANCONDITION_H" variable (:constant-flag t) nil [41 64])
+            ("ha3/common.h" include (:system-flag t) nil [66 89])
+            ("ha3/isearch.h" include (:system-flag t) nil [90 114])
+            ("ha3/util/Log.h" include (:system-flag t) nil [115 140])
+            ("suez/turing/expression/syntax/SyntaxExpr.h" include nil nil [141 194])
+            ("autil/legacy/RapidJsonCommon.h" include (:system-flag t) nil [195 236])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [258 262]))                  
+                :type "int")
+                nil [238 263])
+            ("ConditionVisitor" type
+               (:prototype t
+                :type "class")
+                nil [265 288])
+            ("ScanCondition" type
+               (:prototype t
+                :type "class")
+                nil [289 309])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("ScanCondition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [326 340]))                  
+                :type "int")
+                nil [310 341])
+            ("ScanConditionType" type
+               (:members 
+                  ( ("AND_CONDITION" variable
+                       (:constant-flag t
+                        :default-value (388 389)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [372 389])
+                    ("OR_CONDITION" variable
+                       (:constant-flag t
+                        :default-value (410 411)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [395 411])
+                    ("NOT_CONDITION" variable
+                       (:constant-flag t
+                        :default-value (433 434)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [417 434])
+                    ("LEAF_CONDITION" variable
+                       (:constant-flag t
+                        :default-value (457 458)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [440 458]))                  
+                :type "enum")
+                nil [343 462])
+            ("ScanCondition" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [486 493])
+                    ("ScanConditionVector" type
+                       (:typedef ("std::vector" type
+                             (:template-specifier 
+                                ( ("ScanConditionPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [498 556])
+                    ("public" label nil (reparse-symbol classsubparts) [558 565])
+                    ("ScanCondition" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("ScanCondition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [570 586])
+                    ("ScanCondition" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [591 616])
+                    ("public" label nil (reparse-symbol classsubparts) [617 624])
+                    ("getType" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("ScanConditionType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [629 675])
+                    ("accept" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("ConditionVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [700 726]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [680 731])
+                    ("public" label nil (reparse-symbol classsubparts) [732 739])
+                    ("addCondition" function
+                       (:arguments 
+                          ( ("conditionPtr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScanConditionPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [762 799]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [744 850])
+                    ("getChildCondition" function
+                       (:constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("ScanConditionPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [855 951])
+                    ("getChildCondition" function
+                       (:constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("ScanConditionPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [956 1046])
+                    ("public" label nil (reparse-symbol classsubparts) [1047 1054])
+                    ("createCondition" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("type" variable (:type ("ScanConditionType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1097 1120]))                          
+                        :type ("ScanCondition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1059 1121])
+                    ("createLeafCondition" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("simpleVal" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("autil_rapidjson::SimpleValue" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1168 1214]))                          
+                        :type ("ScanCondition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1126 1215])
+                    ("protected" label nil (reparse-symbol classsubparts) [1217 1227])
+                    ("_children" variable (:type ("ScanConditionVector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1232 1262])
+                    ("private" label nil (reparse-symbol classsubparts) [1263 1271])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1276 1294]))                  
+                :type "class")
+                nil [464 1297])
+            ("AndCondition" type
+               (:superclasses 
+                  ( ("ScanCondition" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1344 1351])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [1395 1404]))                  
+                :type "class")
+                nil [1300 1492])
+            ("OrCondition" type
+               (:superclasses 
+                  ( ("ScanCondition" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1537 1544])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [1588 1597]))                  
+                :type "class")
+                nil [1494 1684])
+            ("NotCondition" type
+               (:superclasses 
+                  ( ("ScanCondition" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1730 1737])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [1781 1790]))                  
+                :type "class")
+                nil [1686 1878])
+            ("LeafCondition" type
+               (:superclasses 
+                  ( ("ScanCondition" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1925 1932])
+                    ("LeafCondition" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("simpleVal" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("autil_rapidjson::SimpleValue" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1951 1997]))                          
+                        :type ("LeafCondition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1937 1998])
+                    ("public" label nil (reparse-symbol classsubparts) [1999 2006])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [2050 2059])
+                    ("public" label nil (reparse-symbol classsubparts) [2146 2153])
+                    ("getCondition" function
+                       (:constant-flag t
+                        :type ("autil_rapidjson::SimpleValue" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2158 2243])
+                    ("private" label nil (reparse-symbol classsubparts) [2244 2252])
+                    ("_condition" variable
+                       (:constant-flag t
+                        :type ("autil_rapidjson::SimpleValue" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2257 2304]))                  
+                :type "class")
+                nil [1880 2307])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2331 2335]))                  
+                :type "int")
+                nil [2313 2336]))          
+      :file "ScanCondition.h"
+      :pointmax 2371
+      :fsize 2370
+      :lastmodtime '(23604 4063 866470 324000)
+      :unmatched-syntax '((thing 1753 . 1780) (thing 1747 . 1753) (thing 1742 . 1746) (thing 1645 . 1681) (thing 1636 . 1644) (thing 1630 . 1635) (thing 1627 . 1629) (thing 1620 . 1627) (thing 1602 . 1619) (thing 1560 . 1587) (thing 1554 . 1560) (thing 1549 . 1553) (thing 1452 . 1489) (thing 1443 . 1451) (thing 1437 . 1442) (thing 1434 . 1436) (thing 1427 . 1434) (thing 1409 . 1426) (thing 1367 . 1394) (thing 1361 . 1367) (thing 1356 . 1360) (thing 1795 . 1812) (thing 1813 . 1820) (thing 1820 . 1822) (thing 1823 . 1828) (thing 1829 . 1837) (thing 1838 . 1875) (thing 2011 . 2015) (thing 2016 . 2022) (thing 2022 . 2049) (thing 2064 . 2081) (thing 2082 . 2089) (thing 2089 . 2091) (thing 2092 . 2097) (thing 2098 . 2106) (thing 2107 . 2145))
+      :lexical-table 
+        '(("ISEARCH_SCANCONDITION_H")
+          )
+)
+    (semanticdb-table "ScanOp.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/ops/scan/ScanOp.h" include (:system-flag t) nil [1 37])
+            ("ha3/sql/ops/scan/Ha3ScanIterator.h" include nil nil [38 83])
+            ("ha3/sql/ops/scan/Ha3ScanIteratorCreator.h" include nil nil [84 136])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [138 158])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [179 183]))                  
+                :type "int")
+                nil [159 184])
+            ("ScanOp" function
+               (:constructor-flag t
+                :parent "ScanOp"
+                :arguments 
+                  ( ("initContext" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("OpConstructContext" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [201 239]))                  
+                :type ("ScanOp" type (:type "class") nil nil))
+                nil [186 287])
+            ("ScanOp" function
+               (:destructor-flag t
+                :parent "ScanOp"
+                :type "void")
+                nil [289 389])
+            ("init" function
+               (:parent "ScanOp"
+                :arguments 
+                  ( ("context" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("OpConstructContext" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [409 443]))                  
+                :type "bool")
+                nil [391 1714])
+            ("run" function
+               (:parent "ScanOp"
+                :arguments 
+                  ( ("runContext" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("OpRunContext" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1733 1764]))                  
+                :type "void")
+                nil [1716 1810])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1830 1834]))                  
+                :type "int")
+                nil [1812 1835]))          
+      :file "ScanOp.cpp"
+      :pointmax 1837
+      :fsize 6548
+      :lastmodtime '(23606 57858 417426 426000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Ha3ScanIterator.h"
+      :file "Ha3ScanIterator.h"
+      :fsize 3500
+      :lastmodtime '(23606 47731 373264 931000))
+    (semanticdb-table "Ha3ScanIteratorCreator.h"
+      :file "Ha3ScanIteratorCreator.h"
+      :fsize 3613
+      :lastmodtime '(23606 50513 849134 506000))
+    (semanticdb-table "ScanOp.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_SQL_SCANOP_H" variable (:constant-flag t) nil [38 58])
+            ("ha3/common.h" include (:system-flag t) nil [60 83])
+            ("ha3/isearch.h" include (:system-flag t) nil [84 108])
+            ("ha3/util/Log.h" include (:system-flag t) nil [109 134])
+            ("ha3/sql/ops/OpConstructContext.h" include nil nil [135 178])
+            ("ha3/sql/ops/OpRunContext.h" include nil nil [179 216])
+            ("ha3/sql/ops/OpBase.h" include nil nil [217 248])
+            ("ha3/search/IndexPartitionReaderWrapper.h" include (:system-flag t) nil [249 300])
+            ("matchdoc/MatchDocAllocator.h" include nil nil [301 340])
+            ("suez/turing/expression/framework/AttributeExpressionCreator.h" include nil nil [341 413])
+            ("suez/turing/common/TimeoutTerminator.h" include (:system-flag t) nil [414 463])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [485 489]))                  
+                :type "int")
+                nil [465 490])
+            ("Ha3ScanIteratorCreator" type
+               (:prototype t
+                :type "class")
+                nil [492 521])
+            ("Ha3ScanIterator" type
+               (:prototype t
+                :type "class")
+                nil [522 544])
+            ("ScanOp" type
+               (:superclasses 
+                  ( ("OpBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [577 584])
+                    ("ScanOp" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("initContext" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("OpConstructContext" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [596 634]))                          
+                        :type ("ScanOp" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [589 635])
+                    ("ScanOp" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [640 650])
+                    ("private" label nil (reparse-symbol classsubparts) [651 659])
+                    ("ScanOp" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScanOp" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [671 685]))                          
+                        :type ("ScanOp" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [664 686])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScanOp" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [709 724]))                          
+                        :type ("ScanOp" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [691 725])
+                    ("public" label nil (reparse-symbol classsubparts) [726 733])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [787 796])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [842 851])
+                    ("private" label nil (reparse-symbol classsubparts) [852 860])
+                    ("initScanColumn" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("outputFields" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [885 930])
+                            ("matchDocAllocator" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("matchdoc::MatchDocAllocatorPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [955 1011])
+                            ("attributeExpressionCreator" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("suez::turing::AttributeExpressionCreatorPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1036 1114])
+                            ("attributeExpressionVec" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("suez::turing::AttributeExpression" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1139 1212]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [865 1213])
+                    ("evaluateAttribte" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("matchDocVec" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("matchdoc::MatchDoc" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1241 1286])
+                            ("matchDocAllocator" variable
+                               (:reference 1
+                                :type ("matchdoc::MatchDocAllocatorPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1313 1363])
+                            ("attributeExpressionVec" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("suez::turing::AttributeExpression" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1390 1463]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1219 1464])
+                    ("initExpressionCreator" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("tableName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1496 1525])
+                            ("useSub" variable (:type "bool") (reparse-symbol arg-sub-list) [1557 1569])
+                            ("bizResource" variable
+                               (:pointer 1
+                                :type ("SqlBizResource" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1601 1629])
+                            ("queryResource" variable
+                               (:pointer 1
+                                :type ("SqlQueryResource" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1661 1693]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1469 1694])
+                    ("private" label nil (reparse-symbol classsubparts) [1695 1703])
+                    ("_tableName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1708 1731])
+                    ("_batchSize" variable (:type "int") (reparse-symbol classsubparts) [1736 1751])
+                    ("_seekCount" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1756 1776])
+                    ("_outputFields" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1781 1820])
+                    ("_pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1826 1855])
+                    ("_matchDocAllocator" variable (:type ("matchdoc::MatchDocAllocatorPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1860 1910])
+                    ("_functionProvider" variable (:type ("suez::turing::FunctionProviderPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1915 1967])
+                    ("_indexPartitionReaderWrapper" variable (:type ("search::IndexPartitionReaderWrapperPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1972 2040])
+                    ("_attributeExpressionCreator" variable (:type ("suez::turing::AttributeExpressionCreatorPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2045 2117])
+                    ("_attributeExpressionVec" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("suez::turing::AttributeExpression" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2122 2195])
+                    ("_scanIter" variable
+                       (:pointer 1
+                        :type ("Ha3ScanIterator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2203 2230])
+                    ("private" label nil (reparse-symbol classsubparts) [2232 2240])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [2245 2263]))                  
+                :type "class")
+                nil [546 2266])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2286 2290]))                  
+                :type "int")
+                nil [2268 2291]))          
+      :file "ScanOp.h"
+      :pointmax 2323
+      :fsize 2322
+      :lastmodtime '(23606 57867 984429 663000)
+      :unmatched-syntax '((thing 809 . 841) (thing 806 . 809) (thing 801 . 805) (thing 747 . 786) (thing 743 . 747) (thing 738 . 742))
+      :lexical-table 
+        '(("ISEARCH_SQL_SCANOP_H")
+          )
+))
+  :file "!ha3_develop!search_test!temp!source_code!ha3!build!release64!ha3!sql!ops!scan!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

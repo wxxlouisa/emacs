@@ -1,0 +1,3453 @@
+;; Object ops/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ops/"
+  :tables
+  (list
+    (semanticdb-table "control_flow_ops.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Control Flow Operations.
+
+See the @{$python/control_flow_ops} guide.
+
+@@identity
+@@identity_n
+@@tuple
+@@group
+@@no_op
+@@count_up_to
+@@cond
+@@case
+@@while_loop
+@@logical_and
+@@logical_not
+@@logical_or
+@@logical_xor
+@@equal
+@@not_equal
+@@less
+@@less_equal
+@@greater
+@@greater_equal
+@@where
+@@is_finite
+@@is_inf
+@@is_nan
+@@verify_tensor_all_finite
+@@check_numerics
+@@add_check_numerics_ops
+@@Assert
+@@Print
+\"\"\"" code nil nil [691 1101])
+            ("__future__" include nil nil [1131 1169])
+            ("__future__" include nil nil [1170 1201])
+            ("__future__" include nil nil [1202 1239])
+            ("collections" include nil nil [1241 1259])
+            ("six" include nil nil [1261 1271])
+            ("six.moves" include nil nil [1272 1300])
+            ("tensorflow.core.protobuf" include nil nil [1339 1392])
+            ("tensorflow.python.eager" include nil nil [1393 1436])
+            ("tensorflow.python.framework" include nil nil [1437 1488])
+            ("tensorflow.python.framework" include nil nil [1489 1535])
+            ("tensorflow.python.framework" include nil nil [1536 1579])
+            ("tensorflow.python.framework" include nil nil [1580 1633])
+            ("tensorflow.python.framework" include nil nil [1634 1686])
+            ("tensorflow.python.framework" include nil nil [1687 1738])
+            ("tensorflow.python.ops" include nil nil [1739 1782])
+            ("tensorflow.python.ops" include nil nil [1783 1830])
+            ("tensorflow.python.ops" include nil nil [1831 1885])
+            ("tensorflow.python.ops" include nil nil [1886 1937])
+            ("tensorflow.python.ops" include nil nil [1938 1987])
+            ("tensorflow.python.ops" include nil nil [1988 2030])
+            ("tensorflow.python.ops" include nil nil [2031 2081])
+            ("tensorflow.python.ops.gen_control_flow_ops" include nil nil [2159 2215])
+            ("tensorflow.python.platform" include nil nil [2249 2309])
+            ("tensorflow.python.util" include nil nil [2310 2356])
+            ("tensorflow.python.util" include nil nil [2357 2396])
+            ("tensorflow.python.util" include nil nil [2397 2445])
+            ("_basetuple" variable nil nil [2566 2584])
+            ("Assert" function
+               (:documentation "Asserts that the given condition is true.
+
+  If `condition` evaluates to false, print the list of tensors in `data`.
+  `summarize` determines how many entries of the tensors to print.
+
+  NOTE: To ensure that Assert executes, one usually attaches a dependency:
+
+  ```python
+  # Ensure maximum element of x is smaller or equal to 1
+  assert_op = tf.Assert(tf.less_equal(tf.reduce_max(x), 1.), [x])
+  with tf.control_dependencies([assert_op]):
+    ... code using x ...
+  ```
+
+  Args:
+    condition: The condition to evaluate.
+    data: The tensors to print out when condition is false.
+    summarize: Print this many entries of each tensor.
+    name: A name for this operation (optional).
+
+  Returns:
+    assert_op: An `Operation` that, when executed, raises a
+    `tf.errors.InvalidArgumentError` if `condition` is not true.
+  "
+                :arguments 
+                  ( ("condition" variable nil (reparse-symbol function_parameters) [2766 2775])
+                    ("data" variable nil (reparse-symbol function_parameters) [2777 2781])
+                    ("summarize" variable nil (reparse-symbol function_parameters) [2783 2792])
+                    ("name" variable nil (reparse-symbol function_parameters) [2799 2803]))                  
+                :decorators 
+                  ( ("tf_should_use.should_use_result" function (:type "decorator") nil nil))                  )
+                nil [2722 4427])
+            ("_Identity" function
+               (:documentation "Return a tensor with the same shape and contents as the input tensor.
+
+  Args:
+    data: A Tensor.
+    name: A name for this operation (optional).
+
+  Returns:
+    A Tensor with the same type and value as the input Tensor.
+  "
+                :arguments 
+                  ( ("data" variable nil (reparse-symbol function_parameters) [4443 4447])
+                    ("name" variable nil (reparse-symbol function_parameters) [4449 4453]))                  )
+                nil [4429 5655])
+            ("_NextIteration" function (:arguments 
+              ( ("data" variable nil (reparse-symbol function_parameters) [5676 5680])
+                ("name" variable nil (reparse-symbol function_parameters) [5682 5686]))              ) nil [5657 6636])
+            ("_Enter" function
+               (:documentation "Creates or finds a child frame, and makes `data` available to it.
+
+  The unique `frame_name` is used by the `Executor` to identify frames. If
+  `is_constant` is true, `data` is a constant in the child frame; otherwise
+  it may be changed in the child frame. At most `parallel_iterations`
+  iterations are run in parallel in the child frame.
+
+  Args:
+    data: The tensor to be made available to the child frame.
+    frame_name: The name of the child frame.
+    is_constant: If true, the output is constant within the child frame.
+    parallel_iterations: The number of iterations allowed to run in parallel.
+    use_ref: If true, use ref_enter if data is of ref type.
+    name: A name for this operation (optional).
+
+  Returns:
+    The same tensor as `data`.
+  "
+                :arguments 
+                  ( ("data" variable nil (reparse-symbol function_parameters) [6649 6653])
+                    ("frame_name" variable nil (reparse-symbol function_parameters) [6655 6665])
+                    ("is_constant" variable nil (reparse-symbol function_parameters) [6667 6678])
+                    ("parallel_iterations" variable nil (reparse-symbol function_parameters) [6686 6705])
+                    ("use_ref" variable nil (reparse-symbol function_parameters) [6721 6728])
+                    ("use_input_shape" variable nil (reparse-symbol function_parameters) [6735 6750])
+                    ("name" variable nil (reparse-symbol function_parameters) [6757 6761]))                  )
+                nil [6638 9265])
+            ("exit" function
+               (:documentation "Exits the current frame to its parent frame.
+
+  Exit makes its input `data` available to the parent frame.
+
+  Args:
+    data: The tensor to be made available to the parent frame.
+    name: A name for this operation (optional).
+
+  Returns:
+    The same tensor as `data`.
+  "
+                :arguments 
+                  ( ("data" variable nil (reparse-symbol function_parameters) [9276 9280])
+                    ("name" variable nil (reparse-symbol function_parameters) [9282 9286]))                  )
+                nil [9267 10528])
+            ("switch" function
+               (:documentation "Forwards `data` to an output determined by `pred`.
+
+  If `pred` is false, the `data` input is forwarded to the first output.
+  Otherwise, the data goes to the second output.
+
+  This op handles `Tensor`s and `IndexedSlices`.
+
+  Args:
+    data: The tensor to be forwarded to the appropriate output.
+    pred: A scalar that specifies which output port will receive data.
+    dtype: Optional element type for the returned tensor. If missing,
+           the type is inferred from the type of `value`.
+    name: A name for this operation (optional).
+
+  Returns:
+    `(output_false, output_true)`: If `pred` is true, data will be forwarded
+    to `output_true`, otherwise it goes to `output_false`.
+  "
+                :arguments 
+                  ( ("data" variable nil (reparse-symbol function_parameters) [10541 10545])
+                    ("pred" variable nil (reparse-symbol function_parameters) [10547 10551])
+                    ("dtype" variable nil (reparse-symbol function_parameters) [10553 10558])
+                    ("name" variable nil (reparse-symbol function_parameters) [10565 10569]))                  )
+                nil [10530 12714])
+            ("_SwitchRefOrTensor" function
+               (:documentation "Forwards `data` to an output determined by `pred`.
+
+  If `pred` is false, the `data` input is forwarded to the first output.
+  Otherwise, the data goes to the second output.
+
+  This op handles `Tensor`s and `IndexedSlices`.
+
+  Args:
+    data: The tensor to be forwarded to the appropriate output.
+    pred: A scalar that specifies which output port will receive data.
+    name: A name for this operation (optional).
+
+  Returns:
+    `(output_false, output_true)`: If `pred` is true, data will be forwarded to
+    `output_true`, otherwise it goes to `output_false`.
+
+  Raises:
+    TypeError: if data is not a Tensor or IndexedSlices
+  "
+                :arguments 
+                  ( ("data" variable nil (reparse-symbol function_parameters) [12739 12743])
+                    ("pred" variable nil (reparse-symbol function_parameters) [12745 12749])
+                    ("name" variable nil (reparse-symbol function_parameters) [12751 12755]))                  )
+                nil [12716 14344])
+            ("merge" function
+               (:documentation "Returns the value of an available element of `inputs`.
+
+  This op tests each of the tensors in `inputs` in turn to determine if any of
+  them is available. If it finds an available tensor, it returns it and its
+  index in `inputs`.
+
+  It is an error if more than one tensor in `inputs` is available. If no tensor
+  in `inputs` is available, the returned tensor and index are not set.
+
+  This op handles both `Tensor`s and `IndexedSlices`. If inputs has a mix of
+  `Tensor`s and `IndexedSlices`, all inputs are converted to IndexedSlices
+  before merging.
+
+  Args:
+    inputs: The input tensors, at most one of which is available.
+    name: A name for this operation (optional).
+
+  Returns:
+    A tuple containing the chosen input tensor and its index in `inputs`.
+
+  Raises:
+    ValueError: If any of the inputs is None, or inputs are IndexedSlices and
+      some but not all have a dense_shape property.
+  "
+                :arguments 
+                  ( ("inputs" variable nil (reparse-symbol function_parameters) [14356 14362])
+                    ("name" variable nil (reparse-symbol function_parameters) [14364 14368]))                  )
+                nil [14346 17232])
+            ("_convert_tensorarray_to_flow" function (:arguments 
+              ( ("tensor_or_tensor_array" variable nil (reparse-symbol function_parameters) [17301 17323]))              ) nil [17268 17478])
+            ("_make_tensor_array" function (:arguments 
+              ( ("ta" variable nil (reparse-symbol function_parameters) [17503 17505])
+                ("t_or_flow" variable nil (reparse-symbol function_parameters) [17507 17516]))              ) nil [17480 17901])
+            ("_convert_flows_to_tensorarrays" function (:arguments 
+              ( ("tensors_or_tensorarrays" variable nil (reparse-symbol function_parameters) [17938 17961])
+                ("tensors_or_flows" variable nil (reparse-symbol function_parameters) [17963 17979]))              ) nil [17903 18411])
+            ("_IsLoopConstantEnter" function
+               (:documentation "Return true iff op is a loop invariant."
+                :arguments 
+                  ( ("op" variable nil (reparse-symbol function_parameters) [18438 18440]))                  )
+                nil [18413 18599])
+            ("_GetLoopConstantEnter" function
+               (:documentation "Return the enter op if we can infer `value` to be a loop invariant."
+                :arguments 
+                  ( ("value" variable nil (reparse-symbol function_parameters) [18627 18632]))                  )
+                nil [18601 18891])
+            ("_GetOutputContext" function
+               (:documentation "Return the control flow context for the output of an op."
+                :arguments 
+                  ( ("op" variable nil (reparse-symbol function_parameters) [18915 18917]))                  )
+                nil [18893 19090])
+            ("_ShapeLessThanOrEqual" function (:arguments 
+              ( ("shape1" variable nil (reparse-symbol function_parameters) [19118 19124])
+                ("shape2" variable nil (reparse-symbol function_parameters) [19126 19132]))              ) nil [19092 19373])
+            ("_SetShapeInvariants" function
+               (:documentation "Set the shapes of the tensors in `enter_vars` to `shapes`.
+
+  Args:
+    input_vars: A list of tensors that are inputs to `enter_vars`.
+    enter_vars: A list of tensors whose shapes will be set.
+    shapes: A (possibly nested) list of shapes.
+
+  Raises:
+    ValueError: If any tensor in `enter_vars` has a less specific shape
+      than its corresponding shape in `shapes`.
+  "
+                :arguments 
+                  ( ("input_vars" variable nil (reparse-symbol function_parameters) [19399 19409])
+                    ("enter_vars" variable nil (reparse-symbol function_parameters) [19411 19421])
+                    ("shapes" variable nil (reparse-symbol function_parameters) [19423 19429]))                  )
+                nil [19375 22142])
+            ("_EnforceShapeInvariant" function
+               (:documentation "Check if the shapes of the loops variables are invariants.
+
+  Args:
+    merge_vars: The list of tensors representing the initial values of the
+      loop variables.
+    next_vars: The list of tensors representing the values of the loop
+      variables after one loop iteration.
+
+  Raises:
+    ValueError: If any tensor in `merge_vars` has a more specific shape than
+      its correspnding tensor in `next_var`.
+  "
+                :arguments 
+                  ( ("merge_var" variable nil (reparse-symbol function_parameters) [22171 22180])
+                    ("next_var" variable nil (reparse-symbol function_parameters) [22182 22190]))                  )
+                nil [22144 25634])
+            ("_AddNextAndBackEdge" function
+               (:documentation "Add NextIteration and back edge from v to m."
+                :arguments 
+                  ( ("m" variable nil (reparse-symbol function_parameters) [25660 25661])
+                    ("v" variable nil (reparse-symbol function_parameters) [25663 25664]))                  )
+                nil [25636 26833])
+            ("GradLoopState" type
+               (:documentation "The state used for constructing the gradient graph for a while loop.
+
+  We create a GradLoopState for each while loop in forward and its
+  corresponding while loop in backprop. This gives us access to both
+  the forward and the backprop WhileContexts.
+
+  During the construction of gradient graph, any time when we detect
+  a forward value that is needed for backprop, we create a history
+  accumulator and add it to `history_map`. Any time when we backprop
+  a loop switch op (in _SwitchGrad), we add the grad merge op in
+  `switch_map`.
+  "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [27525 27554])
+                            ("self" variable nil (reparse-symbol indented_block_body) [27602 27630])
+                            ("self" variable nil (reparse-symbol indented_block_body) [27757 27783])
+                            ("self" variable nil (reparse-symbol indented_block_body) [27818 27843])
+                            ("self" variable nil (reparse-symbol indented_block_body) [27892 27917])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28048 28071])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28107 28129])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28173 28195])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28200 28221])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28226 28249])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28254 28279])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28284 28340])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28345 28401])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28407 28448])
+                            ("if" code nil (reparse-symbol indented_block_body) [28453 28598])
+                            ("if" code nil (reparse-symbol indented_block_body) [28639 28689])
+                            ("cnt, forward_index" code nil (reparse-symbol indented_block_body) [28693 28766])
+                            ("if" code nil (reparse-symbol indented_block_body) [28771 28820])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28824 28860])
+                            ("self" variable nil (reparse-symbol indented_block_body) [28865 28900])
+                            ("if" code nil (reparse-symbol indented_block_body) [28974 30350]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [27430 27434])
+                            ("forward_ctxt" variable nil (reparse-symbol function_parameters) [27436 27448])
+                            ("outer_grad_state" variable nil (reparse-symbol function_parameters) [27450 27466]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [27417 30350])
+                    ("outer_grad_state" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [30386 30390]))                          
+                        :documentation "The grad loop state for outer loop.")
+                        (reparse-symbol indented_block_body) [30353 30473])
+                    ("forward_context" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [30508 30512]))                          
+                        :documentation "The while loop context for forward.")
+                        (reparse-symbol indented_block_body) [30476 30594])
+                    ("forward_index" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [30627 30631]))                          
+                        :documentation "The loop index of forward loop.")
+                        (reparse-symbol indented_block_body) [30597 30707])
+                    ("forward_sync" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [30739 30743]))                          
+                        :documentation "A control trigger node for synchronization in the forward loop.
+
+    One main use is to keep the push ops of a stack executed in the
+    iteration order.
+    ")
+                        (reparse-symbol indented_block_body) [30710 31225])
+                    ("grad_context" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31257 31261]))                          
+                        :documentation "The corresponding WhileContext for gradient.")
+                        (reparse-symbol indented_block_body) [31228 31349])
+                    ("grad_index" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31379 31383]))                          
+                        :documentation "The loop index of backprop loop.")
+                        (reparse-symbol indented_block_body) [31352 31457])
+                    ("grad_sync" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31486 31490]))                          
+                        :documentation "A control trigger node for synchronization in the grad loop.
+
+    One main use is to keep the pop ops of a stack executed in the
+    iteration order.
+    ")
+                        (reparse-symbol indented_block_body) [31460 32059])
+                    ("history_map" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32090 32094]))                          
+                        :documentation "The map that records all the tensors needed for backprop.")
+                        (reparse-symbol indented_block_body) [32062 32194])
+                    ("switch_map" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32224 32228]))                          
+                        :documentation "The map that records all the Switch ops for the while loop.")
+                        (reparse-symbol indented_block_body) [32197 32329])
+                    ("unused_exits" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32361 32365]))                          
+                        :documentation "The list of \"unused\" exits.")
+                        (reparse-symbol indented_block_body) [32332 32436])
+                    ("deferred_exits" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32470 32474]))                          
+                        :documentation "The list of \"deferred\" exits.")
+                        (reparse-symbol indented_block_body) [32439 32549])
+                    ("forward_loop_exits" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32587 32591]))                          
+                        :documentation "The list of exits of the forward loop.")
+                        (reparse-symbol indented_block_body) [32552 32679])
+                    ("pending_exits_count" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32718 32722]))                          
+                        :documentation "The number of exits we expect to see but haven't.")
+                        (reparse-symbol indented_block_body) [32682 32822])
+                    ("pending_exits_count" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("pending_exits_count.setter" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32879 32883])
+                            ("cnt" variable nil (reparse-symbol function_parameters) [32885 32888]))                          
+                        :documentation "Set the pending count to cnt.")
+                        (reparse-symbol indented_block_body) [32825 32967])
+                    ("AddForwardAccumulator" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32996 33000])
+                            ("value" variable nil (reparse-symbol function_parameters) [33002 33007])
+                            ("dead_branch" variable nil (reparse-symbol function_parameters) [33009 33020]))                          
+                        :documentation "Add an accumulator for each forward tensor that is needed in backprop.
+
+    This is added to the forward loop at the first time when a tensor
+    in the forward loop is used by backprop gradient computation loop.
+    We create an accumulator that accumulates the value of tensor at each
+    iteration. Called in the control flow context where gradients() is called.
+
+    The pseudocode is:
+    ```
+      acc = stack();
+      while (_pivot) {
+        acc = stack_push(acc, value);
+      }
+    ```
+
+    We make sure that the stack push op in one iteration is executed before
+    next iteration. This is achieved by adding a control edge from
+    `forward_index.op.inputs[0].op` to the push op, and another control
+    edge from the push op to either `forward_index.op` or `forward_sync`.
+
+    Args:
+      value: The source tensor in forward that is to be accumulated.
+      dead_branch: True iff the tensor is on a dead branch of a cond.
+
+    Returns:
+      The stack that contains the accumulated history of the tensor.
+
+    Raises:
+      TypeError: For internal errors involving the value condition context.
+    ")
+                        (reparse-symbol indented_block_body) [32970 36607])
+                    ("AddBackpropAccumulatedValue" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [36642 36646])
+                            ("history_value" variable nil (reparse-symbol function_parameters) [36648 36661])
+                            ("value" variable nil (reparse-symbol function_parameters) [36663 36668])
+                            ("dead_branch" variable nil (reparse-symbol function_parameters) [36704 36715]))                          
+                        :documentation "Add the getter for an accumulated value in the grad context.
+
+    This is added to the backprop loop. Called in the grad context to
+    get the value of an accumulated value. The stack pop op must be guarded
+    by the pred of the controlling cond.
+
+    Args:
+      history_value: The history (a stack) of a value.
+      value: The value that is pushed onto the stack.
+      dead_branch: True iff the tensor is on a dead branch of a cond.
+
+    Returns:
+      The current value (the top of the stack).
+    ")
+                        (reparse-symbol indented_block_body) [36610 38715])
+                    ("GetRealValue" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [38735 38739])
+                            ("value" variable nil (reparse-symbol function_parameters) [38741 38746]))                          
+                        :documentation "Get the real value of `value`.
+
+    If backprop \"uses\" a value produced by forward inference, an accumulator
+    is added in the forward loop to accumulate its values.  We use the
+    accumulated value. This method must be called in the grad loop context.
+    `value` must be in forward and needed for backprop.
+
+    Args:
+      value: A tensor to be captured.
+
+    Returns:
+      The same tensor obtained from the saved history.
+    ")
+                        (reparse-symbol indented_block_body) [38718 41080]))                  
+                :type "class")
+                nil [26835 41080])
+            ("_GetWhileContext" function
+               (:documentation "Get the WhileContext to which this op belongs."
+                :arguments 
+                  ( ("op" variable nil (reparse-symbol function_parameters) [41103 41105]))                  )
+                nil [41082 41262])
+            ("ControlFlowState" type
+               (:documentation "Maintain the mapping from the loops to their grad states."
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [41389 41403]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [41378 41382]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [41365 41451])
+                    ("GetGradState" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [41471 41475])
+                            ("op" variable nil (reparse-symbol function_parameters) [41477 41479])
+                            ("before" variable nil (reparse-symbol function_parameters) [41481 41487]))                          
+                        :documentation "Return the grad state for this op if it's in a forward loop context.")
+                        (reparse-symbol indented_block_body) [41454 41910])
+                    ("ProcessUnusedLoopExits" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [41940 41944])
+                            ("pending_count" variable nil (reparse-symbol function_parameters) [41946 41959])
+                            ("to_ops_set" variable nil (reparse-symbol function_parameters) [41961 41971]))                          
+                        :documentation "Process all the \"unused\" loop exits.
+
+    The \"unused\" exits of the loops are added to `unused_exits`. An exit is
+    unused if its pending_count is 0. If there is an exit with real gradient,
+    all these deferred exits will enter the backprop loop with zero gradient.
+    Otherwise, they will enter the backprop loop with None. As an example,
+    people often write:
+
+    ```python
+    v1, _ = tf.while_loop(p, b, [x1, x2])
+    result = gradients(v1, x1)
+    ```
+
+    The exit node for x2 is not included by the betweenness analysis. But we
+    need to backprop x2 if x2 is involved in computing v1.
+
+    Args:
+      pending_count: The number of backprop inputs for every op.
+      to_ops_set: The set of ops for ys in gradients(ys, xs)
+
+    Returns:
+      The set of unused loop exits that we know at this point we need
+      to backprop.
+    ")
+                        (reparse-symbol indented_block_body) [41913 43528])
+                    ("EnterGradWhileContext" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [43557 43561])
+                            ("op" variable nil (reparse-symbol function_parameters) [43563 43565])
+                            ("before" variable nil (reparse-symbol function_parameters) [43567 43573]))                          
+                        :documentation "Enter the WhileContext for gradient computation.")
+                        (reparse-symbol indented_block_body) [43531 43739])
+                    ("ExitGradWhileContext" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [43767 43771])
+                            ("op" variable nil (reparse-symbol function_parameters) [43773 43775])
+                            ("before" variable nil (reparse-symbol function_parameters) [43777 43783]))                          
+                        :documentation "Exit the WhileContext for gradient computation.")
+                        (reparse-symbol indented_block_body) [43742 43947])
+                    ("AddWhileContext" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [43970 43974])
+                            ("op" variable nil (reparse-symbol function_parameters) [43976 43978])
+                            ("between_op_list" variable nil (reparse-symbol function_parameters) [43980 43995])
+                            ("between_ops" variable nil (reparse-symbol function_parameters) [43997 44008]))                          
+                        :documentation "Add the grad state for the while loop that op belongs to.
+
+    Note that op is an Exit, and this method must be called in
+    the control flow context where gradients() is called.
+
+    Note that this method modifies `between_op_list` and `between_ops`.
+    ")
+                        (reparse-symbol indented_block_body) [43950 45088])
+                    ("ZerosLikeForExit" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [45112 45116])
+                            ("val" variable nil (reparse-symbol function_parameters) [45118 45121]))                          
+                        :documentation "Create zeros_like gradient for a loop exit.
+
+    If the result of a loop variable is not used but is involved in
+    computing the result of some needed loop variable, we create a
+    zero-valued tensor that is fed as gradient for the Exit node of that
+    loop variable. Note that val.op is an Exit, and this method must be
+    called in the control flow context where gradients() is called.
+
+    Args:
+      val: The output tensor of an Exit op.
+
+    Returns:
+      A zero tensor of the same shape of val.
+    ")
+                        (reparse-symbol indented_block_body) [45091 47339])
+                    ("ZerosLike" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [47356 47360])
+                            ("op" variable nil (reparse-symbol function_parameters) [47362 47364])
+                            ("index" variable nil (reparse-symbol function_parameters) [47366 47371]))                          
+                        :documentation "Create zeros_like for the specified output of an op.
+
+    If op is in a while loop that is part of gradients(), this method
+    must be called in its grad loop context.
+
+    Args:
+      op: A tensorflow operation.
+      index: the index for a specific output of the op.
+
+    Returns:
+      A zero tensor of the same shape of op.outputs[index].
+    ")
+                        (reparse-symbol indented_block_body) [47342 49753])
+                    ("PostProcessing" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [49775 49779]))                          
+                        :documentation "Perform postprocessing at the end of gradients().
+
+    We have created the gradient graph at this point. So this function
+    can be used to perform any postprocessing on the gradient graph.
+    We currently perform the following postprocessing:
+      1. Patch the gradient graph if the output of a loop variable
+         doesn't depend on its input.
+    ")
+                        (reparse-symbol indented_block_body) [49756 51662]))                  
+                :type "class")
+                nil [41264 51662])
+            ("MaybeCreateControlFlowState" function
+               (:documentation "Create the state for all the while loops involved in one gradients().
+
+  We create a ControlFlowState when there are while loops involved in
+  gradients(). In gradients(), control flow logic is only invoked when
+  the ControlFlowState is not None.
+
+  Note that this method modifies `between_op_list` and `between_ops`.
+  "
+                :arguments 
+                  ( ("between_op_list" variable nil (reparse-symbol function_parameters) [51740 51755])
+                    ("between_ops" variable nil (reparse-symbol function_parameters) [51757 51768])
+                    ("colocate_gradients_with_ops" variable nil (reparse-symbol function_parameters) [51802 51829]))                  )
+                nil [51708 52549])
+            ("IsSwitch" function
+               (:documentation "Return true if `op` is a Switch."
+                :arguments 
+                  ( ("op" variable nil (reparse-symbol function_parameters) [52564 52566]))                  )
+                nil [52551 52665])
+            ("IsLoopExit" function
+               (:documentation "Return true if `op` is an Exit."
+                :arguments 
+                  ( ("op" variable nil (reparse-symbol function_parameters) [52682 52684]))                  )
+                nil [52667 52778])
+            ("IsLoopSwitch" function
+               (:documentation "Return true if `op` is the Switch for a while loop."
+                :arguments 
+                  ( ("op" variable nil (reparse-symbol function_parameters) [52797 52799]))                  )
+                nil [52780 52989])
+            ("ZerosLikeOutsideLoop" function
+               (:documentation "Create zeros_like for the specified output of an op."
+                :arguments 
+                  ( ("op" variable nil (reparse-symbol function_parameters) [53016 53018])
+                    ("index" variable nil (reparse-symbol function_parameters) [53020 53025]))                  )
+                nil [52991 53652])
+            ("ControlFlowContext" type
+               (:documentation "The base class for control flow context.
+
+  The usage pattern is a sequence of (Enter, Exit) followed by a final
+  ExitResult.
+
+  We maintain the following state for control flow contexts during graph
+  construction:
+   1. graph has _control_flow_context: the current context used to
+      construct new nodes. Changed by ctxt.Enter() and ctxt.Exit()
+   2. op has _control_flow_context: the context to which the op belongs.
+      Set at the time the op is created. Immutable.
+   3. A ControlFlowContext has _outer_context: the context in which this
+      context is created. Set at the time a context is created. Immutable.
+   4. A ControlFlowContext has _context_stack.
+      Pushed and popped by ctxt.Enter() and ctxt.Exit()
+  "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [54489 54562])
+                            ("self" variable nil (reparse-symbol indented_block_body) [54567 54591])
+                            ("if" code nil (reparse-symbol indented_block_body) [54596 54909]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [54442 54446])
+                            ("values_def" variable nil (reparse-symbol function_parameters) [54448 54458])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [54465 54477]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [54429 54909])
+                    ("_init_values_from_proto" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [54940 54944])
+                            ("values_def" variable nil (reparse-symbol function_parameters) [54946 54956])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [54958 54970]))                          
+                        :documentation "Initializes values and external_values from `ValuesDef` protocol buffer.
+
+    Args:
+      values_def: `ValuesDef` protocol buffer.
+      import_scope: Optional `string`. Name scope to add.
+    ")
+                        (reparse-symbol indented_block_body) [54912 55875])
+                    ("outer_context" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [55948 55952]))                          
+                        :documentation "Return the context containing this context.")
+                        (reparse-symbol indented_block_body) [55918 56040])
+                    ("grad_state" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [56070 56074]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [56043 56126])
+                    ("back_prop" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [56155 56159]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [56129 56211])
+                    ("_to_proto" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [56228 56232])
+                            ("export_scope" variable nil (reparse-symbol function_parameters) [56234 56246]))                          
+                        :documentation "Converts the values to a `ValuesDef` protocol buffer.
+
+    Args:
+      export_scope: Optional `string`. Name scope to remove.
+
+    Returns:
+      A `ValuesDef` protocol buffer.
+    ")
+                        (reparse-symbol indented_block_body) [56214 56819])
+                    ("_from_proto" function
+                       (:typemodifiers ("static")
+                        :decorators 
+                          ( ("staticmethod" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("values_def" variable nil (reparse-symbol function_parameters) [56854 56864])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [56866 56878]))                          
+                        :documentation "Returns a `ControlFlowContext` created from `values_def`.")
+                        (reparse-symbol indented_block_body) [56822 57064])
+                    ("AddName" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57079 57083])
+                            ("name" variable nil (reparse-symbol function_parameters) [57085 57089]))                          )
+                        (reparse-symbol indented_block_body) [57067 57119])
+                    ("Enter" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57169 57173]))                          
+                        :documentation "Enter this control flow context.")
+                        (reparse-symbol indented_block_body) [57159 57363])
+                    ("Exit" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57375 57379]))                          
+                        :documentation "Exit this control flow context.")
+                        (reparse-symbol indented_block_body) [57366 57555])
+                    ("ExitResult" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57573 57577])
+                            ("result" variable nil (reparse-symbol function_parameters) [57579 57585]))                          
+                        :documentation "Make a list of tensors available in the outer context.")
+                        (reparse-symbol indented_block_body) [57558 57761])
+                    ("GetWhileContext" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57784 57788]))                          
+                        :documentation "Return the while context containing this context.")
+                        (reparse-symbol indented_block_body) [57764 57946])
+                    ("_IsInOuterContext" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57971 57975])
+                            ("op" variable nil (reparse-symbol function_parameters) [57977 57979]))                          )
+                        (reparse-symbol indented_block_body) [57949 58197])
+                    ("_RemoveExternalControlEdges" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [58232 58236])
+                            ("op" variable nil (reparse-symbol function_parameters) [58238 58240]))                          
+                        :documentation "Remove any external control dependency on this op.")
+                        (reparse-symbol indented_block_body) [58200 58966])
+                    ("AddInnerOp" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [59020 59024])
+                            ("op" variable nil (reparse-symbol function_parameters) [59026 59028]))                          
+                        :documentation "Notifies a scope about an operator added to an inner scope.")
+                        (reparse-symbol indented_block_body) [59005 59170])
+                    ("GetControlPivot" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [59193 59197]))                          
+                        :documentation "Returns the pivot node for this context, or None.")
+                        (reparse-symbol indented_block_body) [59173 59276]))                  
+                :type "class")
+                nil [53654 59276])
+            ("CondContext" type
+               (:documentation "The context for the conditional construct."
+                :superclasses ("ControlFlowContext")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"Creates a `CondContext`.
+
+    Args:
+      pred: The `boolean` tensor for the conditional predicate.
+      pivot: The predicate tensor in this branch.
+      branch: 0 or 1 representing this branch.
+      name: Name of the `CondContext` python object.
+      context_def: Optional `ContextDef` protocol buffer to initialize the
+        `CondContext` object from.
+      import_scope: Optional `string`. Name scope to add. Only used when
+        initialing from protocol buffer.
+    \"\"\"" code nil (reparse-symbol indented_block_body) [59501 59985])
+                            ("self" variable nil (reparse-symbol indented_block_body) [59990 60044])
+                            ("if" code nil (reparse-symbol indented_block_body) [60050 60575]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [59384 59388])
+                            ("pred" variable nil (reparse-symbol function_parameters) [59390 59394])
+                            ("pivot" variable nil (reparse-symbol function_parameters) [59401 59406])
+                            ("branch" variable nil (reparse-symbol function_parameters) [59413 59419])
+                            ("name" variable nil (reparse-symbol function_parameters) [59441 59445])
+                            ("context_def" variable nil (reparse-symbol function_parameters) [59459 59470])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [59477 59489]))                          
+                        :documentation "Creates a `CondContext`.
+
+    Args:
+      pred: The `boolean` tensor for the conditional predicate.
+      pivot: The predicate tensor in this branch.
+      branch: 0 or 1 representing this branch.
+      name: Name of the `CondContext` python object.
+      context_def: Optional `ContextDef` protocol buffer to initialize the
+        `CondContext` object from.
+      import_scope: Optional `string`. Name scope to add. Only used when
+        initialing from protocol buffer.
+    "
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [59371 60575])
+                    ("_init_from_proto" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [60599 60603])
+                            ("context_def" variable nil (reparse-symbol function_parameters) [60605 60616])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [60618 60630]))                          
+                        :documentation "Creates a new `CondContext` from protocol buffer.
+
+    Args:
+      context_def: `CondContextDef` protocol buffer.
+      import_scope: Optional `string`. Name scope to add.
+    ")
+                        (reparse-symbol indented_block_body) [60578 61435])
+                    ("name" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61459 61463]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [61438 61488])
+                    ("pred" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61512 61516]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [61491 61541])
+                    ("pivot" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61566 61570]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [61544 61596])
+                    ("branch" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61622 61626]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [61599 61653])
+                    ("grad_state" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61683 61687]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [61656 61784])
+                    ("back_prop" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61813 61817]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [61787 61907])
+                    ("GetControlPivot" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61930 61934]))                          )
+                        (reparse-symbol indented_block_body) [61910 61960])
+                    ("to_proto" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61976 61980])
+                            ("export_scope" variable nil (reparse-symbol function_parameters) [61982 61994]))                          
+                        :documentation "Converts a `CondContext` to a `CondContextDef` protocol buffer.
+
+    Args:
+      export_scope: Optional `string`. Name scope to remove.
+
+    Returns:
+      A `CondContextDef` protocol buffer.
+    ")
+                        (reparse-symbol indented_block_body) [61963 62812])
+                    ("from_proto" function
+                       (:typemodifiers ("static")
+                        :decorators 
+                          ( ("staticmethod" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("context_def" variable nil (reparse-symbol function_parameters) [62846 62857])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [62859 62871]))                          
+                        :documentation "Returns a `CondContext` object created from `context_def`.")
+                        (reparse-symbol indented_block_body) [62815 63046])
+                    ("AddValue" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [63062 63066])
+                            ("val" variable nil (reparse-symbol function_parameters) [63068 63071]))                          
+                        :documentation "Add `val` to the current context and its outer context recursively.")
+                        (reparse-symbol indented_block_body) [63049 64059])
+                    ("AddOp" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [64072 64076])
+                            ("op" variable nil (reparse-symbol function_parameters) [64078 64080]))                          )
+                        (reparse-symbol indented_block_body) [64062 64111])
+                    ("_AddOpInternal" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [64133 64137])
+                            ("op" variable nil (reparse-symbol function_parameters) [64139 64141]))                          
+                        :documentation "Add `op` to the current context.")
+                        (reparse-symbol indented_block_body) [64114 65285])
+                    ("_ProcessOutputTensor" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [65313 65317])
+                            ("val" variable nil (reparse-symbol function_parameters) [65319 65322]))                          
+                        :documentation "Process an output tensor of a conditional branch.")
+                        (reparse-symbol indented_block_body) [65288 65917])
+                    ("_BuildCondTensor" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [65941 65945])
+                            ("v" variable nil (reparse-symbol function_parameters) [65947 65948]))                          )
+                        (reparse-symbol indented_block_body) [65920 66783])
+                    ("BuildCondBranch" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [66806 66810])
+                            ("fn" variable nil (reparse-symbol function_parameters) [66812 66814]))                          
+                        :documentation "Add the subgraph defined by fn() to the graph.")
+                        (reparse-symbol indented_block_body) [66786 67140]))                  
+                :type "class")
+                nil [59278 67140])
+            ("_UnpackIfSingleton" function (:arguments 
+              ( ("res" variable nil (reparse-symbol function_parameters) [67165 67168]))              ) nil [67142 67272])
+            ("" code nil nil [67331 67434])
+            ("cond" function
+               (:documentation "Return `true_fn()` if the predicate `pred` is true else `false_fn()`.
+
+  `true_fn` and `false_fn` both return lists of output tensors. `true_fn` and
+  `false_fn` must have the same non-zero number and type of outputs.
+
+  Note that the conditional execution applies only to the operations defined in
+  `true_fn` and `false_fn`. Consider the following simple program:
+
+  ```python
+  z = tf.multiply(a, b)
+  result = tf.cond(x < y, lambda: tf.add(x, z), lambda: tf.square(y))
+  ```
+
+  If `x < y`, the `tf.add` operation will be executed and `tf.square`
+  operation will not be executed. Since `z` is needed for at least one
+  branch of the `cond`, the `tf.multiply` operation is always executed,
+  unconditionally.
+  Although this behavior is consistent with the dataflow model of TensorFlow,
+  it has occasionally surprised some users who expected a lazier semantics.
+
+  Note that `cond` calls `true_fn` and `false_fn` *exactly once* (inside the
+  call to `cond`, and not at all during `Session.run()`). `cond`
+  stitches together the graph fragments created during the `true_fn` and
+  `false_fn` calls with some additional graph nodes to ensure that the right
+  branch gets executed depending on the value of `pred`.
+
+  `tf.cond` supports nested structures as implemented in
+  `tensorflow.python.util.nest`. Both `true_fn` and `false_fn` must return the
+  same (possibly nested) value structure of lists, tuples, and/or named tuples.
+  Singleton lists and tuples form the only exceptions to this: when returned by
+  `true_fn` and/or `false_fn`, they are implicitly unpacked to single values.
+  This behavior is disabled by passing `strict=True`.
+
+  Args:
+    pred: A scalar determining whether to return the result of `true_fn` or
+      `false_fn`.
+    true_fn: The callable to be performed if pred is true.
+    false_fn: The callable to be performed if pred is false.
+    strict: A boolean that enables/disables 'strict' mode; see above.
+    name: Optional name prefix for the returned tensors.
+
+  Returns:
+    Tensors returned by the call to either `true_fn` or `false_fn`. If the
+    callables return a singleton list, the element is extracted from the list.
+
+  Raises:
+    TypeError: if `true_fn` or `false_fn` is not callable.
+    ValueError: if `true_fn` and `false_fn` do not return the same number of
+      tensors, or return tensors of different types.
+
+  Example:
+
+  ```python
+  x = tf.constant(2)
+  y = tf.constant(5)
+  def f1(): return tf.multiply(x, 17)
+  def f2(): return tf.add(y, 23)
+  r = tf.cond(tf.less(x, y), f1, f2)
+  # r is set to f1().
+  # Operations in f2 (e.g., tf.add) are not executed.
+  ```
+
+  "
+                :arguments 
+                  ( ("pred" variable nil (reparse-symbol function_parameters) [67444 67448])
+                    ("true_fn" variable nil (reparse-symbol function_parameters) [67450 67457])
+                    ("false_fn" variable nil (reparse-symbol function_parameters) [67464 67472])
+                    ("strict" variable nil (reparse-symbol function_parameters) [67479 67485])
+                    ("name" variable nil (reparse-symbol function_parameters) [67493 67497])
+                    ("fn1" variable nil (reparse-symbol function_parameters) [67513 67516])
+                    ("fn2" variable nil (reparse-symbol function_parameters) [67523 67526]))                  )
+                nil [67435 74347])
+            ("_resource_safe_shape" function
+               (:documentation "Returns the shape of t or the variable it points to."
+                :arguments 
+                  ( ("t" variable nil (reparse-symbol function_parameters) [74402 74403]))                  )
+                nil [74377 74661])
+            ("WhileContext" type
+               (:documentation "The context for the loop construct."
+                :superclasses ("ControlFlowContext")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"\"Creates a `WhileContext`.
+
+    Args:
+      parallel_iterations: The number of iterations allowed to run in parallel.
+      back_prop: Whether backprop is enabled for this while loop.
+      swap_memory: Whether GPU-CPU memory swap is enabled for this loop.
+      name: Optional name prefix for the returned tensors.
+      grad_state: The gradient loop state.
+      context_def: Optional `WhileContextDef` protocol buffer to initialize
+        the `Whilecontext` python object from.
+      import_scope: Optional `string`. Name scope to add. Only used when
+        initialing from protocol buffer.
+    \"\"\"" code nil (reparse-symbol indented_block_body) [75083 75689])
+                            ("if" code nil (reparse-symbol indented_block_body) [75694 75933])
+                            ("self" variable nil (reparse-symbol indented_block_body) [75968 75997]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [74907 74911])
+                            ("parallel_iterations" variable nil (reparse-symbol function_parameters) [74913 74932])
+                            ("back_prop" variable nil (reparse-symbol function_parameters) [74937 74946])
+                            ("swap_memory" variable nil (reparse-symbol function_parameters) [74953 74964])
+                            ("name" variable nil (reparse-symbol function_parameters) [74987 74991])
+                            ("grad_state" variable nil (reparse-symbol function_parameters) [75009 75019])
+                            ("context_def" variable nil (reparse-symbol function_parameters) [75026 75037])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [75059 75071]))                          
+                        :documentation "\"Creates a `WhileContext`.
+
+    Args:
+      parallel_iterations: The number of iterations allowed to run in parallel.
+      back_prop: Whether backprop is enabled for this while loop.
+      swap_memory: Whether GPU-CPU memory swap is enabled for this loop.
+      name: Optional name prefix for the returned tensors.
+      grad_state: The gradient loop state.
+      context_def: Optional `WhileContextDef` protocol buffer to initialize
+        the `Whilecontext` python object from.
+      import_scope: Optional `string`. Name scope to add. Only used when
+        initialing from protocol buffer.
+    "
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [74894 75998])
+                    ("_init_from_args" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [76021 76025])
+                            ("parallel_iterations" variable nil (reparse-symbol function_parameters) [76027 76046])
+                            ("back_prop" variable nil (reparse-symbol function_parameters) [76048 76057])
+                            ("swap_memory" variable nil (reparse-symbol function_parameters) [76059 76070])
+                            ("name" variable nil (reparse-symbol function_parameters) [76094 76098]))                          
+                        :documentation "Creates a new `WhileContext` from arguments.
+
+    Args:
+      parallel_iterations: The number of iterations allowed to run in parallel.
+      back_prop: Whether backprop is enabled for this while loop.
+      swap_memory: Whether GPU-CPU memory swap is enabled for this loop.
+      name: Optional name prefix for the returned tensors.
+
+    Raises:
+      ValueError: If `parallel_iterations` has invalid value.
+    ")
+                        (reparse-symbol indented_block_body) [76001 77409])
+                    ("_init_from_proto" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [77433 77437])
+                            ("context_def" variable nil (reparse-symbol function_parameters) [77439 77450])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [77452 77464]))                          
+                        :documentation "Creates a new `WhileContext` from protocol buffer.
+
+    Args:
+      context_def: `WhileContextDef` protocol buffer.
+      import_scope: Optional `string`. Name scope to add.
+    ")
+                        (reparse-symbol indented_block_body) [77412 79173])
+                    ("name" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79197 79201]))                          
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [79176 79226])
+                    ("parallel_iterations" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79265 79269]))                          
+                        :documentation "The number of iterations allowed to run in parallel.")
+                        (reparse-symbol indented_block_body) [79229 79372])
+                    ("back_prop" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79401 79405]))                          
+                        :documentation "True iff backprop is enabled for this while loop.")
+                        (reparse-symbol indented_block_body) [79375 79495])
+                    ("swap_memory" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79526 79530]))                          
+                        :documentation "True iff GPU-CPU memory swap is enabled for this while loop.")
+                        (reparse-symbol indented_block_body) [79498 79633])
+                    ("pivot" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79658 79662]))                          
+                        :documentation "The boolean tensor representing the loop termination condition.")
+                        (reparse-symbol indented_block_body) [79636 79762])
+                    ("loop_enters" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79793 79797]))                          
+                        :documentation "The list of enter tensors for loop variables.")
+                        (reparse-symbol indented_block_body) [79765 79885])
+                    ("loop_exits" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79915 79919]))                          
+                        :documentation "The list of exit tensors for loop variables.")
+                        (reparse-symbol indented_block_body) [79888 80005])
+                    ("grad_state" function
+                       (:parent "dummy"
+                        :decorators 
+                          ( ("property" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [80035 80039]))                          
+                        :documentation "The gradient loop state.")
+                        (reparse-symbol indented_block_body) [80008 80105])
+                    ("to_proto" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [80121 80125])
+                            ("export_scope" variable nil (reparse-symbol function_parameters) [80127 80139]))                          
+                        :documentation "Converts a `WhileContext` to a `WhileContextDef` protocol buffer.
+
+    Args:
+      export_scope: Optional `string`. Name scope to remove.
+
+    Returns:
+      A `WhileContextDef` protocol buffer.
+    ")
+                        (reparse-symbol indented_block_body) [80108 81517])
+                    ("from_proto" function
+                       (:typemodifiers ("static")
+                        :decorators 
+                          ( ("staticmethod" function (:type "decorator") nil nil))                          
+                        :arguments 
+                          ( ("context_def" variable nil (reparse-symbol function_parameters) [81551 81562])
+                            ("import_scope" variable nil (reparse-symbol function_parameters) [81564 81576]))                          
+                        :documentation "Returns a `WhileContext` object created from `context_def`.
+
+    Args:
+      context_def: A `WhileContextDef` protocol buffer.
+      import_scope: Optional `string`. Name scope to add.
+
+    Returns:
+      A `WhileContext` Python object.
+    ")
+                        (reparse-symbol indented_block_body) [81520 81936])
+                    ("GetWhileContext" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [81959 81963]))                          )
+                        (reparse-symbol indented_block_body) [81939 81982])
+                    ("GetControlPivot" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [82005 82009]))                          )
+                        (reparse-symbol indented_block_body) [81985 82119])
+                    ("AddValue" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [82135 82139])
+                            ("val" variable nil (reparse-symbol function_parameters) [82141 82144]))                          
+                        :documentation "Add `val` to the current context and its outer context recursively.")
+                        (reparse-symbol indented_block_body) [82122 83962])
+                    ("AddOp" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [83975 83979])
+                            ("op" variable nil (reparse-symbol function_parameters) [83981 83983]))                          
+                        :documentation "Add `op` to the current context.")
+                        (reparse-symbol indented_block_body) [83965 84958])
+                    ("_AddOpInternal" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [84980 84984])
+                            ("op" variable nil (reparse-symbol function_parameters) [84986 84988]))                          
+                        :documentation "Add `op` to the current context.
+
+    In the case that op has only external data inputs, we remove all of its
+    external control inputs so all its inputs are in the same while loop
+    context. This is valid because op now has an Enter input that has all
+    the right control dependency.
+    ")
+                        (reparse-symbol indented_block_body) [84961 86449])
+                    ("_MaybeAddControlDependency" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [86483 86487])
+                            ("op" variable nil (reparse-symbol function_parameters) [86489 86491]))                          
+                        :documentation "Add a control input to the op if it only depends on loop invariants.")
+                        (reparse-symbol indented_block_body) [86452 87107])
+                    ("AddForwardLoopCounter" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [87176 87180])
+                            ("outer_grad_state" variable nil (reparse-symbol function_parameters) [87182 87198]))                          
+                        :documentation "Adds a loop that counts the number of iterations.
+
+    This is added to the forward loop at the time when we start to
+    create the loop for backprop gradient computation. Called in
+    the outer context of this forward context.
+
+    The pseudocode is:
+      `n = 0; while (_pivot) { n++; }`
+
+    Note that a control dependency is added to `n` to ensure the correct
+    execution order of stack push ops.
+
+    Args:
+      outer_grad_state: The outer grad state. None if not nested.
+
+    Returns:
+      The number of iterations taken by the forward loop and the loop index.
+    ")
+                        (reparse-symbol indented_block_body) [87150 88815])
+                    ("AddBackpropLoopCounter" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [88845 88849])
+                            ("count" variable nil (reparse-symbol function_parameters) [88851 88856])
+                            ("outer_grad_state" variable nil (reparse-symbol function_parameters) [88858 88874]))                          
+                        :documentation "Add the backprop loop that controls the iterations.
+
+    This is added to the backprop loop. It is used to control the loop
+    termination of the backprop loop. Called in the outer context of
+    this grad context.
+
+    The pseudocode is:
+      `n = count; while (n >= 1) { n--; }`
+
+    Note that a control dependency is added to `final_zero` to ensure the
+    correct execution order of stack pop ops.
+
+    Args:
+      count: The number of iterations for backprop.
+      outer_grad_state: The outer grad state. None if not nested.
+
+    Returns:
+      The loop index.
+    ")
+                        (reparse-symbol indented_block_body) [88818 90699])
+                    ("AddBackpropAccumulator" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [90729 90733])
+                            ("op" variable nil (reparse-symbol function_parameters) [90735 90737])
+                            ("grad" variable nil (reparse-symbol function_parameters) [90739 90743]))                          
+                        :documentation "Add an accumulation loop for every loop invariant.
+
+    This is added to the backprop loop. It is used to accumulate partial
+    gradients within each loop iteration. Called when in the gradient while
+    context.
+
+    The pseudocode is:
+      ```
+      acc = 0.0;
+      while (_pivot) {
+        acc += grad;
+      }
+      ```
+
+    Args:
+      op: The Enter op for a loop invariant.
+      grad: The partial gradient of an iteration for a loop invariant.
+
+    Returns:
+      The gradient for a loop invariant.
+    ")
+                        (reparse-symbol indented_block_body) [90702 93674])
+                    ("AddBackpropIndexedSlicesAccumulator" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [93717 93721])
+                            ("op" variable nil (reparse-symbol function_parameters) [93723 93725])
+                            ("grad" variable nil (reparse-symbol function_parameters) [93727 93731]))                          
+                        :documentation "This is used for accumulating gradients that are IndexedSlices.
+
+    This is essentially the equivalent of AddBackpropAccumulator but optimized
+    for things like updating embeddings from within a while loop.
+
+    Args:
+      op: The Enter op for a loop invariant.
+      grad: The partial gradients represented as an IndexedSlices.
+
+    Returns:
+      The accumulated IndexedSlices gradient of the loop invariant.
+    ")
+                        (reparse-symbol indented_block_body) [93677 96918])
+                    ("_InitializeValues" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [96943 96947])
+                            ("values" variable nil (reparse-symbol function_parameters) [96949 96955]))                          
+                        :documentation "Makes the values known to this context.")
+                        (reparse-symbol indented_block_body) [96921 97549])
+                    ("_BuildLoop" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [97567 97571])
+                            ("pred" variable nil (reparse-symbol function_parameters) [97573 97577])
+                            ("body" variable nil (reparse-symbol function_parameters) [97579 97583])
+                            ("original_loop_vars" variable nil (reparse-symbol function_parameters) [97585 97603])
+                            ("loop_vars" variable nil (reparse-symbol function_parameters) [97605 97614])
+                            ("shape_invariants" variable nil (reparse-symbol function_parameters) [97633 97649]))                          
+                        :documentation "Core: Add the loop termination condition and body to the graph.")
+                        (reparse-symbol indented_block_body) [97552 102033])
+                    ("BuildLoop" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [102050 102054])
+                            ("pred" variable nil (reparse-symbol function_parameters) [102056 102060])
+                            ("body" variable nil (reparse-symbol function_parameters) [102062 102066])
+                            ("loop_vars" variable nil (reparse-symbol function_parameters) [102068 102077])
+                            ("shape_invariants" variable nil (reparse-symbol function_parameters) [102079 102095]))                          
+                        :documentation "Add the loop termination condition and body to the graph.")
+                        (reparse-symbol indented_block_body) [102036 103214])
+                    ("_FixControlInputsAndContext" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [103249 103253])
+                            ("enters" variable nil (reparse-symbol function_parameters) [103255 103261]))                          )
+                        (reparse-symbol indented_block_body) [103217 104095]))                  
+                :type "class")
+                nil [74807 104095])
+            ("while_loop" function
+               (:documentation "Repeat `body` while the condition `cond` is true.
+
+  `cond` is a callable returning a boolean scalar tensor. `body` is a callable
+  returning a (possibly nested) tuple, namedtuple or list of tensors of the same
+  arity (length and structure) and types as `loop_vars`. `loop_vars` is a
+  (possibly nested) tuple, namedtuple or list of tensors that is passed to both
+  `cond` and `body`. `cond` and `body` both take as many arguments as there are
+  `loop_vars`.
+
+  In addition to regular Tensors or IndexedSlices, the body may accept and
+  return TensorArray objects.  The flows of the TensorArray objects will
+  be appropriately forwarded between loops and during gradient calculations.
+
+  Note that `while_loop` calls `cond` and `body` *exactly once* (inside the
+  call to `while_loop`, and not at all during `Session.run()`). `while_loop`
+  stitches together the graph fragments created during the `cond` and `body`
+  calls with some additional graph nodes to create the graph flow that
+  repeats `body` until `cond` returns false.
+
+  For correctness, `tf.while_loop()` strictly enforces shape invariants for
+  the loop variables. A shape invariant is a (possibly partial) shape that
+  is unchanged across the iterations of the loop. An error will be raised
+  if the shape of a loop variable after an iteration is determined to be more
+  general than or incompatible with its shape invariant. For example, a shape
+  of [11, None] is more general than a shape of [11, 17], and [11, 21] is not
+  compatible with [11, 17]. By default (if the argument `shape_invariants` is
+  not specified), it is assumed that the initial shape of each tensor in
+  `loop_vars` is the same in every iteration. The `shape_invariants` argument
+  allows the caller to specify a less specific shape invariant for each loop
+  variable, which is needed if the shape varies between iterations. The
+  @{tf.Tensor.set_shape}
+  function may also be used in the `body` function to indicate that
+  the output loop variable has a particular shape. The shape invariant for
+  SparseTensor and IndexedSlices are treated specially as follows:
+
+  a) If a loop variable is a SparseTensor, the shape invariant must be
+  TensorShape([r]) where r is the rank of the dense tensor represented
+  by the sparse tensor. It means the shapes of the three tensors of the
+  SparseTensor are ([None], [None, r], [r]). NOTE: The shape invariant here
+  is the shape of the SparseTensor.dense_shape property. It must be the shape of
+  a vector.
+
+  b) If a loop variable is an IndexedSlices, the shape invariant must be
+  a shape invariant of the values tensor of the IndexedSlices. It means
+  the shapes of the three tensors of the IndexedSlices are (shape, [shape[0]],
+  [shape.ndims]).
+
+  `while_loop` implements non-strict semantics, enabling multiple iterations
+  to run in parallel. The maximum number of parallel iterations can be
+  controlled by `parallel_iterations`, which gives users some control over
+  memory consumption and execution order. For correct programs, `while_loop`
+  should return the same result for any parallel_iterations > 0.
+
+  For training, TensorFlow stores the tensors that are produced in the
+  forward inference and are needed in back propagation. These tensors are a
+  main source of memory consumption and often cause OOM errors when training
+  on GPUs. When the flag swap_memory is true, we swap out these tensors from
+  GPU to CPU. This for example allows us to train RNN models with very long
+  sequences and large batches.
+
+  Args:
+    cond: A callable that represents the termination condition of the loop.
+    body: A callable that represents the loop body.
+    loop_vars: A (possibly nested) tuple, namedtuple or list of numpy array,
+      `Tensor`, and `TensorArray` objects.
+    shape_invariants: The shape invariants for the loop variables.
+    parallel_iterations: The number of iterations allowed to run in parallel.
+      It must be a positive integer.
+    back_prop: Whether backprop is enabled for this while loop.
+    swap_memory: Whether GPU-CPU memory swap is enabled for this loop.
+    name: Optional name prefix for the returned tensors.
+
+  Returns:
+    The output tensors for the loop variables after the loop. When the length
+    of `loop_vars` is 1 this is a Tensor, TensorArray or IndexedSlice and when
+    the length of `loop_vars` is greater than 1 it returns a list.
+
+  Raises:
+    TypeError: if `cond` or `body` is not callable.
+    ValueError: if `loop_vars` is empty.
+
+  Example:
+
+  ```python
+  i = tf.constant(0)
+  c = lambda i: tf.less(i, 10)
+  b = lambda i: tf.add(i, 1)
+  r = tf.while_loop(c, b, [i])
+  ```
+
+  Example with nesting and a namedtuple:
+
+  ```python
+  import collections
+  Pair = collections.namedtuple('Pair', 'j, k')
+  ijk_0 = (tf.constant(0), Pair(tf.constant(1), tf.constant(2)))
+  c = lambda i, p: i < 10
+  b = lambda i, p: (i + 1, Pair((p.j + p.k), (p.j - p.k)))
+  ijk_final = tf.while_loop(c, b, ijk_0)
+  ```
+
+  Example using shape_invariants:
+
+  ```python
+  i0 = tf.constant(0)
+  m0 = tf.ones([2, 2])
+  c = lambda i, m: i < 10
+  b = lambda i, m: [i+1, tf.concat([m, m], axis=0)]
+  tf.while_loop(
+      c, b, loop_vars=[i0, m0],
+      shape_invariants=[i0.get_shape(), tf.TensorShape([None, 2])])
+  ```
+
+  "
+                :arguments 
+                  ( ("cond" variable nil (reparse-symbol function_parameters) [104150 104154])
+                    ("body" variable nil (reparse-symbol function_parameters) [104156 104160])
+                    ("loop_vars" variable nil (reparse-symbol function_parameters) [104162 104171])
+                    ("shape_invariants" variable nil (reparse-symbol function_parameters) [104173 104189])
+                    ("parallel_iterations" variable nil (reparse-symbol function_parameters) [104211 104230])
+                    ("back_prop" variable nil (reparse-symbol function_parameters) [104235 104244])
+                    ("swap_memory" variable nil (reparse-symbol function_parameters) [104251 104262])
+                    ("name" variable nil (reparse-symbol function_parameters) [104285 104289]))                  )
+                nil [104135 110430])
+            ("_AsTensorList" function
+               (:documentation "Return x as a list of Tensors or IndexedSlices.
+
+  For entries of `x` that are Operations, this returns an Identity of `p`
+  with a dependency on the operation.
+
+  Args:
+    x: A Tensor/IndexedSlices/Operation or a list or tuple of them.
+    p: A Tensor to return for entries in `x` that are Operations.
+
+  Returns:
+    A list of Tensors or IndexedSlices.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [110450 110451])
+                    ("p" variable nil (reparse-symbol function_parameters) [110453 110454]))                  )
+                nil [110432 111249])
+            ("_CheckResults" function (:arguments 
+              ( ("a" variable nil (reparse-symbol function_parameters) [111269 111270])
+                ("b" variable nil (reparse-symbol function_parameters) [111272 111273]))              ) nil [111251 111581])
+            ("with_dependencies" function
+               (:documentation "Produces the content of `output_tensor` only after `dependencies`.
+
+  In some cases, a user may want the output of an operation to be
+  consumed externally only after some other dependencies have run
+  first. This function ensures returns `output_tensor`, but only after all
+  operations in `dependencies` have run. Note that this means that there is
+  no guarantee that `output_tensor` will be evaluated after any `dependencies`
+  have run.
+
+  See also @{tf.tuple$tuple} and @{tf.group$group}.
+
+  Args:
+    dependencies: Iterable of operations to run before this op finishes.
+    output_tensor: A `Tensor` or `IndexedSlices` that will be returned.
+    name: (Optional) A name for this operation.
+
+  Returns:
+    Same as `output_tensor`.
+
+  Raises:
+    TypeError: if `output_tensor` is not a `Tensor` or `IndexedSlices`.
+  "
+                :arguments 
+                  ( ("dependencies" variable nil (reparse-symbol function_parameters) [111605 111617])
+                    ("output_tensor" variable nil (reparse-symbol function_parameters) [111619 111632])
+                    ("name" variable nil (reparse-symbol function_parameters) [111634 111638]))                  )
+                nil [111583 113141])
+            ("_GroupControlDeps" function (:arguments 
+              ( ("dev" variable nil (reparse-symbol function_parameters) [113165 113168])
+                ("deps" variable nil (reparse-symbol function_parameters) [113170 113174])
+                ("name" variable nil (reparse-symbol function_parameters) [113176 113180]))              ) nil [113143 113347])
+            ("group" function
+               (:documentation "Create an op that groups multiple operations.
+
+  When this op finishes, all ops in `input` have finished. This op has no
+  output.
+
+  See also @{tf.tuple$tuple} and
+  @{tf.control_dependencies$control_dependencies}.
+
+  Args:
+    *inputs: Zero or more tensors to group.
+    **kwargs: Optional parameters to pass when constructing the NodeDef.
+    name: A name for this operation (optional).
+
+  Returns:
+    An Operation that executes all its inputs.
+
+  Raises:
+    ValueError: If an unknown keyword argument is provided.
+  "
+                :arguments 
+                  ( ("inputs" variable nil (reparse-symbol function_parameters) [113401 113408])
+                    ("kwargs" variable nil (reparse-symbol function_parameters) [113410 113418]))                  )
+                nil [113391 115209])
+            ("tuple" function
+               (:documentation "Group tensors together.
+
+  This creates a tuple of tensors with the same values as the `tensors`
+  argument, except that the value of each tensor is only returned after the
+  values of all tensors have been computed.
+
+  `control_inputs` contains additional ops that have to finish before this op
+  finishes, but whose outputs are not returned.
+
+  This can be used as a \"join\" mechanism for parallel computations: all the
+  argument tensors can be computed in parallel, but the values of any tensor
+  returned by `tuple` are only available after all the parallel computations
+  are done.
+
+  See also @{tf.group$group} and
+  @{tf.control_dependencies$control_dependencies}.
+
+  Args:
+    tensors: A list of `Tensor`s or `IndexedSlices`, some entries can be `None`.
+    name: (optional) A name to use as a `name_scope` for the operation.
+    control_inputs: List of additional ops to finish before returning.
+
+  Returns:
+    Same as `tensors`.
+
+  Raises:
+    ValueError: If `tensors` does not contain any `Tensor` or `IndexedSlices`.
+    TypeError: If `control_inputs` is not a list of `Operation` or `Tensor`
+      objects.
+
+  "
+                :arguments 
+                  ( ("tensors" variable nil (reparse-symbol function_parameters) [115221 115228])
+                    ("name" variable nil (reparse-symbol function_parameters) [115230 115234])
+                    ("control_inputs" variable nil (reparse-symbol function_parameters) [115241 115255]))                  )
+                nil [115211 117296])
+            ("_assert_exclusive" function
+               (:documentation "Returns an Assert op that checks that the predicates are exclusive."
+                :arguments 
+                  ( ("preds" variable nil (reparse-symbol function_parameters) [117320 117325]))                  )
+                nil [117298 118002])
+            ("case" function
+               (:documentation "Create a case operation.
+
+  The `pred_fn_pairs` parameter is a dict or list of pairs of size N.
+  Each pair contains a boolean scalar tensor and a python callable that
+  creates the tensors to be returned if the boolean evaluates to True.
+  `default` is a callable generating a list of tensors. All the callables
+  in `pred_fn_pairs` as well as `default` (if provided) should return the same
+  number and types of tensors.
+
+  If `exclusive==True`, all predicates are evaluated, and an exception is
+  thrown if more than one of the predicates evaluates to `True`.
+  If `exclusive==False`, execution stops at the first predicate which
+  evaluates to True, and the tensors generated by the corresponding function
+  are returned immediately. If none of the predicates evaluate to True, this
+  operation returns the tensors generated by `default`.
+
+  `tf.case` supports nested structures as implemented in
+  `tensorflow.python.util.nest`. All of the callables must return the same
+  (possibly nested) value structure of lists, tuples, and/or named tuples.
+  Singleton lists and tuples form the only exceptions to this: when returned by
+  a callable, they are implicitly unpacked to single values. This
+  behavior is disabled by passing `strict=True`.
+
+  If an unordered dictionary is used for `pred_fn_pairs`, the order of the
+  conditional tests is not guaranteed. However, the order is guaranteed to be
+  deterministic, so that variables created in conditional branches are created
+  in fixed order across runs.
+
+  **Example 1:**
+
+  Pseudocode:
+
+  ```
+  if (x < y) return 17;
+  else return 23;
+  ```
+
+  Expressions:
+
+  ```python
+  f1 = lambda: tf.constant(17)
+  f2 = lambda: tf.constant(23)
+  r = case([(tf.less(x, y), f1)], default=f2)
+  ```
+
+  **Example 2:**
+
+  Pseudocode:
+
+  ```
+  if (x < y && x > z) raise OpError(\"Only one predicate may evaluate true\");
+  if (x < y) return 17;
+  else if (x > z) return 23;
+  else return -1;
+  ```
+
+  Expressions:
+
+  ```python
+  def f1(): return tf.constant(17)
+  def f2(): return tf.constant(23)
+  def f3(): return tf.constant(-1)
+  r = case({tf.less(x, y): f1, tf.greater(x, z): f2},
+           default=f3, exclusive=True)
+  ```
+
+  Args:
+    pred_fn_pairs: Dict or list of pairs of a boolean scalar tensor and a
+                   callable which returns a list of tensors.
+    default: Optional callable that returns a list of tensors.
+    exclusive: True iff at most one predicate is allowed to evaluate to `True`.
+    strict: A boolean that enables/disables 'strict' mode; see above.
+    name: A name for this operation (optional).
+
+  Returns:
+    The tensors returned by the first pair whose predicate evaluated to True, or
+    those returned by `default` if none does.
+
+  Raises:
+    TypeError: If `pred_fn_pairs` is not a list/dictionary.
+    TypeError: If `pred_fn_pairs` is a list but does not contain 2-tuples.
+    TypeError: If `fns[i]` is not callable for any i, or `default` is not
+               callable.
+    ValueError: If in eager mode and all predicates are false and no
+               default is provided.
+    ValueError: If in eager mode and is passed a dictionary.
+  "
+                :arguments 
+                  ( ("pred_fn_pairs" variable nil (reparse-symbol function_parameters) [118013 118026])
+                    ("default" variable nil (reparse-symbol function_parameters) [118028 118035])
+                    ("exclusive" variable nil (reparse-symbol function_parameters) [118042 118051])
+                    ("strict" variable nil (reparse-symbol function_parameters) [118059 118065])
+                    ("name" variable nil (reparse-symbol function_parameters) [118082 118086]))                  )
+                nil [118004 126923])
+            ("ops" code nil nil [126925 127174])
+            ("ops" code nil nil [127176 127429]))          
+      :file "control_flow_ops.py"
+      :pointmax 127430
+      :fsize 127429
+      :lastmodtime '(23290 32134 348834 25000)
+      :unmatched-syntax '((thing 63387 . 63391) (thing 63387 . 63391) (thing 63369 . 63371) (thing 63369 . 63371) (thing 63356 . 63362) (thing 63356 . 63362) (thing 38112 . 38116) (thing 38112 . 38116) (thing 38097 . 38099) (thing 38097 . 38099) (thing 38065 . 38071) (thing 38065 . 38071) (thing 18881 . 18885) (thing 18881 . 18885) (thing 18853 . 18855) (thing 18853 . 18855) (thing 18843 . 18849) (thing 18843 . 18849) (thing 72591 . 72594) (thing 72591 . 72594) (thing 72674 . 72676) (thing 72674 . 72676) (thing 72678 . 72679) (thing 72678 . 72679) (thing 72679 . 72680) (thing 72679 . 72680) (thing 72680 . 72780) (thing 72680 . 72780) (thing 72784 . 72790) (thing 72784 . 72790) (thing 72802 . 72804) (thing 72802 . 72804) (thing 72806 . 72807) (thing 72806 . 72807) (thing 72807 . 72808) (thing 72807 . 72808) (thing 72808 . 72910) (thing 72808 . 72910) (thing 73475 . 73480) (thing 73475 . 73480) (thing 73485 . 73487) (thing 73485 . 73487) (thing 73514 . 73518) (thing 73514 . 73518) (thing 73534 . 73539) (thing 73534 . 73539) (thing 73544 . 73546) (thing 73544 . 73546) (thing 73573 . 73577) (thing 73573 . 73577) (thing 114973 . 114979) (thing 114973 . 114979) (thing 114983 . 114985) (thing 114983 . 114985) (thing 114998 . 115002) (thing 114998 . 115002) (thing 122821 . 122839) (thing 122867 . 122869) (thing 122880 . 122884)))
+    (semanticdb-table "math_ops.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Basic arithmetic operators.
+
+See the @{$python/math_ops} guide.
+
+@@add
+@@subtract
+@@multiply
+@@scalar_mul
+@@div
+@@divide
+@@truediv
+@@floordiv
+@@realdiv
+@@truncatediv
+@@floor_div
+@@truncatemod
+@@floormod
+@@mod
+@@cross
+@@add_n
+@@abs
+@@negative
+@@sign
+@@reciprocal
+@@square
+@@round
+@@sqrt
+@@rsqrt
+@@pow
+@@exp
+@@expm1
+@@log
+@@log1p
+@@sinh
+@@cosh
+@@asinh
+@@acosh
+@@atanh
+@@ceil
+@@floor
+@@maximum
+@@minimum
+@@cos
+@@sin
+@@lbeta
+@@tan
+@@acos
+@@asin
+@@atan
+@@atan2
+@@lgamma
+@@digamma
+@@erf
+@@erfc
+@@squared_difference
+@@igamma
+@@igammac
+@@zeta
+@@polygamma
+@@betainc
+@@rint
+@@diag
+@@diag_part
+@@trace
+@@transpose
+@@eye
+@@matrix_diag
+@@matrix_diag_part
+@@matrix_band_part
+@@matrix_set_diag
+@@matrix_transpose
+@@matmul
+@@norm
+@@matrix_determinant
+@@matrix_inverse
+@@cholesky
+@@cholesky_solve
+@@matrix_solve
+@@matrix_triangular_solve
+@@matrix_solve_ls
+@@qr
+@@self_adjoint_eig
+@@self_adjoint_eigvals
+@@svd
+@@tensordot
+@@complex
+@@conj
+@@imag
+@@angle
+@@real
+@@fft
+@@ifft
+@@fft2d
+@@ifft2d
+@@fft3d
+@@ifft3d
+@@reduce_sum
+@@reduce_prod
+@@reduce_min
+@@reduce_max
+@@reduce_mean
+@@reduce_all
+@@reduce_any
+@@reduce_logsumexp
+@@count_nonzero
+@@accumulate_n
+@@einsum
+@@bincount
+@@cumsum
+@@cumprod
+@@segment_sum
+@@segment_prod
+@@segment_min
+@@segment_max
+@@segment_mean
+@@unsorted_segment_sum
+@@unsorted_segment_max
+@@sparse_segment_sum
+@@sparse_segment_mean
+@@sparse_segment_sqrt_n
+@@argmin
+@@argmax
+@@setdiff1d
+@@where
+@@unique
+@@edit_distance
+@@invert_permutation
+\"\"\"" code nil nil [690 2137])
+            ("__future__" include nil nil [2138 2176])
+            ("__future__" include nil nil [2177 2208])
+            ("__future__" include nil nil [2209 2246])
+            ("numpy" include nil nil [2248 2266])
+            ("six.moves" include nil nil [2267 2295])
+            ("tensorflow.python.eager" include nil nil [2334 2377])
+            ("tensorflow.python.framework" include nil nil [2378 2431])
+            ("tensorflow.python.framework" include nil nil [2432 2483])
+            ("tensorflow.python.framework" include nil nil [2484 2530])
+            ("tensorflow.python.framework" include nil nil [2531 2581])
+            ("tensorflow.python.framework" include nil nil [2582 2625])
+            ("tensorflow.python.framework" include nil nil [2626 2679])
+            ("tensorflow.python.framework" include nil nil [2680 2732])
+            ("tensorflow.python.ops" include nil nil [2733 2776])
+            ("tensorflow.python.ops" include nil nil [2777 2831])
+            ("tensorflow.python.ops" include nil nil [2832 2883])
+            ("tensorflow.python.ops" include nil nil [2884 2930])
+            ("tensorflow.python.ops" include nil nil [2931 2975])
+            ("tensorflow.python.ops" include nil nil [2976 3024])
+            ("tensorflow.python.ops" include nil nil [3025 3075])
+            ("tensorflow.python.ops" include nil nil [3076 3123])
+            ("tensorflow.python.ops" include nil nil [3124 3167])
+            ("tensorflow.python.ops.gen_math_ops" include nil nil [3226 3274])
+            ("tensorflow.python.util" include nil nil [3308 3349])
+            ("tensorflow.python.util.deprecation" include nil nil [3350 3407])
+            ("tensorflow.python.util.deprecation" include nil nil [3408 3470])
+            ("linspace" variable nil nil [3522 3555])
+            ("arg_max" variable nil nil [3557 3616])
+            ("arg_min" variable nil nil [3659 3718])
+            ("_set_doc" function (:arguments 
+              ( ("doc" variable nil (reparse-symbol function_parameters) [3776 3779]))              ) nil [3763 3865])
+            ("" code nil nil [3919 3973])
+            ("" code nil nil [3983 4094])
+            ("argmax" function (:arguments 
+              ( ("input" variable nil (reparse-symbol function_parameters) [4106 4111])
+                ("axis" variable nil (reparse-symbol function_parameters) [4124 4128])
+                ("name" variable nil (reparse-symbol function_parameters) [4146 4150])
+                ("dimension" variable nil (reparse-symbol function_parameters) [4168 4177])
+                ("output_type" variable nil (reparse-symbol function_parameters) [4195 4206]))              ) nil [4095 4478])
+            ("" code nil nil [4496 4550])
+            ("" code nil nil [4560 4671])
+            ("argmin" function (:arguments 
+              ( ("input" variable nil (reparse-symbol function_parameters) [4683 4688])
+                ("axis" variable nil (reparse-symbol function_parameters) [4701 4705])
+                ("name" variable nil (reparse-symbol function_parameters) [4723 4727])
+                ("dimension" variable nil (reparse-symbol function_parameters) [4745 4754])
+                ("output_type" variable nil (reparse-symbol function_parameters) [4772 4783]))              ) nil [4672 5055])
+            ("abs" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [5208 5209])
+                ("name" variable nil (reparse-symbol function_parameters) [5211 5215]))              ) nil [5200 6893])
+            ("_bucketize" function (:arguments 
+              ( ("input" variable nil (reparse-symbol function_parameters) [6988 6993])
+                ("boundaries" variable nil (reparse-symbol function_parameters) [6995 7005])
+                ("name" variable nil (reparse-symbol function_parameters) [7007 7011]))              ) nil [6973 7099])
+            ("DivideDelegateWithName" type
+               (:documentation "Use Python2/Python3 division delegation to implement divide for tensors."
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"Construct DivideDelegateWithName.
+
+    Args:
+      x: Tensor to use as left operand in operator overloads
+      name: The name that is preferred for the op created.
+    \"\"\"" code nil (reparse-symbol indented_block_body) [7291 7466])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7471 7481])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7486 7502]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7271 7275])
+                            ("x" variable nil (reparse-symbol function_parameters) [7277 7278])
+                            ("name" variable nil (reparse-symbol function_parameters) [7280 7284]))                          
+                        :documentation "Construct DivideDelegateWithName.
+
+    Args:
+      x: Tensor to use as left operand in operator overloads
+      name: The name that is preferred for the op created.
+    "
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [7258 7503])
+                    ("__truediv__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7522 7526])
+                            ("y" variable nil (reparse-symbol function_parameters) [7528 7529]))                          )
+                        (reparse-symbol indented_block_body) [7506 7582])
+                    ("__floordiv__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7602 7606])
+                            ("y" variable nil (reparse-symbol function_parameters) [7608 7609]))                          )
+                        (reparse-symbol indented_block_body) [7585 7654])
+                    ("__div__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7669 7673])
+                            ("y" variable nil (reparse-symbol function_parameters) [7675 7676]))                          )
+                        (reparse-symbol indented_block_body) [7657 7725]))                  
+                :type "class")
+                nil [7136 7725])
+            ("divide" function
+               (:documentation "Computes Python style division of `x` by `y`."
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [7738 7739])
+                    ("y" variable nil (reparse-symbol function_parameters) [7741 7742])
+                    ("name" variable nil (reparse-symbol function_parameters) [7744 7748]))                  )
+                nil [7727 8060])
+            ("multiply" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [8075 8076])
+                ("y" variable nil (reparse-symbol function_parameters) [8078 8079])
+                ("name" variable nil (reparse-symbol function_parameters) [8081 8085]))              ) nil [8062 8132])
+            ("multiply" variable nil nil [8134 8210])
+            ("" code nil nil [8302 8400])
+            ("_mul" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [8410 8411])
+                ("y" variable nil (reparse-symbol function_parameters) [8413 8414])
+                ("name" variable nil (reparse-symbol function_parameters) [8416 8420]))              ) nil [8401 8467])
+            ("_mul" variable nil nil [8469 8576])
+            ("subtract" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [8592 8593])
+                ("y" variable nil (reparse-symbol function_parameters) [8595 8596])
+                ("name" variable nil (reparse-symbol function_parameters) [8598 8602]))              ) nil [8579 8649])
+            ("subtract" variable nil nil [8651 8729])
+            ("" code nil nil [8821 8919])
+            ("_sub" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [8929 8930])
+                ("y" variable nil (reparse-symbol function_parameters) [8932 8933])
+                ("name" variable nil (reparse-symbol function_parameters) [8935 8939]))              ) nil [8920 8986])
+            ("_sub" variable nil nil [8988 9095])
+            ("negative" function
+               (:documentation "Computes numerical negative value element-wise.
+
+  I.e., \\\\(y = -x\\\\).
+
+  Args:
+    x: A `Tensor` or `SparseTensor`. Must be one of the following types: `half`,
+      `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor`, respectively. Has the same type as `x`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [9152 9153])
+                    ("name" variable nil (reparse-symbol function_parameters) [9155 9159]))                  )
+                nil [9139 9863])
+            ("" code nil nil [9959 10051])
+            ("_neg" function
+               (:documentation "Computes numerical negative value element-wise.
+
+  I.e., \\\\(y = -x\\\\).
+
+  Args:
+    x: A `Tensor` or `SparseTensor`. Must be one of the following types: `half`,
+      `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor`, respectively. Has the same type as `x`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [10061 10062])
+                    ("name" variable nil (reparse-symbol function_parameters) [10064 10068]))                  )
+                nil [10052 10481])
+            ("sign" function
+               (:documentation "Returns an element-wise indication of the sign of a number.
+
+  `y = sign(x) = -1` if `x < 0`; 0 if `x == 0` or `tf.is_nan(x)`; 1 if `x > 0`.
+
+  Zero is returned for NaN inputs.
+
+  For complex numbers, `y = sign(x) = x / |x|` if `x != 0`, otherwise `y = 0`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`. Must be one of the following types: `half`,
+      `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor`, respectively. Has the same type as `x`.
+
+  @compatibility(numpy)
+  Equivalent to numpy.sign except for the behavior for input values of NaN.
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [10534 10535])
+                    ("name" variable nil (reparse-symbol function_parameters) [10537 10541]))                  )
+                nil [10525 11556])
+            ("square" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [11569 11570])
+                ("name" variable nil (reparse-symbol function_parameters) [11572 11576]))              ) nil [11558 12276])
+            ("sqrt" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [12287 12288])
+                ("name" variable nil (reparse-symbol function_parameters) [12290 12294]))              ) nil [12278 12992])
+            ("erf" function
+               (:documentation "Computes the Gauss error function of `x` element-wise.
+
+  Args:
+    x: A `Tensor` of `SparseTensor`. Must be one of the following types: `half`,
+      `float32`, `float64`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor`, respectively. Has the same type as `x`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [13002 13003])
+                    ("name" variable nil (reparse-symbol function_parameters) [13005 13009]))                  )
+                nil [12994 13650])
+            ("scalar_mul" function
+               (:documentation "Multiplies a scalar times a `Tensor` or `IndexedSlices` object.
+
+  Intended for use in gradient code which might deal with `IndexedSlices`
+  objects, which are easy to multiply by a scalar but more expensive to
+  multiply with arbitrary tensors.
+
+  Args:
+    scalar: A 0-D scalar `Tensor`. Must have known shape.
+    x: A `Tensor` or `IndexedSlices` to be scaled.
+
+  Returns:
+    `scalar * x` of the same type (`Tensor` or `IndexedSlices`) as `x`.
+
+  Raises:
+    ValueError: if scalar is not a 0-D `scalar`.
+  "
+                :arguments 
+                  ( ("scalar" variable nil (reparse-symbol function_parameters) [13667 13673])
+                    ("x" variable nil (reparse-symbol function_parameters) [13675 13676]))                  )
+                nil [13652 14571])
+            ("pow" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [14581 14582])
+                ("y" variable nil (reparse-symbol function_parameters) [14584 14585])
+                ("name" variable nil (reparse-symbol function_parameters) [14587 14591]))              ) nil [14573 15302])
+            ("complex" function (:arguments 
+              ( ("real" variable nil (reparse-symbol function_parameters) [15373 15377])
+                ("imag" variable nil (reparse-symbol function_parameters) [15379 15383])
+                ("name" variable nil (reparse-symbol function_parameters) [15385 15389]))              ) nil [15361 16842])
+            ("real" function (:arguments 
+              ( ("input" variable nil (reparse-symbol function_parameters) [16853 16858])
+                ("name" variable nil (reparse-symbol function_parameters) [16860 16864]))              ) nil [16844 17808])
+            ("imag" function (:arguments 
+              ( ("input" variable nil (reparse-symbol function_parameters) [17819 17824])
+                ("name" variable nil (reparse-symbol function_parameters) [17826 17830]))              ) nil [17810 18655])
+            ("angle" function (:arguments 
+              ( ("input" variable nil (reparse-symbol function_parameters) [18667 18672])
+                ("name" variable nil (reparse-symbol function_parameters) [18674 18678]))              ) nil [18657 19570])
+            ("round" function
+               (:documentation "Rounds the values of a tensor to the nearest integer, element-wise.
+
+  Rounds half to even.  Also known as bankers rounding. If you want to round
+  according to the current system rounding mode use tf::cint.
+  For example:
+
+  ```python
+  x = tf.constant([0.9, 2.5, 2.3, 1.5, -4.5])
+  tf.round(x)  # [ 1.0, 2.0, 2.0, 2.0, -4.0 ]
+  ```
+
+  Args:
+    x: A `Tensor` of type `float32` or `float64`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` of same shape and type as `x`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [19640 19641])
+                    ("name" variable nil (reparse-symbol function_parameters) [19643 19647]))                  )
+                nil [19630 20295])
+            ("cast" function
+               (:documentation "Casts a tensor to a new type.
+
+  The operation casts `x` (in case of `Tensor`) or `x.values`
+  (in case of `SparseTensor`) to `dtype`.
+
+  For example:
+
+  ```python
+  x = tf.constant([1.8, 2.2], dtype=tf.float32)
+  tf.cast(x, tf.int32)  # [1, 2], dtype=tf.int32
+  ```
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    dtype: The destination type.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `dtype`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [20306 20307])
+                    ("dtype" variable nil (reparse-symbol function_parameters) [20309 20314])
+                    ("name" variable nil (reparse-symbol function_parameters) [20316 20320]))                  )
+                nil [20297 21550])
+            ("saturate_cast" function
+               (:documentation "Performs a safe saturating cast of `value` to `dtype`.
+
+  This function casts the input to `dtype` without applying any scaling.  If
+  there is a danger that values would over or underflow in the cast, this op
+  applies the appropriate clamping before the cast.
+
+  Args:
+    value: A `Tensor`.
+    dtype: The desired output `DType`.
+    name: A name for the operation (optional).
+
+  Returns:
+    `value` safely cast to `dtype`.
+  "
+                :arguments 
+                  ( ("value" variable nil (reparse-symbol function_parameters) [21570 21575])
+                    ("dtype" variable nil (reparse-symbol function_parameters) [21577 21582])
+                    ("name" variable nil (reparse-symbol function_parameters) [21584 21588]))                  )
+                nil [21552 22883])
+            ("to_float" function
+               (:documentation "Casts a tensor to type `float32`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x` with type `float32`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `float32`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [22898 22899])
+                    ("name" variable nil (reparse-symbol function_parameters) [22901 22905]))                  )
+                nil [22885 23255])
+            ("to_double" function
+               (:documentation "Casts a tensor to type `float64`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x` with type `float64`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `float64`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [23271 23272])
+                    ("name" variable nil (reparse-symbol function_parameters) [23274 23278]))                  )
+                nil [23257 23629])
+            ("to_int32" function
+               (:documentation "Casts a tensor to type `int32`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x` with type `int32`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `int32`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [23644 23645])
+                    ("name" variable nil (reparse-symbol function_parameters) [23647 23651]))                  )
+                nil [23631 23993])
+            ("to_int64" function
+               (:documentation "Casts a tensor to type `int64`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x` with type `int64`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `int64`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [24008 24009])
+                    ("name" variable nil (reparse-symbol function_parameters) [24011 24015]))                  )
+                nil [23995 24357])
+            ("to_bfloat16" function
+               (:documentation "Casts a tensor to type `bfloat16`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x` with type `bfloat16`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `bfloat16`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [24375 24376])
+                    ("name" variable nil (reparse-symbol function_parameters) [24378 24382]))                  )
+                nil [24359 24739])
+            ("ops" code nil nil [24741 24800])
+            ("ops" code nil nil [24801 24846])
+            ("ops" code nil nil [25075 25144])
+            ("_OverrideBinaryOperatorHelper" function
+               (:documentation "Register operators with different tensor and scalar versions.
+
+  If `clazz_object` is `SparseTensor`, assumes `func` takes `(sp_indices,
+  sp_values, sp_shape, dense)` and outputs `(new_sp_values)`.
+
+  Args:
+    func: the operator
+    op_name: name of the operator being overridden
+    clazz_object: class to override for.  Either `Tensor` or `SparseTensor`.
+  "
+                :arguments 
+                  ( ("func" variable nil (reparse-symbol function_parameters) [25181 25185])
+                    ("op_name" variable nil (reparse-symbol function_parameters) [25187 25194])
+                    ("clazz_object" variable nil (reparse-symbol function_parameters) [25196 25208]))                  )
+                nil [25147 27570])
+            ("_TRUEDIV_TABLE" variable nil nil [27651 28010])
+            ("_sparse_dense_truediv" function
+               (:documentation "Internal helper function for 'sp_t / dense_t'."
+                :arguments 
+                  ( ("sp_indices" variable nil (reparse-symbol function_parameters) [28269 28279])
+                    ("sp_values" variable nil (reparse-symbol function_parameters) [28281 28290])
+                    ("sp_shape" variable nil (reparse-symbol function_parameters) [28292 28300])
+                    ("y" variable nil (reparse-symbol function_parameters) [28302 28303])
+                    ("name" variable nil (reparse-symbol function_parameters) [28305 28309]))                  )
+                nil [28243 29156])
+            ("_truediv_python3" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [29179 29180])
+                ("y" variable nil (reparse-symbol function_parameters) [29182 29183])
+                ("name" variable nil (reparse-symbol function_parameters) [29185 29189]))              ) nil [29158 29809])
+            ("_div_python2" function
+               (:documentation "Divide two values using Python 2 semantics. Used for Tensor.__div__.
+
+  Args:
+    x: `Tensor` numerator of real numeric type.
+    y: `Tensor` denominator of real numeric type.
+    name: A name for the operation (optional).
+  Returns:
+    `x / y` returns the quotient of x and y.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [29828 29829])
+                    ("y" variable nil (reparse-symbol function_parameters) [29831 29832])
+                    ("name" variable nil (reparse-symbol function_parameters) [29834 29838]))                  )
+                nil [29811 30676])
+            ("truediv" function
+               (:documentation "Divides x / y elementwise (using Python 3 division operator semantics).
+
+  NOTE: Prefer using the Tensor operator or tf.divide which obey Python
+  division operator semantics.
+
+  This function forces Python 3 division operator semantics where all integer
+  arguments are cast to floating types first.   This op is generated by normal
+  `x / y` division in Python 3 and in Python 2.7 with
+  `from __future__ import division`.  If you want integer division that rounds
+  down, use `x // y` or `tf.floordiv`.
+
+  `x` and `y` must have the same numeric type.  If the inputs are floating
+  point, the output will have the same type.  If the inputs are integral, the
+  inputs are cast to `float32` for `int8` and `int16` and `float64` for `int32`
+  and `int64` (matching the behavior of Numpy).
+
+  Args:
+    x: `Tensor` numerator of numeric type.
+    y: `Tensor` denominator of numeric type.
+    name: A name for the operation (optional).
+
+  Returns:
+    `x / y` evaluated in floating point.
+
+  Raises:
+    TypeError: If `x` and `y` have different dtypes.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [30690 30691])
+                    ("y" variable nil (reparse-symbol function_parameters) [30693 30694])
+                    ("name" variable nil (reparse-symbol function_parameters) [30696 30700]))                  )
+                nil [30678 31806])
+            ("div" function
+               (:documentation "Divides x / y elementwise (using Python 2 division operator semantics).
+
+  NOTE: Prefer using the Tensor division operator or tf.divide which obey Python
+  division operator semantics.
+
+  This function divides `x` and `y`, forcing Python 2.7 semantics. That is,
+  if one of `x` or `y` is a float, then the result will be a float.
+  Otherwise, the output will be an integer type. Flooring semantics are used
+  for integer division.
+
+  Args:
+    x: `Tensor` numerator of real numeric type.
+    y: `Tensor` denominator of real numeric type.
+    name: A name for the operation (optional).
+  Returns:
+    `x / y` returns the quotient of x and y.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [31816 31817])
+                    ("y" variable nil (reparse-symbol function_parameters) [31819 31820])
+                    ("name" variable nil (reparse-symbol function_parameters) [31822 31826]))                  )
+                nil [31808 32520])
+            ("mod" variable nil nil [32561 32590])
+            ("floordiv" function
+               (:documentation "Divides `x / y` elementwise, rounding toward the most negative integer.
+
+  The same as `tf.div(x,y)` for integers, but uses `tf.floor(tf.div(x,y))` for
+  floating point arguments so that the result is always an integer (though
+  possibly an integer represented as floating point).  This op is generated by
+  `x // y` floor division in Python 3 and in Python 2.7 with
+  `from __future__ import division`.
+
+  Note that for efficiency, `floordiv` uses C semantics for negative numbers
+  (unlike Python and Numpy).
+
+  `x` and `y` must have the same type, and the result will have the same type
+  as well.
+
+  Args:
+    x: `Tensor` numerator of real numeric type.
+    y: `Tensor` denominator of real numeric type.
+    name: A name for the operation (optional).
+
+  Returns:
+    `x / y` rounded down (except possibly towards zero for negative integers).
+
+  Raises:
+    TypeError: If the inputs are complex.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [32691 32692])
+                    ("y" variable nil (reparse-symbol function_parameters) [32694 32695])
+                    ("name" variable nil (reparse-symbol function_parameters) [32697 32701]))                  )
+                nil [32678 33728])
+            ("realdiv" variable nil nil [33730 33762])
+            ("truncatediv" variable nil nil [33763 33803])
+            ("floor_div" variable nil nil [33857 33892])
+            ("truncatemod" variable nil nil [33893 33933])
+            ("floormod" variable nil nil [33934 33968])
+            ("_mul_dispatch" function
+               (:documentation "Dispatches cwise mul for \"Dense*Dense\" and \"Dense*Sparse\"."
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [33989 33990])
+                    ("y" variable nil (reparse-symbol function_parameters) [33992 33993])
+                    ("name" variable nil (reparse-symbol function_parameters) [33995 33999]))                  )
+                nil [33971 34491])
+            ("_OverrideBinaryOperatorHelper" code nil nil [34695 34828])
+            ("_OverrideBinaryOperatorHelper" code nil nil [34829 34950])
+            ("_OverrideBinaryOperatorHelper" code nil nil [34951 35084])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35086 35140])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35141 35196])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35197 35248])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35249 35299])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35300 35358])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35359 35410])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35411 35472])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35473 35514])
+            ("logical_xor" function
+               (:documentation "x ^ y = (x | y) & ~(x & y)."
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [35533 35534])
+                    ("y" variable nil (reparse-symbol function_parameters) [35536 35537])
+                    ("name" variable nil (reparse-symbol function_parameters) [35539 35543]))                  )
+                nil [35517 35817])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35819 35881])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35882 35942])
+            ("_OverrideBinaryOperatorHelper" code nil nil [35943 35992])
+            ("ops" code nil nil [35994 36052])
+            ("ops" code nil nil [36053 36117])
+            ("ops" code nil nil [36118 36179])
+            ("ops" code nil nil [36180 36247])
+            ("range" function
+               (:documentation "Creates a sequence of numbers.
+
+  Creates a sequence of numbers that begins at `start` and extends by
+  increments of `delta` up to but not including `limit`.
+
+  The dtype of the resulting tensor is inferred from the inputs unless
+  it is provided explicitly.
+
+  Like the Python builtin `range`, `start` defaults to 0, so that
+  `range(n) = range(0, n)`.
+
+  For example:
+
+  ```python
+  start = 3
+  limit = 18
+  delta = 3
+  tf.range(start, limit, delta)  # [3, 6, 9, 12, 15]
+
+  start = 3
+  limit = 1
+  delta = -0.5
+  tf.range(start, limit, delta)  # [3, 2.5, 2, 1.5]
+
+  limit = 5
+  tf.range(limit)  # [0, 1, 2, 3, 4]
+  ```
+
+  Args:
+    start: A 0-D `Tensor` (scalar). Acts as first entry in the range if
+      `limit` is not None; otherwise, acts as range limit and first entry
+      defaults to 0.
+    limit: A 0-D `Tensor` (scalar). Upper limit of sequence,
+      exclusive. If None, defaults to the value of `start` while the first
+      entry of the range defaults to 0.
+    delta: A 0-D `Tensor` (scalar). Number that increments
+      `start`. Defaults to 1.
+    dtype: The type of the elements of the resulting tensor.
+    name: A name for the operation. Defaults to \"range\".
+
+  Returns:
+    An 1-D `Tensor` of type `dtype`.
+
+  @compatibility(numpy)
+  Equivalent to np.arange
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("start" variable nil (reparse-symbol function_parameters) [36260 36265])
+                    ("limit" variable nil (reparse-symbol function_parameters) [36267 36272])
+                    ("delta" variable nil (reparse-symbol function_parameters) [36279 36284])
+                    ("dtype" variable nil (reparse-symbol function_parameters) [36288 36293])
+                    ("name" variable nil (reparse-symbol function_parameters) [36300 36304]))                  )
+                nil [36250 38513])
+            ("_ReductionDims" function
+               (:documentation "Returns range(0, rank(x)) if reduction_indices is None."
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [38557 38558])
+                    ("axis" variable nil (reparse-symbol function_parameters) [38560 38564])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [38566 38583]))                  )
+                nil [38538 39524])
+            ("reduce_sum" function
+               (:documentation "Computes the sum of elements across dimensions of a tensor.
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  For example:
+
+  ```python
+  x = tf.constant([[1, 1, 1], [1, 1, 1]])
+  tf.reduce_sum(x)  # 6
+  tf.reduce_sum(x, 0)  # [2, 2, 2]
+  tf.reduce_sum(x, 1)  # [3, 3]
+  tf.reduce_sum(x, 1, keep_dims=True)  # [[3], [3]]
+  tf.reduce_sum(x, [0, 1])  # 6
+  ```
+
+  Args:
+    input_tensor: The tensor to reduce. Should have numeric type.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor.
+
+  @compatibility(numpy)
+  Equivalent to np.sum
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [39541 39553])
+                    ("axis" variable nil (reparse-symbol function_parameters) [39570 39574])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [39596 39605])
+                    ("name" variable nil (reparse-symbol function_parameters) [39628 39632])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [39654 39671]))                  )
+                nil [39526 41005])
+            ("count_nonzero" function
+               (:documentation "Computes number of nonzero elements across dimensions of a tensor.
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  **NOTE** Floating point comparison to zero is done by exact floating point
+  equality check.  Small values are **not** rounded to zero for purposes of
+  the nonzero check.
+
+  For example:
+
+  ```python
+  x = tf.constant([[0, 1, 0], [1, 1, 0]])
+  tf.count_nonzero(x)  # 3
+  tf.count_nonzero(x, 0)  # [1, 2, 0]
+  tf.count_nonzero(x, 1)  # [1, 2]
+  tf.count_nonzero(x, 1, keep_dims=True)  # [[1], [2]]
+  tf.count_nonzero(x, [0, 1])  # 3
+  ```
+
+  Args:
+    input_tensor: The tensor to reduce. Should be of numeric type, or `bool`.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    dtype: The output dtype; defaults to `tf.int64`.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor (number of nonzero values).
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [41025 41037])
+                    ("axis" variable nil (reparse-symbol function_parameters) [41057 41061])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [41086 41095])
+                    ("dtype" variable nil (reparse-symbol function_parameters) [41121 41126])
+                    ("name" variable nil (reparse-symbol function_parameters) [41159 41163])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [41188 41205]))                  )
+                nil [41007 43076])
+            ("reduce_mean" function
+               (:documentation "Computes the mean of elements across dimensions of a tensor.
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  For example:
+
+  ```python
+  x = tf.constant([[1., 1.], [2., 2.]])
+  tf.reduce_mean(x)  # 1.5
+  tf.reduce_mean(x, 0)  # [1.5, 1.5]
+  tf.reduce_mean(x, 1)  # [1.,  2.]
+  ```
+
+  Args:
+    input_tensor: The tensor to reduce. Should have numeric type.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor.
+
+  @compatibility(numpy)
+  Equivalent to np.mean
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [43094 43106])
+                    ("axis" variable nil (reparse-symbol function_parameters) [43124 43128])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [43151 43160])
+                    ("name" variable nil (reparse-symbol function_parameters) [43184 43188])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [43211 43228]))                  )
+                nil [43078 44488])
+            ("reduce_prod" function
+               (:documentation "Computes the product of elements across dimensions of a tensor.
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  Args:
+    input_tensor: The tensor to reduce. Should have numeric type.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor.
+
+  @compatibility(numpy)
+  Equivalent to np.prod
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [44506 44518])
+                    ("axis" variable nil (reparse-symbol function_parameters) [44536 44540])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [44563 44572])
+                    ("name" variable nil (reparse-symbol function_parameters) [44596 44600])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [44623 44640]))                  )
+                nil [44490 45728])
+            ("reduce_min" function
+               (:documentation "Computes the minimum of elements across dimensions of a tensor.
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  Args:
+    input_tensor: The tensor to reduce. Should have numeric type.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor.
+
+  @compatibility(numpy)
+  Equivalent to np.min
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [45745 45757])
+                    ("axis" variable nil (reparse-symbol function_parameters) [45774 45778])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [45800 45809])
+                    ("name" variable nil (reparse-symbol function_parameters) [45832 45836])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [45858 45875]))                  )
+                nil [45730 46961])
+            ("reduce_max" function
+               (:documentation "Computes the maximum of elements across dimensions of a tensor.
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  Args:
+    input_tensor: The tensor to reduce. Should have numeric type.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor.
+
+  @compatibility(numpy)
+  Equivalent to np.max
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [46978 46990])
+                    ("axis" variable nil (reparse-symbol function_parameters) [47007 47011])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [47033 47042])
+                    ("name" variable nil (reparse-symbol function_parameters) [47065 47069])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [47091 47108]))                  )
+                nil [46963 48194])
+            ("reduce_all" function
+               (:documentation "Computes the \"logical and\" of elements across dimensions of a tensor.
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  For example:
+
+  ```python
+  x = tf.constant([[True,  True], [False, False]])
+  tf.reduce_all(x)  # False
+  tf.reduce_all(x, 0)  # [False, False]
+  tf.reduce_all(x, 1)  # [True, False]
+  ```
+
+  Args:
+    input_tensor: The boolean tensor to reduce.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor.
+
+  @compatibility(numpy)
+  Equivalent to np.all
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [48211 48223])
+                    ("axis" variable nil (reparse-symbol function_parameters) [48240 48244])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [48266 48275])
+                    ("name" variable nil (reparse-symbol function_parameters) [48298 48302])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [48324 48341]))                  )
+                nil [48196 49608])
+            ("reduce_any" function
+               (:documentation "Computes the \"logical or\" of elements across dimensions of a tensor.
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  For example:
+
+  ```python
+  x = tf.constant([[True,  True], [False, False]])
+  tf.reduce_any(x)  # True
+  tf.reduce_any(x, 0)  # [True, True]
+  tf.reduce_any(x, 1)  # [True, False]
+  ```
+
+  Args:
+    input_tensor: The boolean tensor to reduce.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor.
+
+  @compatibility(numpy)
+  Equivalent to np.any
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [49625 49637])
+                    ("axis" variable nil (reparse-symbol function_parameters) [49654 49658])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [49680 49689])
+                    ("name" variable nil (reparse-symbol function_parameters) [49712 49716])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [49738 49755]))                  )
+                nil [49610 51018])
+            ("reduce_logsumexp" function
+               (:documentation "Computes log(sum(exp(elements across dimensions of a tensor))).
+
+  Reduces `input_tensor` along the dimensions given in `axis`.
+  Unless `keep_dims` is true, the rank of the tensor is reduced by 1 for each
+  entry in `axis`. If `keep_dims` is true, the reduced dimensions
+  are retained with length 1.
+
+  If `axis` has no entries, all dimensions are reduced, and a
+  tensor with a single element is returned.
+
+  This function is more numerically stable than log(sum(exp(input))). It avoids
+  overflows caused by taking the exp of large inputs and underflows caused by
+  taking the log of small inputs.
+
+  For example:
+
+  ```python
+  x = tf.constant([[0., 0., 0.], [0., 0., 0.]])
+  tf.reduce_logsumexp(x)  # log(6)
+  tf.reduce_logsumexp(x, 0)  # [log(2), log(2), log(2)]
+  tf.reduce_logsumexp(x, 1)  # [log(3), log(3)]
+  tf.reduce_logsumexp(x, 1, keep_dims=True)  # [[log(3)], [log(3)]]
+  tf.reduce_logsumexp(x, [0, 1])  # log(6)
+  ```
+
+  Args:
+    input_tensor: The tensor to reduce. Should have numeric type.
+    axis: The dimensions to reduce. If `None` (the default),
+      reduces all dimensions. Must be in the range
+      `[-rank(input_tensor), rank(input_tensor))`.
+    keep_dims: If true, retains reduced dimensions with length 1.
+    name: A name for the operation (optional).
+    reduction_indices: The old (deprecated) name for axis.
+
+  Returns:
+    The reduced tensor.
+  "
+                :arguments 
+                  ( ("input_tensor" variable nil (reparse-symbol function_parameters) [51041 51053])
+                    ("axis" variable nil (reparse-symbol function_parameters) [51076 51080])
+                    ("keep_dims" variable nil (reparse-symbol function_parameters) [51108 51117])
+                    ("name" variable nil (reparse-symbol function_parameters) [51146 51150])
+                    ("reduction_indices" variable nil (reparse-symbol function_parameters) [51178 51195]))                  )
+                nil [51020 53326])
+            ("trace" function
+               (:documentation "Compute the trace of a tensor `x`.
+
+  `trace(x)` returns the sum along the main diagonal of each inner-most matrix
+  in x. If x is of rank `k` with shape `[I, J, K, ..., L, M, N]`, then output
+  is a tensor of rank `k-2` with dimensions `[I, J, K, ..., L]` where
+
+  `output[i, j, k, ..., l] = trace(x[i, j, i, ..., l, :, :])`
+
+  For example:
+
+  ```python
+  x = tf.constant([[1, 2], [3, 4]])
+  tf.trace(x)  # 5
+
+  x = tf.constant([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+  tf.trace(x)  # 15
+
+  x = tf.constant([[[1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]],
+                   [[-1, -2, -3],
+                    [-4, -5, -6],
+                    [-7, -8, -9]]])
+  tf.trace(x)  # [15, -15]
+  ```
+
+  Args:
+    x: tensor.
+    name: A name for the operation (optional).
+
+  Returns:
+    The trace of input tensor.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [53338 53339])
+                    ("name" variable nil (reparse-symbol function_parameters) [53341 53345]))                  )
+                nil [53328 54396])
+            ("matmul" function
+               (:documentation "Multiplies matrix `a` by matrix `b`, producing `a` * `b`.
+
+  The inputs must, following any transpositions, be tensors of rank >= 2
+  where the inner 2 dimensions specify valid matrix multiplication arguments,
+  and any further outer dimensions match.
+
+  Both matrices must be of the same type. The supported types are:
+  `float16`, `float32`, `float64`, `int32`, `complex64`, `complex128`.
+
+  Either matrix can be transposed or adjointed (conjugated and transposed) on
+  the fly by setting one of the corresponding flag to `True`. These are `False`
+  by default.
+
+  If one or both of the matrices contain a lot of zeros, a more efficient
+  multiplication algorithm can be used by setting the corresponding
+  `a_is_sparse` or `b_is_sparse` flag to `True`. These are `False` by default.
+  This optimization is only available for plain matrices (rank-2 tensors) with
+  datatypes `bfloat16` or `float32`.
+
+  For example:
+
+  ```python
+  # 2-D tensor `a`
+  # [[1, 2, 3],
+  #  [4, 5, 6]]
+  a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])
+
+  # 2-D tensor `b`
+  # [[ 7,  8],
+  #  [ 9, 10],
+  #  [11, 12]]
+  b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])
+
+  # `a` * `b`
+  # [[ 58,  64],
+  #  [139, 154]]
+  c = tf.matmul(a, b)
+
+
+  # 3-D tensor `a`
+  # [[[ 1,  2,  3],
+  #   [ 4,  5,  6]],
+  #  [[ 7,  8,  9],
+  #   [10, 11, 12]]]
+  a = tf.constant(np.arange(1, 13, dtype=np.int32),
+                  shape=[2, 2, 3])
+
+  # 3-D tensor `b`
+  # [[[13, 14],
+  #   [15, 16],
+  #   [17, 18]],
+  #  [[19, 20],
+  #   [21, 22],
+  #   [23, 24]]]
+  b = tf.constant(np.arange(13, 25, dtype=np.int32),
+                  shape=[2, 3, 2])
+
+  # `a` * `b`
+  # [[[ 94, 100],
+  #   [229, 244]],
+  #  [[508, 532],
+  #   [697, 730]]]
+  c = tf.matmul(a, b)
+
+  # Since python >= 3.5 the @ operator is supported (see PEP 465).
+  # In TensorFlow, it simply calls the `tf.matmul()` function, so the
+  # following lines are equivalent:
+  d = a @ b @ [[10.], [11.]]
+  d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])
+  ```
+
+  Args:
+    a: `Tensor` of type `float16`, `float32`, `float64`, `int32`, `complex64`,
+      `complex128` and rank > 1.
+    b: `Tensor` with same type and rank as `a`.
+    transpose_a: If `True`, `a` is transposed before multiplication.
+    transpose_b: If `True`, `b` is transposed before multiplication.
+    adjoint_a: If `True`, `a` is conjugated and transposed before
+      multiplication.
+    adjoint_b: If `True`, `b` is conjugated and transposed before
+      multiplication.
+    a_is_sparse: If `True`, `a` is treated as a sparse matrix.
+    b_is_sparse: If `True`, `b` is treated as a sparse matrix.
+    name: Name for the operation (optional).
+
+  Returns:
+    A `Tensor` of the same type as `a` and `b` where each inner-most matrix is
+    the product of the corresponding matrices in `a` and `b`, e.g. if all
+    transpose or adjoint attributes are `False`:
+
+    `output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
+    for all indices i, j.
+
+    Note: This is matrix product, not element-wise product.
+
+
+  Raises:
+    ValueError: If transpose_a and adjoint_a, or transpose_b and adjoint_b
+      are both set to True.
+  "
+                :arguments 
+                  ( ("a" variable nil (reparse-symbol function_parameters) [54409 54410])
+                    ("b" variable nil (reparse-symbol function_parameters) [54423 54424])
+                    ("transpose_a" variable nil (reparse-symbol function_parameters) [54437 54448])
+                    ("transpose_b" variable nil (reparse-symbol function_parameters) [54467 54478])
+                    ("adjoint_a" variable nil (reparse-symbol function_parameters) [54497 54506])
+                    ("adjoint_b" variable nil (reparse-symbol function_parameters) [54525 54534])
+                    ("a_is_sparse" variable nil (reparse-symbol function_parameters) [54553 54564])
+                    ("b_is_sparse" variable nil (reparse-symbol function_parameters) [54583 54594])
+                    ("name" variable nil (reparse-symbol function_parameters) [54613 54617]))                  )
+                nil [54398 59875])
+            ("_OverrideBinaryOperatorHelper" code nil nil [59877 59924])
+            ("sparse_matmul" variable nil nil [59926 59970])
+            ("" code nil nil [59996 60015])
+            ("_calc_mat_mul_flops" function
+               (:documentation "Calculates the compute resources needed for MatMul."
+                :arguments 
+                  ( ("graph" variable nil (reparse-symbol function_parameters) [60040 60045])
+                    ("node" variable nil (reparse-symbol function_parameters) [60047 60051]))                  )
+                nil [60016 60566])
+            ("_as_indexed_slices" function
+               (:documentation "Convert 'x' to IndexedSlices.
+
+  Convert a dense Tensor to a block-sparse IndexedSlices.
+
+  Args:
+    x: Either a Tensor object, or an IndexedSlices object.
+    optimize: if true, attempt to optimize the conversion of 'x'.
+
+  Returns:
+    An IndexedSlices object.
+
+  Raises:
+    TypeError: If 'x' is not a Tensor or an IndexedSlices object.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [60591 60592])
+                    ("optimize" variable nil (reparse-symbol function_parameters) [60594 60602]))                  )
+                nil [60568 61284])
+            ("_as_indexed_slices_list" function
+               (:documentation "Convert all elements of 'inputs' to IndexedSlices.
+
+  Additionally, homogenize the types of all the indices to
+  either int32 or int64.
+
+  Args:
+    inputs: List containing either Tensor or IndexedSlices objects.
+    optimize: if true, attempt to optimize the conversion of each input.
+
+  Returns:
+    A list of IndexedSlices objects.
+
+  Raises:
+    TypeError: If 'inputs' is not a list or a tuple.
+  "
+                :arguments 
+                  ( ("inputs" variable nil (reparse-symbol function_parameters) [61314 61320])
+                    ("optimize" variable nil (reparse-symbol function_parameters) [61322 61330]))                  )
+                nil [61286 62407])
+            ("add_n" function
+               (:documentation "Adds all input tensors element-wise.
+
+  Args:
+    inputs: A list of `Tensor` objects, each with same shape and type.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` of same shape and type as the elements of `inputs`.
+
+  Raises:
+    ValueError: If `inputs` don't all have same shape and dtype or the shape
+    cannot be inferred.
+  "
+                :arguments 
+                  ( ("inputs" variable nil (reparse-symbol function_parameters) [62419 62425])
+                    ("name" variable nil (reparse-symbol function_parameters) [62427 62431]))                  )
+                nil [62409 63387])
+            ("accumulate_n" function
+               (:documentation "Returns the element-wise sum of a list of tensors.
+
+  Optionally, pass `shape` and `tensor_dtype` for shape and type checking,
+  otherwise, these are inferred.
+
+  NOTE: This operation is not differentiable and cannot be used if inputs depend
+  on trainable variables. Please use `tf.add_n` for such cases.
+
+  Aside from differentiability, `tf.accumulate_n` performs the same operation as
+  `tf.add_n`, but does not wait for all of its inputs to be ready before
+  beginning to sum. This can save memory if inputs are ready at different times,
+  since minimum temporary storage is proportional to the output size rather than
+  the inputs size.
+
+  For example:
+
+  ```python
+  a = tf.constant([[1, 2], [3, 4]])
+  b = tf.constant([[5, 0], [0, 6]])
+  tf.accumulate_n([a, b, a])  # [[7, 4], [6, 14]]
+
+  # Explicitly pass shape and type
+  tf.accumulate_n([a, b, a], shape=[2, 2], tensor_dtype=tf.int32)  # [[7,  4],
+                                                                   #  [6, 14]]
+  ```
+
+  Args:
+    inputs: A list of `Tensor` objects, each with same shape and type.
+    shape: Shape of elements of `inputs`.
+    tensor_dtype: The type of `inputs`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` of same shape and type as the elements of `inputs`.
+
+  Raises:
+    ValueError: If `inputs` don't all have same shape and dtype or the shape
+    cannot be inferred.
+  "
+                :arguments 
+                  ( ("inputs" variable nil (reparse-symbol function_parameters) [63406 63412])
+                    ("shape" variable nil (reparse-symbol function_parameters) [63414 63419])
+                    ("tensor_dtype" variable nil (reparse-symbol function_parameters) [63426 63438])
+                    ("name" variable nil (reparse-symbol function_parameters) [63445 63449]))                  )
+                nil [63389 66820])
+            ("sigmoid" function
+               (:documentation "Computes sigmoid of `x` element-wise.
+
+  Specifically, `y = 1 / (1 + exp(-x))`.
+
+  Args:
+    x: A Tensor with type `float16`, `float32`, `float64`, `complex64`,
+      or `complex128`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A Tensor with the same type as `x`.
+
+  @compatibility(numpy)
+  Equivalent to np.scipy.special.expit
+  @end_compatibility
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [66834 66835])
+                    ("name" variable nil (reparse-symbol function_parameters) [66837 66841]))                  )
+                nil [66822 67371])
+            ("log_sigmoid" function
+               (:documentation "Computes log sigmoid of `x` element-wise.
+
+  Specifically, `y = log(1 / (1 + exp(-x)))`.  For numerical stability,
+  we use `y = -tf.nn.softplus(-x)`.
+
+  Args:
+    x: A Tensor with type `float32` or `float64`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A Tensor with the same type as `x`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [67389 67390])
+                    ("name" variable nil (reparse-symbol function_parameters) [67392 67396]))                  )
+                nil [67373 67888])
+            ("tanh" function
+               (:documentation "Computes hyperbolic tangent of `x` element-wise.
+
+  Args:
+    x: A Tensor or SparseTensor with type `float16`, `float32`, `double`,
+      `complex64`, or `complex128`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A Tensor or SparseTensor respectively with the same type as `x`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [67899 67900])
+                    ("name" variable nil (reparse-symbol function_parameters) [67902 67906]))                  )
+                nil [67890 68544])
+            ("bincount" function
+               (:documentation "Counts the number of occurrences of each value in an integer array.
+
+  If `minlength` and `maxlength` are not given, returns a vector with length
+  `tf.reduce_max(arr) + 1` if `arr` is non-empty, and length 0 otherwise.
+  If `weights` are non-None, then index `i` of the output stores the sum of the
+  value in `weights` at each index where the corresponding value in `arr` is
+  `i`.
+
+  Args:
+    arr: An int32 tensor of non-negative values.
+    weights: If non-None, must be the same shape as arr. For each value in
+        `arr`, the bin will be incremented by the corresponding weight instead
+        of 1.
+    minlength: If given, ensures the output has length at least `minlength`,
+        padding with zeros at the end if necessary.
+    maxlength: If given, skips values in `arr` that are equal or greater than
+        `maxlength`, ensuring that the output has length at most `maxlength`.
+    dtype: If `weights` is None, determines the type of the output bins.
+
+  Returns:
+    A vector with the same dtype as `weights` or the given `dtype`. The bin
+    values.
+  "
+                :arguments 
+                  ( ("arr" variable nil (reparse-symbol function_parameters) [68559 68562])
+                    ("weights" variable nil (reparse-symbol function_parameters) [68577 68584])
+                    ("minlength" variable nil (reparse-symbol function_parameters) [68604 68613])
+                    ("maxlength" variable nil (reparse-symbol function_parameters) [68633 68642])
+                    ("dtype" variable nil (reparse-symbol function_parameters) [68662 68667]))                  )
+                nil [68546 70533])
+            ("cumsum" function
+               (:documentation "Compute the cumulative sum of the tensor `x` along `axis`.
+
+  By default, this op performs an inclusive cumsum, which means that the first
+  element of the input is identical to the first element of the output:
+
+  ```python
+  tf.cumsum([a, b, c])  # [a, a + b, a + b + c]
+  ```
+
+  By setting the `exclusive` kwarg to `True`, an exclusive cumsum is performed
+  instead:
+
+  ```python
+  tf.cumsum([a, b, c], exclusive=True)  # [0, a, a + b]
+  ```
+
+  By setting the `reverse` kwarg to `True`, the cumsum is performed in the
+  opposite direction:
+
+  ```python
+  tf.cumsum([a, b, c], reverse=True)  # [a + b + c, b + c, c]
+  ```
+
+  This is more efficient than using separate `tf.reverse` ops.
+
+  The `reverse` and `exclusive` kwargs can also be combined:
+
+  ```python
+  tf.cumsum([a, b, c], exclusive=True, reverse=True)  # [b + c, c, 0]
+  ```
+
+  Args:
+    x: A `Tensor`. Must be one of the following types: `float32`, `float64`,
+       `int64`, `int32`, `uint8`, `uint16`, `int16`, `int8`, `complex64`,
+       `complex128`, `qint8`, `quint8`, `qint32`, `half`.
+    axis: A `Tensor` of type `int32` (default: 0). Must be in the range
+      `[-rank(x), rank(x))`.
+    exclusive: If `True`, perform exclusive cumsum.
+    reverse: A `bool` (default: False).
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor`. Has the same type as `x`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [70546 70547])
+                    ("axis" variable nil (reparse-symbol function_parameters) [70549 70553])
+                    ("exclusive" variable nil (reparse-symbol function_parameters) [70557 70566])
+                    ("reverse" variable nil (reparse-symbol function_parameters) [70574 70581])
+                    ("name" variable nil (reparse-symbol function_parameters) [70589 70593]))                  )
+                nil [70535 72155])
+            ("cumprod" function
+               (:documentation "Compute the cumulative product of the tensor `x` along `axis`.
+
+  By default, this op performs an inclusive cumprod, which means that the
+  first element of the input is identical to the first element of the output:
+
+  ```python
+  tf.cumprod([a, b, c])  # [a, a * b, a * b * c]
+  ```
+
+  By setting the `exclusive` kwarg to `True`, an exclusive cumprod is
+  performed
+  instead:
+
+  ```python
+  tf.cumprod([a, b, c], exclusive=True)  # [1, a, a * b]
+  ```
+
+  By setting the `reverse` kwarg to `True`, the cumprod is performed in the
+  opposite direction:
+
+  ```python
+  tf.cumprod([a, b, c], reverse=True)  # [a * b * c, b * c, c]
+  ```
+
+  This is more efficient than using separate `tf.reverse` ops.
+  The `reverse` and `exclusive` kwargs can also be combined:
+
+  ```python
+  tf.cumprod([a, b, c], exclusive=True, reverse=True)  # [b * c, c, 1]
+  ```
+
+  Args:
+    x: A `Tensor`. Must be one of the following types: `float32`, `float64`,
+       `int64`, `int32`, `uint8`, `uint16`, `int16`, `int8`, `complex64`,
+       `complex128`, `qint8`, `quint8`, `qint32`, `half`.
+    axis: A `Tensor` of type `int32` (default: 0). Must be in the range
+      `[-rank(x), rank(x))`.
+    exclusive: If `True`, perform exclusive cumprod.
+    reverse: A `bool` (default: False).
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor`. Has the same type as `x`.
+  "
+                :arguments 
+                  ( ("x" variable nil (reparse-symbol function_parameters) [72169 72170])
+                    ("axis" variable nil (reparse-symbol function_parameters) [72172 72176])
+                    ("exclusive" variable nil (reparse-symbol function_parameters) [72180 72189])
+                    ("reverse" variable nil (reparse-symbol function_parameters) [72197 72204])
+                    ("name" variable nil (reparse-symbol function_parameters) [72212 72216]))                  )
+                nil [72157 73793])
+            ("conj" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [73804 73805])
+                ("name" variable nil (reparse-symbol function_parameters) [73807 73811]))              ) nil [73795 75150])
+            ("_BroadcastShape" function
+               (:documentation "Common shape function for binary operators that broadcast their inputs."
+                :arguments 
+                  ( ("op" variable nil (reparse-symbol function_parameters) [75172 75174]))                  )
+                nil [75152 75396])
+            ("reduced_shape" function
+               (:documentation "Helper function for reduction ops.
+
+  Args:
+    input_shape: 1-D Tensor, the shape of the Tensor being reduced.
+    axes: 1-D Tensor, the reduction axes.
+  Returns:
+    A 1-D Tensor, the output shape as if keep_dims were set to True.
+  "
+                :arguments 
+                  ( ("input_shape" variable nil (reparse-symbol function_parameters) [75416 75427])
+                    ("axes" variable nil (reparse-symbol function_parameters) [75429 75433]))                  )
+                nil [75398 76213])
+            ("tensordot" function (:arguments 
+              ( ("a" variable nil (reparse-symbol function_parameters) [76229 76230])
+                ("b" variable nil (reparse-symbol function_parameters) [76232 76233])
+                ("axes" variable nil (reparse-symbol function_parameters) [76235 76239])
+                ("name" variable nil (reparse-symbol function_parameters) [76241 76245]))              ) nil [76215 83785])
+            ("fft" variable nil nil [83929 83955])
+            ("ifft" variable nil nil [83956 83984])
+            ("fft2d" variable nil nil [83985 84015])
+            ("ifft2d" variable nil nil [84016 84048])
+            ("fft3d" variable nil nil [84049 84079])
+            ("ifft3d" variable nil nil [84080 84112]))          
+      :file "math_ops.py"
+      :pointmax 84113
+      :fsize 84112
+      :lastmodtime '(23290 32134 361834 42000)
+      :unmatched-syntax '((thing 79950 . 79954) (thing 79975 . 79977) (thing 79986 . 79990) (thing 80015 . 80024) (thing 80050 . 80052) (thing 80061 . 80065))))
+  :file "!home!sdd!sea_platform!basic_ops_compile!tensorflow!tensorflow!python!ops!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

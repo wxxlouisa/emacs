@@ -1,0 +1,765 @@
+;; Object swift_tools/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "swift_tools/"
+  :tables
+  (list
+    (semanticdb-table "topic_cmd.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("os" include nil nil [1 10])
+            ("base_cmd" include nil nil [12 27])
+            ("swift_common_define" include nil nil [28 54])
+            ("swift_admin_delegate" include nil nil [55 82])
+            ("status_analyzer" include nil nil [83 105])
+            ("swift_util" include nil nil [106 123])
+            ("swift.protocol.Common_pb2" include nil nil [124 163])
+            ("swift.protocol.AdminRequestResponse_pb2" include nil nil [164 217])
+            ("transport_cmd_base" include nil nil [218 243])
+            ("time" include nil nil [244 255])
+            ("swift_broker_delegate" include nil nil [256 284])
+            ("local_file_util" include nil nil [285 307])
+            ("zlib" include nil nil [308 319])
+            ("json" include nil nil [320 331])
+            ("TopicAddCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {at|addtopic}
+       {-z zookeeper_address           | --zookeeper=zookeeper_address }
+       {-t topic_name                  | --topic=topic_name }
+       {-c partition_count             | --partcount=partition_count }
+       {-s partition_buf_size          | --partbuf=partition_buf_size }
+       {-b partition_file_buf_size     | --partfilebuf=partition_file_buf_size }
+       {-y partition_max_buf_size      | --partmaxbuf=partition_max_buf_size }
+       {-x partition_min_buf_size      | --partminbuf=partition_min_buf_size }
+       {-r partition_resource          | --partresource=partition_resource }
+       {-l partition_limit             | --partlimit=partition_limit }
+       {-m topic_mode                  | --topicmode=topic_mode }
+       {-f                             | --fieldfilter }
+       {-i obsolete_file_interval      | --obsoletefileinterval=obsolete_file_interval }
+       {-n reserved_file_count         | --reservedfilecount=reserved_file_count }
+       {-d                             | --deletetopicdata }
+       {-o security_commit_time        | --committime=security_commit_time }
+       {-p security_commit_data        | --commitdata=security_commit_data }
+       {-q                             | --compress=compress_single_msg }
+       {-u                             | --compressthres=compress_single_msg_threshold }
+       {-a                             | --dfsroot=dfs_root }
+       {-e                             | --extenddfsroot=extend_dfs_root }
+       {-g                             | --topicgroup=topic_group }
+       {-j                             | --expired=expired }
+    options:
+       -z zookeeper_address,      --zookeeper=zookeeper_address         : required, zookeeper root address
+       -t topic_name,             --topic=topic_name                    : required, topic name, eg: news
+       -c partition_count,        --partcount=partition_count           : required, partition count of the topic
+       -s partition_buf_size      --partbuf=partition_buf_size          : [deprecated], partition buffer size of the topic, M
+       -b partition_file_buf_size --partfilebuf=partition_file_buf_size : [deprecated], partition read file buffer size of the topic, M
+       -x partition_min_buf_size  --partmaxbuf=partition_max_buf_size   : [optional], partition max buffer size of the topic, M
+       -y partition_max_buf_size  --partminbuf=partition_min_buf_size   : [optional], partition min buffer size of the topic, M
+       -r partition_resource      --partresource=partition_resource     : optional, partition resource[1,1000], default is 100
+       -l partition_limit         --partlimit=partition_limit           : optional, partition limit of this topic in one broker, default is no limit
+       -m topic_mode              --topicmode=topic_mode                : optional, normal_mode or security_mode, default is normal_mode
+       -f                         --fieldfilter                         : optional, filter fields in msg if specialized
+       -i obsolete_file_interval  --obsoletefileinterval=obsolete_file_interval : optional, obsolete file time interval, unit is hour.
+       -n reserved_file_count     --reservedfilecount=reserved_file_count       : optional, reserved file count.
+       -d                         --deletetopicdata                     : optional, delete old topic data if specialized
+       -o security_commit_time    --committime=security_commit_time     : optional, max wait time for commit message in security_mode
+       -p security_commit_data    --commitdata=security_commit_data     : optional, max data size for commit message in security_mode
+       -q                         --compress=compress_single_msg        : optional, compress msg in this topic
+       -u                         --compressthres=compress_single_msg_threshold        : optional, compress msg great than threshold [default:2048]
+       -a                         --dfsroot=dfs_root                    : optional, dfs_root
+       -e                         --extenddfsroot=extend_dfs_root       : optional, extend dfs_root add old data when dfs root changed
+       -g                         --topicgroup=topic_group              : optional, topic_group
+       -j                         --expired=expired                     : optional, topic expired time, auto delete topic after expired, second
+Example:
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -x 10
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -y 100 -b 128
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -x 10 -y 100 -r 30
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -r 30 -m security_mode -f
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -r 30 -i 1 -n 5
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -r 30 -l 2
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -r 30 -l 2 -q
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 1 -j 1000
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -a hdfs://xxx/1 -e hdfs://xxx/2,hdfs://xxx/3
+    swift at -z zfs://10.250.12.23:1234/root -t news -c 20 -s 10 [deprecated]
+    '''" code nil (reparse-symbol indented_block_body) [374 5542])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5566 5570]))                          )
+                        (reparse-symbol indented_block_body) [5551 8864])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8902 8906])
+                            ("options" variable nil (reparse-symbol function_parameters) [8908 8915]))                          )
+                        (reparse-symbol indented_block_body) [8877 12717])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12737 12741])
+                            ("options" variable nil (reparse-symbol function_parameters) [12743 12750]))                          )
+                        (reparse-symbol indented_block_body) [12722 13952])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13975 13979]))                          )
+                        (reparse-symbol indented_block_body) [13957 14134])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14147 14151]))                          )
+                        (reparse-symbol indented_block_body) [14139 15449])
+                    ("_waitTopicReady" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [15474 15478])
+                            ("timeout" variable nil (reparse-symbol function_parameters) [15480 15487]))                          )
+                        (reparse-symbol indented_block_body) [15454 15773])
+                    ("_isTopicReady" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [15796 15800])
+                            ("topicName" variable nil (reparse-symbol function_parameters) [15802 15811]))                          )
+                        (reparse-symbol indented_block_body) [15778 16632]))                  
+                :type "class")
+                nil [333 16632])
+            ("TopicModifyCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {mt|modifytopic}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address }
+       {-t topic_name          | --topic=topic_name }
+       {-r partition_resource  | --partresource=partition_resource }
+       {-l partition_limit     | --partlimit=partition_limit }
+       {-g topic_group         | --group=topic_group }
+       {-j expired_time        | --expired_time=expired_time }
+    options:
+       -z zookeeper_address,  --zookeeper=zookeeper_address     : required, zookeeper root address
+       -t topic_names,        --topic=topic_names               : required, topic name, eg: news,news1
+       -f topic_file,         --topic_file=topic_file           : optional, topic file, will append in topic_names, one topic per line
+       -r partition_resource  --partresource=partition_resource : optional, partition resource
+       -l partition_limit     --partlimit=partition_limit       : optional, partition limit of this topic in one broker
+       -g topic_group         --group=topic_group               : optional, change topic group name
+       -j expired_time        --expired_time=expired_time       : optional, change expired time for topic, -1 no expired,  second
+
+Example:
+    swift mt -z zfs://10.250.12.23:1234/root -t news -r 10
+    swift mt -z zfs://10.250.12.23:1234/root -t news -l 2
+    swift mt -z zfs://10.250.12.23:1234/root -t news -r 20 -l 3
+    swift mt -z zfs://10.250.12.23:1234/root -t news -g group_name
+    swift mt -z zfs://10.250.12.23:1234/root -t news -j -1       
+    '''" code nil (reparse-symbol indented_block_body) [16677 18203])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [18223 18227]))                          )
+                        (reparse-symbol indented_block_body) [18208 18939])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [18977 18981])
+                            ("options" variable nil (reparse-symbol function_parameters) [18983 18990]))                          )
+                        (reparse-symbol indented_block_body) [18952 20138])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20158 20162])
+                            ("options" variable nil (reparse-symbol function_parameters) [20164 20171]))                          )
+                        (reparse-symbol indented_block_body) [20143 20670])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20693 20697]))                          )
+                        (reparse-symbol indented_block_body) [20675 20852])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20865 20869]))                          )
+                        (reparse-symbol indented_block_body) [20857 21443]))                  
+                :type "class")
+                nil [16633 21443])
+            ("TopicDeleteCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {dt|deletetopic}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address }
+       {-t topic_name          | --topic=topic_name }
+       {-f file_name           | --file=file_name }
+
+    options:
+       -z zookeeper_address,  --zookeeper=zookeeper_address   : required, zookeeper root address
+       -t topic_name,         --topic=topic_name              : optional, topic name, eg: news
+       -f file_name,          --file=file_name                : optional,
+ file name
+
+Example:
+    swift dt -z zfs://10.250.12.23:1234/root -t news 
+    swift dt -z zfs://10.250.12.23:1234/root -f file_name
+    '''" code nil (reparse-symbol indented_block_body) [21488 22110])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [22130 22134]))                          )
+                        (reparse-symbol indented_block_body) [22115 22348])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [22378 22382])
+                            ("options" variable nil (reparse-symbol function_parameters) [22384 22391]))                          )
+                        (reparse-symbol indented_block_body) [22353 22798])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [22818 22822])
+                            ("options" variable nil (reparse-symbol function_parameters) [22824 22831]))                          )
+                        (reparse-symbol indented_block_body) [22803 23095])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [23118 23122]))                          )
+                        (reparse-symbol indented_block_body) [23100 23277])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [23291 23295]))                          )
+                        (reparse-symbol indented_block_body) [23283 24457])
+                    ("writeFailTopic" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [24481 24485])
+                            ("failTopicList" variable nil (reparse-symbol function_parameters) [24487 24500]))                          )
+                        (reparse-symbol indented_block_body) [24462 24681]))                  
+                :type "class")
+                nil [21444 24681])
+            ("TopicNamesCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {gtn|gettopicnames}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address }
+       {-f file_name           | --file=file_name }
+    options:
+       -z zookeeper_address,  --zookeeper=zookeeper_address   : required, zookeeper root address
+       -f file_name           --file=file_name 
+Example:
+    swift gtn -z zfs://10.250.12.23:1234/root 
+    swift gtn -z zfs://10.250.12.23:1234/root -f file.txt
+       
+    '''" code nil (reparse-symbol indented_block_body) [24725 25163])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [25186 25190]))                          )
+                        (reparse-symbol indented_block_body) [25168 25348])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [25368 25372]))                          )
+                        (reparse-symbol indented_block_body) [25353 25503])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [25523 25527])
+                            ("options" variable nil (reparse-symbol function_parameters) [25529 25536]))                          )
+                        (reparse-symbol indented_block_body) [25508 25696])
+                    ("writeTopicName" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [25720 25724])
+                            ("topicNames" variable nil (reparse-symbol function_parameters) [25726 25736]))                          )
+                        (reparse-symbol indented_block_body) [25701 25937])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [25950 25954]))                          )
+                        (reparse-symbol indented_block_body) [25942 26570]))                  
+                :type "class")
+                nil [24682 26570])
+            ("TopicInfosCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {gti|gettopicinfo}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address}
+       {-t topic_name          | --topic=topic_name}
+       [-c cmd_type            | --cmdtype=cmd_type]
+
+    options:
+       -z zookeeper_address,  --zookeeper=zookeeper_address   : required, zookeeper root address
+       -t topic_name,         --topic=topic_name              : required, topic name, eg: news
+       -c cmd_type,           --cmdtype=cmd_type              : optional, command type, default: summary
+          summary:            topic summary infos
+          message:            protocol message
+          verbose:            topic verbose infos
+       -s sortType            --sort=sortType                 : optional, partid(default)|brokeraddress| partstatus
+       -g group_name          --group=group_name              : optional, group name when get all topic info
+       
+
+Example:
+    swift gti -z zfs://10.250.12.23:1234/root
+    swift gti -z zfs://10.250.12.23:1234/root -t news 
+    swift gti -z zfs://10.250.12.23:1234/root -t news -c message
+    swift gti -z zfs://10.250.12.23:1234/root -t news -c verbose
+    swift gti -z zfs://10.250.12.23:1234/root -t news -c verbose -s brokeraddress
+    '''" code nil (reparse-symbol indented_block_body) [26614 27838])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [27858 27862]))                          )
+                        (reparse-symbol indented_block_body) [27843 29012])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [29050 29054])
+                            ("options" variable nil (reparse-symbol function_parameters) [29056 29063]))                          )
+                        (reparse-symbol indented_block_body) [29025 29404])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [29424 29428])
+                            ("options" variable nil (reparse-symbol function_parameters) [29430 29437]))                          )
+                        (reparse-symbol indented_block_body) [29409 29663])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [29686 29690]))                          )
+                        (reparse-symbol indented_block_body) [29668 29848])
+                    ("printTopicInfo" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [29872 29876]))                          )
+                        (reparse-symbol indented_block_body) [29853 33350])
+                    ("printAllTopicInfo" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [33377 33381]))                          )
+                        (reparse-symbol indented_block_body) [33355 34466])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [34479 34483]))                          )
+                        (reparse-symbol indented_block_body) [34471 34620]))                  
+                :type "class")
+                nil [26571 34620])
+            ("TopicDeleteByTimeCmd" type
+               (:superclasses ("transport_cmd_base.TransportCmdBase")
+                :members 
+                  ( ("'''
+    swift {dtt|deletetopicsbytime}
+       {-z zookeeper_address     | --zookeeper=zookeeper_address }
+       {-i interval              | --interval=interval }
+       {-e exclude_topics,       | --exclude=exclude_topics }
+       {-f exclude_topics_file,  | --exclude_file=exclude_topics_file }
+       {-p prefix_name           | --prefix_name=prefix_name }
+       {-t topic_names           | --topic_names=topic_names }
+
+    options:
+       -z zookeeper_address,    --zookeeper=zookeeper_address       : required, zookeeper root address
+       -i time_interval,        --interval=time_interval            : required, delete topics if the last message arrived interval hours before, (unit:hours)
+       -e exclude_topics,       --exclude=exclude_topics            : option, don't delete exclude topics 
+       -f exclude_topics_file,  --exclude_file=exclude_topics_file  : option, don't delete exclude topics in file,one topic per line
+       -p prefix_name           --prefix_name=prefix_name           : option, delete topic prefix with specified
+       -t topic_names           --topic_names=topic_names           : option, delete topic with specified topic names
+Example:
+    swift dtt -z zfs://10.250.12.23:1234/root -i 48
+    swift dtt -z zfs://10.250.12.23:1234/root -i 48 -e topic_a,topic_b
+    swift dtt -z zfs://10.250.12.23:1234/root -i 48 -f a.txt
+    swift dtt -z zfs://10.250.12.23:1234/root -i 1 -p model_
+    swift dtt -z zfs://10.250.12.23:1234/root -i 1 -t topic_name_file
+       
+    '''" code nil (reparse-symbol indented_block_body) [34690 36198])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [36218 36222]))                          )
+                        (reparse-symbol indented_block_body) [36203 36733])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [36771 36775])
+                            ("options" variable nil (reparse-symbol function_parameters) [36777 36784]))                          )
+                        (reparse-symbol indented_block_body) [36746 37039])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [37059 37063])
+                            ("options" variable nil (reparse-symbol function_parameters) [37065 37072]))                          )
+                        (reparse-symbol indented_block_body) [37044 37952])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [37975 37979]))                          )
+                        (reparse-symbol indented_block_body) [37957 38211])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [38225 38229]))                          )
+                        (reparse-symbol indented_block_body) [38217 38900])
+                    ("getNeedDeleteTopicNames" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [38933 38937]))                          )
+                        (reparse-symbol indented_block_body) [38905 39626])
+                    ("needDelete" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [39646 39650])
+                            ("topicInfo" variable nil (reparse-symbol function_parameters) [39652 39661]))                          )
+                        (reparse-symbol indented_block_body) [39631 41293])
+                    ("getTopicCreateTime" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [41321 41325])
+                            ("topicInfo" variable nil (reparse-symbol function_parameters) [41327 41336]))                          )
+                        (reparse-symbol indented_block_body) [41298 41914]))                  
+                :type "class")
+                nil [34621 41914])
+            ("TopicDataDeleteCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {dtd|deletetopicdata}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address }
+       {-d dfs_root            | --dfs=dfs_root }
+       {-i interval            | --interval=interval }
+       {-e exclude             | --exclude=exclude_topics }
+       {-t topic_name          | --topic_name=topic_name }
+       {-f exclude_file        | --exclude_file=exclude_file }
+
+    options:
+       -z zookeeper_address,  --zookeeper=zookeeper_address   : required, zookeeper root address
+       -d dfs_root,           --dfs=dfs_root                  : required, dfs root address
+       -i time_interval,      --interval=time_interval        : required, delete topic data if the topic is not running and the last message is arrived interval time ago. (unit:hours)
+       -e exclude_topics,     --exclude=exclude_topics        : option, don't delete the specified topic data
+       -t topic_name,         --topic=topic_name              : option, only delete the specified topic data
+       -f exclude_file,       --exclude_file=exclude_file     : option, don't delete the specified topic data in file
+
+Example:
+    swift dtd -z zfs://10.250.12.23:1234/root -i 72 -d hdfs://xxxx/path
+    swift dtd -z zfs://10.250.12.23:1234/root -i 72 -d hdfs://xxxx/path -f abc.txt
+    swift dtd -z zfs://10.250.12.23:1234/root -i 72 -d hdfs://xxxx/path -e topic_a,topic_b
+    swift dtd -z zfs://10.250.12.23:1234/root -i 72 -t topic_a  -d hdfs://xxxx/path
+       
+    '''" code nil (reparse-symbol indented_block_body) [41992 43458])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [43478 43482]))                          )
+                        (reparse-symbol indented_block_body) [43463 43977])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [44015 44019])
+                            ("options" variable nil (reparse-symbol function_parameters) [44021 44028]))                          )
+                        (reparse-symbol indented_block_body) [43990 44386])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [44406 44410])
+                            ("options" variable nil (reparse-symbol function_parameters) [44412 44419]))                          )
+                        (reparse-symbol indented_block_body) [44391 45038])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [45069 45073]))                          )
+                        (reparse-symbol indented_block_body) [45051 45231])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [45245 45249]))                          )
+                        (reparse-symbol indented_block_body) [45237 46101])
+                    ("getAllRunningTopicNames" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [46134 46138]))                          )
+                        (reparse-symbol indented_block_body) [46106 46497])
+                    ("getCandidataTopicNames" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [46529 46533]))                          )
+                        (reparse-symbol indented_block_body) [46502 47189])
+                    ("getTopicLastModifyTime" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [47221 47225])
+                            ("fileUtil" variable nil (reparse-symbol function_parameters) [47227 47235])
+                            ("topicDataPath" variable nil (reparse-symbol function_parameters) [47237 47250]))                          )
+                        (reparse-symbol indented_block_body) [47194 48157])
+                    ("delTopicData" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [48179 48183])
+                            ("topicNames" variable nil (reparse-symbol function_parameters) [48185 48195]))                          )
+                        (reparse-symbol indented_block_body) [48162 48438]))                  
+                :type "class")
+                nil [41944 48438])
+            ("ExportTopicsCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {et|exporttopics}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address }
+       {-f export_file_name    | --file=export_file_name }
+       {-g group_name          | --group=group_name }
+       {-p prefix              | --prefix=prefix_name }
+       {-t topic_names         | --topic=topic_names }
+
+    options:
+       -z zookeeper_address,  --zookeeper=zookeeper_address   : required, zookeeper root address
+       -f export_file_name,   --file=export_file_name         : required, export file name
+       -g group_name,         --group=group_name              : optional, export group name, default export all topic
+       -m migrateDfs,         --migrate=migrate_dfs           : optional, migrate dfs, add new hdfs, add current dfs into extendDfs root      
+       -p prefix,             --prefix = prefix               : optional, export topic info with prefix      
+       -i topicName,          --topic = topic_names           : optional, export topic info with topic_name file
+Example:
+    swift et -z zfs://10.250.12.23:1234/root -f a.json
+    swift et -z zfs://10.250.12.23:1234/root -f a.json -g swift    
+    swift et -z zfs://10.250.12.23:1234/root -f a.json -p prefix
+    swift et -z zfs://10.250.12.23:1234/root -f a.json -i topicNameFile
+    '''" code nil (reparse-symbol indented_block_body) [48485 49768])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [49789 49793]))                          )
+                        (reparse-symbol indented_block_body) [49774 50256])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [50294 50298])
+                            ("options" variable nil (reparse-symbol function_parameters) [50300 50307]))                          )
+                        (reparse-symbol indented_block_body) [50269 50548])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [50568 50572])
+                            ("options" variable nil (reparse-symbol function_parameters) [50574 50581]))                          )
+                        (reparse-symbol indented_block_body) [50553 51120])
+                    ("getDfsRoot" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [51140 51144]))                          )
+                        (reparse-symbol indented_block_body) [51125 51830])
+                    ("hasDfsRoot" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [51850 51854])
+                            ("metaStr" variable nil (reparse-symbol function_parameters) [51856 51863]))                          )
+                        (reparse-symbol indented_block_body) [51835 52190])
+                    ("hasTopicGroup" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [52213 52217])
+                            ("metaStr" variable nil (reparse-symbol function_parameters) [52219 52226]))                          )
+                        (reparse-symbol indented_block_body) [52195 52561])
+                    ("generateMap" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [52587 52591])
+                            ("topicMetas" variable nil (reparse-symbol function_parameters) [52593 52603]))                          )
+                        (reparse-symbol indented_block_body) [52571 54168])
+                    ("updateMigrateDfs" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [54198 54202])
+                            ("topicInfo" variable nil (reparse-symbol function_parameters) [54204 54213]))                          )
+                        (reparse-symbol indented_block_body) [54177 54777])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [54790 54794]))                          )
+                        (reparse-symbol indented_block_body) [54782 55512]))                  
+                :type "class")
+                nil [48440 55512])
+            ("ImportTopicsCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {it|importtopics}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address }
+       {-f local_file_name     | --file=local_file_name }
+       {-w time_out            | --timeout=time_out}
+       {-d delete_exist        | --delete_exist=delete_exist}
+       {-c continue            | --continue=continue}
+       {-g group               | --group=group}
+
+    options:
+       -z zookeeper_address,  --zookeeper=zookeeper_address   : required, zookeeper root address
+       -f local_file_name,    --file=local_file_name          : required, local file name
+       -w time_out,           --timeout=time_out              : optional, timeout for one topic
+       -d delete_exist        --delete_exist=delete_exist     : optional, delete exist topic ,default is false
+       -c continue_exist      --continue=continue             : optional, continue if add topic has error ,default is false
+       -g group               --group=group                   : optional, add in specified group name
+Example:
+    swift it -z zfs://10.250.12.23:1234/root -f a.json -w 30
+    swift it -z zfs://10.250.12.23:1234/root -f a.json -d -c
+    swift it -z zfs://10.250.12.23:1234/root -f a.json -g igraph
+    '''" code nil (reparse-symbol indented_block_body) [55558 56767])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [56788 56792]))                          )
+                        (reparse-symbol indented_block_body) [56773 57410])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57440 57444])
+                            ("options" variable nil (reparse-symbol function_parameters) [57446 57453]))                          )
+                        (reparse-symbol indented_block_body) [57415 57694])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57714 57718])
+                            ("options" variable nil (reparse-symbol function_parameters) [57720 57727]))                          )
+                        (reparse-symbol indented_block_body) [57699 58132])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [58155 58159]))                          )
+                        (reparse-symbol indented_block_body) [58137 58314])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [58327 58331]))                          )
+                        (reparse-symbol indented_block_body) [58319 64593])
+                    ("addFailTopic" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [64615 64619])
+                            ("failTopicList" variable nil (reparse-symbol function_parameters) [64621 64634]))                          )
+                        (reparse-symbol indented_block_body) [64598 64772])
+                    ("_waitTopicReady" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [64797 64801])
+                            ("timeout" variable nil (reparse-symbol function_parameters) [64803 64810])
+                            ("topicName" variable nil (reparse-symbol function_parameters) [64812 64821]))                          )
+                        (reparse-symbol indented_block_body) [64777 65097])
+                    ("_isTopicReady" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [65120 65124])
+                            ("topicName" variable nil (reparse-symbol function_parameters) [65126 65135]))                          )
+                        (reparse-symbol indented_block_body) [65102 65956]))                  
+                :type "class")
+                nil [55513 65956])
+            ("UpdateTopicsCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {ut|updatetopics}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address }
+       {-f local_file_name     | --file=local_file_name }
+       {-w time_out            | --timeout=time_out}
+
+    options:
+       -z zookeeper_address,  --zookeeper=zookeeper_address   : required, zookeeper root address
+       -f local_file_name,    --file=local_file_name          : required, local file name
+       -w time_out,           --timeout=time_out              : optional, timeout for one topic
+
+Example:
+    swift ut -z zfs://10.250.12.23:1234/root -f a.json -w 30
+    '''" code nil (reparse-symbol indented_block_body) [66002 66585])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [66606 66610]))                          )
+                        (reparse-symbol indented_block_body) [66591 66868])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [66898 66902])
+                            ("options" variable nil (reparse-symbol function_parameters) [66904 66911]))                          )
+                        (reparse-symbol indented_block_body) [66873 67152])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [67172 67176])
+                            ("options" variable nil (reparse-symbol function_parameters) [67178 67185]))                          )
+                        (reparse-symbol indented_block_body) [67157 67444])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [67467 67471]))                          )
+                        (reparse-symbol indented_block_body) [67449 67626])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [67639 67643]))                          )
+                        (reparse-symbol indented_block_body) [67631 68502])
+                    ("addOneTopic" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [68523 68527])
+                            ("topicDescription" variable nil (reparse-symbol function_parameters) [68529 68545]))                          )
+                        (reparse-symbol indented_block_body) [68507 72984])
+                    ("_waitTopicReady" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [73009 73013])
+                            ("timeout" variable nil (reparse-symbol function_parameters) [73015 73022])
+                            ("topicName" variable nil (reparse-symbol function_parameters) [73024 73033]))                          )
+                        (reparse-symbol indented_block_body) [72989 73309])
+                    ("_isTopicReady" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [73332 73336])
+                            ("topicName" variable nil (reparse-symbol function_parameters) [73338 73347]))                          )
+                        (reparse-symbol indented_block_body) [73314 74168]))                  
+                :type "class")
+                nil [65957 74168])
+            ("TransferPartitionCmd" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("'''
+    swift {tp|transferpartition}
+       {-z zookeeper_address   | --zookeeper=zookeeper_address }
+       {-t transfer_info       | --transfer=transfer_info }
+    options:
+       -z zookeeper_address,     --zookeeper=zookeeper_address     : required, zookeeper root address
+       -t transfer_info,         --transfer=transfer_info          : required, topic name, eg: role_name1:0.3,role_name2:0.1
+       -g group_name,            --group_name=group_name           : opitional, group name, eg: swift_mainse
+
+Example:
+    swift tp -z zfs://10.250.12.23:1234/root -t group1##broker_1_0:0.3;group2##broker_1_0:0.2
+    swift tp -z zfs://10.250.12.23:1234/root -t all
+    swift tp -z zfs://10.250.12.23:1234/root -t all -g swift_mainse
+    '''" code nil (reparse-symbol indented_block_body) [74219 74961])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [74981 74985]))                          )
+                        (reparse-symbol indented_block_body) [74966 75218])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [75257 75261])
+                            ("options" variable nil (reparse-symbol function_parameters) [75263 75270]))                          )
+                        (reparse-symbol indented_block_body) [75232 75524])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [75544 75548])
+                            ("options" variable nil (reparse-symbol function_parameters) [75550 75557]))                          )
+                        (reparse-symbol indented_block_body) [75529 75714])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [75737 75741]))                          )
+                        (reparse-symbol indented_block_body) [75719 75896])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [75909 75913]))                          )
+                        (reparse-symbol indented_block_body) [75901 76213]))                  
+                :type "class")
+                nil [74169 76213]))          
+      :file "topic_cmd.py"
+      :pointmax 76213
+      :fsize 76212
+      :lastmodtime '(22495 38461 785488 802000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!swift!tools!swift_tools!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

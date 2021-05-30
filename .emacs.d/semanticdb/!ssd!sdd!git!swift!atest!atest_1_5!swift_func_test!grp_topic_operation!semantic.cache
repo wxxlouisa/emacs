@@ -1,0 +1,259 @@
+;; Object grp_topic_operation/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "grp_topic_operation/"
+  :tables
+  (list
+    (semanticdb-table "sut_topic_operation.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("time" include nil nil [44 62])
+            ("sys" include nil nil [44 62])
+            ("os" include nil nil [44 62])
+            ("common_utils.log_util" include nil nil [63 103])
+            ("common_utils.process" include nil nil [105 145])
+            ("swift_systemtest_lib.swifttest_lib.common_define" include nil nil [146 208])
+            ("swift_systemtest_lib.swifttest_lib.swift_test_base" include nil nil [209 285])
+            ("swift_systemtest_lib.common_lib.fsutil_wrapper" include nil nil [286 358])
+            ("TopicOperationTest" type
+               (:superclasses ("SwiftTestBase")
+                :members 
+                  ( ("suiteSetup" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [421 425]))                          )
+                        (reparse-symbol indented_block_body) [406 561])
+                    ("suiteTeardown" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [584 588]))                          )
+                        (reparse-symbol indented_block_body) [566 604])
+                    ("caseSetup" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [631 635]))                          )
+                        (reparse-symbol indented_block_body) [617 651])
+                    ("caseTeardown" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [682 686]))                          )
+                        (reparse-symbol indented_block_body) [665 775])
+                    ("assertTopicInfo" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [804 808])
+                            ("topic_info_dict" variable nil (reparse-symbol function_parameters) [810 825])
+                            ("topic_name" variable nil (reparse-symbol function_parameters) [827 837])
+                            ("partition_count" variable nil (reparse-symbol function_parameters) [839 854]))                          )
+                        (reparse-symbol indented_block_body) [784 1606])
+                    ("do_test_add_one_topic" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [1638 1642])
+                            ("name" variable nil (reparse-symbol function_parameters) [1644 1648])
+                            ("count_num" variable nil (reparse-symbol function_parameters) [1656 1665])
+                            ("buffer_size" variable nil (reparse-symbol function_parameters) [1669 1680])
+                            ("resource" variable nil (reparse-symbol function_parameters) [1684 1692])
+                            ("limit" variable nil (reparse-symbol function_parameters) [1699 1704]))                          )
+                        (reparse-symbol indented_block_body) [1612 3061])
+                    ("test_add_one_topic_partition_buffer_size_setting" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3123 3127]))                          )
+                        (reparse-symbol indented_block_body) [3070 3295])
+                    ("test_add_one_topic_restart" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3331 3335]))                          
+                        :documentation "
+        添加一天topic stop start swift admin/broker检查topic的信息保存正常
+        ")
+                        (reparse-symbol indented_block_body) [3300 4113])
+                    ("test_add_two_topics_restart" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4150 4154]))                          )
+                        (reparse-symbol indented_block_body) [4118 6749])
+                    ("test_add_two_topics" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6786 6790]))                          
+                        :documentation "
+        添加多个topic，topic1 partition count=1，buffer size=30，resource=50
+                       topic2 partition count=2, buffer size=30, resource=50
+        检查两个partion的borker地址相同
+        ")
+                        (reparse-symbol indented_block_body) [6762 8854])
+                    ("test_add_existed_topic" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8886 8890]))                          
+                        :documentation "
+        添加topic1 partition count为4 每个partition占用的resource为25
+        添加一个已经存在的topic，swift报错，提示该topic已经存在
+        检查topic1的4个partition都处于running状态
+        ")
+                        (reparse-symbol indented_block_body) [8859 10182])
+                    ("test_delete_topic_restart" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [10225 10229]))                          
+                        :documentation "
+        添加topic，删除topic，检查topic删除操作成功
+        stop swift后再start检查topic删除操作成功，以删除的topic不会重新获取到
+        ")
+                        (reparse-symbol indented_block_body) [10195 11880])
+                    ("test_delete_unexist_topic" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [11915 11919]))                          
+                        :documentation "
+        删除不存在的topic时，返回报错，该topic不存在
+        ")
+                        (reparse-symbol indented_block_body) [11885 13297])
+                    ("test_add_topic_with_error_parameters" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13344 13348]))                          
+                        :documentation "
+        partition buffer size最小值大于0，最大值为256*1024M 一个buffer size单位为1M
+        partition resouce list 有效值范围为1到100
+        partition count list有效值范围为1 到100000
+        ")
+                        (reparse-symbol indented_block_body) [13303 16434])
+                    ("test_partition_source_100" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [16469 16473]))                          
+                        :documentation "
+        创建一个topic 包含两个partition，每个partition的resource要求是50
+        检查这两个partion的状态为running
+        创建第二个topic，包含一个partition，要求resource是10，检查该partition的状态为waiting
+        删除第一个topic，检查第二个topic的状态改变为running
+        再添加一个topic，包含5个partition，每个partition要求resouce是20，检查有4个partion处于running状态，一个partition处于waiting状态      
+        ")
+                        (reparse-symbol indented_block_body) [16439 19162])
+                    ("do_check_msg_response" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [19200 19204])
+                            ("expect_list" variable nil (reparse-symbol function_parameters) [19205 19216])
+                            ("actual_list" variable nil (reparse-symbol function_parameters) [19218 19229]))                          
+                        :documentation "
+        expect_list is the message list which be used in ./swift sm 
+        expect_list = [\"msg1\",\"msg2\"]
+        actual_list is a dict, be returned by getMessage()
+        the function will compare the expect_list with the actual_list['messages'] list
+        success: return true
+        fail: return false
+        ")
+                        (reparse-symbol indented_block_body) [19174 20038])
+                    ("test_add_del_topic_with_msg_increase" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20092 20096]))                          
+                        :documentation "
+        单机操作环境，add topic news--send message--检查message获取正常
+        delete topic news---add topic news---get message获取之前添加的message
+        正常，send message 检查message id在原来的基础上递增
+        ")
+                        (reparse-symbol indented_block_body) [20051 22172])
+                    ("do_check_topic_info" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [22200 22204])
+                            ("topic_info" variable nil (reparse-symbol function_parameters) [22205 22215])
+                            ("compare_topic" variable nil (reparse-symbol function_parameters) [22216 22229])
+                            ("equal_flag" variable nil (reparse-symbol function_parameters) [22230 22240]))                          
+                        :documentation "
+        topic_info is a topic info string, which returned by self.swift.getTopicInfo()
+        compare_topic is a topic name, the function will get this topic's info as topic_compare_info
+        and compare topic_info's broker address with topic_compare_info's broker address
+        ")
+                        (reparse-symbol indented_block_body) [22176 23396])
+                    ("test_add_delete_topic_same_broker" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [23439 23443]))                          
+                        :documentation "
+        add the topic to broker1, delete the topic
+        add the same topic to the broker1,check topic info correct
+        delete the topic, then add the topic to broker2
+        check topic info is correct
+        ")
+                        (reparse-symbol indented_block_body) [23401 25690])
+                    ("test_gti_unexist_topic_msg_operation" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [25736 25740]))                          
+                        :documentation "
+        add topic-----send message-------check message info is correct
+        delete topic---------get message-----check broker return error
+        ")
+                        (reparse-symbol indented_block_body) [25695 27523])
+                    ("test_add_topic_to_leader_admin" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [27565 27569]))                          
+                        :documentation "
+        启动swift后，向leader admin发送addTopic,
+        getTopicNames和getTopicInfo应该正常
+        ")
+                        (reparse-symbol indented_block_body) [27530 28763])
+                    ("test_add_topic_to_not_leader_admin" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [28844 28848]))                          
+                        :documentation "
+        启动swift后，向非leader admin发送addTopic, 
+        getTopicNames和getTopicInfo应该出错
+        ")
+                        (reparse-symbol indented_block_body) [28805 30754])
+                    ("__assertTopicInfo" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [30781 30785])
+                            ("topic_info_dict" variable nil (reparse-symbol function_parameters) [30787 30802])
+                            ("topic_name" variable nil (reparse-symbol function_parameters) [30804 30814])
+                            ("partition_count" variable nil (reparse-symbol function_parameters) [30816 30831])
+                            ("status" variable nil (reparse-symbol function_parameters) [30833 30839]))                          )
+                        (reparse-symbol indented_block_body) [30759 32192])
+                    ("test_operate_topic_after_broker_disconnect_zk" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32247 32251]))                          )
+                        (reparse-symbol indented_block_body) [32197 34272])
+                    ("test_operate_topic_after_broker_killed" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [34328 34332]))                          )
+                        (reparse-symbol indented_block_body) [34285 36487])
+                    ("test_add_topic_with_partition_limit" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [36532 36536]))                          )
+                        (reparse-symbol indented_block_body) [36492 36696])
+                    ("test_modify_topic" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [36731 36735]))                          )
+                        (reparse-symbol indented_block_body) [36709 38877])
+                    ("test_add_security_topic" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [38910 38914]))                          )
+                        (reparse-symbol indented_block_body) [38882 40131])
+                    ("test_delete_topics_expired_time" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [40172 40176]))                          )
+                        (reparse-symbol indented_block_body) [40136 41103]))                  
+                :type "class")
+                nil [361 41103]))          
+      :file "sut_topic_operation.py"
+      :pointmax 41112
+      :fsize 41891
+      :lastmodtime '(22905 41998 903191 190000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!swift!atest!atest_1_5!swift_func_test!grp_topic_operation!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,116 @@
+;; Object service/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "service/"
+  :tables
+  (list
+    (semanticdb-table "CarbonOpsServiceImpl.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("service/CarbonOpsServiceImpl.h" include nil nil [1 42])
+            ("carbon/ErrorDefine.h" include nil nil [43 74])
+            ("carbon/Ops.h" include nil nil [75 98])
+            ("common/ClosureGuard.h" include nil nil [99 131])
+            ("autil/legacy/jsonizable.h" include (:system-flag t) nil [132 168])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [170 190])
+            ("USE_CARBON_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [212 219]))                  
+                :type "int")
+                nil [191 220])
+            ("USE_CARBON_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [242 249]))                  
+                :type "int")
+                nil [221 250])
+            ("BEGIN_CARBON_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [275 283]))                  
+                :type "int")
+                nil [252 284])
+            ("CARBON_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [303 311])
+                    ("" variable (:type ("CarbonOpsServiceImpl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [312 333]))                  
+                :type "int")
+                nil [286 334])
+            ("CarbonOpsServiceImpl" function
+               (:constructor-flag t
+                :parent "CarbonOpsServiceImpl"
+                :arguments 
+                  ( ("carbonDriverPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("CarbonDriverPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [388 427]))                  
+                :type ("CarbonOpsServiceImpl" type (:type "class") nil nil))
+                nil [336 471])
+            ("CarbonOpsServiceImpl" function
+               (:destructor-flag t
+                :parent "CarbonOpsServiceImpl"
+                :type "void")
+                nil [473 522])
+            ("CHECK_CARBON_MASTER_READY" variable (:constant-flag t) nil [532 557])
+            ("CALL" variable (:constant-flag t) nil [1408 1412])
+            ("releaseSlots" function
+               (:parent "CarbonOpsServiceImpl"
+                :arguments 
+                  ( ("controller" variable
+                       (:pointer 1
+                        :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1777 1821])
+                    ("request" variable
+                       (:pointer 1
+                        :type ("carbon::proto::ReleaseSlotsRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1838 1882])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("carbon::proto::ReleaseSlotsResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1893 1939])
+                    ("done" variable
+                       (:pointer 1
+                        :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1950 1982]))                  
+                :type "void")
+                nil [1726 4114])
+            ("END_CARBON_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4138 4146]))                  
+                :type "int")
+                nil [4117 4147]))          
+      :file "CarbonOpsServiceImpl.cpp"
+      :pointmax 4149
+      :fsize 4148
+      :lastmodtime '(22850 12252 183928 224000)
+      :unmatched-syntax '((thing 1775 . 1776) (thing 1776 . 1777) (thing 1830 . 1835) (thing 1836 . 1837) (thing 1837 . 1838) (thing 1891 . 1892) (thing 1892 . 1893) (thing 1948 . 1949) (thing 1949 . 1950))
+      :lexical-table 
+        '(("CHECK_CARBON_MASTER_READY" (spp-arg-list nil 557 . 559) . 
+              ((DO "do" 560 . 562) (semantic-list "{                                \\
+        GroupPlanManagerPtr groupPlanManagerPtr = _carbonDriverPtr->getGroupPlanManager(); \\
+        GroupManagerPtr groupManagerPtr = _carbonDriverPtr->getGroupManager(); \\
+        if (groupPlanManagerPtr == NULL || groupManagerPtr == NULL) {   \\
+            ErrorInfo errorInfo;                                        \\
+            errorInfo.errorCode = EC_CARBON_MASTER_NOT_READY;           \\
+            errorInfo.errorMsg = \"carbon master is not ready\";          \\
+            CARBON_LOG(ERROR, \"%s\", errorInfo.errorMsg.c_str());        \\
+            *response->mutable_errorinfo() = autil::legacy::ToJsonString(errorInfo, true); \\
+            return;                                                     \\
+        }                                                               \\
+    }" 563 . 1388) (WHILE "while" 1389 . 1394) (semantic-list "(0)" 1395 . 1398)))
+          ("CALL" (spp-arg-list ("func" "...") 1412 . 1423) . ((semantic-list "{                                               \\
+        ErrorInfo errorInfo;                                            \\
+        _carbonDriverPtr->getGroupPlanManager()->func(__VA_ARGS__, &errorInfo); \\
+        *response->mutable_errorinfo() = autil::legacy::ToJsonString(errorInfo, true); \\
+    }" 1424 . 1724)))
+          )
+))
+  :file "!ssd!sdd!git!carbon!src!service!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

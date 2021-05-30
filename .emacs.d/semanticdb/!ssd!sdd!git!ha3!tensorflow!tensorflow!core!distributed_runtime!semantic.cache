@@ -1,0 +1,451 @@
+;; Object distributed_runtime/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "distributed_runtime/"
+  :tables
+  (list
+    (semanticdb-table "worker_env.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_WORKER_ENV_H_" variable (:constant-flag t) nil [737 786])
+            ("vector" include (:system-flag t) nil [788 805])
+            ("tensorflow/core/platform/types.h" include nil nil [806 849])
+            ("tensorflow" type
+               (:members 
+                  ( ("thread" type
+                       (:members 
+                          ( ("ThreadPool" type
+                               (:prototype t
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [894 911]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [875 913])
+                    ("Device" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [936 949])
+                    ("DeviceMgr" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [950 966])
+                    ("Env" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [967 977])
+                    ("RendezvousMgrInterface" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [978 1007])
+                    ("SessionMgr" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [1008 1025])
+                    ("WorkerEnv" type
+                       (:members 
+                          ( ("env" variable
+                               (:pointer 1
+                                :default-value "nullptr"
+                                :type ("Env" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1190 1209])
+                            ("session_mgr" variable
+                               (:pointer 1
+                                :default-value "nullptr"
+                                :type ("SessionMgr" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1267 1301])
+                            ("local_devices" variable (:type ("std::vector" type
+                                 (:template-specifier 
+                                    ( ("Device" type (:pointer 1) nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1425 1460])
+                            ("device_mgr" variable
+                               (:pointer 1
+                                :default-value "nullptr"
+                                :type ("DeviceMgr" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1775 1807])
+                            ("rendezvous_mgr" variable
+                               (:pointer 1
+                                :default-value "nullptr"
+                                :type ("RendezvousMgrInterface" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1855 1904])
+                            ("compute_pool" variable
+                               (:pointer 1
+                                :default-value "nullptr"
+                                :type ("thread::ThreadPool" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1960 2003]))                          
+                        :type "struct")
+                        (reparse-symbol namespacesubparts) [1169 2006]))                  
+                :type "namespace")
+                nil [851 2009]))          
+      :file "worker_env.h"
+      :pointmax 2101
+      :fsize 2100
+      :lastmodtime '(23108 28231 490576 980000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_WORKER_ENV_H_")
+          )
+)
+    (semanticdb-table "graph_mgr.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("tensorflow/core/distributed_runtime/graph_mgr.h" include nil nil [671 729])
+            ("vector" include (:system-flag t) nil [731 748])
+            ("tensorflow/core/common_runtime/constant_folding.h" include nil nil [750 810])
+            ("tensorflow/core/common_runtime/debugger_state_interface.h" include nil nil [811 879])
+            ("tensorflow/core/common_runtime/device.h" include nil nil [880 930])
+            ("tensorflow/core/common_runtime/device_mgr.h" include nil nil [931 985])
+            ("tensorflow/core/common_runtime/function.h" include nil nil [986 1038])
+            ("tensorflow/core/common_runtime/graph_optimizer.h" include nil nil [1039 1098])
+            ("tensorflow/core/common_runtime/memory_types.h" include nil nil [1099 1155])
+            ("tensorflow/core/common_runtime/optimization_registry.h" include nil nil [1156 1221])
+            ("tensorflow/core/common_runtime/process_util.h" include nil nil [1222 1278])
+            ("tensorflow/core/common_runtime/rendezvous_util.h" include nil nil [1279 1338])
+            ("tensorflow/core/common_runtime/step_stats_collector.h" include nil nil [1339 1403])
+            ("tensorflow/core/distributed_runtime/rendezvous_mgr_interface.h" include nil nil [1404 1477])
+            ("tensorflow/core/framework/cancellation.h" include nil nil [1478 1529])
+            ("tensorflow/core/framework/log_memory.h" include nil nil [1530 1579])
+            ("tensorflow/core/framework/node_def.pb.h" include nil nil [1580 1630])
+            ("tensorflow/core/framework/node_def_util.h" include nil nil [1631 1683])
+            ("tensorflow/core/framework/versions.pb.h" include nil nil [1684 1734])
+            ("tensorflow/core/graph/graph.h" include nil nil [1735 1775])
+            ("tensorflow/core/graph/graph_constructor.h" include nil nil [1776 1828])
+            ("tensorflow/core/graph/graph_partition.h" include nil nil [1829 1879])
+            ("tensorflow/core/graph/validate.h" include nil nil [1880 1923])
+            ("tensorflow/core/lib/core/errors.h" include nil nil [1924 1968])
+            ("tensorflow/core/lib/strings/stringprintf.h" include nil nil [1969 2022])
+            ("tensorflow/core/platform/env.h" include nil nil [2023 2064])
+            ("tensorflow/core/platform/logging.h" include nil nil [2065 2110])
+            ("tensorflow/core/platform/mutex.h" include nil nil [2111 2154])
+            ("tensorflow/core/platform/types.h" include nil nil [2155 2198])
+            ("tensorflow/core/protobuf/worker.pb.h" include nil nil [2199 2246])
+            ("tensorflow/core/util/env_var.h" include nil nil [2247 2288])
+            ("tensorflow" type
+               (:members 
+                  ( ("GraphMgr" function
+                       (:constructor-flag t
+                        :parent "GraphMgr"
+                        :arguments 
+                          ( ("worker_env" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("WorkerEnv" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2333 2361])
+                            ("device_mgr" variable
+                               (:pointer 1
+                                :type ("DeviceMgr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2362 2384]))                          
+                        :type ("GraphMgr" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [2314 2733])
+                    ("GraphMgr" function
+                       (:destructor-flag t
+                        :parent "GraphMgr"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [2735 2803])
+                    ("Item" function
+                       (:destructor-flag t
+                        :parent "GraphMgr::Item"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [2805 3110])
+                    ("SplitByDevice" function
+                       (:typemodifiers ("static")
+                        :arguments 
+                          ( ("node" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Node" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3291 3308]))                          
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [3263 3351])
+                    ("ValidateGraphDefForDevices" function
+                       (:typemodifiers ("static")
+                        :arguments 
+                          ( ("gdef" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3437 3458]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [3396 3768])
+                    ("DecorateAndPublishGraphForDebug" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("debug_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DebugOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3824 3858])
+                            ("graph" variable
+                               (:pointer 1
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3859 3872])
+                            ("device" variable
+                               (:pointer 1
+                                :type ("Device" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3873 3888]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [3770 4210])
+                    ("InitItem" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("session" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4782 4804])
+                            ("gdef" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4805 4826])
+                            ("graph_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4853 4887])
+                            ("debug_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DebugOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4914 4948])
+                            ("cluster_flr" variable
+                               (:pointer 1
+                                :type ("DistributedFunctionLibraryRuntime" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4975 5022])
+                            ("item" variable
+                               (:pointer 1
+                                :type ("Item" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5049 5060]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [4756 11036])
+                    ("Register" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("session" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11064 11086])
+                            ("gdef" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11087 11108])
+                            ("graph_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11135 11169])
+                            ("debug_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DebugOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11196 11230])
+                            ("cluster_flr" variable
+                               (:pointer 1
+                                :type ("DistributedFunctionLibraryRuntime" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11257 11304])
+                            ("handle" variable
+                               (:pointer 1
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11331 11346]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [11038 11744])
+                    ("Deregister" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("handle" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11774 11795]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [11746 12194])
+                    ("DeregisterAll" function
+                       (:parent "GraphMgr"
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [12196 12503])
+                    ("SendInputs" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("step_id" variable
+                               (:constant-flag t
+                                :type ("int64" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [12533 12553])
+                            ("in" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensors" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [12554 12577]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [12505 13052])
+                    ("RecvOutputs" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("step_id" variable
+                               (:constant-flag t
+                                :type ("int64" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [13083 13103])
+                            ("out" variable
+                               (:pointer 1
+                                :type ("NamedTensors" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [13104 13122]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [13054 13309])
+                    ("RecvOutputsAsync" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("step_id" variable
+                               (:constant-flag t
+                                :type ("int64" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [13343 13363])
+                            ("out" variable
+                               (:pointer 1
+                                :type ("NamedTensors" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [13364 13382])
+                            ("done" variable (:type ("StatusCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13415 13435]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [13311 14129])
+                    ("ExecuteAsync" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("handle" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14159 14180])
+                            ("step_id" variable
+                               (:constant-flag t
+                                :type ("int64" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14181 14201])
+                            ("rendezvous" variable
+                               (:pointer 1
+                                :type ("Rendezvous" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14230 14253])
+                            ("session" variable
+                               (:pointer 1
+                                :type ("WorkerSession" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14282 14305])
+                            ("opts" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ExecutorOpts" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14306 14331])
+                            ("collector" variable
+                               (:pointer 1
+                                :type ("StepStatsCollector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14360 14390])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("MutableRunGraphResponseWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14419 14460])
+                            ("cancellation_manager" variable
+                               (:pointer 1
+                                :type ("CancellationManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14489 14531])
+                            ("in" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensors" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14560 14583])
+                            ("done" variable (:type ("StatusCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14584 14604]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [14131 16077])
+                    ("ExecuteAsync" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("handle" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16107 16128])
+                            ("step_id" variable
+                               (:constant-flag t
+                                :type ("int64" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16129 16149])
+                            ("session" variable
+                               (:pointer 1
+                                :type ("WorkerSession" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16178 16201])
+                            ("opts" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ExecutorOpts" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16202 16227])
+                            ("collector" variable
+                               (:pointer 1
+                                :type ("StepStatsCollector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16256 16286])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("MutableRunGraphResponseWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16315 16356])
+                            ("cancellation_manager" variable
+                               (:pointer 1
+                                :type ("CancellationManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16385 16427])
+                            ("in" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensors" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16456 16479])
+                            ("done" variable (:type ("StatusCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16480 16500]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [16079 16929])
+                    ("StartParallelExecutors" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("handle" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16969 16990])
+                            ("step_id" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16991 17005])
+                            ("item" variable
+                               (:pointer 1
+                                :type ("Item" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [17044 17055])
+                            ("rendezvous" variable
+                               (:pointer 1
+                                :type ("Rendezvous" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [17056 17079])
+                            ("collector" variable
+                               (:pointer 1
+                                :type ("StepStatsCollector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [17118 17148])
+                            ("cost_graph" variable
+                               (:pointer 1
+                                :type ("CostGraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [17187 17212])
+                            ("cancellation_manager" variable
+                               (:pointer 1
+                                :type ("CancellationManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [17251 17293])
+                            ("done" variable (:type ("StatusCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17332 17352]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [16931 18807])
+                    ("BuildCostModel" function
+                       (:parent "GraphMgr"
+                        :arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("Item" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [18839 18850])
+                            ("collector" variable
+                               (:pointer 1
+                                :type ("StepStatsCollector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [18851 18881])
+                            ("cost_graph" variable
+                               (:pointer 1
+                                :type ("CostGraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [18912 18937]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [18809 19492]))                  
+                :type "namespace")
+                nil [2290 19495]))          
+      :file "graph_mgr.cc"
+      :pointmax 19525
+      :fsize 19524
+      :lastmodtime '(23108 28231 480576 982000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!ha3!tensorflow!tensorflow!core!distributed_runtime!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

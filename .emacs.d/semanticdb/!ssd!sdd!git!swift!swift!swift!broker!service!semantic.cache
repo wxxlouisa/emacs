@@ -1,0 +1,3065 @@
+;; Object service/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "service/"
+  :tables
+  (list
+    (semanticdb-table "BrokerPartition.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/BrokerPartition.h" include nil nil [1 50])
+            ("swift/monitor/TimeTrigger.h" include nil nil [51 89])
+            ("swift/protocol/MessageCompressor.h" include nil nil [90 135])
+            ("sstream" include (:system-flag t) nil [136 154])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [156 176])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [177 199])
+            ("fslib::cache" using (:type ("fslib::cache" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [200 229])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [250 259]))                  
+                :type "int")
+                nil [230 260])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [281 289]))                  
+                :type "int")
+                nil [261 290])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("config" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [311 318]))                  
+                :type "int")
+                nil [291 319])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [340 345]))                  
+                :type "int")
+                nil [320 346])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [370 378]))                  
+                :type "int")
+                nil [348 379])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [396 404])
+                    ("" variable (:type ("BrokerPartition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [405 421]))                  
+                :type "int")
+                nil [380 422])
+            ("BrokerPartition" function
+               (:constructor-flag t
+                :parent "BrokerPartition"
+                :arguments 
+                  ( ("taskStatus" variable
+                       (:pointer 1
+                        :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [458 491]))                  
+                :type ("BrokerPartition" type (:type "class") nil nil))
+                nil [425 618])
+            ("BrokerPartition" function
+               (:destructor-flag t
+                :parent "BrokerPartition"
+                :type "void")
+                nil [620 709])
+            ("init" function
+               (:parent "BrokerPartition"
+                :arguments 
+                  ( ("brokerConfig" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("BrokerConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [738 771])
+                    ("centerBlockPool" variable
+                       (:pointer 1
+                        :type ("BlockPool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [799 826])
+                    ("fileCache" variable
+                       (:pointer 1
+                        :type ("storage::FileCache" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [854 884])
+                    ("permissionCenter" variable
+                       (:pointer 1
+                        :type ("PermissionCenter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [912 947]))                  
+                :type "bool")
+                nil [711 1694])
+            ("initMetrics" function
+               (:parent "BrokerPartition"
+                :type "void")
+                nil [1696 1959])
+            ("getPartitionDir" function
+               (:parent "BrokerPartition"
+                :arguments 
+                  ( ("rootDir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2006 2033])
+                    ("partId" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("protocol::PartitionId" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2042 2078]))                  
+                :type ("std::string" type (:type "class") nil nil))
+                nil [1961 2384])
+            ("preparePartitionConfig" function
+               (:parent "BrokerPartition"
+                :arguments 
+                  ( ("brokerConfig" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("config::BrokerConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2440 2481])
+                    ("partitionConfig" variable
+                       (:reference 1
+                        :type ("config::PartitionConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2490 2531]))                  
+                :type "void")
+                nil [2386 6692])
+            ("createTimeoutChecker" function
+               (:pointer 1
+                :parent "BrokerPartition"
+                :type ("TimeoutChecker" type (:type "class") nil nil))
+                nil [6694 6894])
+            ("getMessage" function
+               (:parent "BrokerPartition"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ConsumptionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6934 6968])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7007 7033]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [6896 8918])
+            ("sendMessage" function
+               (:parent "BrokerPartition"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ProductionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8959 8992])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9032 9058])
+                    ("done" variable
+                       (:pointer 1
+                        :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9100 9132]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [8920 10201])
+            ("getMaxMessageId" function
+               (:parent "BrokerPartition"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("MessageIdRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10246 10278])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10287 10315]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [10203 10381])
+            ("getMinMessageIdByTime" function
+               (:parent "BrokerPartition"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("MessageIdRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10432 10464])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10473 10501]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [10383 10970])
+            ("getRecycleInfo" function
+               (:parent "BrokerPartition"
+                :type ("storage::RecycleInfo" type (:type "class") nil nil))
+                nil [10972 11209])
+            ("recycleBuffer" function
+               (:parent "BrokerPartition"
+                :type "void")
+                nil [11211 11371])
+            ("commitMessage" function
+               (:parent "BrokerPartition"
+                :type "void")
+                nil [11373 11989])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12011 12019]))                  
+                :type "int")
+                nil [11991 12020]))          
+      :file "BrokerPartition.cpp"
+      :pointmax 12022
+      :fsize 12021
+      :lastmodtime '(22877 54282 179580 360000)
+      :unmatched-syntax '((thing 9098 . 9099) (thing 9099 . 9100)))
+    (semanticdb-table "BrokerPartition.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_BROKERPARTITION_H" variable (:constant-flag t) nil [41 64])
+            ("autil/Lock.h" include nil nil [66 89])
+            ("swift/common/Common.h" include nil nil [90 122])
+            ("swift/common/Log.h" include nil nil [123 152])
+            ("swift/config/BrokerConfig.h" include nil nil [153 191])
+            ("swift/config/PartitionConfig.h" include nil nil [192 233])
+            ("swift/broker/storage/MessageBrain.h" include nil nil [234 280])
+            ("swift/broker/service/ThreadSafeTaskStatus.h" include nil nil [281 335])
+            ("swift/monitor/AmonMetricsReporter.h" include nil nil [336 382])
+            ("swift/monitor/Metrics.h" include nil nil [383 417])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [441 449]))                  
+                :type "int")
+                nil [419 450])
+            ("BrokerPartition" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [476 483])
+                    ("BrokerPartition" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("taskInfo" variable
+                               (:pointer 1
+                                :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [504 535]))                          
+                        :type ("BrokerPartition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [488 536])
+                    ("BrokerPartition" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [541 560])
+                    ("private" label nil (reparse-symbol classsubparts) [561 569])
+                    ("BrokerPartition" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("BrokerPartition" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [590 614]))                          
+                        :type ("BrokerPartition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [574 615])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("BrokerPartition" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [647 671]))                          
+                        :type ("BrokerPartition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [620 672])
+                    ("public" label nil (reparse-symbol classsubparts) [673 680])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("brokerConfig" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::BrokerConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [695 736])
+                            ("centerBlockPool" variable
+                               (:pointer 1
+                                :type ("util::BlockPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [752 785])
+                            ("fileCache" variable
+                               (:pointer 1
+                                :type ("storage::FileCache" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [800 830])
+                            ("permissionCenter" variable
+                               (:pointer 1
+                                :type ("util::PermissionCenter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [845 886]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [685 887])
+                    ("getMessage" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("protocol::ConsumptionRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [923 967])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [981 1017]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [892 1018])
+                    ("sendMessage" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("protocol::ProductionRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1055 1098])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1136 1172])
+                            ("done" variable
+                               (:pointer 1
+                                :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1211 1243]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1023 1244])
+                    ("getMaxMessageId" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("protocol::MessageIdRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1285 1327])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageIdResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1341 1379]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1249 1380])
+                    ("getMinMessageIdByTime" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("protocol::MessageIdRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1427 1469])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageIdResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1483 1521]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1385 1522])
+                    ("getPartitionId" function (:type ("protocol::PartitionId" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1527 1625])
+                    ("getPartitionStatus" function (:type ("protocol::PartitionStatus" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1630 1740])
+                    ("getTaskStatus" function
+                       (:pointer 1
+                        :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1745 1824])
+                    ("getMetrics" function
+                       (:pointer 1
+                        :type ("monitor::Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1829 1898])
+                    ("amonReport" function
+                       (:arguments 
+                          ( ("partitionMetrics" variable
+                               (:reference 1
+                                :type ("monitor::PartitionMetrics" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1919 1963]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1903 2088])
+                    ("getTopicMode" function (:type ("protocol::TopicMode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2093 2182])
+                    ("getRecycleInfo" function
+                       (:prototype-flag t
+                        :type ("storage::RecycleInfo" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2187 2225])
+                    ("recycleBuffer" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2230 2251])
+                    ("isCommitting" function (:type "bool") (reparse-symbol classsubparts) [2257 2314])
+                    ("setCommitting" function
+                       (:arguments 
+                          ( ("flag" variable (:type "bool") (reparse-symbol arg-sub-list) [2338 2348]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2319 2386])
+                    ("commitMessage" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2391 2412])
+                    ("private" label nil (reparse-symbol classsubparts) [2414 2422])
+                    ("initMetrics" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2427 2446])
+                    ("getPartitionDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rootDir" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2480 2507])
+                            ("partId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::PartitionId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2540 2576]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2452 2577])
+                    ("preparePartitionConfig" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("brokerConfig" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::BrokerConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2610 2651])
+                            ("partitionConfig" variable
+                               (:reference 1
+                                :type ("config::PartitionConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2684 2725]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2582 2726])
+                    ("createTimeoutChecker" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("util::TimeoutChecker" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2731 2776])
+                    ("private" label nil (reparse-symbol classsubparts) [2777 2785])
+                    ("_messageBrain" variable
+                       (:pointer 1
+                        :type ("storage::MessageBrain" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2790 2827])
+                    ("_taskStatus" variable
+                       (:pointer 1
+                        :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2832 2866])
+                    ("_metrics" variable
+                       (:pointer 1
+                        :type ("monitor::Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2871 2898])
+                    ("_amonMetricsReporter" variable (:type ("monitor::AmonMetricsReporter" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2903 2953])
+                    ("_topicName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2958 2981])
+                    ("_partitionId" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2986 3008])
+                    ("_isCommitting" variable (:type "bool") (reparse-symbol classsubparts) [3013 3032])
+                    ("_requestTimeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3037 3061])
+                    ("private" label nil (reparse-symbol classsubparts) [3062 3070])
+                    ("BrokerPartitionTest" friend nil (reparse-symbol classsubparts) [3075 3107])
+                    ("TransporterImplTest" friend nil (reparse-symbol classsubparts) [3113 3145])
+                    ("private" label nil (reparse-symbol classsubparts) [3147 3155])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [3160 3180]))                  
+                :type "class")
+                nil [452 3183])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("BrokerPartition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3203 3219]))                  
+                :type "int")
+                nil [3185 3220])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3242 3250]))                  
+                :type "int")
+                nil [3222 3251]))          
+      :file "BrokerPartition.h"
+      :pointmax 3286
+      :fsize 3285
+      :lastmodtime '(22851 31899 668714 891000)
+      :unmatched-syntax '((thing 1209 . 1210) (thing 1210 . 1211) (thing 3107 . 3108) (thing 3145 . 3146))
+      :lexical-table 
+        '(("SWIFT_BROKERPARTITION_H")
+          )
+)
+    (semanticdb-table "TopicPartitionSupervisor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_TOPICPARTITIONSUPERVISOR_H" variable (:constant-flag t) nil [50 82])
+            ("swift/common/Common.h" include nil nil [84 116])
+            ("swift/common/Log.h" include nil nil [117 146])
+            ("swift/config/BrokerConfig.h" include nil nil [147 185])
+            ("swift/util/PermissionCenter.h" include nil nil [186 226])
+            ("tr1/unordered_map" include (:system-flag t) nil [227 255])
+            ("string" include (:system-flag t) nil [256 273])
+            ("swift/broker/service/ZkConnectionStatus.h" include nil nil [274 326])
+            ("swift/monitor/Monitor.h" include nil nil [327 361])
+            ("swift/broker/service/BrokerPartition.h" include nil nil [362 411])
+            ("swift/broker/service/ThreadSafeTaskStatus.h" include nil nil [412 466])
+            ("autil/TimeUtility.h" include nil nil [467 497])
+            ("autil/Lock.h" include nil nil [498 521])
+            ("autil/LoopThread.h" include nil nil [522 551])
+            ("fslib/cache/CacheFile.h" include nil nil [552 586])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [610 618]))                  
+                :type "int")
+                nil [588 619])
+            ("TopicPartitionSupervisor" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [654 661])
+                    ("BrokerPartitionMap" type
+                       (:typedef ("std::map" type
+                             (:template-specifier 
+                                ( ("protocol::PartitionId" type nil nil nil)
+                                  ("std::pair" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [707 821])
+                    ("TopicPartitionSupervisor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("brokerConfig" variable
+                               (:pointer 1
+                                :type ("config::BrokerConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [852 887])
+                            ("status" variable
+                               (:pointer 1
+                                :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [918 945])
+                            ("monitor" variable
+                               (:pointer 1
+                                :type ("monitor::Monitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [946 972])
+                            ("workerMetricsReporter" variable
+                               (:pointer 1
+                                :type ("monitor::AmonMetricsReporter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1002 1054]))                          
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [827 1055])
+                    ("TopicPartitionSupervisor" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1060 1088])
+                    ("loadBrokerPartition" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("taskInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::TaskInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1157 1192]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1117 1193])
+                    ("loadBrokerPartition" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("taskInfoVec" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("protocol::TaskInfo" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1223 1274]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1198 1275])
+                    ("unLoadBrokerPartition" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("topicPartId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::PartitionId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1323 1364]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1281 1365])
+                    ("unLoadBrokerPartition" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partIdVec" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("protocol::PartitionId" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1397 1449]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1370 1450])
+                    ("getPartitionStatus" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("info" variable
+                               (:reference 1
+                                :type ("protocol::HeartbeatInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1499 1529]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1475 1530])
+                    ("getAllPartitions" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partitionIds" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("protocol::PartitionId" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1557 1606]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1535 1607])
+                    ("needRejectServing" function (:type "bool") (reparse-symbol classsubparts) [1612 1729])
+                    ("getBrokerPartition" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partitionId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::PartitionId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1772 1813]))                          
+                        :type ("BrokerPartitionPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1734 1814])
+                    ("amonReport" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1819 1837])
+                    ("start" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1842 1855])
+                    ("stop" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1860 1872])
+                    ("private" label nil (reparse-symbol classsubparts) [1873 1881])
+                    ("setBrokerPartition" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partitionId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::PartitionId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1910 1951])
+                            ("borkerPartition" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("BrokerPartitionPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1981 2023]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1886 2024])
+                    ("recycleBuffer" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2029 2050])
+                    ("commitMessage" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2055 2076])
+                    ("loadBrokerPartitionMutilThread" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("taskInfoVec" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("protocol::TaskInfo" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2117 2168]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2081 2169])
+                    ("unLoadBrokerPartitionMutilThread" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partIdVec" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("protocol::PartitionId" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2212 2264]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2174 2265])
+                    ("private" label nil (reparse-symbol classsubparts) [2267 2275])
+                    ("TopicPartitionSupervisor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2305 2338]))                          
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2280 2339])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2380 2413]))                          
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2344 2414])
+                    ("public" label nil (reparse-symbol classsubparts) [2415 2422])
+                    ("_brokerConfig" variable
+                       (:pointer 1
+                        :type ("config::BrokerConfig" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2427 2463])
+                    ("_monitor" variable
+                       (:pointer 1
+                        :type ("monitor::Monitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2468 2495])
+                    ("_brokerPartitionMap" variable (:type ("BrokerPartitionMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2500 2539])
+                    ("_status" variable
+                       (:pointer 1
+                        :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2544 2572])
+                    ("_brokerPartitionMapMutex" variable (:type ("autil::ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2597 2643])
+                    ("_workerMetricsReporter" variable
+                       (:pointer 1
+                        :type ("monitor::AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2648 2701])
+                    ("_centerBlockPool" variable
+                       (:pointer 1
+                        :type ("util::BlockPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2707 2741])
+                    ("_fileCache" variable
+                       (:pointer 1
+                        :type ("storage::FileCache" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2746 2777])
+                    ("_permissionCenter" variable
+                       (:pointer 1
+                        :type ("util::PermissionCenter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2782 2824])
+                    ("_recycleBufferThread" variable (:type ("autil::LoopThreadPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2830 2872])
+                    ("_commitMessageThread" variable (:type ("autil::LoopThreadPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2877 2919])
+                    ("_commitThreadPool" variable (:type ("autil::ThreadPoolPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2924 2963])
+                    ("_commitThreadPoolMutex" variable (:type ("autil::ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2968 3012])
+                    ("_loadThreadPool" variable (:type ("autil::ThreadPoolPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3017 3054])
+                    ("_unloadThreadPool" variable (:type ("autil::ThreadPoolPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3059 3098])
+                    ("_unloadMutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3103 3135])
+                    ("private" label nil (reparse-symbol classsubparts) [3137 3145])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [3150 3170]))                  
+                :type "class")
+                nil [621 3173])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("TopicPartitionSupervisor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3193 3218]))                  
+                :type "int")
+                nil [3175 3219])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3241 3249]))                  
+                :type "int")
+                nil [3221 3250]))          
+      :file "TopicPartitionSupervisor.h"
+      :pointmax 3294
+      :fsize 3293
+      :lastmodtime '(22851 31899 669714 889000)
+      :unmatched-syntax '((thing 3294 . 3294) (thing 3294 . 3294) (thing 3294 . 3294))
+      :lexical-table 
+        '(("SWIFT_TOPICPARTITIONSUPERVISOR_H")
+          )
+)
+    (semanticdb-table "SConscript"
+      :major-mode 'python-mode
+      :tags 
+        '( ("Import" code nil nil [24 37])
+            ("env" variable nil nil [38 55])
+            ("service" variable nil nil [57 78])
+            ("libnames" variable nil nil [182 255])
+            ("env" code nil nil [257 444])
+            ("env" code nil nil [446 463])
+            ("Return" code nil nil [464 484]))          
+      :file "SConscript"
+      :pointmax 486
+      :fsize 485
+      :lastmodtime '(22809 22767 578909 857000)
+      :unmatched-syntax nil)
+    (semanticdb-table "TopicPartitionSupervisor.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/TopicPartitionSupervisor.h" include nil nil [1 59])
+            ("swift/protocol/ErrCode.pb.h" include nil nil [60 98])
+            ("swift/protocol/MessageComparator.h" include nil nil [99 144])
+            ("swift/config/ConfigDefine.h" include nil nil [145 183])
+            ("swift/broker/service/CommitWorkItem.h" include nil nil [184 232])
+            ("swift/broker/service/LoadWorkItem.h" include nil nil [233 279])
+            ("swift/broker/service/UnloadWorkItem.h" include nil nil [280 328])
+            ("swift/broker/storage_dfs/FileCache.h" include nil nil [329 376])
+            ("autil/TimeUtility.h" include nil nil [377 407])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [428 433]))                  
+                :type "int")
+                nil [408 434])
+            ("fslib::cache" using (:type ("fslib::cache" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [436 465])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [466 486])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [487 509])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [530 539]))                  
+                :type "int")
+                nil [510 540])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [561 569]))                  
+                :type "int")
+                nil [541 570])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [591 596]))                  
+                :type "int")
+                nil [571 597])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [620 628]))                  
+                :type "int")
+                nil [598 629])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [646 654])
+                    ("" variable (:type ("TopicPartitionSupervisor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [655 680]))                  
+                :type "int")
+                nil [630 681])
+            ("TopicPartitionSupervisor" function
+               (:constructor-flag t
+                :parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("brokerConfig" variable
+                       (:pointer 1
+                        :type ("config::BrokerConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [735 770])
+                    ("status" variable
+                       (:pointer 1
+                        :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [797 824])
+                    ("monitor" variable
+                       (:pointer 1
+                        :type ("monitor::Monitor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [825 851])
+                    ("workerMetricsReporter" variable
+                       (:pointer 1
+                        :type ("monitor::AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [860 912]))                  
+                :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                nil [684 1130])
+            ("TopicPartitionSupervisor" function
+               (:destructor-flag t
+                :parent "TopicPartitionSupervisor"
+                :type "void")
+                nil [1132 1345])
+            ("start" function
+               (:parent "TopicPartitionSupervisor"
+                :type "void")
+                nil [1347 3122])
+            ("loadBrokerPartition" function
+               (:parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("toLoad" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("TaskInfo" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3175 3206]))                  
+                :type "void")
+                nil [3124 4252])
+            ("loadBrokerPartition" function
+               (:parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("taskInfo" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("TaskInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4319 4344]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [4254 5993])
+            ("unLoadBrokerPartition" function
+               (:parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("toUnLoad" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("PartitionId" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6048 6084]))                  
+                :type "void")
+                nil [5995 7202])
+            ("unLoadBrokerPartition" function
+               (:parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("partId" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionId" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7262 7288]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [7204 10356])
+            ("getAllPartitions" function
+               (:parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("partitionIds" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("PartitionId" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10415 10454]))                  
+                :type "void")
+                nil [10358 10769])
+            ("getPartitionStatus" function
+               (:parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("info" variable
+                       (:reference 1
+                        :type ("HeartbeatInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10821 10841]))                  
+                :type "void")
+                nil [10771 11246])
+            ("stop" function
+               (:parent "TopicPartitionSupervisor"
+                :type "void")
+                nil [11248 12022])
+            ("getBrokerPartition" function
+               (:parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("partitionId" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionId" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12097 12128]))                  
+                :type ("BrokerPartitionPtr" type (:type "class") nil nil))
+                nil [12024 12455])
+            ("setBrokerPartition" function
+               (:parent "TopicPartitionSupervisor"
+                :arguments 
+                  ( ("partitionId" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionId" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12516 12547])
+                    ("borkerPartition" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("BrokerPartitionPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12556 12598]))                  
+                :type "void")
+                nil [12457 12771])
+            ("amonReport" function
+               (:parent "TopicPartitionSupervisor"
+                :type "void")
+                nil [12773 15423])
+            ("recycleBuffer" function
+               (:parent "TopicPartitionSupervisor"
+                :type "void")
+                nil [15425 18106])
+            ("commitMessage" function
+               (:parent "TopicPartitionSupervisor"
+                :type "void")
+                nil [18108 19240])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [19261 19269]))                  
+                :type "int")
+                nil [19241 19270]))          
+      :file "TopicPartitionSupervisor.cpp"
+      :pointmax 19272
+      :fsize 19271
+      :lastmodtime '(22851 31899 669714 889000)
+      :unmatched-syntax nil)
+    (semanticdb-table "BrokerWorker.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/BrokerWorker.h" include nil nil [1 47])
+            ("swift/config/BrokerConfigParser.h" include nil nil [48 92])
+            ("swift/config/ConfigReader.h" include nil nil [93 131])
+            ("swift/config/ConfigDefine.h" include nil nil [132 170])
+            ("autil/StringUtil.h" include nil nil [171 200])
+            ("swift/common/PathDefine.h" include nil nil [201 237])
+            ("autil/TimeUtility.h" include nil nil [238 268])
+            ("autil/StringUtil.h" include nil nil [269 298])
+            ("swift/protocol/Heartbeat.pb.h" include nil nil [299 339])
+            ("fslib/fs/FileSystem.h" include nil nil [340 372])
+            ("swift/broker/version.h" include nil nil [373 406])
+            ("sys/types.h" include (:system-flag t) nil [407 429])
+            ("unistd.h" include (:system-flag t) nil [430 449])
+            ("BEGIN_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [484 496]))                  
+                :type "int")
+                nil [451 497])
+            ("createWorker" function
+               (:pointer 1
+                :type ("WorkerBase" type (:type "class") nil nil))
+                nil [498 575])
+            ("END_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [607 619]))                  
+                :type "int")
+                nil [576 620])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [644 652]))                  
+                :type "int")
+                nil [622 653])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [670 678])
+                    ("" variable (:type ("BrokerWorker" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [679 692]))                  
+                :type "int")
+                nil [654 693])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [714 721]))                  
+                :type "int")
+                nil [694 722])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [743 751]))                  
+                :type "int")
+                nil [723 752])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [773 778]))                  
+                :type "int")
+                nil [753 779])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("config" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [800 807]))                  
+                :type "int")
+                nil [780 808])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [829 838]))                  
+                :type "int")
+                nil [809 839])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [840 862])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [863 883])
+            ("std::tr1" using (:type ("std::tr1" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [884 909])
+            ("BrokerWorker::CHECK_MONITOR_INTERVAL" variable
+               (:constant-flag t
+                :default-value "100 * 1000"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [911 975])
+            ("BrokerWorker::AMON_REPORT_INTERVAL" variable
+               (:constant-flag t
+                :default-value "100 * 1000"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [986 1048])
+            ("BrokerWorker::LEADER_RETRY_TIME_INTERVAL" variable
+               (:constant-flag t
+                :default-value "1000 * 1000"
+                :type ("uint32_t" type (:type "class") nil nil))
+                nil [1062 1132])
+            ("BrokerWorker::LEADER_RETRY_COUNT" variable
+               (:constant-flag t
+                :default-value "90"
+                :type ("uint32_t" type (:type "class") nil nil))
+                nil [1139 1192])
+            ("BrokerWorker::CONFIG" variable
+               (:constant-flag t
+                :default-value "\"config\""
+                :type ("string" type (:type "class") nil nil))
+                nil [1194 1239])
+            ("BrokerWorker::ROLE" variable
+               (:constant-flag t
+                :default-value "\"role\""
+                :type ("string" type (:type "class") nil nil))
+                nil [1240 1281])
+            ("BrokerWorker::DEFAULT_LEADER_LEASE_TIME" variable
+               (:constant-flag t
+                :default-value "\"10\""
+                :type ("string" type (:type "class") nil nil))
+                nil [1283 1343])
+            ("BrokerWorker::DEFAULT_LEADER_LOOP_INTERVAL" variable
+               (:constant-flag t
+                :default-value "\"2\""
+                :type ("string" type (:type "class") nil nil))
+                nil [1351 1413])
+            ("BrokerWorker" function
+               (:constructor-flag t
+                :parent "BrokerWorker"
+                :type ("BrokerWorker" type (:type "class") nil nil))
+                nil [1420 1720])
+            ("BrokerWorker" function
+               (:destructor-flag t
+                :parent "BrokerWorker"
+                :type "void")
+                nil [1722 2067])
+            ("doInitOptions" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [2070 2342])
+            ("doExtractOptions" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [2344 2499])
+            ("doInit" function
+               (:parent "BrokerWorker"
+                :type "bool")
+                nil [2501 3348])
+            ("loadConfig" function
+               (:parent "BrokerWorker"
+                :type "bool")
+                nil [3350 4102])
+            ("doStart" function
+               (:parent "BrokerWorker"
+                :type "bool")
+                nil [4104 5688])
+            ("doStop" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [5690 6118])
+            ("doIdle" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [6120 6168])
+            ("becomeLeader" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [6170 6344])
+            ("getAccessKey" function
+               (:parent "BrokerWorker"
+                :type ("string" type (:type "class") nil nil))
+                nil [6346 6471])
+            ("noLongerLeader" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [6473 6730])
+            ("amonReport" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [6732 7064])
+            ("checkMonitor" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [7066 7215])
+            ("getWorkerAddress" function
+               (:parent "BrokerWorker"
+                :type ("string" type (:type "class") nil nil))
+                nil [7217 7342])
+            ("getHeartbeatAddress" function
+               (:parent "BrokerWorker"
+                :type ("string" type (:type "class") nil nil))
+                nil [7344 7480])
+            ("getHeartbeatInfo" function
+               (:parent "BrokerWorker"
+                :type ("HeartbeatInfo" type (:type "class") nil nil))
+                nil [7482 7618])
+            ("initHeartbeat" function
+               (:parent "BrokerWorker"
+                :type "bool")
+                nil [7620 7907])
+            ("heartbeat" function
+               (:parent "BrokerWorker"
+                :type "void")
+                nil [7909 8434])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8456 8464]))                  
+                :type "int")
+                nil [8436 8465]))          
+      :file "BrokerWorker.cpp"
+      :pointmax 8466
+      :fsize 8465
+      :lastmodtime '(22875 4373 622105 769000)
+      :unmatched-syntax nil)
+    (semanticdb-table "BrokerWorker.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_BROKERWORKER_H" variable (:constant-flag t) nil [38 58])
+            ("swift/common/Common.h" include (:system-flag t) nil [60 92])
+            ("swift/common/Log.h" include (:system-flag t) nil [93 122])
+            ("swift/config/BrokerConfig.h" include (:system-flag t) nil [123 161])
+            ("swift/protocol/Heartbeat.pb.h" include (:system-flag t) nil [162 202])
+            ("swift/broker/service/TaskInfoMonitor.h" include (:system-flag t) nil [203 252])
+            ("swift/broker/service/TopicPartitionSupervisor.h" include (:system-flag t) nil [253 311])
+            ("swift/broker/service/TransporterImpl.h" include (:system-flag t) nil [312 361])
+            ("swift/broker/service/ZkConnectionStatus.h" include (:system-flag t) nil [362 414])
+            ("swift/monitor/Monitor.h" include (:system-flag t) nil [415 449])
+            ("worker_framework/LeaderedWorkerBase.h" include (:system-flag t) nil [450 498])
+            ("swift/heartbeat/HeartbeatReporter.h" include nil nil [499 545])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [569 577]))                  
+                :type "int")
+                nil [547 578])
+            ("LeaderedWorkerBase" variable (:type "int") nil [642 2455])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("BrokerWorker" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2475 2488]))                  
+                :type "int")
+                nil [2457 2489])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2511 2519]))                  
+                :type "int")
+                nil [2491 2520]))          
+      :file "BrokerWorker.h"
+      :pointmax 2552
+      :fsize 2551
+      :lastmodtime '(22809 22767 577909 856000)
+      :unmatched-syntax '((thing 641 . 642) (thing 640 . 641) (thing 639 . 640) (thing 639 . 640) (thing 627 . 640) (thing 628 . 639) (thing 628 . 639) (thing 627 . 628) (thing 627 . 628) (thing 608 . 627) (thing 601 . 607) (thing 599 . 600) (thing 586 . 598) (thing 580 . 585))
+      :lexical-table 
+        '(("SWIFT_BROKERWORKER_H")
+          )
+)
+    (semanticdb-table "TransporterImpl.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/TransporterImpl.h" include nil nil [1 50])
+            ("swift/broker/storage/BrokerResponseError.h" include nil nil [51 104])
+            ("swift/protocol/ErrCode.pb.h" include nil nil [105 143])
+            ("swift/util/ScopedAtomic.h" include nil nil [144 180])
+            ("swift/util/LogClosure.h" include nil nil [181 215])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [237 246]))                  
+                :type "int")
+                nil [217 247])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [268 273]))                  
+                :type "int")
+                nil [248 274])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [295 303]))                  
+                :type "int")
+                nil [275 304])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [328 336]))                  
+                :type "int")
+                nil [306 337])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [354 362])
+                    ("" variable (:type ("TransporterImpl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [363 379]))                  
+                :type "int")
+                nil [338 380])
+            ("TransporterImpl" function
+               (:constructor-flag t
+                :parent "TransporterImpl"
+                :arguments 
+                  ( ("tp" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [415 444]))                  
+                :type ("TransporterImpl" type (:type "class") nil nil))
+                nil [382 473])
+            ("TransporterImpl" function
+               (:destructor-flag t
+                :parent "TransporterImpl"
+                :type "void")
+                nil [475 515])
+            ("getBrokerPartition" function
+               (:parent "TransporterImpl"
+                :arguments 
+                  ( ("topicName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [581 610])
+                    ("id" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [611 623])
+                    ("errorInfo" variable
+                       (:pointer 1
+                        :type ("ErrorInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [624 645]))                  
+                :type ("BrokerPartitionPtr" type (:type "class") nil nil))
+                nil [517 1487])
+            ("getMessage" function
+               (:parent "TransporterImpl"
+                :arguments 
+                  ( ("controller" variable
+                       (:pointer 1
+                        :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1524 1568])
+                    ("request" variable
+                       (:pointer 1
+                        :type ("swift::protocol::ConsumptionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1610 1655])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("swift::protocol::MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1691 1734])
+                    ("done" variable
+                       (:pointer 1
+                        :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1770 1802]))                  
+                :type "void")
+                nil [1489 2744])
+            ("sendMessage" function
+               (:parent "TransporterImpl"
+                :arguments 
+                  ( ("controller" variable
+                       (:pointer 1
+                        :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2782 2826])
+                    ("request" variable
+                       (:pointer 1
+                        :type ("swift::protocol::ProductionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2859 2903])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("swift::protocol::MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2930 2973])
+                    ("done" variable
+                       (:pointer 1
+                        :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3000 3032]))                  
+                :type "void")
+                nil [2746 3821])
+            ("getMaxMessageId" function
+               (:parent "TransporterImpl"
+                :arguments 
+                  ( ("controller" variable
+                       (:pointer 1
+                        :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3863 3907])
+                    ("request" variable
+                       (:pointer 1
+                        :type ("swift::protocol::MessageIdRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3954 3997])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("swift::protocol::MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4038 4083])
+                    ("done" variable
+                       (:pointer 1
+                        :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4124 4156]))                  
+                :type "void")
+                nil [3823 4969])
+            ("getMinMessageIdByTime" function
+               (:parent "TransporterImpl"
+                :arguments 
+                  ( ("controller" variable
+                       (:pointer 1
+                        :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5017 5061])
+                    ("request" variable
+                       (:pointer 1
+                        :type ("swift::protocol::MessageIdRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5078 5121])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("swift::protocol::MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5132 5177])
+                    ("done" variable
+                       (:pointer 1
+                        :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5188 5220]))                  
+                :type "void")
+                nil [4971 6050])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6072 6080]))                  
+                :type "int")
+                nil [6052 6081]))          
+      :file "TransporterImpl.cpp"
+      :pointmax 6083
+      :fsize 6654
+      :lastmodtime '(22877 54282 179580 360000)
+      :unmatched-syntax '((thing 5187 . 5188) (thing 5186 . 5187) (thing 5131 . 5132) (thing 5130 . 5131) (thing 5077 . 5078) (thing 5076 . 5077) (thing 5070 . 5075) (thing 5016 . 5017) (thing 5015 . 5016) (thing 4123 . 4124) (thing 4122 . 4123) (thing 4037 . 4038) (thing 4036 . 4037) (thing 3953 . 3954) (thing 3952 . 3953) (thing 3946 . 3951) (thing 3862 . 3863) (thing 3861 . 3862) (thing 2999 . 3000) (thing 2998 . 2999) (thing 2929 . 2930) (thing 2928 . 2929) (thing 2858 . 2859) (thing 2857 . 2858) (thing 2851 . 2856) (thing 2781 . 2782) (thing 2780 . 2781) (thing 1769 . 1770) (thing 1768 . 1769) (thing 1690 . 1691) (thing 1689 . 1690) (thing 1609 . 1610) (thing 1608 . 1609) (thing 1602 . 1607) (thing 1523 . 1524) (thing 1522 . 1523)))
+    (semanticdb-table "TaskInfoMonitor.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/TaskInfoMonitor.h" include (:system-flag t) nil [1 50])
+            ("autil/StringUtil.h" include (:system-flag t) nil [51 80])
+            ("autil/TimeUtility.h" include (:system-flag t) nil [81 111])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [135 143]))                  
+                :type "int")
+                nil [113 144])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [165 174]))                  
+                :type "int")
+                nil [145 175])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [196 201]))                  
+                :type "int")
+                nil [176 202])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [219 227])
+                    ("" variable (:type ("TaskInfoMonitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [228 244]))                  
+                :type "int")
+                nil [203 245])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [246 266])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [267 289])
+            ("cm_basic" using (:type ("cm_basic" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [290 315])
+            ("TaskInfoMonitor" function
+               (:constructor-flag t
+                :parent "TaskInfoMonitor"
+                :type ("TaskInfoMonitor" type (:type "class") nil nil))
+                nil [317 399])
+            ("TaskInfoMonitor" function
+               (:destructor-flag t
+                :parent "TaskInfoMonitor"
+                :type "void")
+                nil [401 472])
+            ("init" function
+               (:parent "TaskInfoMonitor"
+                :arguments 
+                  ( ("address" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [501 528])
+                    ("tpSupervisor" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [557 596])
+                    ("timeout" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [625 642]))                  
+                :type "bool")
+                nil [474 958])
+            ("extractParameter" function
+               (:parent "TaskInfoMonitor"
+                :arguments 
+                  ( ("address" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [999 1026])
+                    ("host" variable
+                       (:reference 1
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1066 1084])
+                    ("path" variable
+                       (:reference 1
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1125 1143]))                  
+                :type "bool")
+                nil [960 1811])
+            ("start" function
+               (:parent "TaskInfoMonitor"
+                :type "bool")
+                nil [1813 2700])
+            ("stop" function
+               (:parent "TaskInfoMonitor"
+                :type "void")
+                nil [2702 3007])
+            ("getData" function
+               (:parent "TaskInfoMonitor"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3039 3063])
+                    ("msg" variable
+                       (:reference 1
+                        :type ("DispatchInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3064 3082]))                  
+                :type "bool")
+                nil [3009 3888])
+            ("disconnectNotify" function
+               (:parent "TaskInfoMonitor"
+                :arguments 
+                  ( ("zk" variable
+                       (:pointer 1
+                        :type ("ZkWrapper" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3929 3943])
+                    ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3944 3963])
+                    ("status" variable (:type ("ZkWrapper::ZkStatus" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4003 4030]))                  
+                :type "void")
+                nil [3890 4610])
+            ("dataChange" function
+               (:parent "TaskInfoMonitor"
+                :arguments 
+                  ( ("zk" variable
+                       (:pointer 1
+                        :type ("ZkWrapper" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4645 4660])
+                    ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4661 4685])
+                    ("status" variable (:type ("ZkWrapper::ZkStatus" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4686 4713]))                  
+                :type "void")
+                nil [4612 4931])
+            ("fillTaskInfo" function
+               (:parent "TaskInfoMonitor"
+                :type "void")
+                nil [4933 5519])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5541 5549]))                  
+                :type "int")
+                nil [5521 5550]))          
+      :file "TaskInfoMonitor.cpp"
+      :pointmax 5552
+      :fsize 5551
+      :lastmodtime '(22809 22767 579909 858000)
+      :unmatched-syntax nil)
+    (semanticdb-table "PartitionStatusUpdater.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/PartitionStatusUpdater.h" include (:system-flag t) nil [1 57])
+            ("swift/protocol/MessageComparator.h" include (:system-flag t) nil [58 103])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [105 125])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [147 156]))                  
+                :type "int")
+                nil [127 157])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [180 188]))                  
+                :type "int")
+                nil [158 189])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [206 214])
+                    ("" variable (:type ("PartitionStatusUpdater" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [215 238]))                  
+                :type "int")
+                nil [190 239])
+            ("PartitionStatusUpdater" function
+               (:constructor-flag t
+                :parent "PartitionStatusUpdater"
+                :type ("PartitionStatusUpdater" type (:type "class") nil nil))
+                nil [241 320])
+            ("PartitionStatusUpdater" function
+               (:destructor-flag t
+                :parent "PartitionStatusUpdater"
+                :type "void")
+                nil [322 376])
+            ("init" function
+               (:parent "PartitionStatusUpdater"
+                :arguments 
+                  ( ("tpSupervisor" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [412 451]))                  
+                :type "void")
+                nil [378 516])
+            ("updateTaskInfo" function
+               (:parent "PartitionStatusUpdater"
+                :arguments 
+                  ( ("msg" variable
+                       (:reference 1
+                        :type ("protocol::DispatchInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [562 590]))                  
+                :type "void")
+                nil [518 1097])
+            ("doDiff" function
+               (:parent "PartitionStatusUpdater"
+                :arguments 
+                  ( ("current" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("PartitionId" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1135 1170])
+                    ("target" variable
+                       (:reference 1
+                        :type ("set" type
+                             (:template-specifier 
+                                ( ("TaskInfo" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1208 1230])
+                    ("toLoad" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("TaskInfo" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1267 1292])
+                    ("toUnLoad" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("PartitionId" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1330 1360]))                  
+                :type "void")
+                nil [1099 2080])
+            ("getTPFromDispatchInfo" function
+               (:parent "PartitionStatusUpdater"
+                :arguments 
+                  ( ("msg" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DispatchInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2133 2157])
+                    ("taskInfoSet" variable
+                       (:reference 1
+                        :type ("set" type
+                             (:template-specifier 
+                                ( ("protocol::TaskInfo" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2166 2203]))                  
+                :type "bool")
+                nil [2082 2698])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2720 2728]))                  
+                :type "int")
+                nil [2700 2729]))          
+      :file "PartitionStatusUpdater.cpp"
+      :pointmax 2731
+      :fsize 2730
+      :lastmodtime '(22809 22767 578909 857000)
+      :unmatched-syntax nil)
+    (semanticdb-table "LoadWorkItem.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/LoadWorkItem.h" include (:system-flag t) nil [1 47])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [71 79]))                  
+                :type "int")
+                nil [49 80])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [97 105])
+                    ("" variable (:type ("LoadWorkItem" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [106 119]))                  
+                :type "int")
+                nil [81 120])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [121 143])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [164 173]))                  
+                :type "int")
+                nil [144 174])
+            ("LoadWorkItem" function
+               (:constructor-flag t
+                :parent "LoadWorkItem"
+                :arguments 
+                  ( ("tpSupervisor" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [203 242])
+                    ("taskInfo" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("TaskInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [271 296]))                  
+                :type ("LoadWorkItem" type (:type "class") nil nil))
+                nil [176 361])
+            ("LoadWorkItem" function
+               (:destructor-flag t
+                :parent "LoadWorkItem"
+                :type "void")
+                nil [363 396])
+            ("process" function
+               (:parent "LoadWorkItem"
+                :type "void")
+                nil [398 902])
+            ("destroy" function
+               (:parent "LoadWorkItem"
+                :type "void")
+                nil [904 953])
+            ("drop" function
+               (:parent "LoadWorkItem"
+                :type "void")
+                nil [955 999])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1021 1029]))                  
+                :type "int")
+                nil [1001 1030]))          
+      :file "LoadWorkItem.cpp"
+      :pointmax 1032
+      :fsize 1031
+      :lastmodtime '(22809 22767 578909 857000)
+      :unmatched-syntax nil)
+    (semanticdb-table "CommitWorkItem.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_COMMITWORKITEM_H" variable (:constant-flag t) nil [40 62])
+            ("swift/common/Common.h" include (:system-flag t) nil [64 96])
+            ("swift/common/Log.h" include (:system-flag t) nil [97 126])
+            ("autil/WorkItem.h" include (:system-flag t) nil [127 154])
+            ("swift/broker/service/BrokerPartition.h" include (:system-flag t) nil [155 204])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [227 235]))                  
+                :type "int")
+                nil [205 236])
+            ("CommitWorkItem" type
+               (:superclasses 
+                  ( ("autil::WorkItem" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [286 293])
+                    ("CommitWorkItem" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("brokerPartition" variable
+                               (:reference 1
+                                :type ("BrokerPartitionPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [313 349]))                          
+                        :type ("CommitWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [298 448])
+                    ("CommitWorkItem" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [453 514])
+                    ("private" label nil (reparse-symbol classsubparts) [515 523])
+                    ("CommitWorkItem" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("CommitWorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [543 566]))                          
+                        :type ("CommitWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [528 567])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("CommitWorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [598 621]))                          
+                        :type ("CommitWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [572 622])
+                    ("public" label nil (reparse-symbol classsubparts) [623 630])
+                    ("process" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [635 696])
+                    ("destroy" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [701 740])
+                    ("drop" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [745 779])
+                    ("private" label nil (reparse-symbol classsubparts) [780 788])
+                    ("_brokerPartition" variable (:type ("BrokerPartitionPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [793 829])
+                    ("private" label nil (reparse-symbol classsubparts) [831 839])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [844 864]))                  
+                :type "class")
+                nil [238 867])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("CommitWorkItem" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [887 902]))                  
+                :type "int")
+                nil [869 903])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [925 933]))                  
+                :type "int")
+                nil [905 934]))          
+      :file "CommitWorkItem.h"
+      :pointmax 968
+      :fsize 967
+      :lastmodtime '(22809 22767 577909 856000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SWIFT_COMMITWORKITEM_H")
+          )
+)
+    (semanticdb-table "ZkConnectionStatus.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_ZKCONNECTIONSTATUS_H" variable (:constant-flag t) nil [44 70])
+            ("swift/common/Common.h" include (:system-flag t) nil [72 104])
+            ("swift/common/Log.h" include (:system-flag t) nil [105 134])
+            ("autil/TimeUtility.h" include (:system-flag t) nil [135 165])
+            ("autil/Lock.h" include (:system-flag t) nil [166 189])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [212 220]))                  
+                :type "int")
+                nil [190 221])
+            ("ZkConnectionStatus" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [250 257])
+                    ("ZkConnectionStatus" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [262 283])
+                    ("ZkConnectionStatus" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [288 310])
+                    ("public" label nil (reparse-symbol classsubparts) [311 318])
+                    ("setHeartbeatStatus" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("alive" variable (:type "bool") (reparse-symbol arg-sub-list) [347 358])
+                            ("timestamp" variable
+                               (:default-value "autil::TimeUtility::currentTime()"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [359 412]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [323 414])
+                    ("setZkMonitorStatus" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("alive" variable (:type "bool") (reparse-symbol arg-sub-list) [443 454])
+                            ("timestamp" variable
+                               (:default-value "autil::TimeUtility::currentTime()"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [455 508]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [419 510])
+                    ("needRejectServing" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timestamp" variable
+                               (:default-value "autil::TimeUtility::currentTime()"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [539 592]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [516 600])
+                    ("rejectStatus" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [623 641])
+                            ("rejectTime" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [642 662]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [605 669])
+                    ("private" label nil (reparse-symbol classsubparts) [670 678])
+                    ("ZkConnectionStatus" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [702 729]))                          
+                        :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [683 730])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [765 792]))                          
+                        :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [735 793])
+                    ("public" label nil (reparse-symbol classsubparts) [794 801])
+                    ("private" label nil (reparse-symbol classsubparts) [802 810])
+                    ("_heartbeatAlive" variable (:type "bool") (reparse-symbol classsubparts) [815 836])
+                    ("_zkMonitorAlive" variable (:type "bool") (reparse-symbol classsubparts) [841 862])
+                    ("_heartbeatLostTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [867 899])
+                    ("_zkMonitorLostTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [904 936])
+                    ("_lock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [941 976])
+                    ("MAX_SERVING_TIME_AFTER_LOST" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [981 1030])
+                    ("private" label nil (reparse-symbol classsubparts) [1032 1040])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1045 1065]))                  
+                :type "class")
+                nil [223 1068])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("ZkConnectionStatus" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1088 1107]))                  
+                :type "int")
+                nil [1070 1108])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1130 1138]))                  
+                :type "int")
+                nil [1110 1139]))          
+      :file "ZkConnectionStatus.h"
+      :pointmax 1177
+      :fsize 1176
+      :lastmodtime '(22809 22767 582909 862000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SWIFT_ZKCONNECTIONSTATUS_H")
+          )
+)
+    (semanticdb-table "TaskInfoMonitor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_TASKINFOMONITOR_H" variable (:constant-flag t) nil [41 64])
+            ("swift/common/Common.h" include (:system-flag t) nil [66 98])
+            ("swift/common/Log.h" include (:system-flag t) nil [99 128])
+            ("autil/Lock.h" include (:system-flag t) nil [129 152])
+            ("swift/broker/service/PartitionStatusUpdater.h" include (:system-flag t) nil [153 209])
+            ("cm_basic/util/zk_wrapper.h" include (:system-flag t) nil [210 247])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [271 279]))                  
+                :type "int")
+                nil [249 280])
+            ("TaskInfoMonitor" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [306 313])
+                    ("TaskInfoMonitor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("TaskInfoMonitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [318 336])
+                    ("TaskInfoMonitor" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [341 360])
+                    ("private" label nil (reparse-symbol classsubparts) [361 369])
+                    ("TaskInfoMonitor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TaskInfoMonitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [390 414]))                          
+                        :type ("TaskInfoMonitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [374 415])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TaskInfoMonitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [447 471]))                          
+                        :type ("TaskInfoMonitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [420 472])
+                    ("public" label nil (reparse-symbol classsubparts) [473 480])
+                    ("start" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [485 498])
+                    ("stop" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [503 515])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("address" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [530 557])
+                            ("tpSupervisor" variable
+                               (:pointer 1
+                                :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [573 612])
+                            ("timeout" variable
+                               (:default-value "10000"
+                                :type ("uint32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [628 652]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [520 654])
+                    ("setZkConnectionStatus" function
+                       (:arguments 
+                          ( ("status" variable
+                               (:pointer 1
+                                :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [691 718]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [664 754])
+                    ("public" label nil (reparse-symbol classsubparts) [755 762])
+                    ("isBad" function (:type "bool") (reparse-symbol classsubparts) [767 817])
+                    ("public" label nil (reparse-symbol classsubparts) [818 825])
+                    ("dataChange" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("zk" variable
+                               (:pointer 1
+                                :type ("cm_basic::ZkWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [873 898])
+                            ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [899 923])
+                            ("status" variable (:type ("cm_basic::ZkWrapper::ZkStatus" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [945 982]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [857 983])
+                    ("disconnectNotify" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("zk" variable
+                               (:pointer 1
+                                :type ("cm_basic::ZkWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1010 1034])
+                            ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1035 1059])
+                            ("status" variable (:type ("cm_basic::ZkWrapper::ZkStatus" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1087 1124]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [988 1125])
+                    ("private" label nil (reparse-symbol classsubparts) [1126 1134])
+                    ("extractParameter" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("address" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1161 1188])
+                            ("host" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1189 1207])
+                            ("path" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1235 1253]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1139 1254])
+                    ("getData" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1272 1296])
+                            ("msg" variable
+                               (:reference 1
+                                :type ("protocol::DispatchInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1297 1325]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1259 1326])
+                    ("fillTaskInfo" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1331 1351])
+                    ("private" label nil (reparse-symbol classsubparts) [1352 1360])
+                    ("_zk" variable (:type ("cm_basic::ZkWrapper" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1365 1389])
+                    ("_mutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1394 1420])
+                    ("_path" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1425 1443])
+                    ("_status" variable
+                       (:pointer 1
+                        :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1448 1476])
+                    ("_partStatusUpdater" variable (:type ("PartitionStatusUpdater" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1481 1523])
+                    ("_isStopped" variable (:type "bool") (reparse-symbol classsubparts) [1537 1553])
+                    ("private" label nil (reparse-symbol classsubparts) [1554 1562])
+                    ("TaskInfoMonitorTest" friend nil (reparse-symbol classsubparts) [1567 1599])
+                    ("private" label nil (reparse-symbol classsubparts) [1601 1609])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1614 1634]))                  
+                :type "class")
+                nil [282 1637])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("TaskInfoMonitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1657 1673]))                  
+                :type "int")
+                nil [1639 1674])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1696 1704]))                  
+                :type "int")
+                nil [1676 1705]))          
+      :file "TaskInfoMonitor.h"
+      :pointmax 1740
+      :fsize 1739
+      :lastmodtime '(22809 22767 580909 860000)
+      :unmatched-syntax '((thing 1578 . 1579) (thing 1599 . 1600))
+      :lexical-table 
+        '(("SWIFT_TASKINFOMONITOR_H")
+          )
+)
+    (semanticdb-table "PartitionStatusUpdater.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_PARTITIONSTATUSUPDATER_H" variable (:constant-flag t) nil [48 78])
+            ("swift/common/Common.h" include (:system-flag t) nil [80 112])
+            ("swift/common/Log.h" include (:system-flag t) nil [113 142])
+            ("swift/broker/service/TopicPartitionSupervisor.h" include (:system-flag t) nil [143 201])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [225 233]))                  
+                :type "int")
+                nil [203 234])
+            ("PartitionStatusUpdater" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [267 274])
+                    ("PartitionStatusUpdater" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("PartitionStatusUpdater" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [279 304])
+                    ("PartitionStatusUpdater" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [309 335])
+                    ("private" label nil (reparse-symbol classsubparts) [336 344])
+                    ("PartitionStatusUpdater" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionStatusUpdater" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [372 403]))                          
+                        :type ("PartitionStatusUpdater" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [349 404])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionStatusUpdater" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [443 474]))                          
+                        :type ("PartitionStatusUpdater" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [409 475])
+                    ("public" label nil (reparse-symbol classsubparts) [476 483])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("tpSupervisor" variable
+                               (:pointer 1
+                                :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [498 537]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [488 538])
+                    ("updateTaskInfo" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("msg" variable
+                               (:reference 1
+                                :type ("protocol::DispatchInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [563 591]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [543 592])
+                    ("private" label nil (reparse-symbol classsubparts) [593 601])
+                    ("doDiff" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("current" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("protocol::PartitionId" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [618 668])
+                            ("target" variable
+                               (:reference 1
+                                :type ("std::set" type
+                                     (:template-specifier 
+                                        ( ("protocol::TaskInfo" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [685 722])
+                            ("toLoad" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("protocol::TaskInfo" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [739 779])
+                            ("toUnLoad" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("protocol::PartitionId" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [796 841]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [606 842])
+                    ("getTPFromDispatchInfo" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("msg" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::DispatchInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [874 908])
+                            ("taskInfoSet" variable
+                               (:reference 1
+                                :type ("std::set" type
+                                     (:template-specifier 
+                                        ( ("protocol::TaskInfo" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [940 982]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [847 989])
+                    ("private" label nil (reparse-symbol classsubparts) [990 998])
+                    ("_tpSupervisor" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1003 1043])
+                    ("private" label nil (reparse-symbol classsubparts) [1044 1052])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1057 1077]))                  
+                :type "class")
+                nil [236 1080])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("PartitionStatusUpdater" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1100 1123]))                  
+                :type "int")
+                nil [1082 1124])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1146 1154]))                  
+                :type "int")
+                nil [1126 1155]))          
+      :file "PartitionStatusUpdater.h"
+      :pointmax 1197
+      :fsize 1196
+      :lastmodtime '(22809 22767 578909 857000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SWIFT_PARTITIONSTATUSUPDATER_H")
+          )
+)
+    (semanticdb-table "TransporterImpl.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_TRANSPORTERIMPL_H" variable (:constant-flag t) nil [41 64])
+            ("swift/common/Common.h" include nil nil [66 98])
+            ("swift/common/Log.h" include nil nil [99 128])
+            ("swift/protocol/Transport.pb.h" include nil nil [129 169])
+            ("arpc/CommonMacros.h" include nil nil [170 200])
+            ("swift/broker/service/TopicPartitionSupervisor.h" include nil nil [201 259])
+            ("swift/broker/service/RequestChecker.h" include nil nil [260 308])
+            ("swift/util/Atomic.h" include nil nil [309 339])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [363 371]))                  
+                :type "int")
+                nil [341 372])
+            ("TransporterImpl" type
+               (:superclasses 
+                  ( ("swift::protocol::Transporter" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [436 443])
+                    ("TransporterImpl" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [464 490]))                          
+                        :type ("TransporterImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [448 491])
+                    ("TransporterImpl" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [496 515])
+                    ("getMessage" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("controller" variable
+                               (:pointer 1
+                                :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [547 591])
+                            ("request" variable
+                               (:pointer 1
+                                :type ("swift::protocol::ConsumptionRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [623 668])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("swift::protocol::MessageResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [694 737])
+                            ("done" variable
+                               (:pointer 1
+                                :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [763 795]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [521 796])
+                    ("sendMessage" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("controller" variable
+                               (:pointer 1
+                                :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [828 872])
+                            ("request" variable
+                               (:pointer 1
+                                :type ("swift::protocol::ProductionRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [905 949])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("swift::protocol::MessageResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [976 1019])
+                            ("done" variable
+                               (:pointer 1
+                                :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1046 1078]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [801 1079])
+                    ("getMaxMessageId" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("controller" variable
+                               (:pointer 1
+                                :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1115 1159])
+                            ("request" variable
+                               (:pointer 1
+                                :type ("swift::protocol::MessageIdRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1192 1235])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("swift::protocol::MessageIdResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1262 1307])
+                            ("done" variable
+                               (:pointer 1
+                                :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1334 1366]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1084 1367])
+                    ("getMinMessageIdByTime" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("controller" variable
+                               (:pointer 1
+                                :type ("google::protobuf::RpcController" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1409 1453])
+                            ("request" variable
+                               (:pointer 1
+                                :type ("swift::protocol::MessageIdRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1486 1529])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("swift::protocol::MessageIdResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1556 1601])
+                            ("done" variable
+                               (:pointer 1
+                                :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1628 1660]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1372 1661])
+                    ("private" label nil (reparse-symbol classsubparts) [1662 1670])
+                    ("getBrokerPartition" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("topicName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1713 1742])
+                            ("id" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1756 1768])
+                            ("errorInfo" variable
+                               (:pointer 1
+                                :type ("protocol::ErrorInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1769 1800]))                          
+                        :type ("BrokerPartitionPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1675 1801])
+                    ("private" label nil (reparse-symbol classsubparts) [1802 1810])
+                    ("TransporterImpl" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TransporterImpl" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1831 1855]))                          
+                        :type ("TransporterImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1815 1856])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TransporterImpl" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1888 1912]))                          
+                        :type ("TransporterImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1861 1913])
+                    ("public" label nil (reparse-symbol classsubparts) [1914 1921])
+                    ("_requestChecker" variable (:type ("RequestChecker" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1926 1957])
+                    ("_tpSupervisor" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1962 2002])
+                    ("private" label nil (reparse-symbol classsubparts) [2003 2011])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [2016 2036]))                  
+                :type "class")
+                nil [374 2039])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("TransporterImpl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2059 2075]))                  
+                :type "int")
+                nil [2041 2076])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2098 2106]))                  
+                :type "int")
+                nil [2078 2107]))          
+      :file "TransporterImpl.h"
+      :pointmax 2142
+      :fsize 2462
+      :lastmodtime '(22875 4373 624105 768000)
+      :unmatched-syntax '((thing 1627 . 1628) (thing 1626 . 1627) (thing 1555 . 1556) (thing 1554 . 1555) (thing 1485 . 1486) (thing 1484 . 1485) (thing 1478 . 1483) (thing 1408 . 1409) (thing 1407 . 1408) (thing 1333 . 1334) (thing 1332 . 1333) (thing 1261 . 1262) (thing 1260 . 1261) (thing 1191 . 1192) (thing 1190 . 1191) (thing 1184 . 1189) (thing 1114 . 1115) (thing 1113 . 1114) (thing 1045 . 1046) (thing 1044 . 1045) (thing 975 . 976) (thing 974 . 975) (thing 904 . 905) (thing 903 . 904) (thing 897 . 902) (thing 827 . 828) (thing 826 . 827) (thing 762 . 763) (thing 761 . 762) (thing 693 . 694) (thing 692 . 693) (thing 622 . 623) (thing 621 . 622) (thing 615 . 620) (thing 546 . 547) (thing 545 . 546))
+      :lexical-table 
+        '(("SWIFT_TRANSPORTERIMPL_H")
+          )
+)
+    (semanticdb-table "ZkConnectionStatus.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/ZkConnectionStatus.h" include (:system-flag t) nil [1 53])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [77 85]))                  
+                :type "int")
+                nil [55 86])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [103 111])
+                    ("" variable (:type ("ZkConnectionStatus" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [112 131]))                  
+                :type "int")
+                nil [87 132])
+            ("ZkConnectionStatus::MAX_SERVING_TIME_AFTER_LOST" variable
+               (:constant-flag t
+                :default-value "500 * 1000"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [134 209])
+            ("ZkConnectionStatus" function
+               (:constructor-flag t
+                :parent "ZkConnectionStatus"
+                :type ("ZkConnectionStatus" type (:type "class") nil nil))
+                nil [211 380])
+            ("ZkConnectionStatus" function
+               (:destructor-flag t
+                :parent "ZkConnectionStatus"
+                :type "void")
+                nil [382 428])
+            ("setHeartbeatStatus" function
+               (:parent "ZkConnectionStatus"
+                :arguments 
+                  ( ("alive" variable (:type "bool") (reparse-symbol arg-sub-list) [474 485])
+                    ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [486 504]))                  
+                :type "void")
+                nil [430 794])
+            ("setZkMonitorStatus" function
+               (:parent "ZkConnectionStatus"
+                :arguments 
+                  ( ("alive" variable (:type "bool") (reparse-symbol arg-sub-list) [840 851])
+                    ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [852 870]))                  
+                :type "void")
+                nil [796 1160])
+            ("needRejectServing" function
+               (:parent "ZkConnectionStatus"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1205 1223]))                  
+                :type "bool")
+                nil [1162 1305])
+            ("rejectStatus" function
+               (:parent "ZkConnectionStatus"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1345 1363])
+                    ("rejectTime" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1364 1384]))                  
+                :type "bool")
+                nil [1307 2118])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("app" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2140 2144]))                  
+                :type "int")
+                nil [2120 2145]))          
+      :file "ZkConnectionStatus.cpp"
+      :pointmax 2147
+      :fsize 2146
+      :lastmodtime '(22809 22767 581909 861000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ThreadSafeTaskStatus.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_THREADSAFETASKSTATUS_H" variable (:constant-flag t) nil [46 74])
+            ("swift/common/Common.h" include nil nil [76 108])
+            ("swift/common/Log.h" include nil nil [109 138])
+            ("autil/Lock.h" include nil nil [139 162])
+            ("swift/protocol/Heartbeat.pb.h" include nil nil [163 203])
+            ("autil/TimeUtility.h" include nil nil [204 234])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [258 266]))                  
+                :type "int")
+                nil [236 267])
+            ("ThreadSafeTaskStatus" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [298 305])
+                    ("ThreadSafeTaskStatus" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("taskInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::TaskInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [331 366]))                          
+                        :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [310 663])
+                    ("ThreadSafeTaskStatus" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [668 694])
+                    ("private" label nil (reparse-symbol classsubparts) [695 703])
+                    ("ThreadSafeTaskStatus" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [729 758]))                          
+                        :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [708 759])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [796 825]))                          
+                        :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [764 826])
+                    ("public" label nil (reparse-symbol classsubparts) [827 834])
+                    ("getTaskInfo" function
+                       (:constant-flag t
+                        :type ("protocol::TaskInfo" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [839 1014])
+                    ("getPartitionId" function
+                       (:constant-flag t
+                        :type ("protocol::PartitionId" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1020 1273])
+                    ("getPartitionStatus" function (:type ("protocol::PartitionStatus" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1279 1416])
+                    ("setPartitionStatus" function
+                       (:arguments 
+                          ( ("status" variable (:type ("protocol::PartitionStatus" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1446 1479]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1422 1567])
+                    ("setError" function
+                       (:arguments 
+                          ( ("errorCode" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1587 1617])
+                            ("errorMsg" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "\"\""
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1618 1650]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1573 1853])
+                    ("getErrorCode" function (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1859 2028])
+                    ("getTaskStatus" function
+                       (:constant-flag t
+                        :type ("protocol::TaskStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2034 2158])
+                    ("private" label nil (reparse-symbol classsubparts) [2159 2167])
+                    ("_mutex" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2172 2206])
+                    ("_taskStatus" variable (:type ("protocol::TaskStatus" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2211 2244])
+                    ("private" label nil (reparse-symbol classsubparts) [2245 2253])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [2258 2278]))                  
+                :type "class")
+                nil [269 2281])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("ThreadSafeTaskStatus" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2301 2322]))                  
+                :type "int")
+                nil [2283 2323])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2345 2353]))                  
+                :type "int")
+                nil [2325 2354]))          
+      :file "ThreadSafeTaskStatus.h"
+      :pointmax 2394
+      :fsize 2393
+      :lastmodtime '(22809 22767 580909 860000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SWIFT_THREADSAFETASKSTATUS_H")
+          )
+)
+    (semanticdb-table "LoadWorkItem.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_LOADWORKITEM_H" variable (:constant-flag t) nil [38 58])
+            ("swift/common/Common.h" include nil nil [60 92])
+            ("swift/common/Log.h" include nil nil [93 122])
+            ("autil/WorkItem.h" include nil nil [123 150])
+            ("swift/broker/service/TopicPartitionSupervisor.h" include nil nil [151 209])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [232 240]))                  
+                :type "int")
+                nil [210 241])
+            ("LoadWorkItem" type
+               (:superclasses 
+                  ( ("autil::WorkItem" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [288 295])
+                    ("LoadWorkItem" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("tpSupervisor" variable
+                               (:pointer 1
+                                :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [313 352])
+                            ("taskInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::TaskInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [371 406]))                          
+                        :type ("LoadWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [300 407])
+                    ("LoadWorkItem" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [412 428])
+                    ("private" label nil (reparse-symbol classsubparts) [429 437])
+                    ("LoadWorkItem" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("LoadWorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [455 476]))                          
+                        :type ("LoadWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [442 477])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("LoadWorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [506 527]))                          
+                        :type ("LoadWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [482 528])
+                    ("public" label nil (reparse-symbol classsubparts) [529 536])
+                    ("process" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [541 556])
+                    ("destroy" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [561 576])
+                    ("drop" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [581 593])
+                    ("private" label nil (reparse-symbol classsubparts) [594 602])
+                    ("_tpSupervisor" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [607 647])
+                    ("_taskInfo" variable (:type ("protocol::TaskInfo" type (:type "class") nil nil)) (reparse-symbol classsubparts) [652 681])
+                    ("private" label nil (reparse-symbol classsubparts) [682 690])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [695 715]))                  
+                :type "class")
+                nil [243 718])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("LoadWorkItem" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [738 751]))                  
+                :type "int")
+                nil [720 752])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [774 782]))                  
+                :type "int")
+                nil [754 783]))          
+      :file "LoadWorkItem.h"
+      :pointmax 815
+      :fsize 814
+      :lastmodtime '(22809 22767 578909 857000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SWIFT_LOADWORKITEM_H")
+          )
+)
+    (semanticdb-table "UnloadWorkItem.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_UNLOADWORKITEM_H" variable (:constant-flag t) nil [40 62])
+            ("swift/common/Common.h" include nil nil [64 96])
+            ("swift/common/Log.h" include nil nil [97 126])
+            ("autil/WorkItem.h" include nil nil [127 154])
+            ("swift/broker/service/TopicPartitionSupervisor.h" include nil nil [155 213])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [236 244]))                  
+                :type "int")
+                nil [214 245])
+            ("UnloadWorkItem" type
+               (:superclasses 
+                  ( ("autil::WorkItem" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [294 301])
+                    ("UnloadWorkItem" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("tpSupervisor" variable
+                               (:pointer 1
+                                :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [321 360])
+                            ("partId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::PartitionId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [381 417]))                          
+                        :type ("UnloadWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [306 418])
+                    ("UnloadWorkItem" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [423 441])
+                    ("private" label nil (reparse-symbol classsubparts) [442 450])
+                    ("UnloadWorkItem" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("UnloadWorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [470 493]))                          
+                        :type ("UnloadWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [455 494])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("UnloadWorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [525 548]))                          
+                        :type ("UnloadWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [499 549])
+                    ("public" label nil (reparse-symbol classsubparts) [550 557])
+                    ("process" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [562 577])
+                    ("destroy" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [582 597])
+                    ("drop" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [602 614])
+                    ("private" label nil (reparse-symbol classsubparts) [615 623])
+                    ("_tpSupervisor" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [628 668])
+                    ("_partId" variable (:type ("protocol::PartitionId" type (:type "class") nil nil)) (reparse-symbol classsubparts) [673 703])
+                    ("private" label nil (reparse-symbol classsubparts) [704 712])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [717 737]))                  
+                :type "class")
+                nil [247 740])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("UnloadWorkItem" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [760 775]))                  
+                :type "int")
+                nil [742 776])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [798 806]))                  
+                :type "int")
+                nil [778 807]))          
+      :file "UnloadWorkItem.h"
+      :pointmax 841
+      :fsize 840
+      :lastmodtime '(22809 22767 581909 861000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SWIFT_UNLOADWORKITEM_H")
+          )
+)
+    (semanticdb-table "RequestChecker.h"
+      :file "RequestChecker.h"
+      :fsize 1077
+      :lastmodtime '(22809 22767 578909 857000))
+    (semanticdb-table "UnloadWorkItem.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/service/UnloadWorkItem.h" include nil nil [1 49])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [73 81]))                  
+                :type "int")
+                nil [51 82])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [99 107])
+                    ("" variable (:type ("UnloadWorkItem" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [108 123]))                  
+                :type "int")
+                nil [83 124])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [125 147])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [168 177]))                  
+                :type "int")
+                nil [148 178])
+            ("UnloadWorkItem" function
+               (:constructor-flag t
+                :parent "UnloadWorkItem"
+                :arguments 
+                  ( ("tpSupervisor" variable
+                       (:pointer 1
+                        :type ("TopicPartitionSupervisor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [211 250])
+                    ("partId" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionId" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [251 277]))                  
+                :type ("UnloadWorkItem" type (:type "class") nil nil))
+                nil [180 337])
+            ("UnloadWorkItem" function
+               (:destructor-flag t
+                :parent "UnloadWorkItem"
+                :type "void")
+                nil [339 377])
+            ("process" function
+               (:parent "UnloadWorkItem"
+                :type "void")
+                nil [379 885])
+            ("destroy" function
+               (:parent "UnloadWorkItem"
+                :type "void")
+                nil [886 937])
+            ("drop" function
+               (:parent "UnloadWorkItem"
+                :type "void")
+                nil [938 984])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1007 1015]))                  
+                :type "int")
+                nil [987 1016]))          
+      :file "UnloadWorkItem.cpp"
+      :pointmax 1018
+      :fsize 1017
+      :lastmodtime '(22809 22767 581909 861000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!swift!swift!swift!broker!service!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

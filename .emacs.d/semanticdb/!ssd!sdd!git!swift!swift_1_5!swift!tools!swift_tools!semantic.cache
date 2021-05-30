@@ -1,0 +1,96 @@
+;; Object swift_tools/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "swift_tools/"
+  :tables
+  (list
+    (semanticdb-table "producer_cmd.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("os" include nil nil [20 29])
+            ("swift_common_define" include nil nil [30 56])
+            ("local_file_util" include nil nil [57 79])
+            ("swift_util" include nil nil [80 97])
+            ("transport_cmd_base" include nil nil [98 123])
+            ("ProducerCmd" type
+               (:superclasses ("transport_cmd_base.TransportCmdBase")
+                :members 
+                  ( ("'''
+    swift {sm|sendmsg}
+       {-z zookeeper_address  | --zookeeper=zookeeper_address}
+       {-t topic_name         | --topic=topic_name}
+       {-p partition_id       | --partid=partition_id}
+       [-m msgs_file          | --msgfile=msgfile]
+       [-s msgs_separator     | --separator=msgs_separator]
+       [                      | --payload=payload]
+       [                      | --payloadmode=payload_mode]
+       [                      | --uint8payload=payload]
+       [-n                    | --nosep]
+       [\"msg1\", \"msg2\" ]
+
+    options:
+       -z zookeeper_address, --zookeeper=zookeeper_address   : required, zookeeper root address
+       -t topic_name,        --topic=topic_name              : required, topic name, eg: news
+       -p partition_id,      --partid=partition_id           : required, partition id in a topic
+       -m msgs_file          --msgfile=msgfile               : optional, file contains msgs
+       -s msgs_separator     --separator=msgs_separator      : optional, msgs separator in file, default is \"\\\\n\"
+                                                               used with -m option
+       --payload payload                                     : optional, set msg payload
+       --payloadmode payload_mode                            : optional, set msg payload mode, [same, inc, file],default is same.
+       --uint8payload                                        : optional, set uint8 payload for mask.
+       -n ,                  --nosep                         : optional, not add seperator at the end of msg,
+                                                               used with -m option  
+       \"msg1\", \"msg2\"                                        : optional, messages to send, sperated by space
+                                                               one of msgfile and msg must be specified, 
+                                                               if both of them are specified, use msg.
+                                                               
+
+Example:
+    swift sm -z zfs://10.250.12.23:1234/root -t news -p 1 \"msg1\" \"msg2\" \"msg3\"
+    swift sm -z zfs://10.250.12.23:1234/root -t news -p 1 --payload 3 --payloadmode \"inc\" --uint8payload 10 \"msg1\" \"msg2\" \"msg3\"
+    swift sm -z zfs://10.250.12.23:1234/root -t news -p 1 -m /path/to/msg_file -s \"\\\\n\"
+    swift sm -z zfs://10.250.12.23:1234/root -t news -p 1 -m /path/to/msg_file -s \"\\\\n\" -n
+    '''" code nil (reparse-symbol indented_block_body) [185 2617])
+                    ("FILE_MODE" variable nil (reparse-symbol indented_block_body) [2622 2640])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [2660 2664]))                          )
+                        (reparse-symbol indented_block_body) [2645 3517])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3545 3549])
+                            ("options" variable nil (reparse-symbol function_parameters) [3551 3558]))                          )
+                        (reparse-symbol indented_block_body) [3530 4475])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4513 4517])
+                            ("options" variable nil (reparse-symbol function_parameters) [4519 4526]))                          )
+                        (reparse-symbol indented_block_body) [4488 5071])
+                    ("unquoteCharacter" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5097 5101])
+                            ("string" variable nil (reparse-symbol function_parameters) [5103 5109]))                          )
+                        (reparse-symbol indented_block_body) [5076 5792])
+                    ("_readMsgFromFile" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5818 5822]))                          )
+                        (reparse-symbol indented_block_body) [5797 6699])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6712 6716]))                          )
+                        (reparse-symbol indented_block_body) [6704 8860]))                  
+                :type "class")
+                nil [125 8860]))          
+      :file "producer_cmd.py"
+      :pointmax 8860
+      :fsize 8859
+      :lastmodtime '(22902 56250 842870 42000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!swift!swift_1_5!swift!tools!swift_tools!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

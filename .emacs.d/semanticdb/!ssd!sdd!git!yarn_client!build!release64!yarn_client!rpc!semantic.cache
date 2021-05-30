@@ -1,0 +1,889 @@
+;; Object rpc/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "rpc/"
+  :tables
+  (list
+    (semanticdb-table "RpcChannel.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("yarn_client/common/Exception.h" include nil nil [1242 1283])
+            ("yarn_client/common/ExceptionInternal.h" include nil nil [1284 1333])
+            ("yarn_client/proto/IpcConnectionContext.pb.h" include nil nil [1334 1388])
+            ("yarn_client/common/Logger.h" include nil nil [1389 1427])
+            ("RpcChannel.h" include nil nil [1428 1451])
+            ("RpcClient.h" include nil nil [1452 1474])
+            ("RpcContentWrapper.h" include nil nil [1475 1505])
+            ("yarn_client/proto/RpcHeader.pb.h" include nil nil [1506 1549])
+            ("yarn_client/proto/RpcHeader.pb.h" include nil nil [1550 1593])
+            ("yarn_client/common/Thread.h" include nil nil [1638 1676])
+            ("yarn_client/common/WriteBuffer.h" include nil nil [1677 1720])
+            ("google/protobuf/io/coded_stream.h" include (:system-flag t) nil [1722 1766])
+            ("RPC_HEADER_MAGIC" variable (:constant-flag t) nil [1776 1792])
+            ("RPC_HEADER_VERSION" variable (:constant-flag t) nil [1808 1826])
+            ("SERIALIZATION_TYPE_PROTOBUF" variable (:constant-flag t) nil [1837 1864])
+            ("CONNECTION_CONTEXT_CALL_ID" variable (:constant-flag t) nil [1875 1901])
+            ("google::protobuf" variable (:type "int") nil [1924 1941])
+            ("google::protobuf::io" using (:type ("google::protobuf::io" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1942 1979])
+            ("hadoop" type
+               (:members 
+                  ( ("yarn" type
+                       (:members 
+                          ( ("RpcChannelImpl" function
+                               (:constructor-flag t
+                                :parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("k" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcChannelKey" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2049 2073])
+                                    ("c" variable
+                                       (:reference 1
+                                        :type ("RpcClient" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2074 2088]))                                  
+                                :type ("RpcChannelImpl" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [2018 2452])
+                            ("RpcChannelImpl" function
+                               (:constructor-flag t
+                                :parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("k" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcChannelKey" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2485 2509])
+                                    ("s" variable
+                                       (:pointer 1
+                                        :type ("Socket" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2510 2521])
+                                    ("in" variable
+                                       (:pointer 1
+                                        :type ("BufferedSocketReader" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2553 2579])
+                                    ("c" variable
+                                       (:reference 1
+                                        :type ("RpcClient" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2580 2594]))                                  
+                                :type ("RpcChannelImpl" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [2454 2787])
+                            ("RpcChannelImpl" function
+                               (:destructor-flag t
+                                :parent "RpcChannelImpl"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [2789 2934])
+                            ("close" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("immediate" variable (:type "bool") (reparse-symbol arg-sub-list) [2963 2978]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [2936 3180])
+                            ("sendSaslMessage" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("msg" variable
+                                       (:pointer 1
+                                        :type ("RpcSaslProto" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3219 3238])
+                                    ("resp" variable
+                                       (:pointer 1
+                                        :type ("Message" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3239 3254]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [3182 4073])
+                            ("createSaslClient" function
+                               (:pointer 1
+                                :parent "RpcChannelImpl"
+                                :constant-flag t
+                                :arguments 
+                                  ( ("auths" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type ("RepeatedPtrField" type
+                                             (:template-specifier 
+                                                ( ("RpcSaslProto_SaslAuth" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [4144 4198]))                                  
+                                :type ("RpcSaslProto_SaslAuth" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [4076 5356])
+                            ("saslEvaluateToken" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("response" variable
+                                       (:reference 1
+                                        :type ("RpcSaslProto" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5404 5428])
+                                    ("serverIsDone" variable (:type "bool") (reparse-symbol arg-sub-list) [5429 5447]))                                  
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [5358 5990])
+                            ("setupSaslConnection" function
+                               (:parent "RpcChannelImpl"
+                                :type ("RpcAuth" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [5992 8296])
+                            ("connect" function
+                               (:parent "RpcChannelImpl"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [8298 11213])
+                            ("invokeInternal" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("remote" variable (:type ("RpcRemoteCallPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11260 11284]))                                  
+                                :type ("exception_ptr" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [11215 14259])
+                            ("invoke" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("call" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcCall" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [14289 14310]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [14261 17032])
+                            ("shutdown" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("reason" variable (:type ("exception_ptr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17064 17085]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [17034 17203])
+                            ("wakeupOneCaller" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("id" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17242 17253]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [17205 17534])
+                            ("sendRequest" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("remote" variable (:type ("RpcRemoteCallPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17569 17593]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [17536 17945])
+                            ("cleanupPendingCalls" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("reason" variable (:type ("exception_ptr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17988 18009]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [17947 18255])
+                            ("checkOneResponse" function
+                               (:parent "RpcChannelImpl"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [18257 19363])
+                            ("sendPing" function
+                               (:parent "RpcChannelImpl"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [19365 19902])
+                            ("checkIdle" function
+                               (:parent "RpcChannelImpl"
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [19904 21067])
+                            ("waitForExit" function
+                               (:parent "RpcChannelImpl"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [21069 21244])
+                            ("sendConnectionHeader" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("auth" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcAuth" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [21733 21753]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [21691 22139])
+                            ("buildConnectionContext" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("connectionContext" variable
+                                       (:reference 1
+                                        :type ("IpcConnectionContextProto" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [22190 22236])
+                                    ("auth" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcAuth" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [22237 22258]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [22141 22804])
+                            ("sendConnectionContent" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("auth" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcAuth" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [22849 22870]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [22806 23652])
+                            ("getPendingCall" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("id" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23702 23713]))                                  
+                                :type ("RpcRemoteCallPtr" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [23654 24184])
+                            ("getResponse" function
+                               (:parent "RpcChannelImpl"
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [24186 24810])
+                            ("HandlerRpcResponseException" function
+                               (:typemodifiers ("static")
+                                :arguments 
+                                  ( ("e" variable (:type ("exception_ptr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24861 24877]))                                  
+                                :type ("exception_ptr" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [24812 25919])
+                            ("readOneResponse" function
+                               (:parent "RpcChannelImpl"
+                                :arguments 
+                                  ( ("writeLock" variable (:type "bool") (reparse-symbol arg-sub-list) [25958 25973]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [25921 29217]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [2000 29220]))                  
+                :type "namespace")
+                nil [1981 29222]))          
+      :file "RpcChannel.cpp"
+      :pointmax 29223
+      :fsize 29209
+      :lastmodtime '(22879 20596 989464 927000)
+      :unmatched-syntax '((thing 1923 . 1924) (thing 1906 . 1911))
+      :lexical-table 
+        '(("RPC_HEADER_MAGIC" . ((string "\"hrpc\"" 1793 . 1799)))
+          ("RPC_HEADER_VERSION" . ((number "9" 1827 . 1828)))
+          ("CONNECTION_CONTEXT_CALL_ID" . ((punctuation "-" 1902 . 1903) (number "3" 1903 . 1904)))
+          ("SERIALIZATION_TYPE_PROTOBUF" . ((number "0" 1865 . 1866)))
+          )
+)
+    (semanticdb-table "RpcChannel.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("_HDFS_LIBHDFS3_RPC_RPCCHANNEL_H_" variable (:constant-flag t) nil [1291 1323])
+            ("yarn_client/common/Atomic.h" include nil nil [1325 1363])
+            ("yarn_client/common/DateTime.h" include nil nil [1364 1404])
+            ("yarn_client/common/ExceptionInternal.h" include nil nil [1405 1454])
+            ("yarn_client/proto/IpcConnectionContext.pb.h" include nil nil [1455 1509])
+            ("yarn_client/common/Memory.h" include nil nil [1510 1548])
+            ("yarn_cient/network/BufferedSocketReader.h" include nil nil [1549 1601])
+            ("yarn_client/network/TcpSocket.h" include nil nil [1602 1644])
+            ("RpcCall.h" include nil nil [1645 1665])
+            ("RpcChannelKey.h" include nil nil [1666 1692])
+            ("yarn_client/proto/RpcHeader.pb.h" include nil nil [1693 1736])
+            ("RpcRemoteCall.h" include nil nil [1737 1763])
+            ("SaslClient.h" include nil nil [1764 1787])
+            ("yarn_client/common/Thread.h" include nil nil [1788 1826])
+            ("yarn_client/common/Unordered.h" include nil nil [1827 1868])
+            ("google/protobuf/message.h" include (:system-flag t) nil [1870 1906])
+            ("Hdfs" type
+               (:members 
+                  ( ("Internal" type
+                       (:members 
+                          ( ("RpcClient" type
+                               (:prototype t
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [1947 1963])
+                            ("RpcChannel" type
+                               (:members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [1984 1991])
+                                    ("RpcChannel" function
+                                       (:destructor-flag t
+                                        :typemodifiers ("virtual")
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [2037 2066])
+                                    ("close" function
+                                       (:pure-virtual-flag t
+                                        :prototype-flag t
+                                        :typemodifiers ("virtual")
+                                        :arguments 
+                                          ( ("immediate" variable (:type "bool") (reparse-symbol arg-sub-list) [2291 2306]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [2272 2311])
+                                    ("invoke" function
+                                       (:pure-virtual-flag t
+                                        :prototype-flag t
+                                        :typemodifiers ("virtual")
+                                        :arguments 
+                                          ( ("call" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcCall" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2464 2485]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [2444 2490])
+                                    ("checkIdle" function
+                                       (:pure-virtual-flag t
+                                        :prototype-flag t
+                                        :typemodifiers ("virtual")
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [2606 2635])
+                                    ("waitForExit" function
+                                       (:pure-virtual-flag t
+                                        :prototype-flag t
+                                        :typemodifiers ("virtual")
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [2780 2811])
+                                    ("addRef" function
+                                       (:pure-virtual-flag t
+                                        :prototype-flag t
+                                        :typemodifiers ("virtual")
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [2877 2903]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [1965 2906])
+                            ("RpcChannelImpl" type
+                               (:superclasses 
+                                  ( ("RpcChannel" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [3011 3018])
+                                    ("RpcChannelImpl" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :arguments 
+                                          ( ("k" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcChannelKey" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3139 3163])
+                                            ("c" variable
+                                               (:reference 1
+                                                :type ("RpcClient" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3164 3178]))                                          
+                                        :type ("RpcChannelImpl" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [3124 3179])
+                                    ("RpcChannelImpl" function
+                                       (:prototype-flag t
+                                        :destructor-flag t
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [3243 3261])
+                                    ("close" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("immediate" variable (:type "bool") (reparse-symbol arg-sub-list) [3478 3493]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [3467 3494])
+                                    ("invoke" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("call" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcCall" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3639 3660]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [3627 3661])
+                                    ("checkIdle" function
+                                       (:prototype-flag t
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [3777 3794])
+                                    ("waitForExit" function
+                                       (:prototype-flag t
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [3939 3958])
+                                    ("addRef" function (:type "void") (reparse-symbol classsubparts) [4024 4061])
+                                    ("private" label nil (reparse-symbol classsubparts) [4063 4071])
+                                    ("connect" function
+                                       (:prototype-flag t
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [4162 4177])
+                                    ("cleanupPendingCalls" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("reason" variable (:type ("exception_ptr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4347 4368]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [4322 4369])
+                                    ("sendConnectionHeader" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("auth" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcAuth" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [4519 4539]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [4493 4540])
+                                    ("sendConnectionContent" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("auth" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcAuth" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [4634 4655]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [4607 4656])
+                                    ("buildConnectionContext" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("connectionContext" variable
+                                               (:reference 1
+                                                :type ("IpcConnectionContextProto" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [4740 4786])
+                                            ("auth" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcAuth" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [4787 4808]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [4712 4809])
+                                    ("sendPing" function
+                                       (:prototype-flag t
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [4974 4990])
+                                    ("sendRequest" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("remote" variable (:type ("RpcRemoteCallPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5148 5172]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [5131 5173])
+                                    ("invokeInternal" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("remote" variable (:type ("RpcRemoteCallPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5364 5388]))                                          
+                                        :type ("exception_ptr" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [5335 5389])
+                                    ("checkOneResponse" function
+                                       (:prototype-flag t
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [5508 5532])
+                                    ("readOneResponse" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("writeLock" variable (:type "bool") (reparse-symbol arg-sub-list) [5656 5671]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [5635 5672])
+                                    ("getPendingCall" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("id" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5982 5993]))                                          
+                                        :type ("RpcRemoteCallPtr" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [5950 5994])
+                                    ("getResponse" function
+                                       (:prototype-flag t
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [6125 6144])
+                                    ("wakeupOneCaller" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("id" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6291 6302]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [6270 6303])
+                                    ("shutdown" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("reason" variable (:type ("exception_ptr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6475 6496]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [6461 6497])
+                                    ("createSaslClient" function
+                                       (:prototype-flag t
+                                        :pointer 1
+                                        :constant-flag t
+                                        :arguments 
+                                          ( ("auths" variable
+                                               (:pointer 1
+                                                :type ("google::protobuf::RepeatedPtrField" type
+                                                     (:template-specifier 
+                                                        ( ("RpcSaslProto_SaslAuth" type nil nil nil))                                                        
+                                                      :type "class")
+                                                      nil nil))
+                                                (reparse-symbol arg-sub-list) [6567 6633]))                                          
+                                        :type ("RpcSaslProto_SaslAuth" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [6503 6634])
+                                    ("sendSaslMessage" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("msg" variable
+                                               (:pointer 1
+                                                :type ("RpcSaslProto" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [6661 6680])
+                                            ("resp" variable
+                                               (:pointer 1
+                                                :type ("google::protobuf::Message" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [6683 6716]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [6640 6717])
+                                    ("saslEvaluateToken" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("response" variable
+                                               (:reference 1
+                                                :type ("RpcSaslProto" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [6753 6777])
+                                            ("serverIsDone" variable (:type "bool") (reparse-symbol arg-sub-list) [6778 6796]))                                          
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [6723 6797])
+                                    ("setupSaslConnection" function
+                                       (:prototype-flag t
+                                        :type ("RpcAuth" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [6803 6833])
+                                    ("private" label nil (reparse-symbol classsubparts) [6835 6843])
+                                    ("RpcChannelImpl" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :arguments 
+                                          ( ("key" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcChannelKey" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [7126 7152])
+                                            ("sock" variable
+                                               (:pointer 1
+                                                :type ("Socket" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [7153 7167])
+                                            ("in" variable
+                                               (:pointer 1
+                                                :type ("BufferedSocketReader" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [7187 7213])
+                                            ("client" variable
+                                               (:reference 1
+                                                :type ("RpcClient" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [7214 7233]))                                          
+                                        :type ("RpcChannelImpl" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [7111 7234])
+                                    ("private" label nil (reparse-symbol classsubparts) [7236 7244])
+                                    ("refs" variable (:type ("atomic" type
+                                         (:template-specifier 
+                                            ( ("int" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [7249 7266])
+                                    ("available" variable (:type "bool") (reparse-symbol classsubparts) [7271 7286])
+                                    ("readMut" variable (:type ("mutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7291 7305])
+                                    ("writeMut" variable (:type ("mutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7310 7325])
+                                    ("key" variable (:type ("RpcChannelKey" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7330 7348])
+                                    ("client" variable (:type ("RpcClient" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7353 7372])
+                                    ("in" variable (:type ("shared_ptr" type
+                                         (:template-specifier 
+                                            ( ("BufferedSocketReader" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [7377 7413])
+                                    ("saslClient" variable (:type ("shared_ptr" type
+                                         (:template-specifier 
+                                            ( ("SaslClient" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [7418 7452])
+                                    ("sock" variable (:type ("shared_ptr" type
+                                         (:template-specifier 
+                                            ( ("Socket" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [7457 7481])
+                                    ("lastActivity" variable (:type ("steady_clock::time_point" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7486 7524])
+                                    ("lastIdle" variable (:type ("steady_clock::time_point" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7600 7634])
+                                    ("pendingCalls" variable (:type ("unordered_map" type
+                                         (:template-specifier 
+                                            ( ("int32_t" type nil nil nil)
+                                              ("RpcRemoteCallPtr" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [7732 7786]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [2969 7789]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [1925 7792]))                  
+                :type "namespace")
+                nil [1908 7794]))          
+      :file "RpcChannel.h"
+      :pointmax 7842
+      :fsize 7908
+      :lastmodtime '(22879 20629 70442 415000)
+      :unmatched-syntax '((thing 6559 . 6564) (thing 6565 . 6566) (thing 6566 . 6567) (thing 6681 . 6682) (thing 6682 . 6683))
+      :lexical-table 
+        '(("_HDFS_LIBHDFS3_RPC_RPCCHANNEL_H_")
+          )
+)
+    (semanticdb-table "RpcCall.h"
+      :file "RpcCall.h"
+      :fsize 2461
+      :lastmodtime '(22878 3548 462257 252000))
+    (semanticdb-table "RpcChannelKey.h"
+      :file "RpcChannelKey.h"
+      :fsize 2845
+      :lastmodtime '(22878 3548 465257 252000))
+    (semanticdb-table "RpcRemoteCall.h"
+      :file "RpcRemoteCall.h"
+      :fsize 3199
+      :lastmodtime '(22878 3548 468257 252000))
+    (semanticdb-table "SaslClient.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("_HDFS_LIBHDFS3_RPC_SASLCLIENT_H_" variable (:constant-flag t) nil [1291 1323])
+            ("gsasl.h" include (:system-flag t) nil [1325 1343])
+            ("yarn_client/client/Token.h" include nil nil [1345 1382])
+            ("yarn_client/network/Socket.h" include nil nil [1383 1422])
+            ("RpcAuth.h" include nil nil [1423 1443])
+            ("yarn_client/proto/RpcHeader.pb.h" include nil nil [1444 1487])
+            ("Hdfs" type
+               (:members 
+                  ( ("Internal" type
+                       (:members 
+                          ( ("SWITCH_TO_SIMPLE_AUTH" variable (:constant-flag t) (reparse-symbol namespacesubparts) [1536 1557])
+                            ("SaslClient" type
+                               (:members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [1582 1589])
+                                    ("SaslClient" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :arguments 
+                                          ( ("auth" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcSaslProto_SaslAuth" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1605 1640])
+                                            ("token" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("Token" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1641 1661])
+                                            ("principal" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1677 1707]))                                          
+                                        :type ("SaslClient" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1594 1708])
+                                    ("SaslClient" function
+                                       (:prototype-flag t
+                                        :destructor-flag t
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [1714 1728])
+                                    ("evaluateChallenge" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("chanllege" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1764 1794]))                                          
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1734 1795])
+                                    ("isComplete" function
+                                       (:prototype-flag t
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [1801 1819])
+                                    ("private" label nil (reparse-symbol classsubparts) [1821 1829])
+                                    ("initKerberos" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("auth" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcSaslProto_SaslAuth" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1852 1887])
+                                            ("principal" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1910 1940]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [1834 1941])
+                                    ("initDigestMd5" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("auth" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("RpcSaslProto_SaslAuth" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1965 2000])
+                                            ("token" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("Token" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2001 2021]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [1946 2022])
+                                    ("private" label nil (reparse-symbol classsubparts) [2024 2032])
+                                    ("ctx" variable
+                                       (:pointer 1
+                                        :type ("Gsasl" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2037 2049])
+                                    ("session" variable
+                                       (:pointer 1
+                                        :type ("Gsasl_session" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2054 2078])
+                                    ("complete" variable (:type "bool") (reparse-symbol classsubparts) [2083 2097]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [1563 2100]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [1506 2103]))                  
+                :type "namespace")
+                nil [1489 2105]))          
+      :file "SaslClient.h"
+      :pointmax 2153
+      :fsize 2198
+      :lastmodtime '(22879 20477 34544 437000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_HDFS_LIBHDFS3_RPC_SASLCLIENT_H_")
+          ("SWITCH_TO_SIMPLE_AUTH" . ((punctuation "-" 1558 . 1559) (number "88" 1559 . 1561)))
+          )
+)
+    (semanticdb-table "RpcClient.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("yarn_client/common/Exception.h" include nil nil [1242 1283])
+            ("yarn_client/common/ExceptionInternal.h" include nil nil [1284 1333])
+            ("yarn_client/common/Logger.h" include nil nil [1334 1372])
+            ("yarn_client/common/Memory.h" include nil nil [1373 1411])
+            ("RpcClient.h" include nil nil [1412 1434])
+            ("yarn_client/common/Thread.h" include nil nil [1435 1473])
+            ("uuid/uuid.h" include (:system-flag t) nil [1475 1497])
+            ("hadoop" type
+               (:members 
+                  ( ("yarn" type
+                       (:members 
+                          ( ("RpcClient::once" variable (:type ("once_flag" type (:type "class") nil nil)) (reparse-symbol namespacesubparts) [1536 1562])
+                            ("RpcClient::client" variable (:type ("shared_ptr" type
+                                 (:template-specifier 
+                                    ( ("RpcClient" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol namespacesubparts) [1563 1603])
+                            ("createSinglten" function
+                               (:parent "RpcClient"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [1605 1702])
+                            ("getClient" function
+                               (:parent "RpcClient"
+                                :type ("RpcClient" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [1704 1835])
+                            ("RpcClientImpl" function
+                               (:constructor-flag t
+                                :parent "RpcClientImpl"
+                                :type ("RpcClientImpl" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [1837 2075])
+                            ("RpcClientImpl" function
+                               (:destructor-flag t
+                                :parent "RpcClientImpl"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [2077 2231])
+                            ("clean" function
+                               (:parent "RpcClientImpl"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [2233 3447])
+                            ("close" function
+                               (:parent "RpcClientImpl"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [3449 3751])
+                            ("isRunning" function
+                               (:parent "RpcClientImpl"
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [3753 3808])
+                            ("getChannel" function
+                               (:parent "RpcClientImpl"
+                                :arguments 
+                                  ( ("auth" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcAuth" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3849 3870])
+                                    ("protocol" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcProtocolInfo" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3910 3943])
+                                    ("server" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcServerInfo" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3944 3973])
+                                    ("conf" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcConfig" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4013 4036]))                                  
+                                :type ("RpcChannel" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [3810 5248])
+                            ("createChannelInternal" function
+                               (:parent "RpcClientImpl"
+                                :arguments 
+                                  ( ("key" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcChannelKey" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5315 5341]))                                  
+                                :type ("shared_ptr" type
+                                     (:template-specifier 
+                                        ( ("RpcChannel" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol namespacesubparts) [5250 5687]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [1518 5690]))                  
+                :type "namespace")
+                nil [1499 5692]))          
+      :file "RpcClient.cpp"
+      :pointmax 5693
+      :fsize 5692
+      :lastmodtime '(22878 3699 372233 236000)
+      :unmatched-syntax nil)
+    (semanticdb-table "RpcRemoteCall.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("yarn_client/common/Memory.h" include nil nil [1242 1280])
+            ("yarn_client/proto/ProtobufRpcEngine.pb.h" include nil nil [1281 1332])
+            ("RpcCall.h" include nil nil [1333 1353])
+            ("RpcContentWrapper.h" include nil nil [1354 1384])
+            ("yarn_client/proto/RpcHeader.pb.h" include nil nil [1385 1428])
+            ("RpcRemoteCall.h" include nil nil [1429 1455])
+            ("yarn_client/common/WriteBuffer.h" include nil nil [1456 1499])
+            ("google/protobuf/io/coded_stream.h" include (:system-flag t) nil [1501 1545])
+            ("PING_CALL_ID" variable (:constant-flag t) nil [1555 1567])
+            ("google::protobuf::io" using (:type ("google::protobuf::io" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1572 1609])
+            ("hadoop::common" using (:type ("hadoop::common" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1610 1641])
+            ("hadoop" type
+               (:members 
+                  ( ("yarn" type
+                       (:members 
+                          ( ("serialize" function
+                               (:parent "RpcRemoteCall"
+                                :arguments 
+                                  ( ("protocol" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("RpcProtocolInfo" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1709 1742])
+                                    ("buffer" variable
+                                       (:reference 1
+                                        :type ("WriteBuffer" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1773 1794]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [1679 2687])
+                            ("GetPingRequest" function
+                               (:parent "RpcRemoteCall"
+                                :arguments 
+                                  ( ("clientid" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2737 2766]))                                  
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("char" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol namespacesubparts) [2689 3575]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [1661 3578]))                  
+                :type "namespace")
+                nil [1642 3580]))          
+      :file "RpcRemoteCall.cpp"
+      :pointmax 3582
+      :fsize 3581
+      :lastmodtime '(22879 21230 293988 987000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("PING_CALL_ID" . ((punctuation "-" 1568 . 1569) (number "4" 1569 . 1570)))
+          )
+)
+    (semanticdb-table "RpcContentWrapper.h"
+      :file "RpcContentWrapper.h"
+      :fsize 1824
+      :lastmodtime '(22878 3548 467257 252000)))
+  :file "!ssd!sdd!git!yarn_client!build!release64!yarn_client!rpc!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

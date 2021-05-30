@@ -1,0 +1,2428 @@
+;; Object client/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "client/"
+  :tables
+  (list
+    (semanticdb-table "SingleSwiftWriter.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/client/SingleSwiftWriter.h" include nil nil [1 44])
+            ("autil/TimeUtility.h" include nil nil [45 75])
+            ("autil/ZlibCompressor.h" include nil nil [76 109])
+            ("swift/protocol/MessageCompressor.h" include nil nil [110 155])
+            ("swift/protocol/FBMessageWriter.h" include nil nil [156 199])
+            ("swift/client/version.h" include nil nil [200 233])
+            ("swift/common/Singleton.h" include nil nil [234 269])
+            ("swift/common/ThreadBasedObjectPool.h" include nil nil [270 317])
+            ("flatbuffers/flatbuffers.h" include nil nil [318 354])
+            ("limits" include (:system-flag t) nil [355 372])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [374 394])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [395 417])
+            ("flatbuffers" using (:type ("flatbuffers" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [418 446])
+            ("swift::common" using (:type ("swift::common" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [447 477])
+            ("swift::util" using (:type ("swift::util" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [478 506])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [527 536]))                  
+                :type "int")
+                nil [507 537])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [561 568]))                  
+                :type "int")
+                nil [539 569])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [586 593])
+                    ("" variable (:type ("SingleSwiftWriter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [594 612]))                  
+                :type "int")
+                nil [570 613])
+            ("SingleSwiftWriter::INVALID_CHECK_POINT_ID" variable
+               (:default-value "numeric_limits<int64_t>::min()"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [615 698])
+            ("SingleSwiftWriter" function
+               (:constructor-flag t
+                :parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("adminAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [785 817])
+                    ("channelManager" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [855 899])
+                    ("partitionId" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [937 958])
+                    ("config" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SwiftWriterConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [959 991])
+                    ("blockPool" variable (:type ("BlockPoolPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1029 1052])
+                    ("mergeThreadPool" variable (:type ("autil::ThreadPoolPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1090 1127])
+                    ("limiter" variable (:type ("BufferSizeLimiterPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1165 1194]))                  
+                :type ("SingleSwiftWriter" type (:type "class") nil nil))
+                nil [748 2142])
+            ("SingleSwiftWriter" function
+               (:destructor-flag t
+                :parent "SingleSwiftWriter"
+                :type "void")
+                nil [2144 2542])
+            ("write" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("msgInfo" variable
+                       (:reference 1
+                        :type ("MessageInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2579 2600])
+                    ("isSynchronous" variable (:type "bool") (reparse-symbol arg-sub-list) [2601 2620]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [2544 3309])
+            ("addMsgFail" function
+               (:parent "SingleSwiftWriter"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [3311 4376])
+            ("getCommittedCheckpointId" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("checkpoint" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4427 4447]))                  
+                :type "bool")
+                nil [4378 4711])
+            ("getMaxCheckpointId" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("checkpoint" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4756 4776]))                  
+                :type "bool")
+                nil [4713 4833])
+            ("isBufferEmpty" function
+               (:parent "SingleSwiftWriter"
+                :type "bool")
+                nil [4835 4923])
+            ("isSent" function
+               (:parent "SingleSwiftWriter"
+                :type "bool")
+                nil [4925 5008])
+            ("sendRequest" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5046 5058])
+                    ("force" variable (:type "bool") (reparse-symbol arg-sub-list) [5059 5070]))                  
+                :type "void")
+                nil [5010 5970])
+            ("clearBuffer" function
+               (:parent "SingleSwiftWriter"
+                :type "void")
+                nil [5972 6039])
+            ("sendSyncRequest" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6081 6093])
+                    ("retryTimes" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6094 6114]))                  
+                :type "void")
+                nil [6041 7103])
+            ("needWaitForBrokerBusy" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7151 7171]))                  
+                :type "bool")
+                nil [7105 8079])
+            ("postSendMessageRequest" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8128 8140])
+                    ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8141 8157]))                  
+                :type "bool")
+                nil [8081 11077])
+            ("getUnsendMessageCount" function
+               (:parent "SingleSwiftWriter"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [11079 11174])
+            ("getUnsendMessageSize" function
+               (:parent "SingleSwiftWriter"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [11176 11269])
+            ("getUncommittedMsgCount" function
+               (:parent "SingleSwiftWriter"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [11271 11372])
+            ("getUncommittedMsgSize" function
+               (:parent "SingleSwiftWriter"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [11374 11473])
+            ("needDetectCommitProgress" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11524 11536]))                  
+                :type "bool")
+                nil [11475 11701])
+            ("handleSendMessageResponse" function
+               (:parent "SingleSwiftWriter"
+                :type "void")
+                nil [11703 16304])
+            ("setCallBackFunc" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("" variable
+                       (:constant-flag t
+                        :type ("std::tr1::function" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16346 16371])
+                    ("" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16371 16390])
+                    ("" variable (:type ("func" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16393 16398]))                  
+                :type "void")
+                nil [16306 16420])
+            ("setCheckpointId" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("checkpointId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16462 16483]))                  
+                :type "void")
+                nil [16422 16550])
+            ("setLastErrorCode" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16593 16606]))                  
+                :type "void")
+                nil [16552 16664])
+            ("getLastErrorCode" function
+               (:parent "SingleSwiftWriter"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [16666 16779])
+            ("setLastRefreshTime" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("refreshTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16824 16844]))                  
+                :type "void")
+                nil [16781 16909])
+            ("getLastRefreshTime" function
+               (:parent "SingleSwiftWriter"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [16911 17022])
+            ("updateRangeUtil" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("rangeUtil" variable
+                       (:constant-flag t
+                        :type ("RangeUtilPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17064 17093]))                  
+                :type "void")
+                nil [17024 17142])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17164 17171]))                  
+                :type "int")
+                nil [17144 17172]))          
+      :file "SingleSwiftWriter.cpp"
+      :pointmax 17174
+      :fsize 17173
+      :lastmodtime '(23376 2095 814367 822000)
+      :unmatched-syntax '((thing 16392 . 16393) (thing 16390 . 16391) (thing 16381 . 16390) (thing 16370 . 16371) (thing 739 . 740) (thing 737 . 739) (thing 735 . 736) (thing 734 . 735) (thing 732 . 733) (thing 730 . 731) (thing 713 . 729) (thing 705 . 712) (thing 699 . 704)))
+    (semanticdb-table "SwiftSinglePartitionReader.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/client/SwiftSinglePartitionReader.h" include nil nil [1 53])
+            ("autil/TimeUtility.h" include nil nil [54 84])
+            ("autil/ZlibCompressor.h" include nil nil [85 118])
+            ("iostream" include (:system-flag t) nil [119 138])
+            ("sstream" include (:system-flag t) nil [139 157])
+            ("swift/protocol/MessageCompressor.h" include nil nil [158 203])
+            ("limits" include (:system-flag t) nil [204 221])
+            ("swift/client/version.h" include nil nil [222 255])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [256 276])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [277 299])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [320 329]))                  
+                :type "int")
+                nil [300 330])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [353 360]))                  
+                :type "int")
+                nil [331 361])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [379 386])
+                    ("" variable (:type ("SwiftSinglePartitionReader" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [387 414]))                  
+                :type "int")
+                nil [363 415])
+            ("MAX_TIME_STAMP" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "numeric_limits<int64_t>::max()"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [417 486])
+            ("HANDLE_SESSION_OR_PARTITION_CHANGE" variable (:constant-flag t) nil [497 531])
+            ("SwiftSinglePartitionReader" function
+               (:constructor-flag t
+                :parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("adminAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3843 3875])
+                    ("channelManager" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3884 3928])
+                    ("partitionId" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3929 3950])
+                    ("config" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SwiftReaderConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3959 3991])
+                    ("notifier" variable
+                       (:pointer 1
+                        :type ("Notifier" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3992 4011]))                  
+                :type ("SwiftSinglePartitionReader" type (:type "class") nil nil))
+                nil [3788 5828])
+            ("SwiftSinglePartitionReader" function
+               (:destructor-flag t
+                :parent "SwiftSinglePartitionReader"
+                :type "void")
+                nil [5830 6037])
+            ("clear" function
+               (:parent "SwiftSinglePartitionReader"
+                :type "void")
+                nil [6039 6749])
+            ("exceedTimestampLimit" function
+               (:parent "SwiftSinglePartitionReader"
+                :type "bool")
+                nil [6751 7025])
+            ("tryRead" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("msgs" variable
+                       (:reference 1
+                        :type ("protocol::Messages" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7068 7093]))                  
+                :type "bool")
+                nil [7027 7581])
+            ("tryFillBuffer" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7633 7653]))                  
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [7583 7736])
+            ("tryFillBuffer" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7788 7808])
+                    ("force" variable (:type "bool") (reparse-symbol arg-sub-list) [7809 7820])
+                    ("isSent" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [7829 7842]))                  
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [7738 9010])
+            ("checkErrorCode" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9060 9073]))                  
+                :type "void")
+                nil [9012 9173])
+            ("resetLastErrorCode" function
+               (:parent "SwiftSinglePartitionReader"
+                :type "void")
+                nil [9175 9265])
+            ("checkCurrentError" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("errorCode" variable
+                       (:reference 1
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9318 9339])
+                    ("errorMsg" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9349 9366]))                  
+                :type "void")
+                nil [9267 9863])
+            ("hasFatalError" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9917 9930]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [9865 10437])
+            ("getUnReadMsgCount" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [10439 10538])
+            ("hasUnReadMsg" function
+               (:parent "SwiftSinglePartitionReader"
+                :type "bool")
+                nil [10540 10771])
+            ("reportFatalError" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [10773 11250])
+            ("seekByMessageId" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11306 11320]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [11252 11673])
+            ("seekByTimestamp" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11729 11747]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [11675 12340])
+            ("doSeekByTimestamp" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12398 12416]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [12342 12699])
+            ("getMinMessageIdByTime" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12770 12788])
+                    ("msgid" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12789 12804])
+                    ("msgTime" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12805 12822]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [12701 14498])
+            ("getFirstMsgTimestamp" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [14500 14605])
+            ("getNextMsgTimestamp" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [14607 14804])
+            ("handleGetMessageResponse" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [14806 17646])
+            ("isValidateResponse" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17709 17735])
+                    ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17736 17749]))                  
+                :type "bool")
+                nil [17648 18050])
+            ("postGetMessageRequest" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [18052 19643])
+            ("fillPartitionInfo" function
+               (:template 
+                  ( ("ResponseType" type (:type "class") nil nil))                  
+                :type ("ErrorCode" type (:type "class") nil nil)
+                :arguments 
+                  ( ("refreshTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [19742 19762])
+                    ("response" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResponseType" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19763 19792]))                  
+                :parent "SwiftSinglePartitionReader")
+                nil [19645 20448])
+            ("fillPartitionInfo" function
+               (:prototype-flag t
+                :parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("refreshTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [20524 20544])
+                    ("response" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [20545 20577]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [20459 20578])
+            ("getSwiftPartitionStatus" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("curTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [20653 20669]))                  
+                :type ("SwiftPartitionStatus" type (:type "class") nil nil))
+                nil [20580 21510])
+            ("handleGetMessageIdResponse" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [21512 22525])
+            ("setRequiredFieldNames" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("fieldNames" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22582 22615]))                  
+                :type "void")
+                nil [22527 22931])
+            ("getRequiredFieldNames" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("vector" type
+                     (:template-specifier 
+                        ( ("string" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [22933 23035])
+            ("setFieldFilterDesc" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("fieldFilterDesc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23089 23124]))                  
+                :type "void")
+                nil [23037 23442])
+            ("getFieldFilterDesc" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("string" type (:type "class") nil nil))
+                nil [23444 23532])
+            ("setTimestampLimit" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("timestampLimit" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23585 23608]))                  
+                :type "void")
+                nil [23534 23699])
+            ("getTimestampLimit" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [23701 23794])
+            ("getLastMsgTimestamp" function
+               (:parent "SwiftSinglePartitionReader"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [23795 23886])
+            ("setCallBackFunc" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("" variable
+                       (:constant-flag t
+                        :type ("std::tr1::function" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23946 23971])
+                    ("" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23971 24000])
+                    ("" variable (:type ("func" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24003 24008]))                  
+                :type "void")
+                nil [23888 24030])
+            ("updateCommittedCheckpoint" function
+               (:parent "SwiftSinglePartitionReader"
+                :arguments 
+                  ( ("checkpoint" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24091 24110]))                  
+                :type "bool")
+                nil [24032 24851])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24873 24880]))                  
+                :type "int")
+                nil [24853 24881]))          
+      :file "SwiftSinglePartitionReader.cpp"
+      :pointmax 24883
+      :fsize 24882
+      :lastmodtime '(23376 2095 816367 747000)
+      :unmatched-syntax '((thing 20450 . 20458) (thing 23970 . 23971) (thing 23991 . 24000) (thing 24000 . 24001) (thing 24002 . 24003))
+      :lexical-table 
+        '(("HANDLE_SESSION_OR_PARTITION_CHANGE" . 
+              ((IF "if" 566 . 568) (semantic-list "(_lastTopicVersion == -1 && response->has_topicversion())" 569 . 626) (semantic-list "{      \\
+        _lastTopicVersion = response->topicversion();                   \\
+    }" 627 . 715) (IF "if" 788 . 790) (semantic-list "(ec == ERROR_BROKER_SESSION_CHANGED || ec == ERROR_BROKER_TOPIC_PARTITION_NOT_FOUND)" 791 . 875) (semantic-list "{ \\
+        if (_func) {                                                    \\
+            int64_t topicVersion = 0;                                   \\
+            if (response->has_topicversion()) {                         \\
+                topicVersion = response->topicversion();                \\
+            }                                                           \\
+            ErrorCode funcEc;                                           \\
+            if (_lastTopicVersion > 0 || topicVersion > 0) {            \\
+                if (topicVersion != _lastTopicVersion) {                \\
+                    if (topicVersion != 0) {                            \\
+                        funcEc = _func(topicVersion);                   \\
+                    } else {                                            \\
+                        funcEc = _func(_lastTopicVersion);              \\
+                    }                                                   \\
+                    if (funcEc != ERROR_NONE) {                         \\
+                        return funcEc;                                  \\
+                    }                                                   \\
+                    if (topicVersion != 0) {                            \\
+                        SWIFT_LOG(INFO, \"[%s %d] topic version changed from [%ld] to [%ld]\", \\
+                                _config.topicName.c_str(), _partitionId, _lastTopicVersion, topicVersion); \\
+                        _lastTopicVersion = topicVersion;               \\
+                    }                                                   \\
+                }                                                       \\
+            } else {                                                    \\
+                SWIFT_LOG(INFO, \"[%s %d] topic version may changed. ec [%d]\",   \\
+                        _config.topicName.c_str(), _partitionId, ec);   \\
+                funcEc = _func(topicVersion);                           \\
+                if (funcEc != ERROR_NONE) {                             \\
+                    return funcEc;                                      \\
+                }                                                       \\
+            }                                                           \\
+        }                                                               \\
+        if (response->has_sessionid()) {                                \\
+            SWIFT_LOG(INFO, \"[%s %d] sessionid changed from [%ld] to [%ld]\", \\
+                      _config.topicName.c_str(), _partitionId, _sessionId, response->sessionid()); \\
+            _sessionId = response->sessionid();                         \\
+        }                                                               \\
+        return ec;                                                      \\
+    }" 876 . 3719)))
+          )
+)
+    (semanticdb-table "SwiftSinglePartitionReader.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_SWIFTSINGLEPARTITIONREADER_H" variable (:constant-flag t) nil [52 86])
+            ("swift/common/Common.h" include nil nil [88 120])
+            ("swift/common/Log.h" include nil nil [121 150])
+            ("swift/client/SwiftReaderConfig.h" include nil nil [151 194])
+            ("swift/client/SwiftAdminAdapter.h" include nil nil [195 238])
+            ("swift/client/SwiftTransportAdapter.h" include nil nil [239 286])
+            ("swift/client/MessageReadBuffer.h" include nil nil [287 330])
+            ("swift/client/SwiftPartitionStatus.h" include nil nil [331 377])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [401 408]))                  
+                :type "int")
+                nil [379 409])
+            ("SeekByTimestampRecord" type
+               (:members 
+                  ( ("lastErrorCode" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [446 480])
+                    ("lastSeekTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [485 506]))                  
+                :type "struct")
+                nil [411 509])
+            ("SwiftSinglePartitionReader" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [546 553])
+                    ("public" label nil (reparse-symbol classsubparts) [635 642])
+                    ("SwiftSinglePartitionReader" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("adminAdapter" variable
+                               (:pointer 1
+                                :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [674 706])
+                            ("channelManager" variable
+                               (:pointer 1
+                                :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [738 782])
+                            ("partitionId" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [814 835])
+                            ("config" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftReaderConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [867 899])
+                            ("notifier" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("Notifier" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [931 956]))                          
+                        :type ("SwiftSinglePartitionReader" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [647 958])
+                    ("SwiftSinglePartitionReader" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [963 1001])
+                    ("private" label nil (reparse-symbol classsubparts) [1002 1010])
+                    ("SwiftSinglePartitionReader" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftSinglePartitionReader" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1042 1077]))                          
+                        :type ("SwiftSinglePartitionReader" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1015 1078])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftSinglePartitionReader" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1121 1156]))                          
+                        :type ("SwiftSinglePartitionReader" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1083 1157])
+                    ("public" label nil (reparse-symbol classsubparts) [1158 1165])
+                    ("exceedTimestampLimit" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1170 1198])
+                    ("tryRead" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("msg" variable
+                               (:reference 1
+                                :type ("protocol::Messages" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1224 1248]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1203 1249])
+                    ("tryFillBuffer" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("currentTime" variable
+                               (:default-value "autil::TimeUtility::currentTime()"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1298 1353]))                          
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1268 1355])
+                    ("checkCurrentError" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("errorCode" variable
+                               (:reference 1
+                                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1391 1422])
+                            ("errorMsg" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1459 1481]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1360 1488])
+                    ("reportFatalError" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1495 1542])
+                    ("getUnReadMsgCount" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1562 1598])
+                    ("hasUnReadMsg" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1623 1651])
+                    ("seekByMessageId" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1700 1714]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1656 1715])
+                    ("seekByTimestamp" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1768 1786]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1724 1787])
+                    ("getFirstMsgTimestamp" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1793 1832])
+                    ("getNextMsgTimestamp" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1856 1895])
+                    ("getSwiftPartitionStatus" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1972 1990]))                          
+                        :type ("SwiftPartitionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1919 1991])
+                    ("setRequiredFieldNames" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fieldNames" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2023 2066]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1996 2067])
+                    ("getRequiredFieldNames" function
+                       (:prototype-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [2072 2121])
+                    ("setFieldFilterDesc" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fieldFilterDesc" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2150 2185]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2126 2186])
+                    ("getFieldFilterDesc" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2191 2224])
+                    ("setTimestampLimit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timestampLimit" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2252 2275]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2229 2276])
+                    ("getTimestampLimit" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2281 2315])
+                    ("getLastMsgTimestamp" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2320 2350])
+                    ("setCallBackFunc" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:constant-flag t
+                                :type ("std::tr1::function" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2376 2401])
+                            ("" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2401 2430])
+                            ("" variable (:type ("func" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2433 2438]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2355 2439])
+                    ("updateCommittedCheckpoint" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("checkpoint" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2475 2494]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2444 2495])
+                    ("public" label nil (reparse-symbol classsubparts) [2497 2504])
+                    ("getReaderConfig" function
+                       (:constant-flag t
+                        :type ("SwiftReaderConfig" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2524 2598])
+                    ("getLastErrorCode" function (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2603 2686])
+                    ("getNextMsgId" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2691 2748])
+                    ("resetTransportAdapter" function
+                       (:arguments 
+                          ( ("transportAdapter" variable
+                               (:pointer 1
+                                :type ("SwiftTransportAdapter" type
+                                     (:template-specifier 
+                                        ( ("TRT_GETMESSAGE" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2780 2868]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2753 2961])
+                    ("resetMaxMsgIdTransportAdapter" function
+                       (:arguments 
+                          ( ("transportAdapter" variable
+                               (:pointer 1
+                                :type ("SwiftTransportAdapter" type
+                                     (:template-specifier 
+                                        ( ("TRT_GETMAXMESSAGEID" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [3001 3094]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2966 3203])
+                    ("resetMsgIdTransportAdapter" function
+                       (:arguments 
+                          ( ("transportAdapter" variable
+                               (:pointer 1
+                                :type ("SwiftTransportAdapter" type
+                                     (:template-specifier 
+                                        ( ("TRT_GETMINMESSAGEIDBYTIME" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [3240 3339]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3208 3442])
+                    ("setNextTimestamp" function
+                       (:arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3469 3487]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3447 3519])
+                    ("setSeekTimestamp" function
+                       (:arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3546 3564]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3524 3596])
+                    ("tryFillBuffer" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3623 3643])
+                            ("force" variable (:type "bool") (reparse-symbol arg-sub-list) [3644 3655])
+                            ("isSent" variable
+                               (:reference 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [3656 3669]))                          
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3601 3670])
+                    ("private" label nil (reparse-symbol classsubparts) [3672 3680])
+                    ("handleGetMessageResponse" function
+                       (:prototype-flag t
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3685 3732])
+                    ("handleGetMessageIdResponse" function
+                       (:prototype-flag t
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3737 3786])
+                    ("postGetMessageRequest" function
+                       (:prototype-flag t
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3791 3835])
+                    ("fillPartitionInfo" function
+                       (:template 
+                          ( ("ResponseType" type (:type "class") nil nil))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil)
+                        :arguments 
+                          ( ("refreshTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3927 3947])
+                            ("response" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ResponseType" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3960 3989]))                          
+                        :prototype-flag t)
+                        (reparse-symbol classsubparts) [3840 3990])
+                    ("getMinMessageIdByTime" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4037 4055])
+                            ("msgid" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4056 4071])
+                            ("msgTime" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4072 4089]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3995 4090])
+                    ("checkErrorCode" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("ec" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4115 4138]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4095 4139])
+                    ("resetLastErrorCode" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [4144 4170])
+                    ("hasFatalError" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("ec" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4209 4232]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4175 4239])
+                    ("isValidateResponse" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4281 4317])
+                            ("ec" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4318 4341]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [4244 4348])
+                    ("clear" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [4353 4366])
+                    ("doSeekByTimestamp" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4409 4427]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4371 4428])
+                    ("private" label nil (reparse-symbol classsubparts) [4429 4437])
+                    ("_adminAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4442 4482])
+                    ("_channelManager" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4487 4539])
+                    ("_partitionId" variable
+                       (:constant-flag t
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4544 4572])
+                    ("_requiredFieldNames" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [4577 4622])
+                    ("_filedFilterDesc" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4627 4656])
+                    ("_config" variable
+                       (:constant-flag t
+                        :type ("SwiftReaderConfig" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4661 4693])
+                    ("_buffer" variable (:type ("MessageReadBuffer" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4699 4725])
+                    ("_partitionStatus" variable
+                       (:typemodifiers ("mutable")
+                        :type ("SwiftPartitionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4730 4776])
+                    ("_lastRefreshMsgIdTime" variable
+                       (:typemodifiers ("mutable")
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4781 4819])
+                    ("_transportAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftTransportAdapter" type
+                             (:template-specifier 
+                                ( ("TRT_GETMESSAGE" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [4824 4881])
+                    ("_maxMsgIdTransportAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftTransportAdapter" type
+                             (:template-specifier 
+                                ( ("TRT_GETMAXMESSAGEID" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [4886 4956])
+                    ("_msgIdTransportAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftTransportAdapter" type
+                             (:template-specifier 
+                                ( ("TRT_GETMINMESSAGEIDBYTIME" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [4961 5034])
+                    ("_nextMsgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5039 5058])
+                    ("_nextTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5063 5086])
+                    ("_seekTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5091 5114])
+                    ("_lastSuccessResponseTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5119 5152])
+                    ("_lastReportErrorTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5157 5186])
+                    ("_lastErrorCode" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5191 5226])
+                    ("_errorCodeForCheck" variable (:type ("protocol::ErrorCode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5231 5270])
+                    ("_seekByTimestampRecord" variable (:type ("SeekByTimestampRecord" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5275 5320])
+                    ("_timestampLimit" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5325 5349])
+                    ("_lastMsgTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5354 5380])
+                    ("_clientVersionInfo" variable (:type ("protocol::ClientVersionInfo" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5385 5432])
+                    ("_func" variable (:type "int") (reparse-symbol classsubparts) [5487 5493])
+                    ("_sessionId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5498 5517])
+                    ("_committedCheckPoint" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5522 5551])
+                    ("_mutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5556 5582])
+                    ("_lastTopicVersion" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5587 5613])
+                    ("private" label nil (reparse-symbol classsubparts) [5615 5623])
+                    ("SwiftSinglePartitionReaderTest" friend nil (reparse-symbol classsubparts) [5628 5671])
+                    ("SwiftReaderImplTest" friend nil (reparse-symbol classsubparts) [5677 5709])
+                    ("SwiftClientFactory" friend nil (reparse-symbol classsubparts) [5715 5746])
+                    ("FakeSwiftSinglePartitionReader" friend nil (reparse-symbol classsubparts) [5752 5795])
+                    ("FakeClientHelper" friend nil (reparse-symbol classsubparts) [5801 5830])
+                    ("private" label nil (reparse-symbol classsubparts) [5832 5840])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [5845 5865]))                  
+                :type "class")
+                nil [511 5868])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("SwiftSinglePartitionReader" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5888 5915]))                  
+                :type "int")
+                nil [5870 5916])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5938 5945]))                  
+                :type "int")
+                nil [5918 5946]))          
+      :file "SwiftSinglePartitionReader.h"
+      :pointmax 5992
+      :fsize 5991
+      :lastmodtime '(23376 2095 816367 747000)
+      :unmatched-syntax '((thing 2432 . 2433) (thing 2430 . 2431) (thing 2421 . 2430) (thing 2400 . 2401) (thing 627 . 628) (thing 623 . 627) (thing 621 . 622) (thing 616 . 620) (thing 614 . 615) (thing 612 . 613) (thing 610 . 611) (thing 579 . 609) (thing 571 . 578) (thing 565 . 570) (thing 558 . 564) (thing 5437 . 5440) (thing 5440 . 5441) (thing 5441 . 5442) (thing 5442 . 5445) (thing 5445 . 5446) (thing 5446 . 5447) (thing 5447 . 5455) (thing 5455 . 5456) (thing 5456 . 5464) (thing 5464 . 5465) (thing 5465 . 5466) (thing 5466 . 5475) (thing 5476 . 5485) (thing 5485 . 5486) (thing 5671 . 5672) (thing 5709 . 5710) (thing 5746 . 5747) (thing 5795 . 5796) (thing 5830 . 5831))
+      :lexical-table 
+        '(("SWIFT_SWIFTSINGLEPARTITIONREADER_H")
+          )
+)
+    (semanticdb-table "SwiftReaderImpl.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/client/SwiftReaderImpl.h" include nil nil [1 42])
+            ("autil/TimeUtility.h" include nil nil [43 73])
+            ("limits" include (:system-flag t) nil [74 91])
+            ("swift/client/RangeUtil.h" include nil nil [92 127])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [129 149])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [150 172])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [193 202]))                  
+                :type "int")
+                nil [173 203])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [226 233]))                  
+                :type "int")
+                nil [204 234])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [251 258])
+                    ("" variable (:type ("SwiftReaderImpl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [259 275]))                  
+                :type "int")
+                nil [235 276])
+            ("MIN_BUFFER_SIZE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "1"
+                :type ("uint64_t" type (:type "class") nil nil))
+                nil [278 320])
+            ("MAX_TIME_STAMP" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "numeric_limits<int64_t>::max()"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [321 390])
+            ("MAX_MSG_ID" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "numeric_limits<int64_t>::max()"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [391 456])
+            ("SwiftReaderImpl" function
+               (:constructor-flag t
+                :parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("adminAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [490 522])
+                    ("channelManager" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [556 600]))                  
+                :type ("SwiftReaderImpl" type (:type "class") nil nil))
+                nil [457 943])
+            ("SwiftReaderImpl" function
+               (:destructor-flag t
+                :parent "SwiftReaderImpl"
+                :type "void")
+                nil [945 1040])
+            ("clearReaders" function
+               (:parent "SwiftReaderImpl"
+                :type "void")
+                nil [1042 1392])
+            ("init" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("config" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SwiftReaderConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1426 1458]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1394 2750])
+            ("initReaders" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("readPartVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("uint32_t" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2786 2822]))                  
+                :type "void")
+                nil [2752 3598])
+            ("read" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("timeStamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3632 3651])
+                    ("msgs" variable
+                       (:reference 1
+                        :type ("protocol::Messages" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3653 3678])
+                    ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3712 3728]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [3600 4131])
+            ("doBatchRead" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("timeStamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4171 4190])
+                    ("msgs" variable
+                       (:reference 1
+                        :type ("protocol::Messages" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4192 4217])
+                    ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4258 4274]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [4132 5021])
+            ("read" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("timeStamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5055 5074])
+                    ("msg" variable
+                       (:reference 1
+                        :type ("Message" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5075 5088])
+                    ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5122 5138]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [5023 5908])
+            ("seekByTimestamp" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5953 5971])
+                    ("force" variable (:type "bool") (reparse-symbol arg-sub-list) [5972 5983]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [5910 7343])
+            ("seekByMessageId" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7389 7403]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [7346 7956])
+            ("checkCurrentError" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("errorCode" variable
+                       (:reference 1
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7998 8019])
+                    ("errorMsg" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8061 8078]))                  
+                :type "void")
+                nil [7958 8489])
+            ("getSwiftPartitionStatus" function
+               (:parent "SwiftReaderImpl"
+                :type ("SwiftPartitionStatus" type (:type "class") nil nil))
+                nil [8491 9567])
+            ("reportFatalError" function
+               (:parent "SwiftReaderImpl"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [9569 9898])
+            ("getUnReadMsgCount" function
+               (:parent "SwiftReaderImpl"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [9900 10206])
+            ("hasUnReadMsg" function
+               (:parent "SwiftReaderImpl"
+                :type "bool")
+                nil [10208 10470])
+            ("tryRead" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("msgs" variable
+                       (:reference 1
+                        :type ("protocol::Messages" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10502 10527]))                  
+                :type "bool")
+                nil [10472 11378])
+            ("tryFillBuffer" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11419 11439]))                  
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [11380 11889])
+            ("fillBuffer" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11929 11945]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [11891 13032])
+            ("getFirstMsgTimestamp" function
+               (:parent "SwiftReaderImpl"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [13034 13500])
+            ("getNextMsgTimestamp" function
+               (:parent "SwiftReaderImpl"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [13502 13858])
+            ("setRequiredFieldNames" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("fieldNames" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [13904 13937]))                  
+                :type "void")
+                nil [13860 14383])
+            ("getRequiredFieldNames" function
+               (:parent "SwiftReaderImpl"
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [14385 14507])
+            ("updateCommittedCheckpoint" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("checkpoint" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14557 14576]))                  
+                :type "bool")
+                nil [14509 14782])
+            ("setFieldFilterDesc" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("fieldFilterDesc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14825 14855]))                  
+                :type "void")
+                nil [14784 15313])
+            ("setTimestampLimit" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("timestampLimit" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15355 15378])
+                    ("acceptTimestamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15379 15404]))                  
+                :type "void")
+                nil [15315 16483])
+            ("checkTimestampLimit" function
+               (:parent "SwiftReaderImpl"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [16486 17012])
+            ("setTopicChanged" function
+               (:parent "SwiftReaderImpl"
+                :arguments 
+                  ( ("topicVersion" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17067 17088]))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                nil [17014 17869])
+            ("getCurrentTimestamp" function
+               (:parent "SwiftReaderImpl"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [17871 18138])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18160 18167]))                  
+                :type "int")
+                nil [18140 18168]))          
+      :file "SwiftReaderImpl.cpp"
+      :pointmax 18170
+      :fsize 18169
+      :lastmodtime '(23376 2095 815367 784000)
+      :unmatched-syntax nil)
+    (semanticdb-table "SwiftReaderImpl.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_SWIFTREADERIMPL_H" variable (:constant-flag t) nil [41 64])
+            ("swift/common/Common.h" include nil nil [66 98])
+            ("swift/common/Log.h" include nil nil [99 128])
+            ("swift/client/SwiftSinglePartitionReader.h" include nil nil [129 181])
+            ("swift/client/SwiftReader.h" include nil nil [182 219])
+            ("swift/client/Notifier.h" include nil nil [220 254])
+            ("autil/LoopThread.h" include nil nil [255 284])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [308 315]))                  
+                :type "int")
+                nil [286 316])
+            ("SwiftReaderImpl" type
+               (:superclasses 
+                  ( ("SwiftReader" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [363 370])
+                    ("public" label nil (reparse-symbol classsubparts) [372 379])
+                    ("SwiftReaderImpl" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("adminAdapter" variable
+                               (:pointer 1
+                                :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [400 432])
+                            ("channelManager" variable
+                               (:pointer 1
+                                :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [453 497]))                          
+                        :type ("SwiftReaderImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [384 498])
+                    ("SwiftReaderImpl" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [503 522])
+                    ("private" label nil (reparse-symbol classsubparts) [523 531])
+                    ("SwiftReaderImpl" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftReaderImpl" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [552 576]))                          
+                        :type ("SwiftReaderImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [536 577])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftReaderImpl" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [609 633]))                          
+                        :type ("SwiftReaderImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [582 634])
+                    ("public" label nil (reparse-symbol classsubparts) [635 642])
+                    ("init" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("config" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftReaderConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [680 712]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [647 713])
+                    ("read" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timeStamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [751 770])
+                            ("msgs" variable
+                               (:reference 1
+                                :type ("protocol::Messages" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [771 796])
+                            ("timeout" variable
+                               (:default-value "3 * 1000000"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [827 856]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [718 858])
+                    ("read" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timeStamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [896 915])
+                            ("msg" variable
+                               (:reference 1
+                                :type ("protocol::Message" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [916 939])
+                            ("timeout" variable
+                               (:default-value "3 * 1000000"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [970 999]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [863 1001])
+                    ("seekByTimestamp" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timeStamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1050 1068])
+                            ("force" variable
+                               (:default-value "false"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1069 1087]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1006 1089])
+                    ("getSwiftPartitionStatus" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("SwiftPartitionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1094 1149])
+                    ("checkCurrentError" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("errorCode" variable
+                               (:reference 1
+                                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1186 1217])
+                            ("errorMsg" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1254 1276]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1155 1283])
+                    ("setRequiredFieldNames" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("fieldNames" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1323 1366]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1288 1367])
+                    ("setFieldFilterDesc" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("fieldFilterDesc" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1404 1439]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1372 1440])
+                    ("setTimestampLimit" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timestampLimit" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1476 1499])
+                            ("acceptTimestamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1500 1525]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1445 1526])
+                    ("getRequiredFieldNames" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1531 1588])
+                    ("updateCommittedCheckpoint" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("checkpoint" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1632 1651]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1593 1652])
+                    ("public" label nil (reparse-symbol classsubparts) [1654 1661])
+                    ("setTopicChanged" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("topicVersion" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1702 1723]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1666 1724])
+                    ("getCurrentTimestamp" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1729 1759])
+                    ("isTopicChanged" function (:type "bool") (reparse-symbol classsubparts) [1764 1825])
+                    ("public" label nil (reparse-symbol classsubparts) [1826 1833])
+                    ("seekByMessageId" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1874 1888]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1838 1889])
+                    ("private" label nil (reparse-symbol classsubparts) [1890 1898])
+                    ("reportFatalError" function
+                       (:prototype-flag t
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1903 1942])
+                    ("getUnReadMsgCount" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1947 1981])
+                    ("hasUnReadMsg" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1986 2012])
+                    ("tryRead" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("msg" variable
+                               (:reference 1
+                                :type ("protocol::Messages" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2030 2054]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2017 2055])
+                    ("tryFillBuffer" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("currentTime" variable
+                               (:default-value "autil::TimeUtility::currentTime()"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2082 2164]))                          
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2060 2166])
+                    ("fillBuffer" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2202 2218]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2171 2219])
+                    ("getFirstMsgTimestamp" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2224 2261])
+                    ("getNextMsgTimestamp" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2266 2302])
+                    ("fillReaderStatus" function
+                       (:prototype-flag t
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2307 2346])
+                    ("checkTimestampLimit" function
+                       (:prototype-flag t
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2351 2393])
+                    ("doBatchRead" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timeStamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2430 2449])
+                            ("msgs" variable
+                               (:reference 1
+                                :type ("protocol::Messages" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2451 2476])
+                            ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2504 2520]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2398 2521])
+                    ("initReaders" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("readPartVec" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("uint32_t" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2543 2584]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2526 2585])
+                    ("clearReaders" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2590 2610])
+                    ("private" label nil (reparse-symbol classsubparts) [2611 2619])
+                    ("_adminAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2624 2664])
+                    ("_channelManager" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2669 2721])
+                    ("_mutex" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2726 2760])
+                    ("_readers" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("SwiftSinglePartitionReader" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2765 2815])
+                    ("_exceedLimitVec" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("bool" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2820 2854])
+                    ("_timeLimitMode" variable (:type "bool") (reparse-symbol classsubparts) [2859 2879])
+                    ("_timestamps" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("int64_t" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2884 2917])
+                    ("_currentTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2922 2948])
+                    ("_notifier" variable
+                       (:pointer 1
+                        :type ("Notifier" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2953 2973])
+                    ("_needFillAll" variable (:type "bool") (reparse-symbol classsubparts) [2978 2996])
+                    ("_lastReadIndex" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3001 3025])
+                    ("_fieldNames" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [3030 3067])
+                    ("_fieldFilterDesc" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3072 3101])
+                    ("_messageBuffer" variable (:type ("protocol::Messages" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3106 3140])
+                    ("_bufferCursor" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3145 3167])
+                    ("_bufferReadIndex" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3172 3198])
+                    ("_isBufferRead" variable (:type "bool") (reparse-symbol classsubparts) [3203 3222])
+                    ("_config" variable (:type ("SwiftReaderConfig" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3227 3253])
+                    ("_isTopicChanged" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3258 3288])
+                    ("_partitionCount" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3293 3318])
+                    ("private" label nil (reparse-symbol classsubparts) [3319 3327])
+                    ("SwiftReaderImplTest" friend nil (reparse-symbol classsubparts) [3332 3364])
+                    ("SwiftClientFactory" friend nil (reparse-symbol classsubparts) [3370 3401])
+                    ("FakeClientHelper" friend nil (reparse-symbol classsubparts) [3407 3436])
+                    ("private" label nil (reparse-symbol classsubparts) [3438 3446])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [3451 3471]))                  
+                :type "class")
+                nil [318 3474])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("SwiftReaderImpl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3494 3510]))                  
+                :type "int")
+                nil [3476 3511])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3533 3540]))                  
+                :type "int")
+                nil [3513 3541]))          
+      :file "SwiftReaderImpl.h"
+      :pointmax 3576
+      :fsize 3575
+      :lastmodtime '(23376 2095 816367 747000)
+      :unmatched-syntax '((thing 3364 . 3365) (thing 3401 . 3402) (thing 3436 . 3437))
+      :lexical-table 
+        '(("SWIFT_SWIFTREADERIMPL_H")
+          )
+)
+    (semanticdb-table "SwiftReaderAdapter.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/client/SwiftReaderAdapter.h" include nil nil [1 45])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [66 75]))                  
+                :type "int")
+                nil [46 76])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [77 99])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [100 120])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [144 151]))                  
+                :type "int")
+                nil [122 152])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [169 176])
+                    ("" variable (:type ("SwiftReaderAdapter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [177 196]))                  
+                :type "int")
+                nil [153 197])
+            ("SwiftReaderAdapter" function
+               (:constructor-flag t
+                :parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("adminAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [238 270])
+                    ("channelManager" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [307 351]))                  
+                :type ("SwiftReaderAdapter" type (:type "class") nil nil))
+                nil [199 528])
+            ("SwiftReaderAdapter" function
+               (:destructor-flag t
+                :parent "SwiftReaderAdapter"
+                :type "void")
+                nil [530 575])
+            ("init" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("config" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SwiftReaderConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [612 644]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [577 780])
+            ("read" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("timeStamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [817 836])
+                    ("msgs" variable
+                       (:reference 1
+                        :type ("protocol::Messages" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [837 862])
+                    ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [889 905]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [782 1185])
+            ("read" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("timeStamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1222 1241])
+                    ("msg" variable
+                       (:reference 1
+                        :type ("protocol::Message" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1242 1265])
+                    ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1292 1308]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1187 1586])
+            ("seekByTimestamp" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("timeStamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1634 1652])
+                    ("force" variable (:type "bool") (reparse-symbol arg-sub-list) [1653 1664]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1588 1772])
+            ("checkCurrentError" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("errorCode" variable
+                       (:reference 1
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1817 1848])
+                    ("errorMsg" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1857 1874]))                  
+                :type "void")
+                nil [1774 1986])
+            ("getSwiftPartitionStatus" function
+               (:parent "SwiftReaderAdapter"
+                :type ("SwiftPartitionStatus" type (:type "class") nil nil))
+                nil [1988 2154])
+            ("setRequiredFieldNames" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("fieldNames" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2203 2236]))                  
+                :type "void")
+                nil [2156 2384])
+            ("setFieldFilterDesc" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("fieldFilterDesc" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2430 2460]))                  
+                :type "void")
+                nil [2386 2616])
+            ("setTimestampLimit" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("timestampLimit" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2661 2684])
+                    ("acceptTimestamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2685 2710]))                  
+                :type "void")
+                nil [2618 2867])
+            ("getRequiredFieldNames" function
+               (:parent "SwiftReaderAdapter"
+                :type ("vector" type
+                     (:template-specifier 
+                        ( ("string" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [2869 3025])
+            ("updateCommittedCheckpoint" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("checkpoint" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3078 3097]))                  
+                :type "bool")
+                nil [3027 3209])
+            ("seekByMessageId" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3257 3271]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [3211 3368])
+            ("setSwiftReader" function
+               (:parent "SwiftReaderAdapter"
+                :arguments 
+                  ( ("swiftReader" variable (:type ("SwiftReaderImplPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3410 3441]))                  
+                :type "void")
+                nil [3370 3520])
+            ("getSwiftReader" function
+               (:parent "SwiftReaderAdapter"
+                :type ("SwiftReaderImplPtr" type (:type "class") nil nil))
+                nil [3522 3654])
+            ("doTopicChanged" function
+               (:parent "SwiftReaderAdapter"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [3656 4956])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4977 4984]))                  
+                :type "int")
+                nil [4957 4985]))          
+      :file "SwiftReaderAdapter.cpp"
+      :pointmax 4987
+      :fsize 4986
+      :lastmodtime '(23376 2095 815367 784000)
+      :unmatched-syntax nil)
+    (semanticdb-table "SwiftReaderAdapter.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_SWIFTREADERADAPTER_H" variable (:constant-flag t) nil [44 70])
+            ("swift/common/Common.h" include nil nil [72 104])
+            ("swift/common/Log.h" include nil nil [105 134])
+            ("swift/client/SwiftReader.h" include nil nil [135 172])
+            ("swift/client/SwiftReaderImpl.h" include nil nil [173 214])
+            ("autil/Lock.h" include nil nil [215 238])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [262 269]))                  
+                :type "int")
+                nil [240 270])
+            ("SwiftReaderAdapter" type
+               (:superclasses 
+                  ( ("SwiftReader" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [320 327])
+                    ("SwiftReaderAdapter" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("adminAdapter" variable
+                               (:pointer 1
+                                :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [351 383])
+                            ("channelManager" variable
+                               (:pointer 1
+                                :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [407 451]))                          
+                        :type ("SwiftReaderAdapter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [332 452])
+                    ("SwiftReaderAdapter" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [457 487])
+                    ("private" label nil (reparse-symbol classsubparts) [488 496])
+                    ("SwiftReaderAdapter" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftReaderAdapter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [520 547]))                          
+                        :type ("SwiftReaderAdapter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [501 548])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftReaderAdapter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [583 610]))                          
+                        :type ("SwiftReaderAdapter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [553 611])
+                    ("public" label nil (reparse-symbol classsubparts) [612 619])
+                    ("init" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("config" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SwiftReaderConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [657 689]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [624 690])
+                    ("read" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timeStamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [728 747])
+                            ("msgs" variable
+                               (:reference 1
+                                :type ("protocol::Messages" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [748 773])
+                            ("timeout" variable
+                               (:default-value "3 * 1000000"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [787 816]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [695 818])
+                    ("read" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timeStamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [857 876])
+                            ("msg" variable
+                               (:reference 1
+                                :type ("protocol::Message" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [877 900])
+                            ("timeout" variable
+                               (:default-value "3 * 1000000"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [914 943]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [824 945])
+                    ("seekByTimestamp" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timeStamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [994 1012])
+                            ("force" variable
+                               (:default-value "false"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1013 1031]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [950 1033])
+                    ("checkCurrentError" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("errorCode" variable
+                               (:reference 1
+                                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1069 1100])
+                            ("errorMsg" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1137 1159]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1038 1166])
+                    ("getSwiftPartitionStatus" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("SwiftPartitionStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1171 1226])
+                    ("setRequiredFieldNames" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("fieldNames" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1266 1309]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1231 1310])
+                    ("setFieldFilterDesc" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("fieldFilterDesc" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1347 1382]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1315 1383])
+                    ("setTimestampLimit" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("timestampLimit" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1419 1442])
+                            ("acceptTimestamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1443 1468]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1388 1469])
+                    ("getRequiredFieldNames" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1474 1531])
+                    ("updateCommittedCheckpoint" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("checkpoint" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1575 1594]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1536 1595])
+                    ("private" label nil (reparse-symbol classsubparts) [1597 1605])
+                    ("setSwiftReader" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("swiftReader" variable (:type ("SwiftReaderImplPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1630 1661]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1610 1662])
+                    ("getSwiftReader" function
+                       (:prototype-flag t
+                        :type ("SwiftReaderImplPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1667 1709])
+                    ("doTopicChanged" function
+                       (:prototype-flag t
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1714 1751])
+                    ("readMsg" function
+                       (:template 
+                          ( ("T" type (:type "class") nil nil))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil)
+                        :arguments 
+                          ( ("timeStamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1810 1829])
+                            ("msg" variable
+                               (:reference 1
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1830 1837])
+                            ("timeout" variable
+                               (:default-value "3 * 1000000"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1871 1900]))                          
+                        :prototype-flag t)
+                        (reparse-symbol classsubparts) [1756 1902])
+                    ("public" label nil (reparse-symbol classsubparts) [1909 1916])
+                    ("seekByMessageId" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1957 1971]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1921 1972])
+                    ("private" label nil (reparse-symbol classsubparts) [1973 1981])
+                    ("_adminAdapter" variable
+                       (:pointer 1
+                        :type ("SwiftAdminAdapter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1986 2026])
+                    ("_channelManager" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCChannelManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2031 2083])
+                    ("_swiftReaderImpl" variable (:type ("SwiftReaderImplPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2088 2124])
+                    ("_readerConfig" variable (:type ("SwiftReaderConfig" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2129 2161])
+                    ("_acceptTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2166 2191])
+                    ("_readerLock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2196 2237])
+                    ("_mutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2242 2268])
+                    ("private" label nil (reparse-symbol classsubparts) [2269 2277])
+                    ("SwiftClientFactory" friend nil (reparse-symbol classsubparts) [2282 2313])
+                    ("FakeClientHelper" friend nil (reparse-symbol classsubparts) [2319 2348])
+                    ("private" label nil (reparse-symbol classsubparts) [2350 2358])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [2363 2383]))                  
+                :type "class")
+                nil [272 2386])
+            ("readMsg" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil)
+                :arguments 
+                  ( ("timeStamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2458 2477])
+                    ("msg" variable
+                       (:reference 1
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2478 2485])
+                    ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2512 2528]))                  
+                :parent "SwiftReaderAdapter")
+                nil [2388 2922])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("SwiftReaderAdapter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2942 2961]))                  
+                :type "int")
+                nil [2924 2962])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2984 2991]))                  
+                :type "int")
+                nil [2964 2992]))          
+      :file "SwiftReaderAdapter.h"
+      :pointmax 3030
+      :fsize 3029
+      :lastmodtime '(23376 2095 815367 784000)
+      :unmatched-syntax '((thing 2313 . 2314) (thing 2348 . 2349))
+      :lexical-table 
+        '(("SWIFT_SWIFTREADERADAPTER_H")
+          )
+)
+    (semanticdb-table "ClientFileUtil.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/client/ClientFileUtil.h" include nil nil [1 41])
+            ("zookeeper/zookeeper.h" include nil nil [42 74])
+            ("anet/anet.h" include nil nil [75 97])
+            ("string" include (:system-flag t) nil [98 115])
+            ("fstream" include (:system-flag t) nil [116 134])
+            ("streambuf" include (:system-flag t) nil [135 155])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [157 177])
+            ("anet" using (:type ("anet" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [178 199])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [223 230]))                  
+                :type "int")
+                nil [201 231])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [248 255])
+                    ("" variable (:type ("ClientFileUtil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [256 271]))                  
+                :type "int")
+                nil [232 272])
+            ("LOCAL_TYPE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"local\""
+                :type ("string" type (:type "class") nil nil))
+                nil [274 315])
+            ("ZFS_TYPE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"zfs\""
+                :type ("string" type (:type "class") nil nil))
+                nil [316 353])
+            ("HTTP_TYPE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"http\""
+                :type ("string" type (:type "class") nil nil))
+                nil [354 393])
+            ("ZFS_RECV_TIMEOUT" variable
+               (:default-value "6000"
+                :type "int")
+                nil [395 423])
+            ("HTTP_CONNECT_TIMEOUT" variable
+               (:default-value "3000"
+                :type "int")
+                nil [424 456])
+            ("HTTP_PACKET_TIMEOUT" variable
+               (:default-value "3000"
+                :type "int")
+                nil [457 488])
+            ("ClientFileUtil" function
+               (:constructor-flag t
+                :parent "ClientFileUtil"
+                :type ("ClientFileUtil" type (:type "class") nil nil))
+                nil [490 527])
+            ("ClientFileUtil" function
+               (:destructor-flag t
+                :parent "ClientFileUtil"
+                :type "void")
+                nil [529 567])
+            ("readFile" function
+               (:parent "ClientFileUtil"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [599 622])
+                    ("content" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [623 639]))                  
+                :type "bool")
+                nil [569 968])
+            ("getFsType" function
+               (:parent "ClientFileUtil"
+                :arguments 
+                  ( ("srcPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1003 1030]))                  
+                :type ("string" type (:type "class") nil nil))
+                nil [970 1284])
+            ("readLocalFile" function
+               (:parent "ClientFileUtil"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1321 1344])
+                    ("content" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1345 1361]))                  
+                :type "bool")
+                nil [1286 1609])
+            ("readZfsFile" function
+               (:parent "ClientFileUtil"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1644 1667])
+                    ("content" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1668 1684]))                  
+                :type "bool")
+                nil [1611 3408])
+            ("readHttpFile" function
+               (:parent "ClientFileUtil"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3445 3468])
+                    ("content" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3469 3485]))                  
+                :type "bool")
+                nil [3411 5528])
+            ("parsePath" function
+               (:parent "ClientFileUtil"
+                :arguments 
+                  ( ("type" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5561 5580])
+                    ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5581 5604])
+                    ("server" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5636 5651])
+                    ("path" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5652 5665]))                  
+                :type "bool")
+                nil [5530 6172])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6194 6201]))                  
+                :type "int")
+                nil [6174 6202]))          
+      :file "ClientFileUtil.cpp"
+      :pointmax 6204
+      :fsize 6203
+      :lastmodtime '(23376 2095 813367 859000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ClientFileUtil.h"
+      :file "ClientFileUtil.h"
+      :fsize 978
+      :lastmodtime '(23376 2095 813367 859000)))
+  :file "!ssd!sdd!git!turing_ha3_compile!swift!swift!client!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

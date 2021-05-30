@@ -1,0 +1,224 @@
+;; Object test/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "test/"
+  :tables
+  (list
+    (semanticdb-table "unittest.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__SWIFT_UNITTEST_H" variable (:constant-flag t) nil [36 54])
+            ("string" include (:system-flag t) nil [56 73])
+            ("typeinfo" include (:system-flag t) nil [74 93])
+            ("execinfo.h" include (:system-flag t) nil [94 115])
+            ("dlfcn.h" include (:system-flag t) nil [116 134])
+            ("unistd.h" include (:system-flag t) nil [135 154])
+            ("GTEST_USE_OWN_TR1_TUPLE" variable (:constant-flag t) nil [163 186])
+            ("gtest/gtest.h" include (:system-flag t) nil [189 213])
+            ("gmock/gmock.h" include (:system-flag t) nil [214 238])
+            ("swift/util/FileUtil.h" include nil nil [239 271])
+            ("swift/common/Log.h" include nil nil [272 301])
+            ("swift/common/PathDefine.h" include nil nil [302 338])
+            ("swift/test/test.h" include nil nil [339 367])
+            ("private" variable (:constant-flag t) nil [377 384])
+            ("protected" variable (:constant-flag t) nil [400 409])
+            ("testing::_" using (:type ("testing::_" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [418 435])
+            ("testing::Return" using (:type ("testing::Return" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [436 458])
+            ("testing::Throw" using (:type ("testing::Throw" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [459 480])
+            ("testing::SetArgReferee" using (:type ("testing::SetArgReferee" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [481 510])
+            ("testing::DoAll" using (:type ("testing::DoAll" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [511 532])
+            ("testing::Invoke" using (:type ("testing::Invoke" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [533 555])
+            ("SWIFT_TESTBASE" type
+               (:superclasses 
+                  ( ("testing::Test" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [603 610])
+                    ("SWIFT_TESTBASE" function
+                       (:constructor-flag t
+                        :type ("SWIFT_TESTBASE" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [615 634])
+                    ("SWIFT_TESTBASE" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [639 667])
+                    ("public" label nil (reparse-symbol classsubparts) [668 675])
+                    ("SetUp" function (:type "void") (reparse-symbol classsubparts) [680 818])
+                    ("TearDown" function (:type "void") (reparse-symbol classsubparts) [824 899])
+                    ("public" label nil (reparse-symbol classsubparts) [901 908])
+                    ("setUp" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [913 936])
+                    ("tearDown" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [941 967])
+                    ("GET_CLASS_NAME" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [973 1044])
+                    ("GET_TEST_DATA_PATH" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1050 1121])
+                    ("public" label nil (reparse-symbol classsubparts) [1123 1131])
+                    ("testDataPathSetup" function (:type "void") (reparse-symbol classsubparts) [1136 1469])
+                    ("testDataPathTearDown" function (:type "void") (reparse-symbol classsubparts) [1475 1541])
+                    ("deleteExistDataPath" function (:type "void") (reparse-symbol classsubparts) [1547 1828])
+                    ("public" label nil (reparse-symbol classsubparts) [1830 1838])
+                    ("_testDataPath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1843 1869])
+                    ("public" label nil (reparse-symbol classsubparts) [1871 1881])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1886 1906]))                  
+                :type "class")
+                nil [557 1909])
+            ("ASSERT_CAST_AND_RETURN" variable (:constant-flag t) nil [1919 1941])
+            ("GET_NEXT_FUNC" variable (:constant-flag t) nil [3373 3386]))          
+      :file "unittest.h"
+      :pointmax 4860
+      :fsize 4859
+      :lastmodtime '(22497 11275 487788 660000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("GET_NEXT_FUNC" (spp-arg-list ("func_type") 3386 . 3397) . ((semantic-list "({                                                          \\
+        const size_t max_depth = 1;                             \\
+        void *stack_addrs[max_depth];                           \\
+                                                                \\
+        size_t stack_depth = backtrace(stack_addrs, max_depth);         \\
+        assert(stack_depth == 1); (void) stack_depth;                   \\
+        char **stack_strings = backtrace_symbols(stack_addrs, max_depth); \\
+                                                                        \\
+        std::string stackStr = stack_strings[0];                        \\
+        size_t start = stackStr.find('(');                              \\
+        assert(start != std::string::npos);                             \\
+        stackStr = stackStr.substr(start + 1);                          \\
+        size_t end = stackStr.find('+');                                \\
+        assert(end != std::string::npos);                               \\
+        std::string funcSym = stackStr.substr(0, end);                  \\
+        free(stack_strings);                                            \\
+        func_type func = reinterpret_cast<func_type>(dlsym(RTLD_NEXT, funcSym.c_str())); \\
+        assert(func);                                                   \\
+        func;                                                           \\
+    })" 3435 . 4830)))
+          ("GTEST_USE_OWN_TR1_TUPLE" . ((number "0" 187 . 188)))
+          ("__SWIFT_UNITTEST_H")
+          ("private" . ((PUBLIC "public" 385 . 391)))
+          ("ASSERT_CAST_AND_RETURN" (spp-arg-list ("expectType" "pointer") 1941 . 1962) . ((semantic-list "({                                                                  \\
+        ASSERT_TRUE(pointer) << \"pointer is NULL\";                      \\
+        expectType *castResult__ = dynamic_cast<expectType*>(pointer);  \\
+        ASSERT_TRUE(castResult__) << \"Expect: \"#expectType << \" Actual: \" << typeid(*pointer).name(); \\
+        castResult__;                                                   \\
+    })" 1989 . 2391)))
+          ("protected" . ((PUBLIC "public" 410 . 416)))
+          )
+)
+    (semanticdb-table "dotest.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("GTEST_USE_OWN_TR1_TUPLE" variable (:constant-flag t) nil [9 32])
+            ("gmock/gmock.h" include (:system-flag t) nil [35 59])
+            ("swift/common/Log.h" include nil nil [60 89])
+            ("swift/test/test.h" include nil nil [90 118])
+            ("swift/test/unittest.h" include nil nil [119 151])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [153 173])
+            ("testing" variable (:type "int") nil [192 200])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("test" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [218 223])
+                    ("" variable (:type ("SWIFT_TESTBASE" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [224 239]))                  
+                :type "int")
+                nil [202 240])
+            ("SWIFT_DEFAULT_LOG_CONF" variable
+               (:constant-flag t
+                :default-value "\"\\n\\
+alog.rootLogger=INFO, swiftAppender\\n                                   \\
+alog.max_msg_len=4096\\n                                                 \\
+alog.appender.swiftAppender=ConsoleAppender\\n                           \\
+alog.appender.swiftAppender.fileName=swift.log\\n                        \\
+alog.appender.swiftAppender.flush=true\\n                                \\
+alog.appender.swiftAppender.max_file_size=1000\\n                         \\
+alog.appender.swiftAppender.compress=true\\n                             \\
+alog.appender.swiftAppender.layout=PatternLayout\\n                      \\
+alog.appender.swiftAppender.layout.LogPattern=[%%d] [%%l] [%%t,%%F -- %%f():%%n] [%%m]\\n \\
+alog.appender.swiftAppender.log_keep_count=100\\n                        \\
+alog.logger.arpc=WARN\\n                                                 \\
+alog.logger.swift.common.AccessLogger=ERROR\\n            \\
+\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [241 1182])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [1194 1203])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1204 1216]))                  
+                :type "int")
+                nil [1185 1393]))          
+      :file "dotest.cpp"
+      :pointmax 1394
+      :fsize 1393
+      :lastmodtime '(22497 11305 325725 469000)
+      :unmatched-syntax '((thing 191 . 192) (thing 174 . 179))
+      :lexical-table 
+        '(("GTEST_USE_OWN_TR1_TUPLE" . ((number "0" 33 . 34)))
+          )
+)
+    (semanticdb-table "test.h.in"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("AGGREGATOR_TEST_H_" variable (:constant-flag t) nil [36 54])
+            ("DOTEST_LOGGER_CONF" variable (:constant-flag t) nil [64 82])
+            ("TEST_DATA_PATH" variable (:constant-flag t) nil [114 128])
+            ("TEST_ZOOKEEPER_PATH" variable (:constant-flag t) nil [162 181]))          
+      :file "test.h.in"
+      :pointmax 225
+      :fsize 224
+      :lastmodtime '(22468 63457 619811 227000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("DOTEST_LOGGER_CONF" . ((string "\"@DOTEST_LOGGER_CONF@\"" 83 . 105)))
+          ("AGGREGATOR_TEST_H_")
+          ("TEST_DATA_PATH" . ((string "\"@TOP_SRCDIR@/testdata/\"" 129 . 153)))
+          ("TEST_ZOOKEEPER_PATH" . ((string "\"@TOP_SRCDIR@/testdata/zookeeper\"" 182 . 215)))
+          )
+)
+    (semanticdb-table "SConscript"
+      :major-mode 'python-mode
+      :tags 
+        '( ("os" include nil nil [24 33])
+            ("Import" code nil nil [35 48])
+            ("env" variable nil nil [49 66])
+            ("env" code nil nil [68 101]))          
+      :file "SConscript"
+      :pointmax 103
+      :fsize 102
+      :lastmodtime '(22497 11274 65791 722000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!ha3_suez!online!swift!swift!test!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

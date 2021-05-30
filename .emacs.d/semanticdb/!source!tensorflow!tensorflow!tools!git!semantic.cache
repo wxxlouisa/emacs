@@ -1,0 +1,94 @@
+;; Object git/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "git/"
+  :tables
+  (list
+    (semanticdb-table "gen_git_source.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Help include git hash in tensorflow bazel build.
+
+This creates symlinks from the internal git repository directory so
+that the build system can see changes in the version state. We also
+remember what branch git was on so when the branch changes we can
+detect that the ref file is no longer correct (so we can suggest users
+run ./configure again).
+
+NOTE: this script is only used in opensource.
+
+\"\"\"" code nil nil [712 1113])
+            ("__future__" include nil nil [1114 1152])
+            ("__future__" include nil nil [1153 1184])
+            ("__future__" include nil nil [1185 1222])
+            ("argparse" include nil nil [1223 1238])
+            ("json" include nil nil [1239 1250])
+            ("os" include nil nil [1251 1260])
+            ("subprocess" include nil nil [1261 1278])
+            ("shutil" include nil nil [1279 1292])
+            ("parse_branch_ref" function
+               (:documentation "Given a filename of a .git/HEAD file return ref path.
+
+  In particular, if git is in detached head state, this will
+  return None. If git is in attached head, it will return
+  the branch reference. E.g. if on 'master', the HEAD will
+  contain 'ref: refs/heads/master' so 'refs/heads/master'
+  will be returned.
+
+  Example: parse_branch_ref(\".git/HEAD\")
+  Args:
+    filename: file to treat as a git HEAD file
+  Returns:
+    None if detached head, otherwise ref subpath
+  Raises:
+    RuntimeError: if the HEAD file is unparseable.
+  "
+                :arguments 
+                  ( ("filename" variable nil (reparse-symbol function_parameters) [1316 1324]))                  )
+                nil [1295 2115])
+            ("configure" function
+               (:documentation "Configure `src_base_path` to embed git hashes if available."
+                :arguments 
+                  ( ("src_base_path" variable nil (reparse-symbol function_parameters) [2131 2144])
+                    ("debug" variable nil (reparse-symbol function_parameters) [2146 2151]))                  )
+                nil [2117 4629])
+            ("get_git_version" function
+               (:documentation "Get the git version from the repository.
+
+  This function runs `git describe ...` in the path given as `git_base_path`.
+  This will return a string of the form:
+  <base-tag>-<number of commits since tag>-<shortened sha hash>
+
+  For example, 'v0.10.0-1585-gbb717a6' means v0.10.0 was the last tag when
+  compiled. 1585 commits are after that commit tag, and we can get back to this
+  version by running `git checkout gbb717a6`.
+
+  Args:
+    git_base_path: where the .git directory is located
+  Returns:
+    A bytestring representing the git version
+  "
+                :arguments 
+                  ( ("git_base_path" variable nil (reparse-symbol function_parameters) [4651 4664]))                  )
+                nil [4631 5570])
+            ("write_version_info" function
+               (:documentation "Write a c file that defines the version functions.
+
+  Args:
+    filename: filename to write to.
+    git_version: the result of a git describe.
+  "
+                :arguments 
+                  ( ("filename" variable nil (reparse-symbol function_parameters) [5595 5603])
+                    ("git_version" variable nil (reparse-symbol function_parameters) [5605 5616]))                  )
+                nil [5572 5953])
+            ("" code nil nil [5982 5996])
+            ("" code nil nil [6031 6052])
+            ("symlinks" code nil nil [7994 8002]))          
+      :file "gen_git_source.py"
+      :pointmax 8931
+      :fsize 8930
+      :lastmodtime '(22719 39621 0 0)
+      :unmatched-syntax '((thing 5486 . 5490) (thing 5479 . 5481) (thing 5468 . 5474) (thing 5775 . 5777) (thing 5779 . 5783) (thing 5803 . 5843) (thing 5843 . 5865) (thing 5865 . 5912) (thing 5915 . 5916) (thing 5928 . 5930) (thing 5931 . 5945) (thing 5951 . 5952) (thing 5952 . 5953) (thing 6053 . 6139) (thing 6139 . 6147) (thing 6148 . 6160) (thing 6164 . 6166) (thing 6173 . 6174) (thing 6192 . 6193) (thing 6194 . 7924) (thing 8003 . 8007) (thing 8008 . 8014) (thing 8015 . 8017) (thing 8018 . 8022) (thing 8023 . 8024) (thing 8025 . 8030) (thing 8031 . 8038) (thing 8039 . 8042) (thing 8043 . 8047) (thing 8058 . 8931) (thing 8931 . 8931))))
+  :file "!source!tensorflow!tensorflow!tools!git!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

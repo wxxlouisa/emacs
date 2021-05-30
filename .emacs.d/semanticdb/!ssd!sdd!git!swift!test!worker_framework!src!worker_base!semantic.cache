@@ -1,0 +1,306 @@
+;; Object worker_base/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "worker_base/"
+  :tables
+  (list
+    (semanticdb-table "WorkerBase.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("fslib/fslib.h" include (:system-flag t) nil [1 25])
+            ("fslib/fs/FileSystem.h" include (:system-flag t) nil [26 58])
+            ("signal.h" include (:system-flag t) nil [59 78])
+            ("autil/StringUtil.h" include (:system-flag t) nil [79 108])
+            ("autil/Lock.h" include (:system-flag t) nil [109 132])
+            ("http_arpc/HTTPRPCServer.h" include (:system-flag t) nil [133 169])
+            ("worker_framework/WorkerBase.h" include nil nil [170 210])
+            ("common/Log.h" include nil nil [211 234])
+            ("common/FileUtil.h" include nil nil [235 263])
+            ("common/PathUtil.h" include nil nil [264 292])
+            ("worker_framework/SocketUtil.h" include nil nil [293 333])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [335 355])
+            ("fslib" using (:type ("fslib" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [356 378])
+            ("fslib::fs" using (:type ("fslib::fs" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [379 405])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [406 428])
+            ("USE_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [461 468]))                  
+                :type "int")
+                nil [430 469])
+            ("BEGIN_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [503 515]))                  
+                :type "int")
+                nil [470 516])
+            ("WORKER_FRAMEWORK_LOG_GLOBAL_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [552 564])
+                    ("" variable (:type ("WorkerBase" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [565 576]))                  
+                :type "int")
+                nil [518 577])
+            ("MIN_RANDOM_PORT" variable (:constant-flag t) nil [587 602])
+            ("MAX_RANDOM_PORT" variable (:constant-flag t) nil [617 632])
+            ("RPC_SERVER_THREAD_NUM" variable (:constant-flag t) nil [647 668])
+            ("RPC_SERVER_IO_THREAD_NUM" variable (:constant-flag t) nil [680 704])
+            ("RPC_SERVER_THREAD_POOL_QUEUE_SIZE" variable (:constant-flag t) nil [715 748])
+            ("WorkerBaseImpl" type
+               (:members 
+                  ( ("WorkerBaseImpl" function
+                       (:constructor-flag t
+                        :type ("WorkerBaseImpl" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [782 1189])
+                    ("WorkerBaseImpl" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1194 1219])
+                    ("logConfFile" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1225 1249])
+                    ("cwdPath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1254 1274])
+                    ("mutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1279 1304])
+                    ("transport" variable
+                       (:pointer 1
+                        :type ("anet::Transport" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1309 1336])
+                    ("rpcServer" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCServer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1341 1372])
+                    ("httpRPCServer" variable
+                       (:pointer 1
+                        :type ("http_arpc::HTTPRPCServer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1377 1417])
+                    ("optionParser" variable (:type ("autil::OptionParser" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1422 1455])
+                    ("threadNum" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1460 1479])
+                    ("ioThreadNum" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1484 1505])
+                    ("queueSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1510 1529])
+                    ("port" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1534 1547])
+                    ("httpPort" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1552 1569])
+                    ("isRpcServerStarted" variable (:type "bool") (reparse-symbol classsubparts) [1574 1598])
+                    ("deamon" variable (:type "bool") (reparse-symbol classsubparts) [1603 1615])
+                    ("reInit" variable (:type "bool") (reparse-symbol classsubparts) [1620 1632])
+                    ("isStopped" variable (:type "bool") (reparse-symbol classsubparts) [1637 1652]))                  
+                :type "struct")
+                nil [754 1655])
+            ("WorkerBase" function
+               (:constructor-flag t
+                :parent "WorkerBase"
+                :type ("WorkerBase" type (:type "class") nil nil))
+                nil [1657 1717])
+            ("WorkerBase" function
+               (:destructor-flag t
+                :parent "WorkerBase"
+                :type "void")
+                nil [1719 1801])
+            ("isStop" variable
+               (:typemodifiers ("volatile" "static")
+                :default-value "false"
+                :type "bool")
+                nil [1803 1839])
+            ("handleSignal" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("sig" variable (:type "int") (reparse-symbol arg-sub-list) [1866 1874]))                  
+                :type "void")
+                nil [1841 2013])
+            ("registerSignalHandler" function
+               (:typemodifiers ("static")
+                :type "void")
+                nil [2015 2193])
+            ("getOptionParser" function
+               (:parent "WorkerBase"
+                :type ("autil::OptionParser" type (:type "class") nil nil))
+                nil [2195 2281])
+            ("getOptionParser" function
+               (:parent "WorkerBase"
+                :constant-flag t
+                :type ("autil::OptionParser" type (:type "class") nil nil))
+                nil [2283 2381])
+            ("getIp" function
+               (:parent "WorkerBase"
+                :type ("string" type (:type "class") nil nil))
+                nil [2383 2455])
+            ("getPort" function
+               (:parent "WorkerBase"
+                :type ("uint32_t" type (:type "class") nil nil))
+                nil [2457 2521])
+            ("getAddress" function
+               (:parent "WorkerBase"
+                :type ("string" type (:type "class") nil nil))
+                nil [2523 2631])
+            ("getHTTPPort" function
+               (:parent "WorkerBase"
+                :type ("uint32_t" type (:type "class") nil nil))
+                nil [2633 2705])
+            ("getHTTPAddress" function
+               (:parent "WorkerBase"
+                :type ("string" type (:type "class") nil nil))
+                nil [2707 2823])
+            ("supportHTTP" function
+               (:parent "WorkerBase"
+                :type "bool")
+                nil [2825 2906])
+            ("getCwdPath" function
+               (:parent "WorkerBase"
+                :type ("string" type (:type "class") nil nil))
+                nil [2908 2976])
+            ("getVersion" function
+               (:parent "WorkerBase"
+                :type ("string" type (:type "class") nil nil))
+                nil [2978 3028])
+            ("getLogConfFile" function
+               (:parent "WorkerBase"
+                :type ("string" type (:type "class") nil nil))
+                nil [3030 3106])
+            ("setReInit" function
+               (:parent "WorkerBase"
+                :type "void")
+                nil [3108 3166])
+            ("isStopped" function
+               (:parent "WorkerBase"
+                :type "bool")
+                nil [3168 3229])
+            ("stop" function
+               (:parent "WorkerBase"
+                :type "void")
+                nil [3231 3287])
+            ("getRPCServer" function
+               (:pointer 1
+                :parent "WorkerBase"
+                :type ("arpc::ANetRPCServer" type (:type "class") nil nil))
+                nil [3289 3413])
+            ("setRPCServer" function
+               (:parent "WorkerBase"
+                :arguments 
+                  ( ("rpcServer" variable
+                       (:pointer 1
+                        :type ("arpc::ANetRPCServer" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3445 3476]))                  
+                :type "void")
+                nil [3415 3581])
+            ("setHTTPRPCServer" function
+               (:parent "WorkerBase"
+                :arguments 
+                  ( ("httpRPCServer" variable
+                       (:pointer 1
+                        :type ("http_arpc::HTTPRPCServer" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3617 3657]))                  
+                :type "void")
+                nil [3583 3778])
+            ("getHTTPRPCServer" function
+               (:pointer 1
+                :parent "WorkerBase"
+                :type ("http_arpc::HTTPRPCServer" type (:type "class") nil nil))
+                nil [3780 3873])
+            ("initOptions" function
+               (:parent "WorkerBase"
+                :type "void")
+                nil [3875 4832])
+            ("extractOptions" function
+               (:parent "WorkerBase"
+                :type "void")
+                nil [4834 5429])
+            ("initDeamon" function
+               (:parent "WorkerBase"
+                :type "void")
+                nil [5431 5939])
+            ("changeCurrentPath" function
+               (:parent "WorkerBase"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5976 5995]))                  
+                :type "bool")
+                nil [5941 6207])
+            ("init" function
+               (:parent "WorkerBase"
+                :arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [6231 6240])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6241 6253]))                  
+                :type "bool")
+                nil [6209 7493])
+            ("initRPCServer" function
+               (:parent "WorkerBase"
+                :type "bool")
+                nil [7495 7960])
+            ("initHTTPRPCServer" function
+               (:parent "WorkerBase"
+                :type "bool")
+                nil [7962 8409])
+            ("registerService" function
+               (:parent "WorkerBase"
+                :arguments 
+                  ( ("rpcService" variable
+                       (:pointer 1
+                        :type ("RPCService" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8444 8467])
+                    ("tpd" variable (:type ("arpc::ThreadPoolDescriptor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8501 8532]))                  
+                :type "bool")
+                nil [8411 9066])
+            ("startRPCServer" function
+               (:parent "WorkerBase"
+                :type "bool")
+                nil [9068 10524])
+            ("stopRPCServer" function
+               (:parent "WorkerBase"
+                :type "void")
+                nil [10526 11178])
+            ("listen" function
+               (:parent "WorkerBase"
+                :arguments 
+                  ( ("" variable
+                       (:constant-flag t
+                        :type ("C_STD_TR1::function" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11207 11233])
+                    ("" variable (:type "bool") (reparse-symbol arg-sub-list) [11233 11245])
+                    ("" variable (:type ("listenFunc" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11248 11259])
+                    ("port" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11287 11300]))                  
+                :type ("int32_t" type (:type "class") nil nil))
+                nil [11180 12143])
+            ("initLog" function
+               (:parent "WorkerBase"
+                :type "bool")
+                nil [12145 13650])
+            ("run" function
+               (:parent "WorkerBase"
+                :type "bool")
+                nil [13652 14370])
+            ("END_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14403 14415]))                  
+                :type "int")
+                nil [14372 14416]))          
+      :file "WorkerBase.cpp"
+      :pointmax 14417
+      :fsize 14416
+      :lastmodtime '(22644 49826 770335 559000)
+      :unmatched-syntax '((thing 11232 . 11233) (thing 11237 . 11245) (thing 11245 . 11246) (thing 11247 . 11248))
+      :lexical-table 
+        '(("MAX_RANDOM_PORT" . ((number "60000" 633 . 638)))
+          ("MIN_RANDOM_PORT" . ((number "50000" 603 . 608)))
+          ("RPC_SERVER_THREAD_NUM" . ((number "16" 669 . 671)))
+          ("RPC_SERVER_THREAD_POOL_QUEUE_SIZE" . ((number "500" 749 . 752)))
+          ("RPC_SERVER_IO_THREAD_NUM" . ((number "1" 705 . 706)))
+          )
+))
+  :file "!ssd!sdd!git!swift!test!worker_framework!src!worker_base!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

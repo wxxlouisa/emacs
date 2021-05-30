@@ -1,0 +1,873 @@
+;; Object storage_dfs/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "storage_dfs/"
+  :tables
+  (list
+    (semanticdb-table "FileMessageMeta.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_FILEMESSAGEMETA_H" variable (:constant-flag t) nil [41 64])
+            ("swift/common/Common.h" include nil nil [66 98])
+            ("swift/common/Log.h" include nil nil [99 128])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [151 159]))                  
+                :type "int")
+                nil [129 160])
+            ("FileMessageMeta" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [186 193])
+                    ("FileMessageMeta" function
+                       (:constructor-flag t
+                        :type ("FileMessageMeta" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [198 367])
+                    ("FileMessageMeta" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [389 407])
+                            ("endPos" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [408 424])
+                            ("payload" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [446 463])
+                            ("maskPayload" variable (:type ("uint8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [464 484])
+                            ("compress" variable
+                               (:default-value "false"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [505 526])
+                            ("msgLenHighPart" variable
+                               (:default-value "0"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [528 554]))                          
+                        :type ("FileMessageMeta" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [373 793])
+                    ("public" label nil (reparse-symbol classsubparts) [794 801])
+                    ("toBuf" function
+                       (:arguments 
+                          ( ("buf" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [817 827]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [806 1390])
+                    ("fromBuf" function
+                       (:arguments 
+                          ( ("buf" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1409 1425]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1396 2105])
+                    ("==" function
+                       (:operator-flag t
+                        :arguments 
+                          ( ("meta" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FileMessageMeta" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2129 2157]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2111 2353])
+                    ("private" label nil (reparse-symbol classsubparts) [2354 2362])
+                    ("toBufOld" function
+                       (:arguments 
+                          ( ("buf" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [2381 2391]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2367 2823])
+                    ("public" label nil (reparse-symbol classsubparts) [2825 2832])
+                    ("timestamp" variable
+                       (:suffix ":52"
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2837 2860])
+                    ("msgLenHighPart" variable
+                       (:suffix ":12"
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2900 2928])
+                    ("endPos" variable
+                       (:suffix ":39"
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2950 2970])
+                    ("isCompress" variable
+                       (:suffix ":1"
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2990 3009])
+                    ("maskPayload" variable
+                       (:suffix ":8"
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3014 3038])
+                    ("payload" variable
+                       (:suffix ":16"
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3044 3065]))                  
+                :type "class")
+                nil [162 3068])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3155 3163]))                  
+                :type "int")
+                nil [3135 3164]))          
+      :file "FileMessageMeta.h"
+      :pointmax 3199
+      :fsize 3198
+      :lastmodtime '(22894 47848 109701 422000)
+      :unmatched-syntax '((thing 3070 . 3075) (thing 3076 . 3083) (thing 3084 . 3106) (thing 3107 . 3108) (thing 3109 . 3115) (thing 3115 . 3132) (thing 3132 . 3133))
+      :lexical-table 
+        '(("SWIFT_FILEMESSAGEMETA_H")
+          )
+)
+    (semanticdb-table "MessageCommitter.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/storage_dfs/MessageCommitter.h" include nil nil [1 55])
+            ("swift/broker/storage_dfs/FileMessageMeta.h" include nil nil [56 109])
+            ("swift/monitor/TimeTrigger.h" include nil nil [110 148])
+            ("autil/TimeUtility.h" include nil nil [149 179])
+            ("sstream" include (:system-flag t) nil [180 198])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [200 222])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [223 243])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [265 274]))                  
+                :type "int")
+                nil [245 275])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [296 304]))                  
+                :type "int")
+                nil [276 305])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [326 331]))                  
+                :type "int")
+                nil [306 332])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [356 364]))                  
+                :type "int")
+                nil [334 365])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [382 390])
+                    ("" variable (:type ("MessageCommitter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [391 408]))                  
+                :type "int")
+                nil [366 409])
+            ("MessageCommitter" function
+               (:constructor-flag t
+                :parent "MessageCommitter"
+                :arguments 
+                  ( ("config" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("config::PartitionConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [502 540])
+                    ("fileManager" variable
+                       (:pointer 1
+                        :type ("FileManager" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [549 574])
+                    ("amonMetricsReporter" variable
+                       (:pointer 1
+                        :type ("monitor::AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [583 633]))                  
+                :type ("MessageCommitter" type (:type "class") nil nil))
+                nil [458 2151])
+            ("MessageCommitter" function
+               (:destructor-flag t
+                :parent "MessageCommitter"
+                :type "void")
+                nil [2153 2230])
+            ("updateCommittedId" function
+               (:parent "MessageCommitter"
+                :arguments 
+                  ( ("newCommittedId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2273 2296]))                  
+                :type "void")
+                nil [2232 2455])
+            ("write" function
+               (:parent "MessageCommitter"
+                :arguments 
+                  ( ("vec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MemoryMessageVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2491 2522]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [2457 3503])
+            ("maybeCommit" function
+               (:parent "MessageCommitter"
+                :arguments 
+                  ( ("curTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3545 3561]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [3505 3924])
+            ("needCommitFile" function
+               (:parent "MessageCommitter"
+                :arguments 
+                  ( ("curTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3964 3980]))                  
+                :type "bool")
+                nil [3926 4386])
+            ("needCloseFile" function
+               (:parent "MessageCommitter"
+                :arguments 
+                  ( ("curTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4425 4441]))                  
+                :type "bool")
+                nil [4388 4642])
+            ("commitFile" function
+               (:parent "MessageCommitter"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [4644 7432])
+            ("closeFile" function
+               (:parent "MessageCommitter"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [7434 8651])
+            ("openFile" function
+               (:parent "MessageCommitter"
+                :arguments 
+                  ( ("msg" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MemoryMessage" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8690 8715]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [8653 9757])
+            ("write" function
+               (:parent "MessageCommitter"
+                :arguments 
+                  ( ("msg" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MemoryMessage" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9793 9818]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [9759 10306])
+            ("writeData" function
+               (:parent "MessageCommitter"
+                :arguments 
+                  ( ("msg" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MemoryMessage" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10346 10371]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [10308 11143])
+            ("writeDataBuffer" function
+               (:parent "MessageCommitter"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [11145 11697])
+            ("resetBuffer" function
+               (:parent "MessageCommitter"
+                :type "void")
+                nil [11699 11783])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11804 11812]))                  
+                :type "int")
+                nil [11784 11813]))          
+      :file "MessageCommitter.cpp"
+      :pointmax 11815
+      :fsize 11814
+      :lastmodtime '(22894 47848 110701 421000)
+      :unmatched-syntax '((thing 449 . 450) (thing 447 . 449) (thing 445 . 446) (thing 444 . 445) (thing 442 . 443) (thing 440 . 441) (thing 419 . 439) (thing 410 . 418)))
+    (semanticdb-table "MessageCommitter.h"
+      :file "MessageCommitter.h"
+      :fsize 2719
+      :lastmodtime '(22894 47848 111701 421000))
+    (semanticdb-table "FileManager.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/storage_dfs/FileManager.h" include nil nil [1 50])
+            ("autil/StringUtil.h" include nil nil [51 80])
+            ("swift/broker/storage_dfs/FileMessageMeta.h" include nil nil [81 134])
+            ("autil/TimeUtility.h" include nil nil [135 165])
+            ("iomanip" include (:system-flag t) nil [166 184])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [186 206])
+            ("fslib::fs" using (:type ("fslib::fs" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [207 233])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [234 256])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [279 288]))                  
+                :type "int")
+                nil [259 289])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [313 321]))                  
+                :type "int")
+                nil [291 322])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [339 347])
+                    ("" variable (:type ("FileManager" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [348 360]))                  
+                :type "int")
+                nil [323 361])
+            ("FileManager::DATA_SUFFIX" variable
+               (:constant-flag t
+                :default-value "\".data\""
+                :type ("string" type (:type "class") nil nil))
+                nil [363 411])
+            ("FileManager::META_SUFFIX" variable
+               (:constant-flag t
+                :default-value "\".meta\""
+                :type ("string" type (:type "class") nil nil))
+                nil [412 460])
+            ("FilePairComparator" type
+               (:members 
+                  ( ("()" function
+                       (:operator-flag t
+                        :arguments 
+                          ( ("lhs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FilePairPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [512 535])
+                            ("rhs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FilePairPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [536 559]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [494 631]))                  
+                :type "struct")
+                nil [462 634])
+            ("FileManager" function
+               (:constructor-flag t
+                :parent "FileManager"
+                :type ("FileManager" type (:type "class") nil nil))
+                nil [636 666])
+            ("FileManager" function
+               (:destructor-flag t
+                :parent "FileManager"
+                :type "void")
+                nil [668 738])
+            ("getLastMessageId" function
+               (:parent "FileManager"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [740 963])
+            ("getMinMessageId" function
+               (:parent "FileManager"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [965 1180])
+            ("init" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("dataPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1219 1247])
+                    ("obsoleteFileCriterion" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ObsoleteFileCriterion" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1286 1337]))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                nil [1181 1448])
+            ("init" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("dataPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1488 1511])
+                    ("extendDataPathVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1550 1590])
+                    ("obsoleteFileCriterion" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ObsoleteFileCriterion" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1629 1680]))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                nil [1450 4264])
+            ("generateMetaDataPairMap" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("fileList" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("FileLists" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4337 4362]))                  
+                :type ("FileManager::MetaDataMap" type (:type "class") nil nil))
+                nil [4266 5313])
+            ("extractMessageIdAndTimestamp" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("prefix" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5362 5383])
+                    ("msgId" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5392 5407])
+                    ("timestamp" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5408 5427]))                  
+                :type "bool")
+                nil [5315 5872])
+            ("generatePrefix" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5914 5928])
+                    ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5929 5947]))                  
+                :type ("std::string" type (:type "class") nil nil))
+                nil [5874 6325])
+            ("initFilePairVec" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("fileList" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("FileLists" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6376 6402])
+                    ("filePairVec" variable
+                       (:reference 1
+                        :type ("FilePairVec" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6411 6436]))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                nil [6327 7755])
+            ("adjustFilePairVec" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("filePairVec" variable
+                       (:reference 1
+                        :type ("FilePairVec" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7808 7833]))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                nil [7757 9020])
+            ("createNewFilePair" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("msgid" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9065 9079])
+                    ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9080 9098]))                  
+                :type ("FilePairPtr" type (:type "class") nil nil))
+                nil [9022 10014])
+            ("getLastFilePair" function
+               (:parent "FileManager"
+                :type ("FilePairPtr" type (:type "class") nil nil))
+                nil [10016 10213])
+            ("getFilePairById" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("messageId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10256 10274]))                  
+                :type ("FilePairPtr" type (:type "class") nil nil))
+                nil [10215 10920])
+            ("getFilePairByTime" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10965 10983]))                  
+                :type ("FilePairPtr" type (:type "class") nil nil))
+                nil [10922 11727])
+            ("syncFilePair" function
+               (:parent "FileManager"
+                :type "void")
+                nil [11729 12697])
+            ("getObsoleleFilePos" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("reservedFileCount" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12739 12766]))                  
+                :type ("int32_t" type (:type "class") nil nil))
+                nil [12699 14102])
+            ("doDeleteObsoleteFile" function
+               (:parent "FileManager"
+                :type "void")
+                nil [14104 14495])
+            ("deleteObsoleteFile" function
+               (:parent "FileManager"
+                :type "void")
+                nil [14497 15334])
+            ("removeFilePair" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("filePair" variable
+                       (:reference 1
+                        :type ("FilePairPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15369 15391]))                  
+                :type "bool")
+                nil [15336 16429])
+            ("listFiles" function
+               (:parent "FileManager"
+                :arguments 
+                  ( ("fileList" variable
+                       (:reference 1
+                        :type ("FileLists" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16471 16491]))                  
+                :type ("fslib::ErrorCode" type (:type "class") nil nil))
+                nil [16431 17415])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17437 17445]))                  
+                :type "int")
+                nil [17417 17446]))          
+      :file "FileManager.cpp"
+      :pointmax 17448
+      :fsize 17447
+      :lastmodtime '(22894 47848 108701 423000)
+      :unmatched-syntax nil)
+    (semanticdb-table "FileManager.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_FILEMANAGER_H" variable (:constant-flag t) nil [37 56])
+            ("swift/common/Common.h" include nil nil [58 90])
+            ("swift/common/Log.h" include nil nil [91 120])
+            ("fslib/fslib.h" include nil nil [121 145])
+            ("swift/protocol/Transport.pb.h" include nil nil [146 186])
+            ("swift/config/BrokerConfig.h" include nil nil [187 225])
+            ("swift/config/ConfigDefine.h" include nil nil [226 264])
+            ("autil/Lock.h" include nil nil [265 288])
+            ("autil/LoopThread.h" include nil nil [289 318])
+            ("queue" include (:system-flag t) nil [319 335])
+            ("swift/broker/storage_dfs/FilePair.h" include nil nil [336 382])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [405 413]))                  
+                :type "int")
+                nil [383 414])
+            ("ObsoleteFileCriterion" type
+               (:members 
+                  ( ("ObsoleteFileCriterion" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("timeInterval" variable
+                               (:default-value "std::numeric_limits<int64_t>::max()"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [473 531])
+                            ("fileCount" variable
+                               (:default-value "std::numeric_limits<int32_t>::max()"
+                                :type ("int32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [559 614])
+                            ("delInterval" variable
+                               (:default-value "config"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [642 697])
+                            ("" variable (:type ("DEFAULT_DEL_OBSOLETE_FILE_INTERVAL" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [699 734])
+                            ("candidateFileInterval" variable
+                               (:default-value "config"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [761 826])
+                            ("" variable (:type ("DEFAULT_CANDIDATE_OBSOLETE_FILE_INTERVAL" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [828 869]))                          
+                        :type ("ObsoleteFileCriterion" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [451 1085])
+                    ("obsoleteFileTimeInterval" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1090 1123])
+                    ("reservedFileCount" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1128 1154])
+                    ("delObsoleteFileInterval" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1159 1191])
+                    ("candidateObsoleteFileInterval" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1196 1234]))                  
+                :type "struct")
+                nil [416 1237])
+            ("FileManager" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1466 1473])
+                    ("FileManager" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("FileManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1478 1492])
+                    ("FileManager" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1497 1512])
+                    ("private" label nil (reparse-symbol classsubparts) [1513 1521])
+                    ("FileManager" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FileManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1538 1558]))                          
+                        :type ("FileManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1526 1559])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FileManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1587 1607]))                          
+                        :type ("FileManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1564 1608])
+                    ("private" label nil (reparse-symbol classsubparts) [1609 1617])
+                    ("MetaDataMap" type
+                       (:typedef ("std::map" type
+                             (:template-specifier 
+                                ( ("std::pair" type nil nil nil)
+                                  ("std::pair" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [1622 1726])
+                    ("FileLists" type
+                       (:typedef ("std::vector" type
+                             (:template-specifier 
+                                ( ("std::pair" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [1731 1799])
+                    ("public" label nil (reparse-symbol classsubparts) [1800 1807])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dataPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1837 1865])
+                            ("obsoleteFileCriterion" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ObsoleteFileCriterion" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1896 1947]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1812 1948])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dataPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1978 2006])
+                            ("extendDataPathVec" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2037 2087])
+                            ("obsoleteFileCriterion" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ObsoleteFileCriterion" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2117 2168]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1953 2169])
+                    ("createNewFilePair" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("messageId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2205 2223])
+                            ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2224 2242]))                          
+                        :type ("FilePairPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2175 2243])
+                    ("getLastFilePair" function
+                       (:prototype-flag t
+                        :type ("FilePairPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2248 2284])
+                    ("getFilePairById" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("messageId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2317 2335]))                          
+                        :type ("FilePairPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2289 2342])
+                    ("getFilePairByTime" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2377 2395]))                          
+                        :type ("FilePairPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2347 2402])
+                    ("getLastMessageId" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2407 2440])
+                    ("getMinMessageId" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2445 2477])
+                    ("private" label nil (reparse-symbol classsubparts) [2478 2486])
+                    ("initFilePairVec" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileList" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FileLists" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2527 2553])
+                            ("filePairVec" variable
+                               (:reference 1
+                                :type ("FilePairVec" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2566 2591]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2491 2592])
+                    ("generateMetaDataPairMap" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileList" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FileLists" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2633 2659]))                          
+                        :type ("MetaDataMap" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2597 2660])
+                    ("extractMessageIdAndTimestamp" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("prefix" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2706 2732])
+                            ("msgId" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2745 2760])
+                            ("timestamp" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2761 2780]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2665 2781])
+                    ("generatePrefix" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2820 2834])
+                            ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2835 2853]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2786 2854])
+                    ("adjustFilePairVec" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("filePairVec" variable
+                               (:reference 1
+                                :type ("FilePairVec" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2897 2922]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2859 2923])
+                    ("syncFilePair" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2928 2948])
+                    ("deleteObsoleteFile" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2953 2979])
+                    ("doDeleteObsoleteFile" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2984 3012])
+                    ("getObsoleleFilePos" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("reservedFileCount" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3044 3071]))                          
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3017 3078])
+                    ("removeFilePair" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("filePair" variable
+                               (:reference 1
+                                :type ("FilePairPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3103 3125]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3083 3126])
+                    ("listFiles" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileList" variable
+                               (:reference 1
+                                :type ("FileLists" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3158 3178]))                          
+                        :type ("fslib::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3131 3179])
+                    ("public" label nil (reparse-symbol classsubparts) [3180 3187])
+                    ("DATA_SUFFIX" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3192 3229])
+                    ("META_SUFFIX" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3234 3271])
+                    ("private" label nil (reparse-symbol classsubparts) [3272 3280])
+                    ("_rwLock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3285 3322])
+                    ("_dataPath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3327 3349])
+                    ("_extendDataPathVec" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [3354 3398])
+                    ("_filePairVec" variable (:type ("FilePairVec" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3403 3428])
+                    ("_obsoleteFilePairVec" variable (:type ("FilePairVec" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3433 3466])
+                    ("_obsoleteFileCriterion" variable (:type ("ObsoleteFileCriterion" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3471 3516])
+                    ("_delObsoleteFileThreadPtr" variable (:type ("autil::LoopThreadPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3521 3568])
+                    ("private" label nil (reparse-symbol classsubparts) [3569 3577])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [3582 3602]))                  
+                :type "class")
+                nil [1446 3605])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("FileManager" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3624 3636]))                  
+                :type "int")
+                nil [3606 3637])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3659 3667]))                  
+                :type "int")
+                nil [3639 3668]))          
+      :file "FileManager.h"
+      :pointmax 3699
+      :fsize 3698
+      :lastmodtime '(22894 47848 109701 422000)
+      :unmatched-syntax '((thing 827 . 828) (thing 826 . 827) (thing 698 . 699) (thing 697 . 698))
+      :lexical-table 
+        '(("SWIFT_FILEMANAGER_H")
+          )
+)
+    (semanticdb-table "FilePair.h"
+      :file "FilePair.h"
+      :fsize 1395
+      :lastmodtime '(22894 47848 110701 421000)))
+  :file "!ssd!sdd!git!swift!test!swift!swift!broker!storage_dfs!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

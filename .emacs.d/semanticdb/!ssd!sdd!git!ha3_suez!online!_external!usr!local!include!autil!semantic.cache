@@ -1,0 +1,257 @@
+;; Object autil/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "autil/"
+  :tables
+  (list
+    (semanticdb-table "ThreadPool.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("AUTIL_THREADPOOL_H" variable (:constant-flag t) nil [36 54])
+            ("unistd.h" include (:system-flag t) nil [56 75])
+            ("autil/Thread.h" include (:system-flag t) nil [76 101])
+            ("autil/Lock.h" include (:system-flag t) nil [102 125])
+            ("autil/WorkItem.h" include (:system-flag t) nil [126 153])
+            ("autil/CircularQueue.h" include (:system-flag t) nil [154 186])
+            ("vector" include (:system-flag t) nil [187 204])
+            ("AUTIL_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("autil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [228 234]))                  
+                :type "int")
+                nil [206 235])
+            ("ThreadPool" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [256 263])
+                    ("" type
+                       (:members 
+                          ( ("DEFAULT_THREADNUM" variable
+                               (:constant-flag t
+                                :default-value (303 304)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [283 304])
+                            ("DEFAULT_QUEUESIZE" variable
+                               (:constant-flag t
+                                :default-value (334 336)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [314 336]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [268 343])
+                    ("STOP_TYPE" type
+                       (:members 
+                          ( ("STOP_THREAD_ONLY" variable
+                               (:constant-flag t
+                                :default-value (393 394)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [374 394])
+                            ("STOP_AND_CLEAR_QUEUE" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [404 425])
+                            ("STOP_AFTER_QUEUE_EMPTY" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [434 462]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [349 463])
+                    ("ERROR_TYPE" type
+                       (:members 
+                          ( ("ERROR_NONE" variable
+                               (:constant-flag t
+                                :default-value (512 513)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [499 513])
+                            ("ERROR_POOL_HAS_STOP" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [523 543])
+                            ("ERROR_POOL_ITEM_IS_NULL" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [552 576])
+                            ("ERROR_POOL_QUEUE_FULL" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [585 607]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [473 614])
+                    ("public" label nil (reparse-symbol classsubparts) [615 622])
+                    ("ThreadPool" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("threadNum" variable
+                               (:constant-flag t
+                                :default-value "DEFAULT_THREADNUM"
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [638 680])
+                            ("queueSize" variable
+                               (:constant-flag t
+                                :default-value "DEFAULT_QUEUESIZE"
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [697 739]))                          
+                        :type ("ThreadPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [627 741])
+                    ("ThreadPool" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [746 760])
+                    ("private" label nil (reparse-symbol classsubparts) [766 774])
+                    ("ThreadPool" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ThreadPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [790 808]))                          
+                        :type ("ThreadPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [779 809])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ThreadPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [838 856]))                          
+                        :type ("ThreadPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [814 857])
+                    ("public" label nil (reparse-symbol classsubparts) [858 865])
+                    ("pushWorkItem" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [894 909])
+                            ("isBlocked" variable
+                               (:default-value "true"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [910 931]))                          
+                        :type ("ERROR_TYPE" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [870 933])
+                    ("getItemCount" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [938 966])
+                    ("getThreadNum" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [971 1019])
+                    ("getQueueSize" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1024 1072])
+                    ("start" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1077 1090])
+                    ("stop" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("stopType" variable
+                               (:default-value "STOP_AFTER_QUEUE_EMPTY"
+                                :type ("STOP_TYPE" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1105 1148]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1095 1150])
+                    ("clearQueue" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1155 1173])
+                    ("private" label nil (reparse-symbol classsubparts) [1174 1182])
+                    ("push" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1197 1212]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1187 1213])
+                    ("pushFront" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1233 1248]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1218 1249])
+                    ("tryPopItem" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1270 1281]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1254 1283])
+                    ("createThreads" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1288 1309])
+                    ("workerLoop" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1314 1332])
+                    ("waitQueueEmpty" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1337 1359])
+                    ("stopThread" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1364 1382])
+                    ("private" label nil (reparse-symbol classsubparts) [1383 1391])
+                    ("_threadNum" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1396 1414])
+                    ("_queueSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1419 1437])
+                    ("_queue" variable (:type ("CircularQueue" type
+                         (:template-specifier 
+                            ( ("WorkItem" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1442 1475])
+                    ("_threads" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("ThreadPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1480 1512])
+                    ("_cond" variable
+                       (:typemodifiers ("mutable")
+                        :type ("ProducerConsumerCond" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1517 1552])
+                    ("_push" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1557 1577])
+                    ("_run" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1582 1601])
+                    ("private" label nil (reparse-symbol classsubparts) [1602 1610])
+                    ("ThreadPoolTest" friend nil (reparse-symbol classsubparts) [1615 1642]))                  
+                :type "class")
+                nil [237 1646])
+            ("ThreadPoolPtr" type
+               (:typedef ("std::tr1::shared_ptr" type
+                     (:template-specifier 
+                        ( ("ThreadPool" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [1648 1703])
+            ("AUTIL_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("autil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1725 1731]))                  
+                :type "int")
+                nil [1705 1732]))          
+      :file "ThreadPool.h"
+      :pointmax 1762
+      :fsize 1761
+      :lastmodtime '(22468 63464 974795 0)
+      :unmatched-syntax '((thing 1280 . 1281) (thing 1642 . 1643))
+      :lexical-table 
+        '(("AUTIL_THREADPOOL_H")
+          )
+))
+  :file "!ssd!sdd!git!ha3_suez!online!_external!usr!local!include!autil!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,81 @@
+;; Object util/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "util/"
+  :tables
+  (list
+    (semanticdb-table "MetricUtil.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MULTI_CALL_METRICUTIL_H" variable (:constant-flag t) nil [41 64])
+            ("amonitor/client/MetricSampler.h" include (:system-flag t) nil [66 108])
+            ("amonitor/client/MetricProvider.h" include (:system-flag t) nil [109 152])
+            ("multi_call/common/common.h" include nil nil [153 190])
+            ("amonitor::client::INPUT_METRIC" using (:type ("amonitor::client::INPUT_METRIC" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [192 229])
+            ("amonitor::client::QPS_METRIC" using (:type ("amonitor::client::QPS_METRIC" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [230 265])
+            ("amonitor::client::STATUS_METRIC" using (:type ("amonitor::client::STATUS_METRIC" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [266 304])
+            ("DECLARE_METRIC" variable (:constant-flag t) nil [315 329])
+            ("DECLARE_METRIC_IN_GROUP" variable (:constant-flag t) nil [1086 1109])
+            ("REPORT_METRIC" variable (:constant-flag t) nil [2011 2024])
+            ("INCREASE_QPS" variable (:constant-flag t) nil [2278 2290])
+            ("INCREASE_VALUE" variable (:constant-flag t) nil [2544 2558]))          
+      :file "MetricUtil.h"
+      :pointmax 2836
+      :fsize 2835
+      :lastmodtime '(22454 24035 850224 402000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("INCREASE_QPS" (spp-arg-list ("metric") 2290 . 2298) . 
+              ((DO "do" 2324 . 2326) (semantic-list "{                                        \\
+        if ((metric)) {                         \\
+            (metric)->increaseQps();            \\
+        }                                       \\
+    }" 2327 . 2525) (WHILE "while" 2526 . 2531) (semantic-list "(0)" 2531 . 2534)))
+          ("INCREASE_VALUE" (spp-arg-list ("metric" "value") 2558 . 2573) . 
+              ((DO "do" 2590 . 2592) (semantic-list "{                                        \\
+        if ((metric)) {                         \\
+            (metric)->increaseQps(value);       \\
+        }                                       \\
+    }" 2593 . 2791) (WHILE "while" 2792 . 2797) (semantic-list "(0)" 2797 . 2800)))
+          ("DECLARE_METRIC" (spp-arg-list ("metricProvider" "metricName" "metricType" "unit") 329 . 375) . ((semantic-list "({                                                                  \\
+        amonitor::client::MetricSampler *metric = NULL;                 \\
+        if ((metricProvider)) {                                         \\
+            metric = (metricProvider)->declareMetric(#metricName, metricType, unit); \\
+            if (!metric) {                                              \\
+                AUTIL_LOG(ERROR, \"register metric[%s] failed\", #metricName); \\
+            }                                                           \\
+        }                                                               \\
+        metric;                                                         \\
+    })" 385 . 1071)))
+          ("REPORT_METRIC" (spp-arg-list ("metric" "count") 2024 . 2039) . 
+              ((DO "do" 2057 . 2059) (semantic-list "{                                        \\
+        if ((metric)) {                         \\
+            (metric)->reportMetric((count));    \\
+        }                                       \\
+    }" 2060 . 2258) (WHILE "while" 2259 . 2264) (semantic-list "(0)" 2265 . 2268)))
+          ("MULTI_CALL_METRICUTIL_H")
+          ("DECLARE_METRIC_IN_GROUP" (spp-arg-list ("metricProvider" "groupName" "metricName" "metricType" "unit") 1109 . 1166) . ((semantic-list "({                                                                  \\
+        amonitor::client::MetricSampler *metric = NULL;                 \\
+        if ((metricProvider)) {                                         \\
+            std::string name = groupName;                               \\
+            name += #metricName;                                        \\
+            metric = (metricProvider)->declareMetric(name, metricType, unit); \\
+            if (!metric) {                                              \\
+                AUTIL_LOG(ERROR, \"register metric[%s] failed\", #metricName); \\
+            }                                                           \\
+        }                                                               \\
+        metric;                                                         \\
+    })" 1174 . 2001)))
+          )
+))
+  :file "!home!sdd!git!ha3_suez!search_test!temp!source_code!multi_call!multi_call!util!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

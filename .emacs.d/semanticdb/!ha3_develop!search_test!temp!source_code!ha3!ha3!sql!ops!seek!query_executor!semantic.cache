@@ -1,0 +1,1327 @@
+;; Object query_executor/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "query_executor/"
+  :tables
+  (list
+    (semanticdb-table "QueryExecutor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_SEARCH_QUERYEXECUTOR_H_" variable (:constant-flag t) nil [49 80])
+            ("ha3/common.h" include (:system-flag t) nil [82 105])
+            ("ha3/isearch.h" include (:system-flag t) nil [106 130])
+            ("stdlib.h" include (:system-flag t) nil [131 150])
+            ("string" include (:system-flag t) nil [151 168])
+            ("assert.h" include (:system-flag t) nil [169 188])
+            ("ha3/rank/MetaInfo.h" include (:system-flag t) nil [189 219])
+            ("ha3/rank/TermMatchData.h" include (:system-flag t) nil [220 255])
+            ("indexlib/index/doc_value_filter.h" include (:system-flag t) nil [256 300])
+            ("assert.h" include (:system-flag t) nil [346 365])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [387 394]))                  
+                :type "int")
+                nil [367 395])
+            ("QueryExecutor" type
+               (:prototype t
+                :type "class")
+                nil [397 417])
+            ("SingleLayerExecutors" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("QueryExecutor" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [418 475])
+            ("SingleLayerSeekExecutors" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("QueryExecutor" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [476 537])
+            ("QueryExecutor" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [561 568])
+                    ("DFCompare" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [595 602])
+                            ("DFCompare" function
+                               (:constructor-flag t
+                                :type ("DFCompare" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [611 634])
+                            ("public" label nil (reparse-symbol classsubparts) [639 646])
+                            ("()" function
+                               (:operator-flag t
+                                :arguments 
+                                  ( ("lft" variable
+                                       (:pointer 1
+                                        :type ("QueryExecutor" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [673 692])
+                                    ("rht" variable
+                                       (:pointer 1
+                                        :type ("QueryExecutor" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [693 712]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [655 786]))                          
+                        :type "class")
+                        (reparse-symbol classsubparts) [573 793])
+                    ("public" label nil (reparse-symbol classsubparts) [795 802])
+                    ("QueryExecutor" function
+                       (:constructor-flag t
+                        :type ("QueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [807 963])
+                    ("QueryExecutor" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [969 1001])
+                    ("protected" label nil (reparse-symbol classsubparts) [1003 1013])
+                    ("GetDFType" type
+                       (:members 
+                          ( ("GDT_MAIN_CHAIN" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1043 1058])
+                            ("GDT_CURRENT_CHAIN" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1067 1090]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [1018 1091])
+                    ("public" label nil (reparse-symbol classsubparts) [1092 1099])
+                    ("getName" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1104 1150])
+                    ("stealFilter" function
+                       (:pointer 1
+                        :type ("DocValueFilter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1184 1234])
+                    ("seek" function
+                       (:arguments 
+                          ( ("id" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1510 1521]))                          
+                        :type ("docid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1497 1628])
+                    ("seekWithoutCheck" function
+                       (:arguments 
+                          ( ("id" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1659 1670]))                          
+                        :type ("docid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1634 1747])
+                    ("seekSub" function
+                       (:arguments 
+                          ( ("docId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1768 1782])
+                            ("subDocId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1783 1800])
+                            ("subDocEnd" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1821 1839])
+                            ("needSubMatchdata" variable
+                               (:default-value "false"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1840 1869]))                          
+                        :type ("docid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1752 1969])
+                    ("seekSubDoc" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("docId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2234 2248])
+                            ("subDocId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2249 2266])
+                            ("subDocEnd" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2298 2316])
+                            ("needSubMatchdata" variable (:type "bool") (reparse-symbol arg-sub-list) [2317 2339]))                          
+                        :type ("docid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2207 2344])
+                    ("reset" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [2349 2411])
+                    ("isMainDocHit" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("docId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2442 2456]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2416 2467])
+                    ("hasSubDocExecutor" function (:type "bool") (reparse-symbol classsubparts) [2472 2526])
+                    ("getDF" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("type" variable (:type ("GetDFType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2550 2565]))                          
+                        :type ("df_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2531 2576])
+                    ("moveToEnd" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [2581 2631])
+                    ("setCurrSub" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("docid" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2660 2674]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2636 2699])
+                    ("getSeekDocCount" function
+                       (:typemodifiers ("virtual")
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2704 2764])
+                    ("public" label nil (reparse-symbol classsubparts) [2765 2772])
+                    ("toString" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2797 2838])
+                    ("public" label nil (reparse-symbol classsubparts) [2840 2847])
+                    ("getDocId" function
+                       (:typemodifiers ("inline")
+                        :type ("docid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2852 2904])
+                    ("getSubDocId" function
+                       (:typemodifiers ("inline")
+                        :type ("docid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2909 2967])
+                    ("setDocId" function
+                       (:typemodifiers ("inline")
+                        :arguments 
+                          ( ("docid" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2993 3007]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2972 3029])
+                    ("getCurrentDF" function
+                       (:typemodifiers ("inline")
+                        :type ("df_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3034 3103])
+                    ("getMainChainDF" function
+                       (:typemodifiers ("inline")
+                        :type ("df_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3108 3176])
+                    ("isEmpty" function
+                       (:typemodifiers ("inline")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3181 3242])
+                    ("setQueryLabel" function
+                       (:typemodifiers ("inline")
+                        :arguments 
+                          ( ("label" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3273 3298]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3247 3323])
+                    ("getQueryLabel" function
+                       (:typemodifiers ("inline")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3328 3393])
+                    ("private" label nil (reparse-symbol classsubparts) [3394 3402])
+                    ("doSeek" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("id" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3430 3441]))                          
+                        :type ("docid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3407 3446])
+                    ("public" label nil (reparse-symbol classsubparts) [3447 3454])
+                    ("unpackMatchData" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("tmd" variable
+                               (:reference 1
+                                :type ("rank::TermMatchData" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3488 3513]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3459 3551])
+                    ("getMetaInfo" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("metaInfo" variable
+                               (:pointer 1
+                                :type ("rank::MetaInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3581 3606]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3556 3752])
+                    ("protected" label nil (reparse-symbol classsubparts) [3753 3763])
+                    ("_current" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3768 3785])
+                    ("_currentSub" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3790 3810])
+                    ("_seekDocCount" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3815 3838])
+                    ("_hasSubDocExecutor" variable (:type "bool") (reparse-symbol classsubparts) [3843 3867])
+                    ("_queryLabel" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3872 3896]))                  
+                :type "class")
+                nil [539 3899])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("QueryExecutor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3917 3931]))                  
+                :type "int")
+                nil [3901 3932])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3952 3959]))                  
+                :type "int")
+                nil [3934 3960]))          
+      :file "QueryExecutor.h"
+      :pointmax 3968
+      :fsize 3967
+      :lastmodtime '(23589 60868 492860 525000)
+      :unmatched-syntax '((thing 1155 . 1162) (thing 1163 . 1175) (thing 1175 . 1182) (thing 1182 . 1183) (thing 1183 . 1184))
+      :lexical-table 
+        '(("ISEARCH_SEARCH_QUERYEXECUTOR_H_")
+          )
+)
+    (semanticdb-table "AndNotQueryExecutor.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/search/AndNotQueryExecutor.h" include (:system-flag t) nil [1 44])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [46 66])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [87 94]))                  
+                :type "int")
+                nil [67 95])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [110 117])
+                    ("" variable (:type ("AndNotQueryExecutor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [118 138]))                  
+                :type "int")
+                nil [96 139])
+            ("AndNotQueryExecutor" function
+               (:constructor-flag t
+                :parent "AndNotQueryExecutor"
+                :type ("AndNotQueryExecutor" type (:type "class") nil nil))
+                nil [141 333])
+            ("AndNotQueryExecutor" function
+               (:destructor-flag t
+                :parent "AndNotQueryExecutor"
+                :type "void")
+                nil [335 383])
+            ("doSeek" function
+               (:parent "AndNotQueryExecutor"
+                :arguments 
+                  ( ("id" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [421 432]))                  
+                :type ("docid_t" type (:type "class") nil nil))
+                nil [385 1082])
+            ("seekSubDoc" function
+               (:parent "AndNotQueryExecutor"
+                :arguments 
+                  ( ("id" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1124 1135])
+                    ("subDocId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1136 1153])
+                    ("subDocEnd" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1194 1212])
+                    ("needSubMatchdata" variable (:type "bool") (reparse-symbol arg-sub-list) [1213 1235]))                  
+                :type ("docid_t" type (:type "class") nil nil))
+                nil [1084 1965])
+            ("addQueryExecutors" function
+               (:parent "AndNotQueryExecutor"
+                :arguments 
+                  ( ("leftExecutor" variable
+                       (:pointer 1
+                        :type ("QueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2020 2048])
+                    ("rightExecutor" variable
+                       (:pointer 1
+                        :type ("QueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2057 2086]))                  
+                :type "void")
+                nil [1967 2944])
+            ("isMainDocHit" function
+               (:parent "AndNotQueryExecutor"
+                :arguments 
+                  ( ("docId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2985 2999]))                  
+                :type "bool")
+                nil [2946 3179])
+            ("getDF" function
+               (:parent "AndNotQueryExecutor"
+                :arguments 
+                  ( ("type" variable (:type ("GetDFType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3213 3228]))                  
+                :type ("df_t" type (:type "class") nil nil))
+                nil [3181 3282])
+            ("toString" function
+               (:parent "AndNotQueryExecutor"
+                :type ("string" type (:type "class") nil nil))
+                nil [3284 3516])
+            ("setCurrSub" function
+               (:parent "AndNotQueryExecutor"
+                :arguments 
+                  ( ("docid" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3555 3569]))                  
+                :type "void")
+                nil [3518 3654])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3674 3681]))                  
+                :type "int")
+                nil [3656 3682]))          
+      :file "AndNotQueryExecutor.cpp"
+      :pointmax 3684
+      :fsize 3683
+      :lastmodtime '(23589 60868 487860 529000)
+      :unmatched-syntax nil)
+    (semanticdb-table "AndNotQueryExecutor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_ANDNOTQUERYEXECUTOR_H" variable (:constant-flag t) nil [47 76])
+            ("ha3/common.h" include (:system-flag t) nil [78 101])
+            ("ha3/isearch.h" include (:system-flag t) nil [102 126])
+            ("ha3/util/Log.h" include (:system-flag t) nil [127 152])
+            ("ha3/search/OrQueryExecutor.h" include (:system-flag t) nil [153 192])
+            ("ha3/rank/MatchData.h" include (:system-flag t) nil [193 224])
+            ("string" include (:system-flag t) nil [225 242])
+            ("vector" include (:system-flag t) nil [243 260])
+            ("list" include (:system-flag t) nil [261 276])
+            ("assert.h" include (:system-flag t) nil [277 296])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [318 325]))                  
+                :type "int")
+                nil [298 326])
+            ("AndNotQueryExecutor" type
+               (:superclasses 
+                  ( ("MultiQueryExecutor" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [384 391])
+                    ("AndNotQueryExecutor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("AndNotQueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [396 418])
+                    ("AndNotQueryExecutor" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [423 446])
+                    ("public" label nil (reparse-symbol classsubparts) [447 454])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [579 594])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [834 843])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [881 896])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [932 941])
+                    ("public" label nil (reparse-symbol classsubparts) [1060 1067])
+                    ("addQueryExecutors" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("leftExecutor" variable
+                               (:pointer 1
+                                :type ("QueryExecutor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1095 1123])
+                            ("rightExecutor" variable
+                               (:pointer 1
+                                :type ("QueryExecutor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1151 1180]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1072 1181])
+                    ("public" label nil (reparse-symbol classsubparts) [1182 1189])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1217 1232])
+                    ("private" label nil (reparse-symbol classsubparts) [1233 1241])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [1273 1282])
+                    ("private" label nil (reparse-symbol classsubparts) [1283 1291])
+                    ("_leftQueryExecutor" variable
+                       (:pointer 1
+                        :type ("QueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1296 1330])
+                    ("_rightQueryExecutor" variable
+                       (:pointer 1
+                        :type ("QueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1335 1370])
+                    ("_rightFilter" variable
+                       (:pointer 1
+                        :type ("DocValueFilter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1396 1425])
+                    ("_testDocCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1430 1452])
+                    ("_rightExecutorHasSub" variable (:type "bool") (reparse-symbol classsubparts) [1457 1483])
+                    ("private" label nil (reparse-symbol classsubparts) [1484 1492])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1497 1515]))                  
+                :type "class")
+                nil [328 1518])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1538 1545]))                  
+                :type "int")
+                nil [1520 1546]))          
+      :file "AndNotQueryExecutor.h"
+      :pointmax 1587
+      :fsize 1586
+      :lastmodtime '(23589 60868 487860 529000)
+      :unmatched-syntax '((thing 1395 . 1396) (thing 1394 . 1395) (thing 1387 . 1394) (thing 1375 . 1387) (thing 1260 . 1272) (thing 1254 . 1260) (thing 1246 . 1253) (thing 1214 . 1216) (thing 1206 . 1214) (thing 1199 . 1205) (thing 1198 . 1199) (thing 1197 . 1198) (thing 1194 . 1197) (thing 982 . 1059) (thing 973 . 981) (thing 970 . 972) (thing 955 . 970) (thing 946 . 954) (thing 916 . 931) (thing 906 . 916) (thing 901 . 905) (thing 865 . 880) (thing 853 . 865) (thing 848 . 852) (thing 735 . 833) (thing 725 . 735) (thing 717 . 724) (thing 682 . 712) (thing 673 . 681) (thing 621 . 672) (thing 604 . 621) (thing 599 . 603) (thing 562 . 578) (thing 557 . 562) (thing 552 . 556) (thing 502 . 547) (thing 493 . 501) (thing 487 . 492) (thing 484 . 486) (thing 477 . 484) (thing 470 . 476) (thing 469 . 470) (thing 468 . 469) (thing 465 . 468) (thing 459 . 464))
+      :lexical-table 
+        '(("ISEARCH_ANDNOTQUERYEXECUTOR_H")
+          )
+)
+    (semanticdb-table "WeakAndQueryExecutor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_WEAKANDQUERYEXECUTOR_H" variable (:constant-flag t) nil [48 78])
+            ("ha3/common.h" include (:system-flag t) nil [80 103])
+            ("ha3/isearch.h" include (:system-flag t) nil [104 128])
+            ("ha3/util/Log.h" include (:system-flag t) nil [129 154])
+            ("ha3/search/MultiQueryExecutor.h" include (:system-flag t) nil [155 197])
+            ("ha3/search/QueryExecutorHeap.h" include (:system-flag t) nil [198 239])
+            ("ha3/rank/MatchData.h" include (:system-flag t) nil [240 271])
+            ("string" include (:system-flag t) nil [272 289])
+            ("vector" include (:system-flag t) nil [290 307])
+            ("assert.h" include (:system-flag t) nil [308 327])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [349 356]))                  
+                :type "int")
+                nil [329 357])
+            ("WeakAndQueryExecutor" type
+               (:superclasses 
+                  ( ("MultiQueryExecutor" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [416 423])
+                    ("WeakAndQueryExecutor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("minShouldMatch" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [449 473]))                          
+                        :type ("WeakAndQueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [428 474])
+                    ("WeakAndQueryExecutor" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [479 503])
+                    ("public" label nil (reparse-symbol classsubparts) [504 511])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [637 646])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [768 777])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [809 824])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [862 877])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [956 965])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [983 992])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1020 1035])
+                    ("private" label nil (reparse-symbol classsubparts) [1036 1044])
+                    ("doNthElement" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("heap" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("QueryExecutorEntry" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1067 1105]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1049 1106])
+                    ("private" label nil (reparse-symbol classsubparts) [1107 1115])
+                    ("_sortNHeap" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("QueryExecutorEntry" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1120 1163])
+                    ("_sortNHeapSub" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("QueryExecutorEntry" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1168 1214])
+                    ("_count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1219 1235])
+                    ("_minShouldMatch" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1240 1265])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1270 1288]))                  
+                :type "class")
+                nil [359 1291])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("WeakAndQueryExecutor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1309 1330]))                  
+                :type "int")
+                nil [1293 1331])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1351 1358]))                  
+                :type "int")
+                nil [1333 1359]))          
+      :file "WeakAndQueryExecutor.h"
+      :pointmax 1401
+      :fsize 1400
+      :lastmodtime '(23589 60868 495860 523000)
+      :unmatched-syntax '((thing 1017 . 1019) (thing 1009 . 1017) (thing 1002 . 1008) (thing 1001 . 1002) (thing 1000 . 1001) (thing 997 . 1000) (thing 980 . 982) (thing 975 . 980) (thing 970 . 974) (thing 904 . 955) (thing 887 . 904) (thing 882 . 886) (thing 846 . 861) (thing 834 . 846) (thing 829 . 833) (thing 792 . 808) (thing 787 . 792) (thing 782 . 786) (thing 669 . 767) (thing 659 . 669) (thing 651 . 658) (thing 624 . 636) (thing 618 . 624) (thing 610 . 617) (thing 559 . 605) (thing 550 . 558) (thing 544 . 549) (thing 541 . 543) (thing 534 . 541) (thing 527 . 533) (thing 526 . 527) (thing 525 . 526) (thing 522 . 525) (thing 516 . 521))
+      :lexical-table 
+        '(("ISEARCH_WEAKANDQUERYEXECUTOR_H")
+          )
+)
+    (semanticdb-table "QueryExecutorCreator.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_QUERYEXECUTORCREATOR_H" variable (:constant-flag t) nil [48 78])
+            ("ha3/common.h" include (:system-flag t) nil [80 103])
+            ("ha3/isearch.h" include (:system-flag t) nil [104 128])
+            ("ha3/util/Log.h" include (:system-flag t) nil [129 154])
+            ("indexlib/common/term.h" include (:system-flag t) nil [155 188])
+            ("indexlib/common/number_term.h" include (:system-flag t) nil [189 229])
+            ("indexlib/index/index_reader.h" include (:system-flag t) nil [230 270])
+            ("ha3/common/QueryVisitor.h" include (:system-flag t) nil [271 307])
+            ("ha3/search/QueryExecutor.h" include (:system-flag t) nil [308 345])
+            ("ha3/search/MultiQueryExecutor.h" include (:system-flag t) nil [346 388])
+            ("ha3/search/MatchDataManager.h" include (:system-flag t) nil [389 429])
+            ("ha3/search/IndexPartitionReaderWrapper.h" include (:system-flag t) nil [430 481])
+            ("autil/mem_pool/Pool.h" include (:system-flag t) nil [482 514])
+            ("ha3/common/TimeoutTerminator.h" include (:system-flag t) nil [515 556])
+            ("ha3/search/LayerMetas.h" include (:system-flag t) nil [557 591])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [613 620]))                  
+                :type "int")
+                nil [593 621])
+            ("AndQueryExecutor" type
+               (:prototype t
+                :type "class")
+                nil [623 646])
+            ("TermQueryExecutor" type
+               (:prototype t
+                :type "class")
+                nil [647 671])
+            ("QueryExecutorCreator" type
+               (:superclasses 
+                  ( ("common::QueryVisitor" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [731 738])
+                    ("QueryExecutorCreator" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("matchDataManager" variable
+                               (:pointer 1
+                                :type ("MatchDataManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [764 799])
+                            ("readerWrapper" variable
+                               (:pointer 1
+                                :type ("IndexPartitionReaderWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [825 868])
+                            ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [894 922])
+                            ("timer" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("common::TimeoutTerminator" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [948 987])
+                            ("layerMeta" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :default-value "NULL"
+                                :type ("LayerMeta" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1014 1047]))                          
+                        :type ("QueryExecutorCreator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [743 1049])
+                    ("QueryExecutorCreator" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1054 1086])
+                    ("public" label nil (reparse-symbol classsubparts) [1087 1094])
+                    ("visitTermQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::TermQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1119 1150]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1099 1151])
+                    ("visitPhraseQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::PhraseQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1178 1211]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1156 1212])
+                    ("visitAndQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::AndQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1236 1266]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1217 1267])
+                    ("visitOrQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::OrQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1290 1319]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1272 1320])
+                    ("visitAndNotQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::AndNotQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1347 1380]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1325 1381])
+                    ("visitRankQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::RankQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1406 1437]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1386 1438])
+                    ("visitNumberQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::NumberQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1465 1498]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1443 1499])
+                    ("visitMultiTermQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::MultiTermQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1529 1565]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1504 1566])
+                    ("stealQuery" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("QueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1572 1600])
+                    ("private" label nil (reparse-symbol classsubparts) [1601 1609])
+                    ("composeTruncateName" function
+                       (:typemodifiers ("static")
+                        :arguments 
+                          ( ("word" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1653 1677])
+                            ("chainName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1690 1719]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1614 1860])
+                    ("canConvertToBitmapAndQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("queryExecutors" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("QueryExecutor" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1898 1948]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1866 1949])
+                    ("createAndQueryExecutor" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("queryExecutors" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("QueryExecutor" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1997 2047]))                          
+                        :type ("MultiQueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1954 2048])
+                    ("createMultiTermAndQueryExecutor" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("queryExecutors" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("QueryExecutor" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2105 2155]))                          
+                        :type ("MultiQueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2053 2156])
+                    ("addUnpackQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("termQuery" variable
+                               (:pointer 1
+                                :type ("TermQueryExecutor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2181 2210])
+                            ("term" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("common::Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2211 2236])
+                            ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2237 2264]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2161 2265])
+                    ("addUnpackQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("queryExecutor" variable
+                               (:pointer 1
+                                :type ("QueryExecutor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2290 2319])
+                            ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("common::Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2320 2347]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2270 2348])
+                    ("public" label nil (reparse-symbol classsubparts) [2349 2356])
+                    ("createTermQueryExecutor" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("readerWrapper" variable
+                               (:pointer 1
+                                :type ("IndexPartitionReaderWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2424 2467])
+                            ("queryTerm" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("common::Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2480 2510])
+                            ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2523 2551]))                          
+                        :type ("TermQueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2361 2552])
+                    ("private" label nil (reparse-symbol classsubparts) [2553 2561])
+                    ("doCreateTermQueryExecutor" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("readerWrapper" variable
+                               (:pointer 1
+                                :type ("IndexPartitionReaderWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2631 2674])
+                            ("queryTerm" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("common::Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2687 2717])
+                            ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2730 2758]))                          
+                        :type ("TermQueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2566 2759])
+                    ("private" label nil (reparse-symbol classsubparts) [2760 2768])
+                    ("_matchDataManager" variable
+                       (:pointer 1
+                        :type ("MatchDataManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2773 2809])
+                    ("_queryExecutor" variable
+                       (:pointer 1
+                        :type ("QueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2814 2844])
+                    ("_readerWrapper" variable
+                       (:pointer 1
+                        :type ("IndexPartitionReaderWrapper" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2849 2893])
+                    ("_andnotQueryLevel" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2898 2924])
+                    ("_pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2958 2987])
+                    ("_timer" variable
+                       (:pointer 1
+                        :type ("common::TimeoutTerminator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2992 3026])
+                    ("_layerMeta" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("LayerMeta" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3031 3059])
+                    ("private" label nil (reparse-symbol classsubparts) [3060 3068])
+                    ("QueryExecutorCreatorTest" friend nil (reparse-symbol classsubparts) [3073 3110])
+                    ("private" label nil (reparse-symbol classsubparts) [3112 3120])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [3125 3143]))                  
+                :type "class")
+                nil [672 3146])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3166 3173]))                  
+                :type "int")
+                nil [3148 3174]))          
+      :file "QueryExecutorCreator.h"
+      :pointmax 3216
+      :fsize 3215
+      :lastmodtime '(23589 60868 492860 525000)
+      :unmatched-syntax '((thing 3110 . 3111))
+      :lexical-table 
+        '(("ISEARCH_QUERYEXECUTORCREATOR_H")
+          )
+)
+    (semanticdb-table "QueryExecutorCreator.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/search/QueryExecutorCreator.h" include (:system-flag t) nil [1 45])
+            ("ha3/search/PhraseQueryExecutor.h" include (:system-flag t) nil [46 89])
+            ("ha3/search/RestrictPhraseQueryExecutor.h" include (:system-flag t) nil [90 141])
+            ("ha3/search/TermQueryExecutor.h" include (:system-flag t) nil [142 183])
+            ("ha3/search/AndQueryExecutor.h" include (:system-flag t) nil [184 224])
+            ("ha3/search/WeakAndQueryExecutor.h" include (:system-flag t) nil [225 269])
+            ("ha3/search/OrQueryExecutor.h" include (:system-flag t) nil [270 309])
+            ("ha3/search/AndNotQueryExecutor.h" include (:system-flag t) nil [310 353])
+            ("ha3/search/NumberQueryExecutor.h" include (:system-flag t) nil [354 397])
+            ("ha3/search/RangeTermQueryExecutor.h" include (:system-flag t) nil [398 444])
+            ("ha3/search/SpatialTermQueryExecutor.h" include (:system-flag t) nil [445 493])
+            ("ha3/search/BitmapTermQueryExecutor.h" include (:system-flag t) nil [494 541])
+            ("ha3/search/BitmapAndQueryExecutor.h" include (:system-flag t) nil [542 588])
+            ("ha3/search/BufferedTermQueryExecutor.h" include (:system-flag t) nil [589 638])
+            ("ha3/search/FieldMapTermQueryExecutor.h" include (:system-flag t) nil [639 688])
+            ("ha3/search/SubTermQueryExecutor.h" include (:system-flag t) nil [689 733])
+            ("ha3/search/SubFieldMapTermQueryExecutor.h" include (:system-flag t) nil [734 786])
+            ("ha3/search/QueryExecutorRestrictor.h" include (:system-flag t) nil [787 834])
+            ("ha3/search/MultiTermAndQueryExecutor.h" include (:system-flag t) nil [835 884])
+            ("ha3/search/MultiTermBitmapAndQueryExecutor.h" include (:system-flag t) nil [885 940])
+            ("ha3/search/MultiTermOrQueryExecutor.h" include (:system-flag t) nil [941 989])
+            ("indexlib/index/seek_and_filter_iterator.h" include (:system-flag t) nil [990 1042])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1044 1064])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1082 1088]))                  
+                :type "int")
+                nil [1065 1089])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1108 1115]))                  
+                :type "int")
+                nil [1090 1116])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1137 1144]))                  
+                :type "int")
+                nil [1117 1145])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1160 1167])
+                    ("" variable (:type ("QueryExecutorCreator" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1168 1189]))                  
+                :type "int")
+                nil [1146 1190])
+            ("QueryExecutorCreator" function
+               (:constructor-flag t
+                :parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("matchDataManager" variable
+                       (:pointer 1
+                        :type ("MatchDataManager" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1244 1279])
+                    ("readerWrapper" variable
+                       (:pointer 1
+                        :type ("IndexPartitionReaderWrapper" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1288 1331])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1340 1368])
+                    ("timer" variable
+                       (:pointer 1
+                        :type ("common::TimeoutTerminator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1377 1411])
+                    ("layerMeta" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("LayerMeta" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1420 1447]))                  
+                :type ("QueryExecutorCreator" type (:type "class") nil nil))
+                nil [1192 1725])
+            ("QueryExecutorCreator" function
+               (:destructor-flag t
+                :parent "QueryExecutorCreator"
+                :type "void")
+                nil [1727 1815])
+            ("doCreateTermQueryExecutor" function
+               (:pointer 1
+                :parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("readerWrapper" variable
+                       (:pointer 1
+                        :type ("IndexPartitionReaderWrapper" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1893 1936])
+                    ("queryTerm" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("common::Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1945 1975])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1984 2012]))                  
+                :type ("TermQueryExecutor" type (:type "class") nil nil))
+                nil [1817 4652])
+            ("createTermQueryExecutor" function
+               (:pointer 1
+                :parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("readerWrapper" variable
+                       (:pointer 1
+                        :type ("IndexPartitionReaderWrapper" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4728 4771])
+                    ("queryTerm" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("common::Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4780 4810])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4819 4847]))                  
+                :type ("TermQueryExecutor" type (:type "class") nil nil))
+                nil [4654 5078])
+            ("visitTermQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("TermQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5122 5145]))                  
+                :type "void")
+                nil [5080 5403])
+            ("visitPhraseQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("PhraseQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5449 5474]))                  
+                :type "void")
+                nil [5405 7432])
+            ("visitMultiTermQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("MultiTermQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7481 7509]))                  
+                :type "void")
+                nil [7434 9096])
+            ("visitAndQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("AndQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9139 9161]))                  
+                :type "void")
+                nil [9098 9978])
+            ("macroCreateAndQueryExecutor" variable (:constant-flag t) nil [9988 10015])
+            ("createAndQueryExecutor" function
+               (:pointer 1
+                :parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("queryExecutors" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("QueryExecutor" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type ("MultiQueryExecutor" type (:type "class") nil nil))
+                nil [10651 10744])
+            ("createMultiTermAndQueryExecutor" function
+               (:pointer 1
+                :parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("queryExecutors" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("QueryExecutor" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type ("MultiQueryExecutor" type (:type "class") nil nil))
+                nil [10745 10893])
+            ("canConvertToBitmapAndQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("queryExecutors" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("QueryExecutor" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10994 11039]))                  
+                :type "bool")
+                nil [10931 11289])
+            ("visitOrQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("OrQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11330 11351]))                  
+                :type "void")
+                nil [11290 12279])
+            ("visitAndNotQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("AndNotQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12325 12350]))                  
+                :type "void")
+                nil [12281 13826])
+            ("visitRankQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("RankQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13870 13893]))                  
+                :type "void")
+                nil [13828 14425])
+            ("visitNumberQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("common::NumberQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14471 14504]))                  
+                :type "void")
+                nil [14427 16015])
+            ("stealQuery" function
+               (:pointer 1
+                :parent "QueryExecutorCreator"
+                :type ("QueryExecutor" type (:type "class") nil nil))
+                nil [16017 16174])
+            ("addUnpackQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("termQueryExecutor" variable
+                       (:pointer 1
+                        :type ("TermQueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16218 16255])
+                    ("term" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16298 16315])
+                    ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16316 16335]))                  
+                :type "void")
+                nil [16176 16542])
+            ("addUnpackQuery" function
+               (:parent "QueryExecutorCreator"
+                :arguments 
+                  ( ("queryExecutor" variable
+                       (:pointer 1
+                        :type ("QueryExecutor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16586 16615])
+                    ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16658 16677]))                  
+                :type "void")
+                nil [16544 16947])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16967 16974]))                  
+                :type "int")
+                nil [16949 16975]))          
+      :file "QueryExecutorCreator.cpp"
+      :pointmax 16977
+      :fsize 16976
+      :lastmodtime '(23589 60868 492860 525000)
+      :unmatched-syntax nil)
+    (semanticdb-table "AndQueryExecutor.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/search/AndQueryExecutor.h" include (:system-flag t) nil [1 41])
+            ("iostream" include (:system-flag t) nil [42 61])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [62 82])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [104 111]))                  
+                :type "int")
+                nil [84 112])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [127 134])
+                    ("" variable (:type ("AndQueryExecutor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [135 152]))                  
+                :type "int")
+                nil [113 153])
+            ("AndQueryExecutor" function
+               (:constructor-flag t
+                :parent "AndQueryExecutor"
+                :type ("AndQueryExecutor" type (:type "class") nil nil))
+                nil [155 245])
+            ("AndQueryExecutor" function
+               (:destructor-flag t
+                :parent "AndQueryExecutor"
+                :type "void")
+                nil [247 288])
+            ("getName" function
+               (:parent "AndQueryExecutor"
+                :constant-flag t
+                :type ("std::string" type (:type "class") nil nil))
+                nil [290 376])
+            ("addQueryExecutors" function
+               (:parent "AndQueryExecutor"
+                :arguments 
+                  ( ("queryExecutors" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("QueryExecutor" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [419 464]))                  
+                :type "void")
+                nil [378 1327])
+            ("doSeek" function
+               (:parent "AndQueryExecutor"
+                :arguments 
+                  ( ("id" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1362 1373]))                  
+                :type ("docid_t" type (:type "class") nil nil))
+                nil [1329 2353])
+            ("seekSubDoc" function
+               (:parent "AndQueryExecutor"
+                :arguments 
+                  ( ("docId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2392 2406])
+                    ("subDocId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2407 2424])
+                    ("subDocEnd" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2462 2480])
+                    ("needSubMatchdata" variable (:type "bool") (reparse-symbol arg-sub-list) [2481 2503]))                  
+                :type ("docid_t" type (:type "class") nil nil))
+                nil [2355 3699])
+            ("isMainDocHit" function
+               (:parent "AndQueryExecutor"
+                :arguments 
+                  ( ("docId" variable (:type ("docid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3737 3751]))                  
+                :type "bool")
+                nil [3701 4112])
+            ("getDF" function
+               (:parent "AndQueryExecutor"
+                :arguments 
+                  ( ("type" variable (:type ("GetDFType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4143 4158]))                  
+                :type ("df_t" type (:type "class") nil nil))
+                nil [4114 4357])
+            ("toString" function
+               (:parent "AndQueryExecutor"
+                :type ("string" type (:type "class") nil nil))
+                nil [4359 4492])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4512 4519]))                  
+                :type "int")
+                nil [4494 4520]))          
+      :file "AndQueryExecutor.cpp"
+      :pointmax 4522
+      :fsize 4521
+      :lastmodtime '(23589 60868 487860 529000)
+      :unmatched-syntax nil))
+  :file "!ha3_develop!search_test!temp!source_code!ha3!ha3!sql!ops!seek!query_executor!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

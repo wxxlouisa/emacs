@@ -1,0 +1,179 @@
+;; Object rpc/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "rpc/"
+  :tables
+  (list
+    (semanticdb-table "grpc_remote_worker.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("THIRD_PARTY_TENSORFLOW_DISTRIBUTED_RUNTIME_RPC_GRPC_REMOTE_WORKER_H_" variable (:constant-flag t) nil [756 824])
+            ("memory" include (:system-flag t) nil [826 843])
+            ("tensorflow/core/distributed_runtime/rpc/grpc_util.h" include nil nil [845 907])
+            ("grpc" type
+               (:members 
+                  ( ("CompletionQueue" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [926 948]))                  
+                :type "namespace")
+                nil [909 950])
+            ("tensorflow" type
+               (:members 
+                  ( ("WorkerCacheLogger" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [976 1000])
+                    ("WorkerInterface" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [1001 1023])
+                    ("NewGrpcRemoteWorker" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("channel" variable (:type ("SharedGrpcChannelPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1062 1091])
+                            ("completion_queue" variable
+                               (:pointer 1
+                                :type ("grpc::CompletionQueue" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1131 1171])
+                            ("logger" variable
+                               (:pointer 1
+                                :type ("WorkerCacheLogger" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1209 1235]))                          
+                        :type ("WorkerInterface" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [1025 1236]))                  
+                :type "namespace")
+                nil [952 1239]))          
+      :file "grpc_remote_worker.h"
+      :pointmax 1346
+      :fsize 1345
+      :lastmodtime '(22719 28823 0 0)
+      :unmatched-syntax '((thing 1129 . 1130) (thing 1130 . 1131))
+      :lexical-table 
+        '(("THIRD_PARTY_TENSORFLOW_DISTRIBUTED_RUNTIME_RPC_GRPC_REMOTE_WORKER_H_")
+          )
+)
+    (semanticdb-table "grpc_remote_worker.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("tensorflow/core/distributed_runtime/rpc/grpc_remote_worker.h" include nil nil [671 742])
+            ("grpc++/grpc++.h" include nil nil [744 770])
+            ("tensorflow/core/common_runtime/process_util.h" include nil nil [772 828])
+            ("tensorflow/core/distributed_runtime/rpc/grpc_client_cq_tag.h" include nil nil [829 900])
+            ("tensorflow/core/distributed_runtime/rpc/grpc_worker_service_impl.h" include nil nil [901 978])
+            ("tensorflow/core/distributed_runtime/tensor_coding.h" include nil nil [979 1041])
+            ("tensorflow/core/distributed_runtime/worker_cache_logger.h" include nil nil [1042 1110])
+            ("tensorflow/core/distributed_runtime/worker_interface.h" include nil nil [1111 1176])
+            ("tensorflow/core/lib/core/errors.h" include nil nil [1177 1221])
+            ("tensorflow/core/lib/core/status.h" include nil nil [1222 1266])
+            ("tensorflow/core/lib/strings/str_util.h" include nil nil [1267 1316])
+            ("tensorflow/core/platform/logging.h" include nil nil [1317 1362])
+            ("tensorflow/core/platform/tracing.h" include nil nil [1363 1408])
+            ("tensorflow/core/protobuf/worker.pb.h" include nil nil [1409 1456])
+            ("tensorflow" type
+               (:members 
+                  ( ("GrpcRemoteWorker" type
+                       (:superclasses 
+                          ( ("WorkerInterface" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [1533 1540])
+                            ("GrpcRemoteWorker" function
+                               (:constructor-flag t
+                                :arguments 
+                                  ( ("channel" variable (:type ("SharedGrpcChannelPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1569 1598])
+                                    ("completion_queue" variable
+                                       (:pointer 1
+                                        :type ("grpc::CompletionQueue" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1629 1669])
+                                    ("logger" variable
+                                       (:pointer 1
+                                        :type ("WorkerCacheLogger" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1698 1724]))                                  
+                                :type ("GrpcRemoteWorker" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1552 2351])
+                            ("private" label nil (reparse-symbol classsubparts) [7916 7924])
+                            ("GrpcClientCQTag" variable (:type "int") (reparse-symbol classsubparts) [8052 9411])
+                            ("IssueRequest" function
+                               (:template 
+                                  ( ("RequestMessage" type (:type "class") nil nil)
+                                    ("ResponseMessage" type (:type "class") nil nil))                                  
+                                :type "void"
+                                :arguments 
+                                  ( ("request" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type ("RequestMessage" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [9626 9656])
+                                    ("response" variable
+                                       (:pointer 1
+                                        :type ("ResponseMessage" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [9657 9683])
+                                    ("method" variable
+                                       (:reference 1
+                                        :type ("grpc::RpcMethod" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [9712 9736])
+                                    ("done" variable (:type ("StatusCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9737 9757])
+                                    ("call_opts" variable
+                                       (:pointer 1
+                                        :default-value "nullptr"
+                                        :type ("CallOptions" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [9778 9810]))                                  )
+                                (reparse-symbol classsubparts) [9551 9988])
+                            ("Method" function
+                               (:arguments 
+                                  ( ("id" variable (:type ("GrpcWorkerMethod" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10084 10104]))                                  
+                                :type ("grpc::RpcMethod" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [10061 10236])
+                            ("channel_" variable (:type ("SharedGrpcChannelPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10240 10270])
+                            ("cq_" variable
+                               (:pointer 1
+                                :type ("grpc::CompletionQueue" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [10275 10302])
+                            ("getstatus_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10314 10341])
+                            ("registergraph_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10352 10383])
+                            ("deregistergraph_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10394 10427])
+                            ("rungraph_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10438 10464])
+                            ("cleanupgraph_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10475 10505])
+                            ("cleanupall_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10516 10544])
+                            ("recvtensor_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10555 10583])
+                            ("logging_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10594 10619])
+                            ("tracing_" variable (:type ("grpc::RpcMethod" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10630 10655])
+                            ("logger_" variable
+                               (:pointer 1
+                                :type ("WorkerCacheLogger" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [10685 10712])
+                            ("TF_DISALLOW_COPY_AND_ASSIGN" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("" variable (:type ("GrpcRemoteWorker" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10744 10761]))                                  
+                                :type "int")
+                                (reparse-symbol classsubparts) [10716 10762]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [1482 10765])
+                    ("NewGrpcRemoteWorker" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("channel" variable (:type ("SharedGrpcChannelPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10804 10833])
+                            ("completion_queue" variable
+                               (:pointer 1
+                                :type ("grpc::CompletionQueue" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [10873 10913])
+                            ("logger" variable
+                               (:pointer 1
+                                :type ("WorkerCacheLogger" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [10951 10977]))                          
+                        :type ("WorkerInterface" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [10767 11047]))                  
+                :type "namespace")
+                nil [1458 11050]))          
+      :file "grpc_remote_worker.cc"
+      :pointmax 11076
+      :fsize 11075
+      :lastmodtime '(22719 28823 0 0)
+      :unmatched-syntax '((thing 1628 . 1629) (thing 1627 . 1628) (thing 1543 . 1551) (thing 2355 . 2356) (thing 2356 . 2372) (thing 2372 . 2374) (thing 2375 . 2383) (thing 2384 . 2386) (thing 2390 . 2394) (thing 2395 . 2409) (thing 2409 . 2536) (thing 2537 . 2545) (thing 2546 . 2617) (thing 2621 . 2625) (thing 2626 . 2644) (thing 2644 . 2787) (thing 2788 . 2796) (thing 2797 . 2872) (thing 2876 . 2880) (thing 2881 . 2901) (thing 2901 . 3052) (thing 3053 . 3061) (thing 3062 . 3139) (thing 3143 . 3147) (thing 3148 . 3161) (thing 3161 . 3287) (thing 3288 . 3296) (thing 3297 . 3378) (thing 3381 . 3385) (thing 3386 . 3399) (thing 3399 . 3561) (thing 3562 . 3570) (thing 3571 . 3705) (thing 3709 . 3713) (thing 3714 . 3731) (thing 3731 . 3870) (thing 3871 . 3879) (thing 3880 . 3954) (thing 3958 . 3962) (thing 3963 . 3978) (thing 3978 . 4109) (thing 4110 . 4118) (thing 4119 . 4191) (thing 4195 . 4199) (thing 4200 . 4215) (thing 4215 . 4343) (thing 4344 . 4352) (thing 4353 . 7537) (thing 7541 . 7545) (thing 7546 . 7558) (thing 7558 . 7657) (thing 7658 . 7666) (thing 7667 . 7725) (thing 7729 . 7733) (thing 7734 . 7746) (thing 7746 . 7845) (thing 7846 . 7854) (thing 7855 . 7913) (thing 7965 . 7973) (thing 7974 . 7975) (thing 7975 . 7980) (thing 7981 . 7995) (thing 7995 . 7996) (thing 7997 . 8002) (thing 8003 . 8018) (thing 8018 . 8019) (thing 8022 . 8027) (thing 8028 . 8036) (thing 8037 . 8042) (thing 8043 . 8044) (thing 8045 . 8051) (thing 9704 . 9709) (thing 9710 . 9711) (thing 9711 . 9712) (thing 10059 . 10060) (thing 10060 . 10061) (thing 10273 . 10274) (thing 10274 . 10275) (thing 10306 . 10311) (thing 10312 . 10313) (thing 10313 . 10314) (thing 10344 . 10349) (thing 10350 . 10351) (thing 10351 . 10352) (thing 10386 . 10391) (thing 10392 . 10393) (thing 10393 . 10394) (thing 10430 . 10435) (thing 10436 . 10437) (thing 10437 . 10438) (thing 10467 . 10472) (thing 10473 . 10474) (thing 10474 . 10475) (thing 10508 . 10513) (thing 10514 . 10515) (thing 10515 . 10516) (thing 10547 . 10552) (thing 10553 . 10554) (thing 10554 . 10555) (thing 10586 . 10591) (thing 10592 . 10593) (thing 10593 . 10594) (thing 10622 . 10627) (thing 10628 . 10629) (thing 10629 . 10630) (thing 10871 . 10872) (thing 10872 . 10873))))
+  :file "!source!tensorflow!tensorflow!core!distributed_runtime!rpc!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,109 @@
+;; Object util/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "util/"
+  :tables
+  (list
+    (semanticdb-table "Log.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_RS_LOG_H" variable (:constant-flag t) nil [34 50])
+            ("alog/Logger.h" include (:system-flag t) nil [52 76])
+            ("alog/Configurator.h" include (:system-flag t) nil [77 107])
+            ("iostream" include (:system-flag t) nil [108 127])
+            ("RS_ALOG_CONF_FILE" variable (:constant-flag t) nil [137 154])
+            ("RS_LOG_SETUP" variable (:constant-flag t) nil [179 191])
+            ("RS_LOG_SETUP_TEMPLATE" variable (:constant-flag t) nil [284 305])
+            ("RS_LOG_SETUP_TEMPLATE_2" variable (:constant-flag t) nil [463 486])
+            ("RS_LOG_SETUP_TEMPLATE_3" variable (:constant-flag t) nil [669 692])
+            ("RS_ROOT_LOG_CONFIG" variable (:constant-flag t) nil [892 910])
+            ("RS_LOG_CONFIG" variable (:constant-flag t) nil [963 976])
+            ("RS_LOG_CONFIG_FROM_STRING" variable (:constant-flag t) nil [1572 1597])
+            ("RS_ROOT_LOG_SETLEVEL" variable (:constant-flag t) nil [2253 2273])
+            ("RS_LOG_DECLARE" variable (:constant-flag t) nil [2397 2411])
+            ("ENSURE_STRING_LITERAL" variable (:constant-flag t) nil [2452 2473])
+            ("RS_LOG" variable (:constant-flag t) nil [2531 2537])
+            ("RS_DECLARE_AND_SETUP_LOGGER" variable (:constant-flag t) nil [2955 2982])
+            ("RS_LOG_SHUTDOWN" variable (:constant-flag t) nil [3070 3085])
+            ("RS_LOG_FLUSH" variable (:constant-flag t) nil [3122 3134])
+            ("RS_INTERVAL_LOG" variable (:constant-flag t) nil [3171 3186])
+            ("RS_INTERVAL_LOG2" variable (:constant-flag t) nil [3780 3796]))          
+      :file "Log.h"
+      :pointmax 4408
+      :fsize 4407
+      :lastmodtime '(22508 46320 700885 265000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("RS_LOG_CONFIG_FROM_STRING" (spp-arg-list ("content") 1597 . 1606) . 
+              ((DO "do" 1607 . 1609) (semantic-list "{                         \\
+        try {                                                           \\
+            alog::Configurator::configureLoggerFromString(content);     \\
+        } catch(std::exception &e) {                                    \\
+            std::cerr << \"configure logger use [\"                       \\
+                      << content<< \"] failed\"                           \\
+                      << std::endl;                                     \\
+            RS_ROOT_LOG_CONFIG();                                       \\
+        }                                                               \\
+    }" 1610 . 2235) (WHILE "while" 2235 . 2240) (semantic-list "(0)" 2240 . 2243)))
+          ("RS_INTERVAL_LOG2" (spp-arg-list ("logInterval" "level" "format" "args...") 3796 . 3833) . 
+              ((DO "do" 3850 . 3852) (semantic-list "{                                                                \\
+        static int64_t logTimestamp;                                    \\
+        int64_t now = autil::TimeUtility::currentTimeInSeconds();       \\
+        if (now - logTimestamp > logInterval) {                         \\
+            RS_LOG(level, format, ##args);                              \\
+            logTimestamp = now;                                         \\
+        }                                                               \\
+    }" 3853 . 4369) (WHILE "while" 4370 . 4375) (semantic-list "(0)" 4376 . 4379)))
+          ("ISEARCH_RS_LOG_H")
+          ("RS_LOG_SHUTDOWN" (spp-arg-list nil 3085 . 3087) . 
+              ((symbol "alog" 3088 . 3092) (punctuation ":" 3092 . 3093) (punctuation ":" 3093 . 3094) (symbol "Logger" 3094 . 3100) (punctuation ":" 3100 . 3101) (punctuation ":" 3101 . 3102) (symbol "shutdown" 3102 . 3110) (semantic-list "()" 3110 . 3112)))
+          ("RS_LOG_SETUP_TEMPLATE_2" (spp-arg-list ("n" "c" "T1" "T2") 486 . 499) . 
+              ((TEMPLATE "template" 500 . 508) (punctuation "<" 509 . 510) (TYPENAME "typename" 510 . 518) (symbol "T1" 519 . 521) (punctuation "," 521 . 522) (TYPENAME "typename" 523 . 531) (symbol "T2" 532 . 534) (punctuation ">" 534 . 535) (symbol "alog" 542 . 546) (punctuation ":" 546 . 547) (punctuation ":" 547 . 548) (symbol "Logger" 548 . 554) (punctuation "*" 555 . 556) (symbol "c" 556 . 557) (punctuation "<" 557 . 558) (symbol "T1" 558 . 560) (punctuation "," 560 . 561) (symbol "T2" 562 . 564) (punctuation ">" 564 . 565) (punctuation ":" 565 . 566) (punctuation ":" 566 . 567) (symbol "_logger" 567 . 574) (punctuation "=" 616 . 617) (symbol "alog" 618 . 622) (punctuation ":" 622 . 623) (punctuation ":" 623 . 624) (symbol "Logger" 624 . 630) (punctuation ":" 630 . 631) (punctuation ":" 631 . 632) (symbol "getLogger" 632 . 641) (semantic-list "(\"RS.\" #n \".\"  #c)" 641 . 659)))
+          ("RS_LOG_CONFIG" (spp-arg-list ("filename") 976 . 986) . 
+              ((DO "do" 987 . 989) (semantic-list "{                            \\
+        try {                                                   \\
+            alog::Configurator::configureLogger(filename);      \\
+        } catch(std::exception &e) {                            \\
+            std::cerr << \"WARN! Failed to configure logger!\"    \\
+                      << e.what() << \",use default log conf.\"   \\
+                      << std::endl;                             \\
+            RS_ROOT_LOG_CONFIG();                               \\
+        }                                                       \\
+    }" 990 . 1554) (WHILE "while" 1554 . 1559) (semantic-list "(0)" 1559 . 1562)))
+          ("RS_LOG_DECLARE" (spp-arg-list nil 2411 . 2413) . 
+              ((STATIC "static" 2414 . 2420) (symbol "alog" 2421 . 2425) (punctuation ":" 2425 . 2426) (punctuation ":" 2426 . 2427) (symbol "Logger" 2427 . 2433) (punctuation "*" 2434 . 2435) (symbol "_logger" 2435 . 2442)))
+          ("RS_LOG_SETUP_TEMPLATE_3" (spp-arg-list ("n" "c" "T1" "T2" "T3") 692 . 709) . 
+              ((TEMPLATE "template" 723 . 731) (punctuation "<" 732 . 733) (TYPENAME "typename" 733 . 741) (symbol "T1" 742 . 744) (punctuation "," 744 . 745) (TYPENAME "typename" 746 . 754) (symbol "T2" 755 . 757) (punctuation "," 757 . 758) (TYPENAME "typename" 759 . 767) (symbol "T3" 768 . 770) (punctuation ">" 770 . 771) (symbol "alog" 781 . 785) (punctuation ":" 785 . 786) (punctuation ":" 786 . 787) (symbol "Logger" 787 . 793) (punctuation "*" 794 . 795) (symbol "c" 795 . 796) (punctuation "<" 796 . 797) (symbol "T1" 797 . 799) (punctuation "," 799 . 800) (symbol "T2" 801 . 803) (punctuation "," 803 . 804) (symbol "T3" 805 . 807) (punctuation ">" 807 . 808) (punctuation ":" 808 . 809) (punctuation ":" 809 . 810) (symbol "_logger" 810 . 817) (punctuation "=" 839 . 840) (symbol "alog" 841 . 845) (punctuation ":" 845 . 846) (punctuation ":" 846 . 847) (symbol "Logger" 847 . 853) (punctuation ":" 853 . 854) (punctuation ":" 854 . 855) (symbol "getLogger" 855 . 864) (semantic-list "(\"RS.\" #n \".\"  #c)" 864 . 882)))
+          ("RS_LOG_SETUP_TEMPLATE" (spp-arg-list ("n" "c" "T") 305 . 314) . 
+              ((TEMPLATE "template" 315 . 323) (punctuation "<" 324 . 325) (TYPENAME "typename" 325 . 333) (symbol "T" 334 . 335) (punctuation ">" 335 . 336) (symbol "alog" 346 . 350) (punctuation ":" 350 . 351) (punctuation ":" 351 . 352) (symbol "Logger" 352 . 358) (punctuation "*" 359 . 360) (symbol "c" 360 . 361) (punctuation "<" 361 . 362) (symbol "T" 362 . 363) (punctuation ">" 363 . 364) (punctuation ":" 364 . 365) (punctuation ":" 365 . 366) (symbol "_logger" 366 . 373) (punctuation "=" 412 . 413) (symbol "alog" 414 . 418) (punctuation ":" 418 . 419) (punctuation ":" 419 . 420) (symbol "Logger" 420 . 426) (punctuation ":" 426 . 427) (punctuation ":" 427 . 428) (symbol "getLogger" 428 . 437) (semantic-list "(\"RS.\"#n \".\" #c)" 437 . 453)))
+          ("RS_ROOT_LOG_CONFIG" (spp-arg-list nil 910 . 912) . 
+              ((symbol "alog" 913 . 917) (punctuation ":" 917 . 918) (punctuation ":" 918 . 919) (symbol "Configurator" 919 . 931) (punctuation ":" 931 . 932) (punctuation ":" 932 . 933) (symbol "configureRootLogger" 933 . 952) (semantic-list "()" 952 . 954)))
+          ("RS_ROOT_LOG_SETLEVEL" (spp-arg-list ("level") 2273 . 2280) . 
+              ((symbol "alog" 2323 . 2327) (punctuation ":" 2327 . 2328) (punctuation ":" 2328 . 2329) (symbol "Logger" 2329 . 2335) (punctuation ":" 2335 . 2336) (punctuation ":" 2336 . 2337) (symbol "getRootLogger" 2337 . 2350) (semantic-list "()" 2350 . 2352) (punctuation "-" 2352 . 2353) (punctuation ">" 2353 . 2354) (symbol "setLevel" 2354 . 2362) (semantic-list "(alog::LOG_LEVEL_##level)" 2362 . 2387)))
+          ("RS_LOG" (spp-arg-list ("level" "format" "args...") 2537 . 2561) . 
+              ((DO "do" 2601 . 2603) (semantic-list "{                                                                \\
+        ENSURE_STRING_LITERAL(format);                                  \\
+        ALOG_LOG(_logger, alog::LOG_LEVEL_##level, format, ##args);     \\
+    }" 2604 . 2824) (WHILE "while" 2825 . 2830) (semantic-list "(0)" 2831 . 2834)))
+          ("RS_DECLARE_AND_SETUP_LOGGER" (spp-arg-list ("c") 2982 . 2985) . 
+              ((STATIC "static" 2986 . 2992) (symbol "alog" 2993 . 2997) (punctuation ":" 2997 . 2998) (punctuation ":" 2998 . 2999) (symbol "Logger" 2999 . 3005) (punctuation "*" 3006 . 3007) (symbol "_logger" 3007 . 3014) (punctuation "=" 3025 . 3026) (symbol "alog" 3027 . 3031) (punctuation ":" 3031 . 3032) (punctuation ":" 3032 . 3033) (symbol "Logger" 3033 . 3039) (punctuation ":" 3039 . 3040) (punctuation ":" 3040 . 3041) (symbol "getLogger" 3041 . 3050) (semantic-list "(\"RS.\" #c)" 3050 . 3060)))
+          ("RS_ALOG_CONF_FILE" . ((string "\"bs_alog.conf\"" 155 . 169)))
+          ("RS_LOG_SETUP" (spp-arg-list ("n" "c") 191 . 197) . 
+              ((symbol "alog" 199 . 203) (punctuation ":" 203 . 204) (punctuation ":" 204 . 205) (symbol "Logger" 205 . 211) (punctuation "*" 212 . 213) (symbol "c" 213 . 214) (punctuation ":" 214 . 215) (punctuation ":" 215 . 216) (symbol "_logger" 216 . 223) (punctuation "=" 233 . 234) (symbol "alog" 235 . 239) (punctuation ":" 239 . 240) (punctuation ":" 240 . 241) (symbol "Logger" 241 . 247) (punctuation ":" 247 . 248) (punctuation ":" 248 . 249) (symbol "getLogger" 249 . 258) (semantic-list "(\"RS.\"#n \".\" #c)" 258 . 274)))
+          ("RS_INTERVAL_LOG" (spp-arg-list ("logInterval" "level" "format" "args...") 3186 . 3223) . 
+              ((DO "do" 3241 . 3243) (semantic-list "{                                                                \\
+        static int logCounter;                                          \\
+        if (0 == logCounter) {                                          \\
+            RS_LOG(level, format, ##args);                              \\
+            logCounter = logInterval;                                   \\
+        }                                                               \\
+        logCounter--;                                                   \\
+    }" 3244 . 3760) (WHILE "while" 3761 . 3766) (semantic-list "(0)" 3767 . 3770)))
+          ("ENSURE_STRING_LITERAL" (spp-arg-list ("x") 2473 . 2476) . 
+              ((DO "do" 2478 . 2480) (semantic-list "{ (void) x \"\"; }" 2481 . 2497) (WHILE "while" 2498 . 2503) (semantic-list "(0)" 2503 . 2506)))
+          ("RS_LOG_FLUSH" (spp-arg-list nil 3134 . 3136) . 
+              ((symbol "alog" 3137 . 3141) (punctuation ":" 3141 . 3142) (punctuation ":" 3142 . 3143) (symbol "Logger" 3143 . 3149) (punctuation ":" 3149 . 3150) (punctuation ":" 3150 . 3151) (symbol "flushAll" 3151 . 3159) (semantic-list "()" 3159 . 3161)))
+          )
+))
+  :file "!ssd!sdd!git!ha3_rank!rank_service!rank_service!util!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

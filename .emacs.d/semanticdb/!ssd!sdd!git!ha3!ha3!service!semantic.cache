@@ -1,0 +1,1667 @@
+;; Object service/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "service/"
+  :tables
+  (list
+
+
+
+
+    (semanticdb-table "SessionPool.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/service/SessionPool.h" include (:system-flag t) nil [1 37])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [59 67]))                  
+                :type "int")
+                nil [39 68])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [83 91])
+                    ("" variable (:type ("SessionPool" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [92 104]))                  
+                :type "int")
+                nil [69 105])
+            ("SessionPool" function
+               (:constructor-flag t
+                :parent "SessionPool"
+                :arguments 
+                  ( ("maxSessionSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [132 156]))                  
+                :type ("SessionPool" type (:type "class") nil nil))
+                nil [107 222])
+            ("SessionPool" function
+               (:destructor-flag t
+                :parent "SessionPool"
+                :type "void")
+                nil [224 255])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [275 283]))                  
+                :type "int")
+                nil [257 284]))          
+      :file "SessionPool.cpp"
+      :pointmax 285
+      :fsize 284
+      :lastmodtime '(22454 32849 571289 555000)
+      :unmatched-syntax nil)
+    (semanticdb-table "SessionPool.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_SESSIONPOOL_H" variable (:constant-flag t) nil [39 60])
+            ("ha3/common.h" include (:system-flag t) nil [62 85])
+            ("ha3/isearch.h" include (:system-flag t) nil [86 110])
+            ("ha3/util/Log.h" include (:system-flag t) nil [111 136])
+            ("ha3/util/MemPoolFactory.h" include (:system-flag t) nil [137 173])
+            ("ha3/service/Session.h" include (:system-flag t) nil [174 206])
+            ("anet/atomic.h" include (:system-flag t) nil [207 231])
+            ("autil/Lock.h" include (:system-flag t) nil [232 255])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [277 285]))                  
+                :type "int")
+                nil [257 286])
+            ("SessionPool" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [308 315])
+                    ("defautMaxSessionSize" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "400"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [320 369])
+                    ("public" label nil (reparse-symbol classsubparts) [446 453])
+                    ("SessionPool" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("maxSessionSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [470 494]))                          
+                        :type ("SessionPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [458 495])
+                    ("SessionPool" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [500 523])
+                    ("private" label nil (reparse-symbol classsubparts) [524 532])
+                    ("SessionPool" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SessionPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [549 568]))                          
+                        :type ("SessionPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [537 569])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SessionPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [599 618]))                          
+                        :type ("SessionPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [574 619])
+                    ("public" label nil (reparse-symbol classsubparts) [620 627])
+                    ("get" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :type ("Session" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [632 659])
+                    ("put" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("session" variable
+                               (:pointer 1
+                                :type ("Session" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [681 698]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [664 703])
+                    ("getMemPool" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [708 756])
+                    ("putMemPool" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [785 813]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [761 818])
+                    ("getMaxSessionSize" function (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [823 885])
+                    ("getCurrentCount" function (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [890 948])
+                    ("private" label nil (reparse-symbol classsubparts) [949 957])
+                    ("setMaxSessionSize" function
+                       (:arguments 
+                          ( ("maxSessionSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [996 1020]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [973 1070])
+                    ("protected" label nil (reparse-symbol classsubparts) [1071 1081])
+                    ("_maxSessionSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1086 1111])
+                    ("_sessionCount" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1116 1139])
+                    ("private" label nil (reparse-symbol classsubparts) [1140 1148])
+                    ("SessionPoolTest" friend nil (reparse-symbol classsubparts) [1153 1181])
+                    ("private" label nil (reparse-symbol classsubparts) [1183 1191])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1196 1214]))                  
+                :type "class")
+                nil [288 1217])
+            ("SessionPoolImpl" type
+               (:template 
+                  ( ("SessionType" type (:type "class") nil nil))                  
+                :type "class"
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1295 1302])
+                    ("SessionPoolImpl" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("maxSessionSize" variable
+                               (:default-value "SessionPool"
+                                :type ("uint32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1323 1360])
+                            ("" variable (:type ("defautMaxSessionSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1362 1383])
+                            ("useRecycleMemPool" variable
+                               (:default-value "true"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1404 1433]))                          
+                        :type ("SessionPoolImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1307 1828])
+                    ("SessionPoolImpl" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1833 1996])
+                    ("public" label nil (reparse-symbol classsubparts) [1997 2004])
+                    ("get" function
+                       (:pointer 1
+                        :type ("SessionType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2009 2507])
+                    ("put" function
+                       (:arguments 
+                          ( ("session" variable
+                               (:pointer 1
+                                :type ("Session" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2521 2538]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2512 2739])
+                    ("getMemPool" function
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2744 2922])
+                    ("putMemPool" function
+                       (:arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2943 2971]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2927 3250])
+                    ("private" label nil (reparse-symbol classsubparts) [3251 3259])
+                    ("_mutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3264 3290])
+                    ("_useRecycleMemPool" variable (:type "bool") (reparse-symbol classsubparts) [3295 3319])
+                    ("_sessions" variable
+                       (:pointer 1
+                        :type ("SessionType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3324 3347])
+                    ("_freeSessions" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("SessionType" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [3352 3392])
+                    ("_memPoolFactory" variable (:type ("util::MemPoolFactory" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3401 3438])
+                    ("private" label nil (reparse-symbol classsubparts) [3439 3447])
+                    ("SessionPoolTest" friend nil (reparse-symbol classsubparts) [3452 3480])
+                    ("private" label nil (reparse-symbol classsubparts) [3482 3490])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [3495 3513]))                  
+                :superclasses 
+                  ( ("SessionPool" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  )
+                nil [1219 3516])
+            ("HA3_LOG_SETUP_TEMPLATE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3541 3549])
+                    ("" variable (:type ("SessionPoolImpl" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3550 3566])
+                    ("" variable (:type ("SessionType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3567 3579]))                  
+                :type "int")
+                nil [3518 3580])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3600 3608]))                  
+                :type "int")
+                nil [3582 3609]))          
+      :file "SessionPool.h"
+      :pointmax 3642
+      :fsize 3672
+      :lastmodtime '(22776 28623 274398 298000)
+      :unmatched-syntax '((thing 1361 . 1362) (thing 1360 . 1361) (thing 1181 . 1182) (thing 437 . 438) (thing 433 . 437) (thing 431 . 432) (thing 426 . 430) (thing 424 . 425) (thing 421 . 423) (thing 419 . 420) (thing 396 . 418) (thing 387 . 395) (thing 380 . 386) (thing 374 . 379) (thing 3480 . 3481))
+      :lexical-table 
+        '(("ISEARCH_SESSIONPOOL_H")
+          )
+)
+    (semanticdb-table "QrsArpcSession.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/service/QrsArpcSession.h" include (:system-flag t) nil [1 40])
+            ("ha3/common/ErrorResult.h" include (:system-flag t) nil [41 76])
+            ("ha3/common/XMLResultFormatter.h" include (:system-flag t) nil [77 119])
+            ("ha3/monitor/AMonMetricsReporter.h" include (:system-flag t) nil [120 164])
+            ("ha3/service/QrsHaPartition.h" include (:system-flag t) nil [165 204])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [206 226])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [246 253]))                  
+                :type "int")
+                nil [228 254])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [273 281]))                  
+                :type "int")
+                nil [255 282])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [303 311]))                  
+                :type "int")
+                nil [283 312])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [327 335])
+                    ("" variable (:type ("QrsArpcSession" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [336 351]))                  
+                :type "int")
+                nil [313 352])
+            ("QrsArpcSession" function
+               (:constructor-flag t
+                :parent "QrsArpcSession"
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("SessionPool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [385 403]))                  
+                :type ("QrsArpcSession" type (:type "class") nil nil))
+                nil [354 492])
+            ("QrsArpcSession" function
+               (:destructor-flag t
+                :parent "QrsArpcSession"
+                :type "void")
+                nil [494 532])
+            ("dropRequest" function
+               (:parent "QrsArpcSession"
+                :type "void")
+                nil [534 682])
+            ("processRequest" function
+               (:parent "QrsArpcSession"
+                :type "void")
+                nil [684 1303])
+            ("search" function
+               (:parent "QrsArpcSession"
+                :arguments 
+                  ( ("request" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("QrsSessionSearchRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1351 1390]))                  
+                :type ("QrsSessionSearchResult" type (:type "class") nil nil))
+                nil [1305 2823])
+            ("endSession" function
+               (:parent "QrsArpcSession"
+                :arguments 
+                  ( ("result" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("QrsSessionSearchResult" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2857 2894]))                  
+                :type "void")
+                nil [2825 3484])
+            ("reportAmonMetrics" function
+               (:parent "QrsArpcSession"
+                :arguments 
+                  ( ("metricsPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MetricsPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3525 3554]))                  
+                :type "void")
+                nil [3486 3850])
+            ("fillResponse" function
+               (:parent "QrsArpcSession"
+                :arguments 
+                  ( ("result" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3886 3912])
+                    ("compressType" variable (:type ("HaCompressType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3947 3975])
+                    ("formatType" variable (:type ("ResultFormatType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4011 4039])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("proto::QrsResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4074 4103]))                  
+                :type "void")
+                nil [3852 5183])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5203 5211]))                  
+                :type "int")
+                nil [5185 5212]))          
+      :file "QrsArpcSession.cpp"
+      :pointmax 5214
+      :fsize 5953
+      :lastmodtime '(22776 28623 268398 300000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ARPCSession.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/service/ARPCSession.h" include (:system-flag t) nil [1 37])
+            ("ha3/common/Result.h" include (:system-flag t) nil [38 68])
+            ("ha3/proto/ProtoClassUtil.h" include (:system-flag t) nil [69 106])
+            ("ha3/util/HaCompressUtil.h" include (:system-flag t) nil [107 143])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [145 165])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("proto" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [185 191]))                  
+                :type "int")
+                nil [167 192])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [211 218]))                  
+                :type "int")
+                nil [193 219])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [238 246]))                  
+                :type "int")
+                nil [220 247])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [268 276]))                  
+                :type "int")
+                nil [248 277])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [292 300])
+                    ("" variable (:type ("ARPCSession" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [301 313]))                  
+                :type "int")
+                nil [278 314])
+            ("ARPCSession" function
+               (:constructor-flag t
+                :parent "ARPCSession"
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("SessionPool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [341 359])
+                    ("roleType" variable (:type ("RoleType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [360 378]))                  
+                :type ("ARPCSession" type (:type "class") nil nil))
+                nil [316 691])
+            ("ARPCSession" function
+               (:destructor-flag t
+                :parent "ARPCSession"
+                :type "void")
+                nil [693 760])
+            ("dropRequest" function
+               (:parent "ARPCSession"
+                :type "void")
+                nil [762 853])
+            ("beginSession" function
+               (:parent "ARPCSession"
+                :type "bool")
+                nil [855 2303])
+            ("phaseStartTrigger" function
+               (:parent "ARPCSession"
+                :type "void")
+                nil [2305 2563])
+            ("phaseEndTrigger" function
+               (:parent "ARPCSession"
+                :type "void")
+                nil [2565 2817])
+            ("endSession" function
+               (:parent "ARPCSession"
+                :type "void")
+                nil [2819 4371])
+            ("setFailed" function
+               (:parent "ARPCSession"
+                :arguments 
+                  ( ("errorCode" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4401 4421])
+                    ("errorMsg" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4451 4479]))                  
+                :type "void")
+                nil [4373 4589])
+            ("fillResponse" function
+               (:parent "ARPCSession"
+                :arguments 
+                  ( ("result" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4622 4643]))                  
+                :type "void")
+                nil [4591 5493])
+            ("fillSearchInfo" function
+               (:parent "ARPCSession"
+                :type "void")
+                nil [5495 5551])
+            ("fillHealthInfo" function
+               (:parent "ARPCSession"
+                :type "void")
+                nil [5553 6514])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6534 6542]))                  
+                :type "int")
+                nil [6516 6543]))          
+      :file "ARPCSession.cpp"
+      :pointmax 6545
+      :fsize 6411
+      :lastmodtime '(22776 28623 268398 300000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Session.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/service/Session.h" include (:system-flag t) nil [1 33])
+            ("ha3/service/SessionPool.h" include (:system-flag t) nil [34 70])
+            ("autil/TimeUtility.h" include (:system-flag t) nil [71 101])
+            ("sap_eagle/RpcContext.h" include (:system-flag t) nil [102 135])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [157 165]))                  
+                :type "int")
+                nil [137 166])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [181 189])
+                    ("" variable (:type ("Session" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [190 198]))                  
+                :type "int")
+                nil [167 199])
+            ("destroy" function
+               (:parent "Session"
+                :type "void")
+                nil [201 325])
+            ("getCurrentTime" function
+               (:parent "Session"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [327 410])
+            ("beginSession" function
+               (:parent "Session"
+                :type "bool")
+                nil [412 831])
+            ("endSession" function
+               (:parent "Session"
+                :type "void")
+                nil [833 1182])
+            ("reset" function
+               (:parent "Session"
+                :type "void")
+                nil [1184 1325])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1345 1353]))                  
+                :type "int")
+                nil [1327 1354]))          
+      :file "Session.cpp"
+      :pointmax 1355
+      :fsize 1354
+      :lastmodtime '(22454 32849 571289 555000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ARPCSession.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_ARPCSESSION_H" variable (:constant-flag t) nil [39 60])
+            ("ha3/common.h" include (:system-flag t) nil [62 85])
+            ("ha3/isearch.h" include (:system-flag t) nil [86 110])
+            ("ha3/util/Log.h" include (:system-flag t) nil [111 136])
+            ("ha3/service/Session.h" include (:system-flag t) nil [137 169])
+            ("google/protobuf/stubs/common.h" include (:system-flag t) nil [170 211])
+            ("ha3/proto/Search.pb.h" include (:system-flag t) nil [212 244])
+            ("ha3/service/RetrievalWorkerBase.h" include (:system-flag t) nil [245 289])
+            ("ha3/common/Result.h" include (:system-flag t) nil [290 320])
+            ("ha3/common/Tracer.h" include (:system-flag t) nil [321 351])
+            ("ha3/common/Request.h" include (:system-flag t) nil [352 383])
+            ("ha3/monitor/Metrics.h" include (:system-flag t) nil [384 416])
+            ("ha3/monitor/TracerMetricsReporter.h" include (:system-flag t) nil [417 463])
+            ("ha3/monitor/AMonMetricsReporter.h" include (:system-flag t) nil [464 508])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [530 538]))                  
+                :type "int")
+                nil [510 539])
+            ("ARPCSession" type
+               (:superclasses 
+                  ( ("Session" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [577 584])
+                    ("ARPCSession" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("SessionPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [601 619])
+                            ("roleType" variable (:type ("proto::RoleType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [620 645]))                          
+                        :type ("ARPCSession" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [589 646])
+                    ("ARPCSession" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [651 674])
+                    ("private" label nil (reparse-symbol classsubparts) [675 683])
+                    ("ARPCSession" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ARPCSession" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [700 720]))                          
+                        :type ("ARPCSession" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [688 721])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ARPCSession" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [751 771]))                          
+                        :type ("ARPCSession" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [726 772])
+                    ("public" label nil (reparse-symbol classsubparts) [773 780])
+                    ("dropRequest" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [785 812])
+                    ("private" label nil (reparse-symbol classsubparts) [813 821])
+                    ("fillSearchInfo" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [826 856])
+                    ("public" label nil (reparse-symbol classsubparts) [857 864])
+                    ("setRequest" function
+                       (:arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("proto::SearchRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [885 921])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("proto::SearchResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [942 974])
+                            ("done" variable
+                               (:pointer 1
+                                :type ("RPCClosure" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [995 1012])
+                            ("worker" variable
+                               (:pointer 1
+                                :type ("RetrievalWorkerBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1033 1061]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [869 1289])
+                    ("getSearchRequest" function
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("proto::SearchRequest" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1294 1384])
+                    ("getSearchResponse" function
+                       (:pointer 1
+                        :type ("proto::SearchResponse" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1389 1476])
+                    ("getClosure" function
+                       (:pointer 1
+                        :type ("RPCClosure" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1481 1540])
+                    ("setIp" function
+                       (:arguments 
+                          ( ("ip" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1556 1568]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1545 1594])
+                    ("reset" function (:type "void") (reparse-symbol classsubparts) [1599 2003])
+                    ("protected" label nil (reparse-symbol classsubparts) [2004 2014])
+                    ("beginSession" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2019 2039])
+                    ("endSession" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2044 2062])
+                    ("setFailed" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("errorCode" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2082 2102])
+                            ("errorMsg" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "\"\""
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2123 2155]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2067 2157])
+                    ("private" label nil (reparse-symbol classsubparts) [2158 2166])
+                    ("fillResponse" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("result" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2189 2215]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2171 2216])
+                    ("fillHealthInfo" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [2221 2251])
+                    ("phaseStartTrigger" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2256 2281])
+                    ("phaseEndTrigger" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2286 2309])
+                    ("protected" label nil (reparse-symbol classsubparts) [2310 2320])
+                    ("_searchRequest" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("proto::SearchRequest" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2325 2368])
+                    ("_searchResponse" variable
+                       (:pointer 1
+                        :type ("proto::SearchResponse" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2373 2412])
+                    ("_done" variable
+                       (:pointer 1
+                        :type ("RPCClosure" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2417 2435])
+                    ("_worker" variable
+                       (:pointer 1
+                        :type ("RetrievalWorkerBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2440 2469])
+                    ("_metricsPtr" variable (:type ("monitor::MetricsPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2474 2506])
+                    ("_tracer" variable
+                       (:pointer 1
+                        :type ("common::Tracer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2511 2535])
+                    ("_request" variable
+                       (:pointer 1
+                        :type ("common::Request" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2540 2566])
+                    ("_resultPtr" variable (:type ("common::ResultPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2571 2600])
+                    ("_partitionIdStr" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2605 2633])
+                    ("_phaseNumber" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2638 2660])
+                    ("_roleType" variable (:type ("proto::RoleType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2665 2691])
+                    ("_ip" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2696 2709])
+                    ("_compressType" variable (:type ("HaCompressType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2714 2743])
+                    ("_taskQueueName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2748 2775])
+                    ("private" label nil (reparse-symbol classsubparts) [2776 2784])
+                    ("ARPCSessionTest" friend nil (reparse-symbol classsubparts) [2789 2817])
+                    ("private" label nil (reparse-symbol classsubparts) [2819 2827])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [2832 2850]))                  
+                :type "class")
+                nil [541 2853])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("ARPCSession" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2871 2883]))                  
+                :type "int")
+                nil [2855 2884])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2904 2912]))                  
+                :type "int")
+                nil [2886 2913]))          
+      :file "ARPCSession.h"
+      :pointmax 2946
+      :fsize 2500
+      :lastmodtime '(22776 28623 268398 300000)
+      :unmatched-syntax '((thing 2817 . 2818))
+      :lexical-table 
+        '(("ISEARCH_ARPCSESSION_H")
+          )
+)
+    (semanticdb-table "QrsArpcSession.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_QRSARPCSESSION_H" variable (:constant-flag t) nil [42 66])
+            ("ha3/common.h" include (:system-flag t) nil [68 91])
+            ("ha3/isearch.h" include (:system-flag t) nil [92 116])
+            ("ha3/util/Log.h" include (:system-flag t) nil [117 142])
+            ("ha3/service/Session.h" include (:system-flag t) nil [143 175])
+            ("google/protobuf/stubs/common.h" include (:system-flag t) nil [176 217])
+            ("ha3/proto/QrsService.pb.h" include (:system-flag t) nil [218 254])
+            ("ha3/proto/ProtoClassUtil.h" include (:system-flag t) nil [255 292])
+            ("ha3/service/QrsWorker.h" include (:system-flag t) nil [293 327])
+            ("ha3/util/HaCompressUtil.h" include (:system-flag t) nil [328 364])
+            ("ha3/monitor/Metrics.h" include (:system-flag t) nil [365 397])
+            ("arpc/MessageCodec.h" include (:system-flag t) nil [398 428])
+            ("arpc/RPCServerAdapter.h" include (:system-flag t) nil [429 463])
+            ("ha3/service/QrsSessionSearchRequest.h" include (:system-flag t) nil [464 512])
+            ("ha3/service/QrsSessionSearchResult.h" include (:system-flag t) nil [513 560])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [582 590]))                  
+                :type "int")
+                nil [562 591])
+            ("QrsArpcSession" type
+               (:superclasses 
+                  ( ("Session" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [633 640])
+                    ("QrsArpcSession" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("SessionPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [660 684]))                          
+                        :type ("QrsArpcSession" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [645 686])
+                    ("QrsArpcSession" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [691 717])
+                    ("private" label nil (reparse-symbol classsubparts) [718 726])
+                    ("QrsArpcSession" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("QrsArpcSession" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [746 769]))                          
+                        :type ("QrsArpcSession" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [731 770])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("QrsArpcSession" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [801 824]))                          
+                        :type ("QrsArpcSession" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [775 825])
+                    ("public" label nil (reparse-symbol classsubparts) [826 833])
+                    ("processRequest" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [838 860])
+                    ("dropRequest" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [865 884])
+                    ("setRequest" function
+                       (:arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("proto::QrsRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [905 938])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("proto::QrsResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [959 988])
+                            ("done" variable
+                               (:pointer 1
+                                :type ("RPCClosure" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1009 1026])
+                            ("worker" variable
+                               (:pointer 1
+                                :type ("QrsWorker" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1047 1065]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [889 1377])
+                    ("endSession" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("sessionSearchResult" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("QrsSessionSearchResult" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1403 1453]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1387 1454])
+                    ("setClientAddress" function
+                       (:arguments 
+                          ( ("clientAddress" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1481 1514]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1459 1562])
+                    ("reset" function (:type "void") (reparse-symbol classsubparts) [1568 1748])
+                    ("protected" label nil (reparse-symbol classsubparts) [1749 1759])
+                    ("reportAmonMetrics" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("metricsPtr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("monitor::MetricsPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1787 1825]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1764 1826])
+                    ("private" label nil (reparse-symbol classsubparts) [1827 1835])
+                    ("fillResponse" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("result" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1866 1892])
+                            ("compressType" variable (:type ("HaCompressType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1923 1951])
+                            ("formatType" variable (:type ("ResultFormatType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1981 2009])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("proto::QrsResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2039 2068]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1840 2069])
+                    ("private" label nil (reparse-symbol classsubparts) [2070 2078])
+                    ("search" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("QrsSessionSearchRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2113 2152]))                          
+                        :type ("QrsSessionSearchResult" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2083 2153])
+                    ("convertCompressType" function
+                       (:prototype-flag t
+                        :typemodifiers ("inline")
+                        :arguments 
+                          ( ("compressType" variable (:type ("HaCompressType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2205 2233]))                          
+                        :type ("proto::CompressType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2158 2234])
+                    ("convertFormatType" function
+                       (:prototype-flag t
+                        :typemodifiers ("inline")
+                        :arguments 
+                          ( ("formatType" variable (:type ("ResultFormatType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2282 2310]))                          
+                        :type ("proto::FormatType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2239 2311])
+                    ("protected" label nil (reparse-symbol classsubparts) [2312 2322])
+                    ("_qrsResponse" variable
+                       (:pointer 1
+                        :type ("proto::QrsResponse" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2327 2360])
+                    ("_done" variable
+                       (:pointer 1
+                        :type ("RPCClosure" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2365 2383])
+                    ("_worker" variable
+                       (:pointer 1
+                        :type ("QrsWorker" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2388 2407])
+                    ("_queryStr" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2431 2453])
+                    ("_clientAddress" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2458 2485])
+                    ("private" label nil (reparse-symbol classsubparts) [2486 2494])
+                    ("QrsArpcSessionTest" friend nil (reparse-symbol classsubparts) [2499 2530])
+                    ("private" label nil (reparse-symbol classsubparts) [2533 2541])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [2546 2564]))                  
+                :type "class")
+                nil [593 2567])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("QrsArpcSession" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2585 2600]))                  
+                :type "int")
+                nil [2569 2601])
+            ("convertFormatType" function
+               (:parent "QrsArpcSession"
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("formatType" variable (:type ("ResultFormatType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2662 2690]))                  
+                :type ("proto::FormatType" type (:type "class") nil nil))
+                nil [2603 2868])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2888 2896]))                  
+                :type "int")
+                nil [2870 2897]))          
+      :file "QrsArpcSession.h"
+      :pointmax 2933
+      :fsize 3762
+      :lastmodtime '(22776 28623 268398 300000)
+      :unmatched-syntax '((thing 2530 . 2531))
+      :lexical-table 
+        '(("ISEARCH_QRSARPCSESSION_H")
+          )
+)
+
+    (semanticdb-table "QrsSearcherProcessDelegation.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("limits" include (:system-flag t) nil [1 18])
+            ("sstream" include (:system-flag t) nil [19 37])
+            ("autil/StringUtil.h" include (:system-flag t) nil [38 67])
+            ("ha3/service/QrsSearcherProcessDelegation.h" include (:system-flag t) nil [68 121])
+            ("ha3/common/Request.h" include (:system-flag t) nil [122 153])
+            ("ha3/common/Result.h" include (:system-flag t) nil [154 184])
+            ("ha3/common/MatchDocs.h" include (:system-flag t) nil [185 218])
+            ("ha3/common/QueryTermVisitor.h" include (:system-flag t) nil [219 259])
+            ("ha3/common/PBResultFormatter.h" include (:system-flag t) nil [260 301])
+            ("ha3/util/HaCompressUtil.h" include (:system-flag t) nil [302 338])
+            ("ha3/qrs/MatchDocs2Hits.h" include (:system-flag t) nil [339 374])
+            ("ha3/proxy/Merger.h" include (:system-flag t) nil [375 404])
+            ("ha3/queryparser/RequestSymbolDefine.h" include (:system-flag t) nil [405 453])
+            ("ha3/proto/MessageValidator.h" include (:system-flag t) nil [454 493])
+            ("ha3/proto/ProtoClassUtil.h" include (:system-flag t) nil [494 531])
+            ("ha3/service/RpcContextUtil.h" include (:system-flag t) nil [532 571])
+            ("autil/HashAlgorithm.h" include (:system-flag t) nil [572 604])
+            ("ha3/service/PidRequestSpliter.h" include (:system-flag t) nil [605 647])
+            ("ha3/service/NormalRequestSpliter.h" include (:system-flag t) nil [648 693])
+            ("ha3/service/SearchRequestWrapper.h" include (:system-flag t) nil [694 739])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [741 761])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [762 784])
+            ("multi_call" using (:type ("multi_call" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [785 812])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("proto" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [831 837]))                  
+                :type "int")
+                nil [813 838])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [857 862]))                  
+                :type "int")
+                nil [839 863])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("config" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [882 889]))                  
+                :type "int")
+                nil [864 890])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("search" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [909 916]))                  
+                :type "int")
+                nil [891 917])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [936 943]))                  
+                :type "int")
+                nil [918 944])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("qrs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [963 967]))                  
+                :type "int")
+                nil [945 968])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("proxy" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [987 993]))                  
+                :type "int")
+                nil [969 994])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1015 1023]))                  
+                :type "int")
+                nil [995 1024])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1039 1047])
+                    ("" variable (:type ("QrsSearcherProcessDelegation" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1048 1077]))                  
+                :type "int")
+                nil [1025 1078])
+            ("QrsSearcherProcessDelegation" function
+               (:constructor-flag t
+                :parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("hitSummarySchemaCache" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HitSummarySchemaCachePtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1148 1202])
+                    ("searchService" variable (:type ("multi_call::SearchServicePtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1211 1254])
+                    ("connectionTimeout" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1263 1289])
+                    ("requestCompressType" variable (:type ("HaCompressType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1298 1333])
+                    ("searchTaskqueueRule" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("config::SearchTaskQueueRule" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1342 1397]))                  
+                :type ("QrsSearcherProcessDelegation" type (:type "class") nil nil))
+                nil [1080 1772])
+            ("QrsSearcherProcessDelegation" function
+               (:constructor-flag t
+                :parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("delegation" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("QrsSearcherProcessDelegation" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1842 1889]))                  
+                :type ("QrsSearcherProcessDelegation" type (:type "class") nil nil))
+                nil [1774 2375])
+            ("QrsSearcherProcessDelegation" function
+               (:destructor-flag t
+                :parent "QrsSearcherProcessDelegation"
+                :type "void")
+                nil [2377 2463])
+            ("search" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2512 2535]))                  
+                :type ("ResultPtr" type (:type "class") nil nil))
+                nil [2465 6083])
+            ("doSearchAndResearch" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("methodName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6149 6179])
+                    ("clusterNameVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6188 6225])
+                    ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6234 6263])
+                    ("results" variable
+                       (:reference 1
+                        :type ("ResultPtrVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6272 6297])
+                    ("errors" variable
+                       (:reference 1
+                        :type ("MultiErrorResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6298 6326]))                  
+                :type "void")
+                nil [6085 6971])
+            ("doSearch" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("clusterNameVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7026 7063])
+                    ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7072 7101])
+                    ("resultPtrVec" variable
+                       (:reference 1
+                        :type ("ResultPtrVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7110 7140])
+                    ("errors" variable
+                       (:reference 1
+                        :type ("MultiErrorResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7141 7169]))                  
+                :type "void")
+                nil [6973 7624])
+            ("needResearch" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7674 7703])
+                    ("results" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtrVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7712 7743]))                  
+                :type "bool")
+                nil [7626 8551])
+            ("needSearchLevel" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("levelClause" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("LevelClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8605 8636]))                  
+                :type "bool")
+                nil [8553 8866])
+            ("getMatchDocCount" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("results" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtrVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8919 8950]))                  
+                :type "int")
+                nil [8868 9162])
+            ("merge" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9214 9243])
+                    ("sorterWrapper" variable
+                       (:pointer 1
+                        :type ("sorter::SorterWrapper" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9244 9281])
+                    ("results" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtrVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9290 9321])
+                    ("mergedResultPtr" variable
+                       (:reference 1
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9322 9349]))                  
+                :type "void")
+                nil [9164 9659])
+            ("addClusterName" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("clusterName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9711 9737])
+                    ("clusterNameVec" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9746 9777]))                  
+                :type "void")
+                nil [9661 9950])
+            ("addClusterName" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("fromClusterNameVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10002 10043])
+                    ("clusterNameVec" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10052 10083]))                  
+                :type "void")
+                nil [9952 10264])
+            ("fillSummary" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10313 10342])
+                    ("resultPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10351 10378]))                  
+                :type "void")
+                nil [10266 12262])
+            ("updateHitSummarySchemaAndFillCache" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("hits" variable
+                       (:pointer 1
+                        :type ("Hits" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12343 12354])
+                    ("hitSummarySchemas" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("HitSummarySchemaPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12355 12408]))                  
+                :type "void")
+                nil [12264 14213])
+            ("createDocIdClauseMap" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14290 14319])
+                    ("resultPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14320 14347])
+                    ("hitSummarySchemas" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("HitSummarySchemaPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [14356 14403]))                  
+                :type ("DocIdClauseMap" type (:type "class") nil nil))
+                nil [14215 16291])
+            ("doFillSummary" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("docIdClauseMap" variable
+                       (:reference 1
+                        :type ("DocIdClauseMap" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16351 16382])
+                    ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16383 16412])
+                    ("resultPtrVec" variable
+                       (:reference 1
+                        :type ("ResultPtrVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16421 16451])
+                    ("errors" variable
+                       (:reference 1
+                        :type ("MultiErrorResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16452 16480]))                  
+                :type "void")
+                nil [16293 16966])
+            ("convertMatchDocsToHits" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17035 17064])
+                    ("resultPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17065 17092])
+                    ("clusterNameVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [17101 17138]))                  
+                :type "void")
+                nil [16968 18168])
+            ("convertAggregateResults" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18238 18267])
+                    ("resultPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18268 18295]))                  
+                :type "void")
+                nil [18170 18641])
+            ("setClusterSorterManagers" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("clusterSorterManagerPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("sorter::ClusterSorterManagersPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18712 18776]))                  
+                :type "void")
+                nil [18643 18837])
+            ("getAndAdjustTimeOut" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18906 18935]))                  
+                :type ("int32_t" type (:type "class") nil nil))
+                nil [18839 19507])
+            ("waitResults" function
+               (:parent "QrsSearcherProcessDelegation"
+                :type "bool")
+                nil [19509 19664])
+            ("fillResults" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("reply" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ReplyPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19713 19735])
+                    ("resultVec" variable
+                       (:reference 1
+                        :type ("ResultPtrVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19744 19771]))                  
+                :type "void")
+                nil [19666 20599])
+            ("fillResult" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("oneResponse" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("OneResponsePtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [20647 20681])
+                    ("resultPtr" variable
+                       (:reference 1
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [20690 20711]))                  
+                :type "bool")
+                nil [20601 21732])
+            ("waitAndFillResults" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21798 21827])
+                    ("reply" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ReplyPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21836 21858])
+                    ("resultVec" variable
+                       (:reference 1
+                        :type ("ResultPtrVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21867 21894])
+                    ("errors" variable
+                       (:reference 1
+                        :type ("MultiErrorResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21903 21931]))                  
+                :type "void")
+                nil [21735 22764])
+            ("checkCoveredRanges" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("clusterNameVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [22829 22866])
+                    ("coveredRanges" variable
+                       (:reference 1
+                        :type ("Result::ClusterPartitionRanges" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [22875 22921]))                  
+                :type "void")
+                nil [22766 23333])
+            ("selectMatchDocsToFormat" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23403 23432])
+                    ("resultPtr" variable
+                       (:reference 1
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23441 23462]))                  
+                :type "void")
+                nil [23335 24303])
+            ("createSorter" function
+               (:pointer 1
+                :parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("common::Request" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24373 24404])
+                    ("errors" variable
+                       (:reference 1
+                        :type ("MultiErrorResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24413 24441]))                  
+                :type ("sorter::Sorter" type (:type "class") nil nil))
+                nil [24305 25167])
+            ("doAsyncProcessCallPhase1" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("clusterNameVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [25242 25279])
+                    ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25280 25309])
+                    ("errors" variable
+                       (:reference 1
+                        :type ("MultiErrorResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25318 25346]))                  
+                :type ("ReplyPtr" type (:type "class") nil nil))
+                nil [25169 25943])
+            ("multiCall" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25994 26023])
+                    ("clusterNameVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [26032 26069])
+                    ("errors" variable
+                       (:reference 1
+                        :type ("MultiErrorResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26070 26098]))                  
+                :type ("ReplyPtr" type (:type "class") nil nil))
+                nil [25945 27411])
+            ("clearResource" function
+               (:parent "QrsSearcherProcessDelegation"
+                :type "void")
+                nil [27413 27720])
+            ("doAsyncProcessCallPhase2" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("docIdClauseMap" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DocIdClauseMap" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [27795 27832])
+                    ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [27833 27862])
+                    ("errors" variable
+                       (:reference 1
+                        :type ("MultiErrorResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [27871 27899]))                  
+                :type ("ReplyPtr" type (:type "class") nil nil))
+                nil [27722 28431])
+            ("updateTotalMatchDocs" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("requestPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("RequestPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28498 28527])
+                    ("resultPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28528 28555]))                  
+                :type "void")
+                nil [28433 29001])
+            ("createClusterIdMap" function
+               (:parent "QrsSearcherProcessDelegation"
+                :type "void")
+                nil [29003 29427])
+            ("getClusterId" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("clusterName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [29484 29510]))                  
+                :type ("clusterid_t" type (:type "class") nil nil))
+                nil [29429 29689])
+            ("associateClusterName" function
+               (:parent "QrsSearcherProcessDelegation"
+                :arguments 
+                  ( ("resultPtr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ResultPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [29747 29774]))                  
+                :type "bool")
+                nil [29691 30031])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [30052 30060]))                  
+                :type "int")
+                nil [30034 30061]))          
+      :file "QrsSearcherProcessDelegation.cpp"
+      :pointmax 30062
+      :fsize 30061
+      :lastmodtime '(22776 28623 273398 298000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!ha3!ha3!service!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

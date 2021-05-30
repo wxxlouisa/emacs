@@ -1,0 +1,220 @@
+;; Object common/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "common/"
+  :tables
+  (list
+    (semanticdb-table "SocketUtil.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("worker_framework/SocketUtil.h" include nil nil [1 41])
+            ("common/FileUtil.h" include nil nil [42 70])
+            ("autil/StringUtil.h" include nil nil [71 100])
+            ("common/Log.h" include nil nil [101 124])
+            ("autil/Lock.h" include (:system-flag t) nil [125 148])
+            ("unistd.h" include (:system-flag t) nil [149 168])
+            ("cstdio" include (:system-flag t) nil [169 186])
+            ("netdb.h" include (:system-flag t) nil [187 205])
+            ("sys/socket.h" include (:system-flag t) nil [206 229])
+            ("sys/ioctl.h" include (:system-flag t) nil [230 252])
+            ("net/if.h" include (:system-flag t) nil [253 272])
+            ("arpa/inet.h" include (:system-flag t) nil [273 295])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [345 365])
+            ("BEGIN_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [399 406]))                  
+                :type "int")
+                nil [366 407])
+            ("WORKER_FRAMEWORK_LOG_GLOBAL_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [443 450])
+                    ("" variable (:type ("SocketUtil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [451 462]))                  
+                :type "int")
+                nil [409 463])
+            ("SocketUtil" function
+               (:constructor-flag t
+                :parent "SocketUtil"
+                :type ("SocketUtil" type (:type "class") nil nil))
+                nil [465 493])
+            ("SocketUtil" function
+               (:destructor-flag t
+                :parent "SocketUtil"
+                :type "void")
+                nil [495 524])
+            ("_hostAddress" variable (:type ("string" type (:type "class") nil nil)) nil [526 546])
+            ("_lock" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) nil [547 572])
+            ("getBindIp" function
+               (:parent "SocketUtil"
+                :type ("std::string" type (:type "class") nil nil))
+                nil [601 830])
+            ("getAllIP" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("ips" variable
+                       (:reference 1
+                        :type ("AllIPType" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [858 874]))                  
+                :type "bool")
+                nil [832 1905])
+            ("InnerIpListType" type
+               (:members 
+                  ( ("ip" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1936 1946])
+                    ("mask" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1951 1963]))                  
+                :type "struct")
+                nil [1907 1966])
+            ("innerIPList" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :default-value "{
+    {\"255.255.255.255\",\"255.255.255.255\"},
+    {\"240.0.0.0\",\"240.0.0.0\"},
+    {\"224.0.0.0\",\"240.0.0.0\"},
+    {\"192.88.99.0\",\"255.255.255.255\"},
+    {\"127.0.0.0\",\"255.0.0.0\"},
+    {\"169.254.0.0\",\"255.255.0.0\"},
+    {\"192.168.0.0\",\"255.255.0.0\"},
+    {\"172.16.0.0\",\"255.240.0.0\"},
+    {\"10.0.0.0\",\"255.0.0.0\"}
+}"
+                :type ("InnerIpListType" type (:type "class") nil nil))
+                nil [1968 2319])
+            ("InnerIpContainer" type
+               (:members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [2346 2354])
+                    ("IpVectorType" type
+                       (:typedef ("std::vector" type
+                             (:template-specifier 
+                                ( ("std::pair" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [2359 2423])
+                    ("InnerIpContainer" function
+                       (:constructor-flag t
+                        :type ("InnerIpContainer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2428 2883])
+                    ("public" label nil (reparse-symbol classsubparts) [2884 2891])
+                    ("getContainer" function
+                       (:pointer 1
+                        :typemodifiers ("static")
+                        :type ("InnerIpContainer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2896 3000])
+                    ("getWeight" function
+                       (:arguments 
+                          ( ("ip" variable (:type ("in_addr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3028 3039]))                          
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [3005 3360])
+                    ("private" label nil (reparse-symbol classsubparts) [3361 3369])
+                    ("_ipVector" variable (:type ("IpVectorType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3374 3397]))                  
+                :type "class")
+                nil [2321 3400])
+            ("chooseIP" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("ips" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AllIPType" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3435 3457]))                  
+                :type ("std::string" type (:type "class") nil nil))
+                nil [3402 3947])
+            ("getPrimaryIP" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("ip" variable
+                       (:reference 1
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3979 3995]))                  
+                :type "bool")
+                nil [3949 4089])
+            ("getPrimaryIPOld" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("ip" variable
+                       (:reference 1
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4124 4140]))                  
+                :type "bool")
+                nil [4091 4261])
+            ("getPrimaryIPNew" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("ip" variable
+                       (:reference 1
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4296 4312]))                  
+                :type "bool")
+                nil [4263 5196])
+            ("containIP" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("msg" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5225 5248])
+                    ("ip" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5278 5300]))                  
+                :type "bool")
+                nil [5198 5697])
+            ("encodeIp" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("ip" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5729 5751]))                  
+                :type ("uint32_t" type (:type "class") nil nil))
+                nil [5699 5796])
+            ("inetAddr" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("cp" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5828 5843]))                  
+                :type ("uint32_t" type (:type "class") nil nil))
+                nil [5798 5873])
+            ("inetNtoa" function
+               (:parent "SocketUtil"
+                :arguments 
+                  ( ("ip" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5903 5914]))                  
+                :type ("string" type (:type "class") nil nil))
+                nil [5875 6229])
+            ("END_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6848 6855]))                  
+                :type "int")
+                nil [6817 6856]))          
+      :file "SocketUtil.cpp"
+      :pointmax 6858
+      :fsize 6857
+      :lastmodtime '(23939 6875 63781 147000)
+      :unmatched-syntax '((thing 327 . 344) (thing 319 . 326) (thing 308 . 318) (thing 304 . 307) (thing 297 . 303) (thing 296 . 297)))
+    (semanticdb-table "FileUtil.h"
+      :file "FileUtil.h"
+      :fsize 601
+      :lastmodtime '(23939 6875 63781 147000))
+    (semanticdb-table "Log.h"
+      :file "Log.h"
+      :fsize 3843
+      :lastmodtime '(23939 6875 63781 147000)))
+  :file "!swift_develop!swift_func_test!temp!source_code!worker_framework!src!common!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

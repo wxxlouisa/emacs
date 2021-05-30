@@ -1,0 +1,1759 @@
+;; Object zookeeper/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "zookeeper/"
+  :tables
+  (list
+    (semanticdb-table "zookeeper.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ZOOKEEPER_H_" variable (:constant-flag t) nil [838 850])
+            ("stdlib.h" include (:system-flag t) nil [852 871])
+            ("sys/socket.h" include (:system-flag t) nil [886 909])
+            ("sys/time.h" include (:system-flag t) nil [910 931])
+            ("stdio.h" include (:system-flag t) nil [968 986])
+            ("ctype.h" include (:system-flag t) nil [987 1005])
+            ("proto.h" include nil nil [1007 1025])
+            ("zookeeper_version.h" include nil nil [1026 1056])
+            ("recordio.h" include nil nil [1057 1078])
+            ("zookeeper.jute.h" include nil nil [1079 1106])
+            ("ZOOAPI" variable (:constant-flag t) nil [2880 2886])
+            ("ZOO_ERRORS" type
+               (:members 
+                  ( ("ZOK" variable
+                       (:constant-flag t
+                        :default-value (2966 2967)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2960 2967])
+                    ("ZSYSTEMERROR" variable
+                       (:constant-flag t
+                        :default-value (3261 3263)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3246 3263])
+                    ("ZRUNTIMEINCONSISTENCY" variable
+                       (:constant-flag t
+                        :default-value (3291 3293)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3267 3293])
+                    ("ZDATAINCONSISTENCY" variable
+                       (:constant-flag t
+                        :default-value (3360 3362)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3339 3362])
+                    ("ZCONNECTIONLOSS" variable
+                       (:constant-flag t
+                        :default-value (3423 3425)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3405 3425])
+                    ("ZMARSHALLINGERROR" variable
+                       (:constant-flag t
+                        :default-value (3496 3498)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3476 3498])
+                    ("ZUNIMPLEMENTED" variable
+                       (:constant-flag t
+                        :default-value (3573 3575)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3556 3575])
+                    ("ZOPERATIONTIMEOUT" variable
+                       (:constant-flag t
+                        :default-value (3634 3636)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3614 3636])
+                    ("ZBADARGUMENTS" variable
+                       (:constant-flag t
+                        :default-value (3682 3684)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3666 3684])
+                    ("ZINVALIDSTATE" variable
+                       (:constant-flag t
+                        :default-value (3730 3732)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [3714 3732])
+                    ("ZAPIERROR" variable
+                       (:constant-flag t
+                        :default-value (4041 4045)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4029 4045])
+                    ("ZNONODE" variable
+                       (:constant-flag t
+                        :default-value (4059 4063)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4049 4063])
+                    ("ZNOAUTH" variable
+                       (:constant-flag t
+                        :default-value (4105 4109)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4095 4109])
+                    ("ZBADVERSION" variable
+                       (:constant-flag t
+                        :default-value (4153 4157)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4139 4157])
+                    ("ZNOCHILDRENFOREPHEMERALS" variable
+                       (:constant-flag t
+                        :default-value (4213 4217)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4186 4217])
+                    ("ZNODEEXISTS" variable
+                       (:constant-flag t
+                        :default-value (4281 4285)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4267 4285])
+                    ("ZNOTEMPTY" variable
+                       (:constant-flag t
+                        :default-value (4333 4337)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4321 4337])
+                    ("ZSESSIONEXPIRED" variable
+                       (:constant-flag t
+                        :default-value (4389 4393)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4371 4393])
+                    ("ZINVALIDCALLBACK" variable
+                       (:constant-flag t
+                        :default-value (4467 4471)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4448 4471])
+                    ("ZINVALIDACL" variable
+                       (:constant-flag t
+                        :default-value (4524 4528)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4510 4528])
+                    ("ZAUTHFAILED" variable
+                       (:constant-flag t
+                        :default-value (4576 4580)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4562 4580])
+                    ("ZCLOSING" variable
+                       (:constant-flag t
+                        :default-value (4632 4636)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4621 4636])
+                    ("ZNOTHING" variable
+                       (:constant-flag t
+                        :default-value (4680 4684)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4669 4684])
+                    ("ZSESSIONMOVED" variable
+                       (:constant-flag t
+                        :default-value (4755 4759)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [4739 4759]))                  
+                :type "enum")
+                nil [2940 4827])
+            ("zoo_multi" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [72554 72568])
+                    ("count" variable (:type "int") (reparse-symbol arg-sub-list) [72569 72579])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("zoo_op_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [72580 72600])
+                    ("results" variable
+                       (:pointer 1
+                        :type ("zoo_op_result_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [72601 72626]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [72540 72627])
+            ("zoo_set_acl" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [71914 71928])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [71929 71946])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [71947 71959])
+                    ("acl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ACL_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [71987 72016]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [71898 72017])
+            ("zoo_get_acl" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [70941 70955])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [70956 70973])
+                    ("acl" variable
+                       (:pointer 1
+                        :type ("ACL_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [70974 70997])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [71021 71039]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [70925 71040])
+            ("zoo_wget_children2" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [70020 70034])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [70035 70052])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [70062 70081])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [70082 70099])
+                    ("strings" variable
+                       (:pointer 1
+                        :type ("String_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [70108 70138])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [70139 70157]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [69997 70158])
+            ("zoo_get_children2" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [68602 68616])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [68617 68634])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [68635 68645])
+                    ("strings" variable
+                       (:pointer 1
+                        :type ("String_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [68674 68704])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [68705 68723]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [68580 68724])
+            ("zoo_wget_children" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [67553 67567])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [67568 67585])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [67595 67614])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [67615 67632])
+                    ("strings" variable
+                       (:pointer 1
+                        :type ("String_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [67641 67671]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [67531 67672])
+            ("zoo_get_children" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [66258 66272])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [66273 66290])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [66291 66301])
+                    ("strings" variable
+                       (:pointer 1
+                        :type ("String_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [66330 66360]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [66237 66361])
+            ("zoo_set2" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [65316 65330])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [65331 65348])
+                    ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [65349 65368])
+                    ("buflen" variable (:type "int") (reparse-symbol arg-sub-list) [65388 65399])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [65400 65412])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [65413 65431]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [65303 65432])
+            ("zoo_set" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [63895 63909])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [63910 63927])
+                    ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [63928 63947])
+                    ("buflen" variable (:type "int") (reparse-symbol arg-sub-list) [63967 63978])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [63979 63991]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [63883 63992])
+            ("zoo_wget" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [62540 62554])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [62555 62572])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [62582 62601])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [62602 62619])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [62629 62642])
+                    ("buffer_len" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [62643 62659])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [62660 62678]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [62527 62679])
+            ("zoo_get" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [60961 60975])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [60976 60993])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [60994 61004])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [61005 61018])
+                    ("buffer_len" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [61041 61057])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [61058 61076]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [60949 61077])
+            ("zoo_wexists" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [59757 59771])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [59772 59789])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [59798 59817])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [59818 59835])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [59836 59854]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [59741 59855])
+            ("zoo_exists" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [58416 58430])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [58431 58448])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [58449 58459])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [58460 58478]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [58401 58479])
+            ("zoo_delete" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [57428 57442])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [57443 57460])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [57461 57473]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [57413 57474])
+            ("zoo_create" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [56265 56279])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [56280 56297])
+                    ("value" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [56298 56316])
+                    ("valuelen" variable (:type "int") (reparse-symbol arg-sub-list) [56325 56338])
+                    ("acl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ACL_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [56339 56368])
+                    ("flags" variable (:type "int") (reparse-symbol arg-sub-list) [56369 56379])
+                    ("path_buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [56388 56406])
+                    ("path_buffer_len" variable (:type "int") (reparse-symbol arg-sub-list) [56407 56427]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [56250 56428])
+            ("zoo_deterministic_conn_order" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("yesOrNo" variable (:type "int") (reparse-symbol arg-sub-list) [54125 54137]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [54091 54138])
+            ("zoo_set_log_stream" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("logStream" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [53624 53640]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [53600 53641])
+            ("zoo_set_debug_level" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("logLevel" variable (:type ("ZooLogLevel" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [53305 53326]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [53280 53327])
+            ("is_unrecoverable" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [53196 53210]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [53175 53211])
+            ("zoo_add_auth" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [52776 52790])
+                    ("scheme" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [52790 52809])
+                    ("cert" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [52809 52826])
+                    ("certLen" variable (:type "int") (reparse-symbol arg-sub-list) [52829 52841])
+                    ("completion" variable (:type ("void_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [52842 52871])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [52872 52889]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [52759 52890])
+            ("zerror" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "char"
+                :arguments 
+                  ( ("c" variable (:type "int") (reparse-symbol arg-sub-list) [51312 51318]))                  
+                :constant-flag t
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [51293 51319])
+            ("zoo_amulti" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [51046 51060])
+                    ("count" variable (:type "int") (reparse-symbol arg-sub-list) [51061 51071])
+                    ("ops" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("zoo_op_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [51072 51092])
+                    ("results" variable
+                       (:pointer 1
+                        :type ("zoo_op_result_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [51102 51127])
+                    ("" variable (:type ("void_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [51128 51146])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [51147 51164]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [51031 51165])
+            ("zoo_aset_acl" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [50044 50058])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [50059 50076])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [50077 50089])
+                    ("acl" variable
+                       (:pointer 1
+                        :type ("ACL_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [50099 50122])
+                    ("" variable (:type ("void_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [50123 50141])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [50142 50159]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [50027 50160])
+            ("zoo_aget_acl" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [48768 48782])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [48783 48800])
+                    ("completion" variable (:type ("acl_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [48801 48829])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [48839 48856]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [48751 48857])
+            ("zoo_async" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [47719 47733])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [47734 47751])
+                    ("completion" variable (:type ("string_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [47761 47792])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [47793 47810]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [47705 47811])
+            ("zoo_awget_children2" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [46639 46653])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [46654 46671])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [46680 46699])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [46700 46717])
+                    ("completion" variable (:type ("strings_stat_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [46727 46764])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [46765 46782]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [46615 46783])
+            ("zoo_aget_children2" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [45029 45043])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [45044 45061])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [45062 45072])
+                    ("completion" variable (:type ("strings_stat_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [45082 45119])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [45120 45137]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [45006 45138])
+            ("zoo_awget_children" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [43758 43772])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [43773 43790])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [43799 43818])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [43819 43836])
+                    ("completion" variable (:type ("strings_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [43846 43878])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [43879 43896]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [43735 43897])
+            ("zoo_aget_children" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [42224 42238])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [42239 42256])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [42257 42267])
+                    ("completion" variable (:type ("strings_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [42277 42309])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [42310 42327]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [42202 42328])
+            ("zoo_aset" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [41027 41041])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [41042 41059])
+                    ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [41060 41079])
+                    ("buflen" variable (:type "int") (reparse-symbol arg-sub-list) [41080 41091])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [41101 41113])
+                    ("completion" variable (:type ("stat_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [41114 41143])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [41144 41161]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [41014 41162])
+            ("zoo_awget" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [39358 39372])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [39373 39390])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [39400 39419])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [39420 39437])
+                    ("completion" variable (:type ("data_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [39447 39476])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [39477 39494]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [39344 39495])
+            ("zoo_aget" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [37835 37849])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [37850 37867])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [37868 37878])
+                    ("completion" variable (:type ("data_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [37888 37917])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [37918 37935]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [37822 37936])
+            ("zoo_awexists" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [36634 36648])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [36649 36666])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [36676 36695])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [36696 36713])
+                    ("completion" variable (:type ("stat_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [36723 36752])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [36753 36770]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [36617 36771])
+            ("zoo_aexists" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [34850 34864])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [34865 34882])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [34883 34893])
+                    ("completion" variable (:type ("stat_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [34903 34932])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [34933 34950]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [34834 34951])
+            ("zoo_adelete" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [33567 33581])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [33582 33599])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [33600 33612])
+                    ("completion" variable (:type ("void_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [33622 33651])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [33652 33669]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [33551 33670])
+            ("zoo_acreate" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [32115 32129])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [32130 32147])
+                    ("value" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [32148 32166])
+                    ("valuelen" variable (:type "int") (reparse-symbol arg-sub-list) [32176 32189])
+                    ("acl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ACL_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [32190 32219])
+                    ("flags" variable (:type "int") (reparse-symbol arg-sub-list) [32220 32230])
+                    ("completion" variable (:type ("string_completion_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [32239 32270])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [32271 32288]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [32099 32289])
+            ("zoo_state" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [30318 30332]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [30304 30333])
+            ("acl_completion_t" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("rc" variable (:type "int") (reparse-symbol arg-sub-list) [30095 30102])
+                    ("acl" variable
+                       (:pointer 1
+                        :type ("ACL_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [30103 30126])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [30135 30153])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [30154 30171]))                  
+                :function-pointer t
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [30070 30172])
+            ("string_completion_t" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("rc" variable (:type "int") (reparse-symbol arg-sub-list) [28731 28738])
+                    ("value" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [28739 28757])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [28758 28775]))                  
+                :function-pointer t
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [28695 28776])
+            ("strings_stat_completion_t" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("rc" variable (:type "int") (reparse-symbol arg-sub-list) [27666 27673])
+                    ("strings" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("String_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [27682 27718])
+                    ("stat" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [27719 27743])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [27752 27769]))                  
+                :function-pointer t
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [27632 27770])
+            ("strings_completion_t" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("rc" variable (:type "int") (reparse-symbol arg-sub-list) [26189 26196])
+                    ("strings" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("String_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [26205 26241])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [26242 26259]))                  
+                :function-pointer t
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [26160 26260])
+            ("data_completion_t" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("rc" variable (:type "int") (reparse-symbol arg-sub-list) [24932 24939])
+                    ("value" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [24940 24958])
+                    ("value_len" variable (:type "int") (reparse-symbol arg-sub-list) [24959 24973])
+                    ("stat" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [24982 25006])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [25007 25024]))                  
+                :function-pointer t
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [24906 25025])
+            ("stat_completion_t" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("rc" variable (:type "int") (reparse-symbol arg-sub-list) [23496 23503])
+                    ("stat" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [23504 23528])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [23537 23554]))                  
+                :function-pointer t
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [23470 23555])
+            ("void_completion_t" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("rc" variable (:type "int") (reparse-symbol arg-sub-list) [22347 22354])
+                    ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [22355 22372]))                  
+                :function-pointer t
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [22321 22373])
+            ("zookeeper_process" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21414 21428])
+                    ("events" variable (:type "int") (reparse-symbol arg-sub-list) [21429 21440]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [21392 21441])
+            ("zookeeper_interest" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [20352 20366])
+                    ("fd" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [20367 20375])
+                    ("interest" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [20376 20390])
+                    ("tv" variable
+                       (:pointer 1
+                        :type ("timeval" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [20393 20412]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [20329 20413])
+            ("zookeeper_get_connected_host" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("sockaddr" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19155 19169])
+                    ("addr" variable
+                       (:pointer 1
+                        :type ("sockaddr" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [19178 19200])
+                    ("addr_len" variable
+                       (:pointer 1
+                        :type ("socklen_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19201 19221]))                  
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [19109 19222])
+            ("zoo_set_watcher" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("watcher_fn" type (:type "class") nil nil)
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18875 18889])
+                    ("newFn" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18889 18906]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [18848 18907])
+            ("zoo_set_context" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18731 18745])
+                    ("context" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [18746 18760]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [18710 18761])
+            ("zoo_get_context" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18635 18649]))                  
+                :constant-flag t
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [18607 18650])
+            ("zoo_recv_timeout" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18529 18543]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [18508 18544])
+            ("zoo_client_id" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("clientid_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18272 18286]))                  
+                :constant-flag t
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [18240 18287])
+            ("zookeeper_close" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18064 18078]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [18044 18079])
+            ("zookeeper_init" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("zhandle_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("host" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [16831 16848])
+                    ("fn" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16849 16863])
+                    ("recv_timeout" variable (:type "int") (reparse-symbol arg-sub-list) [16866 16883])
+                    ("clientid" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("clientid_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16884 16911])
+                    ("context" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [16912 16926])
+                    ("flags" variable (:type "int") (reparse-symbol arg-sub-list) [16927 16937]))                  
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [16805 16938])
+            ("watcher_fn" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15061 15075])
+                    ("type" variable (:type "int") (reparse-symbol arg-sub-list) [15076 15085])
+                    ("state" variable (:type "int") (reparse-symbol arg-sub-list) [15095 15105])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [15106 15123])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [15123 15140]))                  
+                :function-pointer t
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [15042 15141])
+            ("zoo_op_result_t" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("zoo_op_result" type (:type "struct") nil nil))
+                (reparse-symbol extern-c-contents) [13568 13685])
+            ("zoo_op_result" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "struct"
+                :members 
+                  ( ("err" variable (:type "int") (reparse-symbol classsubparts) [13603 13611])
+                    ("value" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [13616 13628])
+                    ("valuelen" variable (:type "int") (reparse-symbol classsubparts) [13630 13643])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [13648 13666]))                  )
+                (reparse-symbol extern-c-contents) [13568 13685])
+            ("zoo_check_op_init" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("op" variable
+                       (:pointer 1
+                        :type ("zoo_op_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13356 13369])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [13370 13387])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [13388 13400]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [13333 13401])
+            ("zoo_set_op_init" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("op" variable
+                       (:pointer 1
+                        :type ("zoo_op_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12780 12793])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12794 12811])
+                    ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12812 12831])
+                    ("buflen" variable (:type "int") (reparse-symbol arg-sub-list) [12841 12852])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [12853 12865])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12866 12884]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [12759 12885])
+            ("zoo_delete_op_init" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("op" variable
+                       (:pointer 1
+                        :type ("zoo_op_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12022 12035])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12036 12053])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [12054 12066]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [11998 12067])
+            ("zoo_create_op_init" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("op" variable
+                       (:pointer 1
+                        :type ("zoo_op_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11327 11340])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [11341 11358])
+                    ("value" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [11359 11377])
+                    ("valuelen" variable (:type "int") (reparse-symbol arg-sub-list) [11386 11399])
+                    ("acl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ACL_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11401 11430])
+                    ("flags" variable (:type "int") (reparse-symbol arg-sub-list) [11431 11441])
+                    ("path_buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [11451 11469])
+                    ("path_buffer_len" variable (:type "int") (reparse-symbol arg-sub-list) [11470 11490]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [11303 11491])
+            ("zoo_op_t" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("zoo_op" type (:type "struct") nil nil))
+                (reparse-symbol extern-c-contents) [9288 10037])
+            ("zoo_op" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "struct"
+                :members 
+                  ( ("type" variable (:type "int") (reparse-symbol classsubparts) [9316 9325])
+                    ("" type
+                       (:members 
+                          ( ("create_op" variable (:type ("" type
+                                 (:members 
+                                    ( ("path" variable
+                                         (:pointer 1
+                                          :constant-flag t
+                                          :type "char")
+                                          (reparse-symbol classsubparts) [9385 9402])
+                                      ("data" variable
+                                         (:pointer 1
+                                          :constant-flag t
+                                          :type "char")
+                                          (reparse-symbol classsubparts) [9415 9432])
+                                      ("datalen" variable (:type "int") (reparse-symbol classsubparts) [9445 9457])
+                                      ("buf" variable
+                                         (:pointer 1
+                                          :type "char")
+                                          (reparse-symbol classsubparts) [9467 9477])
+                                      ("buflen" variable (:type "int") (reparse-symbol classsubparts) [9490 9501])
+                                      ("acl" variable
+                                         (:pointer 1
+                                          :constant-flag t
+                                          :type ("ACL_vector" type
+                                               (:prototype t
+                                                :type "struct")
+                                                nil nil))
+                                          (reparse-symbol classsubparts) [9514 9543])
+                                      ("flags" variable (:type "int") (reparse-symbol classsubparts) [9556 9566]))                                    
+                                  :type "struct")
+                                  nil nil)) (reparse-symbol classsubparts) [9364 9587])
+                            ("delete_op" variable (:type ("" type
+                                 (:members 
+                                    ( ("path" variable
+                                         (:pointer 1
+                                          :constant-flag t
+                                          :type "char")
+                                          (reparse-symbol classsubparts) [9637 9654])
+                                      ("version" variable (:type "int") (reparse-symbol classsubparts) [9667 9679]))                                    
+                                  :type "struct")
+                                  nil nil)) (reparse-symbol classsubparts) [9616 9700])
+                            ("set_op" variable (:type ("" type
+                                 (:members 
+                                    ( ("path" variable
+                                         (:pointer 1
+                                          :constant-flag t
+                                          :type "char")
+                                          (reparse-symbol classsubparts) [9754 9771])
+                                      ("data" variable
+                                         (:pointer 1
+                                          :constant-flag t
+                                          :type "char")
+                                          (reparse-symbol classsubparts) [9784 9801])
+                                      ("datalen" variable (:type "int") (reparse-symbol classsubparts) [9814 9826])
+                                      ("version" variable (:type "int") (reparse-symbol classsubparts) [9839 9851])
+                                      ("stat" variable
+                                         (:pointer 1
+                                          :type ("Stat" type
+                                               (:prototype t
+                                                :type "struct")
+                                                nil nil))
+                                          (reparse-symbol classsubparts) [9864 9882]))                                    
+                                  :type "struct")
+                                  nil nil)) (reparse-symbol classsubparts) [9733 9900])
+                            ("check_op" variable (:type ("" type
+                                 (:members 
+                                    ( ("path" variable
+                                         (:pointer 1
+                                          :constant-flag t
+                                          :type "char")
+                                          (reparse-symbol classsubparts) [9956 9973])
+                                      ("version" variable (:type "int") (reparse-symbol classsubparts) [9986 9998]))                                    
+                                  :type "struct")
+                                  nil nil)) (reparse-symbol classsubparts) [9935 10018]))                          
+                        :type "union")
+                        (reparse-symbol classsubparts) [9330 10025]))                  )
+                (reparse-symbol extern-c-contents) [9288 10037])
+            ("clientid_t" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("" type
+                     (:members 
+                        ( ("client_id" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [8884 8902])
+                          ("passwd" variable
+                             (:dereference 1
+                              :type "char")
+                              (reparse-symbol classsubparts) [8907 8923]))                        
+                      :type "struct")
+                      nil nil))
+                (reparse-symbol extern-c-contents) [8863 8937])
+            ("zhandle_t" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("_zhandle" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                (reparse-symbol extern-c-contents) [8551 8585])
+            ("ZOO_NOTWATCHING_EVENT" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [8279 8325])
+            ("ZOO_SESSION_EVENT" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [8056 8098])
+            ("ZOO_CHILD_EVENT" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [7890 7930])
+            ("ZOO_CHANGED_EVENT" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [7633 7675])
+            ("ZOO_DELETED_EVENT" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [7436 7478])
+            ("ZOO_CREATED_EVENT" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [7234 7276])
+            ("ZOO_CONNECTED_STATE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6849 6893])
+            ("ZOO_ASSOCIATING_STATE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6802 6848])
+            ("ZOO_CONNECTING_STATE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6756 6801])
+            ("ZOO_AUTH_FAILED_STATE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6709 6755])
+            ("ZOO_EXPIRED_SESSION_STATE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6658 6708])
+            ("ZOO_SEQUENCE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6453 6490])
+            ("ZOO_EPHEMERAL" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6414 6452])
+            ("ZOOKEEPER_READ" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6217 6256])
+            ("ZOOKEEPER_WRITE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [6176 6216])
+            ("ZOO_CREATOR_ALL_ACL" variable
+               (:type ("ACL_vector" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5783 5835])
+            ("ZOO_READ_ACL_UNSAFE" variable
+               (:type ("ACL_vector" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5658 5710])
+            ("ZOO_OPEN_ACL_UNSAFE" variable
+               (:type ("ACL_vector" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5552 5604])
+            ("ZOO_AUTH_IDS" variable
+               (:type ("Id" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5477 5514])
+            ("ZOO_ANYONE_ID_UNSAFE" variable
+               (:type ("Id" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5315 5360])
+            ("ZOO_PERM_ALL" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5242 5279])
+            ("ZOO_PERM_ADMIN" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5202 5241])
+            ("ZOO_PERM_DELETE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5161 5201])
+            ("ZOO_PERM_CREATE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5120 5160])
+            ("ZOO_PERM_WRITE" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5080 5119])
+            ("ZOO_PERM_READ" variable
+               (:type "int"
+                :constant-flag t
+                :typemodifiers ("extern" "\"C\"" "extern"))
+                (reparse-symbol extern-c-contents) [5041 5079])
+            ("ZooLogLevel" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("" type
+                     (:members 
+                        ( ("ZOO_LOG_LEVEL_ERROR" variable
+                             (:constant-flag t
+                              :default-value (4932 4933)
+                              :type "int")
+                              (reparse-symbol enumsubparts) [4912 4933])
+                          ("ZOO_LOG_LEVEL_WARN" variable
+                             (:constant-flag t
+                              :default-value (4953 4954)
+                              :type "int")
+                              (reparse-symbol enumsubparts) [4934 4954])
+                          ("ZOO_LOG_LEVEL_INFO" variable
+                             (:constant-flag t
+                              :default-value (4974 4975)
+                              :type "int")
+                              (reparse-symbol enumsubparts) [4955 4975])
+                          ("ZOO_LOG_LEVEL_DEBUG" variable
+                             (:constant-flag t
+                              :default-value (4996 4997)
+                              :type "int")
+                              (reparse-symbol enumsubparts) [4976 4997]))                        
+                      :type "enum")
+                      nil nil))
+                (reparse-symbol extern-c-contents) [4898 5011]))          
+      :file "zookeeper.h"
+      :pointmax 72682
+      :fsize 72681
+      :lastmodtime '(22279 8355 0 0)
+      :unmatched-syntax '((thing 30062 . 30069) (thing 28687 . 28694) (thing 27624 . 27631) (thing 26152 . 26159) (thing 24898 . 24905) (thing 23462 . 23469) (thing 22313 . 22320) (thing 15034 . 15041))
+      :lexical-table 
+        '(("ZOOKEEPER_H_")
+          ("ZOOAPI")
+          )
+)
+    (semanticdb-table "proto.h"
+      :file "proto.h"
+      :fsize 1361
+      :lastmodtime '(22279 8355 0 0))
+    (semanticdb-table "zookeeper_version.h"
+      :file "zookeeper_version.h"
+      :fsize 1055
+      :lastmodtime '(22279 8355 0 0))
+    (semanticdb-table "recordio.h"
+      :file "recordio.h"
+      :fsize 3036
+      :lastmodtime '(22279 8355 0 0))
+    (semanticdb-table "zookeeper.jute.h"
+      :file "zookeeper.jute.h"
+      :fsize 19977
+      :lastmodtime '(22279 8355 0 0)))
+  :file "!ssd!sdd!git!swift!swift!_external!usr!local!include!zookeeper!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

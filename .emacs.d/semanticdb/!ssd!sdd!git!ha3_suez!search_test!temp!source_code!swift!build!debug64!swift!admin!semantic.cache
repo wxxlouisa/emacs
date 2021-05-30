@@ -1,0 +1,66 @@
+;; Object admin/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "admin/"
+  :tables
+  (list
+    (semanticdb-table "AdminWorker.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_ADMINWORKER_H" variable (:constant-flag t) nil [37 56])
+            ("swift/common/Common.h" include (:system-flag t) nil [58 90])
+            ("swift/common/Log.h" include (:system-flag t) nil [91 120])
+            ("swift/admin/SysController.h" include (:system-flag t) nil [121 159])
+            ("swift/protocol/Heartbeat.pb.h" include (:system-flag t) nil [160 200])
+            ("swift/heartbeat/HeartbeatReporter.h" include nil nil [201 247])
+            ("worker_framework/LeaderedWorkerBase.h" include (:system-flag t) nil [248 296])
+            ("swift/monitor/Monitor.h" include (:system-flag t) nil [297 331])
+            ("autil/TimeUtility.h" include (:system-flag t) nil [332 362])
+            ("swift/monitor/AdminMetricsReporter.h" include (:system-flag t) nil [363 410])
+            ("swift/common/AccessLogger.h" include (:system-flag t) nil [411 449])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("admin" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [472 478]))                  
+                :type "int")
+                nil [450 479])
+            ("swift::protocol::Controller" variable (:type "int") nil [591 4722])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("admin" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4744 4750]))                  
+                :type "int")
+                nil [4724 4751]))          
+      :file "AdminWorker.h"
+      :pointmax 4782
+      :fsize 4781
+      :lastmodtime '(22470 49671 857194 868000)
+      :unmatched-syntax '((thing 582 . 582) (thing 582 . 582) (thing 582 . 582) (thing 560 . 561) (thing 542 . 560) (thing 541 . 542) (thing 540 . 541) (thing 539 . 540) (thing 539 . 540) (thing 527 . 540) (thing 528 . 539) (thing 528 . 539) (thing 527 . 528) (thing 527 . 528) (thing 508 . 527) (thing 501 . 507) (thing 499 . 500) (thing 487 . 498) (thing 481 . 486))
+      :lexical-table 
+        '(("SWIFT_ADMINWORKER_H")
+          ("RPC_METHOD_DEFINE" (spp-arg-list ("method" "requestType" "responseType") 797 . 832) . 
+              ((VOID "void" 850 . 854) (symbol "method" 855 . 861) (semantic-list "(                                                        \\
+            ::google::protobuf::RpcController* controller,              \\
+            const ::swift::protocol::requestType* request,              \\
+            ::swift::protocol::responseType* response,                  \\
+            ::google::protobuf::Closure* done)" 861 . 1188) (semantic-list "{                                                                   \\
+        swift::common::AccessLogger::logRequestInfo(controller, request, true); \\
+        int64_t begTime = autil::TimeUtility::currentTime();            \\
+        if (_sysController) {                                           \\
+            _sysController->method(request, response);                  \\
+        } else {                                                        \\
+            swift::protocol::ErrorInfo *ei = response->mutable_errorinfo(); \\
+            ei->set_errcode(swift::protocol::ERROR_ADMIN_NOT_LEADER);   \\
+            ei->set_errmsg(ErrorCode_Name(ei->errcode()));              \\
+        }                                                               \\
+        int64_t useTime = autil::TimeUtility::currentTime() - begTime;  \\
+        _adminMetricsReporter.inc##method##Qps();                       \\
+        _adminMetricsReporter.report##method##Latency(useTime);         \\
+        swift::common::AccessLogger::logRequestInfo(controller, request,\\
+                response->errorinfo().errcode());                       \\
+        done->Run();                                                    \\
+    }" 1220 . 2417)))
+          )
+))
+  :file "!ssd!sdd!git!ha3_suez!search_test!temp!source_code!swift!build!debug64!swift!admin!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

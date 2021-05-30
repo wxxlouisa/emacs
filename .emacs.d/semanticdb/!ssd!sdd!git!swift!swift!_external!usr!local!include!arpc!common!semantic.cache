@@ -1,0 +1,425 @@
+;; Object common/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "common/"
+  :tables
+  (list
+    (semanticdb-table "ThreadPool.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ARPC_THREADPOOL_H" variable (:constant-flag t) nil [35 52])
+            ("arpc/common/Thread.h" include (:system-flag t) nil [54 85])
+            ("arpc/common/Lock.h" include (:system-flag t) nil [86 115])
+            ("arpc/common/WorkItem.h" include (:system-flag t) nil [116 149])
+            ("unistd.h" include (:system-flag t) nil [150 169])
+            ("deque" include (:system-flag t) nil [170 186])
+            ("vector" include (:system-flag t) nil [187 204])
+            ("sstream" include (:system-flag t) nil [205 223])
+            ("arpc/util/Log.h" include (:system-flag t) nil [225 251])
+            ("ARPC_BEGIN_SUB_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [278 285]))                  
+                :type "int")
+                nil [253 286])
+            ("WorkItemQueue" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [310 317])
+                    ("WorkItemQueue" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [322 349])
+                    ("Push" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [372 387]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [354 392])
+                    ("Pop" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :type ("WorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [397 425])
+                    ("Size" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [430 456]))                  
+                :type "class")
+                nil [288 459])
+            ("WorkItemQueueFactory" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [490 497])
+                    ("WorkItemQueueFactory" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [502 536])
+                    ("Create" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("threadNum" variable
+                               (:constant-flag t
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [571 594])
+                            ("queueSize" variable
+                               (:constant-flag t
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [595 618]))                          
+                        :type ("WorkItemQueue" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [541 623]))                  
+                :type "class")
+                nil [461 626])
+            ("WorkItemQueueFactoryPtr" type
+               (:typedef ("std::tr1::shared_ptr" type
+                     (:template-specifier 
+                        ( ("WorkItemQueueFactory" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [627 702])
+            ("ThreadPoolQueue" type
+               (:superclasses 
+                  ( ("WorkItemQueue" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [751 758])
+                    ("Push" function
+                       (:arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [773 788]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [763 849])
+                    ("Pop" function
+                       (:pointer 1
+                        :type ("WorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [854 967])
+                    ("Size" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [972 1023])
+                    ("private" label nil (reparse-symbol classsubparts) [1024 1032])
+                    ("_queue" variable (:type ("std::deque" type
+                         (:template-specifier 
+                            ( ("WorkItem" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1037 1067]))                  
+                :type "class")
+                nil [704 1070])
+            ("ThreadPoolQueueFactory" type
+               (:superclasses 
+                  ( ("WorkItemQueueFactory" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1133 1140])
+                    ("Create" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("threadNum" variable
+                               (:constant-flag t
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1167 1190])
+                            ("queueSize" variable
+                               (:constant-flag t
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1191 1214]))                          
+                        :type ("WorkItemQueue" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1145 1260]))                  
+                :type "class")
+                nil [1072 1263])
+            ("ThreadPool" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1284 1291])
+                    ("" type
+                       (:members 
+                          ( ("DEFAULT_THREADNUM" variable
+                               (:constant-flag t
+                                :default-value (1331 1332)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1311 1332])
+                            ("DEFAULT_QUEUESIZE" variable
+                               (:constant-flag t
+                                :default-value (1362 1364)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1342 1364]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [1296 1371])
+                    ("STOP_TYPE" type
+                       (:members 
+                          ( ("STOP_THREAD_ONLY" variable
+                               (:constant-flag t
+                                :default-value (1421 1422)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1402 1422])
+                            ("STOP_AND_CLEAR_QUEUE" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1432 1453])
+                            ("STOP_AFTER_QUEUE_EMPTY" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1462 1490]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [1377 1491])
+                    ("ERROR_TYPE" type
+                       (:members 
+                          ( ("ERROR_NONE" variable
+                               (:constant-flag t
+                                :default-value (1536 1537)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1523 1537])
+                            ("ERROR_POOL_HAS_STOP" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1547 1567])
+                            ("ERROR_POOL_ITEM_IS_NULL" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1576 1600])
+                            ("ERROR_POOL_QUEUE_FULL" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1609 1631]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [1497 1638])
+                    ("public" label nil (reparse-symbol classsubparts) [1639 1646])
+                    ("ThreadPool" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("threadNum" variable
+                               (:constant-flag t
+                                :default-value "DEFAULT_THREADNUM"
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1662 1704])
+                            ("queueSize" variable
+                               (:constant-flag t
+                                :default-value "DEFAULT_QUEUESIZE"
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1721 1763])
+                            ("factory" variable
+                               (:default-value "WorkItemQueueFactoryPtr()"
+                                :type ("WorkItemQueueFactoryPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1780 1839]))                          
+                        :type ("ThreadPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1651 1841])
+                    ("ThreadPool" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1846 1868])
+                    ("dump" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("leadingSpace" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1891 1917])
+                            ("os" variable
+                               (:reference 1
+                                :type ("std::ostringstream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1918 1941]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1873 1942])
+                    ("private" label nil (reparse-symbol classsubparts) [1944 1952])
+                    ("ThreadPool" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ThreadPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1968 1987]))                          
+                        :type ("ThreadPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1957 1988])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ThreadPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2017 2036]))                          
+                        :type ("ThreadPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1993 2037])
+                    ("public" label nil (reparse-symbol classsubparts) [2039 2046])
+                    ("pushWorkItem" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2083 2098])
+                            ("isBlocked" variable
+                               (:default-value "true"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [2099 2120]))                          
+                        :type ("ERROR_TYPE" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2051 2122])
+                    ("getItemCount" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2127 2163])
+                    ("getThreadNum" function
+                       (:typemodifiers ("virtual")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2168 2242])
+                    ("getQueueSize" function
+                       (:typemodifiers ("virtual")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2247 2321])
+                    ("getLastPopTime" function
+                       (:typemodifiers ("virtual")
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2326 2405])
+                    ("start" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2410 2431])
+                    ("stop" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("stopType" variable
+                               (:default-value "STOP_AFTER_QUEUE_EMPTY"
+                                :type ("STOP_TYPE" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2454 2497]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2436 2499])
+                    ("clearQueue" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [2504 2530])
+                    ("join" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [2535 2555])
+                    ("private" label nil (reparse-symbol classsubparts) [2557 2565])
+                    ("push" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2580 2595]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2570 2596])
+                    ("pushFront" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("item" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2616 2631]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2601 2632])
+                    ("tryPopItem" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("WorkItem" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2653 2664]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2637 2666])
+                    ("createThreads" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2671 2692])
+                    ("workerLoop" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2697 2715])
+                    ("waitQueueEmpty" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2720 2742])
+                    ("stopThread" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2747 2765])
+                    ("private" label nil (reparse-symbol classsubparts) [2766 2774])
+                    ("_threadNum" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2779 2797])
+                    ("_queueSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2802 2820])
+                    ("_itemCount" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2825 2843])
+                    ("_queue" variable
+                       (:pointer 1
+                        :type ("WorkItemQueue" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2848 2870])
+                    ("_threads" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("ThreadPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2875 2907])
+                    ("_cond" variable
+                       (:typemodifiers ("mutable")
+                        :type ("ProducerConsumerCond" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2912 2947])
+                    ("_push" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2952 2972])
+                    ("_run" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2977 2996])
+                    ("protected" label nil (reparse-symbol classsubparts) [2997 3007])
+                    ("_lastPopTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3012 3033])
+                    ("_stopBacktrace" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3038 3065])
+                    ("stopTrace" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [3070 3087])
+                    ("private" label nil (reparse-symbol classsubparts) [3088 3096])
+                    ("ThreadPoolTest" friend nil (reparse-symbol classsubparts) [3101 3128]))                  
+                :type "class")
+                nil [1265 3132])
+            ("ThreadPoolPtr" type
+               (:typedef ("std::tr1::shared_ptr" type
+                     (:template-specifier 
+                        ( ("ThreadPool" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [3134 3189])
+            ("ARPC_END_SUB_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3214 3221]))                  
+                :type "int")
+                nil [3191 3222]))          
+      :file "ThreadPool.h"
+      :pointmax 3251
+      :fsize 3250
+      :lastmodtime '(22242 30871 0 0)
+      :unmatched-syntax '((thing 2663 . 2664) (thing 3128 . 3129))
+      :lexical-table 
+        '(("ARPC_THREADPOOL_H")
+          )
+))
+  :file "!ssd!sdd!git!swift!swift!_external!usr!local!include!arpc!common!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

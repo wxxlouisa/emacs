@@ -1,0 +1,290 @@
+;; Object swift_tools/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "swift_tools/"
+  :tables
+  (list
+    (semanticdb-table "consumer_cmd.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("os" include nil nil [2 11])
+            ("swift_util" include nil nil [12 29])
+            ("swift_common_define" include nil nil [30 56])
+            ("transport_cmd_base" include nil nil [57 82])
+            ("swift.protocol.BrokerRequestResponse_pb2" include nil nil [83 167])
+            ("swift.protocol.SwiftMessage_pb2" include nil nil [168 234])
+            ("SwiftMsgDecoder" type
+               (:documentation "
+    return True, [(keyLen, key, valueLen, value, True|False)] 
+           False, []
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [399 414])
+                            ("self" variable nil (reparse-symbol indented_block_body) [423 437])
+                            ("self" variable nil (reparse-symbol indented_block_body) [446 462]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [384 388]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [371 463])
+                    ("decode" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [487 491])
+                            ("data" variable nil (reparse-symbol function_parameters) [493 497]))                          )
+                        (reparse-symbol indented_block_body) [476 1252])
+                    ("__readLength" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [1282 1286]))                          )
+                        (reparse-symbol indented_block_body) [1265 1766])
+                    ("__readByte" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [1786 1790])
+                            ("dataLen" variable nil (reparse-symbol function_parameters) [1792 1799]))                          )
+                        (reparse-symbol indented_block_body) [1771 2025])
+                    ("__readBool" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [2045 2049]))                          )
+                        (reparse-symbol indented_block_body) [2030 2320]))                  
+                :type "class")
+                nil [236 2320])
+            ("ConsumerGetMsgCmd" type
+               (:superclasses ("transport_cmd_base.TransportCmdBase")
+                :members 
+                  ( ("'''    
+    swift {gm|getmsg}
+       {-z zookeeper_address  | --zookeeper=zookeeper_address}
+       {-t topic_name         | --topic=topic_name}
+       {-p partition_id       | --partid=partition_id}
+       {-s msg_start_id       | --startid=msg_start_id}
+       [-m msg_count          | --count=msg_count]
+       [-f msg_file]          | --file=msg_file]
+       [-y required_fileds]   | --required=required_fileds]
+       [-o field_filter_desc] | --desc=field_filter_desc]
+
+    options:
+       -z zookeeper_address, --zookeeper=zookeeper_address   : required, zookeeper root address
+       -t topic_name,        --topic=topic_name              : required, topic name, eg: news
+       -p partition_id,      --partid=partition_id           : required, partition id in a topic
+       -s msg_start_id       --startid=msg_start_id          : required, msg start id
+       -m msg_count          --count=msg_count               : optional, msg count
+       -r range_filter       --range=range_filter            : optional, range filter, default[0,65535]
+       -x mask_filter        --mask=mask_filter              : optional, mask filter, default[0,0]
+       -l max_total_size     --limit=max_total_size          : optional, max total size of response.
+       -d decode_message     --decode=decode_message         : optional, decode field filter message, if specified, 
+       -f msg_file           --file=msg_file                 : optional, output, if specified, msg's data will be written to this file.
+       -y required_fileds    --required=required_fields      : optional, required fields name. filter message field by required field name.
+       -o field_filter_desc  --desc= field_filter_desc       : optional, filter message by field value.
+       
+Example:
+    swift gm -z zfs://10.250.12.23:1234/root -t news -p 1 -s 1
+    swift gm -z zfs://10.250.12.23:1234/root -t news -p 1 -s 1 -m 5 
+    swift gm -z zfs://10.250.12.23:1234/root -t news -p 1 -s 1 -m 5 -d true
+    swift gm -z zfs://10.250.12.23:1234/root -t news -p 1 -s 1 -m 5 -f \"/path/to/file\"
+    swift gm -z zfs://10.250.12.23:1234/root -t news -p 1 -s 1 -m 5 -r \"1,3\" -x \"255,10\" -f \"/path/to/file\"
+    swift gm -z zfs://10.250.12.23:1234/root -t news -p 1 -s 1 -m 5 -n 'fieldA IN a|b|c AND fieldB IN 1|3'
+    swift gm -z zfs://10.250.12.23:1234/root -t news -p 1 -s 1 -m 5 -y 'fieldA,fieldB'
+    swift gm -z zfs://10.250.12.23:1234/root -t news -p 1 -s 1 -m 5 -o 'fieldA IN a|b'
+    '''" code nil (reparse-symbol indented_block_body) [2388 4841])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4861 4865]))                          )
+                        (reparse-symbol indented_block_body) [4846 5959])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5987 5991])
+                            ("options" variable nil (reparse-symbol function_parameters) [5993 6000]))                          )
+                        (reparse-symbol indented_block_body) [5972 7260])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7290 7294])
+                            ("options" variable nil (reparse-symbol function_parameters) [7296 7303]))                          )
+                        (reparse-symbol indented_block_body) [7265 8162])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8175 8179]))                          )
+                        (reparse-symbol indented_block_body) [8167 11048])
+                    ("constructFilter" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [11073 11077])
+                            ("rangeFilter" variable nil (reparse-symbol function_parameters) [11079 11090])
+                            ("maskFilter" variable nil (reparse-symbol function_parameters) [11092 11102]))                          )
+                        (reparse-symbol indented_block_body) [11053 12277])
+                    ("writeMsgs2File" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12302 12306])
+                            ("msgs" variable nil (reparse-symbol function_parameters) [12308 12312]))                          )
+                        (reparse-symbol indented_block_body) [12283 12974])
+                    ("printMsgs" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13009 13013])
+                            ("msgs" variable nil (reparse-symbol function_parameters) [13015 13019]))                          )
+                        (reparse-symbol indented_block_body) [12995 13902]))                  
+                :type "class")
+                nil [2322 13902])
+            ("ConsumerGetMaxMsgIdCmd" type
+               (:superclasses ("transport_cmd_base.TransportCmdBase")
+                :members 
+                  ( ("'''
+    swift {getmaxmsgid|gmi}
+       {-z zookeeper_address  | --zookeeper=zookeeper_address}
+       {-t topic_name         | --topic=topic_name}
+       {-p partition_id       | --partid=partition_id}
+
+    options:
+       -z zookeeper_address, --zookeeper=zookeeper_address   : required, zookeeper root address
+       -t topic_name,        --topic=topic_name              : required, topic name, eg: news
+       -p partition_id,      --partid=partition_id           : required, partition id in a topic
+       
+Example:
+    swift gmi -z zfs://10.250.12.23:1234/root -t news -p 1 
+    '''" code nil (reparse-symbol indented_block_body) [13974 14561])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14581 14585]))                          )
+                        (reparse-symbol indented_block_body) [14566 14819])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14847 14851])
+                            ("options" variable nil (reparse-symbol function_parameters) [14853 14860]))                          )
+                        (reparse-symbol indented_block_body) [14832 15089])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [15131 15135])
+                            ("options" variable nil (reparse-symbol function_parameters) [15137 15144]))                          )
+                        (reparse-symbol indented_block_body) [15106 15513])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [15526 15530]))                          )
+                        (reparse-symbol indented_block_body) [15518 16686]))                  
+                :type "class")
+                nil [13903 16686])
+            ("ConsumerGetMinMsgIdByTime" type
+               (:superclasses ("transport_cmd_base.TransportCmdBase")
+                :members 
+                  ( ("'''
+    swift {getminmsgidbytime|gmit}
+       {-z zookeeper_address  | --zookeeper=zookeeper_address}
+       {-t topic_name         | --topic=topic_name}
+       {-p partition_id       | --partid=partition_id}
+       {-s time_str           | --time=time_str}
+
+    options:
+       -z zookeeper_address, --zookeeper=zookeeper_address   : required, zookeeper root address
+       -t topic_name,        --topic=topic_name              : required, topic name, eg: news
+       -p partition_id,      --partid=partition_id           : required, partition id in a topic
+       -s time_str,          --time=time_str                 : required, format \"2012/02/23 18:17:51\"
+       
+Example:
+    swift gmit -z zfs://10.250.12.23:1234/root -t news -p 1 -s \"2012/02/23 18:17:51\"
+    '''" code nil (reparse-symbol indented_block_body) [16761 17531])
+                    ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [17551 17555]))                          )
+                        (reparse-symbol indented_block_body) [17536 17881])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [17909 17913])
+                            ("options" variable nil (reparse-symbol function_parameters) [17915 17922]))                          )
+                        (reparse-symbol indented_block_body) [17894 18249])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [18279 18283])
+                            ("options" variable nil (reparse-symbol function_parameters) [18285 18292]))                          )
+                        (reparse-symbol indented_block_body) [18254 18774])
+                    ("run" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [18787 18791]))                          )
+                        (reparse-symbol indented_block_body) [18779 20202])
+                    ("getTimeStamp" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20224 20228])
+                            ("timeStr" variable nil (reparse-symbol function_parameters) [20230 20237]))                          )
+                        (reparse-symbol indented_block_body) [20207 20652]))                  
+                :type "class")
+                nil [16687 20652]))          
+      :file "consumer_cmd.py"
+      :pointmax 20671
+      :fsize 20670
+      :lastmodtime '(22468 63457 672811 116000)
+      :unmatched-syntax nil)
+    (semanticdb-table "transport_cmd_base.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("re" include nil nil [1 10])
+            ("base_cmd" include nil nil [11 26])
+            ("swift_common_define" include nil nil [27 53])
+            ("swift_util" include nil nil [54 71])
+            ("swift_admin_delegate" include nil nil [72 99])
+            ("swift_broker_delegate" include nil nil [100 128])
+            ("swift.protocol.Common_pb2" include nil nil [129 183])
+            ("TransportCmdBase" type
+               (:superclasses ("base_cmd.BaseCmd")
+                :members 
+                  ( ("addOptions" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [246 250]))                          )
+                        (reparse-symbol indented_block_body) [231 470])
+                    ("checkOptionsValidity" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [500 504])
+                            ("options" variable nil (reparse-symbol function_parameters) [506 513]))                          )
+                        (reparse-symbol indented_block_body) [475 1165])
+                    ("initMember" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [1185 1189])
+                            ("options" variable nil (reparse-symbol function_parameters) [1191 1198]))                          )
+                        (reparse-symbol indented_block_body) [1170 1444])
+                    ("buildDelegate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [1483 1487]))                          )
+                        (reparse-symbol indented_block_body) [1465 1720])
+                    ("getBrokerAddressFromAdmin" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [1759 1763])
+                            ("topicName" variable nil (reparse-symbol function_parameters) [1765 1774])
+                            ("partId" variable nil (reparse-symbol function_parameters) [1776 1782]))                          )
+                        (reparse-symbol indented_block_body) [1729 2529])
+                    ("getBrokerAddress" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [2555 2559])
+                            ("topicInfo" variable nil (reparse-symbol function_parameters) [2561 2570])
+                            ("partId" variable nil (reparse-symbol function_parameters) [2572 2578]))                          )
+                        (reparse-symbol indented_block_body) [2534 3996]))                  
+                :type "class")
+                nil [185 3996]))          
+      :file "transport_cmd_base.py"
+      :pointmax 3996
+      :fsize 3995
+      :lastmodtime '(22468 63457 675811 110000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!ha3_suez!online!swift!tools!swift_tools!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

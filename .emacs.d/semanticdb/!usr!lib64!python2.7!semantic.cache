@@ -1,0 +1,2200 @@
+;; Object python2.7/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "python2.7/"
+  :tables
+  (list
+    (semanticdb-table "os.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("r\"\"\"OS routines for Mac, NT, or Posix depending on what system we're on.
+
+This exports:
+  - all functions from posix, nt, os2, or ce, e.g. unlink, stat, etc.
+  - os.path is one of the modules posixpath, or ntpath
+  - os.name is 'posix', 'nt', 'os2', 'ce' or 'riscos'
+  - os.curdir is a string representing the current directory ('.' or ':')
+  - os.pardir is a string representing the parent directory ('..' or '::')
+  - os.sep is the (or a most common) pathname separator ('/' or ':' or '\\\\')
+  - os.extsep is the extension separator ('.' or '/')
+  - os.altsep is the alternate pathname separator (None or '/')
+  - os.pathsep is the component separator used in $PATH etc
+  - os.linesep is the line separator in text files ('\\r' or '\\n' or '\\r\\n')
+  - os.defpath is the default search path for executables
+  - os.devnull is the file path of the null device ('/dev/null', etc.)
+
+Programs that import and use 'os' stand a better chance of being
+portable between different platforms.  Of course, they must then
+only use functions that are defined by all platforms (e.g., unlink
+and opendir), and leave all pathname manipulation to os.path
+(e.g., split and join).
+\"\"\"" code nil nil [1 1163])
+            ("errno" include nil nil [1169 1186])
+            ("sys" include nil nil [1169 1186])
+            ("_names" variable nil nil [1188 1221])
+            ("__all__" variable nil nil [1271 1446])
+            ("_get_exports_list" function (:arguments 
+              ( ("module" variable nil (reparse-symbol function_parameters) [1470 1476]))              ) nil [1448 1606])
+            ("if" code nil nil [1607 3137])
+            ("sys" variable nil nil [3138 3167])
+            ("" code nil nil [3188 3256])
+            ("del" code nil nil [3258 3268])
+            ("SEEK_SET" variable nil nil [3390 3402])
+            ("SEEK_CUR" variable nil nil [3403 3415])
+            ("SEEK_END" variable nil nil [3416 3428])
+            ("makedirs" function
+               (:documentation "makedirs(path [, mode=0777])
+
+    Super-mkdir; create a leaf directory and all intermediate ones.
+    Works like mkdir, except that any intermediate path segment (not
+    just the rightmost) will be created if it does not exist.  This is
+    recursive.
+
+    "
+                :arguments 
+                  ( ("name" variable nil (reparse-symbol function_parameters) [3538 3542])
+                    ("mode" variable nil (reparse-symbol function_parameters) [3544 3548]))                  )
+                nil [3525 4277])
+            ("removedirs" function
+               (:documentation "removedirs(path)
+
+    Super-rmdir; remove a leaf directory and all empty intermediate
+    ones.  Works like rmdir except that, if the leaf directory is
+    successfully removed, directories corresponding to rightmost path
+    segments will be pruned away until either the whole path is
+    consumed or an error occurs.  Errors during this latter phase are
+    ignored -- they generally mean that a directory was not empty.
+
+    "
+                :arguments 
+                  ( ("name" variable nil (reparse-symbol function_parameters) [4293 4297]))                  )
+                nil [4278 4984])
+            ("renames" function
+               (:documentation "renames(old, new)
+
+    Super-rename; create directories as necessary and delete any left
+    empty.  Works like rename, except creation of any intermediate
+    directories needed to make the new pathname good is attempted
+    first.  After the rename, directories corresponding to rightmost
+    path segments of the old name will be pruned way until either the
+    whole path is consumed or a nonempty directory is found.
+
+    Note: this function can fail with the new directory structure made
+    if you lack permissions needed to unlink the leaf directory or
+    file.
+
+    "
+                :arguments 
+                  ( ("old" variable nil (reparse-symbol function_parameters) [4997 5000])
+                    ("new" variable nil (reparse-symbol function_parameters) [5002 5005]))                  )
+                nil [4985 5856])
+            ("__all__" code nil nil [5857 5910])
+            ("walk" function
+               (:documentation "Directory tree generator.
+
+    For each directory in the directory tree rooted at top (including top
+    itself, but excluding '.' and '..'), yields a 3-tuple
+
+        dirpath, dirnames, filenames
+
+    dirpath is a string, the path to the directory.  dirnames is a list of
+    the names of the subdirectories in dirpath (excluding '.' and '..').
+    filenames is a list of the names of the non-directory files in dirpath.
+    Note that the names in the lists are just names, with no path components.
+    To get a full path (which begins with top) to a file or directory in
+    dirpath, do os.path.join(dirpath, name).
+
+    If optional arg 'topdown' is true or not specified, the triple for a
+    directory is generated before the triples for any of its subdirectories
+    (directories are generated top down).  If topdown is false, the triple
+    for a directory is generated after the triples for all of its
+    subdirectories (directories are generated bottom up).
+
+    When topdown is true, the caller can modify the dirnames list in-place
+    (e.g., via del or slice assignment), and walk will only recurse into the
+    subdirectories whose names remain in dirnames; this can be used to prune
+    the search, or to impose a specific order of visiting.  Modifying
+    dirnames when topdown is false is ineffective, since the directories in
+    dirnames have already been generated by the time dirnames itself is
+    generated.
+
+    By default errors from the os.listdir() call are ignored.  If
+    optional arg 'onerror' is specified, it should be a function; it
+    will be called with one argument, an os.error instance.  It can
+    report the error to continue with the walk, or raise the exception
+    to abort the walk.  Note that the filename is available as the
+    filename attribute of the exception object.
+
+    By default, os.walk does not follow symbolic links to subdirectories on
+    systems that support them.  In order to get this functionality, set the
+    optional argument 'followlinks' to true.
+
+    Caution:  if you pass a relative pathname for top, don't change the
+    current working directory between resumptions of walk.  walk never
+    changes the current directory, and assumes that the client doesn't
+    either.
+
+    Example:
+
+    import os
+    from os.path import join, getsize
+    for root, dirs, files in os.walk('python/Lib/email'):
+        print root, \"consumes\",
+        print sum([getsize(join(root, name)) for name in files]),
+        print \"bytes in\", len(files), \"non-directory files\"
+        if 'CVS' in dirs:
+            dirs.remove('CVS')  # don't visit CVS directories
+    "
+                :arguments 
+                  ( ("top" variable nil (reparse-symbol function_parameters) [5921 5924])
+                    ("topdown" variable nil (reparse-symbol function_parameters) [5926 5933])
+                    ("onerror" variable nil (reparse-symbol function_parameters) [5940 5947])
+                    ("followlinks" variable nil (reparse-symbol function_parameters) [5954 5965]))                  )
+                nil [5912 9693])
+            ("__all__" code nil nil [9694 9716])
+            ("try" code nil nil [9758 9810])
+            ("execl" function
+               (:documentation "execl(file, *args)
+
+    Execute the executable file with argument list args, replacing the
+    current process. "
+                :arguments 
+                  ( ("file" variable nil (reparse-symbol function_parameters) [9821 9825])
+                    ("args" variable nil (reparse-symbol function_parameters) [9827 9832]))                  )
+                nil [9811 9980])
+            ("execle" function
+               (:documentation "execle(file, *args, env)
+
+    Execute the executable file with argument list args and
+    environment env, replacing the current process. "
+                :arguments 
+                  ( ("file" variable nil (reparse-symbol function_parameters) [9992 9996])
+                    ("args" variable nil (reparse-symbol function_parameters) [9998 10003]))                  )
+                nil [9981 10207])
+            ("execlp" function
+               (:documentation "execlp(file, *args)
+
+    Execute the executable file (which is searched for along $PATH)
+    with argument list args, replacing the current process. "
+                :arguments 
+                  ( ("file" variable nil (reparse-symbol function_parameters) [10219 10223])
+                    ("args" variable nil (reparse-symbol function_parameters) [10225 10230]))                  )
+                nil [10208 10416])
+            ("execlpe" function
+               (:documentation "execlpe(file, *args, env)
+
+    Execute the executable file (which is searched for along $PATH)
+    with argument list args and environment env, replacing the current
+    process. "
+                :arguments 
+                  ( ("file" variable nil (reparse-symbol function_parameters) [10429 10433])
+                    ("args" variable nil (reparse-symbol function_parameters) [10435 10440]))                  )
+                nil [10417 10686])
+            ("execvp" function
+               (:documentation "execvp(file, args)
+
+    Execute the executable file (which is searched for along $PATH)
+    with argument list args, replacing the current process.
+    args may be a list or tuple of strings. "
+                :arguments 
+                  ( ("file" variable nil (reparse-symbol function_parameters) [10698 10702])
+                    ("args" variable nil (reparse-symbol function_parameters) [10704 10708]))                  )
+                nil [10687 10939])
+            ("execvpe" function
+               (:documentation "execvpe(file, args, env)
+
+    Execute the executable file (which is searched for along $PATH)
+    with argument list args and environment env , replacing the
+    current process.
+    args may be a list or tuple of strings. "
+                :arguments 
+                  ( ("file" variable nil (reparse-symbol function_parameters) [10952 10956])
+                    ("args" variable nil (reparse-symbol function_parameters) [10958 10962])
+                    ("env" variable nil (reparse-symbol function_parameters) [10964 10967]))                  )
+                nil [10940 11234])
+            ("__all__" code nil nil [11235 11307])
+            ("_execvpe" function (:arguments 
+              ( ("file" variable nil (reparse-symbol function_parameters) [11322 11326])
+                ("args" variable nil (reparse-symbol function_parameters) [11328 11332])
+                ("env" variable nil (reparse-symbol function_parameters) [11334 11337]))              ) nil [11309 12177])
+            ("try" code nil nil [12239 16448])
+            ("getenv" function
+               (:documentation "Get an environment variable, return None if it doesn't exist.
+    The optional second argument can specify an alternate default."
+                :arguments 
+                  ( ("key" variable nil (reparse-symbol function_parameters) [16460 16463])
+                    ("default" variable nil (reparse-symbol function_parameters) [16465 16472]))                  )
+                nil [16449 16656])
+            ("__all__" code nil nil [16656 16680])
+            ("_exists" function (:arguments 
+              ( ("name" variable nil (reparse-symbol function_parameters) [16694 16698]))              ) nil [16682 16730])
+            ("if" code nil nil [16774 19677])
+            ("if" code nil nil [19678 20675])
+            ("if" code nil nil [20677 21783])
+            ("if" code nil nil [21817 25083])
+            ("copy_reg" include nil nil [25084 25112])
+            ("_make_stat_result" function (:arguments 
+              ( ("tup" variable nil (reparse-symbol function_parameters) [25136 25139])
+                ("dict" variable nil (reparse-symbol function_parameters) [25141 25145]))              ) nil [25114 25182])
+            ("_pickle_stat_result" function (:arguments 
+              ( ("sr" variable nil (reparse-symbol function_parameters) [25207 25209]))              ) nil [25183 25284])
+            ("try" code nil nil [25285 25419])
+            ("_make_statvfs_result" function (:arguments 
+              ( ("tup" variable nil (reparse-symbol function_parameters) [25445 25448])
+                ("dict" variable nil (reparse-symbol function_parameters) [25450 25454]))              ) nil [25420 25494])
+            ("_pickle_statvfs_result" function (:arguments 
+              ( ("sr" variable nil (reparse-symbol function_parameters) [25522 25524]))              ) nil [25495 25602])
+            ("try" code nil nil [25603 25770]))          
+      :file "os.py"
+      :pointmax 25770
+      :fsize 25769
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "re.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("r\"\"\"Support for regular expressions (RE).
+
+This module provides regular expression matching operations similar to
+those found in Perl.  It supports both 8-bit and Unicode strings; both
+the pattern and the strings being processed can contain null bytes and
+characters outside the US ASCII range.
+
+Regular expressions can contain both special and ordinary characters.
+Most ordinary characters, like \"A\", \"a\", or \"0\", are the simplest
+regular expressions; they simply match themselves.  You can
+concatenate ordinary characters, so last matches the string 'last'.
+
+The special characters are:
+    \".\"      Matches any character except a newline.
+    \"^\"      Matches the start of the string.
+    \"$\"      Matches the end of the string or just before the newline at
+             the end of the string.
+    \"*\"      Matches 0 or more (greedy) repetitions of the preceding RE.
+             Greedy means that it will match as many repetitions as possible.
+    \"+\"      Matches 1 or more (greedy) repetitions of the preceding RE.
+    \"?\"      Matches 0 or 1 (greedy) of the preceding RE.
+    *?,+?,?? Non-greedy versions of the previous three special characters.
+    {m,n}    Matches from m to n repetitions of the preceding RE.
+    {m,n}?   Non-greedy version of the above.
+    \"\\\\\"     Either escapes special characters or signals a special sequence.
+    []       Indicates a set of characters.
+             A \"^\" as the first character indicates a complementing set.
+    \"|\"      A|B, creates an RE that will match either A or B.
+    (...)    Matches the RE inside the parentheses.
+             The contents can be retrieved or matched later in the string.
+    (?iLmsux) Set the I, L, M, S, U, or X flag for the RE (see below).
+    (?:...)  Non-grouping version of regular parentheses.
+    (?P<name>...) The substring matched by the group is accessible by name.
+    (?P=name)     Matches the text matched earlier by the group named name.
+    (?#...)  A comment; ignored.
+    (?=...)  Matches if ... matches next, but doesn't consume the string.
+    (?!...)  Matches if ... doesn't match next.
+    (?<=...) Matches if preceded by ... (must be fixed length).
+    (?<!...) Matches if not preceded by ... (must be fixed length).
+    (?(id/name)yes|no) Matches yes pattern if the group with id/name matched,
+                       the (optional) no pattern otherwise.
+
+The special sequences consist of \"\\\\\" and a character from the list
+below.  If the ordinary character is not on the list, then the
+resulting RE will match the second character.
+    \\number  Matches the contents of the group of the same number.
+    \\A       Matches only at the start of the string.
+    \\Z       Matches only at the end of the string.
+    \\b       Matches the empty string, but only at the start or end of a word.
+    \\B       Matches the empty string, but not at the start or end of a word.
+    \\d       Matches any decimal digit; equivalent to the set [0-9].
+    \\D       Matches any non-digit character; equivalent to the set [^0-9].
+    \\s       Matches any whitespace character; equivalent to [ \\t\\n\\r\\f\\v].
+    \\S       Matches any non-whitespace character; equiv. to [^ \\t\\n\\r\\f\\v].
+    \\w       Matches any alphanumeric character; equivalent to [a-zA-Z0-9_].
+             With LOCALE, it will match the set [0-9_] plus characters defined
+             as letters for the current locale.
+    \\W       Matches the complement of \\w.
+    \\\\       Matches a literal backslash.
+
+This module exports the following functions:
+    match    Match a regular expression pattern to the beginning of a string.
+    search   Search a string for the presence of a pattern.
+    sub      Substitute occurrences of a pattern found in a string.
+    subn     Same as sub, but also return the number of substitutions made.
+    split    Split a string by the occurrences of a pattern.
+    findall  Find all occurrences of a pattern in a string.
+    finditer Return an iterator yielding a match object for each match.
+    compile  Compile a pattern into a RegexObject.
+    purge    Clear the regular expression cache.
+    escape   Backslash all non-alphanumerics in a string.
+
+Some of the functions in this module takes flags as optional parameters:
+    I  IGNORECASE  Perform case-insensitive matching.
+    L  LOCALE      Make \\w, \\W, \\b, \\B, dependent on the current locale.
+    M  MULTILINE   \"^\" matches the beginning of lines (after a newline)
+                   as well as the string.
+                   \"$\" matches the end of lines (before a newline) as well
+                   as the end of the string.
+    S  DOTALL      \".\" matches any character at all, including the newline.
+    X  VERBOSE     Ignore whitespace and comments for nicer looking RE's.
+    U  UNICODE     Make \\w, \\W, \\b, \\B, dependent on the Unicode locale.
+
+This module also defines an exception 'error'.
+
+\"\"\"" code nil nil [501 5342])
+            ("sys" include nil nil [5344 5354])
+            ("sre_compile" include nil nil [5355 5373])
+            ("sre_parse" include nil nil [5374 5390])
+            ("__all__" variable nil nil [5409 5637])
+            ("__version__" variable nil nil [5639 5660])
+            ("I" variable nil nil [5670 5718])
+            ("L" variable nil nil [5733 5773])
+            ("U" variable nil nil [5804 5846])
+            ("M" variable nil nil [5871 5917])
+            ("S" variable nil nil [5950 5990])
+            ("X" variable nil nil [6016 6058])
+            ("T" variable nil nil [6146 6190])
+            ("DEBUG" variable nil nil [6214 6248])
+            ("error" variable nil nil [6299 6324])
+            ("match" function
+               (:documentation "Try to apply the pattern at the start of the string, returning
+    a match object, or None if no match was found."
+                :arguments 
+                  ( ("pattern" variable nil (reparse-symbol function_parameters) [6427 6434])
+                    ("string" variable nil (reparse-symbol function_parameters) [6436 6442])
+                    ("flags" variable nil (reparse-symbol function_parameters) [6444 6449]))                  )
+                nil [6417 6628])
+            ("search" function
+               (:documentation "Scan through string looking for a match to the pattern, returning
+    a match object, or None if no match was found."
+                :arguments 
+                  ( ("pattern" variable nil (reparse-symbol function_parameters) [6640 6647])
+                    ("string" variable nil (reparse-symbol function_parameters) [6649 6655])
+                    ("flags" variable nil (reparse-symbol function_parameters) [6657 6662]))                  )
+                nil [6629 6845])
+            ("sub" function
+               (:documentation "Return the string obtained by replacing the leftmost
+    non-overlapping occurrences of the pattern in string by the
+    replacement repl.  repl can be either a string or a callable;
+    if a string, backslash escapes in it are processed.  If it is
+    a callable, it's passed the match object and must return
+    a replacement string to be used."
+                :arguments 
+                  ( ("pattern" variable nil (reparse-symbol function_parameters) [6854 6861])
+                    ("repl" variable nil (reparse-symbol function_parameters) [6863 6867])
+                    ("string" variable nil (reparse-symbol function_parameters) [6869 6875])
+                    ("count" variable nil (reparse-symbol function_parameters) [6877 6882])
+                    ("flags" variable nil (reparse-symbol function_parameters) [6886 6891]))                  )
+                nil [6846 7314])
+            ("subn" function
+               (:documentation "Return a 2-tuple containing (new_string, number).
+    new_string is the string obtained by replacing the leftmost
+    non-overlapping occurrences of the pattern in the source
+    string by the replacement repl.  number is the number of
+    substitutions that were made. repl can be either a string or a
+    callable; if a string, backslash escapes in it are processed.
+    If it is a callable, it's passed the match object and must
+    return a replacement string to be used."
+                :arguments 
+                  ( ("pattern" variable nil (reparse-symbol function_parameters) [7324 7331])
+                    ("repl" variable nil (reparse-symbol function_parameters) [7333 7337])
+                    ("string" variable nil (reparse-symbol function_parameters) [7339 7345])
+                    ("count" variable nil (reparse-symbol function_parameters) [7347 7352])
+                    ("flags" variable nil (reparse-symbol function_parameters) [7356 7361]))                  )
+                nil [7315 7914])
+            ("split" function
+               (:documentation "Split the source string by the occurrences of the pattern,
+    returning a list containing the resulting substrings."
+                :arguments 
+                  ( ("pattern" variable nil (reparse-symbol function_parameters) [7925 7932])
+                    ("string" variable nil (reparse-symbol function_parameters) [7934 7940])
+                    ("maxsplit" variable nil (reparse-symbol function_parameters) [7942 7950])
+                    ("flags" variable nil (reparse-symbol function_parameters) [7954 7959]))                  )
+                nil [7915 8151])
+            ("findall" function
+               (:documentation "Return a list of all non-overlapping matches in the string.
+
+    If one or more groups are present in the pattern, return a
+    list of groups; this will be a list of tuples if the pattern
+    has more than one group.
+
+    Empty matches are included in the result."
+                :arguments 
+                  ( ("pattern" variable nil (reparse-symbol function_parameters) [8164 8171])
+                    ("string" variable nil (reparse-symbol function_parameters) [8173 8179])
+                    ("flags" variable nil (reparse-symbol function_parameters) [8181 8186]))                  )
+                nil [8152 8518])
+            ("if" code nil nil [8519 8878])
+            ("compile" function (:arguments 
+              ( ("pattern" variable nil (reparse-symbol function_parameters) [8891 8898])
+                ("flags" variable nil (reparse-symbol function_parameters) [8900 8905]))              ) nil [8879 9018])
+            ("purge" function nil nil [9019 9116])
+            ("template" function (:arguments 
+              ( ("pattern" variable nil (reparse-symbol function_parameters) [9130 9137])
+                ("flags" variable nil (reparse-symbol function_parameters) [9139 9144]))              ) nil [9117 9248])
+            ("_alphanum" variable nil nil [9249 9341])
+            ("escape" function (:arguments 
+              ( ("pattern" variable nil (reparse-symbol function_parameters) [9354 9361]))              ) nil [9343 12960]))          
+      :file "re.py"
+      :pointmax 12960
+      :fsize 12959
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "shutil.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Utility functions for copying and archiving files and directory trees.
+
+XXX The functions here don't copy the resource fork or other metadata on Mac.
+
+\"\"\"" code nil nil [1 158])
+            ("os" include nil nil [160 169])
+            ("sys" include nil nil [170 180])
+            ("stat" include nil nil [181 192])
+            ("os.path" include nil nil [193 220])
+            ("fnmatch" include nil nil [221 235])
+            ("collections" include nil nil [236 254])
+            ("errno" include nil nil [255 267])
+            ("try" code nil nil [269 343])
+            ("try" code nil nil [344 418])
+            ("__all__" variable nil nil [419 727])
+            ("Error" type
+               (:superclasses ("EnvironmentError")
+                :members 
+                  ( ("pass" code nil (reparse-symbol indented_block_body) [764 768]))                  
+                :type "class")
+                nil [729 769])
+            ("SpecialFileError" type
+               (:documentation "Raised when trying to do a kind of operation (e.g. copying) which is
+    not supported on a special file (e.g. a named pipe)"
+                :superclasses ("EnvironmentError")
+                :type "class")
+                nil [770 947])
+            ("ExecError" type
+               (:documentation "Raised when a command could not be executed"
+                :superclasses ("EnvironmentError")
+                :type "class")
+                nil [948 1037])
+            ("try" code nil nil [1038 1102])
+            ("copyfileobj" function
+               (:documentation "copy data from file-like object fsrc to file-like object fdst"
+                :arguments 
+                  ( ("fsrc" variable nil (reparse-symbol function_parameters) [1119 1123])
+                    ("fdst" variable nil (reparse-symbol function_parameters) [1125 1129])
+                    ("length" variable nil (reparse-symbol function_parameters) [1131 1137]))                  )
+                nil [1103 1327])
+            ("_samefile" function (:arguments 
+              ( ("src" variable nil (reparse-symbol function_parameters) [1342 1345])
+                ("dst" variable nil (reparse-symbol function_parameters) [1347 1350]))              ) nil [1328 1680])
+            ("copyfile" function
+               (:documentation "Copy data from src to dst"
+                :arguments 
+                  ( ("src" variable nil (reparse-symbol function_parameters) [1694 1697])
+                    ("dst" variable nil (reparse-symbol function_parameters) [1699 1702]))                  )
+                nil [1681 2298])
+            ("copymode" function
+               (:documentation "Copy mode bits from src to dst"
+                :arguments 
+                  ( ("src" variable nil (reparse-symbol function_parameters) [2312 2315])
+                    ("dst" variable nil (reparse-symbol function_parameters) [2317 2320]))                  )
+                nil [2299 2487])
+            ("copystat" function
+               (:documentation "Copy all stat info (mode bits, atime, mtime, flags) from src to dst"
+                :arguments 
+                  ( ("src" variable nil (reparse-symbol function_parameters) [2501 2504])
+                    ("dst" variable nil (reparse-symbol function_parameters) [2506 2509]))                  )
+                nil [2488 3117])
+            ("copy" function
+               (:documentation "Copy data and mode bits (\"cp src dst\").
+
+    The destination may be a directory.
+
+    "
+                :arguments 
+                  ( ("src" variable nil (reparse-symbol function_parameters) [3127 3130])
+                    ("dst" variable nil (reparse-symbol function_parameters) [3132 3135]))                  )
+                nil [3118 3363])
+            ("copy2" function
+               (:documentation "Copy data and all stat info (\"cp -p src dst\").
+
+    The destination may be a directory.
+
+    "
+                :arguments 
+                  ( ("src" variable nil (reparse-symbol function_parameters) [3374 3377])
+                    ("dst" variable nil (reparse-symbol function_parameters) [3379 3382]))                  )
+                nil [3364 3617])
+            ("ignore_patterns" function
+               (:documentation "Function that can be used as copytree() ignore parameter.
+
+    Patterns is a sequence of glob-style patterns
+    that are used to exclude files"
+                :arguments 
+                  ( ("patterns" variable nil (reparse-symbol function_parameters) [3638 3647]))                  )
+                nil [3618 4030])
+            ("copytree" function
+               (:documentation "Recursively copy a directory tree using copy2().
+
+    The destination directory must not already exist.
+    If exception(s) occur, an Error is raised with a list of reasons.
+
+    If the optional symlinks flag is true, symbolic links in the
+    source tree result in symbolic links in the destination tree; if
+    it is false, the contents of the files pointed to by symbolic
+    links are copied.
+
+    The optional ignore argument is a callable. If given, it
+    is called with the `src` parameter, which is the directory
+    being visited by copytree(), and `names` which is the list of
+    `src` contents, as returned by os.listdir():
+
+        callable(src, names) -> ignored_names
+
+    Since copytree() is called recursively, the callable will be
+    called once for each directory that is copied. It returns a
+    list of names relative to the `src` directory that should
+    not be copied.
+
+    XXX Consider this example code rather than the ultimate tool.
+
+    "
+                :arguments 
+                  ( ("src" variable nil (reparse-symbol function_parameters) [4044 4047])
+                    ("dst" variable nil (reparse-symbol function_parameters) [4049 4052])
+                    ("symlinks" variable nil (reparse-symbol function_parameters) [4054 4062])
+                    ("ignore" variable nil (reparse-symbol function_parameters) [4070 4076]))                  )
+                nil [4031 6370])
+            ("rmtree" function
+               (:documentation "Recursively delete a directory tree.
+
+    If ignore_errors is set, errors are ignored; otherwise, if onerror
+    is set, it is called to handle the error with arguments (func,
+    path, exc_info) where func is os.listdir, os.remove, or os.rmdir;
+    path is the argument to that function that caused it to fail; and
+    exc_info is a tuple returned by sys.exc_info().  If ignore_errors
+    is false and onerror is None, an exception is raised.
+
+    "
+                :arguments 
+                  ( ("path" variable nil (reparse-symbol function_parameters) [6382 6386])
+                    ("ignore_errors" variable nil (reparse-symbol function_parameters) [6388 6401])
+                    ("onerror" variable nil (reparse-symbol function_parameters) [6409 6416]))                  )
+                nil [6371 7994])
+            ("_basename" function (:arguments 
+              ( ("path" variable nil (reparse-symbol function_parameters) [8010 8014]))              ) nil [7996 8228])
+            ("move" function
+               (:documentation "Recursively move a file or directory to another location. This is
+    similar to the Unix \"mv\" command.
+
+    If the destination is a directory or a symlink to a directory, the source
+    is moved inside the directory. The destination path must not already
+    exist.
+
+    If the destination already exists but is not a directory, it may be
+    overwritten depending on os.rename() semantics.
+
+    If the destination is on our current filesystem, then rename() is used.
+    Otherwise, src is copied to the destination and then removed.
+    A lot more could be done here...  A look at a mv.c shows a lot of
+    the issues this implementation glosses over.
+
+    "
+                :arguments 
+                  ( ("src" variable nil (reparse-symbol function_parameters) [8238 8241])
+                    ("dst" variable nil (reparse-symbol function_parameters) [8243 8246]))                  )
+                nil [8229 9685])
+            ("_destinsrc" function (:arguments 
+              ( ("src" variable nil (reparse-symbol function_parameters) [9701 9704])
+                ("dst" variable nil (reparse-symbol function_parameters) [9706 9709]))              ) nil [9686 9919])
+            ("_get_gid" function
+               (:documentation "Returns a gid, given a group name."
+                :arguments 
+                  ( ("name" variable nil (reparse-symbol function_parameters) [9933 9937]))                  )
+                nil [9920 10198])
+            ("_get_uid" function
+               (:documentation "Returns an uid, given a user name."
+                :arguments 
+                  ( ("name" variable nil (reparse-symbol function_parameters) [10212 10216]))                  )
+                nil [10199 10477])
+            ("_make_tarball" function
+               (:documentation "Create a (possibly compressed) tar file from all the files under
+    'base_dir'.
+
+    'compress' must be \"gzip\" (the default), \"bzip2\", or None.
+
+    'owner' and 'group' can be used to define an owner and a group for the
+    archive that is being built. If not provided, the current owner and group
+    will be used.
+
+    The output tar file will be named 'base_name' +  \".tar\", possibly plus
+    the appropriate compression extension (\".gz\", or \".bz2\").
+
+    Returns the output filename.
+    "
+                :arguments 
+                  ( ("base_name" variable nil (reparse-symbol function_parameters) [10496 10505])
+                    ("base_dir" variable nil (reparse-symbol function_parameters) [10507 10515])
+                    ("compress" variable nil (reparse-symbol function_parameters) [10517 10525])
+                    ("verbose" variable nil (reparse-symbol function_parameters) [10534 10541])
+                    ("dry_run" variable nil (reparse-symbol function_parameters) [10545 10552])
+                    ("owner" variable nil (reparse-symbol function_parameters) [10574 10579])
+                    ("group" variable nil (reparse-symbol function_parameters) [10586 10591])
+                    ("logger" variable nil (reparse-symbol function_parameters) [10598 10604]))                  )
+                nil [10478 12480])
+            ("_call_external_zip" function (:arguments 
+              ( ("base_dir" variable nil (reparse-symbol function_parameters) [12504 12512])
+                ("zip_filename" variable nil (reparse-symbol function_parameters) [12514 12526])
+                ("verbose" variable nil (reparse-symbol function_parameters) [12528 12535])
+                ("dry_run" variable nil (reparse-symbol function_parameters) [12543 12550]))              ) nil [12481 13210])
+            ("_make_zipfile" function
+               (:documentation "Create a zip file from all the files under 'base_dir'.
+
+    The output zip file will be named 'base_name' + \".zip\".  Uses either the
+    \"zipfile\" Python module (if available) or the InfoZIP \"zip\" utility
+    (if installed and found on the default search path).  If neither tool is
+    available, raises ExecError.  Returns the name of the output zip
+    file.
+    "
+                :arguments 
+                  ( ("base_name" variable nil (reparse-symbol function_parameters) [13229 13238])
+                    ("base_dir" variable nil (reparse-symbol function_parameters) [13240 13248])
+                    ("verbose" variable nil (reparse-symbol function_parameters) [13250 13257])
+                    ("dry_run" variable nil (reparse-symbol function_parameters) [13261 13268])
+                    ("logger" variable nil (reparse-symbol function_parameters) [13272 13278]))                  )
+                nil [13211 14918])
+            ("_ARCHIVE_FORMATS" variable nil nil [14919 15216])
+            ("get_archive_formats" function (:documentation "Returns a list of supported formats for archiving and unarchiving.
+
+    Each element of the returned sequence is a tuple (name, description)
+    ") nil [15218 15537])
+            ("register_archive_format" function
+               (:documentation "Registers an archive format.
+
+    name is the name of the format. function is the callable that will be
+    used to create archives. If provided, extra_args is a sequence of
+    (name, value) tuples that will be passed as arguments to the callable.
+    description can be provided to describe the format, and will be returned
+    by the get_archive_formats() function.
+    "
+                :arguments 
+                  ( ("name" variable nil (reparse-symbol function_parameters) [15566 15570])
+                    ("function" variable nil (reparse-symbol function_parameters) [15572 15580])
+                    ("extra_args" variable nil (reparse-symbol function_parameters) [15582 15592])
+                    ("description" variable nil (reparse-symbol function_parameters) [15599 15610]))                  )
+                nil [15538 16529])
+            ("unregister_archive_format" function (:arguments 
+              ( ("name" variable nil (reparse-symbol function_parameters) [16560 16564]))              ) nil [16530 16598])
+            ("make_archive" function
+               (:documentation "Create an archive file (eg. zip or tar).
+
+    'base_name' is the name of the file to create, minus any format-specific
+    extension; 'format' is the archive format: one of \"zip\", \"tar\", \"bztar\"
+    or \"gztar\".
+
+    'root_dir' is a directory that will be the root directory of the
+    archive; ie. we typically chdir into 'root_dir' before creating the
+    archive.  'base_dir' is the directory where we start archiving from;
+    ie. 'base_dir' will be the common prefix of all files and
+    directories in the archive.  'root_dir' and 'base_dir' both default
+    to the current directory.  Returns the name of the archive file.
+
+    'owner' and 'group' are used when creating a tar archive. By default,
+    uses the current owner and group.
+    "
+                :arguments 
+                  ( ("base_name" variable nil (reparse-symbol function_parameters) [16616 16625])
+                    ("format" variable nil (reparse-symbol function_parameters) [16627 16633])
+                    ("root_dir" variable nil (reparse-symbol function_parameters) [16635 16643])
+                    ("base_dir" variable nil (reparse-symbol function_parameters) [16650 16658])
+                    ("verbose" variable nil (reparse-symbol function_parameters) [16665 16672])
+                    ("dry_run" variable nil (reparse-symbol function_parameters) [16693 16700])
+                    ("owner" variable nil (reparse-symbol function_parameters) [16704 16709])
+                    ("group" variable nil (reparse-symbol function_parameters) [16716 16721])
+                    ("logger" variable nil (reparse-symbol function_parameters) [16728 16734]))                  )
+                nil [16599 18436]))          
+      :file "shutil.py"
+      :pointmax 18436
+      :fsize 18435
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "glob.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Filename globbing utility.\"\"\"" code nil nil [1 33])
+            ("sys" include nil nil [35 45])
+            ("os" include nil nil [46 55])
+            ("re" include nil nil [56 65])
+            ("fnmatch" include nil nil [66 80])
+            ("try" code nil nil [82 268])
+            ("__all__" variable nil nil [269 296])
+            ("glob" function
+               (:documentation "Return a list of paths matching a pathname pattern.
+
+    The pattern may contain simple shell-style wildcards a la
+    fnmatch. However, unlike fnmatch, filenames starting with a
+    dot are special cases that are not matched by '*' and '?'
+    patterns.
+
+    "
+                :arguments 
+                  ( ("pathname" variable nil (reparse-symbol function_parameters) [307 315]))                  )
+                nil [298 622])
+            ("iglob" function
+               (:documentation "Return an iterator which yields the paths matching a pathname pattern.
+
+    The pattern may contain simple shell-style wildcards a la
+    fnmatch. However, unlike fnmatch, filenames starting with a
+    dot are special cases that are not matched by '*' and '?'
+    patterns.
+
+    "
+                :arguments 
+                  ( ("pathname" variable nil (reparse-symbol function_parameters) [633 641]))                  )
+                nil [623 1738])
+            ("glob1" function (:arguments 
+              ( ("dirname" variable nil (reparse-symbol function_parameters) [1973 1980])
+                ("pattern" variable nil (reparse-symbol function_parameters) [1982 1989]))              ) nil [1963 2447])
+            ("glob0" function (:arguments 
+              ( ("dirname" variable nil (reparse-symbol function_parameters) [2458 2465])
+                ("basename" variable nil (reparse-symbol function_parameters) [2467 2475]))              ) nil [2448 2829])
+            ("magic_check" variable nil nil [2831 2864])
+            ("has_magic" function (:arguments 
+              ( ("s" variable nil (reparse-symbol function_parameters) [2880 2881]))              ) nil [2866 2929]))          
+      :file "glob.py"
+      :pointmax 2929
+      :fsize 2928
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "subprocess.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("r\"\"\"subprocess - Subprocesses with accessible I/O streams
+
+This module allows you to spawn processes, connect to their
+input/output/error pipes, and obtain their return codes.  This module
+intends to replace several other, older modules and functions, like:
+
+os.system
+os.spawn*
+os.popen*
+popen2.*
+commands.*
+
+Information about how the subprocess module can be used to replace these
+modules and functions can be found below.
+
+
+
+Using the subprocess module
+===========================
+This module defines one class called Popen:
+
+class Popen(args, bufsize=0, executable=None,
+            stdin=None, stdout=None, stderr=None,
+            preexec_fn=None, close_fds=False, shell=False,
+            cwd=None, env=None, universal_newlines=False,
+            startupinfo=None, creationflags=0):
+
+
+Arguments are:
+
+args should be a string, or a sequence of program arguments.  The
+program to execute is normally the first item in the args sequence or
+string, but can be explicitly set by using the executable argument.
+
+On UNIX, with shell=False (default): In this case, the Popen class
+uses os.execvp() to execute the child program.  args should normally
+be a sequence.  A string will be treated as a sequence with the string
+as the only item (the program to execute).
+
+On UNIX, with shell=True: If args is a string, it specifies the
+command string to execute through the shell.  If args is a sequence,
+the first item specifies the command string, and any additional items
+will be treated as additional shell arguments.
+
+On Windows: the Popen class uses CreateProcess() to execute the child
+program, which operates on strings.  If args is a sequence, it will be
+converted to a string using the list2cmdline method.  Please note that
+not all MS Windows applications interpret the command line the same
+way: The list2cmdline is designed for applications using the same
+rules as the MS C runtime.
+
+bufsize, if given, has the same meaning as the corresponding argument
+to the built-in open() function: 0 means unbuffered, 1 means line
+buffered, any other positive value means use a buffer of
+(approximately) that size.  A negative bufsize means to use the system
+default, which usually means fully buffered.  The default value for
+bufsize is 0 (unbuffered).
+
+stdin, stdout and stderr specify the executed programs' standard
+input, standard output and standard error file handles, respectively.
+Valid values are PIPE, an existing file descriptor (a positive
+integer), an existing file object, and None.  PIPE indicates that a
+new pipe to the child should be created.  With None, no redirection
+will occur; the child's file handles will be inherited from the
+parent.  Additionally, stderr can be STDOUT, which indicates that the
+stderr data from the applications should be captured into the same
+file handle as for stdout.
+
+If preexec_fn is set to a callable object, this object will be called
+in the child process just before the child is executed.
+
+If close_fds is true, all file descriptors except 0, 1 and 2 will be
+closed before the child process is executed.
+
+if shell is true, the specified command will be executed through the
+shell.
+
+If cwd is not None, the current directory will be changed to cwd
+before the child is executed.
+
+If env is not None, it defines the environment variables for the new
+process.
+
+If universal_newlines is true, the file objects stdout and stderr are
+opened as a text files, but lines may be terminated by any of '\\n',
+the Unix end-of-line convention, '\\r', the Macintosh convention or
+'\\r\\n', the Windows convention.  All of these external representations
+are seen as '\\n' by the Python program.  Note: This feature is only
+available if Python is built with universal newline support (the
+default).  Also, the newlines attribute of the file objects stdout,
+stdin and stderr are not updated by the communicate() method.
+
+The startupinfo and creationflags, if given, will be passed to the
+underlying CreateProcess() function.  They can specify things such as
+appearance of the main window and priority for the new process.
+(Windows only)
+
+
+This module also defines some shortcut functions:
+
+call(*popenargs, **kwargs):
+    Run command with arguments.  Wait for command to complete, then
+    return the returncode attribute.
+
+    The arguments are the same as for the Popen constructor.  Example:
+
+    retcode = call([\"ls\", \"-l\"])
+
+check_call(*popenargs, **kwargs):
+    Run command with arguments.  Wait for command to complete.  If the
+    exit code was zero then return, otherwise raise
+    CalledProcessError.  The CalledProcessError object will have the
+    return code in the returncode attribute.
+
+    The arguments are the same as for the Popen constructor.  Example:
+
+    check_call([\"ls\", \"-l\"])
+
+check_output(*popenargs, **kwargs):
+    Run command with arguments and return its output as a byte string.
+
+    If the exit code was non-zero it raises a CalledProcessError.  The
+    CalledProcessError object will have the return code in the returncode
+    attribute and output in the output attribute.
+
+    The arguments are the same as for the Popen constructor.  Example:
+
+    output = check_output([\"ls\", \"-l\", \"/dev/null\"])
+
+
+Exceptions
+----------
+Exceptions raised in the child process, before the new program has
+started to execute, will be re-raised in the parent.  Additionally,
+the exception object will have one extra attribute called
+'child_traceback', which is a string containing traceback information
+from the childs point of view.
+
+The most common exception raised is OSError.  This occurs, for
+example, when trying to execute a non-existent file.  Applications
+should prepare for OSErrors.
+
+A ValueError will be raised if Popen is called with invalid arguments.
+
+check_call() and check_output() will raise CalledProcessError, if the
+called process returns a non-zero return code.
+
+
+Security
+--------
+Unlike some other popen functions, this implementation will never call
+/bin/sh implicitly.  This means that all characters, including shell
+metacharacters, can safely be passed to child processes.
+
+
+Popen objects
+=============
+Instances of the Popen class have the following methods:
+
+poll()
+    Check if child process has terminated.  Returns returncode
+    attribute.
+
+wait()
+    Wait for child process to terminate.  Returns returncode attribute.
+
+communicate(input=None)
+    Interact with process: Send data to stdin.  Read data from stdout
+    and stderr, until end-of-file is reached.  Wait for process to
+    terminate.  The optional input argument should be a string to be
+    sent to the child process, or None, if no data should be sent to
+    the child.
+
+    communicate() returns a tuple (stdout, stderr).
+
+    Note: The data read is buffered in memory, so do not use this
+    method if the data size is large or unlimited.
+
+The following attributes are also available:
+
+stdin
+    If the stdin argument is PIPE, this attribute is a file object
+    that provides input to the child process.  Otherwise, it is None.
+
+stdout
+    If the stdout argument is PIPE, this attribute is a file object
+    that provides output from the child process.  Otherwise, it is
+    None.
+
+stderr
+    If the stderr argument is PIPE, this attribute is file object that
+    provides error output from the child process.  Otherwise, it is
+    None.
+
+pid
+    The process ID of the child process.
+
+returncode
+    The child return code.  A None value indicates that the process
+    hasn't terminated yet.  A negative value -N indicates that the
+    child was terminated by signal N (UNIX only).
+
+
+Replacing older functions with the subprocess module
+====================================================
+In this section, \"a ==> b\" means that b can be used as a replacement
+for a.
+
+Note: All functions in this section fail (more or less) silently if
+the executed program cannot be found; this module raises an OSError
+exception.
+
+In the following examples, we assume that the subprocess module is
+imported with \"from subprocess import *\".
+
+
+Replacing /bin/sh shell backquote
+---------------------------------
+output=`mycmd myarg`
+==>
+output = Popen([\"mycmd\", \"myarg\"], stdout=PIPE).communicate()[0]
+
+
+Replacing shell pipe line
+-------------------------
+output=`dmesg | grep hda`
+==>
+p1 = Popen([\"dmesg\"], stdout=PIPE)
+p2 = Popen([\"grep\", \"hda\"], stdin=p1.stdout, stdout=PIPE)
+output = p2.communicate()[0]
+
+
+Replacing os.system()
+---------------------
+sts = os.system(\"mycmd\" + \" myarg\")
+==>
+p = Popen(\"mycmd\" + \" myarg\", shell=True)
+pid, sts = os.waitpid(p.pid, 0)
+
+Note:
+
+* Calling the program through the shell is usually not required.
+
+* It's easier to look at the returncode attribute than the
+  exitstatus.
+
+A more real-world example would look like this:
+
+try:
+    retcode = call(\"mycmd\" + \" myarg\", shell=True)
+    if retcode < 0:
+        print >>sys.stderr, \"Child was terminated by signal\", -retcode
+    else:
+        print >>sys.stderr, \"Child returned\", retcode
+except OSError, e:
+    print >>sys.stderr, \"Execution failed:\", e
+
+
+Replacing os.spawn*
+-------------------
+P_NOWAIT example:
+
+pid = os.spawnlp(os.P_NOWAIT, \"/bin/mycmd\", \"mycmd\", \"myarg\")
+==>
+pid = Popen([\"/bin/mycmd\", \"myarg\"]).pid
+
+
+P_WAIT example:
+
+retcode = os.spawnlp(os.P_WAIT, \"/bin/mycmd\", \"mycmd\", \"myarg\")
+==>
+retcode = call([\"/bin/mycmd\", \"myarg\"])
+
+
+Vector example:
+
+os.spawnvp(os.P_NOWAIT, path, args)
+==>
+Popen([path] + args[1:])
+
+
+Environment example:
+
+os.spawnlpe(os.P_NOWAIT, \"/bin/mycmd\", \"mycmd\", \"myarg\", env)
+==>
+Popen([\"/bin/mycmd\", \"myarg\"], env={\"PATH\": \"/usr/bin\"})
+
+
+Replacing os.popen*
+-------------------
+pipe = os.popen(\"cmd\", mode='r', bufsize)
+==>
+pipe = Popen(\"cmd\", shell=True, bufsize=bufsize, stdout=PIPE).stdout
+
+pipe = os.popen(\"cmd\", mode='w', bufsize)
+==>
+pipe = Popen(\"cmd\", shell=True, bufsize=bufsize, stdin=PIPE).stdin
+
+
+(child_stdin, child_stdout) = os.popen2(\"cmd\", mode, bufsize)
+==>
+p = Popen(\"cmd\", shell=True, bufsize=bufsize,
+          stdin=PIPE, stdout=PIPE, close_fds=True)
+(child_stdin, child_stdout) = (p.stdin, p.stdout)
+
+
+(child_stdin,
+ child_stdout,
+ child_stderr) = os.popen3(\"cmd\", mode, bufsize)
+==>
+p = Popen(\"cmd\", shell=True, bufsize=bufsize,
+          stdin=PIPE, stdout=PIPE, stderr=PIPE, close_fds=True)
+(child_stdin,
+ child_stdout,
+ child_stderr) = (p.stdin, p.stdout, p.stderr)
+
+
+(child_stdin, child_stdout_and_stderr) = os.popen4(\"cmd\", mode,
+                                                   bufsize)
+==>
+p = Popen(\"cmd\", shell=True, bufsize=bufsize,
+          stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
+(child_stdin, child_stdout_and_stderr) = (p.stdin, p.stdout)
+
+On Unix, os.popen2, os.popen3 and os.popen4 also accept a sequence as
+the command to execute, in which case arguments will be passed
+directly to the program without shell intervention.  This usage can be
+replaced as follows:
+
+(child_stdin, child_stdout) = os.popen2([\"/bin/ls\", \"-l\"], mode,
+                                        bufsize)
+==>
+p = Popen([\"/bin/ls\", \"-l\"], bufsize=bufsize, stdin=PIPE, stdout=PIPE)
+(child_stdin, child_stdout) = (p.stdin, p.stdout)
+
+Return code handling translates as follows:
+
+pipe = os.popen(\"cmd\", 'w')
+...
+rc = pipe.close()
+if rc is not None and rc % 256:
+    print \"There were some errors\"
+==>
+process = Popen(\"cmd\", 'w', shell=True, stdin=PIPE)
+...
+process.stdin.close()
+if process.wait() != 0:
+    print \"There were some errors\"
+
+
+Replacing popen2.*
+------------------
+(child_stdout, child_stdin) = popen2.popen2(\"somestring\", bufsize, mode)
+==>
+p = Popen([\"somestring\"], shell=True, bufsize=bufsize
+          stdin=PIPE, stdout=PIPE, close_fds=True)
+(child_stdout, child_stdin) = (p.stdout, p.stdin)
+
+On Unix, popen2 also accepts a sequence as the command to execute, in
+which case arguments will be passed directly to the program without
+shell intervention.  This usage can be replaced as follows:
+
+(child_stdout, child_stdin) = popen2.popen2([\"mycmd\", \"myarg\"], bufsize,
+                                            mode)
+==>
+p = Popen([\"mycmd\", \"myarg\"], bufsize=bufsize,
+          stdin=PIPE, stdout=PIPE, close_fds=True)
+(child_stdout, child_stdin) = (p.stdout, p.stdin)
+
+The popen2.Popen3 and popen2.Popen4 basically works as subprocess.Popen,
+except that:
+
+* subprocess.Popen raises an exception if the execution fails
+* the capturestderr argument is replaced with the stderr argument.
+* stdin=PIPE and stdout=PIPE must be specified.
+* popen2 closes all filedescriptors by default, but you have to specify
+  close_fds=True with subprocess.Popen.
+\"\"\"" code nil nil [370 12819])
+            ("sys" include nil nil [12821 12831])
+            ("mswindows" variable nil nil [12832 12869])
+            ("os" include nil nil [12871 12880])
+            ("types" include nil nil [12881 12893])
+            ("traceback" include nil nil [12894 12910])
+            ("gc" include nil nil [12911 12920])
+            ("signal" include nil nil [12921 12934])
+            ("errno" include nil nil [12935 12947])
+            ("CalledProcessError" type
+               (:documentation "This exception is raised when a process run by check_call() or
+    check_output() returns a non-zero exit status.
+    The exit status will be stored in the returncode attribute;
+    check_output() will also store the output in the output attribute.
+    "
+                :superclasses ("Exception")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [13353 13381])
+                            ("self" variable nil (reparse-symbol indented_block_body) [13390 13404])
+                            ("self" variable nil (reparse-symbol indented_block_body) [13413 13433]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13308 13312])
+                            ("returncode" variable nil (reparse-symbol function_parameters) [13314 13324])
+                            ("cmd" variable nil (reparse-symbol function_parameters) [13326 13329])
+                            ("output" variable nil (reparse-symbol function_parameters) [13331 13337]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [13295 13434])
+                    ("__str__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13450 13454]))                          )
+                        (reparse-symbol indented_block_body) [13438 13550]))                  
+                :type "class")
+                nil [12990 13550])
+            ("if" code nil nil [13552 14140])
+            ("__all__" variable nil nil [14142 14250])
+            ("if" code nil nil [14252 14788])
+            ("try" code nil nil [14788 14855])
+            ("_active" variable nil nil [14856 14868])
+            ("_cleanup" function nil nil [14870 15255])
+            ("PIPE" code nil nil [15256 15265])
+            ("STDOUT" code nil nil [15266 15277])
+            ("_eintr_retry_call" function (:arguments 
+              ( ("func" variable nil (reparse-symbol function_parameters) [15302 15306])
+                ("args" variable nil (reparse-symbol function_parameters) [15308 15313]))              ) nil [15280 15647])
+            ("_args_from_interpreter_flags" function (:documentation "Return a list of command-line arguments reproducing the current
+    settings in sys.flags and sys.warnoptions.") nil [15659 16419])
+            ("call" function
+               (:documentation "Run command with arguments.  Wait for command to complete, then
+    return the returncode attribute.
+
+    The arguments are the same as for the Popen constructor.  Example:
+
+    retcode = call([\"ls\", \"-l\"])
+    "
+                :arguments 
+                  ( ("popenargs" variable nil (reparse-symbol function_parameters) [16430 16440])
+                    ("kwargs" variable nil (reparse-symbol function_parameters) [16442 16450]))                  )
+                nil [16421 16721])
+            ("check_call" function
+               (:documentation "Run command with arguments.  Wait for command to complete.  If
+    the exit code was zero then return, otherwise raise
+    CalledProcessError.  The CalledProcessError object will have the
+    return code in the returncode attribute.
+
+    The arguments are the same as for the Popen constructor.  Example:
+
+    check_call([\"ls\", \"-l\"])
+    "
+                :arguments 
+                  ( ("popenargs" variable nil (reparse-symbol function_parameters) [16738 16748])
+                    ("kwargs" variable nil (reparse-symbol function_parameters) [16750 16758]))                  )
+                nil [16723 17316])
+            ("check_output" function (:arguments 
+              ( ("popenargs" variable nil (reparse-symbol function_parameters) [17335 17345])
+                ("kwargs" variable nil (reparse-symbol function_parameters) [17347 17355]))              ) nil [17318 18561])
+            ("list2cmdline" function
+               (:documentation "
+    Translate a sequence of arguments into a command line
+    string, using the same rules as the MS C runtime:
+
+    1) Arguments are delimited by white space, which is either a
+       space or a tab.
+
+    2) A string surrounded by double quotation marks is
+       interpreted as a single argument, regardless of white space
+       contained within.  A quoted string can be embedded in an
+       argument.
+
+    3) A double quotation mark preceded by a backslash is
+       interpreted as a literal double quotation mark.
+
+    4) Backslashes are interpreted literally, unless they
+       immediately precede a double quotation mark.
+
+    5) If backslashes immediately precede a double quotation mark,
+       every pair of backslashes is interpreted as a literal
+       backslash.  If the number of backslashes is odd, the last
+       backslash escapes the next double quotation mark as
+       described in rule 3.
+    "
+                :arguments 
+                  ( ("seq" variable nil (reparse-symbol function_parameters) [18580 18583]))                  )
+                nil [18563 59069]))          
+      :file "subprocess.py"
+      :pointmax 59069
+      :fsize 59068
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax '((INDENT_BLOCK 20184 . 59069) (NEWLINE 20145 . 20146) (COLON 20144 . 20145) (ELIF 20131 . 20135) (INDENT_BLOCK 20086 . 20119) (IF 20017 . 20019) (NAME 20053 . 20054) (NAME 20055 . 20059) (IF 20060 . 20062) (NAME 20066 . 20070) (NAME 20071 . 20073) (NAME 20074 . 20080) (NAME 20081 . 20084) (NEWLINE 20085 . 20086) (INDENT_BLOCK 15416 . 15647) (NEWLINE 15415 . 15416) (COLON 15414 . 15415) (TRY 15340 . 15343) (AS 15410 . 15412)))
+    (semanticdb-table "ConfigParser.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Configuration file parser.
+
+A setup file consists of sections, lead by a \"[section]\" header,
+and followed by \"name: value\" entries, with continuations and such in
+the style of RFC 822.
+
+The option values can contain format strings which refer to other values in
+the same section, or values in a special [DEFAULT] section.
+
+For example:
+
+    something: %(dir)s/whatever
+
+would resolve the \"%(dir)s\" to the value of dir.  All reference
+expansions are done late, on demand.
+
+Intrinsic defaults can be specified by passing them into the
+ConfigParser constructor as a dictionary.
+
+class:
+
+ConfigParser -- responsible for parsing a list of
+                configuration files, and managing the parsed database.
+
+    methods:
+
+    __init__(defaults=None)
+        create the parser and specify a dictionary of intrinsic defaults.  The
+        keys must be strings, the values must be appropriate for %()s string
+        interpolation.  Note that `__name__' is always an intrinsic default;
+        its value is the section's name.
+
+    sections()
+        return all the configuration section names, sans DEFAULT
+
+    has_section(section)
+        return whether the given section exists
+
+    has_option(section, option)
+        return whether the given option exists in the given section
+
+    options(section)
+        return list of configuration options for the named section
+
+    read(filenames)
+        read and parse the list of named configuration files, given by
+        name.  A single filename is also allowed.  Non-existing files
+        are ignored.  Return list of successfully read files.
+
+    readfp(fp, filename=None)
+        read and parse one configuration file, given as a file object.
+        The filename defaults to fp.name; it is only used in error
+        messages (if fp has no `name' attribute, the string `<???>' is used).
+
+    get(section, option, raw=False, vars=None)
+        return a string value for the named option.  All % interpolations are
+        expanded in the return values, based on the defaults passed into the
+        constructor and the DEFAULT section.  Additional substitutions may be
+        provided using the `vars' argument, which must be a dictionary whose
+        contents override any pre-existing defaults.
+
+    getint(section, options)
+        like get(), but convert value to an integer
+
+    getfloat(section, options)
+        like get(), but convert value to a float
+
+    getboolean(section, options)
+        like get(), but convert value to a boolean (currently case
+        insensitively defined as 0, false, no, off for False, and 1, true,
+        yes, on for True).  Returns False or True.
+
+    items(section, raw=False, vars=None)
+        return a list of tuples with (name, value) for each option
+        in the section.
+
+    remove_section(section)
+        remove the given file section and all its options
+
+    remove_option(section, option)
+        remove the given option from the given section
+
+    set(section, option, value)
+        set the given option
+
+    write(fp)
+        write the configuration state in .ini format
+\"\"\"" code nil nil [1 3087])
+            ("try" code nil nil [3089 3260])
+            ("re" include nil nil [3261 3270])
+            ("__all__" variable nil nil [3272 3616])
+            ("DEFAULTSECT" variable nil nil [3618 3641])
+            ("MAX_INTERPOLATION_DEPTH" variable nil nil [3643 3671])
+            ("Error" type
+               (:documentation "Base class for ConfigParser exceptions."
+                :superclasses ("Exception")
+                :members 
+                  ( ("_get_message" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3791 3795]))                          
+                        :documentation "Getter for 'message'; needed only to override deprecation in
+        BaseException.")
+                        (reparse-symbol indented_block_body) [3774 3926])
+                    ("_set_message" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3948 3952])
+                            ("value" variable nil (reparse-symbol function_parameters) [3954 3959]))                          
+                        :documentation "Setter for 'message'; needed only to override deprecation in
+        BaseException.")
+                        (reparse-symbol indented_block_body) [3931 4091])
+                    ("message" variable nil (reparse-symbol indented_block_body) [4304 4350])
+                    ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [4392 4410])
+                            ("Exception" code nil (reparse-symbol indented_block_body) [4419 4448]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4369 4373])
+                            ("msg" variable nil (reparse-symbol function_parameters) [4375 4378]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [4356 4449])
+                    ("__repr__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4467 4471]))                          )
+                        (reparse-symbol indented_block_body) [4454 4502])
+                    ("__str__" variable nil (reparse-symbol indented_block_body) [4507 4525]))                  
+                :type "class")
+                nil [3695 4526])
+            ("NoSectionError" type
+               (:documentation "Raised when no section matches a requested option."
+                :superclasses ("Error")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("Error" code nil (reparse-symbol indented_block_body) [4659 4710])
+                            ("self" variable nil (reparse-symbol indented_block_body) [4719 4741])
+                            ("self" variable nil (reparse-symbol indented_block_body) [4750 4773]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4635 4639])
+                            ("section" variable nil (reparse-symbol function_parameters) [4641 4648]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [4622 4774]))                  
+                :type "class")
+                nil [4527 4774])
+            ("DuplicateSectionError" type
+               (:documentation "Raised when a section is multiply-created."
+                :superclasses ("Error")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("Error" code nil (reparse-symbol indented_block_body) [4906 4965])
+                            ("self" variable nil (reparse-symbol indented_block_body) [4974 4996])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5005 5028]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4882 4886])
+                            ("section" variable nil (reparse-symbol function_parameters) [4888 4895]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [4869 5029]))                  
+                :type "class")
+                nil [4775 5029])
+            ("NoOptionError" type
+               (:documentation "A requested option was not found."
+                :superclasses ("Error")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("Error" code nil (reparse-symbol indented_block_body) [5152 5246])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5255 5275])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5284 5306])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5315 5344]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5120 5124])
+                            ("option" variable nil (reparse-symbol function_parameters) [5126 5132])
+                            ("section" variable nil (reparse-symbol function_parameters) [5134 5141]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [5107 5345]))                  
+                :type "class")
+                nil [5030 5345])
+            ("InterpolationError" type
+               (:documentation "Base class for interpolation-related exceptions."
+                :superclasses ("Error")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("Error" code nil (reparse-symbol indented_block_body) [5493 5518])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5527 5547])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5556 5578])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5587 5621]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5456 5460])
+                            ("option" variable nil (reparse-symbol function_parameters) [5462 5468])
+                            ("section" variable nil (reparse-symbol function_parameters) [5470 5477])
+                            ("msg" variable nil (reparse-symbol function_parameters) [5479 5482]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [5443 5622]))                  
+                :type "class")
+                nil [5346 5622])
+            ("InterpolationMissingOptionError" type
+               (:documentation "A string substitution required a setting which was not available."
+                :superclasses ("InterpolationError")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("msg" variable nil (reparse-symbol indented_block_body) [5827 6050])
+                            ("InterpolationError" code nil (reparse-symbol indented_block_body) [6059 6114])
+                            ("self" variable nil (reparse-symbol indented_block_body) [6123 6149])
+                            ("self" variable nil (reparse-symbol indented_block_body) [6158 6206]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5776 5780])
+                            ("option" variable nil (reparse-symbol function_parameters) [5782 5788])
+                            ("section" variable nil (reparse-symbol function_parameters) [5790 5797])
+                            ("rawval" variable nil (reparse-symbol function_parameters) [5799 5805])
+                            ("reference" variable nil (reparse-symbol function_parameters) [5807 5816]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [5763 6207]))                  
+                :type "class")
+                nil [5623 6207])
+            ("InterpolationSyntaxError" type
+               (:documentation "Raised when the source text into which substitutions are made
+    does not conform to the required syntax."
+                :superclasses ("InterpolationError")
+                :type "class")
+                nil [6208 6377])
+            ("InterpolationDepthError" type
+               (:documentation "Raised when substitutions are nested too deeply."
+                :superclasses ("InterpolationError")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("msg" variable nil (reparse-symbol indented_block_body) [6546 6743])
+                            ("InterpolationError" code nil (reparse-symbol indented_block_body) [6752 6807])
+                            ("self" variable nil (reparse-symbol indented_block_body) [6816 6853]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6506 6510])
+                            ("option" variable nil (reparse-symbol function_parameters) [6512 6518])
+                            ("section" variable nil (reparse-symbol function_parameters) [6520 6527])
+                            ("rawval" variable nil (reparse-symbol function_parameters) [6529 6535]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [6493 6854]))                  
+                :type "class")
+                nil [6378 6854])
+            ("ParsingError" type
+               (:documentation "Raised when a configuration file does not follow legal syntax."
+                :superclasses ("Error")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("Error" code nil (reparse-symbol indented_block_body) [6998 7065])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7074 7098])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7107 7123])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7132 7156]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6973 6977])
+                            ("filename" variable nil (reparse-symbol function_parameters) [6979 6987]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [6960 7157])
+                    ("append" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7173 7177])
+                            ("lineno" variable nil (reparse-symbol function_parameters) [7179 7185])
+                            ("line" variable nil (reparse-symbol function_parameters) [7187 7191]))                          )
+                        (reparse-symbol indented_block_body) [7162 7299]))                  
+                :type "class")
+                nil [6855 7299])
+            ("MissingSectionHeaderError" type
+               (:documentation "Raised when a key-value pair is found before any section header."
+                :superclasses ("ParsingError")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("Error" code nil (reparse-symbol indented_block_body) [7479 7624])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7633 7657])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7666 7686])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7695 7711])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7720 7756]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7440 7444])
+                            ("filename" variable nil (reparse-symbol function_parameters) [7446 7454])
+                            ("lineno" variable nil (reparse-symbol function_parameters) [7456 7462])
+                            ("line" variable nil (reparse-symbol function_parameters) [7464 7468]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [7427 7757]))                  
+                :type "class")
+                nil [7300 7757])
+            ("RawConfigParser" type
+               (:members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [7893 7915])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7924 7953])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7962 7991])
+                            ("if" code nil (reparse-symbol indented_block_body) [8000 8114])
+                            ("if" code nil (reparse-symbol indented_block_body) [8122 8245]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7799 7803])
+                            ("defaults" variable nil (reparse-symbol function_parameters) [7805 7813])
+                            ("dict_type" variable nil (reparse-symbol function_parameters) [7820 7829])
+                            ("allow_no_value" variable nil (reparse-symbol function_parameters) [7862 7876]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [7786 8245])
+                    ("defaults" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8263 8267]))                          )
+                        (reparse-symbol indented_block_body) [8250 8300])
+                    ("sections" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8318 8322]))                          
+                        :documentation "Return a list of section names, excluding [DEFAULT]")
+                        (reparse-symbol indented_block_body) [8305 8485])
+                    ("add_section" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8506 8510])
+                            ("section" variable nil (reparse-symbol function_parameters) [8512 8519]))                          
+                        :documentation "Create a new section in the configuration.
+
+        Raise DuplicateSectionError if a section by the specified name
+        already exists. Raise ValueError if name is DEFAULT or any of it's
+        case-insensitive variants.
+        ")
+                        (reparse-symbol indented_block_body) [8490 9013])
+                    ("has_section" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [9034 9038])
+                            ("section" variable nil (reparse-symbol function_parameters) [9040 9047]))                          
+                        :documentation "Indicate whether the named section is present in the configuration.
+
+        The DEFAULT section is not acknowledged.
+        ")
+                        (reparse-symbol indented_block_body) [9018 9232])
+                    ("options" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [9249 9253])
+                            ("section" variable nil (reparse-symbol function_parameters) [9255 9262]))                          
+                        :documentation "Return a list of option names for the given section name.")
+                        (reparse-symbol indented_block_body) [9237 9594])
+                    ("read" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [9608 9612])
+                            ("filenames" variable nil (reparse-symbol function_parameters) [9614 9623]))                          
+                        :documentation "Read and parse a filename or a list of filenames.
+
+        Files that cannot be opened are silently ignored; this is
+        designed so that you can specify a list of potential
+        configuration file locations (e.g. current directory, user's
+        home directory, systemwide directory), and all existing
+        configuration files in the list will be read.  A single
+        filename may also be given.
+
+        Return list of successfully read files.
+        ")
+                        (reparse-symbol indented_block_body) [9599 10473])
+                    ("readfp" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [10489 10493])
+                            ("fp" variable nil (reparse-symbol function_parameters) [10495 10497])
+                            ("filename" variable nil (reparse-symbol function_parameters) [10499 10507]))                          
+                        :documentation "Like read() but the argument must be a file-like object.
+
+        The `fp' argument must have a `readline' method.  Optional
+        second argument is the `filename', which if not given, is
+        taken from fp.name.  If fp has no `name' attribute, `<???>' is
+        used.
+
+        ")
+                        (reparse-symbol indented_block_body) [10478 10999])
+                    ("get" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [11012 11016])
+                            ("section" variable nil (reparse-symbol function_parameters) [11018 11025])
+                            ("option" variable nil (reparse-symbol function_parameters) [11027 11033]))                          )
+                        (reparse-symbol indented_block_body) [11004 11585])
+                    ("items" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [11600 11604])
+                            ("section" variable nil (reparse-symbol function_parameters) [11606 11613]))                          )
+                        (reparse-symbol indented_block_body) [11590 11948])
+                    ("_get" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [11962 11966])
+                            ("section" variable nil (reparse-symbol function_parameters) [11968 11975])
+                            ("conv" variable nil (reparse-symbol function_parameters) [11977 11981])
+                            ("option" variable nil (reparse-symbol function_parameters) [11983 11989]))                          )
+                        (reparse-symbol indented_block_body) [11953 12039])
+                    ("getint" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12055 12059])
+                            ("section" variable nil (reparse-symbol function_parameters) [12061 12068])
+                            ("option" variable nil (reparse-symbol function_parameters) [12070 12076]))                          )
+                        (reparse-symbol indented_block_body) [12044 12126])
+                    ("getfloat" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12144 12148])
+                            ("section" variable nil (reparse-symbol function_parameters) [12150 12157])
+                            ("option" variable nil (reparse-symbol function_parameters) [12159 12165]))                          )
+                        (reparse-symbol indented_block_body) [12131 12217])
+                    ("_boolean_states" variable nil (reparse-symbol indented_block_body) [12222 12368])
+                    ("getboolean" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12389 12393])
+                            ("section" variable nil (reparse-symbol function_parameters) [12395 12402])
+                            ("option" variable nil (reparse-symbol function_parameters) [12404 12410]))                          )
+                        (reparse-symbol indented_block_body) [12374 12602])
+                    ("optionxform" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12623 12627])
+                            ("optionstr" variable nil (reparse-symbol function_parameters) [12629 12638]))                          )
+                        (reparse-symbol indented_block_body) [12607 12674])
+                    ("has_option" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12694 12698])
+                            ("section" variable nil (reparse-symbol function_parameters) [12700 12707])
+                            ("option" variable nil (reparse-symbol function_parameters) [12709 12715]))                          
+                        :documentation "Check for the existence of a given option in a given section.")
+                        (reparse-symbol indented_block_body) [12679 13166])
+                    ("set" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13179 13183])
+                            ("section" variable nil (reparse-symbol function_parameters) [13185 13192])
+                            ("option" variable nil (reparse-symbol function_parameters) [13194 13200])
+                            ("value" variable nil (reparse-symbol function_parameters) [13202 13207]))                          
+                        :documentation "Set an option.")
+                        (reparse-symbol indented_block_body) [13171 13540])
+                    ("write" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13555 13559])
+                            ("fp" variable nil (reparse-symbol function_parameters) [13561 13563]))                          
+                        :documentation "Write an .ini-format representation of the configuration state.")
+                        (reparse-symbol indented_block_body) [13545 14310])
+                    ("remove_option" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14333 14337])
+                            ("section" variable nil (reparse-symbol function_parameters) [14339 14346])
+                            ("option" variable nil (reparse-symbol function_parameters) [14348 14354]))                          
+                        :documentation "Remove an option.")
+                        (reparse-symbol indented_block_body) [14315 14789])
+                    ("remove_section" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14813 14817])
+                            ("section" variable nil (reparse-symbol function_parameters) [14819 14826]))                          
+                        :documentation "Remove a file section.")
+                        (reparse-symbol indented_block_body) [14794 14993])
+                    ("SECTCRE" variable nil (reparse-symbol indented_block_body) [15077 15273])
+                    ("OPTCRE" variable nil (reparse-symbol indented_block_body) [15278 15726])
+                    ("OPTCRE_NV" variable nil (reparse-symbol indented_block_body) [15731 16241])
+                    ("_read" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [16257 16261])
+                            ("fp" variable nil (reparse-symbol function_parameters) [16263 16265])
+                            ("fpname" variable nil (reparse-symbol function_parameters) [16267 16273]))                          
+                        :documentation "Parse a sectioned setup file.
+
+        The sections in setup file contains a title line at the top,
+        indicated by a name in square brackets (`[]'), plus key/value
+        options lines, indicated by `name: value' format lines.
+        Continuations are represented by an embedded newline then
+        leading whitespace.  Blank lines, lines beginning with a '#',
+        and just about everything else are ignored.
+        ")
+                        (reparse-symbol indented_block_body) [16247 20504]))                  
+                :type "class")
+                nil [7759 20504])
+            ("UserDict" include nil nil [20505 20533])
+            ("_Chainmap" type
+               (:documentation "Combine multiple mappings for successive lookups.
+
+    For example, to emulate Python's normal lookup sequence:
+
+        import __builtin__
+        pylookup = _Chainmap(locals(), globals(), vars(__builtin__))
+    "
+                :superclasses ("_UserDict.DictMixin")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [20837 20854]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20815 20819])
+                            ("maps" variable nil (reparse-symbol function_parameters) [20821 20826]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [20802 20855])
+                    ("__getitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20876 20880])
+                            ("key" variable nil (reparse-symbol function_parameters) [20882 20885]))                          )
+                        (reparse-symbol indented_block_body) [20860 21054])
+                    ("keys" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [21068 21072]))                          )
+                        (reparse-symbol indented_block_body) [21059 21314]))                  
+                :type "class")
+                nil [20535 21314])
+            ("ConfigParser" type
+               (:superclasses ("RawConfigParser")
+                :members 
+                  ( ("get" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [21365 21369])
+                            ("section" variable nil (reparse-symbol function_parameters) [21371 21378])
+                            ("option" variable nil (reparse-symbol function_parameters) [21380 21386])
+                            ("raw" variable nil (reparse-symbol function_parameters) [21388 21391])
+                            ("vars" variable nil (reparse-symbol function_parameters) [21399 21403]))                          
+                        :documentation "Get an option value for a given section.
+
+        If `vars' is provided, it must be a dictionary. The option is looked up
+        in `vars' (if provided), `section', and in `defaults' in that order.
+
+        All % interpolations are expanded in the return values, unless the
+        optional argument `raw' is true. Values for interpolation keys are
+        looked up in the same manner as the option.
+
+        The section DEFAULT is special.
+        ")
+                        (reparse-symbol indented_block_body) [21357 22619])
+                    ("items" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [22634 22638])
+                            ("section" variable nil (reparse-symbol function_parameters) [22640 22647])
+                            ("raw" variable nil (reparse-symbol function_parameters) [22649 22652])
+                            ("vars" variable nil (reparse-symbol function_parameters) [22660 22664]))                          
+                        :documentation "Return a list of tuples with (name, value) for each option
+        in the section.
+
+        All % interpolations are expanded in the return values, based on the
+        defaults passed into the constructor, unless the optional argument
+        `raw' is true.  Additional substitutions may be provided using the
+        `vars' argument, which must be a dictionary whose contents overrides
+        any pre-existing defaults.
+
+        The section DEFAULT is special.
+        ")
+                        (reparse-symbol indented_block_body) [22624 23858])
+                    ("_interpolate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [23880 23884])
+                            ("section" variable nil (reparse-symbol function_parameters) [23886 23893])
+                            ("option" variable nil (reparse-symbol function_parameters) [23895 23901])
+                            ("rawval" variable nil (reparse-symbol function_parameters) [23903 23909])
+                            ("vars" variable nil (reparse-symbol function_parameters) [23911 23915]))                          )
+                        (reparse-symbol indented_block_body) [23863 24616])
+                    ("_KEYCRE" variable nil (reparse-symbol indented_block_body) [24621 24661])
+                    ("_interpolation_replace" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [24694 24698])
+                            ("match" variable nil (reparse-symbol function_parameters) [24700 24705]))                          )
+                        (reparse-symbol indented_block_body) [24667 24855]))                  
+                :type "class")
+                nil [21315 24855])
+            ("SafeConfigParser" type
+               (:superclasses ("ConfigParser")
+                :members 
+                  ( ("_interpolate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [24917 24921])
+                            ("section" variable nil (reparse-symbol function_parameters) [24923 24930])
+                            ("option" variable nil (reparse-symbol function_parameters) [24932 24938])
+                            ("rawval" variable nil (reparse-symbol function_parameters) [24940 24946])
+                            ("vars" variable nil (reparse-symbol function_parameters) [24948 24952]))                          )
+                        (reparse-symbol indented_block_body) [24900 25102])
+                    ("_interpvar_re" variable nil (reparse-symbol indented_block_body) [25107 25151])
+                    ("_interpolate_some" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [25179 25183])
+                            ("option" variable nil (reparse-symbol function_parameters) [25185 25191])
+                            ("accum" variable nil (reparse-symbol function_parameters) [25193 25198])
+                            ("rest" variable nil (reparse-symbol function_parameters) [25200 25204])
+                            ("section" variable nil (reparse-symbol function_parameters) [25206 25213])
+                            ("map" variable nil (reparse-symbol function_parameters) [25215 25218])
+                            ("depth" variable nil (reparse-symbol function_parameters) [25220 25225]))                          )
+                        (reparse-symbol indented_block_body) [25157 26649])
+                    ("set" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [26662 26666])
+                            ("section" variable nil (reparse-symbol function_parameters) [26668 26675])
+                            ("option" variable nil (reparse-symbol function_parameters) [26677 26683])
+                            ("value" variable nil (reparse-symbol function_parameters) [26685 26690]))                          
+                        :documentation "Set an option.  Extend ConfigParser.set: check for string values.")
+                        (reparse-symbol indented_block_body) [26654 27747]))                  
+                :type "class")
+                nil [24857 27747]))          
+      :file "ConfigParser.py"
+      :pointmax 27747
+      :fsize 27746
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "traceback.py"
+      :file "traceback.py"
+      :fsize 11255
+      :lastmodtime '(22129 5631 0 0))
+    (semanticdb-table "copy_reg.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Helper to provide extensibility for pickle/cPickle.
+
+This is only useful to add pickle support for extension types defined in
+C, not for instances of user-defined classes.
+\"\"\"" code nil nil [1 179])
+            ("types" include nil nil [181 222])
+            ("__all__" variable nil nil [224 332])
+            ("dispatch_table" variable nil nil [334 353])
+            ("pickle" function (:arguments 
+              ( ("ob_type" variable nil (reparse-symbol function_parameters) [366 373])
+                ("pickle_function" variable nil (reparse-symbol function_parameters) [375 390])
+                ("constructor_ob" variable nil (reparse-symbol function_parameters) [392 406]))              ) nil [355 886])
+            ("constructor" function (:arguments 
+              ( ("object" variable nil (reparse-symbol function_parameters) [903 909]))              ) nil [887 1009])
+            ("try" code nil nil [1068 1233])
+            ("_reconstructor" function (:arguments 
+              ( ("cls" variable nil (reparse-symbol function_parameters) [1295 1298])
+                ("base" variable nil (reparse-symbol function_parameters) [1300 1304])
+                ("state" variable nil (reparse-symbol function_parameters) [1306 1311]))              ) nil [1276 1518])
+            ("_HEAPTYPE" code nil nil [1519 1535])
+            ("_reduce_ex" function
+               (:parent "dummy"
+                :arguments 
+                  ( ("self" variable nil (reparse-symbol function_parameters) [1614 1618])
+                    ("proto" variable nil (reparse-symbol function_parameters) [1620 1625]))                  )
+                nil [1599 2561])
+            ("__newobj__" function (:arguments 
+              ( ("cls" variable nil (reparse-symbol function_parameters) [2616 2619])
+                ("args" variable nil (reparse-symbol function_parameters) [2621 2626]))              ) nil [2601 2664])
+            ("_slotnames" function
+               (:documentation "Return a list of slot names for a given class.
+
+    This needs to find slots defined by the class and its bases, so we
+    can't simply return the __slots__ attribute.  We must walk down
+    the Method Resolution Order and concatenate the __slots__ of each
+    class found there.  (This assumes classes don't modify their
+    __slots__ attribute to misrepresent their slots after the class is
+    defined.)
+    "
+                :arguments 
+                  ( ("cls" variable nil (reparse-symbol function_parameters) [2680 2683]))                  )
+                nil [2665 4346])
+            ("_extension_registry" variable nil nil [4828 4852])
+            ("_inverted_registry" variable nil nil [4882 4905])
+            ("_extension_cache" variable nil nil [4936 4957])
+            ("add_extension" function
+               (:documentation "Register an extension code."
+                :arguments 
+                  ( ("module" variable nil (reparse-symbol function_parameters) [5132 5138])
+                    ("name" variable nil (reparse-symbol function_parameters) [5140 5144])
+                    ("code" variable nil (reparse-symbol function_parameters) [5146 5150]))                  )
+                nil [5114 5861])
+            ("remove_extension" function
+               (:documentation "Unregister an extension code.  For testing only."
+                :arguments 
+                  ( ("module" variable nil (reparse-symbol function_parameters) [5883 5889])
+                    ("name" variable nil (reparse-symbol function_parameters) [5891 5895])
+                    ("code" variable nil (reparse-symbol function_parameters) [5897 5901]))                  )
+                nil [5862 6321])
+            ("clear_extension_cache" function nil nil [6322 6380]))          
+      :file "copy_reg.py"
+      :pointmax 6801
+      :fsize 6800
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "sre_compile.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Internal support module for sre\"\"\"" code nil nil [225 262])
+            ("sys" include nil nil [264 280])
+            ("_sre" include nil nil [264 280])
+            ("sre_parse" include nil nil [281 297])
+            ("sre_constants" include nil nil [298 325])
+            ("_sre" include nil nil [326 352])
+            ("assert" code nil nil [354 403])
+            ("if" code nil nil [405 480])
+            ("_identityfunction" function (:arguments 
+              ( ("x" variable nil (reparse-symbol function_parameters) [503 504]))              ) nil [481 520])
+            ("_LITERAL_CODES" variable nil nil [521 565])
+            ("_REPEATING_CODES" variable nil nil [566 622])
+            ("_SUCCESS_CODES" variable nil nil [623 663])
+            ("_ASSERT_CODES" variable nil nil [664 705])
+            ("_compile" function (:arguments 
+              ( ("code" variable nil (reparse-symbol function_parameters) [720 724])
+                ("pattern" variable nil (reparse-symbol function_parameters) [726 733])
+                ("flags" variable nil (reparse-symbol function_parameters) [735 740]))              ) nil [707 6039])
+            ("_compile_charset" function (:arguments 
+              ( ("charset" variable nil (reparse-symbol function_parameters) [6061 6068])
+                ("flags" variable nil (reparse-symbol function_parameters) [6070 6075])
+                ("code" variable nil (reparse-symbol function_parameters) [6077 6081])
+                ("fixup" variable nil (reparse-symbol function_parameters) [6083 6088]))              ) nil [6040 6946])
+            ("_optimize_charset" function (:arguments 
+              ( ("charset" variable nil (reparse-symbol function_parameters) [6969 6976])
+                ("fixup" variable nil (reparse-symbol function_parameters) [6978 6983]))              ) nil [6947 8364])
+            ("_mk_bitmap" function (:arguments 
+              ( ("bits" variable nil (reparse-symbol function_parameters) [8380 8384]))              ) nil [8365 8696])
+            ("_optimize_unicode" function (:arguments 
+              ( ("charset" variable nil (reparse-symbol function_parameters) [10039 10046])
+                ("fixup" variable nil (reparse-symbol function_parameters) [10048 10053]))              ) nil [10017 11608])
+            ("_simple" function (:arguments 
+              ( ("av" variable nil (reparse-symbol function_parameters) [11621 11623]))              ) nil [11609 11829])
+            ("_compile_info" function (:arguments 
+              ( ("code" variable nil (reparse-symbol function_parameters) [11848 11852])
+                ("pattern" variable nil (reparse-symbol function_parameters) [11854 11861])
+                ("flags" variable nil (reparse-symbol function_parameters) [11863 11868]))              ) nil [11830 15228])
+            ("try" code nil nil [15229 15350])
+            ("isstring" function (:arguments 
+              ( ("obj" variable nil (reparse-symbol function_parameters) [15364 15367]))              ) nil [15351 15464])
+            ("_code" function (:arguments 
+              ( ("p" variable nil (reparse-symbol function_parameters) [15475 15476])
+                ("flags" variable nil (reparse-symbol function_parameters) [15478 15483]))              ) nil [15465 15710])
+            ("compile" function (:arguments 
+              ( ("p" variable nil (reparse-symbol function_parameters) [15723 15724])
+                ("flags" variable nil (reparse-symbol function_parameters) [15726 15731]))              ) nil [15711 16455]))          
+      :file "sre_compile.py"
+      :pointmax 16455
+      :fsize 16454
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "sre_parse.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"Internal support module for sre\"\"\"" code nil nil [240 277])
+            ("sys" include nil nil [345 355])
+            ("sre_constants" include nil nil [357 384])
+            ("_sre" include nil nil [385 411])
+            ("SPECIAL_CHARS" variable nil nil [413 444])
+            ("REPEAT_CHARS" variable nil nil [445 466])
+            ("DIGITS" variable nil nil [468 494])
+            ("OCTDIGITS" variable nil nil [496 523])
+            ("HEXDIGITS" variable nil nil [524 565])
+            ("WHITESPACE" variable nil nil [567 598])
+            ("ESCAPES" variable nil nil [600 876])
+            ("CATEGORIES" variable nil nil [878 1354])
+            ("FLAGS" variable nil nil [1356 1598])
+            ("Pattern" type
+               (:members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [1710 1724])
+                            ("self" variable nil (reparse-symbol indented_block_body) [1733 1747])
+                            ("self" variable nil (reparse-symbol indented_block_body) [1756 1771])
+                            ("self" variable nil (reparse-symbol indented_block_body) [1780 1799]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [1695 1699]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [1682 1800])
+                    ("opengroup" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [1818 1822])
+                            ("name" variable nil (reparse-symbol function_parameters) [1824 1828]))                          )
+                        (reparse-symbol indented_block_body) [1804 2241])
+                    ("closegroup" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [2260 2264])
+                            ("gid" variable nil (reparse-symbol function_parameters) [2266 2269]))                          )
+                        (reparse-symbol indented_block_body) [2245 2302])
+                    ("checkgroup" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [2321 2325])
+                            ("gid" variable nil (reparse-symbol function_parameters) [2327 2330]))                          )
+                        (reparse-symbol indented_block_body) [2306 2391]))                  
+                :type "class")
+                nil [1600 2391])
+            ("SubPattern" type
+               (:members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [2503 2525])
+                            ("if" code nil (reparse-symbol indented_block_body) [2534 2573])
+                            ("self" variable nil (reparse-symbol indented_block_body) [2581 2597])
+                            ("self" variable nil (reparse-symbol indented_block_body) [2606 2623]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [2468 2472])
+                            ("pattern" variable nil (reparse-symbol function_parameters) [2474 2481])
+                            ("data" variable nil (reparse-symbol function_parameters) [2483 2487]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [2455 2624])
+                    ("dump" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [2637 2641])
+                            ("level" variable nil (reparse-symbol function_parameters) [2643 2648]))                          )
+                        (reparse-symbol indented_block_body) [2628 3584])
+                    ("__repr__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3601 3605]))                          )
+                        (reparse-symbol indented_block_body) [3588 3639])
+                    ("__len__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3655 3659]))                          )
+                        (reparse-symbol indented_block_body) [3643 3692])
+                    ("__delitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3712 3716])
+                            ("index" variable nil (reparse-symbol function_parameters) [3718 3723]))                          )
+                        (reparse-symbol indented_block_body) [3696 3755])
+                    ("__getitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3775 3779])
+                            ("index" variable nil (reparse-symbol function_parameters) [3781 3786]))                          )
+                        (reparse-symbol indented_block_body) [3759 3920])
+                    ("__setitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3940 3944])
+                            ("index" variable nil (reparse-symbol function_parameters) [3946 3951])
+                            ("code" variable nil (reparse-symbol function_parameters) [3953 3957]))                          )
+                        (reparse-symbol indented_block_body) [3924 3992])
+                    ("insert" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4007 4011])
+                            ("index" variable nil (reparse-symbol function_parameters) [4013 4018])
+                            ("code" variable nil (reparse-symbol function_parameters) [4020 4024]))                          )
+                        (reparse-symbol indented_block_body) [3996 4065])
+                    ("append" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4080 4084])
+                            ("code" variable nil (reparse-symbol function_parameters) [4086 4090]))                          )
+                        (reparse-symbol indented_block_body) [4069 4124])
+                    ("getwidth" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4141 4145]))                          )
+                        (reparse-symbol indented_block_body) [4128 5367]))                  
+                :type "class")
+                nil [2392 5367])
+            ("Tokenizer" type
+               (:members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [5425 5445])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5454 5468])
+                            ("self" code nil (reparse-symbol indented_block_body) [5477 5490]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5402 5406])
+                            ("string" variable nil (reparse-symbol function_parameters) [5408 5414]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [5389 5491])
+                    ("raise" code nil (reparse-symbol indented_block_body) [7760 7806]))                  
+                :type "class")
+                nil [5368 7807])
+            ("_escape" function (:arguments 
+              ( ("source" variable nil (reparse-symbol function_parameters) [7820 7826])
+                ("escape" variable nil (reparse-symbol function_parameters) [7828 7834])
+                ("state" variable nil (reparse-symbol function_parameters) [7836 7841]))              ) nil [7808 9500])
+            ("_parse_sub" function (:arguments 
+              ( ("source" variable nil (reparse-symbol function_parameters) [9516 9522])
+                ("state" variable nil (reparse-symbol function_parameters) [9524 9529])
+                ("nested" variable nil (reparse-symbol function_parameters) [9531 9537]))              ) nil [9501 11126])
+            ("_parse_sub_cond" function (:arguments 
+              ( ("source" variable nil (reparse-symbol function_parameters) [11147 11153])
+                ("state" variable nil (reparse-symbol function_parameters) [11155 11160])
+                ("condgroup" variable nil (reparse-symbol function_parameters) [11162 11171]))              ) nil [11127 11645])
+            ("_PATTERNENDERS" variable nil nil [11646 11672])
+            ("_ASSERTCHARS" variable nil nil [11673 11698])
+            ("_LOOKBEHINDASSERTCHARS" variable nil nil [11699 11733])
+            ("_REPEATCODES" variable nil nil [11734 11778])
+            ("_parse" function (:arguments 
+              ( ("source" variable nil (reparse-symbol function_parameters) [11791 11797])
+                ("state" variable nil (reparse-symbol function_parameters) [11799 11804]))              ) nil [11780 27100])
+            ("expand_template" function (:arguments 
+              ( ("template" variable nil (reparse-symbol function_parameters) [27121 27129])
+                ("match" variable nil (reparse-symbol function_parameters) [27131 27136]))              ) nil [27101 27506]))          
+      :file "sre_parse.py"
+      :pointmax 27506
+      :fsize 27505
+      :lastmodtime '(22129 5631 0 0)
+      :unmatched-syntax '((ASSIGN 26813 . 26814) (INDENT_BLOCK 7743 . 7756) (NEWLINE 7742 . 7743) (COLON 7741 . 7742) (INDENT_BLOCK 7743 . 7756) (NEWLINE 7742 . 7743) (COLON 7741 . 7742)))
+    (semanticdb-table "stat.py"
+      :file "stat.py"
+      :fsize 1842
+      :lastmodtime '(22129 5631 0 0))
+    (semanticdb-table "fnmatch.py"
+      :file "fnmatch.py"
+      :fsize 3239
+      :lastmodtime '(22129 5631 0 0))
+    (semanticdb-table "collections.py"
+      :file "collections.py"
+      :fsize 25883
+      :lastmodtime '(22129 5631 0 0))
+    (semanticdb-table "types.py"
+      :file "types.py"
+      :fsize 2040
+      :lastmodtime '(22129 5631 0 0))
+    (semanticdb-table "UserDict.py"
+      :file "UserDict.py"
+      :fsize 5811
+      :lastmodtime '(22129 5631 0 0))
+    (semanticdb-table "sre_constants.py"
+      :file "sre_constants.py"
+      :fsize 7113
+      :lastmodtime '(22129 5631 0 0)))
+  :file "!usr!lib64!python2.7!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

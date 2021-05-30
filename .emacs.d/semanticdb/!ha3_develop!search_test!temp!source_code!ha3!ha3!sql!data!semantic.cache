@@ -1,0 +1,2132 @@
+;; Object data/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "data/"
+  :tables
+  (list
+    (semanticdb-table "Table.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_TABLE_H" variable (:constant-flag t) nil [33 48])
+            ("ha3/common.h" include (:system-flag t) nil [50 73])
+            ("ha3/isearch.h" include (:system-flag t) nil [74 98])
+            ("ha3/util/Log.h" include (:system-flag t) nil [99 124])
+            ("ha3/sql/data/Column.h" include (:system-flag t) nil [125 157])
+            ("ha3/sql/data/TableSchema.h" include (:system-flag t) nil [158 195])
+            ("ha3/sql/data/Row.h" include (:system-flag t) nil [196 225])
+            ("navi/engine/Data.h" include (:system-flag t) nil [226 255])
+            ("matchdoc/MatchDocAllocator.h" include (:system-flag t) nil [256 295])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [317 321]))                  
+                :type "int")
+                nil [297 322])
+            ("MultiColumnComparator" type
+               (:prototype t
+                :type "class")
+                nil [324 352])
+            ("TableUtil" type
+               (:prototype t
+                :type "class")
+                nil [353 369])
+            ("TableSerializeInfo" type
+               (:members 
+                  ( ("TableSerializeInfo" function
+                       (:constructor-flag t
+                        :type ("TableSerializeInfo" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [403 512])
+                    ("version" variable
+                       (:suffix ":4"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [517 536])
+                    ("compress" variable
+                       (:suffix ":4"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [541 561])
+                    ("serializeLevel" variable
+                       (:suffix ":8"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [566 592]))                  
+                :type "struct")
+                nil [371 595])
+            ("Table" type
+               (:superclasses 
+                  ( ("navi::Data" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [631 638])
+                    ("Table" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [649 677]))                          
+                        :type ("Table" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [643 678])
+                    ("Table" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("matchDocs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("matchdoc::MatchDoc" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [689 738])
+                            ("allocator" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("matchdoc::MatchDocAllocatorPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [749 797])
+                            ("level" variable
+                               (:default-value "SL_ATTRIBUTE"
+                                :type ("uint8_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [808 836]))                          
+                        :type ("Table" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [683 838])
+                    ("Table" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [843 852])
+                    ("private" label nil (reparse-symbol classsubparts) [853 861])
+                    ("Table" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Table" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [872 886]))                          
+                        :type ("Table" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [866 887])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Table" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [909 923]))                          
+                        :type ("Table" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [892 924])
+                    ("public" label nil (reparse-symbol classsubparts) [925 932])
+                    ("getRowCount" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [937 1000])
+                    ("getColumnCount" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1005 1076])
+                    ("getColumn" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1101 1125]))                          
+                        :type ("ColumnPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1081 1132])
+                    ("getColumn" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("col" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1157 1168]))                          
+                        :type ("ColumnPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1137 1175])
+                    ("declareColumn" function
+                       (:template 
+                          ( ("T" type (:type "class") nil nil))                          
+                        :type ("ColumnPtr" type (:type "class") nil nil)
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1230 1254]))                          
+                        :prototype-flag t)
+                        (reparse-symbol classsubparts) [1180 1255])
+                    ("getTableSchema" function
+                       (:constant-flag t
+                        :type ("TableSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1260 1333])
+                    ("merge" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("other" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::shared_ptr" type
+                                     (:template-specifier 
+                                        ( ("Table" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1349 1385]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1338 1386])
+                    ("getRow" function
+                       (:typemodifiers ("inline")
+                        :arguments 
+                          ( ("rowIndex" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1409 1425]))                          
+                        :type ("Row" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1391 1512])
+                    ("allocateRow" function
+                       (:prototype-flag t
+                        :type ("Row" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1517 1535])
+                    ("batchAllocateRow" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("count" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1562 1575]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1540 1576])
+                    ("public" label nil (reparse-symbol classsubparts) [1577 1584])
+                    ("serialize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dataBuffer" variable
+                               (:reference 1
+                                :type ("autil::DataBuffer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1604 1634]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1589 1641])
+                    ("deserialize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dataBuffer" variable
+                               (:reference 1
+                                :type ("autil::DataBuffer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1663 1693]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1646 1694])
+                    ("serializeToString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("data" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1722 1740])
+                            ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1741 1769]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1699 1776])
+                    ("deserializeFromString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("data" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1808 1832])
+                            ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1833 1861]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1781 1862])
+                    ("protected" label nil (reparse-symbol classsubparts) [1863 1873])
+                    ("toString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("row" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1899 1910])
+                            ("col" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1911 1922]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1878 1929])
+                    ("getColumnName" function
+                       (:constant-flag t
+                        :arguments 
+                          ( ("col" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1967 1978]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1934 2094])
+                    ("getRows" function (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("Row" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2099 2143])
+                    ("setRows" function
+                       (:arguments 
+                          ( ("rows" variable (:type ("std::vector" type
+                                 (:template-specifier 
+                                    ( ("Row" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol arg-sub-list) [2161 2183]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2148 2259])
+                    ("markDeleteRow" function
+                       (:typemodifiers ("inline")
+                        :arguments 
+                          ( ("rowIndex" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2290 2306]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2264 2501])
+                    ("deleteRows" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2506 2524])
+                    ("TableUtil" friend nil (reparse-symbol classsubparts) [2529 2551])
+                    ("private" label nil (reparse-symbol classsubparts) [2553 2561])
+                    ("init" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2566 2578])
+                    ("createColumnData" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("refBase" variable
+                               (:pointer 1
+                                :type ("matchdoc::ReferenceBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2616 2649])
+                            ("rows" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Row" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2650 2673]))                          
+                        :type ("ColumnDataBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2583 2674])
+                    ("private" label nil (reparse-symbol classsubparts) [2675 2683])
+                    ("_columnVec" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("ColumnPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2688 2722])
+                    ("_columnMap" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("ColumnPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2727 2771])
+                    ("_deleteFlag" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("bool" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2776 2806])
+                    ("_rows" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("Row" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2823 2846])
+                    ("_allocator" variable (:type ("matchdoc::MatchDocAllocatorPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2851 2893])
+                    ("_schema" variable (:type ("TableSchema" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2898 2918])
+                    ("_serializeInfo" variable (:type ("TableSerializeInfo" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2923 2957])
+                    ("private" label nil (reparse-symbol classsubparts) [2958 2966])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [2971 2989]))                  
+                :type "class")
+                nil [597 2992])
+            ("declareColumn" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("ColumnPtr" type (:type "class") nil nil)
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3047 3071]))                  
+                :parent "Table")
+                nil [2994 4027])
+            ("TablePtr" type
+               (:typedef ("std::shared_ptr" type
+                     (:template-specifier 
+                        ( ("Table" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [4029 4069])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4089 4093]))                  
+                :type "int")
+                nil [4071 4094]))          
+      :file "Table.h"
+      :pointmax 4121
+      :fsize 4120
+      :lastmodtime '(23671 16290 333162 768000)
+      :unmatched-syntax '((thing 2551 . 2552))
+      :lexical-table 
+        '(("ISEARCH_TABLE_H")
+          )
+)
+    (semanticdb-table "Table.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/data/Table.h" include (:system-flag t) nil [1 32])
+            ("ha3/sql/rank/MultiColumnComparator.h" include (:system-flag t) nil [33 80])
+            ("matchdoc/Reference.h" include (:system-flag t) nil [81 112])
+            ("matchdoc/CommonDefine.h" include (:system-flag t) nil [113 147])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [149 169])
+            ("matchdoc" using (:type ("matchdoc" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [170 195])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [196 218])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [239 243]))                  
+                :type "int")
+                nil [219 244])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [259 263])
+                    ("" variable (:type ("Table" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [264 270]))                  
+                :type "int")
+                nil [245 271])
+            ("Table" function
+               (:constructor-flag t
+                :parent "Table"
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [286 314]))                  
+                :type ("Table" type (:type "class") nil nil))
+                nil [273 369])
+            ("Table" function
+               (:constructor-flag t
+                :parent "Table"
+                :arguments 
+                  ( ("matchDocs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("MatchDoc" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [384 418])
+                    ("allocator" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MatchDocAllocatorPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [419 457])
+                    ("level" variable (:type ("uint8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [458 472]))                  
+                :type ("Table" type (:type "class") nil nil))
+                nil [371 582])
+            ("init" function
+               (:parent "Table"
+                :type "void")
+                nil [584 1313])
+            ("deleteRows" function
+               (:parent "Table"
+                :type "void")
+                nil [1315 1642])
+            ("createColumnData" function
+               (:pointer 1
+                :parent "Table"
+                :arguments 
+                  ( ("refBase" variable
+                       (:pointer 1
+                        :type ("ReferenceBase" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1684 1707])
+                    ("rows" variable
+                       (:pointer 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("Row" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1708 1726]))                  
+                :type ("ColumnDataBase" type (:type "class") nil nil))
+                nil [1644 3486])
+            ("Table" function
+               (:destructor-flag t
+                :parent "Table"
+                :type "void")
+                nil [3488 3507])
+            ("getColumn" function
+               (:parent "Table"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3536 3555]))                  
+                :type ("ColumnPtr" type (:type "class") nil nil))
+                nil [3509 3790])
+            ("getColumn" function
+               (:parent "Table"
+                :arguments 
+                  ( ("col" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3819 3830]))                  
+                :type ("ColumnPtr" type (:type "class") nil nil))
+                nil [3792 3907])
+            ("allocateRow" function
+               (:parent "Table"
+                :type ("Row" type (:type "class") nil nil))
+                nil [3909 4017])
+            ("batchAllocateRow" function
+               (:parent "Table"
+                :arguments 
+                  ( ("count" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4048 4061]))                  
+                :type "void")
+                nil [4019 4179])
+            ("merge" function
+               (:parent "Table"
+                :arguments 
+                  ( ("other" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("TablePtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4199 4221]))                  
+                :type "bool")
+                nil [4181 4540])
+            ("serialize" function
+               (:parent "Table"
+                :arguments 
+                  ( ("dataBuffer" variable
+                       (:reference 1
+                        :type ("autil::DataBuffer" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4564 4594]))                  
+                :type "void")
+                nil [4542 4775])
+            ("deserialize" function
+               (:parent "Table"
+                :arguments 
+                  ( ("dataBuffer" variable
+                       (:reference 1
+                        :type ("autil::DataBuffer" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4801 4831]))                  
+                :type "void")
+                nil [4777 5034])
+            ("serializeToString" function
+               (:parent "Table"
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5066 5084])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5085 5113]))                  
+                :type "void")
+                nil [5036 5303])
+            ("deserializeFromString" function
+               (:parent "Table"
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5339 5363])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5364 5392]))                  
+                :type "void")
+                nil [5305 5492])
+            ("toString" function
+               (:parent "Table"
+                :arguments 
+                  ( ("row" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5517 5528])
+                    ("col" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5529 5540]))                  
+                :type ("string" type (:type "class") nil nil))
+                nil [5494 5662])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5682 5686]))                  
+                :type "int")
+                nil [5664 5687]))          
+      :file "Table.cpp"
+      :pointmax 5688
+      :fsize 5687
+      :lastmodtime '(23671 42867 620664 28000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Column.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_COLUMN_H" variable (:constant-flag t) nil [34 50])
+            ("ha3/common.h" include (:system-flag t) nil [52 75])
+            ("ha3/isearch.h" include (:system-flag t) nil [76 100])
+            ("ha3/util/Log.h" include (:system-flag t) nil [101 126])
+            ("ha3/sql/data/ColumnData.h" include (:system-flag t) nil [127 163])
+            ("ha3/sql/data/ColumnSchema.h" include (:system-flag t) nil [164 202])
+            ("matchdoc/Reference.h" include (:system-flag t) nil [203 234])
+            ("matchdoc/MatchDoc.h" include (:system-flag t) nil [235 265])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [287 291]))                  
+                :type "int")
+                nil [267 292])
+            ("Column" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [309 316])
+                    ("Column" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("columnSchema" variable
+                               (:pointer 1
+                                :type ("ColumnSchema" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [328 355])
+                            ("columnData" variable
+                               (:pointer 1
+                                :type ("ColumnDataBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [356 383]))                          
+                        :type ("Column" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [321 384])
+                    ("Column" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [389 399])
+                    ("private" label nil (reparse-symbol classsubparts) [400 408])
+                    ("Column" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Column" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [420 435]))                          
+                        :type ("Column" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [413 436])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Column" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [459 474]))                          
+                        :type ("Column" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [441 475])
+                    ("public" label nil (reparse-symbol classsubparts) [476 483])
+                    ("getColumnData" function
+                       (:template 
+                          ( ("T" type (:type "class") nil nil))                          
+                        :type ("ColumnData" type
+                             (:template-specifier 
+                                ( ("T" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :pointer 1)
+                        (reparse-symbol classsubparts) [488 604])
+                    ("getColumnSchema" function
+                       (:pointer 1
+                        :type ("ColumnSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [610 679])
+                    ("toString" function
+                       (:arguments 
+                          ( ("row" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [706 717]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [685 768])
+                    ("getRowCount" function
+                       (:typemodifiers ("inline")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [774 852])
+                    ("private" label nil (reparse-symbol classsubparts) [853 861])
+                    ("_schema" variable
+                       (:pointer 1
+                        :type ("ColumnSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [866 888])
+                    ("_data" variable
+                       (:pointer 1
+                        :type ("ColumnDataBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [893 915])
+                    ("private" label nil (reparse-symbol classsubparts) [917 925])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [930 948]))                  
+                :type "class")
+                nil [294 951])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Column" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [969 976]))                  
+                :type "int")
+                nil [953 977])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [997 1001]))                  
+                :type "int")
+                nil [979 1002]))          
+      :file "Column.h"
+      :pointmax 1030
+      :fsize 1029
+      :lastmodtime '(23662 15963 642488 332000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_COLUMN_H")
+          )
+)
+    (semanticdb-table "Column.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/data/Column.h" include (:system-flag t) nil [1 33])
+            ("ha3/sql/data/DataCommon.h" include (:system-flag t) nil [34 70])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [72 92])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [114 118]))                  
+                :type "int")
+                nil [94 119])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [134 138])
+                    ("" variable (:type ("Column" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [139 146]))                  
+                :type "int")
+                nil [120 147])
+            ("Column" function
+               (:constructor-flag t
+                :parent "Column"
+                :arguments 
+                  ( ("columnSchema" variable
+                       (:pointer 1
+                        :type ("ColumnSchema" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [164 191])
+                    ("columnData" variable
+                       (:pointer 1
+                        :type ("ColumnDataBase" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [192 219]))                  
+                :type ("Column" type (:type "class") nil nil))
+                nil [149 275])
+            ("Column" function
+               (:destructor-flag t
+                :parent "Column"
+                :type "void")
+                nil [277 350])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [370 374]))                  
+                :type "int")
+                nil [352 375]))          
+      :file "Column.cpp"
+      :pointmax 377
+      :fsize 376
+      :lastmodtime '(23662 15086 629874 696000)
+      :unmatched-syntax nil)
+    (semanticdb-table "SConscript"
+      :major-mode 'python-mode
+      :tags 
+        '( ("Import" code nil nil [25 38])
+            ("env" variable nil nil [39 56])
+            ("source" variable nil nil [57 79])
+            ("depend_libs" variable nil nil [81 97])
+            ("env" code nil nil [99 195])
+            ("env" code nil nil [197 214])
+            ("Return" code nil nil [216 232]))          
+      :file "SConscript"
+      :pointmax 233
+      :fsize 232
+      :lastmodtime '(23662 15963 643488 333000)
+      :unmatched-syntax nil)
+    (semanticdb-table "DataCommon.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_DATACOMMON_H" variable (:constant-flag t) nil [38 58])
+            ("matchdoc/ValueType.h" include nil nil [60 91])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [113 117]))                  
+                :type "int")
+                nil [93 118])
+            ("ValueType" variable (:type ("matchdoc::ValueType" type (:type "class") nil nil)) nil [128 158])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [178 182]))                  
+                :type "int")
+                nil [160 183]))          
+      :file "DataCommon.h"
+      :pointmax 215
+      :fsize 214
+      :lastmodtime '(23662 15086 630874 696000)
+      :unmatched-syntax '((thing 120 . 127) (thing 120 . 127))
+      :lexical-table 
+        '(("ISEARCH_DATACOMMON_H")
+          )
+)
+    (semanticdb-table "ColumnData.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/data/ColumnData.h" include (:system-flag t) nil [1 37])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [39 59])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [81 85]))                  
+                :type "int")
+                nil [61 86])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [106 110]))                  
+                :type "int")
+                nil [88 111]))          
+      :file "ColumnData.cpp"
+      :pointmax 113
+      :fsize 112
+      :lastmodtime '(23662 15963 642488 332000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ColumnData.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_COLUMN_DATA_H" variable (:constant-flag t) nil [39 60])
+            ("ha3/common.h" include (:system-flag t) nil [62 85])
+            ("ha3/isearch.h" include (:system-flag t) nil [86 110])
+            ("ha3/util/Log.h" include (:system-flag t) nil [111 136])
+            ("ha3/sql/data/DataCommon.h" include (:system-flag t) nil [137 173])
+            ("ha3/sql/data/Row.h" include (:system-flag t) nil [174 203])
+            ("matchdoc/Reference.h" include (:system-flag t) nil [204 235])
+            ("autil/Hash64Function.h" include (:system-flag t) nil [236 269])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [291 295]))                  
+                :type "int")
+                nil [271 296])
+            ("Column" type
+               (:prototype t
+                :type "class")
+                nil [298 311])
+            ("ColumnDataBase" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [336 343])
+                    ("ColumnDataBase" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("ref" variable
+                               (:pointer 1
+                                :type ("matchdoc::ReferenceBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [363 392])
+                            ("rows" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Row" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [393 416]))                          
+                        :type ("ColumnDataBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [348 465])
+                    ("ColumnDataBase" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [470 498])
+                    ("public" label nil (reparse-symbol classsubparts) [499 506])
+                    ("toString" function
+                       (:arguments 
+                          ( ("rowIndex" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [532 548]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [511 613])
+                    ("getRowCount" function
+                       (:typemodifiers ("inline")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [618 689])
+                    ("protected" label nil (reparse-symbol classsubparts) [690 700])
+                    ("_ref" variable
+                       (:pointer 1
+                        :type ("matchdoc::ReferenceBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [705 735])
+                    ("_rows" variable
+                       (:pointer 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("Row" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [740 764]))                  
+                :type "class")
+                nil [313 767])
+            ("ColumnData" type
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "class"
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [834 841])
+                    ("ColumnData" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("ref" variable
+                               (:pointer 1
+                                :type ("matchdoc::Reference" type
+                                     (:template-specifier 
+                                        ( ("T" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [857 885])
+                            ("rows" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Row" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [886 909]))                          
+                        :type ("ColumnData" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [846 972])
+                    ("ColumnData" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [977 993])
+                    ("public" label nil (reparse-symbol classsubparts) [994 1001])
+                    ("get" function
+                       (:prototype-flag t
+                        :typemodifiers ("inline")
+                        :constant-flag t
+                        :arguments 
+                          ( ("rowIndex" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1026 1042]))                          
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1006 1049])
+                    ("get" function
+                       (:prototype-flag t
+                        :typemodifiers ("inline")
+                        :constant-flag t
+                        :arguments 
+                          ( ("row" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Row" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1074 1089]))                          
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1054 1096])
+                    ("set" function
+                       (:prototype-flag t
+                        :typemodifiers ("inline")
+                        :arguments 
+                          ( ("rowIndex" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1117 1133])
+                            ("value" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1134 1149]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1101 1150])
+                    ("set" function
+                       (:prototype-flag t
+                        :typemodifiers ("inline")
+                        :arguments 
+                          ( ("row" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Row" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1171 1186])
+                            ("value" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1187 1202]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1155 1203])
+                    ("private" label nil (reparse-symbol classsubparts) [1204 1212])
+                    ("_ref" variable
+                       (:pointer 1
+                        :type ("matchdoc::Reference" type
+                             (:template-specifier 
+                                ( ("T" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1217 1246])
+                    ("private" label nil (reparse-symbol classsubparts) [1247 1255])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1260 1278]))                  
+                :superclasses 
+                  ( ("ColumnDataBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  )
+                nil [769 1281])
+            ("HA3_LOG_SETUP_TEMPLATE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1306 1310])
+                    ("" variable (:type ("ColumnData" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1311 1322])
+                    ("" variable (:type ("T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1323 1325]))                  
+                :type "int")
+                nil [1283 1326])
+            ("get" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("T" type (:type "class") nil nil)
+                :arguments 
+                  ( ("rowIndex" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1384 1400]))                  
+                :constant-flag t
+                :typemodifiers ("inline")
+                :parent "ColumnData")
+                nil [1328 1490])
+            ("get" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("T" type (:type "class") nil nil)
+                :arguments 
+                  ( ("row" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Row" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1548 1563]))                  
+                :constant-flag t
+                :typemodifiers ("inline")
+                :parent "ColumnData")
+                nil [1492 1600])
+            ("set" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("rowIndex" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1654 1670])
+                    ("value" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1671 1686]))                  
+                :typemodifiers ("inline")
+                :parent "ColumnData")
+                nil [1602 1770])
+            ("set" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("row" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Row" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1824 1839])
+                    ("value" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1840 1855]))                  
+                :typemodifiers ("inline")
+                :parent "ColumnData")
+                nil [1772 1886])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1906 1910]))                  
+                :type "int")
+                nil [1888 1911]))          
+      :file "ColumnData.h"
+      :pointmax 1944
+      :fsize 1943
+      :lastmodtime '(23662 15963 642488 332000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_COLUMN_DATA_H")
+          )
+)
+    (semanticdb-table "TableSchema.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_TABLESCHEMA_H" variable (:constant-flag t) nil [39 60])
+            ("ha3/common.h" include (:system-flag t) nil [62 85])
+            ("ha3/isearch.h" include (:system-flag t) nil [86 110])
+            ("ha3/util/Log.h" include (:system-flag t) nil [111 136])
+            ("ha3/sql/data/ColumnSchema.h" include (:system-flag t) nil [137 175])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [197 201]))                  
+                :type "int")
+                nil [177 202])
+            ("TableSchema" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [224 231])
+                    ("TableSchema" function
+                       (:constructor-flag t
+                        :type ("TableSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [236 252])
+                    ("TableSchema" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [257 274])
+                    ("private" label nil (reparse-symbol classsubparts) [275 283])
+                    ("TableSchema" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TableSchema" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [300 320]))                          
+                        :type ("TableSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [288 321])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TableSchema" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [349 369]))                          
+                        :type ("TableSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [326 370])
+                    ("public" label nil (reparse-symbol classsubparts) [371 378])
+                    ("addColumnSchema" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("columnSchema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ColumnSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [404 440]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [383 441])
+                    ("eraseColumnSchema" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [537 561]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [514 562])
+                    ("getColumnSchema" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [597 621]))                          
+                        :type ("ColumnSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [567 628])
+                    ("private" label nil (reparse-symbol classsubparts) [629 637])
+                    ("_columnSchema" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("ColumnSchemaPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [642 695])
+                    ("private" label nil (reparse-symbol classsubparts) [696 704])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [709 727]))                  
+                :type "class")
+                nil [204 730])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("TableSchema" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [748 760]))                  
+                :type "int")
+                nil [732 761])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [781 785]))                  
+                :type "int")
+                nil [763 786]))          
+      :file "TableSchema.h"
+      :pointmax 819
+      :fsize 818
+      :lastmodtime '(23662 15963 643488 333000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_TABLESCHEMA_H")
+          )
+)
+    (semanticdb-table "TableSchema.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/data/TableSchema.h" include (:system-flag t) nil [1 38])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [40 60])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [82 86]))                  
+                :type "int")
+                nil [62 87])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [102 106])
+                    ("" variable (:type ("TableSchema" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [107 119]))                  
+                :type "int")
+                nil [88 120])
+            ("addColumnSchema" function
+               (:parent "TableSchema"
+                :arguments 
+                  ( ("columnSchema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("ColumnSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [156 192]))                  
+                :type "bool")
+                nil [122 500])
+            ("eraseColumnSchema" function
+               (:parent "TableSchema"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [942 966]))                  
+                :type "bool")
+                nil [906 1195])
+            ("getColumnSchema" function
+               (:pointer 1
+                :parent "TableSchema"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1240 1259]))                  
+                :type ("ColumnSchema" type (:type "class") nil nil))
+                nil [1197 1476])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1997 2001]))                  
+                :type "int")
+                nil [1979 2002]))          
+      :file "TableSchema.cpp"
+      :pointmax 2004
+      :fsize 2003
+      :lastmodtime '(23662 15963 643488 333000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ColumnSchema.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_COLUMNSCHEMA_H" variable (:constant-flag t) nil [40 62])
+            ("ha3/common.h" include (:system-flag t) nil [64 87])
+            ("ha3/isearch.h" include (:system-flag t) nil [88 112])
+            ("ha3/util/Log.h" include (:system-flag t) nil [113 138])
+            ("ha3/sql/data/DataCommon.h" include (:system-flag t) nil [139 175])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [197 201]))                  
+                :type "int")
+                nil [177 202])
+            ("ColumnSchema" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [225 232])
+                    ("ColumnSchema" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("name" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [250 267])
+                            ("type" variable (:type ("ValueType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [268 283]))                          
+                        :type ("ColumnSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [237 284])
+                    ("ColumnSchema" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [289 305])
+                    ("private" label nil (reparse-symbol classsubparts) [306 314])
+                    ("ColumnSchema" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ColumnSchema" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [332 353]))                          
+                        :type ("ColumnSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [319 354])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ColumnSchema" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [383 404]))                          
+                        :type ("ColumnSchema" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [359 405])
+                    ("public" label nil (reparse-symbol classsubparts) [406 413])
+                    ("getName" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [418 482])
+                    ("getType" function (:type ("ValueType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [488 543])
+                    ("private" label nil (reparse-symbol classsubparts) [544 552])
+                    ("_name" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [557 575])
+                    ("_type" variable (:type ("ValueType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [580 596])
+                    ("private" label nil (reparse-symbol classsubparts) [597 605])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [610 628]))                  
+                :type "class")
+                nil [204 631])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("ColumnSchema" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [649 662]))                  
+                :type "int")
+                nil [633 663])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [683 687]))                  
+                :type "int")
+                nil [665 688]))          
+      :file "ColumnSchema.h"
+      :pointmax 722
+      :fsize 721
+      :lastmodtime '(23662 15963 642488 332000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_COLUMNSCHEMA_H")
+          )
+)
+    (semanticdb-table "ColumnSchema.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/data/ColumnSchema.h" include (:system-flag t) nil [1 39])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [41 61])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [83 87]))                  
+                :type "int")
+                nil [63 88])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [103 107])
+                    ("" variable (:type ("ColumnSchema" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [108 121]))                  
+                :type "int")
+                nil [89 122])
+            ("ColumnSchema" function
+               (:constructor-flag t
+                :parent "ColumnSchema"
+                :arguments 
+                  ( ("name" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [151 168])
+                    ("vt" variable (:type ("ValueType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [169 182]))                  
+                :type ("ColumnSchema" type (:type "class") nil nil))
+                nil [124 220])
+            ("ColumnSchema" function
+               (:destructor-flag t
+                :parent "ColumnSchema"
+                :type "void")
+                nil [222 256])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [276 280]))                  
+                :type "int")
+                nil [258 281]))          
+      :file "ColumnSchema.cpp"
+      :pointmax 283
+      :fsize 285
+      :lastmodtime '(23671 34155 485515 816000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Row.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_ROW_H" variable (:constant-flag t) nil [31 44])
+            ("ha3/common.h" include (:system-flag t) nil [46 69])
+            ("ha3/isearch.h" include (:system-flag t) nil [70 94])
+            ("ha3/util/Log.h" include (:system-flag t) nil [95 120])
+            ("matchdoc/MatchDoc.h" include nil nil [121 151])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [173 177]))                  
+                :type "int")
+                nil [153 178])
+            ("Row" type
+               (:typedef ("matchdoc::MatchDoc" type (:type "class") nil nil)
+                :type "typedef")
+                nil [180 211])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Row" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [229 233]))                  
+                :type "int")
+                nil [213 234])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [254 258]))                  
+                :type "int")
+                nil [236 259]))          
+      :file "Row.h"
+      :pointmax 284
+      :fsize 283
+      :lastmodtime '(23662 15963 643488 333000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_ROW_H")
+          )
+)
+    (semanticdb-table "TensorData.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_TENSORDATA_H" variable (:constant-flag t) nil [38 58])
+            ("ha3/common.h" include (:system-flag t) nil [59 82])
+            ("ha3/isearch.h" include (:system-flag t) nil [83 107])
+            ("ha3/util/Log.h" include (:system-flag t) nil [108 133])
+            ("navi/engine/Data.h" include (:system-flag t) nil [134 163])
+            ("autil/mem_pool/Pool.h" include (:system-flag t) nil [164 196])
+            ("autil/DataBuffer.h" include (:system-flag t) nil [197 226])
+            ("tensorflow/core/framework/tensor.h" include nil nil [227 272])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [294 298]))                  
+                :type "int")
+                nil [274 299])
+            ("TensorData" type
+               (:superclasses 
+                  ( ("navi::Data" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [340 347])
+                    ("TensorData" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [363 397]))                          
+                        :type ("TensorData" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [352 399])
+                    ("TensorData" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("tensor" variable (:type ("tensorflow::Tensor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [415 441])
+                            ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [442 470]))                          
+                        :type ("TensorData" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [404 471])
+                    ("private" label nil (reparse-symbol classsubparts) [472 480])
+                    ("TensorData" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TensorData" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [496 515]))                          
+                        :type ("TensorData" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [485 516])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TensorData" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [543 562]))                          
+                        :type ("TensorData" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [521 563])
+                    ("public" label nil (reparse-symbol classsubparts) [564 571])
+                    ("getTensor" function
+                       (:constant-flag t
+                        :type ("tensorflow::Tensor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [576 651])
+                    ("serialize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dataBuffer" variable
+                               (:reference 1
+                                :type ("autil::DataBuffer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [671 701]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [656 708])
+                    ("deserialize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dataBuffer" variable
+                               (:reference 1
+                                :type ("autil::DataBuffer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [730 760]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [713 761])
+                    ("serializeToString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("data" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [789 807])
+                            ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [808 836]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [766 843])
+                    ("deserializeFromString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("data" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [875 899])
+                            ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [900 928]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [848 929])
+                    ("private" label nil (reparse-symbol classsubparts) [931 939])
+                    ("_tensor" variable (:type ("tensorflow::Tensor" type (:type "class") nil nil)) (reparse-symbol classsubparts) [944 971])
+                    ("_pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [976 1005])
+                    ("private" label nil (reparse-symbol classsubparts) [1006 1014])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1019 1037]))                  
+                :type "class")
+                nil [301 1041])
+            ("TensorDataPtr" type
+               (:typedef ("std::shared_ptr" type
+                     (:template-specifier 
+                        ( ("TensorData" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [1042 1092])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1112 1116]))                  
+                :type "int")
+                nil [1094 1117]))          
+      :file "TensorData.h"
+      :pointmax 1144
+      :fsize 1143
+      :lastmodtime '(23662 15963 643488 333000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_TENSORDATA_H")
+          )
+)
+    (semanticdb-table "TensorData.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/data/TensorData.h" include (:system-flag t) nil [1 37])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [38 58])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [59 81])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [102 106]))                  
+                :type "int")
+                nil [82 107])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [122 126])
+                    ("" variable (:type ("TensorData" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [127 138]))                  
+                :type "int")
+                nil [108 139])
+            ("TensorData" function
+               (:constructor-flag t
+                :parent "TensorData"
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [164 192]))                  
+                :type ("TensorData" type (:type "class") nil nil))
+                nil [141 213])
+            ("TensorData" function
+               (:constructor-flag t
+                :parent "TensorData"
+                :arguments 
+                  ( ("tensor" variable (:type ("tensorflow::Tensor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [237 263])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [264 292]))                  
+                :type ("TensorData" type (:type "class") nil nil))
+                nil [214 335])
+            ("serialize" function
+               (:parent "TensorData"
+                :arguments 
+                  ( ("dataBuffer" variable
+                       (:reference 1
+                        :type ("autil::DataBuffer" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [364 394]))                  
+                :type "void")
+                nil [337 566])
+            ("deserialize" function
+               (:parent "TensorData"
+                :arguments 
+                  ( ("dataBuffer" variable
+                       (:reference 1
+                        :type ("autil::DataBuffer" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [597 627]))                  
+                :type "void")
+                nil [568 785])
+            ("serializeToString" function
+               (:parent "TensorData"
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [822 840])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [841 869]))                  
+                :type "void")
+                nil [787 1059])
+            ("deserializeFromString" function
+               (:parent "TensorData"
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1100 1124])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1125 1153]))                  
+                :type "void")
+                nil [1061 1253])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1273 1277]))                  
+                :type "int")
+                nil [1255 1278]))          
+      :file "TensorData.cpp"
+      :pointmax 1279
+      :fsize 1292
+      :lastmodtime '(23662 15963 643488 333000)
+      :unmatched-syntax nil)
+    (semanticdb-table "TableUtil.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_TABLEUTIL_H" variable (:constant-flag t) nil [37 56])
+            ("ha3/common.h" include (:system-flag t) nil [58 81])
+            ("ha3/isearch.h" include (:system-flag t) nil [82 106])
+            ("ha3/util/Log.h" include (:system-flag t) nil [107 132])
+            ("ha3/sql/data/Table.h" include (:system-flag t) nil [133 164])
+            ("ha3/sql/rank/Comparator.h" include (:system-flag t) nil [165 201])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [223 227]))                  
+                :type "int")
+                nil [203 228])
+            ("TableUtil" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [248 255])
+                    ("TableUtil" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("TableUtil" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [260 272])
+                    ("TableUtil" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [277 290])
+                    ("private" label nil (reparse-symbol classsubparts) [291 299])
+                    ("TableUtil" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TableUtil" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [314 332]))                          
+                        :type ("TableUtil" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [304 333])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TableUtil" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [359 377]))                          
+                        :type ("TableUtil" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [338 378])
+                    ("public" label nil (reparse-symbol classsubparts) [379 386])
+                    ("sort" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("table" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TablePtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [408 430])
+                            ("comparator" variable
+                               (:pointer 1
+                                :type ("Comparator" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [431 454]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [391 455])
+                    ("topK" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("table" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TablePtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [477 499])
+                            ("comparator" variable
+                               (:pointer 1
+                                :type ("Comparator" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [500 523])
+                            ("limit" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [524 537]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [460 538])
+                    ("calculateHashValue" function
+                       (:template 
+                          ( ("T" type (:type "class") nil nil))                          
+                        :type ("size_t" type (:type "class") nil nil)
+                        :arguments 
+                          ( ("data" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [602 616]))                          
+                        :typemodifiers ("static")
+                        :prototype-flag t)
+                        (reparse-symbol classsubparts) [543 617])
+                    ("toString" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("table" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TablePtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [650 672]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [622 673])
+                    ("toJsonString" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("table" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TablePtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [710 732]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [678 733])
+                    ("private" label nil (reparse-symbol classsubparts) [734 742])
+                    ("valueTypeToString" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("vt" variable (:type ("ValueType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [784 797]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [747 798])
+                    ("private" label nil (reparse-symbol classsubparts) [799 807])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [812 830]))                  
+                :type "class")
+                nil [230 833])
+            ("calculateHashValue" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [893 907]))                  
+                :parent "TableUtil")
+                nil [835 951])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("autil::MultiChar" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1008 1037]))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil")
+                nil [953 1132])
+            ("CALCULATE_HASH_VALUE" variable (:constant-flag t) nil [1142 1162])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("int8_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("int8_t" type nil nil nil))                  )
+                nil [1513 1541])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("int16_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("int16_t" type nil nil nil))                  )
+                nil [1542 1571])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("int32_t" type nil nil nil))                  )
+                nil [1572 1601])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("int64_t" type nil nil nil))                  )
+                nil [1602 1631])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("uint8_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("uint8_t" type nil nil nil))                  )
+                nil [1632 1661])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("uint16_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("uint16_t" type nil nil nil))                  )
+                nil [1662 1692])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("uint32_t" type nil nil nil))                  )
+                nil [1693 1723])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("uint64_t" type nil nil nil))                  )
+                nil [1724 1754])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("float" type nil nil nil))                  )
+                nil [1755 1782])
+            ("calculateHashValue" function
+               (:type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type "double")
+                        (reparse-symbol arg-sub-list) nil))                  
+                :typemodifiers ("inline")
+                :parent "TableUtil"
+                :template-specifier 
+                  ( ("double" type nil nil nil))                  )
+                nil [1783 1811])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("TableUtil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1858 1868]))                  
+                :type "int")
+                nil [1842 1869])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1889 1893]))                  
+                :type "int")
+                nil [1871 1894]))          
+      :file "TableUtil.h"
+      :pointmax 1925
+      :fsize 1924
+      :lastmodtime '(23671 16290 333162 768000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_TABLEUTIL_H")
+          )
+)
+    (semanticdb-table "TableUtil.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/data/TableUtil.h" include (:system-flag t) nil [1 36])
+            ("ha3/sql/data/TableJson.h" include (:system-flag t) nil [37 72])
+            ("autil/legacy/jsonizable.h" include (:system-flag t) nil [73 109])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [111 131])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [153 157]))                  
+                :type "int")
+                nil [133 158])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [173 177])
+                    ("" variable (:type ("TableUtil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [178 188]))                  
+                :type "int")
+                nil [159 189])
+            ("TableUtil" function
+               (:constructor-flag t
+                :parent "TableUtil"
+                :type ("TableUtil" type (:type "class") nil nil))
+                nil [191 217])
+            ("TableUtil" function
+               (:destructor-flag t
+                :parent "TableUtil"
+                :type "void")
+                nil [219 246])
+            ("sort" function
+               (:parent "TableUtil"
+                :arguments 
+                  ( ("table" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("TablePtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [269 291])
+                    ("comparator" variable
+                       (:pointer 1
+                        :type ("Comparator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [292 315]))                  
+                :type "void")
+                nil [248 509])
+            ("topK" function
+               (:parent "TableUtil"
+                :arguments 
+                  ( ("table" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("TablePtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [532 554])
+                    ("comparator" variable
+                       (:pointer 1
+                        :type ("Comparator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [555 578])
+                    ("limit" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [579 592]))                  
+                :type "void")
+                nil [511 1019])
+            ("toString" function
+               (:parent "TableUtil"
+                :arguments 
+                  ( ("table" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("TablePtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1048 1070]))                  
+                :type ("string" type (:type "class") nil nil))
+                nil [1021 1553])
+            ("valueTypeToString" function
+               (:parent "TableUtil"
+                :arguments 
+                  ( ("vt" variable (:type ("ValueType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1596 1609]))                  
+                :type ("std::string" type (:type "class") nil nil))
+                nil [1555 2477])
+            ("toJsonString" function
+               (:parent "TableUtil"
+                :arguments 
+                  ( ("table" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("TablePtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2510 2532]))                  
+                :type ("string" type (:type "class") nil nil))
+                nil [2479 3593])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3613 3617]))                  
+                :type "int")
+                nil [3595 3618]))          
+      :file "TableUtil.cpp"
+      :pointmax 3620
+      :fsize 3619
+      :lastmodtime '(23673 2430 638896 207000)
+      :unmatched-syntax nil)
+    (semanticdb-table "TableJson.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_TABLEJSON_H" variable (:constant-flag t) nil [37 56])
+            ("ha3/common.h" include (:system-flag t) nil [58 81])
+            ("ha3/isearch.h" include (:system-flag t) nil [82 106])
+            ("ha3/util/Log.h" include (:system-flag t) nil [107 132])
+            ("autil/legacy/jsonizable.h" include nil nil [133 169])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [190 194]))                  
+                :type "int")
+                nil [170 195])
+            ("TableJson" type
+               (:superclasses 
+                  ( ("autil::legacy::Jsonizable" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [250 257])
+                    ("public" label nil (reparse-symbol classsubparts) [472 479])
+                    ("data" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::vector" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [484 527])
+                    ("columnName" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [532 568])
+                    ("columnType" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [573 609])
+                    ("private" label nil (reparse-symbol classsubparts) [610 618])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [623 641]))                  
+                :type "class")
+                nil [197 644])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("TableJson" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [662 672]))                  
+                :type "int")
+                nil [646 673])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [693 697]))                  
+                :type "int")
+                nil [675 698]))          
+      :file "TableJson.h"
+      :pointmax 729
+      :fsize 728
+      :lastmodtime '(23671 16290 333162 768000)
+      :unmatched-syntax '((thing 330 . 471) (thing 321 . 329) (thing 274 . 320) (thing 267 . 274) (thing 262 . 266))
+      :lexical-table 
+        '(("ISEARCH_TABLEJSON_H")
+          )
+))
+  :file "!ha3_develop!search_test!temp!source_code!ha3!ha3!sql!data!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

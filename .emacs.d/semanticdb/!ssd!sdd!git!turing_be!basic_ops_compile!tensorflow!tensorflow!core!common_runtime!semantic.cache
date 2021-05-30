@@ -1,0 +1,1139 @@
+;; Object common_runtime/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "common_runtime/"
+  :tables
+  (list
+    (semanticdb-table "local_device.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("TENSORFLOW_COMMON_RUNTIME_LOCAL_DEVICE_H_" variable (:constant-flag t) nil [729 770])
+            ("tensorflow/core/common_runtime/device.h" include nil nil [772 822])
+            ("tensorflow/core/framework/device_attributes.pb.h" include nil nil [823 882])
+            ("tensorflow/core/platform/macros.h" include nil nil [883 927])
+            ("tensorflow" type
+               (:members 
+                  ( ("test" type
+                       (:members 
+                          ( ("Benchmark" type
+                               (:prototype t
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [970 986]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [953 988])
+                    ("SessionOptions" type
+                       (:prototype t
+                        :type "struct")
+                        (reparse-symbol namespacesubparts) [989 1011])
+                    ("SessionResource" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [1012 1034])
+                    ("LocalDevice" type
+                       (:superclasses 
+                          ( ("Device" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [1322 1329])
+                            ("LocalDevice" function
+                               (:prototype-flag t
+                                :constructor-flag t
+                                :arguments 
+                                  ( ("options" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("SessionOptions" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1344 1374])
+                                    ("attributes" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("DeviceAttributes" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1389 1424]))                                  
+                                :type ("LocalDevice" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1332 1425])
+                            ("override" variable (:type "int") (reparse-symbol classsubparts) [1443 1452])
+                            ("public" label nil (reparse-symbol classsubparts) [1455 1462])
+                            ("GetSessionResource" function (:type ("std::shared_ptr" type
+                                 (:template-specifier 
+                                    ( ("SessionResource" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1465 1560])
+                            ("private" label nil (reparse-symbol classsubparts) [1562 1570])
+                            ("use_global_threadpool_" variable
+                               (:typemodifiers ("static")
+                                :type "bool")
+                                (reparse-symbol classsubparts) [1573 1608])
+                            ("set_use_global_threadpool" function
+                               (:typemodifiers ("static")
+                                :arguments 
+                                  ( ("use_global_threadpool" variable (:type "bool") (reparse-symbol arg-sub-list) [1650 1677]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [1612 1735])
+                            ("EigenThreadPoolInfo" type
+                               (:prototype t
+                                :type "struct")
+                                (reparse-symbol classsubparts) [1739 1766])
+                            ("owned_tp_info_" variable (:type ("std::unique_ptr" type
+                                 (:template-specifier 
+                                    ( ("EigenThreadPoolInfo" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1769 1821])
+                            ("session_resource_" variable (:type ("std::shared_ptr" type
+                                 (:template-specifier 
+                                    ( ("SessionResource" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [1824 1875])
+                            ("test" friend nil (reparse-symbol classsubparts) [1879 1896])
+                            ("Benchmark" variable (:type "int") (reparse-symbol classsubparts) [1898 1908])
+                            ("TF_DISALLOW_COPY_AND_ASSIGN" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("" variable (:type ("LocalDevice" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1940 1952]))                                  
+                                :type "int")
+                                (reparse-symbol classsubparts) [1912 1953]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [1285 1956]))                  
+                :type "namespace")
+                nil [929 1959]))          
+      :file "local_device.h"
+      :pointmax 2039
+      :fsize 2038
+      :lastmodtime '(23309 26264 316020 281000)
+      :unmatched-syntax '((thing 1440 . 1442) (thing 1429 . 1440) (thing 1428 . 1429) (thing 1896 . 1897) (thing 1897 . 1898))
+      :lexical-table 
+        '(("TENSORFLOW_COMMON_RUNTIME_LOCAL_DEVICE_H_")
+          )
+)
+    (semanticdb-table "device.h"
+      :file "device.h"
+      :fsize 6642
+      :lastmodtime '(23309 26264 307020 721000))
+    (semanticdb-table "local_device.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("EIGEN_USE_THREADS" variable (:constant-flag t) nil [679 696])
+            ("tensorflow/core/common_runtime/local_device.h" include nil nil [698 754])
+            ("third_party/eigen3/unsupported/Eigen/CXX11/Tensor" include nil nil [755 815])
+            ("tensorflow/core/common_runtime/eigen_thread_pool.h" include nil nil [816 877])
+            ("tensorflow/core/lib/core/threadpool.h" include nil nil [878 926])
+            ("tensorflow/core/platform/cpu_feature_guard.h" include nil nil [927 982])
+            ("tensorflow/core/platform/cpu_info.h" include nil nil [983 1029])
+            ("tensorflow/core/platform/logging.h" include nil nil [1030 1075])
+            ("tensorflow/core/platform/types.h" include nil nil [1076 1119])
+            ("tensorflow/core/public/session_options.h" include nil nil [1120 1171])
+            ("tensorflow" type
+               (:members 
+                  ( ("LocalDevice::use_global_threadpool_" variable
+                       (:default-value "true"
+                        :type "bool")
+                        (reparse-symbol namespacesubparts) [1210 1258])
+                    ("EigenThreadPoolInfo" type
+                       (:parent "LocalDevice"
+                        :members 
+                          ( ("EigenThreadPoolInfo" function
+                               (:constructor-flag t
+                                :arguments 
+                                  ( ("options" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("SessionOptions" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1333 1363]))                                  
+                                :type ("EigenThreadPoolInfo" type (:type "struct") nil nil))
+                                (reparse-symbol classsubparts) [1313 2099])
+                            ("EigenThreadPoolInfo" function
+                               (:destructor-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [2103 2239])
+                            ("eigen_worker_threads_" variable (:type ("DeviceBase::CpuWorkerThreads" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2243 2294])
+                            ("eigen_threadpool_wrapper_" variable (:type ("std::unique_ptr" type
+                                 (:template-specifier 
+                                    ( ("Eigen::ThreadPoolInterface" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [2297 2367])
+                            ("eigen_device_" variable (:type ("std::unique_ptr" type
+                                 (:template-specifier 
+                                    ( ("Eigen::ThreadPoolDevice" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [2370 2425]))                          
+                        :type "struct")
+                        (reparse-symbol namespacesubparts) [1260 2428])
+                    ("LocalDevice" function
+                       (:constructor-flag t
+                        :parent "LocalDevice"
+                        :arguments 
+                          ( ("options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SessionOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2455 2485])
+                            ("attributes" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DeviceAttributes" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2511 2546]))                          
+                        :type ("LocalDevice" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [2430 3540])
+                    ("LocalDevice" function
+                       (:destructor-flag t
+                        :parent "LocalDevice"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [3542 3572]))                  
+                :type "namespace")
+                nil [1173 3575]))          
+      :file "local_device.cc"
+      :pointmax 3601
+      :fsize 3600
+      :lastmodtime '(23309 26264 316020 281000)
+      :unmatched-syntax '((thing 1304 . 1312))
+      :lexical-table 
+        '(("EIGEN_USE_THREADS")
+          )
+)
+    (semanticdb-table "direct_session.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("tensorflow/core/common_runtime/direct_session.h" include nil nil [671 729])
+            ("atomic" include (:system-flag t) nil [731 748])
+            ("string" include (:system-flag t) nil [749 766])
+            ("vector" include (:system-flag t) nil [767 784])
+            ("fstream" include (:system-flag t) nil [785 803])
+            ("tensorflow/core/common_runtime/constant_folding.h" include nil nil [805 865])
+            ("tensorflow/core/common_runtime/debugger_state_interface.h" include nil nil [866 934])
+            ("tensorflow/core/common_runtime/device_factory.h" include nil nil [935 993])
+            ("tensorflow/core/common_runtime/executor.h" include nil nil [994 1046])
+            ("tensorflow/core/common_runtime/function.h" include nil nil [1047 1099])
+            ("tensorflow/core/common_runtime/graph_optimizer.h" include nil nil [1100 1159])
+            ("tensorflow/core/common_runtime/memory_types.h" include nil nil [1160 1216])
+            ("tensorflow/core/common_runtime/optimization_registry.h" include nil nil [1217 1282])
+            ("tensorflow/core/common_runtime/step_stats_collector.h" include nil nil [1283 1347])
+            ("tensorflow/core/framework/function.h" include nil nil [1348 1395])
+            ("tensorflow/core/framework/graph.pb_text.h" include nil nil [1396 1448])
+            ("tensorflow/core/framework/graph.pb.h" include nil nil [1449 1496])
+            ("tensorflow/core/framework/graph_def_util.h" include nil nil [1497 1550])
+            ("tensorflow/core/framework/log_memory.h" include nil nil [1551 1600])
+            ("tensorflow/core/framework/node_def.pb.h" include nil nil [1601 1651])
+            ("tensorflow/core/framework/tensor.h" include nil nil [1652 1697])
+            ("tensorflow/core/framework/versions.pb.h" include nil nil [1698 1748])
+            ("tensorflow/core/graph/algorithm.h" include nil nil [1749 1793])
+            ("tensorflow/core/graph/graph.h" include nil nil [1794 1834])
+            ("tensorflow/core/graph/graph_constructor.h" include nil nil [1835 1887])
+            ("tensorflow/core/graph/graph_partition.h" include nil nil [1888 1938])
+            ("tensorflow/core/graph/subgraph.h" include nil nil [1939 1982])
+            ("tensorflow/core/graph/tensor_id.h" include nil nil [1983 2027])
+            ("tensorflow/core/lib/core/errors.h" include nil nil [2028 2072])
+            ("tensorflow/core/lib/core/notification.h" include nil nil [2073 2123])
+            ("tensorflow/core/lib/core/refcount.h" include nil nil [2124 2170])
+            ("tensorflow/core/lib/core/status.h" include nil nil [2171 2215])
+            ("tensorflow/core/lib/core/threadpool.h" include nil nil [2216 2264])
+            ("tensorflow/core/lib/gtl/array_slice.h" include nil nil [2265 2313])
+            ("tensorflow/core/lib/gtl/stl_util.h" include nil nil [2314 2359])
+            ("tensorflow/core/lib/monitoring/counter.h" include nil nil [2360 2411])
+            ("tensorflow/core/lib/strings/numbers.h" include nil nil [2412 2460])
+            ("tensorflow/core/lib/strings/str_util.h" include nil nil [2461 2510])
+            ("tensorflow/core/lib/strings/strcat.h" include nil nil [2511 2558])
+            ("tensorflow/core/platform/cpu_info.h" include nil nil [2559 2605])
+            ("tensorflow/core/platform/logging.h" include nil nil [2606 2651])
+            ("tensorflow/core/platform/mutex.h" include nil nil [2652 2695])
+            ("tensorflow/core/platform/types.h" include nil nil [2696 2739])
+            ("tensorflow/core/util/device_name_utils.h" include nil nil [2740 2791])
+            ("tensorflow/core/util/env_var.h" include nil nil [2792 2833])
+            ("tensorflow" type
+               (:members 
+                  ( ("unnamed" type
+                       (:members 
+                          ( ("direct_session_runs" variable
+                               (:pointer 1
+                                :default-value "monitoring::Counter<0>::New(
+    \"/tensorflow/core/direct_session_runs\",
+    \"The number of times DirectSession::Run() has been called.\")"
+                                :type ("auto" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [2961 3127])
+                            ("NumInterOpThreadsFromSessionOptions" function
+                               (:arguments 
+                                  ( ("options" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("SessionOptions" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3171 3201]))                                  
+                                :type ("int32" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [3129 3399])
+                            ("NewThreadPoolFromSessionOptions" function
+                               (:pointer 1
+                                :arguments 
+                                  ( ("options" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("SessionOptions" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3458 3488]))                                  
+                                :type ("thread::ThreadPool" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [3401 3705])
+                            ("NewThreadPoolFromThreadPoolOptions" function
+                               (:arguments 
+                                  ( ("options" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("SessionOptions" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3754 3784])
+                                    ("thread_pool_options" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("ThreadPoolOptionProto" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3789 3838])
+                                    ("pool_number" variable (:type "int") (reparse-symbol arg-sub-list) [3839 3855])
+                                    ("pool" variable
+                                       (:pointer 2
+                                        :type ("thread::ThreadPool" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3860 3886])
+                                    ("owned" variable
+                                       (:pointer 1
+                                        :type "bool")
+                                        (reparse-symbol arg-sub-list) [3887 3899]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [3707 5327])
+                            ("GlobalThreadPool" function
+                               (:pointer 1
+                                :arguments 
+                                  ( ("options" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("SessionOptions" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5366 5396]))                                  
+                                :type ("thread::ThreadPool" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [5329 5519])
+                            ("GetRendezvousKey" function
+                               (:arguments 
+                                  ( ("tensor_name" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5705 5731])
+                                    ("device_info" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("DeviceAttributes" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5756 5792])
+                                    ("frame_iter" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("FrameAndIter" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5817 5848]))                                  
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [5681 6120]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [2948 6123])
+                    ("DirectSessionFactory" type
+                       (:superclasses 
+                          ( ("SessionFactory" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [6193 6200])
+                            ("DirectSessionFactory" function
+                               (:constructor-flag t
+                                :type ("DirectSessionFactory" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [6203 6228])
+                            ("Deregister" function
+                               (:arguments 
+                                  ( ("session" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type ("DirectSession" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [7772 7801]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [7756 7957])
+                            ("private" label nil (reparse-symbol classsubparts) [7960 7968])
+                            ("sessions_lock_" variable (:type ("mutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7971 7992])
+                            ("GUARDED_BY" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("" variable (:type ("sessions_lock_" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8044 8059]))                                  
+                                :type ("sessions_" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [8023 8060]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [6139 8063])
+                    ("DirectSessionRegistrar" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [8097 8104])
+                            ("DirectSessionRegistrar" function
+                               (:constructor-flag t
+                                :type ("DirectSessionRegistrar" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [8107 8213]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [8065 8216])
+                    ("registrar" variable
+                       (:typemodifiers ("static")
+                        :type ("DirectSessionRegistrar" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [8217 8257])
+                    ("step_id_counter_" function
+                       (:prototype-flag t
+                        :parent "DirectSession"
+                        :type ("std::atomic_int_fast64_t" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [8259 8319])
+                    ("SchedClosure" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("thread::ThreadPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9002 9027])
+                            ("" variable (:type ("std::function" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9061 9075])
+                            ("" variable (:type "void") (reparse-symbol arg-sub-list) [9075 9081])
+                            ("" variable (:type ("c" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9083 9085]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [8969 9465])
+                    ("DirectSession" function
+                       (:constructor-flag t
+                        :parent "DirectSession"
+                        :arguments 
+                          ( ("options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SessionOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9496 9526])
+                            ("device_mgr" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("DeviceMgr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9556 9584])
+                            ("factory" variable
+                               (:pointer 1
+                                :type ("DirectSessionFactory" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9614 9650]))                          
+                        :type ("DirectSession" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [9467 11796])
+                    ("DirectSession" function
+                       (:destructor-flag t
+                        :parent "DirectSession"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [11798 12304])
+                    ("MaybeInitializeExecutionState" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("graph" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [12363 12385])
+                            ("out_already_initialized" variable
+                               (:pointer 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [12386 12416]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [12306 13625])
+                    ("Create" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("graph" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [13656 13678]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [13627 13975])
+                    ("Extend" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("graph" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14006 14028]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [13977 14135])
+                    ("ExtendLocked" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("graph" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14172 14194]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [14137 14706])
+                    ("Run" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensorList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [14734 14764])
+                            ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [14791 14831])
+                            ("target_nodes" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [14858 14898])
+                            ("outputs" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Tensor" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [14925 14954]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [14708 15087])
+                    ("CreateDebuggerState" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("debug_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DebugOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [15136 15170])
+                            ("session_run_index" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15171 15195])
+                            ("executor_step_index" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15200 15226])
+                            ("input_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [15227 15266])
+                            ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [15271 15311])
+                            ("target_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [15316 15356])
+                            ("debugger_state" variable
+                               (:pointer 1
+                                :type ("std::unique_ptr" type
+                                     (:template-specifier 
+                                        ( ("DebuggerStateInterface" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [15361 15417]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [15089 15730])
+                    ("DecorateAndPublishGraphForDebug" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("debug_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DebugOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [15791 15825])
+                            ("graph" variable
+                               (:pointer 1
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [15826 15839])
+                            ("device" variable
+                               (:pointer 1
+                                :type ("Device" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [15840 15855]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [15732 16178])
+                    ("CallbackFrame" type
+                       (:members 
+                          ( ("CallbackFrame" function
+                               (:constructor-flag t
+                                :type ("CallbackFrame" type (:type "struct") nil nil))
+                                (reparse-symbol classsubparts) [16205 16342])
+                            ("CallbackFrame" function
+                               (:destructor-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [16345 16412])
+                            ("step_cancellation_manager" variable (:type ("CancellationManager" type (:type "class") nil nil)) (reparse-symbol classsubparts) [16415 16461])
+                            ("call_frame" variable
+                               (:pointer 1
+                                :type ("FunctionCallFrame" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [16464 16494])
+                            ("run_state" variable
+                               (:pointer 1
+                                :type ("DirectSession::RunState" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [16497 16532])
+                            ("cancellation_token" variable (:type ("CancellationToken" type (:type "class") nil nil)) (reparse-symbol classsubparts) [16535 16572])
+                            ("update_cost_model" variable (:type "bool") (reparse-symbol classsubparts) [16575 16598])
+                            ("executors_and_keys" variable
+                               (:pointer 1
+                                :type ("DirectSession::ExecutorsAndKeys" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [16601 16653]))                          
+                        :type "struct")
+                        (reparse-symbol namespacesubparts) [16180 16716])
+                    ("TF_DONE_RETURN_IF_ERROR" variable (:constant-flag t) (reparse-symbol namespacesubparts) [16726 16749])
+                    ("DONE_WITH_STATUS" variable (:constant-flag t) (reparse-symbol namespacesubparts) [16993 17009])
+                    ("Run" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("run_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RunOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [17163 17193])
+                            ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensorList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [17220 17250])
+                            ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [17277 17317])
+                            ("target_nodes" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [17344 17384])
+                            ("outputs" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Tensor" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [17411 17440])
+                            ("run_metadata" variable
+                               (:pointer 1
+                                :type ("RunMetadata" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [17467 17493]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [17137 18262])
+                    ("RunAsync" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("run_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RunOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [18293 18323])
+                            ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensorList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [18353 18383])
+                            ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [18413 18453])
+                            ("target_nodes" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [18483 18523])
+                            ("outputs" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Tensor" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [18553 18582])
+                            ("run_metadata" variable
+                               (:pointer 1
+                                :type ("RunMetadata" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [18612 18638])
+                            ("done" variable (:type ("StatusCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18668 18688]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [18264 18939])
+                    ("RunAsync" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("run_options" variable
+                               (:reference 1
+                                :type ("tensorflow::RunOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [18978 19014])
+                            ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensorList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [19044 19074])
+                            ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [19104 19144])
+                            ("target_nodes" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [19174 19214])
+                            ("outputs" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Tensor" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [19244 19273])
+                            ("run_metadata" variable
+                               (:pointer 1
+                                :type ("RunMetadata" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [19303 19329])
+                            ("frame" variable
+                               (:pointer 1
+                                :type ("CallbackFrame" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [19359 19380])
+                            ("done" variable (:type ("StatusCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [19410 19430]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [18941 25867])
+                    ("AfterRunAsync" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("run_options" variable
+                               (:reference 1
+                                :type ("tensorflow::RunOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [25913 25949])
+                            ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensorList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [25986 26016])
+                            ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [26053 26093])
+                            ("target_nodes" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [26130 26170])
+                            ("outputs" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Tensor" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [26207 26236])
+                            ("frame" variable
+                               (:pointer 1
+                                :type ("CallbackFrame" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [26273 26294])
+                            ("run_metadata" variable
+                               (:pointer 1
+                                :type ("RunMetadata" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [26331 26357]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [25869 29974])
+                    ("PRunSetup" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("input_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [30008 30047])
+                            ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [30080 30120])
+                            ("target_nodes" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [30153 30193])
+                            ("handle" variable
+                               (:pointer 1
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [30226 30241]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [29976 32930])
+                    ("PRun" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("handle" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [32959 32980])
+                            ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensorList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [32981 33011])
+                            ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [33039 33079])
+                            ("outputs" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Tensor" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [33107 33136]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [32932 36430])
+                    ("ResourceHandleToInputTensor" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("resource_tensor" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Tensor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [36482 36512])
+                            ("retrieved_tensor" variable
+                               (:pointer 1
+                                :type ("Tensor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [36563 36588]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [36432 37588])
+                    ("SendPRunInputs" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensorList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [37627 37657])
+                            ("executors_and_keys" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("ExecutorsAndKeys" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [37695 37738])
+                            ("rendez" variable
+                               (:pointer 1
+                                :type ("IntraProcessRendezvous" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [37776 37807]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [37590 38844])
+                    ("RecvPRunOutputs" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [38889 38929])
+                            ("executors_and_keys" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("ExecutorsAndKeys" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [38934 38977])
+                            ("run_state" variable
+                               (:pointer 1
+                                :type ("RunState" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [38978 38998])
+                            ("outputs" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Tensor" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [39003 39032]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [38846 40366])
+                    ("CheckFetch" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("feeds" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NamedTensorList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [40401 40430])
+                            ("fetches" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [40464 40499])
+                            ("executors_and_keys" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("ExecutorsAndKeys" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [40533 40576])
+                            ("run_state" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("RunState" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [40610 40636]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [40368 42598])
+                    ("GetOrCreateExecutors" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("inputs" variable (:type ("gtl::ArraySlice" type
+                                 (:template-specifier 
+                                    ( ("string" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol arg-sub-list) [42648 42679])
+                            ("outputs" variable (:type ("gtl::ArraySlice" type
+                                 (:template-specifier 
+                                    ( ("string" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol arg-sub-list) [42680 42712])
+                            ("target_nodes" variable (:type ("gtl::ArraySlice" type
+                                 (:template-specifier 
+                                    ( ("string" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol arg-sub-list) [42717 42754])
+                            ("executors_and_keys" variable
+                               (:pointer 2
+                                :type ("ExecutorsAndKeys" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [42755 42793])
+                            ("run_state_args" variable
+                               (:pointer 1
+                                :type ("RunStateArgs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [42798 42827]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [42600 51976])
+                    ("CreateGraphs" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("subgraph_options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("BuildGraphOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [52018 52060])
+                            ("outputs" variable
+                               (:pointer 1
+                                :type ("std::unordered_map" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil)
+                                          ("std::unique_ptr" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [52065 52125])
+                            ("flib_def" variable
+                               (:pointer 1
+                                :type ("std::unique_ptr" type
+                                     (:template-specifier 
+                                        ( ("FunctionLibraryDefinition" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [52130 52183])
+                            ("run_state_args" variable
+                               (:pointer 1
+                                :type ("RunStateArgs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [52188 52217])
+                            ("input_types" variable
+                               (:pointer 1
+                                :type ("DataTypeVector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [52218 52246])
+                            ("output_types" variable
+                               (:pointer 1
+                                :type ("DataTypeVector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [52251 52280]))                          
+                        :type ("Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [51978 58921])
+                    ("ListDevices" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("response" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("DeviceAttributes" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [58976 59016]))                          
+                        :type ("tensorflow::Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [58925 59239])
+                    ("Reset" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("containers" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [59288 59326]))                          
+                        :type ("tensorflow::Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [59243 59411])
+                    ("Close" function
+                       (:parent "DirectSession"
+                        :type ("tensorflow::Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [59415 59704])
+                    ("RunState" function
+                       (:constructor-flag t
+                        :parent "DirectSession::RunState"
+                        :arguments 
+                          ( ("pending_input_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [59745 59792])
+                            ("pending_output_names" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [59797 59845])
+                            ("step_id" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [59846 59860])
+                            ("devices" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Device" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [59865 59901]))                          
+                        :type ("RunState" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [59706 60339])
+                    ("RunState" function
+                       (:constructor-flag t
+                        :parent "DirectSession::RunState"
+                        :arguments 
+                          ( ("step_id" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [60375 60389])
+                            ("devices" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("Device" type (:pointer 1) nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [60424 60460]))                          
+                        :type ("RunState" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [60341 60504])
+                    ("RunState" function
+                       (:destructor-flag t
+                        :parent "DirectSession::RunState"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [60506 60759])
+                    ("PendingDone" function
+                       (:parent "DirectSession::RunState"
+                        :type "bool")
+                        (reparse-symbol namespacesubparts) [60761 60990])
+                    ("WaitForNotification" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("run_state" variable
+                               (:pointer 1
+                                :type ("RunState" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [61032 61052])
+                            ("cm" variable
+                               (:pointer 1
+                                :type ("CancellationManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [61093 61117])
+                            ("timeout_in_ms" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [61158 61178]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [60992 61661])
+                    ("WaitForNotification" function
+                       (:parent "DirectSession"
+                        :arguments 
+                          ( ("notification" variable
+                               (:pointer 1
+                                :type ("Notification" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [61724 61751])
+                            ("timeout_in_ms" variable (:type ("int64" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [61752 61772]))                          
+                        :type ("tensorflow::Status" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [61665 62163]))                  
+                :type "namespace")
+                nil [2924 62166]))          
+      :file "direct_session.cc"
+      :pointmax 62192
+      :fsize 62191
+      :lastmodtime '(23309 26264 308020 673000)
+      :unmatched-syntax '((thing 6232 . 6236) (thing 6232 . 6236) (thing 6232 . 6236) (thing 6237 . 6251) (thing 6237 . 6251) (thing 6237 . 6251) (thing 6251 . 6282) (thing 6251 . 6282) (thing 6251 . 6282) (thing 6283 . 6291) (thing 6283 . 6291) (thing 6283 . 6291) (thing 6292 . 6332) (thing 6292 . 6332) (thing 6292 . 6332) (thing 6336 . 6343) (thing 6336 . 6343) (thing 6336 . 6343) (thing 6343 . 6344) (thing 6343 . 6344) (thing 6343 . 6344) (thing 6345 . 6355) (thing 6345 . 6355) (thing 6345 . 6355) (thing 6355 . 6386) (thing 6355 . 6386) (thing 6355 . 6386) (thing 6387 . 6395) (thing 6387 . 6395) (thing 6387 . 6395) (thing 6396 . 6985) (thing 6396 . 6985) (thing 6396 . 6985) (thing 6989 . 6995) (thing 6996 . 7001) (thing 7001 . 7086) (thing 7087 . 7095) (thing 7096 . 7752) (thing 7995 . 7998) (thing 7998 . 7999) (thing 7999 . 8000) (thing 8000 . 8006) (thing 8006 . 8007) (thing 8007 . 8020) (thing 8020 . 8021) (thing 8021 . 8022) (thing 8316 . 8317) (thing 9074 . 9075) (thing 9079 . 9081) (thing 9081 . 9082) (thing 18970 . 18975) (thing 18976 . 18977) (thing 18977 . 18978) (thing 25905 . 25910) (thing 25911 . 25912) (thing 25912 . 25913) (thing 58923 . 58924) (thing 58924 . 58925) (thing 59241 . 59242) (thing 59242 . 59243) (thing 59413 . 59414) (thing 59414 . 59415) (thing 61663 . 61664) (thing 61664 . 61665))
+      :lexical-table 
+        '(("DONE_WITH_STATUS" (spp-arg-list ("s") 17009 . 17012) . 
+              ((DO "do" 17013 . 17015) (semantic-list "{            \\
+    done(s);                                \\
+    return;                                 \\
+  }" 17016 . 17126) (WHILE "while" 17127 . 17132) (semantic-list "(0)" 17132 . 17135)))
+          ("TF_DONE_RETURN_IF_ERROR" (spp-arg-list ("s") 16749 . 16752) . 
+              ((DO "do" 16753 . 16755) (semantic-list "{         \\
+        if (!(s).ok()) {                        \\
+            done((s));                          \\
+            return;                             \\
+        }                                       \\
+    }" 16756 . 16973) (WHILE "while" 16974 . 16979) (semantic-list "(0)" 16980 . 16983)))
+          )
+))
+  :file "!ssd!sdd!git!turing_be!basic_ops_compile!tensorflow!tensorflow!core!common_runtime!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

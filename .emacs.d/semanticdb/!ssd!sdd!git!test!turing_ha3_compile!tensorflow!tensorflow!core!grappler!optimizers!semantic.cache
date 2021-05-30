@@ -1,0 +1,593 @@
+;; Object optimizers/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "optimizers/"
+  :tables
+  (list
+    (semanticdb-table "constant_folding.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("EIGEN_USE_THREADS" variable (:constant-flag t) nil [679 696])
+            ("tensorflow/core/grappler/optimizers/constant_folding.h" include nil nil [698 763])
+            ("tensorflow/core/framework/allocator.h" include nil nil [764 812])
+            ("tensorflow/core/framework/attr_value.pb.h" include nil nil [813 865])
+            ("tensorflow/core/framework/function.pb.h" include nil nil [866 916])
+            ("tensorflow/core/framework/node_def.pb.h" include nil nil [917 967])
+            ("tensorflow/core/framework/op.h" include nil nil [968 1009])
+            ("tensorflow/core/framework/op_def.pb.h" include nil nil [1010 1058])
+            ("tensorflow/core/framework/tensor.pb.h" include nil nil [1059 1107])
+            ("tensorflow/core/framework/tensor_shape.pb.h" include nil nil [1108 1162])
+            ("tensorflow/core/framework/types.h" include nil nil [1163 1207])
+            ("tensorflow/core/framework/versions.pb.h" include nil nil [1208 1258])
+            ("tensorflow/core/grappler/clusters/cluster.h" include nil nil [1259 1313])
+            ("tensorflow/core/grappler/costs/graph_properties.h" include nil nil [1314 1374])
+            ("tensorflow/core/grappler/grappler_item.h" include nil nil [1375 1426])
+            ("tensorflow/core/grappler/op_types.h" include nil nil [1427 1473])
+            ("tensorflow/core/lib/gtl/cleanup.h" include nil nil [1474 1518])
+            ("tensorflow/core/lib/gtl/inlined_vector.h" include nil nil [1519 1570])
+            ("tensorflow/core/lib/strings/numbers.h" include nil nil [1571 1619])
+            ("tensorflow/core/lib/strings/strcat.h" include nil nil [1620 1667])
+            ("tensorflow/core/platform/env.h" include nil nil [1668 1709])
+            ("tensorflow/core/public/version.h" include nil nil [1710 1753])
+            ("tensorflow" type
+               (:members 
+                  ( ("grappler" type
+                       (:members 
+                          ( ("gtl::InlinedVector" variable (:type "int") (reparse-symbol namespacesubparts) [1820 1855])
+                            ("unnamed" type
+                               (:members 
+                                  ( ("EigenThreadPoolWrapper" type
+                                       (:superclasses 
+                                          ( ("Eigen::ThreadPoolInterface" type
+                                               (:protection "public"
+                                                :type "class")
+                                                nil nil))                                          
+                                        :members 
+                                          ( ("public" label nil (reparse-symbol classsubparts) [1937 1944])
+                                            ("EigenThreadPoolWrapper" function
+                                               (:constructor-flag t
+                                                :arguments 
+                                                  ( ("pool" variable
+                                                       (:pointer 1
+                                                        :type ("thread::ThreadPool" type (:type "class") nil nil))
+                                                        (reparse-symbol arg-sub-list) [1979 2004]))                                                  
+                                                :type ("EigenThreadPoolWrapper" type (:type "class") nil nil))
+                                                (reparse-symbol classsubparts) [1956 2021])
+                                            ("private" label nil (reparse-symbol classsubparts) [2299 2307])
+                                            ("pool_" variable
+                                               (:pointer 1
+                                                :default-value "nullptr"
+                                                :type ("thread::ThreadPool" type (:type "class") nil nil))
+                                                (reparse-symbol classsubparts) [2310 2346]))                                          
+                                        :type "class")
+                                        (reparse-symbol namespacesubparts) [1869 2349])
+                                    ("DeviceSimple" type
+                                       (:superclasses 
+                                          ( ("DeviceBase" type
+                                               (:protection "public"
+                                                :type "class")
+                                                nil nil))                                          
+                                        :members 
+                                          ( ("public" label nil (reparse-symbol classsubparts) [2393 2400])
+                                            ("DeviceSimple" function
+                                               (:constructor-flag t
+                                                :type ("DeviceSimple" type (:type "class") nil nil))
+                                                (reparse-symbol classsubparts) [2403 3006])
+                                            ("private" label nil (reparse-symbol classsubparts) [3669 3677])
+                                            ("eigen_worker_threads_" variable (:type ("DeviceBase::CpuWorkerThreads" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3680 3731])
+                                            ("eigen_threadpool_wrapper_" variable (:type ("std::unique_ptr" type
+                                                 (:template-specifier 
+                                                    ( ("Eigen::ThreadPoolInterface" type nil nil nil))                                                    
+                                                  :type "class")
+                                                  nil nil)) (reparse-symbol classsubparts) [3734 3804])
+                                            ("eigen_device_" variable (:type ("std::unique_ptr" type
+                                                 (:template-specifier 
+                                                    ( ("Eigen::ThreadPoolDevice" type nil nil nil))                                                    
+                                                  :type "class")
+                                                  nil nil)) (reparse-symbol classsubparts) [3807 3862]))                                          
+                                        :type "class")
+                                        (reparse-symbol namespacesubparts) [2351 3865]))                                  
+                                :type "namespace")
+                                (reparse-symbol namespacesubparts) [1857 3868])
+                            ("ConstantFolding" function
+                               (:constructor-flag t
+                                :parent "ConstantFolding"
+                                :arguments 
+                                  ( ("cpu_device" variable
+                                       (:pointer 1
+                                        :type ("DeviceBase" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3916 3939]))                                  
+                                :type ("ConstantFolding" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [3883 4015])
+                            ("AddControlDependency" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("input_name" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4062 4087]))                                  
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [4017 5816])
+                            ("MaterializeShapes" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("item" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("GrapplerItem" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5860 5885])
+                                    ("properties" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("GraphProperties" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5928 5962]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [5818 9062])
+                            ("IsFoldable" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("node" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("NodeDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [9097 9117]))                                  
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [9064 11958])
+                            ("CreateNodeDef" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("name" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [11999 12018])
+                                    ("tensor" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("TensorValue" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [12058 12084]))                                  
+                                :type ("NodeDef" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [11960 14101])
+                            ("EvaluateNode" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("node" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("NodeDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [14140 14160])
+                                    ("inputs" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("TensorVector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [14198 14225])
+                                    ("output" variable
+                                       (:pointer 1
+                                        :type ("TensorVector" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [14263 14284]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [14103 15216])
+                            ("EvaluateOneFoldable" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("node" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("NodeDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [15262 15282])
+                                    ("outputs" variable
+                                       (:pointer 1
+                                        :type ("std::vector" type
+                                             (:template-specifier 
+                                                ( ("NodeDef" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [15327 15357]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [15218 17107])
+                            ("FoldNode" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("node" variable
+                                       (:pointer 1
+                                        :type ("NodeDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [17142 17156])
+                                    ("output_graph" variable
+                                       (:pointer 1
+                                        :type ("GraphDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [17157 17180]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [17109 25613])
+                            ("FoldGraph" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("output" variable
+                                       (:pointer 1
+                                        :type ("GraphDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [25649 25666]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [25615 27477])
+                            ("IsSimplifiableReduction" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("node" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("NodeDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [27696 27716]))                                  
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [27650 28262])
+                            ("IsSimplifiableReshape" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("node" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("NodeDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [28313 28333])
+                                    ("properties" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("GraphProperties" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [28334 28368]))                                  
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [28264 29826])
+                            ("SimplifyGraph" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("output" variable
+                                       (:pointer 1
+                                        :type ("GraphDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [29866 29883])
+                                    ("properties" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("GraphProperties" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [29922 29956]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [29828 31736])
+                            ("RunOptimizationPass" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("cluster" variable
+                                       (:pointer 1
+                                        :type ("Cluster" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [31782 31799])
+                                    ("item" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("GrapplerItem" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [31844 31869])
+                                    ("output" variable
+                                       (:pointer 1
+                                        :type ("GraphDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [31914 31931]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [31738 33396])
+                            ("Optimize" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("cluster" variable
+                                       (:pointer 1
+                                        :type ("Cluster" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [33431 33448])
+                                    ("item" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("GrapplerItem" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [33449 33474])
+                                    ("output" variable
+                                       (:pointer 1
+                                        :type ("GraphDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [33508 33525]))                                  
+                                :type ("Status" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [33398 34161])
+                            ("Feedback" function
+                               (:parent "ConstantFolding"
+                                :arguments 
+                                  ( ("cluster" variable
+                                       (:pointer 1
+                                        :type ("Cluster" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [34194 34211])
+                                    ("item" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("GrapplerItem" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [34212 34237])
+                                    ("optimize_output" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("GraphDef" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [34269 34301])
+                                    ("result" variable (:type "double") (reparse-symbol arg-sub-list) [34302 34316]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [34163 34360]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [1778 34363]))                  
+                :type "namespace")
+                nil [1755 34392]))          
+      :file "constant_folding.cc"
+      :pointmax 34422
+      :fsize 34421
+      :lastmodtime '(23383 63533 222765 324000)
+      :unmatched-syntax '((thing 3633 . 3666) (thing 3624 . 3632) (thing 3597 . 3623) (thing 3585 . 3597) (thing 3583 . 3584) (thing 3574 . 3583) (thing 3332 . 3571) (thing 3323 . 3331) (thing 3176 . 3322) (thing 3157 . 3176) (thing 3150 . 3156) (thing 3034 . 3147) (thing 3025 . 3033) (thing 3022 . 3024) (thing 3010 . 3022) (thing 3009 . 3010) (thing 2260 . 2296) (thing 2251 . 2259) (thing 2245 . 2250) (thing 2242 . 2244) (thing 2227 . 2242) (thing 2223 . 2226) (thing 2189 . 2220) (thing 2180 . 2188) (thing 2174 . 2179) (thing 2171 . 2173) (thing 2161 . 2171) (thing 2157 . 2160) (thing 2157 . 2160) (thing 2113 . 2154) (thing 2113 . 2154) (thing 2104 . 2112) (thing 2104 . 2112) (thing 2077 . 2103) (thing 2077 . 2103) (thing 2098 . 2099) (thing 2098 . 2099) (thing 2098 . 2099) (thing 2098 . 2099) (thing 2096 . 2098) (thing 2096 . 2098) (thing 2096 . 2098) (thing 2096 . 2098) (thing 2091 . 2092) (thing 2091 . 2092) (thing 2091 . 2092) (thing 2091 . 2092) (thing 2069 . 2077) (thing 2069 . 2077) (thing 2064 . 2068) (thing 2064 . 2068) (thing 2059 . 2061) (thing 2059 . 2061) (thing 2050 . 2058) (thing 2050 . 2058) (thing 2047 . 2049) (thing 2047 . 2049) (thing 2025 . 2047) (thing 2025 . 2047) (thing 2024 . 2025) (thing 2024 . 2025) (thing 1947 . 1955) (thing 1947 . 1955) (thing 1818 . 1819) (thing 1818 . 1819) (thing 1805 . 1817) (thing 1805 . 1817) (thing 1799 . 1804) (thing 1799 . 1804))
+      :lexical-table 
+        '(("EIGEN_USE_THREADS")
+          )
+)
+    (semanticdb-table "constant_folding.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("TENSORFLOW_GRAPPLER_OPTIMIZERS_CONSTANT_FOLDING_H_" variable (:constant-flag t) nil [738 788])
+            ("tensorflow/core/framework/device_base.h" include nil nil [790 840])
+            ("tensorflow/core/framework/op_kernel.h" include nil nil [841 889])
+            ("tensorflow/core/framework/resource_mgr.h" include nil nil [890 941])
+            ("tensorflow/core/grappler/costs/graph_properties.h" include nil nil [942 1002])
+            ("tensorflow/core/grappler/optimizers/graph_optimizer.h" include nil nil [1003 1067])
+            ("tensorflow/core/grappler/utils.h" include nil nil [1068 1111])
+            ("tensorflow" type
+               (:members 
+                  ( ("grappler" type
+                       (:members 
+                          ( ("kConstantFoldingConst" variable
+                               (:dereference 1
+                                :constant-flag t
+                                :default-value "\"ConstantFolding\""
+                                :type "char")
+                                (reparse-symbol namespacesubparts) [1158 1213])
+                            ("kConstantFoldingCtrl" variable
+                               (:dereference 1
+                                :constant-flag t
+                                :default-value "\"ConstantFoldingCtrl\""
+                                :type "char")
+                                (reparse-symbol namespacesubparts) [1214 1272])
+                            ("ConstantFolding" type
+                               (:superclasses 
+                                  ( ("GraphOptimizer" type
+                                       (:protection "public"
+                                        :type "class")
+                                        nil nil))                                  
+                                :members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [1369 1376])
+                                    ("ConstantFolding" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :arguments 
+                                          ( ("cpu_device" variable
+                                               (:pointer 1
+                                                :type ("DeviceBase" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1395 1418]))                                          
+                                        :type ("ConstantFolding" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1379 1419])
+                                    ("override" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol classsubparts) [1471 1517])
+                                    ("override" variable (:type "int") (reparse-symbol classsubparts) [1617 1626])
+                                    ("override" variable (:type "int") (reparse-symbol classsubparts) [1752 1761])
+                                    ("private" label nil (reparse-symbol classsubparts) [1764 1772])
+                                    ("AddControlDependency" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("input_name" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1803 1828]))                                          
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1775 1829])
+                                    ("MaterializeShapes" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("item" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("GrapplerItem" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1857 1882])
+                                            ("properties" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("GraphProperties" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1910 1944]))                                          
+                                        :type ("Status" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1832 1945])
+                                    ("IsFoldable" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("node" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("NodeDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1965 1985]))                                          
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [1949 1992])
+                                    ("CreateNodeDef" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("name" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2018 2037])
+                                            ("tensor" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("TensorValue" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2038 2064]))                                          
+                                        :type ("NodeDef" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1996 2065])
+                                    ("EvaluateNode" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("node" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("NodeDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2089 2109])
+                                            ("inputs" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("gtl::InlinedVector" type
+                                                     (:template-specifier 
+                                                        ( ("TensorValue" type nil nil nil)
+                                                          ("4"))                                                        
+                                                      :type "class")
+                                                      nil nil))
+                                                (reparse-symbol arg-sub-list) [2132 2181])
+                                            ("output" variable
+                                               (:pointer 1
+                                                :type ("gtl::InlinedVector" type
+                                                     (:template-specifier 
+                                                        ( ("TensorValue" type nil nil nil)
+                                                          ("4"))                                                        
+                                                      :type "class")
+                                                      nil nil))
+                                                (reparse-symbol arg-sub-list) [2204 2247]))                                          
+                                        :type ("Status" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2069 2254])
+                                    ("EvaluateOneFoldable" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("node" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("NodeDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2285 2305])
+                                            ("outputs" variable
+                                               (:pointer 1
+                                                :type ("std::vector" type
+                                                     (:template-specifier 
+                                                        ( ("NodeDef" type nil nil nil))                                                        
+                                                      :type "class")
+                                                      nil nil))
+                                                (reparse-symbol arg-sub-list) [2335 2365]))                                          
+                                        :type ("Status" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2258 2366])
+                                    ("FoldNode" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("node" variable
+                                               (:pointer 1
+                                                :type ("NodeDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2386 2400])
+                                            ("output_graph" variable
+                                               (:pointer 1
+                                                :type ("GraphDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2401 2424]))                                          
+                                        :type ("Status" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2370 2425])
+                                    ("FoldGraph" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("output" variable
+                                               (:pointer 1
+                                                :type ("GraphDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2446 2463]))                                          
+                                        :type ("Status" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2429 2464])
+                                    ("IsSimplifiableReduction" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("node" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("NodeDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2497 2517]))                                          
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [2468 2524])
+                                    ("IsSimplifiableReshape" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("node" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("NodeDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2554 2574])
+                                            ("properties" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("GraphProperties" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2604 2638]))                                          
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [2527 2645])
+                                    ("SimplifyGraph" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("output" variable
+                                               (:pointer 1
+                                                :type ("GraphDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2669 2686])
+                                            ("properties" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("GraphProperties" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2687 2721]))                                          
+                                        :type ("Status" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2648 2722])
+                                    ("RunOptimizationPass" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("cluster" variable
+                                               (:pointer 1
+                                                :type ("Cluster" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2753 2770])
+                                            ("item" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("GrapplerItem" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2771 2796])
+                                            ("output" variable
+                                               (:pointer 1
+                                                :type ("GraphDef" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2826 2843]))                                          
+                                        :type ("Status" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2726 2844])
+                                    ("cpu_device_" variable
+                                       (:pointer 1
+                                        :type ("DeviceBase" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2914 2938])
+                                    ("owned_device_" variable (:type ("std::unique_ptr" type
+                                         (:template-specifier 
+                                            ( ("DeviceBase" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [2941 2983])
+                                    ("resource_mgr_" variable (:type ("std::unique_ptr" type
+                                         (:template-specifier 
+                                            ( ("ResourceMgr" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [2987 3030])
+                                    ("graph_" variable (:type ("GraphDef" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3033 3049])
+                                    ("node_map_" variable (:type ("std::unique_ptr" type
+                                         (:template-specifier 
+                                            ( ("NodeMap" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [3052 3087])
+                                    ("nodes_to_preserve_" variable (:type ("std::unordered_set" type
+                                         (:template-specifier 
+                                            ( ("string" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [3090 3136])
+                                    ("nodes_whitelist_" variable (:type ("std::unordered_set" type
+                                         (:template-specifier 
+                                            ( ("string" type nil nil nil))                                            
+                                          :type "class")
+                                          nil nil)) (reparse-symbol classsubparts) [3139 3183])
+                                    ("has_fetch_" variable (:type "bool") (reparse-symbol classsubparts) [3186 3202]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [1320 3205]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [1136 3208]))                  
+                :type "namespace")
+                nil [1113 3237]))          
+      :file "constant_folding.h"
+      :pointmax 3330
+      :fsize 3329
+      :lastmodtime '(23383 63533 222765 324000)
+      :unmatched-syntax '((thing 1643 . 1751) (thing 1635 . 1643) (thing 1630 . 1634) (thing 1536 . 1616) (thing 1528 . 1536) (thing 1521 . 1527) (thing 1468 . 1470) (thing 1464 . 1468) (thing 1457 . 1463) (thing 1451 . 1453) (thing 1442 . 1450) (thing 1439 . 1441) (thing 1424 . 1439) (thing 1423 . 1424))
+      :lexical-table 
+        '(("TENSORFLOW_GRAPPLER_OPTIMIZERS_CONSTANT_FOLDING_H_")
+          )
+))
+  :file "!ssd!sdd!git!test!turing_ha3_compile!tensorflow!tensorflow!core!grappler!optimizers!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

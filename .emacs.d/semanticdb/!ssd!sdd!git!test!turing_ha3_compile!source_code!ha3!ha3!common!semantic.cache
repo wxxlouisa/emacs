@@ -1,0 +1,2782 @@
+;; Object common/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "common/"
+  :tables
+  (list
+    (semanticdb-table "Query.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_QUERY_H" variable (:constant-flag t) nil [33 48])
+            ("ha3/common.h" include (:system-flag t) nil [50 73])
+            ("ha3/isearch.h" include (:system-flag t) nil [74 98])
+            ("ha3/util/Log.h" include (:system-flag t) nil [99 124])
+            ("assert.h" include (:system-flag t) nil [125 144])
+            ("ostream" include (:system-flag t) nil [145 163])
+            ("ha3/util/Serialize.h" include (:system-flag t) nil [164 195])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [217 224]))                  
+                :type "int")
+                nil [197 225])
+            ("QueryVisitor" type
+               (:prototype t
+                :type "class")
+                nil [227 246])
+            ("ModifyQueryVisitor" type
+               (:prototype t
+                :type "class")
+                nil [247 272])
+            ("Query" type
+               (:prototype t
+                :type "class")
+                nil [273 285])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Query" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [302 308]))                  
+                :type "int")
+                nil [286 309])
+            ("Query" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [325 332])
+                    ("QueryVector" type
+                       (:typedef ("std::vector" type
+                             (:template-specifier 
+                                ( ("QueryPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [337 379])
+                    ("public" label nil (reparse-symbol classsubparts) [380 387])
+                    ("Query" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [392 400])
+                    ("Query" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("other" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [411 430]))                          
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [405 431])
+                    ("Query" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [436 453])
+                    ("public" label nil (reparse-symbol classsubparts) [454 461])
+                    ("==" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :operator-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [492 511]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [466 522])
+                    ("accept" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("QueryVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [547 569]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [527 580])
+                    ("accept" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("ModifyQueryVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [605 633]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [585 638])
+                    ("clone" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [643 676])
+                    ("addQuery" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("queryPtr" variable (:type ("QueryPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [704 722]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [682 769])
+                    ("getChildQuery" function
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("QueryPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [774 859])
+                    ("getChildQuery" function
+                       (:pointer 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("QueryPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [864 937])
+                    ("setQueryRestrictor" function
+                       (:arguments 
+                          ( ("restrictorFlag" variable (:type "bool") (reparse-symbol arg-sub-list) [966 986]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [942 1037])
+                    ("hasQueryRestrictor" function (:type "bool") (reparse-symbol classsubparts) [1042 1114])
+                    ("getQueryName" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1119 1164])
+                    ("toString" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1169 1210])
+                    ("serialize" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("dataBuffer" variable
+                               (:reference 1
+                                :type ("autil::DataBuffer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1239 1269]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1216 1276])
+                    ("deserialize" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("dataBuffer" variable
+                               (:reference 1
+                                :type ("autil::DataBuffer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1306 1336]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1281 1337])
+                    ("getType" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("QueryType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1343 1381])
+                    ("createQuery" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("type" variable (:type ("QueryType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1412 1427]))                          
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1386 1428])
+                    ("getQueryLabel" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1433 1497])
+                    ("setQueryLabel" function
+                       (:arguments 
+                          ( ("label" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1521 1546]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1502 1571])
+                    ("getMatchDataLevel" function (:type ("MatchDataLevel" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1576 1644])
+                    ("setMatchDataLevel" function
+                       (:arguments 
+                          ( ("level" variable (:type ("MatchDataLevel" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1672 1693]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1649 1722])
+                    ("protected" label nil (reparse-symbol classsubparts) [1723 1733])
+                    ("_children" variable (:type ("QueryVector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1738 1760])
+                    ("_queryRestrictor" variable (:type "bool") (reparse-symbol classsubparts) [1765 1787])
+                    ("_matchDataLevel" variable (:type ("MatchDataLevel" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1792 1823])
+                    ("_queryLabel" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1828 1852])
+                    ("private" label nil (reparse-symbol classsubparts) [1853 1861])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1866 1884]))                  
+                :type "class")
+                nil [311 1887])
+            ("<<" function
+               (:prototype-flag t
+                :operator-flag t
+                :arguments 
+                  ( ("out" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1916 1934])
+                    ("query" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1935 1954]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [1889 1955])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1975 1982]))                  
+                :type "int")
+                nil [1957 1983])
+            ("AUTIL_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("autil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2007 2013]))                  
+                :type "int")
+                nil [1985 2014])
+            ("AUTIL_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("autil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2589 2595]))                  
+                :type "int")
+                nil [2569 2596]))          
+      :file "Query.h"
+      :pointmax 2623
+      :fsize 2622
+      :lastmodtime '(23410 43682 314624 858000)
+      :unmatched-syntax '((thing 2016 . 2024) (thing 2024 . 2025) (thing 2025 . 2026) (thing 2027 . 2033) (thing 2034 . 2038) (thing 2039 . 2049) (thing 2049 . 2050) (thing 2050 . 2051) (thing 2051 . 2056) (thing 2056 . 2057) (thing 2057 . 2063) (thing 2063 . 2071) (thing 2071 . 2072) (thing 2072 . 2073) (thing 2073 . 2078) (thing 2078 . 2079) (thing 2079 . 2119) (thing 2120 . 2266) (thing 2268 . 2276) (thing 2276 . 2277) (thing 2277 . 2278) (thing 2279 . 2285) (thing 2286 . 2290) (thing 2291 . 2301) (thing 2301 . 2302) (thing 2302 . 2303) (thing 2303 . 2307) (thing 2307 . 2308) (thing 2308 . 2314) (thing 2314 . 2322) (thing 2322 . 2323) (thing 2323 . 2324) (thing 2324 . 2329) (thing 2329 . 2330) (thing 2330 . 2357) (thing 2358 . 2567))
+      :lexical-table 
+        '(("ISEARCH_QUERY_H")
+          )
+)
+    (semanticdb-table "Query.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/common/Query.h" include (:system-flag t) nil [1 30])
+            ("ha3/common/TermQuery.h" include (:system-flag t) nil [31 64])
+            ("ha3/common/NumberQuery.h" include (:system-flag t) nil [65 100])
+            ("ha3/common/PhraseQuery.h" include (:system-flag t) nil [101 136])
+            ("ha3/common/AndQuery.h" include (:system-flag t) nil [137 169])
+            ("ha3/common/OrQuery.h" include (:system-flag t) nil [170 201])
+            ("ha3/common/RankQuery.h" include (:system-flag t) nil [202 235])
+            ("ha3/common/AndNotQuery.h" include (:system-flag t) nil [236 271])
+            ("ha3/common/MultiTermQuery.h" include (:system-flag t) nil [272 310])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [312 332])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [354 361]))                  
+                :type "int")
+                nil [334 362])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [377 384])
+                    ("" variable (:type ("Query" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [385 391]))                  
+                :type "int")
+                nil [363 392])
+            ("Query" function
+               (:constructor-flag t
+                :parent "Query"
+                :type ("Query" type (:type "class") nil nil))
+                nil [394 466])
+            ("Query" function
+               (:constructor-flag t
+                :parent "Query"
+                :arguments 
+                  ( ("other" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [481 500]))                  
+                :type ("Query" type (:type "class") nil nil))
+                nil [468 798])
+            ("Query" function
+               (:destructor-flag t
+                :parent "Query"
+                :type "void")
+                nil [800 819])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("out" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [848 866])
+                    ("query" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [867 886]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [821 926])
+            ("QUERY_MEMBERS" variable (:constant-flag t) nil [936 949])
+            ("HA3_SERIALIZE_IMPL" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Query" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [990 996]))                  
+                :type "int")
+                nil [971 1012])
+            ("createQuery" function
+               (:pointer 1
+                :parent "Query"
+                :arguments 
+                  ( ("type" variable (:type ("QueryType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1040 1055]))                  
+                :type ("Query" type (:type "class") nil nil))
+                nil [1014 1871])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1891 1898]))                  
+                :type "int")
+                nil [1873 1899]))          
+      :file "Query.cpp"
+      :pointmax 1901
+      :fsize 1900
+      :lastmodtime '(23410 43565 169557 954000)
+      :unmatched-syntax '((thing 997 . 1011) (thing 997 . 1011))
+      :lexical-table 
+        '(("QUERY_MEMBERS" (spp-arg-list ("X_X") 949 . 954) . 
+              ((symbol "X_X" 955 . 958) (semantic-list "(_children)" 958 . 969) (punctuation ";" 969 . 970)))
+          )
+)
+    (semanticdb-table "Request.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/common/Request.h" include (:system-flag t) nil [1 32])
+            ("autil/StringTokenizer.h" include (:system-flag t) nil [33 67])
+            ("ha3/queryparser/RequestSymbolDefine.h" include (:system-flag t) nil [68 116])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [118 140])
+            ("autil::legacy" using (:type ("autil::legacy" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [141 171])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [172 192])
+            ("USE_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [212 217]))                  
+                :type "int")
+                nil [194 218])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [239 246]))                  
+                :type "int")
+                nil [219 247])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [263 270])
+                    ("" variable (:type ("Request" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [271 279]))                  
+                :type "int")
+                nil [249 280])
+            ("Request" function
+               (:constructor-flag t
+                :parent "Request"
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [299 327]))                  
+                :type ("Request" type (:type "class") nil nil))
+                nil [282 1094])
+            ("Request" function
+               (:destructor-flag t
+                :parent "Request"
+                :type "void")
+                nil [1096 1193])
+            ("release" function
+               (:parent "Request"
+                :type "void")
+                nil [1195 2238])
+            ("SET_AND_GET_CLAUSE_HELPER" variable (:constant-flag t) nil [2248 2273])
+            ("setConfigClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("ConfigClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3505 3559])
+            ("getConfigClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("ConfigClause" type (:type "class") nil nil))
+                nil [3505 3559])
+            ("stealConfigClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("ConfigClause" type (:type "class") nil nil))
+                nil [3505 3559])
+            ("setQueryClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("QueryClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3561 3613])
+            ("getQueryClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("QueryClause" type (:type "class") nil nil))
+                nil [3561 3613])
+            ("stealQueryClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("QueryClause" type (:type "class") nil nil))
+                nil [3561 3613])
+            ("setFilterClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("FilterClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3615 3669])
+            ("getFilterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FilterClause" type (:type "class") nil nil))
+                nil [3615 3669])
+            ("stealFilterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FilterClause" type (:type "class") nil nil))
+                nil [3615 3669])
+            ("setPKFilterClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("PKFilterClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3671 3729])
+            ("getPKFilterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("PKFilterClause" type (:type "class") nil nil))
+                nil [3671 3729])
+            ("stealPKFilterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("PKFilterClause" type (:type "class") nil nil))
+                nil [3671 3729])
+            ("setSortClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("SortClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3731 3781])
+            ("getSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("SortClause" type (:type "class") nil nil))
+                nil [3731 3781])
+            ("stealSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("SortClause" type (:type "class") nil nil))
+                nil [3731 3781])
+            ("setDistinctClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("DistinctClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3783 3841])
+            ("getDistinctClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("DistinctClause" type (:type "class") nil nil))
+                nil [3783 3841])
+            ("stealDistinctClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("DistinctClause" type (:type "class") nil nil))
+                nil [3783 3841])
+            ("setAggregateClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("AggregateClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3843 3903])
+            ("getAggregateClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AggregateClause" type (:type "class") nil nil))
+                nil [3843 3903])
+            ("stealAggregateClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AggregateClause" type (:type "class") nil nil))
+                nil [3843 3903])
+            ("setRankClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("RankClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3905 3955])
+            ("getRankClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("RankClause" type (:type "class") nil nil))
+                nil [3905 3955])
+            ("stealRankClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("RankClause" type (:type "class") nil nil))
+                nil [3905 3955])
+            ("setDocIdClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("DocIdClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [3957 4009])
+            ("getDocIdClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("DocIdClause" type (:type "class") nil nil))
+                nil [3957 4009])
+            ("stealDocIdClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("DocIdClause" type (:type "class") nil nil))
+                nil [3957 4009])
+            ("setClusterClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("ClusterClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4011 4067])
+            ("getClusterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("ClusterClause" type (:type "class") nil nil))
+                nil [4011 4067])
+            ("stealClusterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("ClusterClause" type (:type "class") nil nil))
+                nil [4011 4067])
+            ("setHealthCheckClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("HealthCheckClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4069 4133])
+            ("getHealthCheckClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("HealthCheckClause" type (:type "class") nil nil))
+                nil [4069 4133])
+            ("stealHealthCheckClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("HealthCheckClause" type (:type "class") nil nil))
+                nil [4069 4133])
+            ("setAttributeClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("AttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4135 4195])
+            ("getAttributeClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AttributeClause" type (:type "class") nil nil))
+                nil [4135 4195])
+            ("stealAttributeClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AttributeClause" type (:type "class") nil nil))
+                nil [4135 4195])
+            ("setVirtualAttributeClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4197 4271])
+            ("getVirtualAttributeClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                nil [4197 4271])
+            ("stealVirtualAttributeClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                nil [4197 4271])
+            ("setFetchSummaryClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("FetchSummaryClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4273 4339])
+            ("getFetchSummaryClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FetchSummaryClause" type (:type "class") nil nil))
+                nil [4273 4339])
+            ("stealFetchSummaryClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FetchSummaryClause" type (:type "class") nil nil))
+                nil [4273 4339])
+            ("setKVPairClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("KVPairClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4341 4395])
+            ("getKVPairClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("KVPairClause" type (:type "class") nil nil))
+                nil [4341 4395])
+            ("stealKVPairClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("KVPairClause" type (:type "class") nil nil))
+                nil [4341 4395])
+            ("setQueryLayerClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("QueryLayerClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4397 4459])
+            ("getQueryLayerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("QueryLayerClause" type (:type "class") nil nil))
+                nil [4397 4459])
+            ("stealQueryLayerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("QueryLayerClause" type (:type "class") nil nil))
+                nil [4397 4459])
+            ("setSearcherCacheClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("SearcherCacheClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4461 4529])
+            ("getSearcherCacheClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("SearcherCacheClause" type (:type "class") nil nil))
+                nil [4461 4529])
+            ("stealSearcherCacheClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("SearcherCacheClause" type (:type "class") nil nil))
+                nil [4461 4529])
+            ("setOptimizerClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("OptimizerClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4531 4591])
+            ("getOptimizerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("OptimizerClause" type (:type "class") nil nil))
+                nil [4531 4591])
+            ("stealOptimizerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("OptimizerClause" type (:type "class") nil nil))
+                nil [4531 4591])
+            ("setRankSortClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("RankSortClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4593 4651])
+            ("getRankSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("RankSortClause" type (:type "class") nil nil))
+                nil [4593 4651])
+            ("stealRankSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("RankSortClause" type (:type "class") nil nil))
+                nil [4593 4651])
+            ("setFinalSortClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("FinalSortClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4653 4713])
+            ("getFinalSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FinalSortClause" type (:type "class") nil nil))
+                nil [4653 4713])
+            ("stealFinalSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FinalSortClause" type (:type "class") nil nil))
+                nil [4653 4713])
+            ("setLevelClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("LevelClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4715 4767])
+            ("getLevelClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("LevelClause" type (:type "class") nil nil))
+                nil [4715 4767])
+            ("stealLevelClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("LevelClause" type (:type "class") nil nil))
+                nil [4715 4767])
+            ("setAnalyzerClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clause" variable
+                       (:pointer 1
+                        :type ("AnalyzerClause" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [4769 4827])
+            ("getAnalyzerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AnalyzerClause" type (:type "class") nil nil))
+                nil [4769 4827])
+            ("stealAnalyzerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AnalyzerClause" type (:type "class") nil nil))
+                nil [4769 4827])
+            ("CLONE_CLAUSE_HELPER" variable (:constant-flag t) nil [4838 4857])
+            ("cloneConfigClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("ConfigClause" type (:type "class") nil nil))
+                nil [5662 5710])
+            ("cloneQueryClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("QueryClause" type (:type "class") nil nil))
+                nil [5712 5758])
+            ("cloneFilterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FilterClause" type (:type "class") nil nil))
+                nil [5760 5808])
+            ("clonePKFilterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("PKFilterClause" type (:type "class") nil nil))
+                nil [5810 5862])
+            ("cloneSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("SortClause" type (:type "class") nil nil))
+                nil [5864 5908])
+            ("cloneDistinctClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("DistinctClause" type (:type "class") nil nil))
+                nil [5910 5962])
+            ("cloneAggregateClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AggregateClause" type (:type "class") nil nil))
+                nil [5964 6018])
+            ("cloneRankClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("RankClause" type (:type "class") nil nil))
+                nil [6020 6064])
+            ("cloneDocIdClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("DocIdClause" type (:type "class") nil nil))
+                nil [6066 6112])
+            ("cloneClusterClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("ClusterClause" type (:type "class") nil nil))
+                nil [6114 6164])
+            ("cloneHealthCheckClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("HealthCheckClause" type (:type "class") nil nil))
+                nil [6166 6224])
+            ("cloneAttributeClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AttributeClause" type (:type "class") nil nil))
+                nil [6226 6280])
+            ("cloneVirtualAttributeClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                nil [6282 6350])
+            ("cloneFetchSummaryClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FetchSummaryClause" type (:type "class") nil nil))
+                nil [6352 6412])
+            ("cloneQueryLayerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("QueryLayerClause" type (:type "class") nil nil))
+                nil [6414 6470])
+            ("cloneSearcherCacheClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("SearcherCacheClause" type (:type "class") nil nil))
+                nil [6472 6534])
+            ("cloneOptimizerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("OptimizerClause" type (:type "class") nil nil))
+                nil [6536 6590])
+            ("cloneRankSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("RankSortClause" type (:type "class") nil nil))
+                nil [6592 6644])
+            ("cloneFinalSortClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("FinalSortClause" type (:type "class") nil nil))
+                nil [6646 6700])
+            ("cloneLevelClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("LevelClause" type (:type "class") nil nil))
+                nil [6702 6748])
+            ("cloneAnalyzerClause" function
+               (:pointer 1
+                :parent "Request"
+                :type ("AnalyzerClause" type (:type "class") nil nil))
+                nil [6750 6802])
+            ("setOriginalString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("originalString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6838 6867]))                  
+                :type "void")
+                nil [6806 6919])
+            ("getOriginalString" function
+               (:parent "Request"
+                :constant-flag t
+                :type ("std::string" type (:type "class") nil nil))
+                nil [6921 9263])
+            ("setPartitionMode" function
+               (:parent "Request"
+                :arguments 
+                  ( ("partitionMode" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9296 9324]))                  
+                :type "void")
+                nil [9265 9364])
+            ("getPartitionMode" function
+               (:parent "Request"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [9366 9444])
+            ("REQUEST_MEMBERS" variable (:constant-flag t) nil [9454 9469])
+            ("serializeToString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("str" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10644 10656]))                  
+                :type "void")
+                nil [10612 10790])
+            ("deserializeFromString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("str" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10828 10846])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10883 10911]))                  
+                :type "void")
+                nil [10792 11016])
+            ("splitClause" function
+               (:parent "Request"
+                :arguments 
+                  ( ("oriStr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11044 11065]))                  
+                :type "void")
+                nil [11018 12414])
+            ("setClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12446 12471])
+                    ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12472 12499]))                  
+                :type "bool")
+                nil [12416 14051])
+            ("SET_CLAUSE_ORISTRING" variable (:constant-flag t) nil [14061 14081])
+            ("setConfigClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14504 14538])
+            ("setQueryClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14540 14573])
+            ("setFilterClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14575 14609])
+            ("setSortClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14611 14643])
+            ("setPKFilterClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14645 14681])
+            ("setDistinctClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14683 14719])
+            ("setRankClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14721 14753])
+            ("setAggregateClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14755 14792])
+            ("setClusterClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14794 14829])
+            ("setHealthCheckClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14831 14870])
+            ("setAttributeClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14872 14909])
+            ("setVirtualAttributeClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14911 14955])
+            ("setFetchSummaryClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14957 14997])
+            ("setKVPairClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [14999 15033])
+            ("setQueryLayerClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [15035 15073])
+            ("setSearcherCacheClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [15075 15116])
+            ("setOptimizerClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [15118 15155])
+            ("setRankSortClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [15157 15193])
+            ("setFinalSortClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [15195 15232])
+            ("setLevelClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [15234 15267])
+            ("setAnalyzerClauseString" function
+               (:parent "Request"
+                :arguments 
+                  ( ("clauseString" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) nil))                  
+                :type "void")
+                nil [15269 15305])
+            ("getUnknownClause" function
+               (:parent "Request"
+                :constant-flag t
+                :type ("vector" type
+                     (:template-specifier 
+                        ( ("string" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [15308 15393])
+            ("CLAUSE_TO_STRING" variable (:constant-flag t) nil [15403 15419])
+            ("toString" function
+               (:parent "Request"
+                :type ("std::string" type (:type "class") nil nil))
+                nil [15585 16506])
+            ("setDegradeLevel" function
+               (:parent "Request"
+                :arguments 
+                  ( ("level" variable (:type "float") (reparse-symbol arg-sub-list) [16538 16550])
+                    ("rankSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16551 16569])
+                    ("rerankSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16570 16590]))                  
+                :type "void")
+                nil [16508 16677])
+            ("getDegradeLevel" function
+               (:parent "Request"
+                :arguments 
+                  ( ("level" variable
+                       (:reference 1
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [16708 16721])
+                    ("rankSize" variable
+                       (:reference 1
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16722 16741])
+                    ("rerankSize" variable
+                       (:reference 1
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16742 16763]))                  
+                :type "void")
+                nil [16678 16856])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16876 16883]))                  
+                :type "int")
+                nil [16858 16884]))          
+      :file "Request.cpp"
+      :pointmax 16885
+      :fsize 16884
+      :lastmodtime '(23411 41250 258663 736000)
+      :unmatched-syntax '((thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10594 . 10610) (thing 10584 . 10610) (thing 10566 . 10584) (thing 6802 . 6803) (thing 6748 . 6749) (thing 6700 . 6701) (thing 6644 . 6645) (thing 6590 . 6591) (thing 6534 . 6535) (thing 6470 . 6471) (thing 6412 . 6413) (thing 6350 . 6351) (thing 6280 . 6281) (thing 6224 . 6225) (thing 6164 . 6165) (thing 6112 . 6113) (thing 6064 . 6065) (thing 6018 . 6019) (thing 5962 . 5963) (thing 5908 . 5909) (thing 5862 . 5863) (thing 5808 . 5809) (thing 5758 . 5759) (thing 5710 . 5711) (thing 4827 . 4828) (thing 4767 . 4768) (thing 4713 . 4714) (thing 4651 . 4652) (thing 4591 . 4592) (thing 4529 . 4530) (thing 4459 . 4460) (thing 4395 . 4396) (thing 4339 . 4340) (thing 4271 . 4272) (thing 4195 . 4196) (thing 4133 . 4134) (thing 4067 . 4068) (thing 4009 . 4010) (thing 3955 . 3956) (thing 3903 . 3904) (thing 3841 . 3842) (thing 3781 . 3782) (thing 3729 . 3730) (thing 3669 . 3670) (thing 3613 . 3614) (thing 3559 . 3560) (thing 14538 . 14539) (thing 14573 . 14574) (thing 14609 . 14610) (thing 14643 . 14644) (thing 14681 . 14682) (thing 14719 . 14720) (thing 14753 . 14754) (thing 14792 . 14793) (thing 14829 . 14830) (thing 14870 . 14871) (thing 14909 . 14910) (thing 14955 . 14956) (thing 14997 . 14998) (thing 15033 . 15034) (thing 15073 . 15074) (thing 15116 . 15117) (thing 15155 . 15156) (thing 15193 . 15194) (thing 15232 . 15233) (thing 15267 . 15268) (thing 15305 . 15306))
+      :lexical-table 
+        '(("SET_AND_GET_CLAUSE_HELPER" (spp-arg-list ("className" "memberName") 2273 . 2296) . 
+              ((VOID "void" 2318 . 2322) (symbol "Request" 2323 . 2330) (punctuation ":" 2330 . 2331) (punctuation ":" 2331 . 2332) (spp-symbol-merge ((symbol "set" 2332 . 2335) (symbol "className" 2337 . 2346)) 2332 . 2346) (semantic-list "(className *clause)" 2346 . 2365) (semantic-list "{                   \\
+        if (clause == memberName) {                                     \\
+            return ;                                                    \\
+        }                                                               \\
+        if (memberName != NULL) {                                       \\
+            delete memberName;                                          \\
+        }                                                               \\
+        memberName = clause;                                            \\
+    }" 2366 . 2911) (symbol "className" 2984 . 2993) (punctuation "*" 2994 . 2995) (symbol "Request" 2995 . 3002) (punctuation ":" 3002 . 3003) (punctuation ":" 3003 . 3004) (spp-symbol-merge ((symbol "get" 3004 . 3007) (symbol "className" 3009 . 3018)) 3004 . 3018) (semantic-list "()" 3018 . 3020) (CONST "const" 3021 . 3026) (semantic-list "{                        \\
+        return memberName;                                              \\
+    }" 3027 . 3133) (symbol "className" 3206 . 3215) (punctuation "*" 3216 . 3217) (symbol "Request" 3217 . 3224) (punctuation ":" 3224 . 3225) (punctuation ":" 3225 . 3226) (spp-symbol-merge ((symbol "steal" 3226 . 3231) (symbol "className" 3233 . 3242)) 3226 . 3242) (semantic-list "()" 3242 . 3244) (semantic-list "{                            \\
+        className *tmp = memberName;                                    \\
+        memberName = NULL;                                              \\
+        return tmp;                                                     \\
+    }" 3245 . 3503)))
+          ("CLONE_CLAUSE_HELPER" (spp-arg-list ("className" "memberName") 4857 . 4880) . 
+              ((symbol "className" 4908 . 4917) (punctuation "*" 4918 . 4919) (symbol "Request" 4919 . 4926) (punctuation ":" 4926 . 4927) (punctuation ":" 4927 . 4928) (spp-symbol-merge ((symbol "clone" 4928 . 4933) (symbol "className" 4935 . 4944)) 4928 . 4944) (semantic-list "()" 4944 . 4946) (semantic-list "{                            \\
+        if (memberName == NULL) {                                       \\
+            return NULL;                                                \\
+        }                                                               \\
+        autil::DataBuffer dataBuffer(autil::DataBuffer::DEFAUTL_DATA_BUFFER_SIZE,_pool); \\
+        memberName->serialize(dataBuffer);                              \\
+        className *clause = new className();                            \\
+        clause->deserialize(dataBuffer);                                \\
+        return clause;                                                  \\
+    }" 4947 . 5592)))
+          ("CLAUSE_TO_STRING" (spp-arg-list ("member") 15419 . 15427) . 
+              ((IF "if" 15449 . 15451) (semantic-list "(_##member)" 15452 . 15463) (semantic-list "{                                             \\
+        ss << #member << \" : \" << _##member->toString() << endl; \\
+    }" 15464 . 15584)))
+          ("SET_CLAUSE_ORISTRING" (spp-arg-list ("ClauseClass") 14081 . 14094) . 
+              ((VOID "void" 14131 . 14135) (symbol "Request" 14136 . 14143) (punctuation ":" 14143 . 14144) (punctuation ":" 14144 . 14145) (spp-symbol-merge ((spp-symbol-merge ((symbol "set" 14145 . 14148) (symbol "ClauseClass" 14150 . 14161)) 14145 . 14161) (symbol "String" 14163 . 14169)) 14145 . 14169) (semantic-list "(const string &clauseString)" 14169 . 14197) (semantic-list "{                                                                   \\
+        ClauseClass *clause = new ClauseClass();                        \\
+        clause->setOriginalString(clauseString);                        \\
+        set##ClauseClass(clause);                                       \\
+    }" 14205 . 14502)))
+          ("REQUEST_MEMBERS" (spp-arg-list ("HA3_SERIALIZE_MACRO") 9469 . 9490) . 
+              ((symbol "HA3_SERIALIZE_MACRO" 9504 . 9523) (semantic-list "(_configClause)" 9523 . 9538) (symbol "HA3_SERIALIZE_MACRO" 9558 . 9577) (semantic-list "(_queryClause)" 9577 . 9591) (symbol "HA3_SERIALIZE_MACRO" 9612 . 9631) (semantic-list "(_filterClause)" 9631 . 9646) (symbol "HA3_SERIALIZE_MACRO" 9666 . 9685) (semantic-list "(_pkFilterClause)" 9685 . 9702) (symbol "HA3_SERIALIZE_MACRO" 9720 . 9739) (semantic-list "(_sortClause)" 9739 . 9752) (symbol "HA3_SERIALIZE_MACRO" 9774 . 9793) (semantic-list "(_distinctClause)" 9793 . 9810) (symbol "HA3_SERIALIZE_MACRO" 9828 . 9847) (semantic-list "(_aggregateClause)" 9847 . 9865) (symbol "HA3_SERIALIZE_MACRO" 9879 . 9898) (semantic-list "(_rankClause)" 9898 . 9911) (symbol "HA3_SERIALIZE_MACRO" 9933 . 9952) (semantic-list "(_fetchSummaryClause)" 9952 . 9973) (symbol "HA3_SERIALIZE_MACRO" 9987 . 10006) (semantic-list "(_docIdClause)" 10006 . 10020) (symbol "HA3_SERIALIZE_MACRO" 10041 . 10060) (semantic-list "(_clusterClause)" 10060 . 10076) (symbol "HA3_SERIALIZE_MACRO" 10095 . 10114) (semantic-list "(_healthCheckClause)" 10114 . 10134) (symbol "HA3_SERIALIZE_MACRO" 10149 . 10168) (semantic-list "(_attributeClause)" 10168 . 10186) (symbol "HA3_SERIALIZE_MACRO" 10203 . 10222) (semantic-list "(_virtualAttributeClause)" 10222 . 10247) (symbol "HA3_SERIALIZE_MACRO" 10257 . 10276) (semantic-list "(_partitionMode)" 10276 . 10292) (symbol "HA3_SERIALIZE_MACRO" 10311 . 10330) (semantic-list "(_queryLayerClause)" 10330 . 10349) (symbol "HA3_SERIALIZE_MACRO" 10365 . 10384) (semantic-list "(_searcherCacheClause)" 10384 . 10406) (symbol "HA3_SERIALIZE_MACRO" 10419 . 10438) (semantic-list "(_optimizerClause)" 10438 . 10456) (symbol "HA3_SERIALIZE_MACRO" 10473 . 10492) (semantic-list "(_rankSortClause)" 10492 . 10509) (symbol "HA3_SERIALIZE_MACRO" 10527 . 10546) (semantic-list "(_finalSortClause)" 10546 . 10564)))
+          )
+)
+    (semanticdb-table "Request.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_REQUEST_H" variable (:constant-flag t) nil [35 52])
+            ("string" include (:system-flag t) nil [54 71])
+            ("ha3/common.h" include (:system-flag t) nil [72 95])
+            ("ha3/isearch.h" include (:system-flag t) nil [96 120])
+            ("ha3/util/Log.h" include (:system-flag t) nil [121 146])
+            ("ha3/util/Serialize.h" include (:system-flag t) nil [147 178])
+            ("ha3/common/QueryClause.h" include (:system-flag t) nil [179 214])
+            ("ha3/common/AggregateClause.h" include (:system-flag t) nil [215 254])
+            ("ha3/common/ConfigClause.h" include (:system-flag t) nil [255 291])
+            ("ha3/common/RankClause.h" include (:system-flag t) nil [292 326])
+            ("ha3/common/SortClause.h" include (:system-flag t) nil [327 361])
+            ("ha3/common/DistinctClause.h" include (:system-flag t) nil [362 400])
+            ("ha3/common/DocIdClause.h" include (:system-flag t) nil [401 436])
+            ("ha3/common/FilterClause.h" include (:system-flag t) nil [437 473])
+            ("ha3/common/ClusterClause.h" include (:system-flag t) nil [474 511])
+            ("ha3/common/PKFilterClause.h" include (:system-flag t) nil [512 550])
+            ("ha3/common/HealthCheckClause.h" include (:system-flag t) nil [551 592])
+            ("ha3/common/AttributeClause.h" include (:system-flag t) nil [593 632])
+            ("ha3/common/VirtualAttributeClause.h" include (:system-flag t) nil [633 679])
+            ("ha3/common/FetchSummaryClause.h" include (:system-flag t) nil [680 722])
+            ("ha3/common/KVPairClause.h" include (:system-flag t) nil [723 759])
+            ("ha3/common/QueryLayerClause.h" include (:system-flag t) nil [760 800])
+            ("ha3/common/SearcherCacheClause.h" include (:system-flag t) nil [801 844])
+            ("ha3/common/OptimizerClause.h" include (:system-flag t) nil [845 884])
+            ("ha3/common/RankSortClause.h" include (:system-flag t) nil [885 923])
+            ("ha3/common/FinalSortClause.h" include (:system-flag t) nil [924 963])
+            ("ha3/common/LevelClause.h" include (:system-flag t) nil [964 999])
+            ("ha3/common/AnalyzerClause.h" include (:system-flag t) nil [1000 1038])
+            ("autil/mem_pool/Pool.h" include (:system-flag t) nil [1039 1071])
+            ("autil/DataBuffer.h" include (:system-flag t) nil [1072 1101])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1123 1130]))                  
+                :type "int")
+                nil [1103 1131])
+            ("Request" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1149 1156])
+                    ("Request" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1169 1203]))                          
+                        :type ("Request" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1161 1205])
+                    ("Request" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1210 1221])
+                    ("private" label nil (reparse-symbol classsubparts) [1222 1230])
+                    ("Request" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Request" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1243 1266]))                          
+                        :type ("Request" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1235 1267])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Request" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1293 1316]))                          
+                        :type ("Request" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1272 1317])
+                    ("public" label nil (reparse-symbol classsubparts) [1318 1325])
+                    ("setQueryClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("queryClause" variable
+                               (:pointer 1
+                                :type ("QueryClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1350 1375]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1330 1376])
+                    ("getQueryClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("QueryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1381 1417])
+                    ("stealQueryClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("QueryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1422 1454])
+                    ("cloneQueryClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("QueryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1459 1491])
+                    ("setFilterClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("filterClause" variable
+                               (:pointer 1
+                                :type ("FilterClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1518 1545]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1497 1546])
+                    ("getFilterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FilterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1551 1589])
+                    ("stealFilterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FilterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1594 1628])
+                    ("cloneFilterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FilterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1633 1667])
+                    ("setPKFilterClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pkFilterClause" variable
+                               (:pointer 1
+                                :type ("PKFilterClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1700 1731]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1677 1732])
+                    ("getPKFilterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("PKFilterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1737 1779])
+                    ("stealPKFilterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("PKFilterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1784 1822])
+                    ("clonePKFilterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("PKFilterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1827 1865])
+                    ("setSortClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("sortClause" variable
+                               (:pointer 1
+                                :type ("SortClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1890 1913]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1871 1914])
+                    ("getSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("SortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1919 1953])
+                    ("stealSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("SortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1958 1988])
+                    ("cloneSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("SortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1993 2023])
+                    ("setDistinctClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("distinctClause" variable
+                               (:pointer 1
+                                :type ("DistinctClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2052 2083]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2029 2084])
+                    ("getDistinctClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("DistinctClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2089 2131])
+                    ("stealDistinctClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("DistinctClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2136 2174])
+                    ("cloneDistinctClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("DistinctClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2179 2217])
+                    ("setAggregateClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aggClause" variable
+                               (:pointer 1
+                                :type ("AggregateClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2247 2274]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2223 2275])
+                    ("getAggregateClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AggregateClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2280 2324])
+                    ("stealAggregateClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AggregateClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2329 2369])
+                    ("cloneAggregateClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AggregateClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2374 2414])
+                    ("setRankClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rankClause" variable
+                               (:pointer 1
+                                :type ("RankClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2439 2462]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2420 2463])
+                    ("getRankClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("RankClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2468 2502])
+                    ("stealRankClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("RankClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2507 2537])
+                    ("cloneRankClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("RankClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2542 2572])
+                    ("setConfigClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("configClause" variable
+                               (:pointer 1
+                                :type ("ConfigClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2599 2626]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2578 2627])
+                    ("getConfigClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("ConfigClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2632 2670])
+                    ("stealConfigClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("ConfigClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2675 2709])
+                    ("cloneConfigClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("ConfigClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2714 2748])
+                    ("setDocIdClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("docIdClause" variable
+                               (:pointer 1
+                                :type ("DocIdClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2774 2799]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2754 2800])
+                    ("getDocIdClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("DocIdClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2805 2841])
+                    ("stealDocIdClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("DocIdClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2846 2878])
+                    ("cloneDocIdClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("DocIdClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2883 2915])
+                    ("setClusterClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clusterClause" variable
+                               (:pointer 1
+                                :type ("ClusterClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2943 2972]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2921 2973])
+                    ("getClusterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("ClusterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2978 3018])
+                    ("stealClusterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("ClusterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3023 3059])
+                    ("cloneClusterClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("ClusterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3064 3100])
+                    ("setHealthCheckClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("healthCheckClause" variable
+                               (:pointer 1
+                                :type ("HealthCheckClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3132 3169]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3106 3170])
+                    ("getHealthCheckClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("HealthCheckClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3175 3223])
+                    ("stealHealthCheckClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("HealthCheckClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3228 3272])
+                    ("cloneHealthCheckClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("HealthCheckClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3277 3321])
+                    ("setAttributeClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("attributeClause" variable
+                               (:pointer 1
+                                :type ("AttributeClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3355 3388]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3331 3389])
+                    ("getAttributeClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3394 3438])
+                    ("stealAttributeClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3443 3483])
+                    ("cloneAttributeClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3488 3528])
+                    ("setVirtualAttributeClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("virtualAttributeClause" variable
+                               (:pointer 1
+                                :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3569 3616]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3538 3617])
+                    ("getVirtualAttributeClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3622 3680])
+                    ("stealVirtualAttributeClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3685 3739])
+                    ("cloneVirtualAttributeClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3744 3798])
+                    ("setFetchSummaryClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fetchSummaryClause" variable
+                               (:pointer 1
+                                :type ("FetchSummaryClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3835 3874]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3808 3875])
+                    ("getFetchSummaryClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FetchSummaryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3880 3930])
+                    ("stealFetchSummaryClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FetchSummaryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3935 3981])
+                    ("cloneFetchSummaryClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FetchSummaryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3986 4032])
+                    ("setKVPairClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("kvPairClause" variable
+                               (:pointer 1
+                                :type ("KVPairClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4063 4090]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4042 4091])
+                    ("getKVPairClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("KVPairClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4096 4134])
+                    ("stealKVPairClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("KVPairClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4139 4173])
+                    ("setQueryLayerClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("queryLayerClause" variable
+                               (:pointer 1
+                                :type ("QueryLayerClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4204 4239]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4179 4240])
+                    ("getQueryLayerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("QueryLayerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4245 4291])
+                    ("stealQueryLayerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("QueryLayerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4296 4338])
+                    ("cloneQueryLayerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("QueryLayerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4343 4385])
+                    ("setSearcherCacheClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("cacheClause" variable
+                               (:pointer 1
+                                :type ("SearcherCacheClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4423 4456]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4395 4457])
+                    ("getSearcherCacheClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("SearcherCacheClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4462 4514])
+                    ("stealSearcherCacheClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("SearcherCacheClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4519 4567])
+                    ("cloneSearcherCacheClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("SearcherCacheClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4572 4620])
+                    ("setOptimizerClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("cacheClause" variable
+                               (:pointer 1
+                                :type ("OptimizerClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4654 4683]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4630 4684])
+                    ("getOptimizerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("OptimizerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4689 4733])
+                    ("stealOptimizerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("OptimizerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4738 4778])
+                    ("cloneOptimizerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("OptimizerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4783 4823])
+                    ("setRankSortClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rankSortClause" variable
+                               (:pointer 1
+                                :type ("RankSortClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4856 4887]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4833 4888])
+                    ("getRankSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("RankSortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4893 4935])
+                    ("stealRankSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("RankSortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4940 4978])
+                    ("cloneRankSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("RankSortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4983 5021])
+                    ("setFinalSortClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("finalSortClause" variable
+                               (:pointer 1
+                                :type ("FinalSortClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5055 5088]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5031 5089])
+                    ("getFinalSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FinalSortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5094 5138])
+                    ("stealFinalSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FinalSortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5143 5183])
+                    ("cloneFinalSortClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("FinalSortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5188 5228])
+                    ("setLevelClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("levelClause" variable
+                               (:pointer 1
+                                :type ("LevelClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5258 5283]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5238 5284])
+                    ("getLevelClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("LevelClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5289 5325])
+                    ("stealLevelClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("LevelClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5330 5362])
+                    ("cloneLevelClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("LevelClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5367 5399])
+                    ("setAnalyzerClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("analyzerClause" variable
+                               (:pointer 1
+                                :type ("AnalyzerClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5432 5463]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5409 5464])
+                    ("getAnalyzerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AnalyzerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5469 5511])
+                    ("stealAnalyzerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AnalyzerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5516 5554])
+                    ("cloneAnalyzerClause" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("AnalyzerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5559 5597])
+                    ("setRowKey" function
+                       (:arguments 
+                          ( ("key" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5622 5635]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5607 5672])
+                    ("getRowKey" function (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5677 5735])
+                    ("public" label nil (reparse-symbol classsubparts) [5736 5743])
+                    ("setPartitionMode" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partitionMode" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5770 5803]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5748 5804])
+                    ("getPartitionMode" function
+                       (:prototype-flag t
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5809 5853])
+                    ("setOriginalString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("originalString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5882 5916]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5859 5917])
+                    ("getOriginalString" function
+                       (:prototype-flag t
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5922 5966])
+                    ("HA3_SERIALIZE_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [5972 5996])
+                    ("serializeToString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("str" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6025 6042]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6002 6049])
+                    ("deserializeFromString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("str" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6081 6104])
+                            ("pool" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6136 6170]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6054 6172])
+                    ("getUnknownClause" function
+                       (:prototype-flag t
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("std::string" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [6178 6235])
+                    ("getPool" function
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6241 6297])
+                    ("setPool" function
+                       (:arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6315 6343]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6302 6361])
+                    ("release" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [6366 6381])
+                    ("toString" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6387 6416])
+                    ("setDegradeLevel" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("level" variable (:type "float") (reparse-symbol arg-sub-list) [6442 6454])
+                            ("rankSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6455 6473])
+                            ("rerankSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6474 6494]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6421 6495])
+                    ("getDegradeLevel" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("level" variable
+                               (:reference 1
+                                :type "float")
+                                (reparse-symbol arg-sub-list) [6521 6534])
+                            ("rankSize" variable
+                               (:reference 1
+                                :type ("uint32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6535 6554])
+                            ("rerankSize" variable
+                               (:reference 1
+                                :type ("uint32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6555 6576]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6500 6583])
+                    ("private" label nil (reparse-symbol classsubparts) [6589 6597])
+                    ("splitClause" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("oriStr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6619 6645]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6602 6646])
+                    ("setClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6672 6702])
+                            ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6703 6735]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [6651 6736])
+                    ("setQueryClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6768 6800]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6742 6801])
+                    ("setFilterClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6833 6865]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6806 6866])
+                    ("setPKFilterClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6900 6932]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6871 6933])
+                    ("setSortClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6963 6995]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6938 6996])
+                    ("setDistinctClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7030 7062]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7001 7063])
+                    ("setAggregateClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7098 7130]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7068 7131])
+                    ("setRankClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7161 7193]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7136 7194])
+                    ("setConfigClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7226 7258]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7199 7259])
+                    ("setClusterClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7292 7324]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7264 7325])
+                    ("setHealthCheckClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7362 7394]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7330 7395])
+                    ("setAttributeClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7430 7462]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7400 7463])
+                    ("setVirtualAttributeClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7505 7537]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7468 7538])
+                    ("setFetchSummaryClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7576 7608]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7543 7609])
+                    ("setKVPairClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7641 7673]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7614 7674])
+                    ("setQueryLayerClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7710 7742]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7679 7743])
+                    ("setSearcherCacheClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7782 7814]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7748 7815])
+                    ("setOptimizerClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7850 7882]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7820 7883])
+                    ("setRankSortClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7917 7949]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7888 7950])
+                    ("setFinalSortClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7985 8017]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7955 8018])
+                    ("setLevelClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8049 8081]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8023 8082])
+                    ("setAnalyzerClauseString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("clauseString" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8116 8148]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8087 8149])
+                    ("private" label nil (reparse-symbol classsubparts) [8150 8158])
+                    ("_configClause" variable
+                       (:pointer 1
+                        :type ("ConfigClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8163 8191])
+                    ("_queryClause" variable
+                       (:pointer 1
+                        :type ("QueryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8196 8222])
+                    ("_filterClause" variable
+                       (:pointer 1
+                        :type ("FilterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8227 8255])
+                    ("_pkFilterClause" variable
+                       (:pointer 1
+                        :type ("PKFilterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8260 8292])
+                    ("_sortClause" variable
+                       (:pointer 1
+                        :type ("SortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8297 8321])
+                    ("_distinctClause" variable
+                       (:pointer 1
+                        :type ("DistinctClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8326 8358])
+                    ("_aggregateClause" variable
+                       (:pointer 1
+                        :type ("AggregateClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8363 8397])
+                    ("_rankClause" variable
+                       (:pointer 1
+                        :type ("RankClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8402 8426])
+                    ("_docIdClause" variable
+                       (:pointer 1
+                        :type ("DocIdClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8431 8457])
+                    ("_clusterClause" variable
+                       (:pointer 1
+                        :type ("ClusterClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8462 8492])
+                    ("_healthCheckClause" variable
+                       (:pointer 1
+                        :type ("HealthCheckClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8497 8535])
+                    ("_attributeClause" variable
+                       (:pointer 1
+                        :type ("AttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8540 8574])
+                    ("_virtualAttributeClause" variable
+                       (:pointer 1
+                        :type ("VirtualAttributeClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8579 8627])
+                    ("_fetchSummaryClause" variable
+                       (:pointer 1
+                        :type ("FetchSummaryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8632 8672])
+                    ("_kvPairClause" variable
+                       (:pointer 1
+                        :type ("KVPairClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8677 8705])
+                    ("_queryLayerClause" variable
+                       (:pointer 1
+                        :type ("QueryLayerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8710 8746])
+                    ("_searcherCacheClause" variable
+                       (:pointer 1
+                        :type ("SearcherCacheClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8751 8793])
+                    ("_optimizerClause" variable
+                       (:pointer 1
+                        :type ("OptimizerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8798 8832])
+                    ("_rankSortClause" variable
+                       (:pointer 1
+                        :type ("RankSortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8837 8869])
+                    ("_finalSortClause" variable
+                       (:pointer 1
+                        :type ("FinalSortClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8874 8908])
+                    ("_levelClause" variable
+                       (:pointer 1
+                        :type ("LevelClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8913 8939])
+                    ("_analyzerClause" variable
+                       (:pointer 1
+                        :type ("AnalyzerClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8944 8976])
+                    ("_partitionMode" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [8981 9008])
+                    ("_unknownClause" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [9013 9053])
+                    ("_curClusterName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9079 9107])
+                    ("_rowKey" variable
+                       (:typemodifiers ("mutable")
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9112 9137])
+                    ("_rankSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9171 9190])
+                    ("_rerankSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9195 9216])
+                    ("_degradeLevel" variable (:type "float") (reparse-symbol classsubparts) [9221 9241])
+                    ("_pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9247 9276])
+                    ("private" label nil (reparse-symbol classsubparts) [9277 9285])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [9290 9308]))                  
+                :type "class")
+                nil [1133 9311])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Request" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9329 9337]))                  
+                :type "int")
+                nil [9313 9338])
+            ("RequestPtrVector" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("RequestPtr" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [9339 9388])
+            ("ClauseStringMap" type
+               (:typedef ("std::map" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil)
+                          ("std::string" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [9389 9448])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9468 9475]))                  
+                :type "int")
+                nil [9450 9476]))          
+      :file "Request.h"
+      :pointmax 9505
+      :fsize 9504
+      :lastmodtime '(23411 41250 259663 711000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_REQUEST_H")
+          )
+)
+    (semanticdb-table "QueryClause.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_QUERYCLAUSE_H" variable (:constant-flag t) nil [39 60])
+            ("ha3/common.h" include (:system-flag t) nil [62 85])
+            ("ha3/isearch.h" include (:system-flag t) nil [86 110])
+            ("ha3/util/Log.h" include (:system-flag t) nil [111 136])
+            ("autil/DataBuffer.h" include (:system-flag t) nil [137 166])
+            ("ha3/common/Query.h" include (:system-flag t) nil [167 196])
+            ("ha3/common/ClauseBase.h" include (:system-flag t) nil [197 231])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [253 260]))                  
+                :type "int")
+                nil [233 261])
+            ("QueryClause" type
+               (:superclasses 
+                  ( ("ClauseBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [303 310])
+                    ("QueryClause" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("QueryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [315 329])
+                    ("QueryClause" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [346 359]))                          
+                        :type ("QueryClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [334 360])
+                    ("QueryClause" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [365 380])
+                    ("public" label nil (reparse-symbol classsubparts) [381 388])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [439 454])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [507 516])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [544 559])
+                    ("public" label nil (reparse-symbol classsubparts) [560 567])
+                    ("setRootQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [590 603])
+                            ("laye" variable
+                               (:default-value "0"
+                                :type ("uint32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [604 621]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [572 623])
+                    ("getRootQuery" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("layer" variable
+                               (:default-value "0"
+                                :type ("uint32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [648 666]))                          
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [628 674])
+                    ("insertQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [696 709])
+                            ("layer" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [710 724]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [679 725])
+                    ("getQueryCount" function (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [730 803])
+                    ("private" label nil (reparse-symbol classsubparts) [804 812])
+                    ("_rootQuerys" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("Query" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [817 849])
+                    ("private" label nil (reparse-symbol classsubparts) [850 858])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [863 881]))                  
+                :type "class")
+                nil [263 884])
+            ("QueryClausePtr" type
+               (:typedef ("std::shared_ptr" type
+                     (:template-specifier 
+                        ( ("QueryClause" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [886 938])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [958 965]))                  
+                :type "int")
+                nil [940 966]))          
+      :file "QueryClause.h"
+      :pointmax 999
+      :fsize 998
+      :lastmodtime '(23411 38084 42333 526000)
+      :unmatched-syntax '((thing 541 . 543) (thing 533 . 541) (thing 526 . 532) (thing 525 . 526) (thing 524 . 525) (thing 521 . 524) (thing 475 . 506) (thing 464 . 475) (thing 459 . 463) (thing 407 . 438) (thing 398 . 407) (thing 393 . 397))
+      :lexical-table 
+        '(("ISEARCH_QUERYCLAUSE_H")
+          )
+)
+    (semanticdb-table "AggregateClause.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/common/AggregateClause.h" include (:system-flag t) nil [1 40])
+            ("assert.h" include (:system-flag t) nil [41 60])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [62 82])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [104 111]))                  
+                :type "int")
+                nil [84 112])
+            ("HA3_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [127 134])
+                    ("" variable (:type ("AggregateClause" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [135 151]))                  
+                :type "int")
+                nil [113 152])
+            ("AggregateClause" function
+               (:constructor-flag t
+                :parent "AggregateClause"
+                :type ("AggregateClause" type (:type "class") nil nil))
+                nil [154 193])
+            ("AggregateClause" function
+               (:destructor-flag t
+                :parent "AggregateClause"
+                :type "void")
+                nil [195 422])
+            ("getAggDescriptions" function
+               (:parent "AggregateClause"
+                :constant-flag t
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("AggregateDescription" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [424 542])
+            ("addAggDescription" function
+               (:parent "AggregateClause"
+                :arguments 
+                  ( ("aggDescription" variable
+                       (:pointer 1
+                        :type ("AggregateDescription" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [584 621]))                  
+                :type "void")
+                nil [544 709])
+            ("removeAggDescription" function
+               (:parent "AggregateClause"
+                :arguments 
+                  ( ("aggDescription" variable
+                       (:pointer 1
+                        :type ("AggregateDescription" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [754 791]))                  
+                :type "bool")
+                nil [711 832])
+            ("clearAggDescriptions" function
+               (:parent "AggregateClause"
+                :type "void")
+                nil [834 912])
+            ("serialize" function
+               (:parent "AggregateClause"
+                :arguments 
+                  ( ("dataBuffer" variable
+                       (:reference 1
+                        :type ("autil::DataBuffer" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [946 976]))                  
+                :type "void")
+                nil [914 1065])
+            ("deserialize" function
+               (:parent "AggregateClause"
+                :arguments 
+                  ( ("dataBuffer" variable
+                       (:reference 1
+                        :type ("autil::DataBuffer" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1101 1131]))                  
+                :type "void")
+                nil [1067 1212])
+            ("toString" function
+               (:parent "AggregateClause"
+                :type ("string" type (:type "class") nil nil))
+                nil [1214 1574])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1594 1601]))                  
+                :type "int")
+                nil [1576 1602]))          
+      :file "AggregateClause.cpp"
+      :pointmax 1603
+      :fsize 1602
+      :lastmodtime '(23410 43682 304625 110000)
+      :unmatched-syntax nil)
+    (semanticdb-table "AggregateClause.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("_AGGREGATECLAUSE_H" variable (:constant-flag t) nil [36 54])
+            ("vector" include (:system-flag t) nil [56 73])
+            ("ha3/common.h" include (:system-flag t) nil [74 97])
+            ("ha3/isearch.h" include (:system-flag t) nil [98 122])
+            ("ha3/util/Log.h" include (:system-flag t) nil [123 148])
+            ("ha3/common/AggregateDescription.h" include (:system-flag t) nil [149 193])
+            ("ha3/util/Serialize.h" include (:system-flag t) nil [194 225])
+            ("ha3/common/ClauseBase.h" include (:system-flag t) nil [226 260])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [282 289]))                  
+                :type "int")
+                nil [262 290])
+            ("AggregateDescriptions" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("AggregateDescription" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [292 357])
+            ("AggregateClause" type
+               (:superclasses 
+                  ( ("ClauseBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [403 410])
+                    ("AggregateClause" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("AggregateClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [415 433])
+                    ("AggregateClause" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [438 457])
+                    ("AggregateClause" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("aggregateClause" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AggregateClause" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [478 517]))                          
+                        :type ("AggregateClause" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [462 518])
+                    ("public" label nil (reparse-symbol classsubparts) [520 527])
+                    ("HA3_SERIALIZE_DECLARE" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable (:type ("override" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [554 563]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [532 564])
+                    ("override" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [592 607])
+                    ("public" label nil (reparse-symbol classsubparts) [608 615])
+                    ("addAggDescription" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aggDescription" variable
+                               (:pointer 1
+                                :type ("AggregateDescription" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [643 680]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [620 681])
+                    ("removeAggDescription" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aggDescription" variable
+                               (:pointer 1
+                                :type ("AggregateDescription" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [712 749]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [686 750])
+                    ("clearAggDescriptions" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [755 783])
+                    ("getAggDescriptions" function
+                       (:prototype-flag t
+                        :constant-flag t
+                        :type ("AggregateDescriptions" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [788 844])
+                    ("private" label nil (reparse-symbol classsubparts) [845 853])
+                    ("_aggDescriptions" variable (:type ("AggregateDescriptions" type (:type "class") nil nil)) (reparse-symbol classsubparts) [858 897])
+                    ("private" label nil (reparse-symbol classsubparts) [898 906])
+                    ("HA3_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [911 929]))                  
+                :type "class")
+                nil [359 932])
+            ("AggregateClausePtr" type
+               (:typedef ("std::shared_ptr" type
+                     (:template-specifier 
+                        ( ("AggregateClause" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [934 994])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1014 1021]))                  
+                :type "int")
+                nil [996 1022]))          
+      :file "AggregateClause.h"
+      :pointmax 1031
+      :fsize 1030
+      :lastmodtime '(23411 38066 969766 196000)
+      :unmatched-syntax '((thing 589 . 591) (thing 581 . 589) (thing 574 . 580) (thing 573 . 574) (thing 572 . 573) (thing 569 . 572))
+      :lexical-table 
+        '(("_AGGREGATECLAUSE_H")
+          )
+))
+  :file "!ssd!sdd!git!test!turing_ha3_compile!source_code!ha3!ha3!common!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

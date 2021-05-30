@@ -1,0 +1,2755 @@
+;; Object SCons/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "SCons/"
+  :tables
+  (list
+    (semanticdb-table "SConf.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"SCons.SConf
+
+Autoconf-like configuration support.
+
+In other words, SConf allows to run tests on the build machine to detect
+capabilities of system and do some things based on result: generate config
+files, header files for C/C++, update variables in environment.
+
+Tests on the build system can detect if compiler sees header files, if
+libraries are installed, if some command line options are supported etc.
+
+\"\"\"" code nil nil [1 416])
+            ("__revision__" variable nil nil [1531 1630])
+            ("SCons.compat" include nil nil [1632 1651])
+            ("io" include nil nil [1653 1662])
+            ("os" include nil nil [1663 1672])
+            ("re" include nil nil [1673 1682])
+            ("sys" include nil nil [1683 1693])
+            ("traceback" include nil nil [1694 1710])
+            ("SCons.Action" include nil nil [1712 1731])
+            ("SCons.Builder" include nil nil [1732 1752])
+            ("SCons.Errors" include nil nil [1753 1772])
+            ("SCons.Job" include nil nil [1773 1789])
+            ("SCons.Node.FS" include nil nil [1790 1810])
+            ("SCons.Taskmaster" include nil nil [1811 1834])
+            ("SCons.Util" include nil nil [1835 1852])
+            ("SCons.Warnings" include nil nil [1853 1874])
+            ("SCons.Conftest" include nil nil [1875 1896])
+            ("SCons.Debug" include nil nil [1898 1927])
+            ("SCons" variable nil nil [1967 1999])
+            ("SCons" variable nil nil [2000 2035])
+            ("build_type" variable nil nil [2043 2060])
+            ("build_types" variable nil nil [2061 2092])
+            ("SetBuildType" function (:arguments 
+              ( ("type" variable nil (reparse-symbol function_parameters) [2111 2115]))              ) nil [2094 2162])
+            ("dryrun" variable nil nil [2202 2212])
+            ("AUTO" variable nil nil [2214 2220])
+            ("FORCE" variable nil nil [2276 2283])
+            ("CACHE" variable nil nil [2316 2323])
+            ("cache_mode" variable nil nil [2396 2413])
+            ("SetCacheMode" function
+               (:documentation "Set the Configure cache mode. mode must be one of \"auto\", \"force\",
+    or \"cache\"."
+                :arguments 
+                  ( ("mode" variable nil (reparse-symbol function_parameters) [2432 2436]))                  )
+                nil [2415 2794])
+            ("progress_display" variable nil nil [2795 2832])
+            ("SetProgressDisplay" function
+               (:documentation "Set the progress display to use (called from SCons.Script)"
+                :arguments 
+                  ( ("display" variable nil (reparse-symbol function_parameters) [2894 2901]))                  )
+                nil [2871 3032])
+            ("SConfFS" variable nil nil [3033 3047])
+            ("_ac_build_counter" variable nil nil [3049 3070])
+            ("_ac_config_logs" variable nil nil [3114 3134])
+            ("_ac_config_hs" variable nil nil [3181 3201])
+            ("sconf_global" variable nil nil [3246 3265])
+            ("_createConfigH" function (:arguments 
+              ( ("target" variable nil (reparse-symbol function_parameters) [3311 3317])
+                ("source" variable nil (reparse-symbol function_parameters) [3319 3325])
+                ("env" variable nil (reparse-symbol function_parameters) [3327 3330]))              ) nil [3292 3656])
+            ("_stringConfigH" function (:arguments 
+              ( ("target" variable nil (reparse-symbol function_parameters) [3676 3682])
+                ("source" variable nil (reparse-symbol function_parameters) [3684 3690])
+                ("env" variable nil (reparse-symbol function_parameters) [3692 3695]))              ) nil [3657 3756])
+            ("NeedConfigHBuilder" function nil nil [3758 3865])
+            ("CreateConfigHBuilder" function
+               (:documentation "Called if necessary just before the building targets phase begins."
+                :arguments 
+                  ( ("env" variable nil (reparse-symbol function_parameters) [3891 3894]))                  )
+                nil [3866 4281])
+            ("SConfWarning" type
+               (:superclasses ("SCons.Warnings.Warning")
+                :members 
+                  ( ("pass" code nil (reparse-symbol indented_block_body) [4335 4339]))                  
+                :type "class")
+                nil [4287 4340])
+            ("SCons" code nil nil [4340 4387])
+            ("SConfError" type
+               (:superclasses ("SCons.Errors.UserError")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("SCons" code nil (reparse-symbol indented_block_body) [4492 4533]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4473 4477])
+                            ("msg" variable nil (reparse-symbol function_parameters) [4478 4481]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [4460 4534]))                  
+                :type "class")
+                nil [4414 4534])
+            ("ConfigureDryRunError" type
+               (:documentation "Raised when a file or directory needs to be updated during a Configure
+    process, but the user requested a dry-run"
+                :superclasses ("SConfError")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("if" code nil (reparse-symbol indented_block_body) [4741 4979])
+                            ("SConfError" code nil (reparse-symbol indented_block_body) [4987 5016]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4719 4723])
+                            ("target" variable nil (reparse-symbol function_parameters) [4724 4730]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [4706 5017]))                  
+                :type "class")
+                nil [4535 5017])
+            ("ConfigureCacheError" type
+               (:documentation "Raised when a use explicitely requested the cache feature, but the test
+    is run the first time."
+                :superclasses ("SConfError")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("SConfError" code nil (reparse-symbol indented_block_body) [5205 5290]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5183 5187])
+                            ("target" variable nil (reparse-symbol function_parameters) [5188 5194]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [5170 5291]))                  
+                :type "class")
+                nil [5018 5291])
+            ("_createSource" function (:arguments 
+              ( ("target" variable nil (reparse-symbol function_parameters) [5352 5358])
+                ("source" variable nil (reparse-symbol function_parameters) [5360 5366])
+                ("env" variable nil (reparse-symbol function_parameters) [5368 5371]))              ) nil [5333 5464])
+            ("_stringSource" function (:arguments 
+              ( ("target" variable nil (reparse-symbol function_parameters) [5483 5489])
+                ("source" variable nil (reparse-symbol function_parameters) [5491 5497])
+                ("env" variable nil (reparse-symbol function_parameters) [5499 5502]))              ) nil [5464 5612])
+            ("SConfBuildInfo" type
+               (:documentation "
+    Special build info for targets of configure tests. Additional members
+    are result (did the builder succeed last time?) and string, which
+    contains messages of the original build phase.
+    "
+                :superclasses ("SCons.Node.FS.FileBuildInfo")
+                :members 
+                  ( ("__slots__" variable nil (reparse-symbol indented_block_body) [5879 5911])
+                    ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [5949 5967])
+                            ("self" variable nil (reparse-symbol indented_block_body) [6012 6030]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5934 5938]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [5921 6085])
+                    ("set_build_result" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6111 6115])
+                            ("result" variable nil (reparse-symbol function_parameters) [6117 6123])
+                            ("string" variable nil (reparse-symbol function_parameters) [6125 6131]))                          )
+                        (reparse-symbol indented_block_body) [6090 6192]))                  
+                :type "class")
+                nil [5613 6192])
+            ("Streamer" type
+               (:documentation "
+    'Sniffer' for a file-like writable object. Similar to the unix tool tee.
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [6349 6365])
+                            ("self" variable nil (reparse-symbol indented_block_body) [6374 6396]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6328 6332])
+                            ("orig" variable nil (reparse-symbol function_parameters) [6334 6338]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [6315 6397])
+                    ("write" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6412 6416])
+                            ("str" variable nil (reparse-symbol function_parameters) [6418 6421]))                          )
+                        (reparse-symbol indented_block_body) [6402 6663])
+                    ("writelines" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6683 6687])
+                            ("lines" variable nil (reparse-symbol function_parameters) [6689 6694]))                          )
+                        (reparse-symbol indented_block_body) [6668 6754])
+                    ("getvalue" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6772 6776]))                          
+                        :documentation "
+        Return everything written to orig since the Streamer was created.
+        ")
+                        (reparse-symbol indented_block_body) [6759 6910])
+                    ("flush" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [6925 6929]))                          )
+                        (reparse-symbol indented_block_body) [6915 7007]))                  
+                :type "class")
+                nil [6194 7007])
+            ("SConfBuildTask" type
+               (:documentation "
+    This is almost the same as SCons.Script.BuildTask. Handles SConfErrors
+    correctly and knows about the current cache_mode.
+    "
+                :superclasses ("SCons.Taskmaster.AlwaysTask")
+                :members 
+                  ( ("display" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7229 7233])
+                            ("message" variable nil (reparse-symbol function_parameters) [7235 7242]))                          )
+                        (reparse-symbol indented_block_body) [7217 7360])
+                    ("display_cached_string" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7391 7395])
+                            ("bi" variable nil (reparse-symbol function_parameters) [7397 7399]))                          
+                        :documentation "
+        Logs the original builder messages, given the SConfBuildInfo instance
+        bi.
+        ")
+                        (reparse-symbol indented_block_body) [7365 7850])
+                    ("failed" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7866 7870]))                          )
+                        (reparse-symbol indented_block_body) [7855 8593])
+                    ("collect_node_states" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8622 8626]))                          )
+                        (reparse-symbol indented_block_body) [8598 10180])
+                    ("execute" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [10197 10201]))                          )
+                        (reparse-symbol indented_block_body) [10185 14504]))                  
+                :type "class")
+                nil [7017 14504])
+            ("SConfBase" type
+               (:documentation "This is simply a class to represent a configure context. After
+    creating a SConf object, you can call any tests. After finished with your
+    tests, be sure to call the Finish() method, which returns the modified
+    environment.
+    Some words about caching: In most cases, it is not necessary to cache
+    Test results explicitly. Instead, we use the scons dependency checking
+    mechanism. For example, if one wants to compile a test program
+    (SConf.TryLink), the compiler is only called, if the program dependencies
+    have changed. However, if the program could not be compiled in a former
+    SConf run, we need to explicitly cache this error.
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"Constructor. Pass additional tests in the custom_tests-dictionary,
+        e.g. custom_tests={'CheckPrivate':MyPrivateTest}, where MyPrivateTest
+        defines a custom test.
+        Note also the conf_dir and log_file arguments (you may want to
+        build tests in the VariantDir, not in the SourceDir)
+        \"\"\"" code nil (reparse-symbol indented_block_body) [15359 15681])
+                            ("global" code nil (reparse-symbol indented_block_body) [15690 15704])
+                            ("if" code nil (reparse-symbol indented_block_body) [15713 15836])
+                            ("if" code nil (reparse-symbol indented_block_body) [15844 15914])
+                            ("self" variable nil (reparse-symbol indented_block_body) [15922 15936])
+                            ("if" code nil (reparse-symbol indented_block_body) [15945 16027])
+                            ("self" variable nil (reparse-symbol indented_block_body) [16035 16058])
+                            ("self" variable nil (reparse-symbol indented_block_body) [16067 16088])
+                            ("self" variable nil (reparse-symbol indented_block_body) [16097 16119])
+                            ("self" variable nil (reparse-symbol indented_block_body) [16128 16147])
+                            ("self" variable nil (reparse-symbol indented_block_body) [16156 16171])
+                            ("default_tests" variable nil (reparse-symbol indented_block_body) [16255 17030])
+                            ("self" code nil (reparse-symbol indented_block_body) [17039 17067])
+                            ("self" code nil (reparse-symbol indented_block_body) [17076 17103])
+                            ("self" variable nil (reparse-symbol indented_block_body) [17112 17159])
+                            ("if" code nil (reparse-symbol indented_block_body) [17168 17239])
+                            ("self" variable nil (reparse-symbol indented_block_body) [17247 17271])
+                            ("self" code nil (reparse-symbol indented_block_body) [17280 17295]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [15221 15225])
+                            ("env" variable nil (reparse-symbol function_parameters) [15227 15230])
+                            ("custom_tests" variable nil (reparse-symbol function_parameters) [15232 15244])
+                            ("conf_dir" variable nil (reparse-symbol function_parameters) [15251 15259])
+                            ("log_file" variable nil (reparse-symbol function_parameters) [15294 15302])
+                            ("config_h" variable nil (reparse-symbol function_parameters) [15320 15328])
+                            ("_depth" variable nil (reparse-symbol function_parameters) [15337 15343]))                          
+                        :documentation "Constructor. Pass additional tests in the custom_tests-dictionary,
+        e.g. custom_tests={'CheckPrivate':MyPrivateTest}, where MyPrivateTest
+        defines a custom test.
+        Note also the conf_dir and log_file arguments (you may want to
+        build tests in the VariantDir, not in the SourceDir)
+        "
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [15208 17296])
+                    ("Finish" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [17312 17316]))                          
+                        :documentation "Call this method after finished with your tests:
+                env = sconf.Finish()
+        ")
+                        (reparse-symbol indented_block_body) [17301 17477])
+                    ("Define" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [17493 17497])
+                            ("name" variable nil (reparse-symbol function_parameters) [17499 17503])
+                            ("value" variable nil (reparse-symbol function_parameters) [17505 17510])
+                            ("comment" variable nil (reparse-symbol function_parameters) [17519 17526]))                          
+                        :documentation "
+        Define a pre processor symbol name, with the optional given value in the
+        current config header.
+
+        If value is None (default), then #define name is written. If value is not
+        none, then #define name value is written.
+        
+        comment is a string which will be put as a C comment in the
+        header, to explain the meaning of the value (appropriate C comments /* and
+        */ will be put automatically.")
+                        (reparse-symbol indented_block_body) [17482 18391])
+                    ("BuildNodes" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [18411 18415])
+                            ("nodes" variable nil (reparse-symbol function_parameters) [18417 18422]))                          
+                        :documentation "
+        Tries to build the given nodes immediately. Returns 1 on success,
+        0 on error.
+        ")
+                        (reparse-symbol indented_block_body) [18396 20418])
+                    ("pspawn_wrapper" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20442 20446])
+                            ("sh" variable nil (reparse-symbol function_parameters) [20448 20450])
+                            ("escape" variable nil (reparse-symbol function_parameters) [20452 20458])
+                            ("cmd" variable nil (reparse-symbol function_parameters) [20460 20463])
+                            ("args" variable nil (reparse-symbol function_parameters) [20465 20469])
+                            ("env" variable nil (reparse-symbol function_parameters) [20471 20474]))                          
+                        :documentation "Wrapper function for handling piped spawns.
+
+        This looks to the calling interface (in Action.py) like a \"normal\"
+        spawn, but associates the call with the PSPAWN variable from
+        the construction environment and with the streams to which we
+        want the output logged.  This gets slid into the construction
+        environment as the SPAWN variable so Action.py doesn't have to
+        know or care whether it's spawning a piped command or not.
+        ")
+                        (reparse-symbol indented_block_body) [20423 21054])
+                    ("TryBuild" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [21073 21077])
+                            ("builder" variable nil (reparse-symbol function_parameters) [21079 21086])
+                            ("text" variable nil (reparse-symbol function_parameters) [21088 21092])
+                            ("extension" variable nil (reparse-symbol function_parameters) [21101 21110]))                          
+                        :documentation "Low level TryBuild implementation. Normally you don't need to
+        call that - you can use TryCompile / TryLink / TryRun instead
+        ")
+                        (reparse-symbol indented_block_body) [21060 23043])
+                    ("TryAction" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [23062 23066])
+                            ("action" variable nil (reparse-symbol function_parameters) [23068 23074])
+                            ("text" variable nil (reparse-symbol function_parameters) [23076 23080])
+                            ("extension" variable nil (reparse-symbol function_parameters) [23089 23098]))                          
+                        :documentation "Tries to execute the given action with optional source file
+        contents <text> and optional source file extension <extension>,
+        Returns the status (0 : failed, 1 : ok) and the contents of the
+        output file.
+        ")
+                        (reparse-symbol indented_block_body) [23048 23735])
+                    ("TryCompile" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [23756 23760])
+                            ("text" variable nil (reparse-symbol function_parameters) [23762 23766])
+                            ("extension" variable nil (reparse-symbol function_parameters) [23768 23777]))                          
+                        :documentation "Compiles the program given in text to an env.Object, using extension
+        as file extension (e.g. '.c'). Returns 1, if compilation was
+        successful, 0 otherwise. The target is saved in self.lastTarget (for
+        further processing).
+        ")
+                        (reparse-symbol indented_block_body) [23740 24110])
+                    ("TryLink" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [24128 24132])
+                            ("text" variable nil (reparse-symbol function_parameters) [24134 24138])
+                            ("extension" variable nil (reparse-symbol function_parameters) [24140 24149]))                          
+                        :documentation "Compiles the program given in text to an executable env.Program,
+        using extension as file extension (e.g. '.c'). Returns 1, if
+        compilation was successful, 0 otherwise. The target is saved in
+        self.lastTarget (for further processing).
+        ")
+                        (reparse-symbol indented_block_body) [24115 24497])
+                    ("TryRun" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [24513 24517])
+                            ("text" variable nil (reparse-symbol function_parameters) [24519 24523])
+                            ("extension" variable nil (reparse-symbol function_parameters) [24525 24534]))                          
+                        :documentation "Compiles and runs the program given in text, using extension
+        as file extension (e.g. '.c'). Returns (1, outputStr) on success,
+        (0, '') otherwise. The target (a file containing the program's stdout)
+        is saved in self.lastTarget (for further processing).
+        ")
+                        (reparse-symbol indented_block_body) [24502 25300])
+                    ("TestWrapper" type
+                       (:documentation "A wrapper around Tests (to ensure sanity)"
+                        :superclasses ("object")
+                        :members 
+                          ( ("__init__" function
+                               (:suite 
+                                  ( ("self" variable nil (reparse-symbol indented_block_body) [25441 25457])
+                                    ("self" variable nil (reparse-symbol indented_block_body) [25470 25488]))                                  
+                                :parent "dummy"
+                                :arguments 
+                                  ( ("self" variable nil (reparse-symbol function_parameters) [25409 25413])
+                                    ("test" variable nil (reparse-symbol function_parameters) [25415 25419])
+                                    ("sconf" variable nil (reparse-symbol function_parameters) [25421 25426]))                                  
+                                :constructor-flag t)
+                                (reparse-symbol indented_block_body) [25396 25489])
+                            ("__call__" function
+                               (:parent "dummy"
+                                :arguments 
+                                  ( ("self" variable nil (reparse-symbol function_parameters) [25510 25514])
+                                    ("args" variable nil (reparse-symbol function_parameters) [25516 25521])
+                                    ("kw" variable nil (reparse-symbol function_parameters) [25523 25527]))                                  )
+                                (reparse-symbol indented_block_body) [25497 25915]))                          
+                        :type "class")
+                        (reparse-symbol indented_block_body) [25305 25915])
+                    ("AddTest" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [25932 25936])
+                            ("test_name" variable nil (reparse-symbol function_parameters) [25938 25947])
+                            ("test_instance" variable nil (reparse-symbol function_parameters) [25949 25962]))                          
+                        :documentation "Adds test_class to this SConf instance. It can be called with
+        self.test_name(...)")
+                        (reparse-symbol indented_block_body) [25920 26146])
+                    ("AddTests" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [26164 26168])
+                            ("tests" variable nil (reparse-symbol function_parameters) [26170 26175]))                          
+                        :documentation "Adds all the tests given in the tests dictionary to this SConf
+        instance
+        ")
+                        (reparse-symbol indented_block_body) [26151 26359])
+                    ("_createDir" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [26380 26384])
+                            ("node" variable nil (reparse-symbol function_parameters) [26386 26390]))                          )
+                        (reparse-symbol indented_block_body) [26364 26636])
+                    ("_startup" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [26654 26658]))                          
+                        :documentation "Private method. Set up logstream, and set the environment
+        variables necessary for a piped build
+        ")
+                        (reparse-symbol indented_block_body) [26641 28626])
+                    ("_shutdown" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [28645 28649]))                          
+                        :documentation "Private method. Reset to non-piped spawn")
+                        (reparse-symbol indented_block_body) [28631 29384]))                  
+                :type "class")
+                nil [14505 29384])
+            ("CheckContext" type
+               (:documentation "Provides a context for configure tests. Defines how a test writes to the
+    screen and log file.
+
+    A typical test is just a callable with an instance of CheckContext as
+    first argument:
+
+        def CheckCustom(context, ...):
+            context.Message('Checking my weird test ... ')
+            ret = myWeirdTestFunction(...)
+            context.Result(ret)
+
+    Often, myWeirdTestFunction will be one of
+    context.TryCompile/context.TryLink/context.TryRun. The results of
+    those are cached, for they are only rebuild, if the dependencies have
+    changed.
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"Constructor. Pass the corresponding SConf instance.\"\"\"" code nil (reparse-symbol indented_block_body) [30039 30096])
+                            ("self" variable nil (reparse-symbol indented_block_body) [30105 30123])
+                            ("self" variable nil (reparse-symbol indented_block_body) [30132 30156])
+                            ("self" variable nil (reparse-symbol indented_block_body) [30193 30210])
+                            ("self" variable nil (reparse-symbol indented_block_body) [30219 30237])
+                            ("self" variable nil (reparse-symbol indented_block_body) [30246 30272])
+                            ("self" variable nil (reparse-symbol indented_block_body) [30281 30299]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [30017 30021])
+                            ("sconf" variable nil (reparse-symbol function_parameters) [30023 30028]))                          
+                        :documentation "Constructor. Pass the corresponding SConf instance."
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [30004 30336])
+                    ("Message" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [30878 30882])
+                            ("text" variable nil (reparse-symbol function_parameters) [30884 30888]))                          
+                        :documentation "Inform about what we are doing right now, e.g.
+        'Checking for SOMETHING ... '
+        ")
+                        (reparse-symbol indented_block_body) [30866 31089])
+                    ("Result" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31105 31109])
+                            ("res" variable nil (reparse-symbol function_parameters) [31111 31114]))                          
+                        :documentation "Inform about the result of the test. If res is not a string, displays
+        'yes' or 'no' depending on whether res is evaluated as true or false.
+        The result is only displayed when self.did_show_result is not set.
+        ")
+                        (reparse-symbol indented_block_body) [31094 31663])
+                    ("TryBuild" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31681 31685])
+                            ("args" variable nil (reparse-symbol function_parameters) [31687 31692])
+                            ("kw" variable nil (reparse-symbol function_parameters) [31694 31698]))                          )
+                        (reparse-symbol indented_block_body) [31668 31749])
+                    ("TryAction" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31768 31772])
+                            ("args" variable nil (reparse-symbol function_parameters) [31774 31779])
+                            ("kw" variable nil (reparse-symbol function_parameters) [31781 31785]))                          )
+                        (reparse-symbol indented_block_body) [31754 31837])
+                    ("TryCompile" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31857 31861])
+                            ("args" variable nil (reparse-symbol function_parameters) [31863 31868])
+                            ("kw" variable nil (reparse-symbol function_parameters) [31870 31874]))                          )
+                        (reparse-symbol indented_block_body) [31842 31927])
+                    ("TryLink" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31944 31948])
+                            ("args" variable nil (reparse-symbol function_parameters) [31950 31955])
+                            ("kw" variable nil (reparse-symbol function_parameters) [31957 31961]))                          )
+                        (reparse-symbol indented_block_body) [31932 32011])
+                    ("TryRun" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32027 32031])
+                            ("args" variable nil (reparse-symbol function_parameters) [32033 32038])
+                            ("kw" variable nil (reparse-symbol function_parameters) [32040 32044]))                          )
+                        (reparse-symbol indented_block_body) [32016 32093])
+                    ("__getattr__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32115 32119])
+                            ("attr" variable nil (reparse-symbol function_parameters) [32121 32125]))                          )
+                        (reparse-symbol indented_block_body) [32098 32372])
+                    ("BuildProg" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32458 32462])
+                            ("text" variable nil (reparse-symbol function_parameters) [32464 32468])
+                            ("ext" variable nil (reparse-symbol function_parameters) [32470 32473]))                          )
+                        (reparse-symbol indented_block_body) [32444 32633])
+                    ("CompileProg" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32654 32658])
+                            ("text" variable nil (reparse-symbol function_parameters) [32660 32664])
+                            ("ext" variable nil (reparse-symbol function_parameters) [32666 32669]))                          )
+                        (reparse-symbol indented_block_body) [32638 32828])
+                    ("CompileSharedObject" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [32857 32861])
+                            ("text" variable nil (reparse-symbol function_parameters) [32863 32867])
+                            ("ext" variable nil (reparse-symbol function_parameters) [32869 32872]))                          )
+                        (reparse-symbol indented_block_body) [32833 33039])
+                    ("RunProg" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [33056 33060])
+                            ("text" variable nil (reparse-symbol function_parameters) [33062 33066])
+                            ("ext" variable nil (reparse-symbol function_parameters) [33068 33071]))                          )
+                        (reparse-symbol indented_block_body) [33044 33237])
+                    ("AppendLIBS" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [33257 33261])
+                            ("lib_name_list" variable nil (reparse-symbol function_parameters) [33263 33276]))                          )
+                        (reparse-symbol indented_block_body) [33242 33393])
+                    ("PrependLIBS" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [33414 33418])
+                            ("lib_name_list" variable nil (reparse-symbol function_parameters) [33420 33433]))                          )
+                        (reparse-symbol indented_block_body) [33398 33551])
+                    ("SetLIBS" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [33568 33572])
+                            ("val" variable nil (reparse-symbol function_parameters) [33574 33577]))                          )
+                        (reparse-symbol indented_block_body) [33556 33685])
+                    ("Display" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [33702 33706])
+                            ("msg" variable nil (reparse-symbol function_parameters) [33708 33711]))                          )
+                        (reparse-symbol indented_block_body) [33690 34140])
+                    ("Log" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [34153 34157])
+                            ("msg" variable nil (reparse-symbol function_parameters) [34159 34162]))                          )
+                        (reparse-symbol indented_block_body) [34145 34254]))                  
+                :type "class")
+                nil [29385 34254])
+            ("SConf" function (:arguments 
+              ( ("args" variable nil (reparse-symbol function_parameters) [34310 34315])
+                ("kw" variable nil (reparse-symbol function_parameters) [34317 34321]))              ) nil [34300 34610])
+            ("CheckFunc" function (:arguments 
+              ( ("context" variable nil (reparse-symbol function_parameters) [34626 34633])
+                ("function_name" variable nil (reparse-symbol function_parameters) [34635 34648])
+                ("header" variable nil (reparse-symbol function_parameters) [34650 34656])
+                ("language" variable nil (reparse-symbol function_parameters) [34665 34673]))              ) nil [34612 34831])
+            ("CheckType" function (:arguments 
+              ( ("context" variable nil (reparse-symbol function_parameters) [34846 34853])
+                ("type_name" variable nil (reparse-symbol function_parameters) [34855 34864])
+                ("includes" variable nil (reparse-symbol function_parameters) [34866 34874])
+                ("language" variable nil (reparse-symbol function_parameters) [34881 34889]))              ) nil [34832 35080])
+            ("CheckTypeSize" function (:arguments 
+              ( ("context" variable nil (reparse-symbol function_parameters) [35099 35106])
+                ("type_name" variable nil (reparse-symbol function_parameters) [35108 35117])
+                ("includes" variable nil (reparse-symbol function_parameters) [35119 35127])
+                ("language" variable nil (reparse-symbol function_parameters) [35134 35142])
+                ("expect" variable nil (reparse-symbol function_parameters) [35151 35157]))              ) nil [35081 35409])
+            ("CheckDeclaration" function (:arguments 
+              ( ("context" variable nil (reparse-symbol function_parameters) [35431 35438])
+                ("declaration" variable nil (reparse-symbol function_parameters) [35440 35451])
+                ("includes" variable nil (reparse-symbol function_parameters) [35453 35461])
+                ("language" variable nil (reparse-symbol function_parameters) [35468 35476]))              ) nil [35410 35728])
+            ("createIncludesFromHeaders" function (:arguments 
+              ( ("headers" variable nil (reparse-symbol function_parameters) [35759 35766])
+                ("leaveLast" variable nil (reparse-symbol function_parameters) [35768 35777])
+                ("include_quotes" variable nil (reparse-symbol function_parameters) [35779 35793]))              ) nil [35729 36278])
+            ("CheckHeader" function
+               (:documentation "
+    A test for a C or C++ header file.
+    "
+                :arguments 
+                  ( ("context" variable nil (reparse-symbol function_parameters) [36295 36302])
+                    ("header" variable nil (reparse-symbol function_parameters) [36304 36310])
+                    ("include_quotes" variable nil (reparse-symbol function_parameters) [36312 36326])
+                    ("language" variable nil (reparse-symbol function_parameters) [36335 36343]))                  )
+                nil [36279 36764])
+            ("CheckCC" function (:arguments 
+              ( ("context" variable nil (reparse-symbol function_parameters) [36777 36784]))              ) nil [36765 36880])
+            ("CheckCXX" function (:arguments 
+              ( ("context" variable nil (reparse-symbol function_parameters) [36894 36901]))              ) nil [36881 36998])
+            ("CheckSHCC" function (:arguments 
+              ( ("context" variable nil (reparse-symbol function_parameters) [37013 37020]))              ) nil [36999 37118])
+            ("CheckSHCXX" function (:arguments 
+              ( ("context" variable nil (reparse-symbol function_parameters) [37134 37141]))              ) nil [37119 37240])
+            ("CheckCHeader" function
+               (:documentation "
+    A test for a C header file.
+    "
+                :arguments 
+                  ( ("context" variable nil (reparse-symbol function_parameters) [37328 37335])
+                    ("header" variable nil (reparse-symbol function_parameters) [37337 37343])
+                    ("include_quotes" variable nil (reparse-symbol function_parameters) [37345 37359]))                  )
+                nil [37311 37489])
+            ("CheckCXXHeader" function
+               (:documentation "
+    A test for a C++ header file.
+    "
+                :arguments 
+                  ( ("context" variable nil (reparse-symbol function_parameters) [37580 37587])
+                    ("header" variable nil (reparse-symbol function_parameters) [37589 37595])
+                    ("include_quotes" variable nil (reparse-symbol function_parameters) [37597 37611]))                  )
+                nil [37561 37745])
+            ("CheckLib" function
+               (:documentation "
+    A test for a library. See also CheckLibWithHeader.
+    Note that library may also be None to test whether the given symbol
+    compiles without flags.
+    "
+                :arguments 
+                  ( ("context" variable nil (reparse-symbol function_parameters) [37760 37767])
+                    ("library" variable nil (reparse-symbol function_parameters) [37769 37776])
+                    ("symbol" variable nil (reparse-symbol function_parameters) [37785 37791])
+                    ("header" variable nil (reparse-symbol function_parameters) [37815 37821])
+                    ("language" variable nil (reparse-symbol function_parameters) [37830 37838])
+                    ("autoadd" variable nil (reparse-symbol function_parameters) [37847 37854]))                  )
+                nil [37747 38402])
+            ("CheckLibWithHeader" function
+               (:documentation "
+    Another (more sophisticated) test for a library.
+    Checks, if library and header is available for language (may be 'C'
+    or 'CXX'). Call maybe be a valid expression _with_ a trailing ';'.
+    As in CheckLib, we support library=None, to test if the call compiles
+    without extra link flags.
+    "
+                :arguments 
+                  ( ("context" variable nil (reparse-symbol function_parameters) [38505 38512])
+                    ("libs" variable nil (reparse-symbol function_parameters) [38514 38518])
+                    ("header" variable nil (reparse-symbol function_parameters) [38520 38526])
+                    ("language" variable nil (reparse-symbol function_parameters) [38528 38536])
+                    ("call" variable nil (reparse-symbol function_parameters) [38561 38565])
+                    ("autoadd" variable nil (reparse-symbol function_parameters) [38574 38581]))                  )
+                nil [38482 39337])
+            ("CheckProg" function
+               (:documentation "Simple check if a program exists in the path.  Returns the path
+    for the application, or None if not found.
+    "
+                :arguments 
+                  ( ("context" variable nil (reparse-symbol function_parameters) [39352 39359])
+                    ("prog_name" variable nil (reparse-symbol function_parameters) [39361 39370]))                  )
+                nil [39338 39601]))          
+      :file "SConf.py"
+      :pointmax 39710
+      :fsize 39709
+      :lastmodtime '(22555 31645 0 0)
+      :unmatched-syntax '((thing 6624 . 6663) (thing 6552 . 6553) (thing 6551 . 6552) (thing 6547 . 6549) (thing 6487 . 6490)))
+    (semanticdb-table "Environment.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("\"\"\"SCons.Environment
+
+Base class for construction Environments.  These are
+the primary objects used to communicate dependency and
+construction information to the build engine.
+
+Keyword arguments supplied when the construction Environment
+is created are construction variables used to initialize the
+Environment
+\"\"\"" code nil nil [1 315])
+            ("__revision__" variable nil nil [1428 1533])
+            ("copy" include nil nil [1536 1547])
+            ("os" include nil nil [1548 1557])
+            ("sys" include nil nil [1558 1568])
+            ("re" include nil nil [1569 1578])
+            ("shlex" include nil nil [1579 1591])
+            ("collections" include nil nil [1592 1624])
+            ("SCons.Action" include nil nil [1626 1645])
+            ("SCons.Builder" include nil nil [1646 1666])
+            ("SCons.Debug" include nil nil [1667 1685])
+            ("SCons.Debug" include nil nil [1686 1729])
+            ("SCons.Defaults" include nil nil [1730 1751])
+            ("SCons.Errors" include nil nil [1752 1771])
+            ("SCons.Memoize" include nil nil [1772 1792])
+            ("SCons.Node" include nil nil [1793 1810])
+            ("SCons.Node.Alias" include nil nil [1811 1834])
+            ("SCons.Node.FS" include nil nil [1835 1855])
+            ("SCons.Node.Python" include nil nil [1856 1880])
+            ("SCons.Platform" include nil nil [1881 1902])
+            ("SCons.SConf" include nil nil [1903 1921])
+            ("SCons.SConsign" include nil nil [1922 1943])
+            ("SCons.Subst" include nil nil [1944 1962])
+            ("SCons.Tool" include nil nil [1963 1980])
+            ("SCons.Util" include nil nil [1981 1998])
+            ("SCons.Warnings" include nil nil [1999 2020])
+            ("_Null" type
+               (:superclasses ("object")
+                :members 
+                  ( ("pass" code nil (reparse-symbol indented_block_body) [2047 2051]))                  
+                :type "class")
+                nil [2022 2052])
+            ("_null" variable nil nil [2053 2066])
+            ("_warn_copy_deprecated" variable nil nil [2068 2096])
+            ("_warn_source_signatures_deprecated" variable nil nil [2097 2138])
+            ("_warn_target_signatures_deprecated" variable nil nil [2139 2180])
+            ("CleanTargets" variable nil nil [2182 2199])
+            ("CalculatorArgs" variable nil nil [2200 2219])
+            ("semi_deepcopy" variable nil nil [2221 2261])
+            ("semi_deepcopy_dict" variable nil nil [2262 2312])
+            ("UserError" variable nil nil [2511 2545])
+            ("alias_builder" function (:arguments 
+              ( ("env" variable nil (reparse-symbol function_parameters) [2565 2568])
+                ("target" variable nil (reparse-symbol function_parameters) [2570 2576])
+                ("source" variable nil (reparse-symbol function_parameters) [2578 2584]))              ) nil [2547 2596])
+            ("AliasBuilder" variable nil nil [2597 2985])
+            ("apply_tools" function (:arguments 
+              ( ("env" variable nil (reparse-symbol function_parameters) [3003 3006])
+                ("tools" variable nil (reparse-symbol function_parameters) [3008 3013])
+                ("toolpath" variable nil (reparse-symbol function_parameters) [3015 3023]))              ) nil [2987 3503])
+            ("reserved_construction_var_names" variable nil nil [3718 3909])
+            ("future_reserved_construction_var_names" variable nil nil [3911 4010])
+            ("copy_non_reserved_keywords" function (:arguments 
+              ( ("dict" variable nil (reparse-symbol function_parameters) [4043 4047]))              ) nil [4012 4353])
+            ("_set_reserved" function (:arguments 
+              ( ("env" variable nil (reparse-symbol function_parameters) [4372 4375])
+                ("key" variable nil (reparse-symbol function_parameters) [4377 4380])
+                ("value" variable nil (reparse-symbol function_parameters) [4382 4387]))              ) nil [4354 4525])
+            ("_set_future_reserved" function (:arguments 
+              ( ("env" variable nil (reparse-symbol function_parameters) [4551 4554])
+                ("key" variable nil (reparse-symbol function_parameters) [4556 4559])
+                ("value" variable nil (reparse-symbol function_parameters) [4561 4566]))              ) nil [4526 4767])
+            ("_set_BUILDERS" function (:arguments 
+              ( ("env" variable nil (reparse-symbol function_parameters) [4786 4789])
+                ("key" variable nil (reparse-symbol function_parameters) [4791 4794])
+                ("value" variable nil (reparse-symbol function_parameters) [4796 4801]))              ) nil [4768 5149])
+            ("_del_SCANNERS" function (:arguments 
+              ( ("env" variable nil (reparse-symbol function_parameters) [5168 5171])
+                ("key" variable nil (reparse-symbol function_parameters) [5173 5176]))              ) nil [5150 5231])
+            ("_set_SCANNERS" function (:arguments 
+              ( ("env" variable nil (reparse-symbol function_parameters) [5250 5253])
+                ("key" variable nil (reparse-symbol function_parameters) [5255 5258])
+                ("value" variable nil (reparse-symbol function_parameters) [5260 5265]))              ) nil [5232 5324])
+            ("_delete_duplicates" function
+               (:documentation "Delete duplicates from a sequence, keeping the first or last."
+                :arguments 
+                  ( ("l" variable nil (reparse-symbol function_parameters) [5348 5349])
+                    ("keep_last" variable nil (reparse-symbol function_parameters) [5351 5360]))                  )
+                nil [5325 5829])
+            ("MethodWrapper" type
+               (:documentation "
+    A generic Wrapper class that associates a method (which can
+    actually be any callable) with an object.  As part of creating this
+    MethodWrapper object an attribute with the specified (by default,
+    the name of the supplied method) is added to the underlying object.
+    When that new \"method\" is called, our __call__() method adds the
+    object as the first argument, simulating the Python behavior of
+    supplying \"self\" on method calls.
+
+    We hang on to the name by which the method was added to the underlying
+    base class so that we can provide a method to \"clone\" ourselves onto
+    a new underlying object being copied (without which we wouldn't need
+    to save that info).
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("if" code nil (reparse-symbol indented_block_body) [7187 7239])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7247 7267])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7276 7296])
+                            ("self" variable nil (reparse-symbol indented_block_body) [7305 7321])
+                            ("setattr" code nil (reparse-symbol indented_block_body) [7330 7362]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7145 7149])
+                            ("object" variable nil (reparse-symbol function_parameters) [7151 7157])
+                            ("method" variable nil (reparse-symbol function_parameters) [7159 7165])
+                            ("name" variable nil (reparse-symbol function_parameters) [7167 7171]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [7132 7363])
+                    ("__call__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7381 7385])
+                            ("args" variable nil (reparse-symbol function_parameters) [7387 7392])
+                            ("kwargs" variable nil (reparse-symbol function_parameters) [7394 7402]))                          )
+                        (reparse-symbol indented_block_body) [7368 7488])
+                    ("clone" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7503 7507])
+                            ("new_object" variable nil (reparse-symbol function_parameters) [7509 7519]))                          
+                        :documentation "
+        Returns an object that re-binds the underlying \"method\" to
+        the specified new object.
+        ")
+                        (reparse-symbol indented_block_body) [7493 7713]))                  
+                :type "class")
+                nil [6384 7713])
+            ("BuilderWrapper" type
+               (:documentation "
+    A MethodWrapper subclass that that associates an environment with
+    a Builder.
+
+    This mainly exists to wrap the __call__() function so that all calls
+    to Builders can have their argument lists massaged in the same way
+    (treat a lone argument as the source, treat two arguments as target
+    then source, make sure both target and source are lists) without
+    having to have cut-and-paste code to do it.
+
+    As a bit of obsessive backwards compatibility, we also intercept
+    attempts to get or set the \"env\" or \"builder\" attributes, which were
+    the names we used before we put the common functionality into the
+    MethodWrapper base class.  We'll keep this around for a while in case
+    people shipped Tool modules that reached into the wrapper (like the
+    Tool/qt.py module does, or did).  There shouldn't be a lot attribute
+    fetching or setting on these, so a little extra work shouldn't hurt.
+    "
+                :superclasses ("MethodWrapper")
+                :members 
+                  ( ("__call__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8708 8712])
+                            ("target" variable nil (reparse-symbol function_parameters) [8714 8720])
+                            ("source" variable nil (reparse-symbol function_parameters) [8727 8733])
+                            ("args" variable nil (reparse-symbol function_parameters) [8741 8746])
+                            ("kw" variable nil (reparse-symbol function_parameters) [8748 8752]))                          )
+                        (reparse-symbol indented_block_body) [8695 9102])
+                    ("__repr__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [9120 9124]))                          )
+                        (reparse-symbol indented_block_body) [9107 9182])
+                    ("__str__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [9199 9203]))                          )
+                        (reparse-symbol indented_block_body) [9187 9237])
+                    ("__getattr__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [9258 9262])
+                            ("name" variable nil (reparse-symbol function_parameters) [9264 9268]))                          )
+                        (reparse-symbol indented_block_body) [9242 9444])
+                    ("__setattr__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [9465 9469])
+                            ("name" variable nil (reparse-symbol function_parameters) [9471 9475])
+                            ("value" variable nil (reparse-symbol function_parameters) [9477 9482]))                          )
+                        (reparse-symbol indented_block_body) [9449 9661]))                  
+                :type "class")
+                nil [7714 9661])
+            ("BuilderDict" type
+               (:documentation "This is a dictionary-like class used by an Environment to hold
+    the Builders.  We need to do this because every time someone changes
+    the Builders in the Environment's BUILDERS dictionary, we must
+    update the Environment's attributes."
+                :superclasses ("UserDict")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [10640 10654])
+                            ("UserDict" code nil (reparse-symbol indented_block_body) [10663 10692]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [10407 10411])
+                            ("dict" variable nil (reparse-symbol function_parameters) [10413 10417])
+                            ("env" variable nil (reparse-symbol function_parameters) [10419 10422]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [10394 10693])
+                    ("__semi_deepcopy__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [10720 10724]))                          )
+                        (reparse-symbol indented_block_body) [10698 10946])
+                    ("__setitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [10967 10971])
+                            ("item" variable nil (reparse-symbol function_parameters) [10973 10977])
+                            ("val" variable nil (reparse-symbol function_parameters) [10979 10982]))                          )
+                        (reparse-symbol indented_block_body) [10951 11244])
+                    ("__delitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [11265 11269])
+                            ("item" variable nil (reparse-symbol function_parameters) [11271 11275]))                          )
+                        (reparse-symbol indented_block_body) [11249 11351])
+                    ("update" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [11367 11371])
+                            ("dict" variable nil (reparse-symbol function_parameters) [11373 11377]))                          )
+                        (reparse-symbol indented_block_body) [11356 11449]))                  
+                :type "class")
+                nil [10107 11449])
+            ("_is_valid_var" variable nil nil [11452 11496])
+            ("is_valid_construction_var" function
+               (:documentation "Return if the specified string is a legitimate construction
+    variable.
+    "
+                :arguments 
+                  ( ("varstr" variable nil (reparse-symbol function_parameters) [11528 11534]))                  )
+                nil [11498 11665])
+            ("SubstitutionEnvironment" type
+               (:documentation "Base class for different flavors of construction environments.
+
+    This class contains a minimal set of methods that handle contruction
+    variable expansion and conversion of strings to Nodes, which may or
+    may not be actually useful as a stand-alone class.  Which methods
+    ended up in this class is pretty arbitrary right now.  They're
+    basically the ones which we've empirically determined are common to
+    the different construction environment subclasses, and most of the
+    others that use or touch the underlying dictionary of construction
+    variables.
+
+    Eventually, this class should contain all the methods that we
+    determine are necessary for a \"minimal\" interface to the build engine.
+    A full \"native Python\" SCons environment has gotten pretty heavyweight
+    with all of the methods and Tools and construction variables we've
+    jammed in there, so it would be nice to have a lighter weight
+    alternative for interfaces that don't need all of the bells and
+    whistles.  (At some point, we'll also probably rename this class
+    \"Base,\" since that more reflects what we want this class to become,
+    but because we've released comments that tell people to subclass
+    Environment.Base to create their own flavors of construction
+    environment, we'll save that for a future refactoring when this
+    class actually becomes useful.)
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"Initialization of an underlying SubstitutionEnvironment class.
+        \"\"\"" code nil (reparse-symbol indented_block_body) [13137 13214])
+                            ("if" code nil (reparse-symbol indented_block_body) [13223 13320])
+                            ("self" variable nil (reparse-symbol indented_block_body) [13328 13368])
+                            ("self" variable nil (reparse-symbol indented_block_body) [13377 13416])
+                            ("self" variable nil (reparse-symbol indented_block_body) [13425 13472])
+                            ("self" variable nil (reparse-symbol indented_block_body) [13481 13503])
+                            ("self" code nil (reparse-symbol indented_block_body) [13512 13532])
+                            ("self" variable nil (reparse-symbol indented_block_body) [13541 13564]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13116 13120])
+                            ("kw" variable nil (reparse-symbol function_parameters) [13122 13126]))                          
+                        :documentation "Initialization of an underlying SubstitutionEnvironment class.
+        "
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [13103 13565])
+                    ("_init_special" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13613 13617]))                          
+                        :documentation "Initial the dispatch tables for special handling of
+        special construction variables.")
+                        (reparse-symbol indented_block_body) [13595 14435])
+                    ("__cmp__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14452 14456])
+                            ("other" variable nil (reparse-symbol function_parameters) [14458 14463]))                          )
+                        (reparse-symbol indented_block_body) [14440 14510])
+                    ("__delitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14531 14535])
+                            ("key" variable nil (reparse-symbol function_parameters) [14537 14540]))                          )
+                        (reparse-symbol indented_block_body) [14515 14685])
+                    ("__getitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14706 14710])
+                            ("key" variable nil (reparse-symbol function_parameters) [14712 14715]))                          )
+                        (reparse-symbol indented_block_body) [14690 14749])
+                    ("__setitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14770 14774])
+                            ("key" variable nil (reparse-symbol function_parameters) [14776 14779])
+                            ("value" variable nil (reparse-symbol function_parameters) [14781 14786]))                          )
+                        (reparse-symbol indented_block_body) [14754 16151])
+                    ("get" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [16164 16168])
+                            ("key" variable nil (reparse-symbol function_parameters) [16170 16173])
+                            ("default" variable nil (reparse-symbol function_parameters) [16175 16182]))                          
+                        :documentation "Emulates the get() method of dictionaries.")
+                        (reparse-symbol indented_block_body) [16156 16291])
+                    ("has_key" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [16308 16312])
+                            ("key" variable nil (reparse-symbol function_parameters) [16314 16317]))                          )
+                        (reparse-symbol indented_block_body) [16296 16353])
+                    ("__contains__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [16375 16379])
+                            ("key" variable nil (reparse-symbol function_parameters) [16381 16384]))                          )
+                        (reparse-symbol indented_block_body) [16358 16431])
+                    ("items" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [16446 16450]))                          )
+                        (reparse-symbol indented_block_body) [16436 16493])
+                    ("arg2nodes" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [16512 16516])
+                            ("args" variable nil (reparse-symbol function_parameters) [16518 16522])
+                            ("node_factory" variable nil (reparse-symbol function_parameters) [16524 16536])
+                            ("lookup_list" variable nil (reparse-symbol function_parameters) [16544 16555])
+                            ("kw" variable nil (reparse-symbol function_parameters) [16563 16567]))                          )
+                        (reparse-symbol indented_block_body) [16498 17932])
+                    ("gvars" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [17947 17951]))                          )
+                        (reparse-symbol indented_block_body) [17937 17980])
+                    ("lvars" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [17995 17999]))                          )
+                        (reparse-symbol indented_block_body) [17985 18020])
+                    ("subst" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [18035 18039])
+                            ("string" variable nil (reparse-symbol function_parameters) [18041 18047])
+                            ("raw" variable nil (reparse-symbol function_parameters) [18049 18052])
+                            ("target" variable nil (reparse-symbol function_parameters) [18056 18062])
+                            ("source" variable nil (reparse-symbol function_parameters) [18069 18075])
+                            ("conv" variable nil (reparse-symbol function_parameters) [18082 18086])
+                            ("executor" variable nil (reparse-symbol function_parameters) [18093 18101]))                          
+                        :documentation "Recursively interpolates construction variables from the
+        Environment into the specified string, returning the expanded
+        result.  Construction variables are specified by a $ prefix
+        in the string and begin with an initial underscore or
+        alphabetic character followed by any number of underscores
+        or alphanumeric characters.  The construction variable names
+        may be surrounded by curly braces to separate the name from
+        trailing characters.
+        ")
+                        (reparse-symbol indented_block_body) [18025 18874])
+                    ("subst_kw" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [18892 18896])
+                            ("kw" variable nil (reparse-symbol function_parameters) [18898 18900])
+                            ("raw" variable nil (reparse-symbol function_parameters) [18902 18905])
+                            ("target" variable nil (reparse-symbol function_parameters) [18909 18915])
+                            ("source" variable nil (reparse-symbol function_parameters) [18922 18928]))                          )
+                        (reparse-symbol indented_block_body) [18879 19173])
+                    ("subst_list" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [19193 19197])
+                            ("string" variable nil (reparse-symbol function_parameters) [19199 19205])
+                            ("raw" variable nil (reparse-symbol function_parameters) [19207 19210])
+                            ("target" variable nil (reparse-symbol function_parameters) [19214 19220])
+                            ("source" variable nil (reparse-symbol function_parameters) [19227 19233])
+                            ("conv" variable nil (reparse-symbol function_parameters) [19240 19244])
+                            ("executor" variable nil (reparse-symbol function_parameters) [19251 19259]))                          
+                        :documentation "Calls through to SCons.Subst.scons_subst_list().  See
+        the documentation for that function.")
+                        (reparse-symbol indented_block_body) [19178 19637])
+                    ("subst_path" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [19657 19661])
+                            ("path" variable nil (reparse-symbol function_parameters) [19663 19667])
+                            ("target" variable nil (reparse-symbol function_parameters) [19669 19675])
+                            ("source" variable nil (reparse-symbol function_parameters) [19682 19688]))                          
+                        :documentation "Substitute a path list, turning EntryProxies into Nodes
+        and leaving Nodes (and other objects) as-is.")
+                        (reparse-symbol indented_block_body) [19642 21207])
+                    ("subst_target_source" variable nil (reparse-symbol indented_block_body) [21212 21239])
+                    ("backtick" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [21258 21262])
+                            ("command" variable nil (reparse-symbol function_parameters) [21264 21271]))                          )
+                        (reparse-symbol indented_block_body) [21245 21974])
+                    ("AddMethod" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [21993 21997])
+                            ("function" variable nil (reparse-symbol function_parameters) [21999 22007])
+                            ("name" variable nil (reparse-symbol function_parameters) [22009 22013]))                          
+                        :documentation "
+        Adds the specified function as a method of this construction
+        environment with the specified name.  If the name is omitted,
+        the default name is the name of the function itself.
+        ")
+                        (reparse-symbol indented_block_body) [21979 22340])
+                    ("RemoveMethod" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [22362 22366])
+                            ("function" variable nil (reparse-symbol function_parameters) [22368 22376]))                          
+                        :documentation "
+        Removes the specified function's MethodWrapper from the
+        added_methods list, so we don't re-bind it when making a clone.
+        ")
+                        (reparse-symbol indented_block_body) [22345 22631])
+                    ("Override" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [22649 22653])
+                            ("overrides" variable nil (reparse-symbol function_parameters) [22655 22664]))                          
+                        :documentation "
+        Produce a modified environment whose variables are overridden by
+        the overrides dictionaries.  \"overrides\" is a dictionary that
+        will override the variables of this environment.
+
+        This function is much more efficient than Clone() or creating
+        a new Environment because it doesn't copy the construction
+        environment dictionary, it just wraps the underlying construction
+        environment, and doesn't even create a wrapper object if there
+        are no overrides.
+        ")
+                        (reparse-symbol indented_block_body) [22636 23678])
+                    ("ParseFlags" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [23698 23702])
+                            ("flags" variable nil (reparse-symbol function_parameters) [23704 23710]))                          
+                        :documentation "
+        Parse the set of flags and return a dict with the flags placed
+        in the appropriate entry.  The flags are treated as a typical
+        set of command-line flags for a GNU-like toolchain and used to
+        populate the entries in the dict immediately below.  If one of
+        the flag strings begins with a bang (exclamation mark), it is
+        assumed to be a command and the rest of the string is executed;
+        the result of that evaluation is then added to the dict.
+        ")
+                        (reparse-symbol indented_block_body) [23683 31047])
+                    ("MergeFlags" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [31067 31071])
+                            ("args" variable nil (reparse-symbol function_parameters) [31073 31077])
+                            ("unique" variable nil (reparse-symbol function_parameters) [31079 31085])
+                            ("dict" variable nil (reparse-symbol function_parameters) [31089 31093]))                          
+                        :documentation "
+        Merge the dict in args into the construction variables of this
+        env, or the passed-in dict.  If args is not a dict, it is
+        converted into a dict using ParseFlags.  If unique is not set,
+        the flags are appended rather than merged.
+        ")
+                        (reparse-symbol indented_block_body) [31052 33198]))                  
+                :type "class")
+                nil [11668 33198])
+            ("default_decide_source" function (:arguments 
+              ( ("dependency" variable nil (reparse-symbol function_parameters) [33226 33236])
+                ("target" variable nil (reparse-symbol function_parameters) [33238 33244])
+                ("prev_ni" variable nil (reparse-symbol function_parameters) [33246 33253]))              ) nil [33200 33356])
+            ("default_decide_target" function (:arguments 
+              ( ("dependency" variable nil (reparse-symbol function_parameters) [33383 33393])
+                ("target" variable nil (reparse-symbol function_parameters) [33395 33401])
+                ("prev_ni" variable nil (reparse-symbol function_parameters) [33403 33410]))              ) nil [33357 33513])
+            ("default_copy_from_cache" function (:arguments 
+              ( ("src" variable nil (reparse-symbol function_parameters) [33542 33545])
+                ("dst" variable nil (reparse-symbol function_parameters) [33547 33550]))              ) nil [33514 33636])
+            ("Base" type
+               (:documentation "Base class for \"real\" construction Environments.  These are the
+    primary objects used to communicate dependency and construction
+    information to the build engine.
+
+    Keyword arguments supplied when the construction Environment
+    is created are construction variables used to initialize the
+    Environment.
+    "
+                :superclasses ("SubstitutionEnvironment")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"
+        Initialization of a basic SCons construction environment,
+        including setting up special construction variables like BUILDER,
+        PLATFORM, etc., and searching for and applying available Tools.
+
+        Note that we do *not* call the underlying base class
+        (SubsitutionEnvironment) initialization, because we need to
+        initialize things in a very specific order that doesn't work
+        with the much simpler base class initialization.
+        \"\"\"" code nil (reparse-symbol indented_block_body) [35073 35556])
+                            ("if" code nil (reparse-symbol indented_block_body) [35565 35643])
+                            ("self" variable nil (reparse-symbol indented_block_body) [35651 35666])
+                            ("self" variable nil (reparse-symbol indented_block_body) [35675 35715])
+                            ("self" variable nil (reparse-symbol indented_block_body) [35724 35763])
+                            ("self" variable nil (reparse-symbol indented_block_body) [35772 35819])
+                            ("self" variable nil (reparse-symbol indented_block_body) [35828 35894])
+                            ("self" code nil (reparse-symbol indented_block_body) [35903 35923])
+                            ("self" variable nil (reparse-symbol indented_block_body) [35932 35955])
+                            ("self" variable nil (reparse-symbol indented_block_body) [36353 36395])
+                            ("self" variable nil (reparse-symbol indented_block_body) [36404 36446])
+                            ("self" variable nil (reparse-symbol indented_block_body) [36456 36502])
+                            ("self" variable nil (reparse-symbol indented_block_body) [36512 36578])
+                            ("if" code nil (reparse-symbol indented_block_body) [36588 36751])
+                            ("if" code nil (reparse-symbol indented_block_body) [36759 36851])
+                            ("self" variable nil (reparse-symbol indented_block_body) [36859 36897])
+                            ("platform" code nil (reparse-symbol indented_block_body) [36906 36920])
+                            ("self" variable nil (reparse-symbol indented_block_body) [36930 36989])
+                            ("self" variable nil (reparse-symbol indented_block_body) [36998 37059])
+                            ("self" variable nil (reparse-symbol indented_block_body) [37117 37180])
+                            ("self" variable nil (reparse-symbol indented_block_body) [37189 37254])
+                            ("if" code nil (reparse-symbol indented_block_body) [37444 37636])
+                            ("self" code nil (reparse-symbol indented_block_body) [37644 37662])
+                            ("keys" variable nil (reparse-symbol indented_block_body) [37671 37693])
+                            ("if" code nil (reparse-symbol indented_block_body) [37702 37800])
+                            ("save" variable nil (reparse-symbol indented_block_body) [37809 37818])
+                            ("for" code nil (reparse-symbol indented_block_body) [37827 38076])
+                            ("SCons" code nil (reparse-symbol indented_block_body) [38085 38114])
+                            ("if" code nil (reparse-symbol indented_block_body) [38124 38258])
+                            ("apply_tools" code nil (reparse-symbol indented_block_body) [38266 38300])
+                            ("for" code nil (reparse-symbol indented_block_body) [38497 38561])
+                            ("if" code nil (reparse-symbol indented_block_body) [38621 38666]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [34872 34876])
+                            ("platform" variable nil (reparse-symbol function_parameters) [34895 34903])
+                            ("tools" variable nil (reparse-symbol function_parameters) [34927 34932])
+                            ("toolpath" variable nil (reparse-symbol function_parameters) [34956 34964])
+                            ("variables" variable nil (reparse-symbol function_parameters) [34988 34997])
+                            ("parse_flags" variable nil (reparse-symbol function_parameters) [35021 35032])
+                            ("kw" variable nil (reparse-symbol function_parameters) [35058 35062]))                          
+                        :documentation "
+        Initialization of a basic SCons construction environment,
+        including setting up special construction variables like BUILDER,
+        PLATFORM, etc., and searching for and applying available Tools.
+
+        Note that we do *not* call the underlying base class
+        (SubsitutionEnvironment) initialization, because we need to
+        initialize things in a very specific order that doesn't work
+        with the much simpler base class initialization.
+        "
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [34859 38666])
+                    ("get_builder" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [38951 38955])
+                            ("name" variable nil (reparse-symbol function_parameters) [38957 38961]))                          
+                        :documentation "Fetch the builder with the specified name from the environment.
+        ")
+                        (reparse-symbol indented_block_body) [38935 39161])
+                    ("get_CacheDir" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [39183 39187]))                          )
+                        (reparse-symbol indented_block_body) [39166 39630])
+                    ("get_factory" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [39651 39655])
+                            ("factory" variable nil (reparse-symbol function_parameters) [39657 39664])
+                            ("default" variable nil (reparse-symbol function_parameters) [39666 39673]))                          
+                        :documentation "Return a factory function for creating Nodes for this
+        construction environment.
+        ")
+                        (reparse-symbol indented_block_body) [39635 40914])
+                    ("_gsm" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [40963 40967]))                          
+                        :decorators 
+                          ( ("SCons.Memoize.CountMethodCall" function (:type "decorator") nil nil))                          )
+                        (reparse-symbol indented_block_body) [40919 41966])
+                    ("get_scanner" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [41987 41991])
+                            ("skey" variable nil (reparse-symbol function_parameters) [41993 41997]))                          
+                        :documentation "Find the appropriate scanner given a key (usually a file suffix).
+        ")
+                        (reparse-symbol indented_block_body) [41971 42207])
+                    ("scanner_map_delete" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [42235 42239])
+                            ("kw" variable nil (reparse-symbol function_parameters) [42241 42243]))                          
+                        :documentation "Delete the cached scanner map (if we need to).
+        ")
+                        (reparse-symbol indented_block_body) [42212 42411])
+                    ("_update" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [42428 42432])
+                            ("dict" variable nil (reparse-symbol function_parameters) [42434 42438]))                          
+                        :documentation "Update an environment's values directly, bypassing the normal
+        checks that occur when users try to set items.
+        ")
+                        (reparse-symbol indented_block_body) [42416 42613])
+                    ("get_src_sig_type" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [42639 42643]))                          )
+                        (reparse-symbol indented_block_body) [42618 42847])
+                    ("get_tgt_sig_type" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [42873 42877]))                          )
+                        (reparse-symbol indented_block_body) [42852 43081])
+                    ("Append" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [43652 43656])
+                            ("kw" variable nil (reparse-symbol function_parameters) [43658 43662]))                          
+                        :documentation "Append values to existing construction variables
+        in an Environment.
+        ")
+                        (reparse-symbol indented_block_body) [43641 47638])
+                    ("_canonicalize" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [47777 47781])
+                            ("path" variable nil (reparse-symbol function_parameters) [47783 47787]))                          )
+                        (reparse-symbol indented_block_body) [47759 47978])
+                    ("AppendENVPath" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [48001 48005])
+                            ("name" variable nil (reparse-symbol function_parameters) [48007 48011])
+                            ("newpath" variable nil (reparse-symbol function_parameters) [48013 48020])
+                            ("envname" variable nil (reparse-symbol function_parameters) [48022 48029])
+                            ("sep" variable nil (reparse-symbol function_parameters) [48061 48064])
+                            ("delete_existing" variable nil (reparse-symbol function_parameters) [48079 48094]))                          
+                        :documentation "Append path elements to the path 'name' in the 'ENV'
+        dictionary for this environment.  Will only add any particular
+        path once, and will normpath and normcase all paths to help
+        assure this.  This can also handle the case where the env
+        variable is a list instead of a string.
+
+        If delete_existing is 0, a newpath which is already in the path
+        will not be moved to the end (it will be left where it is).
+        ")
+                        (reparse-symbol indented_block_body) [47983 48956])
+                    ("AppendUnique" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [48978 48982])
+                            ("delete_existing" variable nil (reparse-symbol function_parameters) [48984 48999])
+                            ("kw" variable nil (reparse-symbol function_parameters) [49003 49007]))                          
+                        :documentation "Append values to existing construction variables
+        in an Environment, if they're not already there.
+        If delete_existing is 1, removes existing values first, so
+        values move to end.
+        ")
+                        (reparse-symbol indented_block_body) [48961 55034])
+                    ("Clone" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [55049 55053])
+                            ("tools" variable nil (reparse-symbol function_parameters) [55055 55060])
+                            ("toolpath" variable nil (reparse-symbol function_parameters) [55065 55073])
+                            ("parse_flags" variable nil (reparse-symbol function_parameters) [55080 55091])
+                            ("kw" variable nil (reparse-symbol function_parameters) [55100 55104]))                          
+                        :documentation "Return a copy of a construction Environment.  The
+        copy is like a Python \"deep copy\"--that is, independent
+        copies are made recursively of each objects--except that
+        a reference is copied when an object is not deep-copyable
+        (like a function).  There are no references to any mutable
+        objects in the original Environment.
+        ")
+                        (reparse-symbol indented_block_body) [55039 56857])
+                    ("Copy" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [56871 56875])
+                            ("args" variable nil (reparse-symbol function_parameters) [56877 56882])
+                            ("kw" variable nil (reparse-symbol function_parameters) [56884 56888]))                          )
+                        (reparse-symbol indented_block_body) [56862 57211])
+                    ("_changed_build" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57235 57239])
+                            ("dependency" variable nil (reparse-symbol function_parameters) [57241 57251])
+                            ("target" variable nil (reparse-symbol function_parameters) [57253 57259])
+                            ("prev_ni" variable nil (reparse-symbol function_parameters) [57261 57268]))                          )
+                        (reparse-symbol indented_block_body) [57216 57409])
+                    ("_changed_content" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57435 57439])
+                            ("dependency" variable nil (reparse-symbol function_parameters) [57441 57451])
+                            ("target" variable nil (reparse-symbol function_parameters) [57453 57459])
+                            ("prev_ni" variable nil (reparse-symbol function_parameters) [57461 57468]))                          )
+                        (reparse-symbol indented_block_body) [57414 57530])
+                    ("_changed_source" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57555 57559])
+                            ("dependency" variable nil (reparse-symbol function_parameters) [57561 57571])
+                            ("target" variable nil (reparse-symbol function_parameters) [57573 57579])
+                            ("prev_ni" variable nil (reparse-symbol function_parameters) [57581 57588]))                          )
+                        (reparse-symbol indented_block_body) [57535 57873])
+                    ("_changed_timestamp_then_content" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [57914 57918])
+                            ("dependency" variable nil (reparse-symbol function_parameters) [57920 57930])
+                            ("target" variable nil (reparse-symbol function_parameters) [57932 57938])
+                            ("prev_ni" variable nil (reparse-symbol function_parameters) [57940 57947]))                          )
+                        (reparse-symbol indented_block_body) [57878 58024])
+                    ("_changed_timestamp_newer" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [58058 58062])
+                            ("dependency" variable nil (reparse-symbol function_parameters) [58064 58074])
+                            ("target" variable nil (reparse-symbol function_parameters) [58076 58082])
+                            ("prev_ni" variable nil (reparse-symbol function_parameters) [58084 58091]))                          )
+                        (reparse-symbol indented_block_body) [58029 58161])
+                    ("_changed_timestamp_match" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [58195 58199])
+                            ("dependency" variable nil (reparse-symbol function_parameters) [58201 58211])
+                            ("target" variable nil (reparse-symbol function_parameters) [58213 58219])
+                            ("prev_ni" variable nil (reparse-symbol function_parameters) [58221 58228]))                          )
+                        (reparse-symbol indented_block_body) [58166 58298])
+                    ("_copy_from_cache" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [58324 58328])
+                            ("src" variable nil (reparse-symbol function_parameters) [58330 58333])
+                            ("dst" variable nil (reparse-symbol function_parameters) [58335 58338]))                          )
+                        (reparse-symbol indented_block_body) [58303 58379])
+                    ("_copy2_from_cache" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [58406 58410])
+                            ("src" variable nil (reparse-symbol function_parameters) [58412 58415])
+                            ("dst" variable nil (reparse-symbol function_parameters) [58417 58420]))                          )
+                        (reparse-symbol indented_block_body) [58384 58462])
+                    ("Decider" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [58479 58483])
+                            ("function" variable nil (reparse-symbol function_parameters) [58485 58493]))                          )
+                        (reparse-symbol indented_block_body) [58467 59557])
+                    ("Detect" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [59573 59577])
+                            ("progs" variable nil (reparse-symbol function_parameters) [59579 59584]))                          
+                        :documentation "Return the first available program in progs.
+        ")
+                        (reparse-symbol indented_block_body) [59562 59845])
+                    ("Dictionary" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [59865 59869])
+                            ("args" variable nil (reparse-symbol function_parameters) [59871 59876]))                          )
+                        (reparse-symbol indented_block_body) [59850 60054])
+                    ("Dump" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [60068 60072])
+                            ("key" variable nil (reparse-symbol function_parameters) [60074 60077]))                          
+                        :documentation "
+        Using the standard Python pretty printer, return the contents of the
+        scons build environment as a string.
+
+        If the key passed in is anything other than None, then that will
+        be used as an index into the build environment dictionary and
+        whatever is found there will be fed into the pretty printer. Note
+        that this key is case sensitive.
+        ")
+                        (reparse-symbol indented_block_body) [60059 60697])
+                    ("FindIxes" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [60715 60719])
+                            ("paths" variable nil (reparse-symbol function_parameters) [60721 60726])
+                            ("prefix" variable nil (reparse-symbol function_parameters) [60728 60734])
+                            ("suffix" variable nil (reparse-symbol function_parameters) [60736 60742]))                          
+                        :documentation "
+        Search a list of paths for something that matches the prefix and suffix.
+
+        paths - the list of paths or nodes.
+        prefix - construction variable for the prefix.
+        suffix - construction variable for the suffix.
+        ")
+                        (reparse-symbol indented_block_body) [60702 61269])
+                    ("ParseConfig" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [61290 61294])
+                            ("command" variable nil (reparse-symbol function_parameters) [61296 61303])
+                            ("function" variable nil (reparse-symbol function_parameters) [61305 61313])
+                            ("unique" variable nil (reparse-symbol function_parameters) [61320 61326]))                          
+                        :documentation "
+        Use the specified function to parse the output of the command
+        in order to modify the current environment.  The 'command' can
+        be a string or a list of strings representing a command and
+        its arguments.  'Function' is an optional argument that takes
+        the environment, the output of the command, and the unique flag.
+        If no function is specified, MergeFlags, which treats the output
+        as the result of a typical 'X-config' command (i.e. gtk-config),
+        will merge the output into the appropriate variables.
+        ")
+                        (reparse-symbol indented_block_body) [61274 62254])
+                    ("ParseDepends" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [62276 62280])
+                            ("filename" variable nil (reparse-symbol function_parameters) [62282 62290])
+                            ("must_exist" variable nil (reparse-symbol function_parameters) [62292 62302])
+                            ("only_one" variable nil (reparse-symbol function_parameters) [62309 62317]))                          
+                        :documentation "
+        Parse a mkdep-style file for explicit dependencies.  This is
+        completely abusable, and should be unnecessary in the \"normal\"
+        case of proper SCons configuration, but it may help make
+        the transition from a Make hierarchy easier for some people
+        to swallow.  It can also be genuinely useful when using a tool
+        that can write a .d file, but for which writing a scanner would
+        be too complicated.
+        ")
+                        (reparse-symbol indented_block_body) [62259 63923])
+                    ("Platform" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [63941 63945])
+                            ("platform" variable nil (reparse-symbol function_parameters) [63947 63955]))                          )
+                        (reparse-symbol indented_block_body) [63928 64053])
+                    ("Prepend" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [64070 64074])
+                            ("kw" variable nil (reparse-symbol function_parameters) [64076 64080]))                          
+                        :documentation "Prepend values to existing construction variables
+        in an Environment.
+        ")
+                        (reparse-symbol indented_block_body) [64058 67246])
+                    ("PrependENVPath" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [67270 67274])
+                            ("name" variable nil (reparse-symbol function_parameters) [67276 67280])
+                            ("newpath" variable nil (reparse-symbol function_parameters) [67282 67289])
+                            ("envname" variable nil (reparse-symbol function_parameters) [67291 67298])
+                            ("sep" variable nil (reparse-symbol function_parameters) [67308 67311])
+                            ("delete_existing" variable nil (reparse-symbol function_parameters) [67349 67364]))                          
+                        :documentation "Prepend path elements to the path 'name' in the 'ENV'
+        dictionary for this environment.  Will only add any particular
+        path once, and will normpath and normcase all paths to help
+        assure this.  This can also handle the case where the env
+        variable is a list instead of a string.
+
+        If delete_existing is 0, a newpath which is already in the path
+        will not be moved to the front (it will be left where it is).
+        ")
+                        (reparse-symbol indented_block_body) [67251 68231])
+                    ("PrependUnique" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [68254 68258])
+                            ("delete_existing" variable nil (reparse-symbol function_parameters) [68260 68275])
+                            ("kw" variable nil (reparse-symbol function_parameters) [68279 68283]))                          
+                        :documentation "Prepend values to existing construction variables
+        in an Environment, if they're not already there.
+        If delete_existing is 1, removes existing values first, so
+        values move to front.
+        ")
+                        (reparse-symbol indented_block_body) [68236 70035])
+                    ("Replace" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [70052 70056])
+                            ("kw" variable nil (reparse-symbol function_parameters) [70058 70062]))                          
+                        :documentation "Replace existing construction variables in an Environment
+        with new construction variables and/or values.
+        ")
+                        (reparse-symbol indented_block_body) [70040 70544])
+                    ("ReplaceIxes" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [70565 70569])
+                            ("path" variable nil (reparse-symbol function_parameters) [70571 70575])
+                            ("old_prefix" variable nil (reparse-symbol function_parameters) [70577 70587])
+                            ("old_suffix" variable nil (reparse-symbol function_parameters) [70589 70599])
+                            ("new_prefix" variable nil (reparse-symbol function_parameters) [70601 70611])
+                            ("new_suffix" variable nil (reparse-symbol function_parameters) [70613 70623]))                          
+                        :documentation "
+        Replace old_prefix with new_prefix and old_suffix with new_suffix.
+
+        env - Environment used to interpolate variables.
+        path - the path that will be modified.
+        old_prefix - construction variable for the old prefix.
+        old_suffix - construction variable for the old suffix.
+        new_prefix - construction variable for the new prefix.
+        new_suffix - construction variable for the new suffix.
+        ")
+                        (reparse-symbol indented_block_body) [70549 71565])
+                    ("SetDefault" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [71585 71589])
+                            ("kw" variable nil (reparse-symbol function_parameters) [71591 71595]))                          )
+                        (reparse-symbol indented_block_body) [71570 71711])
+                    ("_find_toolpath_dir" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [71739 71743])
+                            ("tp" variable nil (reparse-symbol function_parameters) [71745 71747]))                          )
+                        (reparse-symbol indented_block_body) [71716 71817])
+                    ("Tool" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [71831 71835])
+                            ("tool" variable nil (reparse-symbol function_parameters) [71837 71841])
+                            ("toolpath" variable nil (reparse-symbol function_parameters) [71843 71851])
+                            ("kw" variable nil (reparse-symbol function_parameters) [71858 71862]))                          )
+                        (reparse-symbol indented_block_body) [71822 72169])
+                    ("WhereIs" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [72186 72190])
+                            ("prog" variable nil (reparse-symbol function_parameters) [72192 72196])
+                            ("path" variable nil (reparse-symbol function_parameters) [72198 72202])
+                            ("pathext" variable nil (reparse-symbol function_parameters) [72209 72216])
+                            ("reject" variable nil (reparse-symbol function_parameters) [72223 72229]))                          
+                        :documentation "Find prog in the path.
+        ")
+                        (reparse-symbol indented_block_body) [72174 72920])
+                    ("Action" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [73398 73402])
+                            ("args" variable nil (reparse-symbol function_parameters) [73404 73409])
+                            ("kw" variable nil (reparse-symbol function_parameters) [73411 73415]))                          )
+                        (reparse-symbol indented_block_body) [73387 73681])
+                    ("AddPreAction" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [73703 73707])
+                            ("files" variable nil (reparse-symbol function_parameters) [73709 73714])
+                            ("action" variable nil (reparse-symbol function_parameters) [73716 73722]))                          )
+                        (reparse-symbol indented_block_body) [73686 74033])
+                    ("AddPostAction" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [74056 74060])
+                            ("files" variable nil (reparse-symbol function_parameters) [74062 74067])
+                            ("action" variable nil (reparse-symbol function_parameters) [74069 74075]))                          )
+                        (reparse-symbol indented_block_body) [74038 74387])
+                    ("Alias" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [74402 74406])
+                            ("target" variable nil (reparse-symbol function_parameters) [74408 74414])
+                            ("source" variable nil (reparse-symbol function_parameters) [74416 74422])
+                            ("action" variable nil (reparse-symbol function_parameters) [74427 74433])
+                            ("kw" variable nil (reparse-symbol function_parameters) [74440 74444]))                          )
+                        (reparse-symbol indented_block_body) [74392 76594])
+                    ("AlwaysBuild" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [76615 76619])
+                            ("targets" variable nil (reparse-symbol function_parameters) [76621 76629]))                          )
+                        (reparse-symbol indented_block_body) [76599 76814])
+                    ("BuildDir" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [76832 76836])
+                            ("args" variable nil (reparse-symbol function_parameters) [76838 76843])
+                            ("kw" variable nil (reparse-symbol function_parameters) [76845 76849]))                          )
+                        (reparse-symbol indented_block_body) [76819 77217])
+                    ("Builder" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [77234 77238])
+                            ("kw" variable nil (reparse-symbol function_parameters) [77240 77244]))                          )
+                        (reparse-symbol indented_block_body) [77222 77323])
+                    ("CacheDir" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [77341 77345])
+                            ("path" variable nil (reparse-symbol function_parameters) [77347 77351]))                          )
+                        (reparse-symbol indented_block_body) [77328 77484])
+                    ("Clean" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [77499 77503])
+                            ("targets" variable nil (reparse-symbol function_parameters) [77505 77512])
+                            ("files" variable nil (reparse-symbol function_parameters) [77514 77519]))                          )
+                        (reparse-symbol indented_block_body) [77489 77814])
+                    ("Configure" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [77833 77837])
+                            ("args" variable nil (reparse-symbol function_parameters) [77839 77844])
+                            ("kw" variable nil (reparse-symbol function_parameters) [77846 77850]))                          )
+                        (reparse-symbol indented_block_body) [77819 78198])
+                    ("Command" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [78215 78219])
+                            ("target" variable nil (reparse-symbol function_parameters) [78221 78227])
+                            ("source" variable nil (reparse-symbol function_parameters) [78229 78235])
+                            ("action" variable nil (reparse-symbol function_parameters) [78237 78243])
+                            ("kw" variable nil (reparse-symbol function_parameters) [78245 78249]))                          
+                        :documentation "Builds the supplied target files from the supplied
+        source files using the supplied action.  Action may
+        be any type that the Builder constructor will accept
+        for an action.")
+                        (reparse-symbol indented_block_body) [78203 78827])
+                    ("Depends" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [78844 78848])
+                            ("target" variable nil (reparse-symbol function_parameters) [78850 78856])
+                            ("dependency" variable nil (reparse-symbol function_parameters) [78858 78868]))                          
+                        :documentation "Explicity specify that 'target's depend on 'dependency'.")
+                        (reparse-symbol indented_block_body) [78832 79135])
+                    ("Dir" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79148 79152])
+                            ("name" variable nil (reparse-symbol function_parameters) [79154 79158])
+                            ("args" variable nil (reparse-symbol function_parameters) [79160 79165])
+                            ("kw" variable nil (reparse-symbol function_parameters) [79167 79171]))                          
+                        :documentation "
+        ")
+                        (reparse-symbol indented_block_body) [79140 79439])
+                    ("NoClean" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79456 79460])
+                            ("targets" variable nil (reparse-symbol function_parameters) [79462 79470]))                          
+                        :documentation "Tags a target so that it will not be cleaned by -c")
+                        (reparse-symbol indented_block_body) [79444 79715])
+                    ("NoCache" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79732 79736])
+                            ("targets" variable nil (reparse-symbol function_parameters) [79738 79746]))                          
+                        :documentation "Tags a target so that it will not be cached")
+                        (reparse-symbol indented_block_body) [79720 79984])
+                    ("Entry" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [79999 80003])
+                            ("name" variable nil (reparse-symbol function_parameters) [80005 80009])
+                            ("args" variable nil (reparse-symbol function_parameters) [80011 80016])
+                            ("kw" variable nil (reparse-symbol function_parameters) [80018 80022]))                          
+                        :documentation "
+        ")
+                        (reparse-symbol indented_block_body) [79989 80294])
+                    ("Environment" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [80315 80319])
+                            ("kw" variable nil (reparse-symbol function_parameters) [80321 80325]))                          )
+                        (reparse-symbol indented_block_body) [80299 80394])
+                    ("Execute" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [80411 80415])
+                            ("action" variable nil (reparse-symbol function_parameters) [80417 80423])
+                            ("args" variable nil (reparse-symbol function_parameters) [80425 80430])
+                            ("kw" variable nil (reparse-symbol function_parameters) [80432 80436]))                          
+                        :documentation "Directly execute an action through an Environment
+        ")
+                        (reparse-symbol indented_block_body) [80399 80910])
+                    ("File" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [80924 80928])
+                            ("name" variable nil (reparse-symbol function_parameters) [80930 80934])
+                            ("args" variable nil (reparse-symbol function_parameters) [80936 80941])
+                            ("kw" variable nil (reparse-symbol function_parameters) [80943 80947]))                          
+                        :documentation "
+        ")
+                        (reparse-symbol indented_block_body) [80915 81217])
+                    ("FindFile" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [81235 81239])
+                            ("file" variable nil (reparse-symbol function_parameters) [81241 81245])
+                            ("dirs" variable nil (reparse-symbol function_parameters) [81247 81251]))                          )
+                        (reparse-symbol indented_block_body) [81222 81395])
+                    ("Flatten" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [81412 81416])
+                            ("sequence" variable nil (reparse-symbol function_parameters) [81418 81426]))                          )
+                        (reparse-symbol indented_block_body) [81400 81473])
+                    ("GetBuildPath" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [81495 81499])
+                            ("files" variable nil (reparse-symbol function_parameters) [81501 81506]))                          )
+                        (reparse-symbol indented_block_body) [81478 81686])
+                    ("Glob" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [81700 81704])
+                            ("pattern" variable nil (reparse-symbol function_parameters) [81706 81713])
+                            ("ondisk" variable nil (reparse-symbol function_parameters) [81715 81721])
+                            ("source" variable nil (reparse-symbol function_parameters) [81728 81734])
+                            ("strings" variable nil (reparse-symbol function_parameters) [81742 81749])
+                            ("exclude" variable nil (reparse-symbol function_parameters) [81757 81764]))                          )
+                        (reparse-symbol indented_block_body) [81691 81855])
+                    ("Ignore" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [81871 81875])
+                            ("target" variable nil (reparse-symbol function_parameters) [81877 81883])
+                            ("dependency" variable nil (reparse-symbol function_parameters) [81885 81895]))                          
+                        :documentation "Ignore a dependency.")
+                        (reparse-symbol indented_block_body) [81860 82122])
+                    ("Literal" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [82139 82143])
+                            ("string" variable nil (reparse-symbol function_parameters) [82145 82151]))                          )
+                        (reparse-symbol indented_block_body) [82127 82197])
+                    ("Local" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [82212 82216])
+                            ("targets" variable nil (reparse-symbol function_parameters) [82218 82226]))                          )
+                        (reparse-symbol indented_block_body) [82202 82556])
+                    ("Precious" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [82574 82578])
+                            ("targets" variable nil (reparse-symbol function_parameters) [82580 82588]))                          )
+                        (reparse-symbol indented_block_body) [82561 82769])
+                    ("Pseudo" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [82785 82789])
+                            ("targets" variable nil (reparse-symbol function_parameters) [82791 82799]))                          )
+                        (reparse-symbol indented_block_body) [82774 82978])
+                    ("Repository" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [82998 83002])
+                            ("dirs" variable nil (reparse-symbol function_parameters) [83004 83009])
+                            ("kw" variable nil (reparse-symbol function_parameters) [83011 83015]))                          )
+                        (reparse-symbol indented_block_body) [82983 83113])
+                    ("Requires" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [83131 83135])
+                            ("target" variable nil (reparse-symbol function_parameters) [83137 83143])
+                            ("prerequisite" variable nil (reparse-symbol function_parameters) [83145 83157]))                          
+                        :documentation "Specify that 'prerequisite' must be built before 'target',
+        (but 'target' does not actually depend on 'prerequisite'
+        and need not be rebuilt if it changes).")
+                        (reparse-symbol indented_block_body) [83118 83543])
+                    ("Scanner" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [83560 83564])
+                            ("args" variable nil (reparse-symbol function_parameters) [83566 83571])
+                            ("kw" variable nil (reparse-symbol function_parameters) [83573 83577]))                          )
+                        (reparse-symbol indented_block_body) [83548 83815])
+                    ("SConsignFile" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [83837 83841])
+                            ("name" variable nil (reparse-symbol function_parameters) [83843 83847])
+                            ("dbm_module" variable nil (reparse-symbol function_parameters) [83861 83871]))                          )
+                        (reparse-symbol indented_block_body) [83820 84340])
+                    ("SideEffect" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [84360 84364])
+                            ("side_effect" variable nil (reparse-symbol function_parameters) [84366 84377])
+                            ("target" variable nil (reparse-symbol function_parameters) [84379 84385]))                          
+                        :documentation "Tell scons that side_effects are built as side
+        effects of building targets.")
+                        (reparse-symbol indented_block_body) [84345 85084])
+                    ("SourceCode" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [85104 85108])
+                            ("entry" variable nil (reparse-symbol function_parameters) [85110 85115])
+                            ("builder" variable nil (reparse-symbol function_parameters) [85117 85124]))                          
+                        :documentation "Arrange for a source code builder for (part of) a tree.")
+                        (reparse-symbol indented_block_body) [85089 85571])
+                    ("SourceSignatures" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [85597 85601])
+                            ("type" variable nil (reparse-symbol function_parameters) [85603 85607]))                          )
+                        (reparse-symbol indented_block_body) [85576 86466])
+                    ("Split" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [86481 86485])
+                            ("arg" variable nil (reparse-symbol function_parameters) [86487 86490]))                          
+                        :documentation "This function converts a string or list into a list of strings
+        or Nodes.  This makes things easier for users by allowing files to
+        be specified as a white-space separated list to be split.
+        The input rules are:
+            - A single string containing names separated by spaces. These will be
+              split apart at the spaces.
+            - A single Node instance
+            - A list containing either strings or Node instances. Any strings
+              in the list are not split at spaces.
+        In all cases, the function returns a list of Nodes and strings.")
+                        (reparse-symbol indented_block_body) [86471 87317])
+                    ("TargetSignatures" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [87343 87347])
+                            ("type" variable nil (reparse-symbol function_parameters) [87349 87353]))                          )
+                        (reparse-symbol indented_block_body) [87322 88391])
+                    ("Value" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [88406 88410])
+                            ("value" variable nil (reparse-symbol function_parameters) [88412 88417])
+                            ("built_value" variable nil (reparse-symbol function_parameters) [88419 88430]))                          
+                        :documentation "
+        ")
+                        (reparse-symbol indented_block_body) [88396 88521])
+                    ("VariantDir" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [88541 88545])
+                            ("variant_dir" variable nil (reparse-symbol function_parameters) [88547 88558])
+                            ("src_dir" variable nil (reparse-symbol function_parameters) [88560 88567])
+                            ("duplicate" variable nil (reparse-symbol function_parameters) [88569 88578]))                          )
+                        (reparse-symbol indented_block_body) [88526 88767])
+                    ("FindSourceFiles" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [88792 88796])
+                            ("node" variable nil (reparse-symbol function_parameters) [88798 88802]))                          
+                        :documentation " returns a list of all source files.
+        ")
+                        (reparse-symbol indented_block_body) [88772 89584])
+                    ("FindInstalledFiles" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [89612 89616]))                          
+                        :documentation " returns the list of all targets of the Install and InstallAs Builder.
+        ")
+                        (reparse-symbol indented_block_body) [89589 89952]))                  
+                :type "class")
+                nil [33637 89952])
+            ("OverrideEnvironment" type
+               (:documentation "A proxy that overrides variables in a wrapped construction
+    environment by returning values from an overrides dictionary in
+    preference to values from the underlying subject environment.
+
+    This is a lightweight (I hope) proxy that passes through most use of
+    attributes to the underlying Environment.Base class, but has just
+    enough additional methods defined to act like a real construction
+    environment with overridden values.  It can wrap either a Base
+    construction environment, or another OverrideEnvironment, which
+    can in turn nest arbitrary OverrideEnvironments...
+
+    Note that we do *not* call the underlying base class
+    (SubsitutionEnvironment) initialization, because we get most of those
+    from proxying the attributes of the subject construction environment.
+    But because we subclass SubstitutionEnvironment, this class also
+    has inherited arg2nodes() and subst*() methods; those methods can't
+    be proxied because they need *this* object's methods to fetch the
+    values from the overrides dictionary.
+    "
+                :superclasses ("Base")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("if" code nil (reparse-symbol indented_block_body) [91114 91207])
+                            ("self" variable nil (reparse-symbol indented_block_body) [91215 91251])
+                            ("self" variable nil (reparse-symbol indented_block_body) [91260 91298]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [91076 91080])
+                            ("subject" variable nil (reparse-symbol function_parameters) [91082 91089])
+                            ("overrides" variable nil (reparse-symbol function_parameters) [91091 91100]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [91063 91299])
+                    ("__getattr__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [91373 91377])
+                            ("name" variable nil (reparse-symbol function_parameters) [91379 91383]))                          )
+                        (reparse-symbol indented_block_body) [91357 91443])
+                    ("__setattr__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [91463 91467])
+                            ("name" variable nil (reparse-symbol function_parameters) [91469 91473])
+                            ("value" variable nil (reparse-symbol function_parameters) [91475 91480]))                          )
+                        (reparse-symbol indented_block_body) [91447 91540])
+                    ("__getitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [91619 91623])
+                            ("key" variable nil (reparse-symbol function_parameters) [91625 91628]))                          )
+                        (reparse-symbol indented_block_body) [91603 91783])
+                    ("__setitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [91803 91807])
+                            ("key" variable nil (reparse-symbol function_parameters) [91809 91812])
+                            ("value" variable nil (reparse-symbol function_parameters) [91814 91819]))                          )
+                        (reparse-symbol indented_block_body) [91787 92002])
+                    ("__delitem__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [92022 92026])
+                            ("key" variable nil (reparse-symbol function_parameters) [92028 92031]))                          )
+                        (reparse-symbol indented_block_body) [92006 92383])
+                    ("get" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [92395 92399])
+                            ("key" variable nil (reparse-symbol function_parameters) [92401 92404])
+                            ("default" variable nil (reparse-symbol function_parameters) [92406 92413]))                          
+                        :documentation "Emulates the get() method of dictionaries.")
+                        (reparse-symbol indented_block_body) [92387 92631])
+                    ("has_key" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [92647 92651])
+                            ("key" variable nil (reparse-symbol function_parameters) [92653 92656]))                          )
+                        (reparse-symbol indented_block_body) [92635 92815])
+                    ("__contains__" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [92836 92840])
+                            ("key" variable nil (reparse-symbol function_parameters) [92842 92845]))                          )
+                        (reparse-symbol indented_block_body) [92819 92986])
+                    ("Dictionary" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [93005 93009]))                          
+                        :documentation "Emulates the items() method of dictionaries.")
+                        (reparse-symbol indented_block_body) [92990 93192])
+                    ("items" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [93206 93210]))                          
+                        :documentation "Emulates the items() method of dictionaries.")
+                        (reparse-symbol indented_block_body) [93196 93319])
+                    ("_update" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [93395 93399])
+                            ("dict" variable nil (reparse-symbol function_parameters) [93401 93405]))                          
+                        :documentation "Update an environment's values directly, bypassing the normal
+        checks that occur when users try to set items.
+        ")
+                        (reparse-symbol indented_block_body) [93383 93596])
+                    ("gvars" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [93611 93615]))                          )
+                        (reparse-symbol indented_block_body) [93601 93668])
+                    ("lvars" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [93683 93687]))                          )
+                        (reparse-symbol indented_block_body) [93673 93811])
+                    ("Replace" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [93886 93890])
+                            ("kw" variable nil (reparse-symbol function_parameters) [93892 93896]))                          )
+                        (reparse-symbol indented_block_body) [93874 94004]))                  
+                :type "class")
+                nil [89954 94004])
+            ("Environment" variable nil nil [94306 94324])
+            ("NoSubstitutionProxy" function (:arguments 
+              ( ("subject" variable nil (reparse-symbol function_parameters) [95031 95038]))              ) nil [95007 96638]))          
+      :file "Environment.py"
+      :pointmax 96747
+      :fsize 96746
+      :lastmodtime '(22555 31645 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "Taskmaster.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("__doc__" variable nil nil [1112 2313])
+            ("__revision__" variable nil nil [2315 2419])
+            ("itertools" include nil nil [2421 2448])
+            ("operator" include nil nil [2449 2464])
+            ("sys" include nil nil [2465 2475])
+            ("traceback" include nil nil [2476 2492])
+            ("SCons.Errors" include nil nil [2494 2513])
+            ("SCons.Node" include nil nil [2514 2531])
+            ("SCons.Warnings" include nil nil [2532 2553])
+            ("StateString" variable nil nil [2555 2591])
+            ("NODE_NO_STATE" variable nil nil [2592 2627])
+            ("NODE_PENDING" variable nil nil [2628 2661])
+            ("NODE_EXECUTING" variable nil nil [2662 2699])
+            ("NODE_UP_TO_DATE" variable nil nil [2700 2739])
+            ("NODE_EXECUTED" variable nil nil [2740 2775])
+            ("NODE_FAILED" variable nil nil [2776 2807])
+            ("print_prepare" variable nil nil [2809 2826])
+            ("CollectStats" variable nil nil [3096 3115])
+            ("Stats" type
+               (:documentation "
+    A simple class for holding statistics about the disposition of a
+    Node by the Taskmaster.  If we're collecting statistics, each Node
+    processed by the Taskmaster gets one of these attached, in which case
+    the Taskmaster records its decision each time it processes the Node.
+    (Ideally, that's just once per Node.)
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("\"\"\"
+        Instantiates a Taskmaster.Stats object, initializing all
+        appropriate counters to zero.
+        \"\"\"" code nil (reparse-symbol indented_block_body) [3515 3633])
+                            ("self" variable nil (reparse-symbol indented_block_body) [3642 3662])
+                            ("self" variable nil (reparse-symbol indented_block_body) [3671 3696])
+                            ("self" variable nil (reparse-symbol indented_block_body) [3705 3722])
+                            ("self" variable nil (reparse-symbol indented_block_body) [3731 3753])
+                            ("self" variable nil (reparse-symbol indented_block_body) [3762 3781])
+                            ("self" variable nil (reparse-symbol indented_block_body) [3790 3812])
+                            ("self" variable nil (reparse-symbol indented_block_body) [3821 3836]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [3500 3504]))                          
+                        :documentation "
+        Instantiates a Taskmaster.Stats object, initializing all
+        appropriate counters to zero.
+        "
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [3487 3837]))                  
+                :type "class")
+                nil [3117 3837])
+            ("StatsNodes" variable nil nil [3838 3853])
+            ("fmt" variable nil nil [3855 4040])
+            ("dump_stats" function nil nil [4042 4174])
+            ("Task" type
+               (:documentation "
+    Default SCons build engine task.
+
+    This controls the interaction of the actual building of node
+    and the rest of the engine.
+
+    This is expected to handle all of the normally-customizable
+    aspects of controlling a build, so any given application
+    *should* be able to do what it wants by sub-classing this
+    class and overriding methods as appropriate.  If an application
+    needs to customize something by sub-classing Taskmaster (or
+    some other build engine class), we should first try to migrate
+    that functionality into this class.
+
+    Note that it's generally a good idea for sub-classes to call
+    these methods explicitly to update state, etc., rather than
+    roll their own interaction with Taskmaster from scratch.
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [5022 5034])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5043 5065])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5074 5088])
+                            ("self" variable nil (reparse-symbol indented_block_body) [5097 5113])
+                            ("self" code nil (reparse-symbol indented_block_body) [5122 5138]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4983 4987])
+                            ("tm" variable nil (reparse-symbol function_parameters) [4989 4991])
+                            ("targets" variable nil (reparse-symbol function_parameters) [4993 5000])
+                            ("top" variable nil (reparse-symbol function_parameters) [5002 5005])
+                            ("node" variable nil (reparse-symbol function_parameters) [5007 5011]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [4970 5139])
+                    ("trace_message" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5162 5166])
+                            ("method" variable nil (reparse-symbol function_parameters) [5168 5174])
+                            ("node" variable nil (reparse-symbol function_parameters) [5176 5180])
+                            ("description" variable nil (reparse-symbol function_parameters) [5182 5193]))                          )
+                        (reparse-symbol indented_block_body) [5144 5308])
+                    ("display" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5325 5329])
+                            ("message" variable nil (reparse-symbol function_parameters) [5331 5338]))                          
+                        :documentation "
+        Hook to allow the calling interface to display a message.
+
+        This hook gets called as part of preparing a task for execution
+        (that is, a Node to be built).  As part of figuring out what Node
+        should be built next, the actual target list may be altered,
+        along with a message describing the alteration.  The calling
+        interface can subclass Task and provide a concrete implementation
+        of this method to see those messages.
+        ")
+                        (reparse-symbol indented_block_body) [5313 5849])
+                    ("prepare" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [5866 5870]))                          
+                        :documentation "
+        Called just before the task is executed.
+
+        This is mainly intended to give the target Nodes a chance to
+        unlink underlying files and make all necessary directories before
+        the Action is actually called to build the targets.
+        ")
+                        (reparse-symbol indented_block_body) [5854 7702])
+                    ("get_target" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7722 7726]))                          
+                        :documentation "Fetch the target being built or updated by this task.
+        ")
+                        (reparse-symbol indented_block_body) [7707 7831])
+                    ("needs_execute" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [7854 7858]))                          )
+                        (reparse-symbol indented_block_body) [7836 8438])
+                    ("execute" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [8455 8459]))                          
+                        :documentation "
+        Called to execute the task.
+
+        This method is called from multiple threads in a parallel build,
+        so only do thread safe stuff here.  Do thread unsafe stuff in
+        prepare(), executed() or failed().
+        ")
+                        (reparse-symbol indented_block_body) [8443 10127])
+                    ("executed_without_callbacks" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [10163 10167]))                          
+                        :documentation "
+        Called when the task has been successfully executed
+        and the Taskmaster instance doesn't want to call
+        the Node's callback methods.
+        ")
+                        (reparse-symbol indented_block_body) [10132 10736])
+                    ("executed_with_callbacks" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [10769 10773]))                          
+                        :documentation "
+        Called when the task has been successfully executed and
+        the Taskmaster instance wants to call the Node's callback
+        methods.
+
+        This may have been a do-nothing operation (to preserve build
+        order), so we must check the node's state before deciding whether
+        it was \"built\", in which case we call the appropriate Node method.
+        In any event, we always call \"visited()\", which will handle any
+        post-visit actions that must take place regardless of whether
+        or not the target was an actual built target or a source Node.
+        ")
+                        (reparse-symbol indented_block_body) [10741 12139])
+                    ("executed" variable nil (reparse-symbol indented_block_body) [12144 12178])
+                    ("failed" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12195 12199]))                          
+                        :documentation "
+        Default action when a task fails:  stop the build.
+
+        Note: Although this function is normally invoked on nodes in
+        the executing state, it might also be invoked on up-to-date
+        nodes when using Configure().
+        ")
+                        (reparse-symbol indented_block_body) [12184 12486])
+                    ("fail_stop" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [12505 12509]))                          
+                        :documentation "
+        Explicit stop-the-build failure.
+
+        This sets failure status on the target nodes and all of
+        their dependent parent nodes.
+
+        Note: Although this function is normally invoked on nodes in
+        the executing state, it might also be invoked on up-to-date
+        nodes when using Configure().
+        ")
+                        (reparse-symbol indented_block_body) [12491 13462])
+                    ("fail_continue" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [13485 13489]))                          
+                        :documentation "
+        Explicit continue-the-build failure.
+
+        This sets failure status on the target nodes and all of
+        their dependent parent nodes.
+
+        Note: Although this function is normally invoked on nodes in
+        the executing state, it might also be invoked on up-to-date
+        nodes when using Configure().
+        ")
+                        (reparse-symbol indented_block_body) [13467 14027])
+                    ("make_ready_all" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14051 14055]))                          
+                        :documentation "
+        Marks all targets in a task ready for execution.
+
+        This is used when the interface needs every target Node to be
+        visited--the canonical example being the \"scons -c\" option.
+        ")
+                        (reparse-symbol indented_block_body) [14032 14684])
+                    ("make_ready_current" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [14712 14716]))                          
+                        :documentation "
+        Marks all targets in a task ready for execution if any target
+        is not current.
+
+        This is the default behavior for building only what's necessary.
+        ")
+                        (reparse-symbol indented_block_body) [14689 16471])
+                    ("make_ready" variable nil (reparse-symbol indented_block_body) [16476 16507])
+                    ("postprocess" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [16529 16533]))                          
+                        :documentation "
+        Post-processes a task after it's been executed.
+
+        This examines all the targets just built (or not, we don't care
+        if the build was successful, or even if there was no build
+        because everything was up-to-date) to see if they have any
+        waiting parent Nodes, or Nodes waiting on a common side effect,
+        that can be put back on the candidates list.
+        ")
+                        (reparse-symbol indented_block_body) [16513 18911])
+                    ("exc_info" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [19352 19356]))                          
+                        :documentation "
+        Returns info about a recorded exception.
+        ")
+                        (reparse-symbol indented_block_body) [19339 19462])
+                    ("exc_clear" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [19481 19485]))                          
+                        :documentation "
+        Clears any recorded exception.
+
+        This also changes the \"exception_raise\" attribute to point
+        to the appropriate do-nothing method.
+        ")
+                        (reparse-symbol indented_block_body) [19467 19768])
+                    ("exception_set" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [19791 19795])
+                            ("exception" variable nil (reparse-symbol function_parameters) [19797 19806]))                          
+                        :documentation "
+        Records an exception to be raised at the appropriate time.
+
+        This also changes the \"exception_raise\" attribute to point
+        to the method that will, in fact
+        ")
+                        (reparse-symbol indented_block_body) [19773 20167])
+                    ("_no_exception_to_raise" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20199 20203]))                          )
+                        (reparse-symbol indented_block_body) [20172 20219])
+                    ("_exception_raise" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20245 20249]))                          
+                        :documentation "
+        Raises a pending exception that was recorded while getting a
+        Task ready for execution.
+        ")
+                        (reparse-symbol indented_block_body) [20224 20625]))                  
+                :type "class")
+                nil [4177 20625])
+            ("AlwaysTask" type
+               (:superclasses ("Task")
+                :members 
+                  ( ("needs_execute" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [20672 20676]))                          
+                        :documentation "
+        Always returns True (indicating this Task should always
+        be executed).
+
+        Subclasses that need this behavior (as opposed to the default
+        of only executing Nodes that are out of date w.r.t. their
+        dependencies) can use this as follows:
+
+            class MyTaskSubclass(SCons.Taskmaster.Task):
+                needs_execute = SCons.Taskmaster.Task.execute_always
+        ")
+                        (reparse-symbol indented_block_body) [20654 21120]))                  
+                :type "class")
+                nil [20626 21120])
+            ("OutOfDateTask" type
+               (:superclasses ("Task")
+                :members 
+                  ( ("needs_execute" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [21170 21174]))                          
+                        :documentation "
+        Returns True (indicating this Task should be executed) if this
+        Task's target state indicates it needs executing, which has
+        already been determined by an earlier up-to-date check.
+        ")
+                        (reparse-symbol indented_block_body) [21152 21471]))                  
+                :type "class")
+                nil [21121 21471])
+            ("find_cycle" function (:arguments 
+              ( ("stack" variable nil (reparse-symbol function_parameters) [21488 21493])
+                ("visited" variable nil (reparse-symbol function_parameters) [21495 21502]))              ) nil [21473 21804])
+            ("Taskmaster" type
+               (:documentation "
+    The Taskmaster for walking the dependency DAG.
+    "
+                :superclasses ("object")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [21981 22008])
+                            ("self" variable nil (reparse-symbol indented_block_body) [22017 22051])
+                            ("self" code nil (reparse-symbol indented_block_body) [22060 22091])
+                            ("self" variable nil (reparse-symbol indented_block_body) [22100 22120])
+                            ("if" code nil (reparse-symbol indented_block_body) [22129 22183])
+                            ("self" variable nil (reparse-symbol indented_block_body) [22191 22211])
+                            ("if" code nil (reparse-symbol indented_block_body) [22220 22266])
+                            ("self" variable nil (reparse-symbol indented_block_body) [22274 22292])
+                            ("self" variable nil (reparse-symbol indented_block_body) [22301 22320])
+                            ("self" variable nil (reparse-symbol indented_block_body) [22329 22347])
+                            ("self" variable nil (reparse-symbol indented_block_body) [22356 22402])
+                            ("self" variable nil (reparse-symbol indented_block_body) [22411 22440]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [21917 21921])
+                            ("targets" variable nil (reparse-symbol function_parameters) [21923 21930])
+                            ("tasker" variable nil (reparse-symbol function_parameters) [21935 21941])
+                            ("order" variable nil (reparse-symbol function_parameters) [21948 21953])
+                            ("trace" variable nil (reparse-symbol function_parameters) [21960 21965]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [21904 22441])
+                    ("find_next_candidate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [22470 22474]))                          
+                        :documentation "
+        Returns the next candidate Node for (potential) evaluation.
+
+        The candidate list (really a stack) initially consists of all of
+        the top-level (command line) targets provided when the Taskmaster
+        was initialized.  While we walk the DAG, visiting Nodes, all the
+        children that haven't finished processing get pushed on to the
+        candidate list.  Each child can then be popped and examined in
+        turn for whether *their* children are all up-to-date, in which
+        case a Task will be created for their actual evaluation and
+        potential building.
+
+        Here is where we also allow candidate Nodes to alter the list of
+        Nodes that should be examined.  This is used, for example, when
+        invoking SCons in a source directory.  A source directory Node can
+        return its corresponding build directory Node, essentially saying,
+        \"Hey, you really need to build this thing over here instead.\"
+        ")
+                        (reparse-symbol indented_block_body) [22446 23955])
+                    ("no_next_candidate" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [23982 23986]))                          
+                        :documentation "
+        Stops Taskmaster processing by not returning a next candidate.
+
+        Note that we have to clean-up the Taskmaster candidate list
+        because the cycle detection depends on the fact all nodes have
+        been processed somehow.
+        ")
+                        (reparse-symbol indented_block_body) [23960 24425])
+                    ("_validate_pending_children" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [24461 24465]))                          
+                        :documentation "
+        Validate the content of the pending_children set. Assert if an
+        internal error is found.
+
+        This function is used strictly for debugging the taskmaster by
+        checking that no invariants are violated. It is not used in
+        normal operation.
+
+        The pending_children set is used to detect cycles in the
+        dependency graph. We call a \"pending child\" a child that is
+        found in the \"pending\" state when checking the dependencies of
+        its parent node.
+
+        A pending child can occur when the Taskmaster completes a loop
+        through a cycle. For example, let's imagine a graph made of
+        three nodes (A, B and C) making a cycle. The evaluation starts
+        at node A. The Taskmaster first considers whether node A's
+        child B is up-to-date. Then, recursively, node B needs to
+        check whether node C is up-to-date. This leaves us with a
+        dependency graph looking like:
+
+                                      Next candidate \\
+                                                      \\
+        Node A (Pending) --> Node B(Pending) --> Node C (NoState)
+                ^                                     |
+                |                                     |
+                +-------------------------------------+
+
+        Now, when the Taskmaster examines the Node C's child Node A,
+        it finds that Node A is in the \"pending\" state. Therefore,
+        Node A is a pending child of node C.
+
+        Pending children indicate that the Taskmaster has potentially
+        loop back through a cycle. We say potentially because it could
+        also occur when a DAG is evaluated in parallel. For example,
+        consider the following graph:
+
+
+        Node A (Pending) --> Node B(Pending) --> Node C (Pending) --> ...
+                |                                     ^
+                |                                     |
+                +----------> Node D (NoState) --------+
+                                  /
+                  Next candidate /
+
+        The Taskmaster first evaluates the nodes A, B, and C and
+        starts building some children of node C. Assuming, that the
+        maximum parallel level has not been reached, the Taskmaster
+        will examine Node D. It will find that Node C is a pending
+        child of Node D.
+
+        In summary, evaluating a graph with a cycle will always
+        involve a pending child at one point. A pending child might
+        indicate either a cycle or a diamond-shaped DAG. Only a
+        fraction of the nodes ends-up being a \"pending child\" of
+        another node. This keeps the pending_children set small in
+        practice.
+
+        We can differentiate between the two cases if we wait until
+        the end of the build. At this point, all the pending children
+        nodes due to a diamond-shaped DAG will have been properly
+        built (or will have failed to build). But, the pending
+        children involved in a cycle will still be in the pending
+        state.
+
+        The taskmaster removes nodes from the pending_children set as
+        soon as a pending_children node moves out of the pending
+        state. This also helps to keep the pending_children set small.
+        ")
+                        (reparse-symbol indented_block_body) [24430 28073])
+                    ("trace_message" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [28097 28101])
+                            ("message" variable nil (reparse-symbol function_parameters) [28103 28110]))                          )
+                        (reparse-symbol indented_block_body) [28079 28157])
+                    ("trace_node" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [28177 28181])
+                            ("node" variable nil (reparse-symbol function_parameters) [28183 28187]))                          )
+                        (reparse-symbol indented_block_body) [28162 28362])
+                    ("_find_next_ready_node" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [28393 28397]))                          
+                        :documentation "
+        Finds the next node that is ready to be built.
+
+        This is *the* main guts of the DAG walk.  We loop through the
+        list of candidates, looking for something that has no un-built
+        children (i.e., that is a leaf Node or has dependencies that are
+        all leaf Nodes or up-to-date).  Candidate Nodes are re-scanned
+        (both the target Node itself and its sources, which are always
+        scanned in the context of a given target) to discover implicit
+        dependencies.  A Node that must wait for some children to be
+        built will be put back on the candidates list after the children
+        have finished building.  A Node that has been put back on the
+        candidates list in this way may have itself (or its sources)
+        re-scanned, in order to handle generated header files (e.g.) and
+        the implicit dependencies therein.
+
+        Note that this method does not do any signature calculation or
+        up-to-date check itself.  All of that is handled by the Task
+        class.  This is purely concerned with the dependency graph walk.
+        ")
+                        (reparse-symbol indented_block_body) [28367 36698])
+                    ("next_task" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [36717 36721]))                          
+                        :documentation "
+        Returns the next task to be executed.
+
+        This simply asks for the next Node to be evaluated, and then wraps
+        it in the specific Task subclass with which we were initialized.
+        ")
+                        (reparse-symbol indented_block_body) [36703 37749])
+                    ("will_not_build" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [37773 37777])
+                            ("nodes" variable nil (reparse-symbol function_parameters) [37779 37784])
+                            ("node_func" variable nil (reparse-symbol function_parameters) [37786 37795]))                          
+                        :documentation "
+        Perform clean-up about nodes that will never be built. Invokes
+        a user defined function on all of these nodes (including all
+        of their parents).
+        ")
+                        (reparse-symbol indented_block_body) [37754 39358])
+                    ("stop" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [39372 39376]))                          
+                        :documentation "
+        Stops the current build completely.
+        ")
+                        (reparse-symbol indented_block_body) [39363 39500])
+                    ("cleanup" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [39517 39521]))                          
+                        :documentation "
+        Check for dependency cycles.
+        ")
+                        (reparse-symbol indented_block_body) [39505 40500]))                  
+                :type "class")
+                nil [21806 40500]))          
+      :file "Taskmaster.py"
+      :pointmax 40609
+      :fsize 40608
+      :lastmodtime '(22555 31645 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "Errors.py"
+      :file "Errors.py"
+      :fsize 7419
+      :lastmodtime '(22555 31645 0 0))
+    (semanticdb-table "Warnings.py"
+      :file "Warnings.py"
+      :fsize 6977
+      :lastmodtime '(22555 31646 0 0)))
+  :file "!usr!lib!scons!SCons!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,3037 @@
+;; Object engine/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "engine/"
+  :tables
+  (list
+    (semanticdb-table "Node.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/executor/engine/Node.h" include nil nil [1 42])
+            ("ha3/sql/executor/engine/Edge.h" include nil nil [43 84])
+            ("ha3/sql/executor/engine/Engine.h" include nil nil [85 128])
+            ("ha3/sql/executor/util/ReadyBitMap.h" include nil nil [129 175])
+            ("iostream" include (:system-flag t) nil [176 195])
+            ("DEBUG" variable (:constant-flag t) nil [205 210])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [232 236]))                  
+                :type "int")
+                nil [212 237])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("isearch" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [270 278])
+                    ("" variable (:type ("Node" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [279 284]))                  
+                :type "int")
+                nil [239 285])
+            ("Node" function
+               (:constructor-flag t
+                :parent "Node"
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [298 326]))                  
+                :type ("Node" type (:type "class") nil nil))
+                nil [287 575])
+            ("Node" function
+               (:destructor-flag t
+                :parent "Node"
+                :type "void")
+                nil [577 698])
+            ("init" function
+               (:parent "Node"
+                :arguments 
+                  ( ("nodeDef" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("NodeDef" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [716 739]))                  
+                :type "bool")
+                nil [700 1500])
+            ("initAttributeMap" function
+               (:parent "Node"
+                :type "bool")
+                nil [1502 1953])
+            ("initIOGroup" function
+               (:parent "Node"
+                :type "void")
+                nil [1955 2535])
+            ("initReadyBitMaps" function
+               (:parent "Node"
+                :type "void")
+                nil [2537 2752])
+            ("getInputBitMap" function
+               (:pointer 1
+                :parent "Node"
+                :arguments 
+                  ( ("inputIndex" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2788 2809]))                  
+                :type ("ReadyBitMap" type (:type "class") nil nil))
+                nil [2754 3017])
+            ("getOutputBitMap" function
+               (:pointer 1
+                :parent "Node"
+                :arguments 
+                  ( ("outputIndex" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3054 3076]))                  
+                :type ("ReadyBitMap" type (:type "class") nil nil))
+                nil [3019 3290])
+            ("addInput" function
+               (:parent "Node"
+                :arguments 
+                  ( ("input" variable
+                       (:pointer 1
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3312 3324])
+                    ("inputIndex" variable
+                       (:reference 1
+                        :type ("PortIndex" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3325 3347]))                  
+                :type "bool")
+                nil [3292 4059])
+            ("doAddInput" function
+               (:parent "Node"
+                :arguments 
+                  ( ("portInfo" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PortInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4088 4113])
+                    ("input" variable
+                       (:pointer 1
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4114 4126])
+                    ("edgeRequire" variable (:type "bool") (reparse-symbol arg-sub-list) [4127 4144]))                  
+                :type ("PortIndex" type (:type "class") nil nil))
+                nil [4061 4532])
+            ("doAddInputGroup" function
+               (:parent "Node"
+                :arguments 
+                  ( ("portInfo" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PortInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4566 4591])
+                    ("input" variable
+                       (:pointer 1
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4592 4604]))                  
+                :type ("PortIndex" type (:type "class") nil nil))
+                nil [4534 4830])
+            ("addOutput" function
+               (:parent "Node"
+                :arguments 
+                  ( ("output" variable
+                       (:pointer 1
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4853 4866])
+                    ("outputIndex" variable
+                       (:reference 1
+                        :type ("PortIndex" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4867 4890]))                  
+                :type "bool")
+                nil [4832 5586])
+            ("doAddOutput" function
+               (:parent "Node"
+                :arguments 
+                  ( ("portInfo" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PortInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5616 5641])
+                    ("output" variable
+                       (:pointer 1
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5642 5655]))                  
+                :type ("PortIndex" type (:type "class") nil nil))
+                nil [5588 5974])
+            ("doAddOutputGroup" function
+               (:parent "Node"
+                :arguments 
+                  ( ("portInfo" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PortInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6009 6034])
+                    ("output" variable
+                       (:pointer 1
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6035 6048]))                  
+                :type ("PortIndex" type (:type "class") nil nil))
+                nil [5976 6277])
+            ("getInputActivateStrategy" function
+               (:parent "Node"
+                :arguments 
+                  ( ("inputDef" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("InputDef" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6336 6361])
+                    ("edgeRequire" variable (:type "bool") (reparse-symbol arg-sub-list) [6362 6379]))                  
+                :type ("ActivateStrategy" type (:type "class") nil nil))
+                nil [6279 6710])
+            ("setEngine" function
+               (:parent "Node"
+                :arguments 
+                  ( ("engine" variable
+                       (:pointer 1
+                        :type ("Engine" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6733 6748]))                  
+                :type "bool")
+                nil [6712 7143])
+            ("markGraphOutput" function
+               (:parent "Node"
+                :arguments 
+                  ( ("port" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7172 7196]))                  
+                :type "bool")
+                nil [7145 9015])
+            ("inputOk" function
+               (:parent "Node"
+                :type "bool")
+                nil [9017 9254])
+            ("inputFinish" function
+               (:parent "Node"
+                :type "bool")
+                nil [9256 9573])
+            ("inputHasReady" function
+               (:parent "Node"
+                :type "bool")
+                nil [9575 9891])
+            ("outputOk" function
+               (:parent "Node"
+                :type "bool")
+                nil [9893 10135])
+            ("outputFinish" function
+               (:parent "Node"
+                :type "bool")
+                nil [10137 10459])
+            ("schedule" function
+               (:parent "Node"
+                :type "void")
+                nil [10461 11366])
+            ("compute" function
+               (:parent "Node"
+                :type "void")
+                nil [11368 11712])
+            ("getSnapshotId" function
+               (:parent "Node"
+                :type ("SnapshotId" type (:type "class") nil nil))
+                nil [11714 11845])
+            ("getInput" function
+               (:parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11867 11883])
+                    ("snapshot" variable (:type ("SnapshotId" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11884 11904])
+                    ("data" variable
+                       (:reference 1
+                        :type ("DataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11905 11919]))                  
+                :type "bool")
+                nil [11847 12058])
+            ("getInputGroupSize" function
+               (:parent "Node"
+                :arguments 
+                  ( ("group" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12089 12105])
+                    ("size" variable
+                       (:reference 1
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12106 12119]))                  
+                :type "bool")
+                nil [12060 12275])
+            ("getInputGroupCount" function
+               (:parent "Node"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [12277 12352])
+            ("getOutputGroupCount" function
+               (:parent "Node"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [12354 12431])
+            ("getInputGroup" function
+               (:parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12458 12474])
+                    ("snapshot" variable (:type ("SnapshotId" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12475 12495])
+                    ("datas" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("DataPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12521 12549]))                  
+                :type "bool")
+                nil [12433 12922])
+            ("isConnected" function
+               (:parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12947 12963]))                  
+                :type "bool")
+                nil [12924 13063])
+            ("getInputPortGroup" function
+               (:pointer 1
+                :parent "Node"
+                :arguments 
+                  ( ("group" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13100 13116]))                  
+                :type ("PortGroup" type (:type "class") nil nil))
+                nil [13065 13244])
+            ("setOutput" function
+               (:parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13267 13283])
+                    ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13284 13304])
+                    ("eof" variable (:type "bool") (reparse-symbol arg-sub-list) [13305 13314]))                  
+                :type "bool")
+                nil [13246 13438])
+            ("getInputEdge" function
+               (:pointer 1
+                :parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13465 13481]))                  
+                :type ("Edge" type (:type "class") nil nil))
+                nil [13440 14008])
+            ("getOutputEdge" function
+               (:pointer 1
+                :parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14036 14052]))                  
+                :type ("Edge" type (:type "class") nil nil))
+                nil [14010 14583])
+            ("intputEof" function
+               (:parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14606 14622])
+                    ("eof" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [14623 14633]))                  
+                :type "bool")
+                nil [14585 14761])
+            ("setInputEof" function
+               (:parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14786 14802]))                  
+                :type "bool")
+                nil [14763 14925])
+            ("setInputEof" function
+               (:parent "Node"
+                :type "void")
+                nil [14927 15172])
+            ("outputEof" function
+               (:parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15195 15211])
+                    ("eof" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [15212 15222]))                  
+                :type "bool")
+                nil [15174 15351])
+            ("setOutputEof" function
+               (:parent "Node"
+                :arguments 
+                  ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15377 15393]))                  
+                :type "bool")
+                nil [15353 15517])
+            ("setOutputEof" function
+               (:parent "Node"
+                :type "void")
+                nil [15519 15770])
+            ("setEof" function
+               (:parent "Node"
+                :type "void")
+                nil [15772 15924])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15944 15948]))                  
+                :type "int")
+                nil [15926 15949]))          
+      :file "Node.cpp"
+      :pointmax 15950
+      :fsize 15949
+      :lastmodtime '(23648 55139 421942 101000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("DEBUG")
+          )
+)
+    (semanticdb-table "Node.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_NODE_H" variable (:constant-flag t) nil [32 46])
+            ("ha3/sql/executor/common.h" include nil nil [48 84])
+            ("ha3/sql/data/Data.h" include nil nil [85 115])
+            ("ha3/sql/executor/engine/Kernel.h" include nil nil [116 159])
+            ("ha3/sql/executor/engine/PortGroup.h" include nil nil [160 206])
+            ("ha3/sql/executor/engine/KernelCreator.h" include nil nil [207 257])
+            ("ha3/sql/executor/proto/KernelDef.pb.h" include nil nil [258 306])
+            ("ha3/sql/executor/proto/GraphDef.pb.h" include nil nil [307 354])
+            ("autil/mem_pool/Pool.h" include (:system-flag t) nil [355 387])
+            ("map" include (:system-flag t) nil [388 402])
+            ("vector" include (:system-flag t) nil [403 420])
+            ("string" include (:system-flag t) nil [421 438])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [460 464]))                  
+                :type "int")
+                nil [440 465])
+            ("ReadyBitMap" type
+               (:prototype t
+                :type "class")
+                nil [467 485])
+            ("Edge" type
+               (:prototype t
+                :type "class")
+                nil [486 497])
+            ("Engine" type
+               (:prototype t
+                :type "class")
+                nil [498 511])
+            ("Node" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [526 533])
+                    ("Node" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [543 571]))                          
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [538 572])
+                    ("Node" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [577 585])
+                    ("private" label nil (reparse-symbol classsubparts) [586 594])
+                    ("Node" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Node" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [604 617]))                          
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [599 618])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Node" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [639 652]))                          
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [623 653])
+                    ("public" label nil (reparse-symbol classsubparts) [654 661])
+                    ("getName" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [666 730])
+                    ("getInput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [781 797])
+                            ("snapshot" variable (:type ("SnapshotId" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [798 818])
+                            ("data" variable
+                               (:reference 1
+                                :type ("DataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [819 833]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [767 834])
+                    ("getInputGroupSize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("group" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [862 878])
+                            ("size" variable
+                               (:reference 1
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [879 892]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [839 893])
+                    ("getInputGroupCount" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [898 932])
+                    ("getInputGroup" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [956 972])
+                            ("snapshot" variable (:type ("SnapshotId" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [973 993])
+                            ("datas" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("DataPtr" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1017 1045]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [937 1046])
+                    ("setOutput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1066 1082])
+                            ("data" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1083 1103])
+                            ("eof" variable (:type "bool") (reparse-symbol arg-sub-list) [1104 1113]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1051 1114])
+                    ("getOutputGroupCount" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1119 1154])
+                    ("isConnected" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1176 1192]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1159 1199])
+                    ("getInputPortGroup" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("group" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1233 1249]))                          
+                        :type ("PortGroup" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1204 1256])
+                    ("intputEof" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1385 1401])
+                            ("eof" variable
+                               (:reference 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1402 1412]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1370 1413])
+                    ("setInputEof" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1418 1437])
+                    ("setInputEof" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1459 1475]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1442 1476])
+                    ("outputEof" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1496 1512])
+                            ("eof" variable
+                               (:reference 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1513 1523]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1481 1524])
+                    ("setOutputEof" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1547 1563]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1529 1564])
+                    ("setOutputEof" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1569 1589])
+                    ("setEof" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1594 1608])
+                    ("outputFinish" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1613 1639])
+                    ("inputFinish" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1644 1669])
+                    ("inputHasReady" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1674 1701])
+                    ("public" label nil (reparse-symbol classsubparts) [1702 1709])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("nodeDef" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NodeDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1748 1771]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1738 1772])
+                    ("addInput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("input" variable
+                               (:pointer 1
+                                :type ("Edge" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1791 1803])
+                            ("inputIndex" variable
+                               (:reference 1
+                                :type ("PortIndex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1804 1826]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1777 1827])
+                    ("addOutput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("output" variable
+                               (:pointer 1
+                                :type ("Edge" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1847 1860])
+                            ("outputIndex" variable
+                               (:reference 1
+                                :type ("PortIndex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1861 1884]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1832 1885])
+                    ("initReadyBitMaps" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1890 1914])
+                    ("setEngine" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("engine" variable
+                               (:pointer 1
+                                :type ("Engine" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1934 1949]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1919 1950])
+                    ("schedule" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1955 1971])
+                    ("compute" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1976 1991])
+                    ("getSnapshotId" function
+                       (:prototype-flag t
+                        :type ("SnapshotId" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1996 2023])
+                    ("getInputBitMap" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("inputIndex" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2081 2102]))                          
+                        :type ("ReadyBitMap" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2053 2103])
+                    ("getOutputBitMap" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("outputIndex" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2137 2159]))                          
+                        :type ("ReadyBitMap" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2108 2160])
+                    ("markGraphOutput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("port" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2186 2210]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2165 2211])
+                    ("private" label nil (reparse-symbol classsubparts) [2212 2220])
+                    ("initIOGroup" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2225 2244])
+                    ("initAttributeMap" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2249 2273])
+                    ("doAddInput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("portInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PortInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2299 2324])
+                            ("input" variable
+                               (:pointer 1
+                                :type ("Edge" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2325 2337])
+                            ("edgeRequire" variable (:type "bool") (reparse-symbol arg-sub-list) [2363 2380]))                          
+                        :type ("PortIndex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2278 2381])
+                    ("doAddInputGroup" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("portInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PortInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2412 2437])
+                            ("input" variable
+                               (:pointer 1
+                                :type ("Edge" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2438 2450]))                          
+                        :type ("PortIndex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2386 2451])
+                    ("doAddOutput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("portInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PortInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2478 2503])
+                            ("output" variable
+                               (:pointer 1
+                                :type ("Edge" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2504 2517]))                          
+                        :type ("PortIndex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2456 2518])
+                    ("doAddOutputGroup" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("portInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PortInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2550 2575])
+                            ("output" variable
+                               (:pointer 1
+                                :type ("Edge" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2576 2589]))                          
+                        :type ("PortIndex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2523 2590])
+                    ("getInputActivateStrategy" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("inputDef" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("InputDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2637 2662])
+                            ("edgeRequire" variable (:type "bool") (reparse-symbol arg-sub-list) [2709 2726]))                          
+                        :type ("ActivateStrategy" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2595 2727])
+                    ("inputOk" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2732 2753])
+                    ("outputOk" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2758 2780])
+                    ("getInputEdge" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2804 2820]))                          
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2785 2827])
+                    ("getOutputEdge" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2852 2868]))                          
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2832 2875])
+                    ("getOutputEdge" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("portName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2900 2928]))                          
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2880 2935])
+                    ("private" label nil (reparse-symbol classsubparts) [2936 2944])
+                    ("_pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2949 2978])
+                    ("_inputs" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("Edge" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2983 3011])
+                    ("_outputs" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("Edge" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [3016 3045])
+                    ("_hasOutput" variable (:type "bool") (reparse-symbol classsubparts) [3050 3066])
+                    ("_inputReadyMap" variable
+                       (:pointer 1
+                        :type ("ReadyBitMap" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3071 3099])
+                    ("_outputReadyMap" variable
+                       (:pointer 1
+                        :type ("ReadyBitMap" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3104 3133])
+                    ("_inputGroups" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("PortGroup" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [3138 3176])
+                    ("_outputGroups" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("PortGroup" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [3181 3220])
+                    ("_attributeMap" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [3225 3274])
+                    ("_snapshot" variable (:type ("SnapshotId" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3279 3300])
+                    ("_running" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3305 3322])
+                    ("_engine" variable
+                       (:pointer 1
+                        :type ("Engine" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3327 3343])
+                    ("_kernel" variable
+                       (:pointer 1
+                        :type ("Kernel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3348 3364])
+                    ("_def" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("NodeDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3369 3389])
+                    ("_kernelCreator" variable
+                       (:pointer 1
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3394 3424])
+                    ("private" label nil (reparse-symbol classsubparts) [3425 3433])
+                    ("IDLE" variable
+                       (:default-value "0"
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3455 3472])
+                    ("RUNNING" variable
+                       (:default-value "1"
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3494 3514]))                  
+                :type "class")
+                nil [513 3517])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Node" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3535 3540]))                  
+                :type "int")
+                nil [3519 3541])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3561 3565]))                  
+                :type "int")
+                nil [3543 3566]))          
+      :file "Node.h"
+      :pointmax 3592
+      :fsize 3591
+      :lastmodtime '(23648 55139 421942 101000)
+      :unmatched-syntax '((thing 3438 . 3444) (thing 3445 . 3454) (thing 3477 . 3483) (thing 3484 . 3493))
+      :lexical-table 
+        '(("ISEARCH_NODE_H")
+          )
+)
+    (semanticdb-table "Edge.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_EDGE_H" variable (:constant-flag t) nil [32 46])
+            ("ha3/sql/executor/common.h" include nil nil [48 84])
+            ("ha3/sql/data/Data.h" include nil nil [85 115])
+            ("ha3/sql/executor/engine/Graph.h" include nil nil [116 158])
+            ("ha3/sql/executor/proto/GraphDef.pb.h" include nil nil [159 206])
+            ("autil/Lock.h" include (:system-flag t) nil [207 230])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [252 256]))                  
+                :type "int")
+                nil [232 257])
+            ("Node" type
+               (:prototype t
+                :type "class")
+                nil [259 270])
+            ("ReadyBitMap" type
+               (:prototype t
+                :type "class")
+                nil [271 289])
+            ("Edge" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [304 311])
+                    ("Edge" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("graph" variable
+                               (:pointer 1
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [321 334]))                          
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [316 335])
+                    ("Edge" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("graph" variable
+                               (:pointer 1
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [345 358])
+                            ("def" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("EdgeDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [359 378])
+                            ("input" variable
+                               (:pointer 1
+                                :type ("Node" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [379 391])
+                            ("output" variable
+                               (:pointer 1
+                                :type ("Node" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [392 405]))                          
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [340 406])
+                    ("Edge" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [411 419])
+                    ("private" label nil (reparse-symbol classsubparts) [420 428])
+                    ("Edge" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Edge" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [438 451]))                          
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [433 452])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Edge" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [473 486]))                          
+                        :type ("Edge" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [457 487])
+                    ("public" label nil (reparse-symbol classsubparts) [488 495])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("edgeDef" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("EdgeDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [510 533])
+                            ("graph" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [534 553]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [500 554])
+                    ("initReadyBitMaps" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [559 583])
+                    ("getDef" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :constant-flag t
+                        :type ("EdgeDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [588 618])
+                    ("getInputNode" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [623 650])
+                    ("getOutputNode" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [655 683])
+                    ("isEof" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [688 707])
+                    ("setEof" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [712 726])
+                    ("getData" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("id" variable (:type ("SnapshotId" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [747 761]))                          
+                        :type ("DataPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [731 762])
+                    ("setData" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("data" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [780 800])
+                            ("eof" variable (:type "bool") (reparse-symbol arg-sub-list) [801 810]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [767 811])
+                    ("setInputIndex" function
+                       (:arguments 
+                          ( ("inputIndex" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PortIndex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [835 863]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [816 905])
+                    ("setOutputIndex" function
+                       (:arguments 
+                          ( ("outputIndex" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PortIndex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [930 959]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [910 1003])
+                    ("markGraphOutput" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1008 1031])
+                    ("private" label nil (reparse-symbol classsubparts) [1032 1040])
+                    ("linkNode" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1045 1061])
+                    ("schedule" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1066 1082])
+                    ("getDebugName" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1087 1204])
+                    ("private" label nil (reparse-symbol classsubparts) [1205 1213])
+                    ("_def" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("EdgeDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1218 1238])
+                    ("_graph" variable
+                       (:pointer 1
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1243 1257])
+                    ("_inputNode" variable
+                       (:pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1262 1279])
+                    ("_inputIndex" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1284 1306])
+                    ("_inputReadyMap" variable
+                       (:pointer 1
+                        :type ("ReadyBitMap" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1311 1339])
+                    ("_outputNode" variable
+                       (:pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1345 1363])
+                    ("_outputIndex" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1368 1391])
+                    ("_outputReadyMap" variable
+                       (:pointer 1
+                        :type ("ReadyBitMap" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1396 1425])
+                    ("_graphOutput" variable (:type "bool") (reparse-symbol classsubparts) [1431 1449])
+                    ("_dataLock" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1454 1483])
+                    ("_snapshotId" variable (:type ("SnapshotId" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1488 1511])
+                    ("_data" variable (:type ("DataPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1516 1530]))                  
+                :type "class")
+                nil [291 1533])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Edge" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1551 1556]))                  
+                :type "int")
+                nil [1535 1557])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1577 1581]))                  
+                :type "int")
+                nil [1559 1582]))          
+      :file "Edge.h"
+      :pointmax 1608
+      :fsize 1607
+      :lastmodtime '(23648 55139 420942 101000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_EDGE_H")
+          )
+)
+    (semanticdb-table "Engine.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_ENGINE_H" variable (:constant-flag t) nil [34 50])
+            ("ha3/sql/data/Data.h" include nil nil [52 82])
+            ("ha3/sql/executor/engine/Edge.h" include nil nil [83 124])
+            ("ha3/sql/executor/engine/Node.h" include nil nil [125 166])
+            ("ha3/sql/executor/engine/Graph.h" include nil nil [167 209])
+            ("ha3/sql/resource/ResourceBase.h" include nil nil [210 252])
+            ("autil/ThreadPool.h" include (:system-flag t) nil [253 282])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [304 308]))                  
+                :type "int")
+                nil [284 309])
+            ("Engine" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [326 333])
+                    ("Engine" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("Engine" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [338 347])
+                    ("Engine" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [352 362])
+                    ("private" label nil (reparse-symbol classsubparts) [363 371])
+                    ("Engine" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Engine" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [383 398]))                          
+                        :type ("Engine" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [376 399])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Engine" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [422 437]))                          
+                        :type ("Engine" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [404 438])
+                    ("public" label nil (reparse-symbol classsubparts) [439 446])
+                    ("runGraph" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("graph" variable
+                               (:reference 1
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [465 478])
+                            ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphInputs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [497 523])
+                            ("outputs" variable
+                               (:reference 1
+                                :type ("GraphOutputs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [542 564]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [451 565])
+                    ("schedule" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("op" variable
+                               (:pointer 1
+                                :type ("Node" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [584 593]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [570 594])
+                    ("setResource" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [616 640])
+                            ("resource" variable
+                               (:pointer 1
+                                :type ("ResourceBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [641 664]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [599 665])
+                    ("getResourceMap" function (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("ResourceBase" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [670 762])
+                    ("private" label nil (reparse-symbol classsubparts) [764 772])
+                    ("trimGraph" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("graph" variable
+                               (:reference 1
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [792 805])
+                            ("outputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphOutputs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [806 834]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [777 835])
+                    ("feedInputs" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("graph" variable
+                               (:reference 1
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [856 869])
+                            ("inputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphInputs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [870 896])
+                            ("srcEdgeDefs" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("EdgeDef" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [917 951])
+                            ("srcEdges" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("EdgePtr" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [972 1003]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [840 1010])
+                    ("bindOutputs" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("graph" variable
+                               (:reference 1
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1032 1045])
+                            ("outputs" variable
+                               (:reference 1
+                                :type ("GraphOutputs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1046 1068])
+                            ("dstEdgeDefs" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("EdgeDef" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1090 1124])
+                            ("srcEdges" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("EdgePtr" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1146 1177]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1015 1184])
+                    ("getOutput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dstEdges" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("EdgePtr" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1204 1241])
+                            ("outputs" variable
+                               (:reference 1
+                                :type ("GraphOutputs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1261 1283]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1189 1290])
+                    ("private" label nil (reparse-symbol classsubparts) [1294 1302])
+                    ("_threadPool" variable (:type ("autil::ThreadPoolPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1307 1340])
+                    ("_running" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1345 1368])
+                    ("_resourceMap" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("ResourceBase" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1373 1424]))                  
+                :type "class")
+                nil [311 1427])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Engine" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1445 1452]))                  
+                :type "int")
+                nil [1429 1453])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1473 1477]))                  
+                :type "int")
+                nil [1455 1478]))          
+      :file "Engine.h"
+      :pointmax 1506
+      :fsize 1505
+      :lastmodtime '(23648 55139 420942 101000)
+      :unmatched-syntax '((thing 762 . 763))
+      :lexical-table 
+        '(("ISEARCH_ENGINE_H")
+          )
+)
+    (semanticdb-table "Graph.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/executor/engine/Graph.h" include nil nil [1 43])
+            ("ha3/sql/executor/engine/Node.h" include nil nil [44 85])
+            ("autil/mem_pool/Pool.h" include (:system-flag t) nil [86 118])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [140 144]))                  
+                :type "int")
+                nil [120 145])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("isearch" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [178 186])
+                    ("" variable (:type ("Graph" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [187 193]))                  
+                :type "int")
+                nil [147 194])
+            ("Graph" function
+               (:constructor-flag t
+                :parent "Graph"
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [209 238]))                  
+                :type ("Graph" type (:type "class") nil nil))
+                nil [196 319])
+            ("Graph" function
+               (:destructor-flag t
+                :parent "Graph"
+                :type "void")
+                nil [321 501])
+            ("init" function
+               (:parent "Graph"
+                :arguments 
+                  ( ("graphDef" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("GraphDef" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [520 545]))                  
+                :type "bool")
+                nil [503 1359])
+            ("setEngine" function
+               (:parent "Graph"
+                :arguments 
+                  ( ("engine" variable
+                       (:pointer 1
+                        :type ("Engine" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1383 1398]))                  
+                :type "bool")
+                nil [1361 1546])
+            ("getNode" function
+               (:pointer 1
+                :parent "Graph"
+                :arguments 
+                  ( ("nodeName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1569 1597]))                  
+                :type ("Node" type (:type "class") nil nil))
+                nil [1548 1727])
+            ("createNode" function
+               (:parent "Graph"
+                :arguments 
+                  ( ("nodeDef" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("NodeDef" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1752 1775]))                  
+                :type "bool")
+                nil [1729 1998])
+            ("createEdge" function
+               (:parent "Graph"
+                :arguments 
+                  ( ("edgeDef" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("EdgeDef" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2023 2046]))                  
+                :type "bool")
+                nil [2000 2246])
+            ("checkGraph" function
+               (:parent "Graph"
+                :type "bool")
+                nil [2248 2293])
+            ("initReadyBitMaps" function
+               (:parent "Graph"
+                :type "void")
+                nil [2295 2492])
+            ("incNotFinishCount" function
+               (:parent "Graph"
+                :type "void")
+                nil [2494 2651])
+            ("decNotFinishCount" function
+               (:parent "Graph"
+                :type "void")
+                nil [2653 2879])
+            ("markGraphOutput" function
+               (:parent "Graph"
+                :arguments 
+                  ( ("outputs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("GraphOutputs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2909 2937]))                  
+                :type "bool")
+                nil [2881 3380])
+            ("setFinishCallback" function
+               (:parent "Graph"
+                :arguments 
+                  ( ("done" variable (:type ("FinishCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3412 3432]))                  
+                :type "void")
+                nil [3382 3454])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3474 3478]))                  
+                :type "int")
+                nil [3456 3479]))          
+      :file "Graph.cpp"
+      :pointmax 3480
+      :fsize 3479
+      :lastmodtime '(23648 55139 421942 101000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Engine.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/executor/engine/Engine.h" include nil nil [1 44])
+            ("ha3/sql/data/Data.h" include nil nil [45 75])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [77 97])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [119 123]))                  
+                :type "int")
+                nil [99 124])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("isearch" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [157 165])
+                    ("" variable (:type ("Node" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [166 171]))                  
+                :type "int")
+                nil [126 172])
+            ("MAX_SNAPSHOT_ID" variable
+               (:default-value "LONG_MAX"
+                :type "long")
+                nil [184 216])
+            ("ComputeWorkItem" type
+               (:superclasses 
+                  ( ("autil::WorkItem" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [267 274])
+                    ("ComputeWorkItem" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("op" variable
+                               (:pointer 1
+                                :type ("Node" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [295 304]))                          
+                        :type ("ComputeWorkItem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [279 334])
+                    ("public" label nil (reparse-symbol classsubparts) [335 342])
+                    ("private" label nil (reparse-symbol classsubparts) [512 520])
+                    ("_op" variable
+                       (:pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [525 535]))                  
+                :type "class")
+                nil [218 538])
+            ("Engine" function
+               (:constructor-flag t
+                :parent "Engine"
+                :type ("Engine" type (:type "class") nil nil))
+                nil [540 658])
+            ("Engine" function
+               (:destructor-flag t
+                :parent "Engine"
+                :type "void")
+                nil [660 681])
+            ("setResource" function
+               (:parent "Engine"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [708 732])
+                    ("resource" variable
+                       (:pointer 1
+                        :type ("ResourceBase" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [733 756]))                  
+                :type "bool")
+                nil [683 932])
+            ("runGraph" function
+               (:parent "Engine"
+                :arguments 
+                  ( ("graph" variable
+                       (:reference 1
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [956 969])
+                    ("inputs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("GraphInputs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [970 996])
+                    ("outputs" variable
+                       (:reference 1
+                        :type ("GraphOutputs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1019 1041]))                  
+                :type "bool")
+                nil [934 1671])
+            ("trimGraph" function
+               (:parent "Engine"
+                :arguments 
+                  ( ("graph" variable
+                       (:reference 1
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1696 1709])
+                    ("outputs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("GraphOutputs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1710 1738]))                  
+                :type "bool")
+                nil [1673 1991])
+            ("feedInputs" function
+               (:parent "Engine"
+                :arguments 
+                  ( ("graph" variable
+                       (:reference 1
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2017 2030])
+                    ("inputs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("GraphInputs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2031 2057])
+                    ("srcEdgeDefs" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("EdgeDef" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2082 2111])
+                    ("srcEdges" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("EdgePtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2136 2162]))                  
+                :type "void")
+                nil [1993 3261])
+            ("bindOutputs" function
+               (:parent "Engine"
+                :arguments 
+                  ( ("graph" variable
+                       (:reference 1
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3288 3301])
+                    ("outputs" variable
+                       (:reference 1
+                        :type ("GraphOutputs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3302 3324])
+                    ("dstEdgeDefs" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("EdgeDef" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3350 3379])
+                    ("dstEdges" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("EdgePtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3405 3431]))                  
+                :type "void")
+                nil [3263 4592])
+            ("getOutput" function
+               (:parent "Engine"
+                :arguments 
+                  ( ("dstEdges" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("EdgePtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4617 4649])
+                    ("outputs" variable
+                       (:reference 1
+                        :type ("GraphOutputs" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4650 4672]))                  
+                :type "void")
+                nil [4594 5072])
+            ("schedule" function
+               (:parent "Engine"
+                :arguments 
+                  ( ("op" variable
+                       (:pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5096 5105]))                  
+                :type "void")
+                nil [5074 5283])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5303 5307]))                  
+                :type "int")
+                nil [5285 5308]))          
+      :file "Engine.cpp"
+      :pointmax 5309
+      :fsize 5308
+      :lastmodtime '(23651 49436 982699 171000)
+      :unmatched-syntax '((thing 485 . 511) (thing 476 . 484) (thing 473 . 475) (thing 469 . 473) (thing 464 . 468) (thing 431 . 459) (thing 422 . 430) (thing 419 . 421) (thing 412 . 419) (thing 407 . 411) (thing 371 . 402) (thing 362 . 370) (thing 359 . 361) (thing 352 . 359) (thing 347 . 351) (thing 174 . 183)))
+    (semanticdb-table "Graph.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_GRAPH_H" variable (:constant-flag t) nil [33 48])
+            ("ha3/sql/executor/common.h" include nil nil [50 86])
+            ("ha3/sql/data/Data.h" include nil nil [87 117])
+            ("unordered_map" include (:system-flag t) nil [118 142])
+            ("map" include (:system-flag t) nil [143 157])
+            ("vector" include (:system-flag t) nil [158 175])
+            ("autil" type
+               (:members 
+                  ( ("mem_pool" type
+                       (:members 
+                          ( ("Pool" type
+                               (:prototype t
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [216 227]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [195 229]))                  
+                :type "namespace")
+                nil [177 231])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [253 257]))                  
+                :type "int")
+                nil [233 258])
+            ("GraphInput" type
+               (:members 
+                  ( ("_node" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [284 302])
+                    ("_port" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [307 325])
+                    ("_data" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("DataPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [330 357]))                  
+                :type "struct")
+                nil [260 360])
+            ("GraphOutput" type
+               (:members 
+                  ( ("_node" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [387 405])
+                    ("_port" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [410 428])
+                    ("_data" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("DataPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [433 460]))                  
+                :type "struct")
+                nil [362 463])
+            ("GraphInputs" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("GraphInput" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [465 509])
+            ("GraphOutputs" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("GraphOutput" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [510 556])
+            ("FinishCallback" variable (:type "int") nil [587 602])
+            ("Engine" type
+               (:prototype t
+                :type "class")
+                nil [604 617])
+            ("Node" type
+               (:prototype t
+                :type "class")
+                nil [618 629])
+            ("Edge" type
+               (:prototype t
+                :type "class")
+                nil [630 641])
+            ("GraphDef" type
+               (:prototype t
+                :type "class")
+                nil [642 657])
+            ("NodeDef" type
+               (:prototype t
+                :type "class")
+                nil [658 672])
+            ("EdgeDef" type
+               (:prototype t
+                :type "class")
+                nil [673 687])
+            ("Graph" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [703 710])
+                    ("Graph" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [721 750]))                          
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [715 751])
+                    ("Graph" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [756 765])
+                    ("private" label nil (reparse-symbol classsubparts) [766 774])
+                    ("Graph" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [785 799]))                          
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [779 800])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Graph" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [822 836]))                          
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [805 837])
+                    ("public" label nil (reparse-symbol classsubparts) [838 845])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("graphDef" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("GraphDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [860 885]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [850 886])
+                    ("getNode" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("nodeName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [905 933]))                          
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [891 940])
+                    ("setEngine" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("engine" variable
+                               (:pointer 1
+                                :type ("Engine" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [960 975]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [945 976])
+                    ("incNotFinishCount" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [981 1006])
+                    ("decNotFinishCount" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1011 1036])
+                    ("markGraphOutput" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("outputs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("GraphOutputs" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1062 1090]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1041 1091])
+                    ("setFinishCallback" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("done" variable (:type ("FinishCallback" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1119 1139]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1096 1140])
+                    ("private" label nil (reparse-symbol classsubparts) [1141 1149])
+                    ("createNode" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("nodeDef" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("NodeDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1170 1193]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1154 1194])
+                    ("createEdge" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("edgeDef" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("EdgeDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1215 1238]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1199 1239])
+                    ("checkGraph" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1244 1262])
+                    ("initReadyBitMaps" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1267 1291])
+                    ("private" label nil (reparse-symbol classsubparts) [1292 1300])
+                    ("_graphDef" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("GraphDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1305 1331])
+                    ("_pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1336 1365])
+                    ("_nodes" variable (:type ("std::unordered_map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("Node" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1370 1417])
+                    ("_edges" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("Edge" type (:pointer 1) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1422 1449])
+                    ("_notFinishCount" variable (:type ("atomic64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1454 1481])
+                    ("_done" variable (:type ("FinishCallback" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1486 1507]))                  
+                :type "class")
+                nil [689 1510])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Graph" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1528 1534]))                  
+                :type "int")
+                nil [1512 1535])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1555 1559]))                  
+                :type "int")
+                nil [1537 1560]))          
+      :file "Graph.h"
+      :pointmax 1587
+      :fsize 1586
+      :lastmodtime '(23648 55139 421942 101000)
+      :unmatched-syntax '((thing 585 . 586) (thing 583 . 585) (thing 579 . 583) (thing 578 . 579) (thing 570 . 578) (thing 569 . 570) (thing 568 . 569) (thing 565 . 568) (thing 557 . 564))
+      :lexical-table 
+        '(("ISEARCH_GRAPH_H")
+          )
+)
+    (semanticdb-table "Kernel.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_KERNEL_H" variable (:constant-flag t) nil [34 50])
+            ("ha3/sql/executor/engine/KernelInitContext.h" include nil nil [52 106])
+            ("ha3/sql/executor/engine/KernelComputeContext.h" include nil nil [107 164])
+            ("ha3/sql/executor/engine/KernelManager.h" include nil nil [165 215])
+            ("ha3/sql/executor/engine/KernelCreator.h" include nil nil [216 266])
+            ("map" include (:system-flag t) nil [267 281])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [303 307]))                  
+                :type "int")
+                nil [283 308])
+            ("Kernel" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [325 332])
+                    ("Kernel" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("Kernel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [337 346])
+                    ("Kernel" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [351 369])
+                    ("private" label nil (reparse-symbol classsubparts) [370 378])
+                    ("Kernel" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Kernel" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [390 405]))                          
+                        :type ("Kernel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [383 406])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Kernel" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [429 444]))                          
+                        :type ("Kernel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [411 445])
+                    ("public" label nil (reparse-symbol classsubparts) [446 453])
+                    ("getDef" function
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("KernelDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [458 519])
+                    ("createDef" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :constant-flag t
+                        :type ("KernelDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [524 571])
+                    ("init" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("ctx" variable
+                               (:reference 1
+                                :type ("KernelInitContext" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [594 617]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [576 646])
+                    ("compute" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("ctx" variable
+                               (:reference 1
+                                :type ("KernelComputeContext" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [672 698]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [651 703]))                  
+                :type "class")
+                nil [310 706])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Kernel" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [724 731]))                  
+                :type "int")
+                nil [708 732])
+            ("REGISTER_KERNEL" variable (:constant-flag t) nil [743 758])
+            ("REGISTER_KERNEL_HELPER" variable (:constant-flag t) nil [815 837])
+            ("REGISTER_KERNEL_UNIQ" variable (:constant-flag t) nil [889 909])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1299 1303]))                  
+                :type "int")
+                nil [1281 1304]))          
+      :file "Kernel.h"
+      :pointmax 1332
+      :fsize 1331
+      :lastmodtime '(23634 29633 102313 594000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("REGISTER_KERNEL_HELPER" (spp-arg-list ("ctr" "NAME") 837 . 848) . ((symbol "REGISTER_KERNEL_UNIQ" 849 . 869) (semantic-list "(ctr, NAME)" 869 . 880)))
+          ("REGISTER_KERNEL" (spp-arg-list ("NAME") 758 . 764) . ((symbol "REGISTER_KERNEL_HELPER" 765 . 787) (semantic-list "(__COUNTER__, NAME)" 787 . 806)))
+          ("ISEARCH_KERNEL_H")
+          ("REGISTER_KERNEL_UNIQ" (spp-arg-list ("ctr" "NAME") 909 . 920) . 
+              ((STATIC "static" 966 . 972) (symbol "isearch" 973 . 980) (punctuation ":" 980 . 981) (punctuation ":" 981 . 982) (symbol "sql" 982 . 985) (punctuation ":" 985 . 986) (punctuation ":" 986 . 987) (symbol "KernelCreator" 987 . 1000) (punctuation "*" 1001 . 1002) (spp-symbol-merge ((symbol "UNUSED_" 1002 . 1009) (symbol "ctr" 1011 . 1014)) 1002 . 1014) (symbol "__attribute__" 1027 . 1040) (semantic-list "((unused))" 1040 . 1050) (punctuation "=" 1051 . 1052) (symbol "isearch" 1105 . 1112) (punctuation ":" 1112 . 1113) (punctuation ":" 1113 . 1114) (symbol "sql" 1114 . 1117) (punctuation ":" 1117 . 1118) (punctuation ":" 1118 . 1119) (symbol "KernelManager" 1119 . 1132) (punctuation ":" 1132 . 1133) (punctuation ":" 1133 . 1134) (symbol "Global" 1134 . 1140) (semantic-list "()" 1140 . 1142) (punctuation "-" 1142 . 1143) (punctuation ">" 1143 . 1144) (symbol "addKernelCreator" 1144 . 1160) (semantic-list "(	\\
+		#NAME, new isearch::sql::KernelCreator( \\
+                        NAME().getDef(), []() { return new NAME(); }))" 1160 . 1278) (punctuation ";" 1278 . 1279)))
+          )
+)
+    (semanticdb-table "KernelInitContext.h"
+      :file "KernelInitContext.h"
+      :fsize 1445
+      :lastmodtime '(23634 36177 881127 989000))
+    (semanticdb-table "KernelComputeContext.h"
+      :file "KernelComputeContext.h"
+      :fsize 1995
+      :lastmodtime '(23648 55139 421942 101000))
+    (semanticdb-table "KernelManager.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_KERNELMANAGER_H" variable (:constant-flag t) nil [41 64])
+            ("ha3/sql/executor/common.h" include nil nil [66 102])
+            ("map" include (:system-flag t) nil [103 117])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [139 143]))                  
+                :type "int")
+                nil [119 144])
+            ("KernelCreator" type
+               (:prototype t
+                :type "class")
+                nil [146 166])
+            ("KernelManagerImpl" type
+               (:prototype t
+                :type "class")
+                nil [167 191])
+            ("KernelManager" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [215 222])
+                    ("KernelManager" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("KernelManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [227 243])
+                    ("KernelManager" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [248 265])
+                    ("private" label nil (reparse-symbol classsubparts) [266 274])
+                    ("KernelManager" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [293 315]))                          
+                        :type ("KernelManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [279 316])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [346 368]))                          
+                        :type ("KernelManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [321 369])
+                    ("public" label nil (reparse-symbol classsubparts) [370 377])
+                    ("Global" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("static")
+                        :type ("KernelManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [382 413])
+                    ("addKernelCreator" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [450 474])
+                            ("creator" variable
+                               (:pointer 1
+                                :type ("KernelCreator" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [511 534]))                          
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [418 535])
+                    ("getKernelCreator" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [572 596]))                          
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [540 597])
+                    ("private" label nil (reparse-symbol classsubparts) [598 606])
+                    ("_impl" variable
+                       (:pointer 1
+                        :type ("KernelManagerImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [611 636]))                  
+                :type "class")
+                nil [193 639])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("KernelManager" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [657 671]))                  
+                :type "int")
+                nil [641 672])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [692 696]))                  
+                :type "int")
+                nil [674 697]))          
+      :file "KernelManager.h"
+      :pointmax 732
+      :fsize 731
+      :lastmodtime '(23634 29633 103313 594000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_KERNELMANAGER_H")
+          )
+)
+    (semanticdb-table "KernelCreator.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_KERNELCREATOR_H" variable (:constant-flag t) nil [41 64])
+            ("ha3/sql/executor/common.h" include nil nil [66 102])
+            ("ha3/sql/executor/proto/KernelDef.pb.h" include nil nil [103 151])
+            ("google/protobuf/map.h" include (:system-flag t) nil [152 184])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [206 210]))                  
+                :type "int")
+                nil [186 211])
+            ("Kernel" type
+               (:prototype t
+                :type "class")
+                nil [213 226])
+            ("PortInfo" type
+               (:members 
+                  ( ("PortInfo" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("index_" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [259 276])
+                            ("def_" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [277 294]))                          
+                        :type ("PortInfo" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [250 350])
+                    ("isValid" function (:type "bool") (reparse-symbol classsubparts) [355 422])
+                    ("isGroup" function (:type "bool") (reparse-symbol classsubparts) [427 500])
+                    ("index" variable (:type ("PortIndex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [505 521])
+                    ("def" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [526 542]))                  
+                :type "struct")
+                nil [228 545])
+            ("PortMap" type
+               (:typedef ("std::unordered_map" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil)
+                          ("PortInfo" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [547 605])
+            ("AttrMap" variable (:type ("google::protobuf::Map" type
+                 (:template-specifier 
+                    ( ("std::string" type nil nil nil)
+                      ("std::string" type nil nil nil))                    
+                  :type "class")
+                  nil nil)) nil [616 672])
+            ("KernelCreateFunc" variable (:type "int") nil [707 724])
+            ("KernelCreator" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [748 755])
+                    ("KernelCreator" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("def" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("KernelDef" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [774 795])
+                            ("func" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelCreateFunc" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [796 825]))                          
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [760 826])
+                    ("KernelCreator" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [831 848])
+                    ("private" label nil (reparse-symbol classsubparts) [849 857])
+                    ("KernelCreator" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelCreator" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [876 898]))                          
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [862 899])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelCreator" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [929 951]))                          
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [904 952])
+                    ("public" label nil (reparse-symbol classsubparts) [953 960])
+                    ("init" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [965 977])
+                    ("public" label nil (reparse-symbol classsubparts) [978 985])
+                    ("create" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("Kernel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1019 1042])
+                    ("inputSize" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1047 1072])
+                    ("outputSize" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1077 1103])
+                    ("inputGroupSize" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1108 1138])
+                    ("outputGroupSize" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1143 1174])
+                    ("getInputPortInfo" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1205 1229]))                          
+                        :type ("PortInfo" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1179 1236])
+                    ("getOutputPortInfo" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1268 1292]))                          
+                        :type ("PortInfo" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1241 1299])
+                    ("getDef" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :constant-flag t
+                        :type ("KernelDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1304 1336])
+                    ("private" label nil (reparse-symbol classsubparts) [1337 1345])
+                    ("initInputIndex" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1350 1372])
+                    ("initOutputIndex" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1377 1400])
+                    ("initInputGroupIndex" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1405 1432])
+                    ("initOutputGroupIndex" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1437 1465])
+                    ("private" label nil (reparse-symbol classsubparts) [1466 1474])
+                    ("_def" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("KernelDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1479 1501])
+                    ("_func" variable (:type ("KernelCreateFunc" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1506 1529])
+                    ("_inputMap" variable (:type ("PortMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1560 1578])
+                    ("_outputMap" variable (:type ("PortMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1583 1602])
+                    ("_inputGroupMap" variable (:type ("PortMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1607 1630])
+                    ("_outputGroupMap" variable (:type ("PortMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1635 1659]))                  
+                :type "class")
+                nil [726 1662])
+            ("HA3_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("KernelCreator" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1680 1694]))                  
+                :type "int")
+                nil [1664 1695])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1715 1719]))                  
+                :type "int")
+                nil [1697 1720]))          
+      :file "KernelCreator.h"
+      :pointmax 1755
+      :fsize 1754
+      :lastmodtime '(23634 29633 102313 594000)
+      :unmatched-syntax '((thing 705 . 706) (thing 703 . 705) (thing 702 . 703) (thing 695 . 701) (thing 694 . 695) (thing 686 . 694) (thing 685 . 686) (thing 684 . 685) (thing 681 . 684) (thing 673 . 680) (thing 615 . 616) (thing 614 . 615) (thing 606 . 613))
+      :lexical-table 
+        '(("ISEARCH_KERNELCREATOR_H")
+          )
+)
+    (semanticdb-table "KernelManager.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/executor/engine/KernelManager.h" include nil nil [1 51])
+            ("ha3/sql/executor/engine/KernelManagerImpl.h" include nil nil [52 106])
+            ("assert.h" include (:system-flag t) nil [107 126])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [148 152]))                  
+                :type "int")
+                nil [128 153])
+            ("KernelManager" function
+               (:constructor-flag t
+                :parent "KernelManager"
+                :type ("KernelManager" type (:type "class") nil nil))
+                nil [155 224])
+            ("KernelManager" function
+               (:destructor-flag t
+                :parent "KernelManager"
+                :type "void")
+                nil [226 279])
+            ("Global" function
+               (:pointer 1
+                :parent "KernelManager"
+                :type ("KernelManager" type (:type "class") nil nil))
+                nil [281 398])
+            ("addKernelCreator" function
+               (:pointer 1
+                :parent "KernelManager"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [447 471])
+                    ("creator" variable
+                       (:pointer 1
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [509 532]))                  
+                :type ("KernelCreator" type (:type "class") nil nil))
+                nil [400 600])
+            ("getKernelCreator" function
+               (:pointer 1
+                :parent "KernelManager"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [649 673]))                  
+                :type ("KernelCreator" type (:type "class") nil nil))
+                nil [602 719])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [739 743]))                  
+                :type "int")
+                nil [721 744]))          
+      :file "KernelManager.cpp"
+      :pointmax 746
+      :fsize 745
+      :lastmodtime '(23634 29633 102313 594000)
+      :unmatched-syntax nil)
+    (semanticdb-table "KernelManagerImpl.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_KERNELMANAGERIMPL_H" variable (:constant-flag t) nil [45 72])
+            ("ha3/sql/executor/common.h" include nil nil [74 110])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [131 135]))                  
+                :type "int")
+                nil [111 136])
+            ("KernelCreator" type
+               (:prototype t
+                :type "class")
+                nil [138 158])
+            ("KernelCreatorMap" type
+               (:typedef ("std::map" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil)
+                          ("KernelCreator" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [159 223])
+            ("KernelManagerImpl" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [251 258])
+                    ("KernelManagerImpl" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("KernelManagerImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [263 283])
+                    ("KernelManagerImpl" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [288 309])
+                    ("private" label nil (reparse-symbol classsubparts) [310 318])
+                    ("KernelManagerImpl" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelManagerImpl" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [341 367]))                          
+                        :type ("KernelManagerImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [323 368])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelManagerImpl" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [402 428]))                          
+                        :type ("KernelManagerImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [373 429])
+                    ("public" label nil (reparse-symbol classsubparts) [430 437])
+                    ("addKernelCreator" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [464 488])
+                            ("creator" variable
+                               (:pointer 1
+                                :type ("KernelCreator" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [515 538]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [442 539])
+                    ("getKernelCreator" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [576 600]))                          
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [544 601])
+                    ("private" label nil (reparse-symbol classsubparts) [602 610])
+                    ("_kernelCreatorMap" variable (:type ("KernelCreatorMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [615 650]))                  
+                :type "class")
+                nil [225 653])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [673 677]))                  
+                :type "int")
+                nil [655 678]))          
+      :file "KernelManagerImpl.h"
+      :pointmax 717
+      :fsize 716
+      :lastmodtime '(23634 29633 103313 594000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_KERNELMANAGERIMPL_H")
+          )
+)
+    (semanticdb-table "KernelManagerImpl.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/executor/engine/KernelManagerImpl.h" include nil nil [1 55])
+            ("ha3/sql/executor/engine/KernelCreator.h" include nil nil [56 106])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [128 132]))                  
+                :type "int")
+                nil [108 133])
+            ("KernelManagerImpl" function
+               (:constructor-flag t
+                :parent "KernelManagerImpl"
+                :type ("KernelManagerImpl" type (:type "class") nil nil))
+                nil [135 178])
+            ("KernelManagerImpl" function
+               (:destructor-flag t
+                :parent "KernelManagerImpl"
+                :type "void")
+                nil [180 306])
+            ("addKernelCreator" function
+               (:parent "KernelManagerImpl"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [358 382])
+                    ("creator" variable
+                       (:pointer 1
+                        :type ("KernelCreator" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [391 414]))                  
+                :type "void")
+                nil [308 589])
+            ("getKernelCreator" function
+               (:pointer 1
+                :parent "KernelManagerImpl"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [642 666]))                  
+                :type ("KernelCreator" type (:type "class") nil nil))
+                nil [591 832])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [852 856]))                  
+                :type "int")
+                nil [834 857]))          
+      :file "KernelManagerImpl.cpp"
+      :pointmax 858
+      :fsize 857
+      :lastmodtime '(23634 29633 103313 594000)
+      :unmatched-syntax nil)
+    (semanticdb-table "KernelCreator.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/executor/engine/KernelCreator.h" include nil nil [1 51])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [73 77]))                  
+                :type "int")
+                nil [53 78])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("isearch" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [111 119])
+                    ("" variable (:type ("KernelCreator" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [120 134]))                  
+                :type "int")
+                nil [80 135])
+            ("KernelCreator" function
+               (:constructor-flag t
+                :parent "KernelCreator"
+                :arguments 
+                  ( ("def" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("KernelDef" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [166 187])
+                    ("func" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("KernelCreateFunc" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [217 246]))                  
+                :type ("KernelCreator" type (:type "class") nil nil))
+                nil [137 296])
+            ("KernelCreator" function
+               (:destructor-flag t
+                :parent "KernelCreator"
+                :type "void")
+                nil [298 370])
+            ("init" function
+               (:parent "KernelCreator"
+                :type "bool")
+                nil [372 527])
+            ("initInputIndex" function
+               (:parent "KernelCreator"
+                :type "bool")
+                nil [529 1057])
+            ("initOutputIndex" function
+               (:parent "KernelCreator"
+                :type "bool")
+                nil [1059 1609])
+            ("initInputGroupIndex" function
+               (:parent "KernelCreator"
+                :type "bool")
+                nil [1611 2207])
+            ("initOutputGroupIndex" function
+               (:parent "KernelCreator"
+                :type "bool")
+                nil [2209 2811])
+            ("create" function
+               (:pointer 1
+                :parent "KernelCreator"
+                :type ("Kernel" type (:type "class") nil nil))
+                nil [2813 2874])
+            ("inputSize" function
+               (:parent "KernelCreator"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [2876 2948])
+            ("outputSize" function
+               (:parent "KernelCreator"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [2950 3024])
+            ("inputGroupSize" function
+               (:parent "KernelCreator"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [3026 3108])
+            ("outputGroupSize" function
+               (:parent "KernelCreator"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [3110 3194])
+            ("getInputPortInfo" function
+               (:parent "KernelCreator"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3237 3261]))                  
+                :type ("PortInfo" type (:type "class") nil nil))
+                nil [3196 3573])
+            ("getOutputPortInfo" function
+               (:parent "KernelCreator"
+                :arguments 
+                  ( ("name" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3617 3641]))                  
+                :type ("PortInfo" type (:type "class") nil nil))
+                nil [3575 3963])
+            ("getDef" function
+               (:pointer 1
+                :parent "KernelCreator"
+                :constant-flag t
+                :type ("KernelDef" type (:type "class") nil nil))
+                nil [3965 4032])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4052 4056]))                  
+                :type "int")
+                nil [4034 4057]))          
+      :file "KernelCreator.cpp"
+      :pointmax 4058
+      :fsize 4057
+      :lastmodtime '(23634 29633 102313 594000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Kernel.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/executor/engine/Kernel.h" include nil nil [1 44])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [66 70]))                  
+                :type "int")
+                nil [46 71])
+            ("Kernel" function
+               (:constructor-flag t
+                :parent "Kernel"
+                :type ("Kernel" type (:type "class") nil nil))
+                nil [73 93])
+            ("Kernel" function
+               (:destructor-flag t
+                :parent "Kernel"
+                :type "void")
+                nil [95 116])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [136 140]))                  
+                :type "int")
+                nil [118 141]))          
+      :file "Kernel.cpp"
+      :pointmax 142
+      :fsize 141
+      :lastmodtime '(23634 29633 102313 594000)
+      :unmatched-syntax nil)
+    (semanticdb-table "KernelDefBuilder.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_KERNELDEFBUILDER_H" variable (:constant-flag t) nil [44 70])
+            ("ha3/sql/executor/proto/KernelDef.pb.h" include nil nil [72 120])
+            ("string" include (:system-flag t) nil [121 138])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [160 164]))                  
+                :type "int")
+                nil [140 165])
+            ("KernelDef" type
+               (:prototype t
+                :type "class")
+                nil [167 183])
+            ("KernelDefBuilder" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [210 217])
+                    ("KernelDefBuilder" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [222 241])
+                    ("KernelDefBuilder" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [246 266])
+                    ("private" label nil (reparse-symbol classsubparts) [267 275])
+                    ("KernelDefBuilder" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelDefBuilder" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [297 322]))                          
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [280 323])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("KernelDefBuilder" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [356 381]))                          
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [328 382])
+                    ("public" label nil (reparse-symbol classsubparts) [383 390])
+                    ("name" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [418 442]))                          
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [395 443])
+                    ("input" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [472 496]))                          
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [448 497])
+                    ("inputRequire" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("type" variable (:type ("InputTypeDef" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [533 551]))                          
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [502 552])
+                    ("inputType" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [585 609]))                          
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [557 610])
+                    ("inputTypeAttr" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [647 671])
+                            ("value" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [708 733]))                          
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [615 734])
+                    ("attr" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [762 786])
+                            ("defaultValue" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [814 846])
+                            ("require" variable (:type "bool") (reparse-symbol arg-sub-list) [874 887]))                          
+                        :type ("KernelDefBuilder" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [739 888])
+                    ("build" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("KernelDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [893 912])
+                    ("private" label nil (reparse-symbol classsubparts) [913 921])
+                    ("_def" variable
+                       (:pointer 1
+                        :type ("KernelDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [926 942])
+                    ("_lastInputDef" variable
+                       (:pointer 1
+                        :type ("InputDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [947 971])
+                    ("_lastOutputDef" variable
+                       (:pointer 1
+                        :type ("InputDef" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [976 1001]))                  
+                :type "class")
+                nil [185 1004])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1024 1028]))                  
+                :type "int")
+                nil [1006 1029]))          
+      :file "KernelDefBuilder.h"
+      :pointmax 1067
+      :fsize 1066
+      :lastmodtime '(23634 29633 102313 594000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ISEARCH_KERNELDEFBUILDER_H")
+          )
+)
+    (semanticdb-table "Edge.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ha3/sql/executor/engine/Edge.h" include nil nil [1 42])
+            ("ha3/sql/executor/engine/Node.h" include nil nil [43 84])
+            ("ha3/sql/executor/util/ReadyBitMap.h" include nil nil [85 131])
+            ("DEBUG" variable (:constant-flag t) nil [141 146])
+            ("BEGIN_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [168 172]))                  
+                :type "int")
+                nil [148 173])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("isearch" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [206 214])
+                    ("" variable (:type ("Edge" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [215 220]))                  
+                :type "int")
+                nil [175 221])
+            ("Edge" function
+               (:constructor-flag t
+                :parent "Edge"
+                :arguments 
+                  ( ("graph" variable
+                       (:pointer 1
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [234 247]))                  
+                :type ("Edge" type (:type "class") nil nil))
+                nil [223 464])
+            ("Edge" function
+               (:constructor-flag t
+                :parent "Edge"
+                :arguments 
+                  ( ("graph" variable
+                       (:pointer 1
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [477 490])
+                    ("def" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("EdgeDef" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [491 510])
+                    ("input" variable
+                       (:pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [511 523])
+                    ("output" variable
+                       (:pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [524 537]))                  
+                :type ("Edge" type (:type "class") nil nil))
+                nil [466 748])
+            ("Edge" function
+               (:destructor-flag t
+                :parent "Edge"
+                :type "void")
+                nil [750 767])
+            ("init" function
+               (:parent "Edge"
+                :arguments 
+                  ( ("def" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("EdgeDef" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [785 804])
+                    ("graph" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Graph" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [805 824]))                  
+                :type "bool")
+                nil [769 1360])
+            ("linkNode" function
+               (:parent "Edge"
+                :type "bool")
+                nil [1362 1567])
+            ("initReadyBitMaps" function
+               (:parent "Edge"
+                :type "void")
+                nil [1569 1795])
+            ("getDef" function
+               (:pointer 1
+                :parent "Edge"
+                :constant-flag t
+                :type ("EdgeDef" type (:type "class") nil nil))
+                nil [1797 1853])
+            ("getInputNode" function
+               (:pointer 1
+                :parent "Edge"
+                :type ("Node" type (:type "class") nil nil))
+                nil [1855 1914])
+            ("getOutputNode" function
+               (:pointer 1
+                :parent "Edge"
+                :type ("Node" type (:type "class") nil nil))
+                nil [1916 1977])
+            ("isEof" function
+               (:parent "Edge"
+                :type "bool")
+                nil [1979 2065])
+            ("setEof" function
+               (:parent "Edge"
+                :type "void")
+                nil [2067 2468])
+            ("getData" function
+               (:parent "Edge"
+                :arguments 
+                  ( ("id" variable (:type ("SnapshotId" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2492 2506]))                  
+                :type ("DataPtr" type (:type "class") nil nil))
+                nil [2470 3210])
+            ("setData" function
+               (:parent "Edge"
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3231 3251])
+                    ("eof" variable (:type "bool") (reparse-symbol arg-sub-list) [3252 3261]))                  
+                :type "bool")
+                nil [3212 4559])
+            ("markGraphOutput" function
+               (:parent "Edge"
+                :type "void")
+                nil [4561 4691])
+            ("schedule" function
+               (:parent "Edge"
+                :type "void")
+                nil [4693 4840])
+            ("END_HA3_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("sql" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4860 4864]))                  
+                :type "int")
+                nil [4842 4865]))          
+      :file "Edge.cpp"
+      :pointmax 4866
+      :fsize 4865
+      :lastmodtime '(23634 29633 102313 594000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("DEBUG")
+          )
+)
+    (semanticdb-table "PortGroup.h"
+      :file "PortGroup.h"
+      :fsize 891
+      :lastmodtime '(23634 29633 103313 594000)))
+  :file "!ha3_develop!search_test!temp!source_code!ha3!ha3!sql!executor!engine!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

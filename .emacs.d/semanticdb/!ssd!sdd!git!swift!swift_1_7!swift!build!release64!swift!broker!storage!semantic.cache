@@ -1,0 +1,1263 @@
+;; Object storage/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "storage/"
+  :tables
+  (list
+    (semanticdb-table "MemoryPreferCommitManager.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/storage/MemoryPreferCommitManager.h" include nil nil [1 60])
+            ("autil/TimeUtility.h" include nil nil [61 91])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [93 115])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [116 136])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [157 166]))                  
+                :type "int")
+                nil [137 167])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [191 199]))                  
+                :type "int")
+                nil [169 200])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [217 225])
+                    ("" variable (:type ("MemoryPreferCommitManager" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [226 252]))                  
+                :type "int")
+                nil [201 253])
+            ("MemoryPreferCommitManager" function
+               (:constructor-flag t
+                :parent "MemoryPreferCommitManager"
+                :arguments 
+                  ( ("messageGroup" variable
+                       (:pointer 1
+                        :type ("MessageGroup" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [308 335])
+                    ("from" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [344 358])
+                    ("to" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [359 371]))                  
+                :type ("MemoryPreferCommitManager" type (:type "class") nil nil))
+                nil [255 497])
+            ("MemoryPreferCommitManager" function
+               (:destructor-flag t
+                :parent "MemoryPreferCommitManager"
+                :type "void")
+                nil [499 559])
+            ("updateCommit" function
+               (:parent "MemoryPreferCommitManager"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ConsumptionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [606 640]))                  
+                :type "void")
+                nil [561 1558])
+            ("getCommitIdAndAccessTime" function
+               (:parent "MemoryPreferCommitManager"
+                :arguments 
+                  ( ("committedId" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1617 1638])
+                    ("accessTime" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1647 1667])
+                    ("committedTime" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1668 1691]))                  
+                :type "void")
+                nil [1560 3434])
+            ("getCoverRange" function
+               (:parent "MemoryPreferCommitManager"
+                :arguments 
+                  ( ("from" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3519 3533])
+                    ("to" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3534 3546]))                  
+                :type ("MemoryPreferCommitManager::Range" type (:type "class") nil nil))
+                nil [3436 3742])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3764 3772]))                  
+                :type "int")
+                nil [3744 3773]))          
+      :file "MemoryPreferCommitManager.cpp"
+      :pointmax 3775
+      :fsize 4859
+      :lastmodtime '(23008 11780 409894 812000)
+      :unmatched-syntax nil)
+    (semanticdb-table "MessageBrain.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/storage/MessageBrain.h" include nil nil [1 47])
+            ("swift/broker/storage/BrokerResponseError.h" include nil nil [48 101])
+            ("swift/filter/EliminateFieldFilter.h" include nil nil [102 148])
+            ("swift/filter/DescFieldFilter.h" include nil nil [149 190])
+            ("swift/filter/FieldFilter.h" include nil nil [191 228])
+            ("swift/common/FieldGroupReader.h" include nil nil [229 271])
+            ("fslib/fslib.h" include nil nil [272 296])
+            ("autil/TimeUtility.h" include nil nil [297 327])
+            ("swift/protocol/MessageCompressor.h" include nil nil [328 373])
+            ("swift/monitor/TimeTrigger.h" include nil nil [374 412])
+            ("swift/util/LogClosure.h" include nil nil [413 447])
+            ("cmath" include (:system-flag t) nil [448 464])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [466 486])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [487 509])
+            ("fslib::cache" using (:type ("fslib::cache" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [510 539])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("config" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [560 567]))                  
+                :type "int")
+                nil [540 568])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [589 598]))                  
+                :type "int")
+                nil [569 599])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("filter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [620 627]))                  
+                :type "int")
+                nil [600 628])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [649 656]))                  
+                :type "int")
+                nil [629 657])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("service" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [678 686]))                  
+                :type "int")
+                nil [658 687])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [708 716]))                  
+                :type "int")
+                nil [688 717])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [738 743]))                  
+                :type "int")
+                nil [718 744])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [768 776]))                  
+                :type "int")
+                nil [746 777])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [794 802])
+                    ("" variable (:type ("MessageBrain" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [803 816]))                  
+                :type "int")
+                nil [778 817])
+            ("MessageBrain" function
+               (:constructor-flag t
+                :parent "MessageBrain"
+                :type ("MessageBrain" type (:type "class") nil nil))
+                nil [819 1707])
+            ("MessageBrain" function
+               (:destructor-flag t
+                :parent "MessageBrain"
+                :type "void")
+                nil [1709 2145])
+            ("init" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("config" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("config::PartitionConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2176 2214])
+                    ("centerPool" variable
+                       (:pointer 1
+                        :type ("BlockPool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2244 2266])
+                    ("fileCache" variable
+                       (:pointer 1
+                        :type ("FileCache" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2296 2317])
+                    ("permissionCenter" variable
+                       (:pointer 1
+                        :type ("PermissionCenter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2347 2382])
+                    ("amonMetricsReporter" variable
+                       (:pointer 1
+                        :type ("AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2412 2453])
+                    ("taskStatus" variable
+                       (:pointer 1
+                        :type ("ThreadSafeTaskStatus" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2483 2516]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [2147 8847])
+            ("backgroundCommitForSecurityMode" function
+               (:parent "MessageBrain"
+                :type "void")
+                nil [8849 10302])
+            ("checkSecurityModeCommitCondition" function
+               (:parent "MessageBrain"
+                :type "bool")
+                nil [10304 10601])
+            ("checkTimeOutWriteRequest" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("requestItemVec" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("WriteRequestItem" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [10656 10698]))                  
+                :type "void")
+                nil [10603 11492])
+            ("addWriteRequestToMemory" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("requestItemVec" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("WriteRequestItem" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11546 11588]))                  
+                :type "void")
+                nil [11494 12531])
+            ("commitAllMessage" function
+               (:parent "MessageBrain"
+                :type "void")
+                nil [12533 14118])
+            ("commitMessage" function
+               (:parent "MessageBrain"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [14120 16558])
+            ("calNeedBlockCount" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("msgCount" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16599 16615])
+                    ("totalDataSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16616 16638]))                  
+                :type ("size_t" type (:type "class") nil nil))
+                nil [16560 17314])
+            ("getRecycleInfo" function
+               (:parent "MessageBrain"
+                :type ("RecycleInfo" type (:type "class") nil nil))
+                nil [17316 17406])
+            ("recycleBuffer" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("blockCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17619 17638]))                  
+                :type "void")
+                nil [17586 21146])
+            ("getMessage" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ConsumptionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21183 21217])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21253 21279])
+                    ("timeoutChecker" variable
+                       (:pointer 1
+                        :type ("TimeoutChecker" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21315 21346]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [21148 26084])
+            ("getFieldFilterMessage" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ConsumptionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26141 26175])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26176 26202])
+                    ("timeoutChecker" variable
+                       (:pointer 1
+                        :type ("TimeoutChecker" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26212 26243]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [26086 27657])
+            ("doGetMessage" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ConsumptionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [27696 27730])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [27768 27794])
+                    ("timeoutChecker" variable
+                       (:pointer 1
+                        :type ("TimeoutChecker" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [27833 27864]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [27659 28496])
+            ("checkProductionRequest" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ProductionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28545 28578])
+                    ("totalSize" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28587 28606])
+                    ("msgCount" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28607 28625])
+                    ("msgCountWithMerged" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28626 28654]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [28498 31700])
+            ("addMessage" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ProductionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [31745 31778])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [31788 31814])
+                    ("done" variable
+                       (:pointer 1
+                        :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [31817 31849]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [31710 34991])
+            ("doneRunForProductRequest" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("beginTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [35037 35055])
+                    ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ProductionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [35056 35089])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [35099 35125])
+                    ("done" variable
+                       (:pointer 1
+                        :type ("google::protobuf::Closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [35136 35168]))                  
+                :type "void")
+                nil [34993 35786])
+            ("doAddMessage" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ProductionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [35825 35858])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [35897 35923])
+                    ("msgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [35924 35941])
+                    ("totalMsgSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [35979 36000]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [35788 36242])
+            ("getMaxMessageId" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("MessageIdRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [36284 36316])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [36325 36353]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [36244 37140])
+            ("getMinMessageIdByTime" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("MessageIdRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [37188 37220])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [37230 37258])
+                    ("timeoutChecker" variable
+                       (:pointer 1
+                        :type ("TimeoutChecker" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [37259 37290]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [37142 37694])
+            ("getMinMessageIdByTime" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [37742 37760])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [37775 37803])
+                    ("timeoutChecker" variable
+                       (:pointer 1
+                        :type ("TimeoutChecker" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [37819 37850]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [37696 39170])
+            ("getPartitionMetrics" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("partitionMetrics" variable
+                       (:reference 1
+                        :type ("monitor::PartitionMetrics" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [39211 39255]))                  
+                :type "void")
+                nil [39172 40686])
+            ("getTopicMode" function
+               (:parent "MessageBrain"
+                :type ("protocol::TopicMode" type (:type "class") nil nil))
+                nil [40688 40763])
+            ("messageIdValid" function
+               (:parent "MessageBrain"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ConsumptionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [40799 40833])
+                    ("timeoutChecker" variable
+                       (:pointer 1
+                        :type ("TimeoutChecker" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [40868 40899]))                  
+                :type "bool")
+                nil [40765 41759])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [41781 41789]))                  
+                :type "int")
+                nil [41761 41790]))          
+      :file "MessageBrain.cpp"
+      :pointmax 41791
+      :fsize 42233
+      :lastmodtime '(23008 11780 409894 812000)
+      :unmatched-syntax '((thing 31815 . 31816) (thing 31816 . 31817) (thing 35134 . 35135) (thing 35135 . 35136)))
+    (semanticdb-table "MessageGroup.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/storage/MessageGroup.h" include nil nil [1 47])
+            ("swift/broker/storage/BrokerResponseError.h" include nil nil [48 101])
+            ("algorithm" include (:system-flag t) nil [102 122])
+            ("cmath" include (:system-flag t) nil [123 139])
+            ("autil/TimeUtility.h" include nil nil [140 170])
+            ("swift/filter/MessageFilter.h" include nil nil [171 210])
+            ("swift/common/Singleton.h" include nil nil [211 246])
+            ("swift/common/ThreadBasedObjectPool.h" include nil nil [247 294])
+            ("swift/protocol/FBMessageReader.h" include nil nil [295 338])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [339 359])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [360 382])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [405 413]))                  
+                :type "int")
+                nil [383 414])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [431 439])
+                    ("" variable (:type ("MessageGroup" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [440 453]))                  
+                :type "int")
+                nil [415 454])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [475 484]))                  
+                :type "int")
+                nil [455 485])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("filter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [506 513]))                  
+                :type "int")
+                nil [486 514])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [535 540]))                  
+                :type "int")
+                nil [515 541])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [562 569]))                  
+                :type "int")
+                nil [542 570])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [591 599]))                  
+                :type "int")
+                nil [571 600])
+            ("MessageGroup" function
+               (:constructor-flag t
+                :parent "MessageGroup"
+                :type ("MessageGroup" type (:type "class") nil nil))
+                nil [683 829])
+            ("MessageGroup" function
+               (:destructor-flag t
+                :parent "MessageGroup"
+                :type "void")
+                nil [831 999])
+            ("init" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("partitionId" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionId" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1030 1061])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("BlockPool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1091 1107])
+                    ("amonMetricsReporter" variable
+                       (:pointer 1
+                        :type ("AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1138 1179])
+                    ("response" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1209 1241])
+                    ("topicMode" variable (:type ("TopicMode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1272 1292]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1001 2801])
+            ("canRecycle" function
+               (:parent "MessageGroup"
+                :type "bool")
+                nil [2803 3052])
+            ("tryRecycleFast" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("recyclePercent" variable (:type "double") (reparse-symbol arg-sub-list) [3088 3110])
+                    ("actualRecycleSize" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3111 3138])
+                    ("actualRecycleCount" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3173 3201]))                  
+                :type "void")
+                nil [3054 5031])
+            ("tryRecycle" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("recycleSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5093 5113])
+                    ("actualRecycleSize" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5114 5141])
+                    ("actualRecycleCount" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5172 5200]))                  
+                :type "void")
+                nil [5063 6491])
+            ("addMessage" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("protocol::ProductionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6528 6571])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("protocol::MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6607 6643]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [6493 10342])
+            ("getMsgCountInBuffer" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [10343 10470])
+            ("getLastReceivedMsgId" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [10472 10616])
+            ("getDataSize" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [10618 10744])
+            ("getMetaSize" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [10747 10873])
+            ("getCommitDelay" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [10875 11007])
+            ("getLeftToBeCommittedDataSize" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [11009 11169])
+            ("getLastAcceptedMsgTimeStamp" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [11171 11329])
+            ("getLastAvailableMsgTimestamp" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [11331 11491])
+            ("getMemoryMessage" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("startId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11529 11545])
+                    ("count" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11546 11559])
+                    ("vec" variable
+                       (:reference 1
+                        :type ("MemoryMessageVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11596 11621]))                  
+                :type "void")
+                nil [11493 11770])
+            ("getMessage" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("request" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ConsumptionRequest" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11817 11851])
+                    ("memMode" variable (:type "bool") (reparse-symbol arg-sub-list) [11861 11874])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11875 11901]))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                nil [11772 17646])
+            ("getMaxMessageId" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("response" variable
+                       (:pointer 1
+                        :type ("MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17698 17726]))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                nil [17648 18143])
+            ("MessageTimestampComp" type
+               (:members 
+                  ( ("()" function
+                       (:operator-flag t
+                        :arguments 
+                          ( ("first" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MemoryMessage" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [18195 18222])
+                            ("second" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18223 18239]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [18179 18299]))                  
+                :type "struct")
+                nil [18145 18302])
+            ("getMinMessageIdByTime" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18360 18378])
+                    ("response" variable
+                       (:pointer 1
+                        :type ("MessageIdResponse" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18388 18416])
+                    ("isMinInMemory" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [18417 18437]))                  
+                :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                nil [18304 19387])
+            ("setCommittedId" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("id" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [19423 19434]))                  
+                :type "void")
+                nil [19389 19527])
+            ("getCommittedId" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [19529 19665])
+            ("getRemainMetaCount" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [19667 19805])
+            ("getRemainDataSize" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [19807 19947])
+            ("getMetaCountInOneBlock" function
+               (:parent "MessageGroup"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [19949 20094])
+            ("getRecycleInfo" function
+               (:parent "MessageGroup"
+                :type ("RecycleInfo" type (:type "class") nil nil))
+                nil [20096 20411])
+            ("estimateReserveBlockCount" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("duration" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [20461 20478]))                  
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [20413 21029])
+            ("messageIdValid" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [21065 21079])
+                    ("msgTime" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [21080 21097])
+                    ("valid" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [21098 21110]))                  
+                :type "bool")
+                nil [21031 21748])
+            ("findMessageId" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("msgTime" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [21786 21803]))                  
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [21750 22301])
+            ("hasMsgInRange" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("from" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [22336 22350])
+                    ("to" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [22351 22363])
+                    ("begId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [22364 22378])
+                    ("endId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [22379 22393]))                  
+                :type "bool")
+                nil [22303 23016])
+            ("needFilter" function
+               (:parent "MessageGroup"
+                :arguments 
+                  ( ("filter" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Filter" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23048 23069]))                  
+                :type "bool")
+                nil [23018 23264])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23286 23294]))                  
+                :type "int")
+                nil [23266 23295]))          
+      :file "MessageGroup.cpp"
+      :pointmax 23296
+      :fsize 23295
+      :lastmodtime '(23053 12633 962084 485000)
+      :unmatched-syntax '((thing 666 . 667) (thing 662 . 666) (thing 660 . 661) (thing 655 . 659) (thing 653 . 654) (thing 650 . 652) (thing 648 . 649) (thing 609 . 647) (thing 601 . 608)))
+    (semanticdb-table "MessageDeque.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/broker/storage/MessageDeque.h" include nil nil [1 47])
+            ("swift/util/ObjectBlock.h" include nil nil [48 83])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [107 115]))                  
+                :type "int")
+                nil [85 116])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [133 141])
+                    ("" variable (:type ("MessageDeque" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [142 155]))                  
+                :type "int")
+                nil [117 156])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [177 182]))                  
+                :type "int")
+                nil [157 183])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [204 211]))                  
+                :type "int")
+                nil [184 212])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [213 233])
+            ("MessageDeque" function
+               (:constructor-flag t
+                :parent "MessageDeque"
+                :arguments 
+                  ( ("blockPool" variable
+                       (:pointer 1
+                        :type ("util::BlockPool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [262 289])
+                    ("ignoreNotCommittedMsg" variable (:type "bool") (reparse-symbol arg-sub-list) [290 317]))                  
+                :type ("MessageDeque" type (:type "class") nil nil))
+                nil [235 441])
+            ("MessageDeque" function
+               (:destructor-flag t
+                :parent "MessageDeque"
+                :type "void")
+                nil [443 477])
+            ("stealBlock" function
+               (:parent "MessageDeque"
+                :arguments 
+                  ( ("count" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [509 523])
+                    ("startOffset" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [524 545])
+                    ("objectVec" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("ObjectBlock" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [576 624]))                  
+                :type "void")
+                nil [479 838])
+            ("updateStealDataLen" function
+               (:parent "MessageDeque"
+                :arguments 
+                  ( ("dataLen" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [878 894]))                  
+                :type "void")
+                nil [840 924])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [946 954]))                  
+                :type "int")
+                nil [926 955]))          
+      :file "MessageDeque.cpp"
+      :pointmax 957
+      :fsize 956
+      :lastmodtime '(22951 44182 28031 321000)
+      :unmatched-syntax nil)
+    (semanticdb-table "MemoryPreferCommitManager.h"
+      :file "MemoryPreferCommitManager.h"
+      :fsize 1611
+      :lastmodtime '(23008 11780 409894 812000))
+    (semanticdb-table "MessageGroup.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_MESSAGEGROUP_H" variable (:constant-flag t) nil [38 58])
+            ("swift/common/Common.h" include nil nil [60 92])
+            ("swift/common/Log.h" include nil nil [93 122])
+            ("swift/common/MemoryMessage.h" include nil nil [123 162])
+            ("swift/protocol/Transport.pb.h" include nil nil [163 203])
+            ("swift/config/BrokerConfig.h" include nil nil [204 242])
+            ("swift/util/MessageConverter.h" include nil nil [243 283])
+            ("swift/monitor/AmonMetricsReporter.h" include nil nil [284 330])
+            ("swift/broker/storage/MessageDeque.h" include nil nil [331 377])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [400 408]))                  
+                :type "int")
+                nil [378 409])
+            ("RecycleInfo" type
+               (:members 
+                  ( ("RecycleInfo" function
+                       (:constructor-flag t
+                        :type ("RecycleInfo" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [436 523])
+                    ("firstMsgTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [528 554])
+                    ("lastMsgTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [559 584]))                  
+                :type "struct")
+                nil [411 587])
+            ("MessageGroup" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [676 683])
+                    ("MessageGroup" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("MessageGroup" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [688 703])
+                    ("MessageGroup" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [708 732])
+                    ("private" label nil (reparse-symbol classsubparts) [733 741])
+                    ("MessageGroup" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MessageGroup" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [759 780]))                          
+                        :type ("MessageGroup" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [746 781])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MessageGroup" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [810 831]))                          
+                        :type ("MessageGroup" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [786 832])
+                    ("public" label nil (reparse-symbol classsubparts) [833 840])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partitionId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::PartitionId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [870 911])
+                            ("partitionPool" variable
+                               (:pointer 1
+                                :type ("util::BlockPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [941 972])
+                            ("amonMetricsReporter" variable
+                               (:pointer 1
+                                :type ("monitor::AmonMetricsReporter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1002 1052])
+                            ("response" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :default-value "NULL"
+                                :type ("protocol::MessageResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1082 1130])
+                            ("topicMode" variable
+                               (:default-value "protocol"
+                                :type ("protocol::TopicMode" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1161 1201])
+                            ("" variable (:type ("TOPIC_MODE_NORMAL" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1203 1221]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [845 1222])
+                    ("getMessage" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("protocol::ConsumptionRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1258 1302])
+                            ("memMode" variable (:type "bool") (reparse-symbol arg-sub-list) [1338 1351])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1387 1423]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1227 1424])
+                    ("addMessage" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("protocol::ProductionRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1460 1503])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1540 1576]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1429 1577])
+                    ("getMaxMessageId" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageIdResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1618 1656]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1582 1657])
+                    ("getMinMessageIdByTime" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1704 1722])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("protocol::MessageIdResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1736 1774])
+                            ("isMinInMemory" variable
+                               (:reference 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1787 1807]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1662 1808])
+                    ("getMsgCountInBuffer" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1813 1849])
+                    ("getLastReceivedMsgId" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1854 1891])
+                    ("getLeftToBeCommittedDataSize" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1896 1941])
+                    ("getLastAcceptedMsgTimeStamp" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1946 1990])
+                    ("getLastAvailableMsgTimestamp" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1995 2040])
+                    ("getMemoryMessage" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("startId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2067 2083])
+                            ("count" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2084 2097])
+                            ("vec" variable
+                               (:reference 1
+                                :type ("common::MemoryMessageVector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2124 2157]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2045 2164])
+                    ("setCommittedId" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("id" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2189 2200]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2169 2201])
+                    ("getCommittedId" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2206 2231])
+                    ("getMetaSize" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2236 2264])
+                    ("getDataSize" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2269 2297])
+                    ("getMetaCountInOneBlock" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2302 2335])
+                    ("getRemainMetaCount" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2340 2369])
+                    ("getRemainDataSize" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2374 2402])
+                    ("getCommitDelay" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2407 2438])
+                    ("getRecycleInfo" function
+                       (:prototype-flag t
+                        :type ("RecycleInfo" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2443 2472])
+                    ("canRecycle" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2477 2495])
+                    ("tryRecycle" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("recycleSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2581 2601])
+                            ("actualRecycleSize" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2602 2629])
+                            ("actualRecycleCount" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2653 2681]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2565 2682])
+                    ("tryRecycleFast" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("recyclePercent" variable (:type "double") (reparse-symbol arg-sub-list) [2707 2729])
+                            ("actualRecycleSize" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2730 2757])
+                            ("actualRecycleCount" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2785 2813]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2687 2814])
+                    ("messageIdValid" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("msgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2840 2854])
+                            ("msgTime" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2855 2872])
+                            ("needSeek" variable
+                               (:reference 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [2873 2888]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2820 2889])
+                    ("findMessageId" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("msgTime" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2924 2941]))                          
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2894 2942])
+                    ("hasMsgInRange" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("from" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2966 2980])
+                            ("to" variable (:type ("uint16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2981 2993])
+                            ("begId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2994 3008])
+                            ("endId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3009 3023]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2947 3024])
+                    ("private" label nil (reparse-symbol classsubparts) [3025 3033])
+                    ("prepareBlocks" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("totalLen" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3072 3089]))                          
+                        :type ("protocol::ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3038 3090])
+                    ("estimateReserveBlockCount" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("duration" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3129 3146]))                          
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3095 3147])
+                    ("needFilter" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("filter" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("protocol::Filter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3169 3200]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3153 3201])
+                    ("public" label nil (reparse-symbol classsubparts) [3203 3210])
+                    ("getIsMemOnly" function (:type "bool") (reparse-symbol classsubparts) [3230 3360])
+                    ("private" label nil (reparse-symbol classsubparts) [3361 3369])
+                    ("_partitionId" variable (:type ("protocol::PartitionId" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3374 3409])
+                    ("_rwLock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3414 3451])
+                    ("_partitionBlockPool" variable
+                       (:pointer 1
+                        :type ("util::BlockPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3456 3493])
+                    ("_msgDeque" variable
+                       (:pointer 1
+                        :type ("MessageDeque" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3498 3522])
+                    ("_msgConverter" variable
+                       (:pointer 1
+                        :type ("util::MessageConverter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3527 3565])
+                    ("_amonMetricsReporter" variable
+                       (:pointer 1
+                        :type ("monitor::AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3570 3621])
+                    ("private" label nil (reparse-symbol classsubparts) [3627 3635])
+                    ("MessageGroupTest" friend nil (reparse-symbol classsubparts) [3640 3669])
+                    ("private" label nil (reparse-symbol classsubparts) [3671 3679])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [3684 3704]))                  
+                :type "class")
+                nil [655 3707])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("MessageGroup" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3727 3740]))                  
+                :type "int")
+                nil [3709 3741])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3763 3771]))                  
+                :type "int")
+                nil [3743 3772]))          
+      :file "MessageGroup.h"
+      :pointmax 3804
+      :fsize 3803
+      :lastmodtime '(23008 11780 411894 808000)
+      :unmatched-syntax '((thing 1202 . 1203) (thing 1201 . 1202) (thing 3669 . 3670))
+      :lexical-table 
+        '(("SWIFT_MESSAGEGROUP_H")
+          )
+)
+    (semanticdb-table "BrokerResponseError.h"
+      :file "BrokerResponseError.h"
+      :fsize 406
+      :lastmodtime '(22925 26700 288789 700000))
+    (semanticdb-table "MessageDeque.h"
+      :file "MessageDeque.h"
+      :fsize 7811
+      :lastmodtime '(23008 11780 410894 810000)))
+  :file "!ssd!sdd!git!swift!swift_1_7!swift!build!release64!swift!broker!storage!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

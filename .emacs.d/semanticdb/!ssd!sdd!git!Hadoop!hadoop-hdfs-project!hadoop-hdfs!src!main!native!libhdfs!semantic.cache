@@ -1,0 +1,3060 @@
+;; Object libhdfs/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "libhdfs/"
+  :tables
+  (list
+    (semanticdb-table "hdfs.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("exception.h" include nil nil [809 831])
+            ("hdfs.h" include nil nil [832 849])
+            ("jni_helper.h" include nil nil [850 873])
+            ("platform.h" include nil nil [874 895])
+            ("fcntl.h" include (:system-flag t) nil [897 915])
+            ("inttypes.h" include (:system-flag t) nil [916 937])
+            ("stdio.h" include (:system-flag t) nil [938 956])
+            ("string.h" include (:system-flag t) nil [957 976])
+            ("HADOOP_CONF" variable (:constant-flag t) nil [1024 1035])
+            ("HADOOP_PATH" variable (:constant-flag t) nil [1087 1098])
+            ("HADOOP_LOCALFS" variable (:constant-flag t) nil [1139 1153])
+            ("HADOOP_FS" variable (:constant-flag t) nil [1202 1211])
+            ("HADOOP_FSSTATUS" variable (:constant-flag t) nil [1260 1275])
+            ("HADOOP_BLK_LOC" variable (:constant-flag t) nil [1316 1330])
+            ("HADOOP_DFS" variable (:constant-flag t) nil [1377 1387])
+            ("HADOOP_ISTRM" variable (:constant-flag t) nil [1448 1460])
+            ("HADOOP_OSTRM" variable (:constant-flag t) nil [1513 1525])
+            ("HADOOP_STAT" variable (:constant-flag t) nil [1579 1590])
+            ("HADOOP_FSPERM" variable (:constant-flag t) nil [1637 1650])
+            ("JAVA_NET_ISA" variable (:constant-flag t) nil [1708 1720])
+            ("JAVA_NET_URI" variable (:constant-flag t) nil [1761 1773])
+            ("JAVA_STRING" variable (:constant-flag t) nil [1800 1811])
+            ("READ_OPTION" variable (:constant-flag t) nil [1843 1854])
+            ("JAVA_VOID" variable (:constant-flag t) nil [1902 1911])
+            ("JPARAM" variable (:constant-flag t) nil [1979 1985])
+            ("JARRPARAM" variable (:constant-flag t) nil [2017 2026])
+            ("JMETHOD1" variable (:constant-flag t) nil [2056 2064])
+            ("JMETHOD2" variable (:constant-flag t) nil [2096 2104])
+            ("JMETHOD3" variable (:constant-flag t) nil [2138 2146])
+            ("KERBEROS_TICKET_CACHE_PATH" variable (:constant-flag t) nil [2185 2211])
+            ("HDFS_FILE_SUPPORTS_DIRECT_READ" variable (:constant-flag t) nil [2308 2338])
+            ("readDirect" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2364 2374])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2375 2386])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2387 2400])
+                    ("length" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2401 2414]))                  
+                :type ("tSize" type (:type "class") nil nil))
+                nil [2347 2415])
+            ("hdfsFreeFileInfoEntry" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("hdfsFileInfo" variable
+                       (:pointer 1
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2450 2477]))                  
+                :type "void")
+                nil [2416 2478])
+            ("hdfsStreamType" type
+               (:members 
+                  ( ("HDFS_STREAM_UNINITIALIZED" variable
+                       (:constant-flag t
+                        :default-value (2616 2617)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2588 2617])
+                    ("HDFS_STREAM_INPUT" variable
+                       (:constant-flag t
+                        :default-value (2643 2644)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2623 2644])
+                    ("HDFS_STREAM_OUTPUT" variable
+                       (:constant-flag t
+                        :default-value (2671 2672)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [2650 2672]))                  
+                :type "enum")
+                nil [2562 2676])
+            ("hdfsFile_internal" type
+               (:members 
+                  ( ("file" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [2757 2768])
+                    ("type" variable (:type ("hdfsStreamType" type (:type "enum") nil nil)) (reparse-symbol classsubparts) [2773 2798])
+                    ("flags" variable (:type "int") (reparse-symbol classsubparts) [2803 2813]))                  
+                :type "struct")
+                nil [2726 2816])
+            ("HDFS_EXTENDED_FILE_INFO_ENCRYPTED" variable (:constant-flag t) nil [2826 2859])
+            ("hdfsExtendedFileInfo" type
+               (:members 
+                  ( ("flags" variable (:type "int") (reparse-symbol classsubparts) [2937 2947]))                  
+                :type "struct")
+                nil [2903 2950])
+            ("hdfsFileIsOpenForRead" function
+               (:arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2978 2992]))                  
+                :type "int")
+                nil [2952 3042])
+            ("hdfsFileGetReadStatistics" function
+               (:arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3074 3088])
+                    ("stats" variable
+                       (:pointer 2
+                        :type ("hdfsReadStatistics" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3119 3153]))                  
+                :type "int")
+                nil [3044 5809])
+            ("hdfsReadStatisticsGetRemoteBytesRead" function
+               (:arguments 
+                  ( ("stats" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("hdfsReadStatistics" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [5885 5924]))                  
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [5811 5991])
+            ("hdfsFileClearReadStatistics" function
+               (:arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6025 6039]))                  
+                :type "int")
+                nil [5993 6728])
+            ("hdfsFileFreeReadStatistics" function
+               (:arguments 
+                  ( ("stats" variable
+                       (:pointer 1
+                        :type ("hdfsReadStatistics" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6762 6795]))                  
+                :type "void")
+                nil [6730 6816])
+            ("hdfsFileIsOpenForWrite" function
+               (:arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6845 6859]))                  
+                :type "int")
+                nil [6818 6910])
+            ("hdfsFileUsesDirectRead" function
+               (:arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6939 6953]))                  
+                :type "int")
+                nil [6912 7018])
+            ("hdfsFileDisableDirectRead" function
+               (:arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7051 7065]))                  
+                :type "void")
+                nil [7020 7121])
+            ("hdfsDisableDomainSocketSecurity" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [7159 7164]))                  
+                :type "int")
+                nil [7123 7618])
+            ("hdfsJniEnv" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("env" variable
+                             (:pointer 1
+                              :type ("JNIEnv" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [7746 7758]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [7725 7772])
+            ("constructNewObjectOfPath" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8075 8087])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [8088 8105])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jobject" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8149 8162]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [8032 8680])
+            ("hadoopConfGetStr" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8717 8729])
+                    ("jConfiguration" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8730 8753])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [8762 8778])
+                    ("val" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [8779 8790]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [8682 9325])
+            ("hdfsConfGetStr" function
+               (:arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [9346 9362])
+                    ("val" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [9363 9374]))                  
+                :type "int")
+                nil [9327 10141])
+            ("hdfsConfStrFree" function
+               (:arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [10164 10174]))                  
+                :type "void")
+                nil [10143 10193])
+            ("hadoopConfGetInt" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10230 10242])
+                    ("jConfiguration" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10243 10266])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [10275 10291])
+                    ("val" variable
+                       (:pointer 1
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10292 10305]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [10195 10735])
+            ("hdfsConfGetInt" function
+               (:arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [10756 10772])
+                    ("val" variable
+                       (:pointer 1
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10773 10786]))                  
+                :type "int")
+                nil [10737 11549])
+            ("hdfsBuilderConfOpt" type
+               (:members 
+                  ( ("next" variable
+                       (:pointer 1
+                        :type ("hdfsBuilderConfOpt" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [11583 11615])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol classsubparts) [11620 11636])
+                    ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol classsubparts) [11641 11657]))                  
+                :type "struct")
+                nil [11551 11660])
+            ("hdfsBuilder" type
+               (:members 
+                  ( ("forceNewInstance" variable (:type "int") (reparse-symbol classsubparts) [11687 11708])
+                    ("nn" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol classsubparts) [11713 11728])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol classsubparts) [11733 11744])
+                    ("kerbTicketCachePath" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol classsubparts) [11749 11781])
+                    ("userName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol classsubparts) [11786 11807])
+                    ("opts" variable
+                       (:pointer 1
+                        :type ("hdfsBuilderConfOpt" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [11812 11844]))                  
+                :type "struct")
+                nil [11662 11847])
+            ("hdfsNewBuilder" function
+               (:pointer 1
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [11884 11889]))                  
+                :type ("hdfsBuilder" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [11849 12045])
+            ("hdfsBuilderConfSetStr" function
+               (:arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12073 12097])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12098 12114])
+                    ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12141 12157]))                  
+                :type "int")
+                nil [12047 12422])
+            ("hdfsFreeBuilder" function
+               (:arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12445 12469]))                  
+                :type "void")
+                nil [12424 12659])
+            ("hdfsBuilderSetForceNewInstance" function
+               (:arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12697 12721]))                  
+                :type "void")
+                nil [12661 12756])
+            ("hdfsBuilderSetNameNode" function
+               (:arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12786 12810])
+                    ("nn" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12811 12826]))                  
+                :type "void")
+                nil [12758 12848])
+            ("hdfsBuilderSetNameNodePort" function
+               (:arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12882 12906])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12907 12918]))                  
+                :type "void")
+                nil [12850 12944])
+            ("hdfsBuilderSetUserName" function
+               (:arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [12974 12998])
+                    ("userName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12999 13020]))                  
+                :type "void")
+                nil [12946 13054])
+            ("hdfsBuilderSetKerbTicketCachePath" function
+               (:arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [13095 13119])
+                    ("kerbTicketCachePath" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [13159 13191]))                  
+                :type "void")
+                nil [13056 13247])
+            ("hdfsConnect" function
+               (:arguments 
+                  ( ("host" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [13268 13285])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13286 13297]))                  
+                :type ("hdfsFS" type (:type "class") nil nil))
+                nil [13249 13502])
+            ("hdfsConnectNewInstance" function
+               (:arguments 
+                  ( ("host" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [13579 13596])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13597 13608]))                  
+                :type ("hdfsFS" type (:type "class") nil nil))
+                nil [13549 13854])
+            ("hdfsConnectAsUser" function
+               (:arguments 
+                  ( ("host" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [13881 13898])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13899 13910])
+                    ("user" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [13911 13928]))                  
+                :type ("hdfsFS" type (:type "class") nil nil))
+                nil [13856 14172])
+            ("hdfsConnectAsUserNewInstance" function
+               (:arguments 
+                  ( ("host" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [14255 14272])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14273 14284])
+                    ("user" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [14293 14310]))                  
+                :type ("hdfsFS" type (:type "class") nil nil))
+                nil [14219 14595])
+            ("calcEffectiveURI" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [15172 15196])
+                    ("uri" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [15197 15209]))                  
+                :type "int")
+                nil [15144 16180])
+            ("maybeNull" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :constant-flag t
+                :arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [16211 16227]))                  
+                :type "char")
+                nil [16182 16264])
+            ("hdfsBuilderToStr" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :constant-flag t
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16302 16332])
+                    ("buf" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [16369 16379])
+                    ("bufLen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16380 16394]))                  
+                :type "char")
+                nil [16266 16676])
+            ("hdfsBuilderConnect" function
+               (:arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [16704 16728]))                  
+                :type ("hdfsFS" type (:type "class") nil nil))
+                nil [16678 23344])
+            ("hdfsDisconnect" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23365 23375]))                  
+                :type "int")
+                nil [23346 24139])
+            ("getDefaultBlockSize" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24493 24505])
+                    ("jFS" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24506 24518])
+                    ("jPath" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24557 24571])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jlong" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24572 24583]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [24455 24843])
+            ("hdfsOpenFile" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24867 24877])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [24878 24895])
+                    ("flags" variable (:type "int") (reparse-symbol arg-sub-list) [24896 24906])
+                    ("bufferSize" variable (:type "int") (reparse-symbol arg-sub-list) [24930 24945])
+                    ("replication" variable (:type "short") (reparse-symbol arg-sub-list) [24946 24964])
+                    ("blockSize" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24965 24981]))                  
+                :type ("hdfsFile" type (:type "class") nil nil))
+                nil [24845 31598])
+            ("hdfsUnbufferFile" function
+               (:arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [31621 31635]))                  
+                :type "int")
+                nil [31600 32181])
+            ("hdfsCloseFile" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [32201 32211])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [32212 32226]))                  
+                :type "int")
+                nil [32183 33387])
+            ("hdfsExists" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [33404 33414])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [33415 33432]))                  
+                :type "int")
+                nil [33389 34387])
+            ("readPrepare" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [34460 34472])
+                    ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [34473 34483])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [34484 34495])
+                    ("jInputStream" variable
+                       (:pointer 1
+                        :type ("jobject" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [34519 34541]))                  
+                :type "int")
+                nil [34437 34949])
+            ("hdfsRead" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [34966 34976])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [34977 34988])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [34989 35002])
+                    ("length" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [35003 35016]))                  
+                :type ("tSize" type (:type "class") nil nil))
+                nil [34951 36813])
+            ("readDirect" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [36897 36907])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [36908 36919])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [36920 36933])
+                    ("length" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [36934 36947]))                  
+                :type ("tSize" type (:type "class") nil nil))
+                nil [36880 38006])
+            ("hdfsPread" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [38024 38034])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [38035 38046])
+                    ("position" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [38047 38064])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [38081 38094])
+                    ("length" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [38095 38108]))                  
+                :type ("tSize" type (:type "class") nil nil))
+                nil [38008 39908])
+            ("hdfsWrite" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [39926 39936])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [39937 39948])
+                    ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [39949 39968])
+                    ("length" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [39969 39982]))                  
+                :type ("tSize" type (:type "class") nil nil))
+                nil [39910 41882])
+            ("hdfsSeek" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [41897 41907])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [41908 41919])
+                    ("desiredPos" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [41920 41939]))                  
+                :type "int")
+                nil [41884 42671])
+            ("hdfsTell" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [42692 42702])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [42703 42714]))                  
+                :type ("tOffset" type (:type "class") nil nil))
+                nil [42675 43649])
+            ("hdfsFlush" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [43665 43675])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [43676 43687]))                  
+                :type "int")
+                nil [43651 44306])
+            ("hdfsHFlush" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [44323 44333])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [44334 44345]))                  
+                :type "int")
+                nil [44308 44985])
+            ("hdfsHSync" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [45001 45011])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [45012 45023]))                  
+                :type "int")
+                nil [44987 45660])
+            ("hdfsAvailable" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [45680 45690])
+                    ("f" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [45691 45702]))                  
+                :type "int")
+                nil [45662 46435])
+            ("hdfsCopyImpl" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("srcFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [46461 46474])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [46475 46491])
+                    ("dstFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [46492 46505])
+                    ("dst" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [46514 46530])
+                    ("deleteSource" variable (:type ("jboolean" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [46531 46553]))                  
+                :type "int")
+                nil [46437 48786])
+            ("hdfsCopy" function
+               (:arguments 
+                  ( ("srcFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [48801 48814])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [48815 48831])
+                    ("dstFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [48832 48845])
+                    ("dst" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [48846 48862]))                  
+                :type "int")
+                nil [48788 48918])
+            ("hdfsMove" function
+               (:arguments 
+                  ( ("srcFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [48933 48946])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [48947 48963])
+                    ("dstFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [48964 48977])
+                    ("dst" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [48978 48994]))                  
+                :type "int")
+                nil [48920 49050])
+            ("hdfsDelete" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [49067 49077])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [49078 49095])
+                    ("recursive" variable (:type "int") (reparse-symbol arg-sub-list) [49096 49110]))                  
+                :type "int")
+                nil [49052 50263])
+            ("hdfsRename" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [50282 50292])
+                    ("oldPath" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [50293 50313])
+                    ("newPath" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [50314 50334]))                  
+                :type "int")
+                nil [50267 51880])
+            ("hdfsGetWorkingDirectory" function
+               (:pointer 1
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [51914 51924])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [51925 51938])
+                    ("bufferSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [51939 51957]))                  
+                :type "char")
+                nil [51884 54031])
+            ("hdfsSetWorkingDirectory" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [54063 54073])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [54074 54091]))                  
+                :type "int")
+                nil [54035 55171])
+            ("hdfsCreateDirectory" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [55199 55209])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [55210 55227]))                  
+                :type "int")
+                nil [55175 56792])
+            ("hdfsSetReplication" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [56818 56828])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [56829 56846])
+                    ("replication" variable (:type ("int16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [56847 56867]))                  
+                :type "int")
+                nil [56795 58183])
+            ("hdfsChown" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [58199 58209])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [58210 58227])
+                    ("owner" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [58228 58246])
+                    ("group" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [58247 58265]))                  
+                :type "int")
+                nil [58185 60119])
+            ("hdfsChmod" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [60135 60145])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [60146 60163])
+                    ("mode" variable (:type "short") (reparse-symbol arg-sub-list) [60164 60175]))                  
+                :type "int")
+                nil [60121 61806])
+            ("hdfsUtime" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [61822 61832])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [61833 61850])
+                    ("mtime" variable (:type ("tTime" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [61851 61863])
+                    ("atime" variable (:type ("tTime" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [61864 61876]))                  
+                :type "int")
+                nil [61808 63137])
+            ("hadoopRzOptions" type
+               (:members 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [63385 63397])
+                    ("skipChecksums" variable (:type "int") (reparse-symbol classsubparts) [63402 63420])
+                    ("byteBufferPool" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol classsubparts) [63425 63448])
+                    ("cachedEnumSet" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol classsubparts) [63453 63475]))                  
+                :type "struct")
+                nil [63356 63478])
+            ("hadoopRzOptionsAlloc" function
+               (:pointer 1
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [63525 63530]))                  
+                :type ("hadoopRzOptions" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [63480 63888])
+            ("hadoopRzOptionsClearCached" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [63929 63941])
+                    ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [63950 63979]))                  
+                :type "void")
+                nil [63890 64124])
+            ("hadoopRzOptionsSetSkipChecksum" function
+               (:arguments 
+                  ( ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [64170 64199])
+                    ("skip" variable (:type "int") (reparse-symbol arg-sub-list) [64200 64209]))                  
+                :type "int")
+                nil [64126 64412])
+            ("hadoopRzOptionsSetByteBufferPool" function
+               (:arguments 
+                  ( ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [64460 64489])
+                    ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [64490 64512]))                  
+                :type "int")
+                nil [64414 65387])
+            ("hadoopRzOptionsFree" function
+               (:arguments 
+                  ( ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [65414 65443]))                  
+                :type "void")
+                nil [65389 65719])
+            ("hadoopRzBuffer" type
+               (:members 
+                  ( ("byteBuffer" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol classsubparts) [65749 65768])
+                    ("ptr" variable
+                       (:pointer 1
+                        :type ("uint8_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [65773 65786])
+                    ("length" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [65791 65806])
+                    ("direct" variable (:type "int") (reparse-symbol classsubparts) [65811 65822]))                  
+                :type "struct")
+                nil [65721 65825])
+            ("hadoopRzOptionsGetEnumSet" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [65871 65883])
+                    ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [65892 65921])
+                    ("enumSet" variable
+                       (:pointer 1
+                        :type ("jobject" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [65922 65939]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [65827 67411])
+            ("hadoopReadZeroExtractBuffer" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [67452 67464])
+                    ("opts" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [67473 67508])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type ("hadoopRzBuffer" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [67509 67539]))                  
+                :type "int")
+                nil [67413 70541])
+            ("translateZCRException" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [70576 70588])
+                    ("exc" variable (:type ("jthrowable" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [70589 70604]))                  
+                :type "int")
+                nil [70543 71262])
+            ("hadoopReadZero" function
+               (:pointer 1
+                :arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [71302 71316])
+                    ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [71329 71358])
+                    ("maxLength" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [71359 71377]))                  
+                :type ("hadoopRzBuffer" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [71264 73376])
+            ("hadoopRzBufferLength" function
+               (:arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("hadoopRzBuffer" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [73407 73443]))                  
+                :type ("int32_t" type (:type "class") nil nil))
+                nil [73378 73474])
+            ("hadoopRzBufferGet" function
+               (:pointer 1
+                :constant-flag t
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("hadoopRzBuffer" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [73506 73542]))                  
+                :type "void")
+                nil [73476 73570])
+            ("hadoopRzBufferFree" function
+               (:arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [73596 73610])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type ("hadoopRzBuffer" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [73611 73641]))                  
+                :type "void")
+                nil [73572 74414])
+            ("hdfsGetHosts" function
+               (:pointer 3
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [74437 74447])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [74448 74465])
+                    ("start" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [74466 74480])
+                    ("length" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [74481 74496]))                  
+                :type "char")
+                nil [74416 80051])
+            ("hdfsFreeHosts" function
+               (:arguments 
+                  ( ("blockHosts" variable
+                       (:pointer 3
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [80073 80092]))                  
+                :type "void")
+                nil [80054 80292])
+            ("hdfsGetDefaultBlockSize" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [80327 80337]))                  
+                :type ("tOffset" type (:type "class") nil nil))
+                nil [80295 80976])
+            ("hdfsGetDefaultBlockSizeAtPath" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [81017 81027])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [81028 81045]))                  
+                :type ("tOffset" type (:type "class") nil nil))
+                nil [80979 81897])
+            ("hdfsGetCapacity" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [81924 81934]))                  
+                :type ("tOffset" type (:type "class") nil nil))
+                nil [81900 82955])
+            ("hdfsGetUsed" function
+               (:arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [82981 82991]))                  
+                :type ("tOffset" type (:type "class") nil nil))
+                nil [82961 83992])
+            ("getExtendedFileInfoOffset" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [84949 84965]))                  
+                :type ("size_t" type (:type "class") nil nil))
+                nil [84909 85058])
+            ("getExtendedFileInfo" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("fileInfo" variable
+                       (:pointer 1
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [85116 85139]))                  
+                :type ("hdfsExtendedFileInfo" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [85060 85281])
+            ("getFileInfoFromStat" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [85321 85333])
+                    ("jStat" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [85334 85348])
+                    ("fileInfo" variable
+                       (:pointer 1
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [85349 85372]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [85283 90168])
+            ("getFileInfo" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [90200 90212])
+                    ("jFS" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [90213 90225])
+                    ("jPath" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [90226 90240])
+                    ("fileInfo" variable
+                       (:pointer 2
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [90241 90265]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [90170 91360])
+            ("hdfsListDirectory" function
+               (:pointer 1
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [91396 91406])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [91407 91424])
+                    ("numEntries" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [91425 91441]))                  
+                :type ("hdfsFileInfo" type (:type "class") nil nil))
+                nil [91364 94114])
+            ("hdfsGetPathInfo" function
+               (:pointer 1
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [94148 94158])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [94159 94176]))                  
+                :type ("hdfsFileInfo" type (:type "class") nil nil))
+                nil [94118 95310])
+            ("hdfsFreeFileInfoEntry" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("hdfsFileInfo" variable
+                       (:pointer 1
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [95346 95373]))                  
+                :type "void")
+                nil [95312 95524])
+            ("hdfsFreeFileInfo" function
+               (:arguments 
+                  ( ("hdfsFileInfo" variable
+                       (:pointer 1
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [95548 95575])
+                    ("numEntries" variable (:type "int") (reparse-symbol arg-sub-list) [95576 95591]))                  
+                :type "void")
+                nil [95526 95788])
+            ("hdfsFileIsEncrypted" function
+               (:arguments 
+                  ( ("fileInfo" variable
+                       (:pointer 1
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [95814 95837]))                  
+                :type "int")
+                nil [95790 95996])
+            ("destroyJVM" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [96013 96018]))                  
+                :type "int")
+                nil [95998 96353]))          
+      :file "hdfs.c"
+      :pointmax 96387
+      :fsize 96386
+      :lastmodtime '(22554 43917 712348 49000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("JMETHOD3" (spp-arg-list ("X" "Y" "Z" "R") 2146 . 2158) . 
+              ((string "\"(\"" 2161 . 2164) (symbol "X" 2165 . 2166) (symbol "Y" 2167 . 2168) (symbol "Z" 2169 . 2170) (string "\")\"" 2170 . 2173) (symbol "R" 2174 . 2175)))
+          ("JAVA_STRING" . ((string "\"java/lang/String\"" 1816 . 1834)))
+          ("HADOOP_ISTRM" . ((string "\"org/apache/hadoop/fs/FSDataInputStream\"" 1464 . 1504)))
+          ("HADOOP_FSPERM" . ((string "\"org/apache/hadoop/fs/permission/FsPermission\"" 1653 . 1699)))
+          ("JAVA_VOID" . ((string "\"V\"" 1918 . 1921)))
+          ("KERBEROS_TICKET_CACHE_PATH" . ((string "\"hadoop.security.kerberos.ticket.cache.path\"" 2212 . 2256)))
+          ("HADOOP_STAT" . ((string "\"org/apache/hadoop/fs/FileStatus\"" 1595 . 1628)))
+          ("HADOOP_PATH" . ((string "\"org/apache/hadoop/fs/Path\"" 1103 . 1130)))
+          ("HADOOP_DFS" . ((string "\"org/apache/hadoop/hdfs/DistributedFileSystem\"" 1393 . 1439)))
+          ("JPARAM" (spp-arg-list ("X") 1985 . 1988) . 
+              ((string "\"L\"" 1999 . 2002) (symbol "X" 2003 . 2004) (string "\";\"" 2005 . 2008)))
+          ("HDFS_EXTENDED_FILE_INFO_ENCRYPTED" . ((number "0x1" 2860 . 2863)))
+          ("HADOOP_LOCALFS" . ((string "\"org/apache/hadoop/fs/LocalFileSystem\"" 1155 . 1193)))
+          ("HADOOP_FS" . ((string "\"org/apache/hadoop/fs/FileSystem\"" 1218 . 1251)))
+          ("HADOOP_FSSTATUS" . ((string "\"org/apache/hadoop/fs/FsStatus\"" 1276 . 1307)))
+          ("JARRPARAM" (spp-arg-list ("X") 2026 . 2029) . 
+              ((string "\"[L\"" 2037 . 2041) (symbol "X" 2042 . 2043) (string "\";\"" 2044 . 2047)))
+          ("HADOOP_CONF" . ((string "\"org/apache/hadoop/conf/Configuration\"" 1040 . 1078)))
+          ("HADOOP_OSTRM" . ((string "\"org/apache/hadoop/fs/FSDataOutputStream\"" 1529 . 1570)))
+          ("HADOOP_BLK_LOC" . ((string "\"org/apache/hadoop/fs/BlockLocation\"" 1332 . 1368)))
+          ("JAVA_NET_URI" . ((string "\"java/net/URI\"" 1777 . 1791)))
+          ("READ_OPTION" . ((string "\"org/apache/hadoop/fs/ReadOption\"" 1859 . 1892)))
+          ("HDFS_FILE_SUPPORTS_DIRECT_READ" . ((semantic-list "(1<<0)" 2339 . 2345)))
+          ("JMETHOD1" (spp-arg-list ("X" "R") 2064 . 2070) . 
+              ((string "\"(\"" 2076 . 2079) (symbol "X" 2080 . 2081) (string "\")\"" 2082 . 2085) (symbol "R" 2086 . 2087)))
+          ("JAVA_NET_ISA" . ((string "\"java/net/InetSocketAddress\"" 1724 . 1752)))
+          ("JMETHOD2" (spp-arg-list ("X" "Y" "R") 2104 . 2113) . 
+              ((string "\"(\"" 2116 . 2119) (symbol "X" 2120 . 2121) (symbol "Y" 2122 . 2123) (string "\")\"" 2124 . 2127) (symbol "R" 2128 . 2129)))
+          )
+)
+    (semanticdb-table "hdfs.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("LIBHDFS_HDFS_H" variable (:constant-flag t) nil [840 854])
+            ("errno.h" include (:system-flag t) nil [856 874])
+            ("fcntl.h" include (:system-flag t) nil [901 919])
+            ("stdint.h" include (:system-flag t) nil [949 968])
+            ("time.h" include (:system-flag t) nil [994 1011])
+            ("O_RDONLY" variable (:constant-flag t) nil [1055 1063])
+            ("O_WRONLY" variable (:constant-flag t) nil [1100 1108])
+            ("EINTERNAL" variable (:constant-flag t) nil [1145 1154])
+            ("ELASTIC_BYTE_BUFFER_POOL_CLASS" variable (:constant-flag t) nil [1176 1206])
+            ("destroyJVM" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [30426 30431]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [30411 30432])
+            ("hadoopRzBufferFree" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [30276 30290])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type ("hadoopRzBuffer" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [30291 30321]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [30252 30322])
+            ("hadoopRzBufferGet" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("hadoopRzBuffer" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [29935 29971]))                  
+                :constant-flag t
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [29905 29972])
+            ("hadoopRzBufferLength" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("int32_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("hadoopRzBuffer" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [29479 29515]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [29450 29516])
+            ("hadoopReadZero" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hadoopRzBuffer" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [29170 29184])
+                    ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [29197 29226])
+                    ("maxLength" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [29227 29245]))                  
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [29132 29246])
+            ("hadoopRzOptionsFree" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [27843 27872]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [27818 27873])
+            ("hadoopRzOptionsSetByteBufferPool" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [27558 27587])
+                    ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [27588 27610]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [27508 27611])
+            ("hadoopRzOptionsSetSkipChecksum" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("opts" variable
+                       (:pointer 1
+                        :type ("hadoopRzOptions" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [26854 26883])
+                    ("skip" variable (:type "int") (reparse-symbol arg-sub-list) [26884 26893]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [26806 26894])
+            ("hadoopRzOptionsAlloc" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hadoopRzOptions" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [26473 26478]))                  
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [26428 26479])
+            ("hdfsUtime" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [25976 25986])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [25987 26004])
+                    ("mtime" variable (:type ("tTime" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [26005 26017])
+                    ("atime" variable (:type ("tTime" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [26018 26030]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [25962 26031])
+            ("hdfsChmod" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [25623 25633])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [25634 25651])
+                    ("mode" variable (:type "short") (reparse-symbol arg-sub-list) [25652 25663]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [25609 25664])
+            ("hdfsChown" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [25298 25308])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [25309 25326])
+                    ("owner" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [25327 25345])
+                    ("group" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [25364 25382]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [25284 25383])
+            ("hdfsGetUsed" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("tOffset" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24869 24879]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [24849 24880])
+            ("hdfsGetCapacity" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("tOffset" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24631 24641]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [24607 24642])
+            ("hdfsGetDefaultBlockSizeAtPath" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("tOffset" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24378 24388])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [24389 24406]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [24340 24407])
+            ("hdfsGetDefaultBlockSize" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("tOffset" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23881 23891]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [23849 23892])
+            ("hdfsFreeHosts" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("blockHosts" variable
+                       (:pointer 3
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [23523 23542]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [23504 23543])
+            ("hdfsGetHosts" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "char"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23198 23208])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [23209 23226])
+                    ("start" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23240 23254])
+                    ("length" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23255 23270]))                  
+                :pointer 3
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [23177 23271])
+            ("hdfsFileIsEncrypted" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("hdfsFileInfo" variable
+                       (:pointer 1
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [22601 22628]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [22577 22629])
+            ("hdfsFreeFileInfo" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("hdfsFileInfo" variable
+                       (:pointer 1
+                        :type ("hdfsFileInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [22280 22307])
+                    ("numEntries" variable (:type "int") (reparse-symbol arg-sub-list) [22308 22323]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [22258 22324])
+            ("hdfsGetPathInfo" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsFileInfo" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [21989 21999])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [22000 22017]))                  
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [21959 22018])
+            ("hdfsListDirectory" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsFileInfo" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [21473 21483])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [21484 21501])
+                    ("numEntries" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [21538 21554]))                  
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [21441 21555])
+            ("hdfsFileInfo" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("" type
+                     (:members 
+                        ( ("mKind" variable (:type ("tObjectKind" type (:type "class") nil nil)) (reparse-symbol classsubparts) [20320 20338])
+                          ("mName" variable
+                             (:pointer 1
+                              :type "char")
+                              (reparse-symbol classsubparts) [20373 20385])
+                          ("mLastMod" variable (:type ("tTime" type (:type "class") nil nil)) (reparse-symbol classsubparts) [20429 20444])
+                          ("mSize" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol classsubparts) [20515 20529])
+                          ("mReplication" variable (:type "short") (reparse-symbol classsubparts) [20580 20599])
+                          ("mBlockSize" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol classsubparts) [20639 20658])
+                          ("mOwner" variable
+                             (:pointer 1
+                              :type "char")
+                              (reparse-symbol classsubparts) [20702 20715])
+                          ("mGroup" variable
+                             (:pointer 1
+                              :type "char")
+                              (reparse-symbol classsubparts) [20759 20772])
+                          ("mPermissions" variable (:type "short") (reparse-symbol classsubparts) [20829 20848])
+                          ("mLastAccess" variable (:type ("tTime" type (:type "class") nil nil)) (reparse-symbol classsubparts) [20905 20923]))                        
+                      :type "struct")
+                      nil nil))
+                (reparse-symbol extern-c-contents) [20294 20997])
+            ("hdfsSetReplication" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [20162 20172])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [20173 20190])
+                    ("replication" variable (:type ("int16_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [20191 20211]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [20139 20212])
+            ("hdfsCreateDirectory" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [19843 19853])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [19854 19871]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [19819 19872])
+            ("hdfsSetWorkingDirectory" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [19514 19524])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [19525 19542]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [19486 19543])
+            ("hdfsGetWorkingDirectory" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "char"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [19150 19160])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [19161 19174])
+                    ("bufferSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [19175 19193]))                  
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [19120 19194])
+            ("hdfsRename" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18730 18740])
+                    ("oldPath" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [18741 18761])
+                    ("newPath" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [18762 18782]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [18715 18783])
+            ("hdfsDelete" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [18404 18414])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [18415 18432])
+                    ("recursive" variable (:type "int") (reparse-symbol arg-sub-list) [18433 18447]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [18389 18448])
+            ("hdfsMove" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("srcFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17936 17949])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [17950 17966])
+                    ("dstFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17967 17980])
+                    ("dst" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [17981 17997]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [17923 17998])
+            ("hdfsCopy" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("srcFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17523 17536])
+                    ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [17537 17553])
+                    ("dstFS" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17554 17567])
+                    ("dst" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [17568 17584]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [17510 17585])
+            ("hdfsAvailable" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17146 17156])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17157 17171]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [17128 17172])
+            ("hdfsHSync" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16834 16844])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16845 16859]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [16820 16860])
+            ("hdfsHFlush" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16463 16473])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16474 16488]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [16448 16489])
+            ("hdfsFlush" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16133 16143])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16144 16158]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [16119 16159])
+            ("hdfsWrite" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("tSize" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15841 15851])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15852 15866])
+                    ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [15867 15886])
+                    ("length" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15907 15920]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [15825 15921])
+            ("hdfsPread" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("tSize" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15428 15438])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15439 15453])
+                    ("position" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15454 15471])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [15492 15505])
+                    ("length" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15506 15519]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [15412 15520])
+            ("hdfsRead" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("tSize" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14998 15008])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15009 15023])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [15024 15037])
+                    ("length" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15038 15051]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [14983 15052])
+            ("hdfsTell" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("tOffset" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14256 14266])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14267 14281]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [14239 14282])
+            ("hdfsSeek" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13973 13983])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13984 13998])
+                    ("desiredPos" variable (:type ("tOffset" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13999 14018]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [13960 14019])
+            ("hdfsExists" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13599 13609])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [13610 13627]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [13584 13628])
+            ("hdfsCloseFile" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13322 13332])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13333 13347]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [13304 13348])
+            ("hdfsUnbufferFile" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12851 12865]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [12830 12866])
+            ("hdfsOpenFile" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsFile" type (:type "class") nil nil)
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12418 12428])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [12429 12446])
+                    ("flags" variable (:type "int") (reparse-symbol arg-sub-list) [12447 12457])
+                    ("bufferSize" variable (:type "int") (reparse-symbol arg-sub-list) [12484 12499])
+                    ("replication" variable (:type "short") (reparse-symbol arg-sub-list) [12500 12518])
+                    ("blocksize" variable (:type ("tSize" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12519 12535]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [12396 12536])
+            ("hdfsDisconnect" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11498 11508]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [11479 11509])
+            ("hdfsConfStrFree" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("val" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [11140 11150]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [11119 11151])
+            ("hdfsConfGetInt" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [10921 10937])
+                    ("val" variable
+                       (:pointer 1
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10938 10951]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [10902 10952])
+            ("hdfsConfGetStr" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [10512 10528])
+                    ("val" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [10529 10540]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [10493 10541])
+            ("hdfsBuilderConfSetStr" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9972 9996])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [9997 10013])
+                    ("val" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [10044 10060]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [9946 10061])
+            ("hdfsFreeBuilder" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9484 9508]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [9463 9509])
+            ("hdfsBuilderSetKerbTicketCachePath" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9161 9185])
+                    ("kerbTicketCachePath" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [9221 9253]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [9122 9254])
+            ("hdfsBuilderSetUserName" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8775 8799])
+                    ("userName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [8800 8821]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [8747 8822])
+            ("hdfsBuilderSetNameNodePort" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8504 8528])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8529 8540]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [8472 8541])
+            ("hdfsBuilderSetNameNode" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8282 8306])
+                    ("nn" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [8307 8322]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [8254 8323])
+            ("hdfsBuilderSetForceNewInstance" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7284 7308]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [7248 7309])
+            ("hdfsNewBuilder" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsBuilder" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [7048 7053]))                  
+                :pointer 1
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [7013 7054])
+            ("hdfsBuilderConnect" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsFS" type (:type "class") nil nil)
+                :arguments 
+                  ( ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [6877 6901]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [6851 6902])
+            ("hdfsConnectNewInstance" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsFS" type (:type "class") nil nil)
+                :arguments 
+                  ( ("nn" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6361 6376])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6377 6388]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [6331 6389])
+            ("hdfsConnectAsUserNewInstance" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsFS" type (:type "class") nil nil)
+                :arguments 
+                  ( ("nn" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5882 5897])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5898 5909])
+                    ("user" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5910 5928]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [5846 5929])
+            ("hdfsConnect" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsFS" type (:type "class") nil nil)
+                :arguments 
+                  ( ("nn" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5358 5373])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5374 5385]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [5339 5386])
+            ("hdfsConnectAsUser" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("hdfsFS" type (:type "class") nil nil)
+                :arguments 
+                  ( ("nn" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4933 4948])
+                    ("port" variable (:type ("tPort" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4949 4960])
+                    ("user" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4961 4978]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [4908 4979])
+            ("hdfsFileFreeReadStatistics" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "void"
+                :arguments 
+                  ( ("stats" variable
+                       (:pointer 1
+                        :type ("hdfsReadStatistics" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4377 4410]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [4345 4411])
+            ("hdfsFileClearReadStatistics" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4205 4219]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [4173 4220])
+            ("hdfsReadStatisticsGetRemoteBytesRead" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type ("int64_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("stats" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("hdfsReadStatistics" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3671 3710]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [3597 3711])
+            ("hdfsFileGetReadStatistics" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3380 3394])
+                    ("stats" variable
+                       (:pointer 2
+                        :type ("hdfsReadStatistics" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3429 3463]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [3350 3464])
+            ("hdfsReadStatistics" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "struct"
+                :members 
+                  ( ("totalBytesRead" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2531 2555])
+                    ("totalLocalBytesRead" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2562 2591])
+                    ("totalShortCircuitBytesRead" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2598 2634])
+                    ("totalZeroCopyBytesRead" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2641 2673]))                  )
+                (reparse-symbol extern-c-contents) [2497 2680])
+            ("hdfsFileIsOpenForWrite" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2476 2490]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [2449 2491])
+            ("hdfsFileIsOpenForRead" function
+               (:typemodifiers ("extern" "\"C\"")
+                :type "int"
+                :arguments 
+                  ( ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2254 2268]))                  
+                :prototype-flag t)
+                (reparse-symbol extern-c-contents) [2228 2269])
+            ("hadoopRzBuffer" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "struct"
+                :prototype t)
+                (reparse-symbol extern-c-contents) [2028 2050])
+            ("hadoopRzOptions" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "struct"
+                :prototype t)
+                (reparse-symbol extern-c-contents) [1999 2022])
+            ("hdfsFile" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :pointer 1
+                :typedef ("hdfsFile_internal" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                (reparse-symbol extern-c-contents) [1950 1993])
+            ("hdfsFile_internal" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "struct"
+                :prototype t)
+                (reparse-symbol extern-c-contents) [1920 1945])
+            ("hdfsFS" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :pointer 1
+                :typedef ("hdfs_internal" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                (reparse-symbol extern-c-contents) [1873 1910])
+            ("hdfs_internal" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "struct"
+                :prototype t)
+                (reparse-symbol extern-c-contents) [1847 1868])
+            ("tObjectKind" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("tObjectKind" type (:type "enum") nil nil))
+                (reparse-symbol extern-c-contents) [1650 1762])
+            ("tObjectKind" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "enum"
+                :members 
+                  ( ("kObjectKindFile" variable
+                       (:constant-flag t
+                        :default-value (1703 1706)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1685 1706])
+                    ("kObjectKindDirectory" variable
+                       (:constant-flag t
+                        :default-value (1739 1742)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1716 1742]))                  )
+                (reparse-symbol extern-c-contents) [1650 1762])
+            ("tPort" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("uint16_t" type (:type "class") nil nil))
+                (reparse-symbol extern-c-contents) [1612 1636])
+            ("tOffset" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("int64_t" type (:type "class") nil nil))
+                (reparse-symbol extern-c-contents) [1555 1581])
+            ("tTime" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("time_t" type (:type "class") nil nil))
+                (reparse-symbol extern-c-contents) [1501 1525])
+            ("tSize" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "typedef"
+                :typedef ("int32_t" type (:type "class") nil nil))
+                (reparse-symbol extern-c-contents) [1432 1456])
+            ("hdfsBuilder" type
+               (:typemodifiers ("extern" "\"C\"")
+                :type "struct"
+                :prototype t)
+                (reparse-symbol extern-c-contents) [1408 1427]))          
+      :file "hdfs.h"
+      :pointmax 30521
+      :fsize 30520
+      :lastmodtime '(22554 43917 713348 47000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("ELASTIC_BYTE_BUFFER_POOL_CLASS" . ((string "\"org/apache/hadoop/io/ElasticByteBufferPool\"" 1211 . 1255)))
+          ("O_WRONLY" . ((number "2" 1109 . 1110)))
+          ("LIBHDFS_HDFS_H")
+          ("O_RDONLY" . ((number "1" 1064 . 1065)))
+          ("EINTERNAL" . ((number "255" 1155 . 1158)))
+          )
+)
+    (semanticdb-table "jni_helper.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("config.h" include nil nil [809 828])
+            ("exception.h" include nil nil [829 851])
+            ("jni_helper.h" include nil nil [852 875])
+            ("platform.h" include nil nil [876 897])
+            ("common/htable.h" include nil nil [898 924])
+            ("os/mutexes.h" include nil nil [925 948])
+            ("os/thread_local_storage.h" include nil nil [949 985])
+            ("stdio.h" include (:system-flag t) nil [987 1005])
+            ("string.h" include (:system-flag t) nil [1007 1026])
+            ("gClassRefHTable" variable
+               (:pointer 1
+                :typemodifiers ("static")
+                :default-value "NULL"
+                :type ("htable" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1029 1074])
+            ("JVOID" variable (:constant-flag t) nil [1141 1146])
+            ("JOBJECT" variable (:constant-flag t) nil [1167 1174])
+            ("JARRAYOBJECT" variable (:constant-flag t) nil [1193 1205])
+            ("JBOOLEAN" variable (:constant-flag t) nil [1219 1227])
+            ("JBYTE" variable (:constant-flag t) nil [1245 1250])
+            ("JCHAR" variable (:constant-flag t) nil [1271 1276])
+            ("JSHORT" variable (:constant-flag t) nil [1297 1303])
+            ("JINT" variable (:constant-flag t) nil [1323 1327])
+            ("JLONG" variable (:constant-flag t) nil [1349 1354])
+            ("JFLOAT" variable (:constant-flag t) nil [1375 1381])
+            ("JDOUBLE" variable (:constant-flag t) nil [1401 1408])
+            ("MAX_HASH_TABLE_ELEM" variable (:constant-flag t) nil [1571 1590])
+            ("VM_BUF_LENGTH" variable (:constant-flag t) nil [1690 1703])
+            ("destroyLocalReference" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1734 1746])
+                    ("jObject" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1747 1763]))                  
+                :type "void")
+                nil [1707 1824])
+            ("validateMethodType" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1863 1875])
+                    ("methType" variable (:type ("MethType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1876 1894]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [1826 2096])
+            ("newJavaStr" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2120 2132])
+                    ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2133 2149])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jstring" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2150 2163]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [2098 2628])
+            ("newCStr" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2649 2661])
+                    ("jstr" variable (:type ("jstring" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2662 2675])
+                    ("out" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2676 2687]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [2630 2995])
+            ("invokeMethod" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3021 3033])
+                    ("retval" variable
+                       (:pointer 1
+                        :type ("jvalue" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3034 3049])
+                    ("methType" variable (:type ("MethType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3050 3068])
+                    ("instObj" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3086 3102])
+                    ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3103 3125])
+                    ("methName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3143 3164])
+                    ("methSignature" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3165 3191])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [3192 3196]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [2997 5856])
+            ("constructNewObjectOfClass" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5895 5907])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jobject" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5908 5921])
+                    ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5922 5944])
+                    ("ctorSignature" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5980 6006])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [6007 6011]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [5858 6553])
+            ("methodIdFromClass" function
+               (:arguments 
+                  ( ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6585 6607])
+                    ("methName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6608 6629])
+                    ("methSignature" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6659 6685])
+                    ("methType" variable (:type ("MethType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6686 6704])
+                    ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6734 6746])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jmethodID" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6747 6762]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [6556 7472])
+            ("globalClassReference" function
+               (:arguments 
+                  ( ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [7506 7528])
+                    ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7529 7541])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jclass" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7542 7554]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [7474 8805])
+            ("classNameOfObject" function
+               (:arguments 
+                  ( ("jobj" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8836 8849])
+                    ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8850 8862])
+                    ("name" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [8863 8875]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [8807 10228])
+            ("getGlobalJNIEnv" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [10528 10533]))                  
+                :type ("JNIEnv" type (:type "class") nil nil))
+                nil [10497 14069])
+            ("getJNIEnv" function
+               (:pointer 1
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [15029 15034]))                  
+                :type ("JNIEnv" type (:type "class") nil nil))
+                nil [15011 15563])
+            ("javaObjectIsOfClass" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15589 15601])
+                    ("obj" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15602 15614])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [15615 15632]))                  
+                :type "int")
+                nil [15565 15981])
+            ("hadoopConfSetStr" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16011 16023])
+                    ("jConfiguration" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16024 16047])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [16056 16072])
+                    ("value" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [16073 16091]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [15983 16646])
+            ("fetchEnumInstance" function
+               (:arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16677 16689])
+                    ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [16690 16712])
+                    ("valueName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [16738 16760])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jobject" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16761 16774]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [16648 17607]))          
+      :file "jni_helper.c"
+      :pointmax 17608
+      :fsize 17607
+      :lastmodtime '(22554 43917 713348 47000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("JOBJECT" . ((string "'L'" 1181 . 1184)))
+          ("JSHORT" . ((string "'S'" 1311 . 1314)))
+          ("JLONG" . ((string "'J'" 1363 . 1366)))
+          ("JDOUBLE" . ((string "'D'" 1415 . 1418)))
+          ("JCHAR" . ((string "'C'" 1285 . 1288)))
+          ("JFLOAT" . ((string "'F'" 1389 . 1392)))
+          ("JVOID" . ((string "'V'" 1155 . 1158)))
+          ("JARRAYOBJECT" . ((string "'['" 1207 . 1210)))
+          ("JBYTE" . ((string "'B'" 1259 . 1262)))
+          ("MAX_HASH_TABLE_ELEM" . ((number "4096" 1591 . 1595)))
+          ("JBOOLEAN" . ((string "'Z'" 1233 . 1236)))
+          ("JINT" . ((string "'I'" 1337 . 1340)))
+          ("VM_BUF_LENGTH" . ((number "1" 1704 . 1705)))
+          )
+)
+    (semanticdb-table "jni_helper.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("LIBHDFS_JNI_HELPER_H" variable (:constant-flag t) nil [846 866])
+            ("jni.h" include (:system-flag t) nil [868 884])
+            ("stdio.h" include (:system-flag t) nil [885 903])
+            ("stdlib.h" include (:system-flag t) nil [905 924])
+            ("stdarg.h" include (:system-flag t) nil [925 944])
+            ("errno.h" include (:system-flag t) nil [945 963])
+            ("PATH_SEPARATOR" variable (:constant-flag t) nil [973 987])
+            ("MethType" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("STATIC" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1078 1085])
+                          ("INSTANCE" variable
+                             (:constant-flag t
+                              :type "int")
+                              (reparse-symbol enumsubparts) [1090 1100]))                        
+                      :type "enum")
+                      nil nil)
+                :type "typedef")
+                nil [1059 1110])
+            ("newCStr" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1392 1404])
+                    ("jstr" variable (:type ("jstring" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1405 1418])
+                    ("out" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1419 1430]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [1373 1431])
+            ("newJavaStr" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1696 1708])
+                    ("str" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1709 1725])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jstring" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1726 1739]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [1674 1740])
+            ("destroyLocalReference" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1962 1974])
+                    ("jObject" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1975 1991]))                  
+                :type "void")
+                nil [1935 1992])
+            ("invokeMethod" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2976 2988])
+                    ("retval" variable
+                       (:pointer 1
+                        :type ("jvalue" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2989 3004])
+                    ("methType" variable (:type ("MethType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3005 3023])
+                    ("instObj" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3041 3057])
+                    ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3058 3080])
+                    ("methName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3081 3102])
+                    ("methSignature" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3121 3147])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [3148 3152]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [2952 3153])
+            ("constructNewObjectOfClass" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3192 3204])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jobject" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3205 3218])
+                    ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3219 3241])
+                    ("ctorSignature" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3277 3303])
+                    ("..." variable (:type "vararg") (reparse-symbol arg-sub-list) [3304 3308]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [3155 3309])
+            ("methodIdFromClass" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3340 3362])
+                    ("methName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3363 3384])
+                    ("methSignature" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3414 3440])
+                    ("methType" variable (:type ("MethType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3441 3459])
+                    ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3489 3501])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jmethodID" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3502 3517]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [3311 3518])
+            ("globalClassReference" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3552 3574])
+                    ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3575 3587])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jclass" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3588 3600]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [3520 3601])
+            ("classNameOfObject" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("jobj" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3928 3941])
+                    ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3942 3954])
+                    ("name" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3955 3967]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [3899 3968])
+            ("getJNIEnv" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [4271 4276]))                  
+                :type ("JNIEnv" type (:type "class") nil nil))
+                nil [4253 4277])
+            ("javaObjectIsOfClass" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4677 4689])
+                    ("obj" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4690 4702])
+                    ("name" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4703 4720]))                  
+                :type "int")
+                nil [4653 4721])
+            ("hadoopConfSetStr" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5085 5097])
+                    ("jConfiguration" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5098 5121])
+                    ("key" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5130 5146])
+                    ("value" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5147 5165]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [5057 5166])
+            ("fetchEnumInstance" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5692 5704])
+                    ("className" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5705 5727])
+                    ("valueName" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5757 5779])
+                    ("out" variable
+                       (:pointer 1
+                        :type ("jobject" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5780 5793]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [5663 5794]))          
+      :file "jni_helper.h"
+      :pointmax 5862
+      :fsize 5861
+      :lastmodtime '(22554 43917 713348 47000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("PATH_SEPARATOR" . ((string "':'" 988 . 991)))
+          ("LIBHDFS_JNI_HELPER_H")
+          )
+)
+    (semanticdb-table "native_mini_dfs.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("exception.h" include nil nil [809 831])
+            ("hdfs.h" include nil nil [832 849])
+            ("hdfs_test.h" include nil nil [850 872])
+            ("jni_helper.h" include nil nil [873 896])
+            ("native_mini_dfs.h" include nil nil [897 925])
+            ("platform.h" include nil nil [926 947])
+            ("errno.h" include (:system-flag t) nil [949 967])
+            ("jni.h" include (:system-flag t) nil [968 984])
+            ("limits.h" include (:system-flag t) nil [985 1004])
+            ("stdio.h" include (:system-flag t) nil [1005 1023])
+            ("stdlib.h" include (:system-flag t) nil [1024 1043])
+            ("string.h" include (:system-flag t) nil [1044 1063])
+            ("sys/types.h" include (:system-flag t) nil [1064 1086])
+            ("unistd.h" include (:system-flag t) nil [1087 1106])
+            ("MINIDFS_CLUSTER_BUILDER" variable (:constant-flag t) nil [1116 1139])
+            ("MINIDFS_CLUSTER" variable (:constant-flag t) nil [1196 1211])
+            ("HADOOP_CONF" variable (:constant-flag t) nil [1260 1271])
+            ("HADOOP_NAMENODE" variable (:constant-flag t) nil [1323 1338])
+            ("JAVA_INETSOCKETADDRESS" variable (:constant-flag t) nil [1397 1419])
+            ("DFS_WEBHDFS_ENABLED_KEY" variable (:constant-flag t) nil [1458 1481])
+            ("NativeMiniDfsCluster" type
+               (:members 
+                  ( ("obj" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1594 1606])
+                    ("domainSocketPath" variable
+                       (:dereference 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1700 1732]))                  
+                :type "struct")
+                nil [1505 1735])
+            ("nmdConfigureShortCircuit" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("env" variable
+                       (:pointer 1
+                        :type ("JNIEnv" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1780 1792])
+                    ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1807 1839])
+                    ("cobj" variable (:type ("jobject" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1840 1853]))                  
+                :type ("jthrowable" type (:type "class") nil nil))
+                nil [1737 2718])
+            ("nmdCreate" function
+               (:pointer 1
+                :arguments 
+                  ( ("conf" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsConf" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2759 2790]))                  
+                :type ("NativeMiniDfsCluster" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [2720 7259])
+            ("nmdFree" function
+               (:arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7274 7306]))                  
+                :type "void")
+                nil [7261 7510])
+            ("nmdShutdown" function
+               (:arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [7528 7560]))                  
+                :type "int")
+                nil [7512 7989])
+            ("nmdWaitClusterUp" function
+               (:arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8012 8044]))                  
+                :type "int")
+                nil [7991 8493])
+            ("nmdGetNameNodePort" function
+               (:arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [8518 8556]))                  
+                :type "int")
+                nil [8495 9122])
+            ("nmdGetNameNodeHttpAddress" function
+               (:arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [9154 9192])
+                    ("port" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [9224 9234])
+                    ("hostName" variable
+                       (:pointer 2
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [9235 9257]))                  
+                :type "int")
+                nil [9124 11513])
+            ("nmdConfigureHdfsBuilder" function
+               (:arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11543 11575])
+                    ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [11604 11628]))                  
+                :type "int")
+                nil [11515 12257]))          
+      :file "native_mini_dfs.c"
+      :pointmax 12258
+      :fsize 12257
+      :lastmodtime '(22554 43917 713348 47000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("DFS_WEBHDFS_ENABLED_KEY" . ((string "\"dfs.webhdfs.enabled\"" 1482 . 1503)))
+          ("MINIDFS_CLUSTER_BUILDER" . ((string "\"org/apache/hadoop/hdfs/MiniDFSCluster$Builder\"" 1140 . 1187)))
+          ("MINIDFS_CLUSTER" . ((string "\"org/apache/hadoop/hdfs/MiniDFSCluster\"" 1212 . 1251)))
+          ("HADOOP_CONF" . ((string "\"org/apache/hadoop/conf/Configuration\"" 1276 . 1314)))
+          ("JAVA_INETSOCKETADDRESS" . ((string "\"java/net/InetSocketAddress\"" 1420 . 1448)))
+          ("HADOOP_NAMENODE" . ((string "\"org/apache/hadoop/hdfs/server/namenode/NameNode\"" 1339 . 1388)))
+          )
+)
+    (semanticdb-table "native_mini_dfs.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("LIBHDFS_NATIVE_MINI_DFS_H" variable (:constant-flag t) nil [851 876])
+            ("jni.h" include (:system-flag t) nil [878 894])
+            ("hdfsBuilder" type
+               (:prototype t
+                :type "struct")
+                nil [915 934])
+            ("NativeMiniDfsCluster" type
+               (:prototype t
+                :type "struct")
+                nil [935 963])
+            ("NativeMiniDfsConf" type
+               (:members 
+                  ( ("doFormat" variable (:type ("jboolean" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1163 1181])
+                    ("webhdfsEnabled" variable (:type ("jboolean" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1261 1285])
+                    ("namenodeHttpPort" variable (:type ("jint" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1362 1384])
+                    ("configureShortCircuit" variable (:type ("jboolean" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1459 1490]))                  
+                :type "struct")
+                nil [1048 1493])
+            ("nmdCreate" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("conf" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsConf" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1703 1734]))                  
+                :type ("NativeMiniDfsCluster" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [1664 1735])
+            ("nmdWaitClusterUp" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1982 2014]))                  
+                :type "int")
+                nil [1961 2015])
+            ("nmdShutdown" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2219 2251]))                  
+                :type "int")
+                nil [2203 2252])
+            ("nmdFree" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2356 2388]))                  
+                :type "void")
+                nil [2343 2389])
+            ("nmdGetNameNodePort" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2606 2644]))                  
+                :type "int")
+                nil [2583 2645])
+            ("nmdGetNameNodeHttpAddress" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3167 3205])
+                    ("port" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [3237 3247])
+                    ("hostName" variable
+                       (:pointer 2
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3248 3270]))                  
+                :type "int")
+                nil [3137 3271])
+            ("nmdConfigureHdfsBuilder" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("cl" variable
+                       (:pointer 1
+                        :type ("NativeMiniDfsCluster" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3479 3511])
+                    ("bld" variable
+                       (:pointer 1
+                        :type ("hdfsBuilder" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3540 3564]))                  
+                :type "int")
+                nil [3451 3565]))          
+      :file "native_mini_dfs.h"
+      :pointmax 3574
+      :fsize 3573
+      :lastmodtime '(22554 43917 713348 47000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("LIBHDFS_NATIVE_MINI_DFS_H")
+          )
+))
+  :file "!ssd!sdd!git!Hadoop!hadoop-hdfs-project!hadoop-hdfs!src!main!native!libhdfs!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

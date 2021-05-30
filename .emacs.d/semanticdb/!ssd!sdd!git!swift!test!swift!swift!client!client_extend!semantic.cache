@@ -1,0 +1,474 @@
+;; Object client_extend/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "client_extend/"
+  :tables
+  (list
+    (semanticdb-table "MessageProducer.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_MESSAGEPRODUCER_H" variable (:constant-flag t) nil [41 64])
+            ("swift/common/Common.h" include (:system-flag t) nil [66 98])
+            ("swift/common/Log.h" include (:system-flag t) nil [99 128])
+            ("swift/client/MessageInfo.h" include (:system-flag t) nil [129 166])
+            ("swift/client/client_extend/MessageParser.h" include (:system-flag t) nil [167 220])
+            ("fslib/fslib.h" include (:system-flag t) nil [221 245])
+            ("autil/Lock.h" include (:system-flag t) nil [246 269])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [293 300]))                  
+                :type "int")
+                nil [271 301])
+            ("MessageInfoPtr" type
+               (:typedef ("std::tr1::shared_ptr" type
+                     (:template-specifier 
+                        ( ("MessageInfo" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [303 360])
+            ("MessageProducer" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [424 431])
+                    ("MessageProducer" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("fieldSep" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "MESSAGE_FIELD_SEPERATOR"
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [452 505])
+                            ("msgSep" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "MESSAGE_SEPERATOR"
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [527 572]))                          
+                        :type ("MessageProducer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [436 574])
+                    ("MessageProducer" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [579 598])
+                    ("private" label nil (reparse-symbol classsubparts) [599 607])
+                    ("MessageProducer" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MessageProducer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [628 652]))                          
+                        :type ("MessageProducer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [612 653])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MessageProducer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [685 709]))                          
+                        :type ("MessageProducer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [658 710])
+                    ("public" label nil (reparse-symbol classsubparts) [711 718])
+                    ("getMessage" function
+                       (:prototype-flag t
+                        :type ("MessageInfoPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [723 751])
+                    ("addMessage" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("msg" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [772 795]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [756 796])
+                    ("addMessage" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("file" variable
+                               (:pointer 1
+                                :type ("fslib::fs::File" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [817 839]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [801 840])
+                    ("count" function (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [845 942])
+                    ("setMaxMsgCount" function
+                       (:arguments 
+                          ( ("maxMsgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [967 987]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [947 1031])
+                    ("private" label nil (reparse-symbol classsubparts) [1032 1040])
+                    ("_mutex" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1045 1079])
+                    ("_offset" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1097 1114])
+                    ("_maxMsgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1119 1140])
+                    ("_curMsgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1145 1166])
+                    ("_checkpointId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1171 1193])
+                    ("_fieldSep" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1198 1220])
+                    ("_msgSep" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1225 1245])
+                    ("_messages" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("MessageInfo" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1250 1285])
+                    ("private" label nil (reparse-symbol classsubparts) [1286 1294])
+                    ("MessageProducerTest" friend nil (reparse-symbol classsubparts) [1299 1331])
+                    ("private" label nil (reparse-symbol classsubparts) [1333 1341])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1346 1366]))                  
+                :type "class")
+                nil [400 1369])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("MessageProducer" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1389 1405]))                  
+                :type "int")
+                nil [1371 1406])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1428 1435]))                  
+                :type "int")
+                nil [1408 1436]))          
+      :file "MessageProducer.h"
+      :pointmax 1471
+      :fsize 1470
+      :lastmodtime '(22618 12792 188669 866000)
+      :unmatched-syntax '((thing 1331 . 1332))
+      :lexical-table 
+        '(("SWIFT_MESSAGEPRODUCER_H")
+          )
+)
+    (semanticdb-table "MessageProducer.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/client/client_extend/MessageProducer.h" include (:system-flag t) nil [1 56])
+            ("swift/client/client_extend/MessageParser.h" include (:system-flag t) nil [57 110])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [112 132])
+            ("fslib" using (:type ("fslib" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [133 155])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [156 178])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [201 208]))                  
+                :type "int")
+                nil [179 209])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [226 233])
+                    ("" variable (:type ("MessageProducer" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [234 250]))                  
+                :type "int")
+                nil [210 251])
+            ("MessageProducer" function
+               (:constructor-flag t
+                :parent "MessageProducer"
+                :arguments 
+                  ( ("fieldSep" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [286 314])
+                    ("msgSep" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [348 374]))                  
+                :type ("MessageProducer" type (:type "class") nil nil))
+                nil [253 496])
+            ("MessageProducer" function
+               (:destructor-flag t
+                :parent "MessageProducer"
+                :type "void")
+                nil [498 538])
+            ("getMessage" function
+               (:parent "MessageProducer"
+                :type ("MessageInfoPtr" type (:type "class") nil nil))
+                nil [540 1037])
+            ("addMessage" function
+               (:parent "MessageProducer"
+                :arguments 
+                  ( ("msg" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1072 1090]))                  
+                :type "bool")
+                nil [1039 1268])
+            ("addMessage" function
+               (:parent "MessageProducer"
+                :arguments 
+                  ( ("file" variable
+                       (:pointer 1
+                        :type ("fs::File" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1303 1318]))                  
+                :type "bool")
+                nil [1270 2232])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2254 2261]))                  
+                :type "int")
+                nil [2234 2262]))          
+      :file "MessageProducer.cpp"
+      :pointmax 2264
+      :fsize 2263
+      :lastmodtime '(22618 12792 188669 866000)
+      :unmatched-syntax nil)
+    (semanticdb-table "MessageParser.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/client/client_extend/MessageParser.h" include (:system-flag t) nil [1 54])
+            ("swift/common/FieldGroupWriter.h" include (:system-flag t) nil [55 97])
+            ("autil/StringUtil.h" include (:system-flag t) nil [98 127])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [129 149])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [150 172])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [193 200]))                  
+                :type "int")
+                nil [173 201])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [225 232]))                  
+                :type "int")
+                nil [203 233])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [250 257])
+                    ("" variable (:type ("MessageParser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [258 272]))                  
+                :type "int")
+                nil [234 273])
+            ("MessageParser" function
+               (:constructor-flag t
+                :parent "MessageParser"
+                :type ("MessageParser" type (:type "class") nil nil))
+                nil [275 310])
+            ("MessageParser" function
+               (:destructor-flag t
+                :parent "MessageParser"
+                :type "void")
+                nil [312 348])
+            ("parse" function
+               (:parent "MessageParser"
+                :arguments 
+                  ( ("s" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [376 392])
+                    ("messageInfo" variable
+                       (:reference 1
+                        :type ("MessageInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [393 418])
+                    ("fieldSep" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [445 468]))                  
+                :type "bool")
+                nil [350 3290])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3312 3319]))                  
+                :type "int")
+                nil [3292 3320]))          
+      :file "MessageParser.cpp"
+      :pointmax 3322
+      :fsize 3321
+      :lastmodtime '(22618 12792 188669 866000)
+      :unmatched-syntax nil)
+    (semanticdb-table "MessageParser.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_MESSAGEPARSER_H" variable (:constant-flag t) nil [39 60])
+            ("swift/common/Common.h" include (:system-flag t) nil [62 94])
+            ("swift/common/Log.h" include (:system-flag t) nil [95 124])
+            ("swift/client/MessageInfo.h" include (:system-flag t) nil [125 162])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [186 193]))                  
+                :type "int")
+                nil [164 194])
+            ("MESSAGE_KV_SEPERATOR" variable
+               (:constant-flag t
+                :default-value "\"=\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [196 241])
+            ("MESSAGE_FIELD_SEPERATOR" variable
+               (:constant-flag t
+                :default-value "\"\\x0F\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [242 293])
+            ("MESSAGE_SEPERATOR" variable
+               (:constant-flag t
+                :default-value "\"\\x10\\n\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [299 346])
+            ("FIELD_FILTER_MESSAGE_DATA_INNER_SEPERATOR" variable
+               (:constant-flag t
+                :default-value "\"\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [354 420])
+            ("FIELD_FILTER_MESSAGE_DATA_OUTER_SEPERATOR" variable
+               (:constant-flag t
+                :default-value "\"\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [427 493])
+            ("MESSAGE_DATA" variable
+               (:constant-flag t
+                :default-value "\"data\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [500 540])
+            ("FIELD_FILTER_MESSAGE_DATA" variable
+               (:constant-flag t
+                :default-value "\"fieldFilterData\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [541 605])
+            ("MESSAGE_PAYLOAD_UINT16" variable
+               (:constant-flag t
+                :default-value "\"uint16Payload\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [606 665])
+            ("MESSAGE_PAYLOAD_UINT8" variable
+               (:constant-flag t
+                :default-value "\"uint8MaskPayload\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [666 727])
+            ("MESSAGE_PARTITIONID" variable
+               (:constant-flag t
+                :default-value "\"partition\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [728 780])
+            ("MESSAGE_HASHSTR" variable
+               (:constant-flag t
+                :default-value "\"hashstr\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [781 827])
+            ("CHECKPOINT_ID" variable
+               (:constant-flag t
+                :default-value "\"checkpointId\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [828 877])
+            ("MessageParser" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [901 908])
+                    ("MessageParser" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("MessageParser" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [913 929])
+                    ("MessageParser" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [934 951])
+                    ("private" label nil (reparse-symbol classsubparts) [952 960])
+                    ("MessageParser" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MessageParser" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [979 1001]))                          
+                        :type ("MessageParser" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [965 1002])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MessageParser" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1032 1054]))                          
+                        :type ("MessageParser" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1007 1055])
+                    ("public" label nil (reparse-symbol classsubparts) [1056 1063])
+                    ("parse" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("s" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1086 1107])
+                            ("messageInfo" variable
+                               (:reference 1
+                                :type ("MessageInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1108 1133])
+                            ("fieldSep" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "MESSAGE_FIELD_SEPERATOR"
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1156 1209]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1068 1211])
+                    ("private" label nil (reparse-symbol classsubparts) [1212 1220])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1225 1245]))                  
+                :type "class")
+                nil [879 1248])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("MessageParser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1268 1282]))                  
+                :type "int")
+                nil [1250 1283])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1305 1312]))                  
+                :type "int")
+                nil [1285 1313]))          
+      :file "MessageParser.h"
+      :pointmax 1346
+      :fsize 1345
+      :lastmodtime '(22618 12792 188669 866000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SWIFT_MESSAGEPARSER_H")
+          )
+))
+  :file "!ssd!sdd!git!swift!test!swift!swift!client!client_extend!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

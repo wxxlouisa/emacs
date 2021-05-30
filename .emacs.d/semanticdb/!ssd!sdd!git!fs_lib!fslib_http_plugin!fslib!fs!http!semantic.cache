@@ -1,0 +1,863 @@
+;; Object http/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "http/"
+  :tables
+  (list
+    (semanticdb-table "HttpFile.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("fslib/fs/http/HttpFile.h" include nil nil [1 36])
+            ("fslib/fs/http/HttpFileSystem.h" include nil nil [37 78])
+            ("autil/Lock.h" include nil nil [79 102])
+            ("sstream" include (:system-flag t) nil [104 122])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [124 144])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [145 167])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [198 203]))                  
+                :type "int")
+                nil [169 204])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [236 241])
+                    ("" variable (:type ("HttpFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [242 251]))                  
+                :type "int")
+                nil [205 252])
+            ("HttpFile" function
+               (:constructor-flag t
+                :parent "HttpFile"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [272 295])
+                    ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [296 309]))                  
+                :type ("HttpFile" type (:type "class") nil nil))
+                nil [253 992])
+            ("HttpFile" function
+               (:destructor-flag t
+                :parent "HttpFile"
+                :type "void")
+                nil [994 1032])
+            ("MemoryStruct" type
+               (:members 
+                  ( ("memory" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1060 1073])
+                    ("curSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1078 1093])
+                    ("maxSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1098 1113]))                  
+                :type "struct")
+                nil [1034 1116])
+            ("throw_away" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("ptr" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1143 1153])
+                    ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1154 1166])
+                    ("nmemb" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1167 1180])
+                    ("data" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1181 1192]))                  
+                :type ("size_t" type (:type "class") nil nil))
+                nil [1118 1365])
+            ("initFileInfo" function
+               (:parent "HttpFile"
+                :type "bool")
+                nil [1367 2706])
+            ("setFileMetaAfterPerf" function
+               (:parent "HttpFile"
+                :type "bool")
+                nil [2708 3638])
+            ("checkRangeSupport" function
+               (:parent "HttpFile"
+                :type "bool")
+                nil [3640 4934])
+            ("read" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [4959 4972])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4973 4987]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [4936 5624])
+            ("write" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [5650 5669])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5670 5684]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [5626 5764])
+            ("WriteMemoryCallback" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("contents" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [5800 5815])
+                    ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5816 5828])
+                    ("nmemb" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5829 5842])
+                    ("userp" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [5843 5855]))                  
+                :type ("size_t" type (:type "class") nil nil))
+                nil [5766 6468])
+            ("preadByRange" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [6503 6516])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6517 6531])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6532 6545]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [6472 7420])
+            ("preadByCache" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [7453 7466])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7467 7481])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7482 7495]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [7422 8032])
+            ("preadWithLock" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [8066 8079])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8080 8094])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8095 8108]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [8034 8643])
+            ("pread" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [8669 8682])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8683 8697])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8698 8711]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [8645 8948])
+            ("pwrite" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [8975 8994])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8995 9009])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9010 9023]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [8950 9103])
+            ("flush" function
+               (:parent "HttpFile"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [9105 9219])
+            ("close" function
+               (:parent "HttpFile"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [9221 9524])
+            ("seek" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9551 9566])
+                    ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9567 9581]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [9526 9653])
+            ("seekWithLock" function
+               (:parent "HttpFile"
+                :arguments 
+                  ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9688 9703])
+                    ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9704 9718]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [9655 10458])
+            ("tell" function
+               (:parent "HttpFile"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [10460 10508])
+            ("isOpened" function
+               (:parent "HttpFile"
+                :type "bool")
+                nil [10510 10567])
+            ("isEof" function
+               (:parent "HttpFile"
+                :type "bool")
+                nil [10569 10614])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10644 10649]))                  
+                :type "int")
+                nil [10617 10650]))          
+      :file "HttpFile.cpp"
+      :pointmax 10652
+      :fsize 10651
+      :lastmodtime '(22727 37855 745220 646000)
+      :unmatched-syntax nil)
+    (semanticdb-table "HttpFileSystem.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("fslib/fs/http/HttpFileSystem.h" include nil nil [1 42])
+            ("fslib/fs/http/HttpFile.h" include nil nil [43 78])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [80 100])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [101 123])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [154 159]))                  
+                :type "int")
+                nil [125 160])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [192 197])
+                    ("" variable (:type ("HttpFileSystem" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [198 213]))                  
+                :type "int")
+                nil [161 214])
+            ("openFile" function
+               (:pointer 1
+                :parent "HttpFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [247 270])
+                    ("flag" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [271 281]))                  
+                :type ("File" type (:type "class") nil nil))
+                nil [216 546])
+            ("mmapFile" function
+               (:pointer 1
+                :parent "HttpFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [583 606])
+                    ("openMode" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [607 621])
+                    ("start" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [658 670])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [671 685])
+                    ("prot" variable (:type "int") (reparse-symbol arg-sub-list) [686 695])
+                    ("mapFlag" variable (:type "int") (reparse-symbol arg-sub-list) [732 744])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [745 758]))                  
+                :type ("MMapFile" type (:type "class") nil nil))
+                nil [548 826])
+            ("rename" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("oldPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [861 883])
+                    ("newPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [919 941]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [828 967])
+            ("getFileMeta" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1011 1034])
+                    ("fileMeta" variable
+                       (:reference 1
+                        :type ("FileMeta" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1046 1065]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [973 1233])
+            ("isFile" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1268 1287]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1235 1415])
+            ("getFileChecksum" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1462 1485]))                  
+                :type ("FileChecksum" type (:type "class") nil nil))
+                nil [1417 1511])
+            ("mkDir" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1545 1567])
+                    ("recursive" variable (:type "bool") (reparse-symbol arg-sub-list) [1602 1617]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1513 1643])
+            ("listDir" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1679 1701])
+                    ("fileList" variable
+                       (:reference 1
+                        :type ("FileList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1737 1756]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1645 1782])
+            ("isDirectory" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1822 1841]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1784 1866])
+            ("remove" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("pathName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1901 1924]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1868 1950])
+            ("isExist" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("pathName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1990 2013]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [1956 2046])
+            ("listDir" function
+               (:parent "HttpFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2082 2104])
+                    ("entryList" variable
+                       (:reference 1
+                        :type ("EntryList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2141 2162]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [2048 2188])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2218 2223]))                  
+                :type "int")
+                nil [2191 2224]))          
+      :file "HttpFileSystem.cpp"
+      :pointmax 2225
+      :fsize 2224
+      :lastmodtime '(22718 22779 879859 295000)
+      :unmatched-syntax nil)
+    (semanticdb-table "HttpFile.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_PLUGIN_HTTPFILE_H" variable (:constant-flag t) nil [41 64])
+            ("vector" include (:system-flag t) nil [66 83])
+            ("curl/curl.h" include (:system-flag t) nil [84 106])
+            ("fslib/common.h" include (:system-flag t) nil [107 132])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [163 168]))                  
+                :type "int")
+                nil [134 169])
+            ("HttpFile" type
+               (:superclasses 
+                  ( ("File" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [202 209])
+                    ("HttpFile" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [223 251])
+                            ("ec" variable
+                               (:default-value "EC_OK"
+                                :type ("ErrorCode" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [252 272]))                          
+                        :type ("HttpFile" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [214 274])
+                    ("HttpFile" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [279 291])
+                    ("public" label nil (reparse-symbol classsubparts) [293 300])
+                    ("read" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [331 344])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [345 359]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [318 360])
+                    ("write" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [393 412])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [413 427]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [379 428])
+                    ("pread" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [461 474])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [475 489])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [490 503]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [447 504])
+                    ("pwrite" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [538 557])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [558 572])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [573 586]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [523 587])
+                    ("flush" function
+                       (:prototype-flag t
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [606 624])
+                    ("close" function
+                       (:prototype-flag t
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [643 661])
+                    ("seek" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [695 710])
+                            ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [711 725]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [680 726])
+                    ("tell" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [745 760])
+                    ("isOpened" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [779 801])
+                    ("isEof" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [820 833])
+                    ("initFileInfo" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [839 859])
+                    ("getFileMeta" function (:type ("fslib::FileMeta" type (:type "class") nil nil)) (reparse-symbol classsubparts) [865 934])
+                    ("private" label nil (reparse-symbol classsubparts) [936 944])
+                    ("preadWithLock" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [971 984])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [985 999])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1000 1013]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [949 1014])
+                    ("seekWithLock" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1043 1058])
+                            ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1059 1073]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1020 1074])
+                    ("setFileMetaAfterPerf" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1080 1108])
+                    ("checkRangeSupport" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1114 1139])
+                    ("preadByRange" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1166 1179])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1180 1194])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1195 1208]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1145 1209])
+                    ("preadByCache" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1236 1249])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1250 1264])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1265 1278]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1215 1279])
+                    ("public" label nil (reparse-symbol classsubparts) [1281 1288])
+                    ("getSupportRange" function (:type "bool") (reparse-symbol classsubparts) [1319 1379])
+                    ("private" label nil (reparse-symbol classsubparts) [1385 1393])
+                    ("_curl" variable
+                       (:pointer 1
+                        :type ("CURL" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1398 1410])
+                    ("_isEof" variable (:type "bool") (reparse-symbol classsubparts) [1415 1427])
+                    ("_isOpened" variable (:type "bool") (reparse-symbol classsubparts) [1432 1447])
+                    ("_url" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1452 1469])
+                    ("_offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1474 1490])
+                    ("_fileMeta" variable (:type ("fslib::FileMeta" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1495 1521])
+                    ("_buf" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1526 1537])
+                    ("_buffered" variable (:type "bool") (reparse-symbol classsubparts) [1542 1557])
+                    ("_supportRange" variable (:type "bool") (reparse-symbol classsubparts) [1562 1581])
+                    ("_mutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1586 1612])
+                    ("_isInited" variable (:type "bool") (reparse-symbol classsubparts) [1617 1632]))                  
+                :type "class")
+                nil [171 1635])
+            ("HttpFilePtr" type
+               (:typedef ("std::tr1::shared_ptr" type
+                     (:template-specifier 
+                        ( ("HttpFile" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [1637 1688])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1718 1723]))                  
+                :type "int")
+                nil [1691 1724]))          
+      :file "HttpFile.h"
+      :pointmax 1759
+      :fsize 1758
+      :lastmodtime '(22727 36306 727333 76000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("FSLIB_PLUGIN_HTTPFILE_H")
+          )
+)
+    (semanticdb-table "HttpFileSystem.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_PLUGIN_HTTPFILESYSTEM_H" variable (:constant-flag t) nil [47 76])
+            ("fslib/common.h" include (:system-flag t) nil [78 103])
+            ("curl/curl.h" include (:system-flag t) nil [104 126])
+            ("fslib/fs/AbstractFileSystem.h" include nil nil [128 168])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [199 204]))                  
+                :type "int")
+                nil [170 205])
+            ("fslib" using (:type ("fslib" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [206 228])
+            ("fslib::fs" using (:type ("fslib::fs" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [229 255])
+            ("HttpFileSystem" type
+               (:superclasses 
+                  ( ("AbstractFileSystem" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [308 315])
+                    ("HttpFileSystem" function
+                       (:constructor-flag t
+                        :type ("HttpFileSystem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [320 391])
+                    ("HttpFileSystem" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [396 452])
+                    ("public" label nil (reparse-symbol classsubparts) [454 461])
+                    ("openFile" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [494 522])
+                            ("flag" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [523 533]))                          
+                        :type ("File" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [479 534])
+                    ("mmapFile" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [572 600])
+                            ("openMode" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [601 615])
+                            ("start" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [652 664])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [665 679])
+                            ("prot" variable (:type "int") (reparse-symbol arg-sub-list) [680 689])
+                            ("mapFlag" variable (:type "int") (reparse-symbol arg-sub-list) [726 738])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [739 752]))                          
+                        :type ("MMapFile" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [553 753])
+                    ("rename" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("oldPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [789 816])
+                            ("newPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [852 879]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [772 880])
+                    ("getFileMeta" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [925 953])
+                            ("fileMeta" variable
+                               (:reference 1
+                                :type ("FileMeta" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [965 984]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [903 985])
+                    ("isFile" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1021 1045]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1004 1046])
+                    ("getFileChecksum" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1094 1122]))                          
+                        :type ("FileChecksum" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1065 1123])
+                    ("mkDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1158 1185])
+                            ("recursive" variable
+                               (:default-value "false"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1220 1242]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1142 1244])
+                    ("listDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1281 1308])
+                            ("fileList" variable
+                               (:reference 1
+                                :type ("FileList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1344 1363]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1263 1364])
+                    ("isDirectory" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1406 1430]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1384 1431])
+                    ("remove" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pathName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1467 1495]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1450 1496])
+                    ("isExist" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pathName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1537 1565]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1519 1566])
+                    ("listDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1603 1630])
+                            ("entryList" variable
+                               (:reference 1
+                                :type ("EntryList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1667 1688]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1585 1689])
+                    ("createFileReadWriteLock" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1764 1792]))                          
+                        :type ("FileReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1708 1825])
+                    ("createFileLock" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1869 1897]))                          
+                        :type ("FileLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1844 1926])
+                    ("getCapability" function (:type ("FileSystemCapability" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1945 2030]))                  
+                :type "class")
+                nil [257 2034])
+            ("HttpFileSystemPtr" type
+               (:typedef ("std::tr1::shared_ptr" type
+                     (:template-specifier 
+                        ( ("HttpFileSystem" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [2036 2099])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("http" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2128 2133]))                  
+                :type "int")
+                nil [2101 2134]))          
+      :file "HttpFileSystem.h"
+      :pointmax 2175
+      :fsize 2174
+      :lastmodtime '(22718 22779 879859 295000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("FSLIB_PLUGIN_HTTPFILESYSTEM_H")
+          )
+))
+  :file "!ssd!sdd!git!fs_lib!fslib_http_plugin!fslib!fs!http!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

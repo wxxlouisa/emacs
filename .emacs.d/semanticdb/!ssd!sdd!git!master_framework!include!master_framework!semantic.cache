@@ -1,0 +1,2487 @@
+;; Object master_framework/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "master_framework/"
+  :tables
+  (list
+    (semanticdb-table "SimpleMasterScheduler.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_SIMPLEMASTERSCHEDULER_H" variable (:constant-flag t) nil [58 98])
+            ("master_framework/common.h" include nil nil [100 136])
+            ("master_framework/AppPlan.h" include nil nil [137 174])
+            ("master_framework/ScheduleUnitManager.h" include nil nil [175 224])
+            ("master_framework/PartitionScheduleUnitFactory.h" include nil nil [225 283])
+            ("hippo/LeaderSerializer.h" include (:system-flag t) nil [284 319])
+            ("worker_framework/LeaderChecker.h" include (:system-flag t) nil [320 363])
+            ("hippo/MasterDriver.h" include (:system-flag t) nil [364 395])
+            ("autil/LoopThread.h" include (:system-flag t) nil [396 425])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("simple_master" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [460 474]))                  
+                :type "int")
+                nil [427 475])
+            ("SimpleMasterScheduler" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [507 514])
+                    ("INF_SLOT_COUNT" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "1000000"
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [519 565])
+                    ("public" label nil (reparse-symbol classsubparts) [566 573])
+                    ("SimpleMasterScheduler" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("SimpleMasterScheduler" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [578 602])
+                    ("SimpleMasterScheduler" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [607 640])
+                    ("private" label nil (reparse-symbol classsubparts) [641 649])
+                    ("SimpleMasterScheduler" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SimpleMasterScheduler" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [676 706]))                          
+                        :type ("SimpleMasterScheduler" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [654 707])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SimpleMasterScheduler" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [745 775]))                          
+                        :type ("SimpleMasterScheduler" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [712 776])
+                    ("public" label nil (reparse-symbol classsubparts) [777 784])
+                    ("init" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("hippoZkRoot" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [807 838])
+                            ("" variable (:type ("WF_NS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [861 879])
+                            ("leaderChecker" variable
+                               (:pointer 1
+                                :type ("LeaderChecker" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [881 911])
+                            ("applicationId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [934 967]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [789 968])
+                    ("start" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [974 995])
+                    ("stop" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1005 1025])
+                    ("setAppPlan" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("appPlan" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AppPlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1055 1078]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1031 1079])
+                    ("isLeader" function
+                       (:typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1085 1159])
+                    ("isConnected" function
+                       (:typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1165 1244])
+                    ("getRoleSlots" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("roleName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1313 1341]))                          
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("hippo::SlotInfo" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1250 1342])
+                    ("getAllRoleSlots" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("roleSlots" variable
+                               (:reference 1
+                                :type ("std::map" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil)
+                                          ("SlotInfos" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1390 1434]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1348 1435])
+                    ("reAllocRoleSlots" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("roleName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1471 1499]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1441 1530])
+                    ("createLeaderSerializer" function
+                       (:pointer 1
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("zookeeperRoot" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1605 1638])
+                            ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1639 1667])
+                            ("backupRoot" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "\"\""
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1680 1714]))                          
+                        :type ("hippo::LeaderSerializer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1536 1844])
+                    ("getMasterDriver" function
+                       (:pointer 1
+                        :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1850 1955])
+                    ("releaseSlots" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slots" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::SlotId" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1979 2019])
+                            ("pref" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("hippo::ReleasePreference" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2042 2079]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1961 2080])
+                    ("private" label nil (reparse-symbol classsubparts) [2082 2090])
+                    ("updateScheduleUnits" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rolePlans" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("master_base::RolePlanMap" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2120 2162]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2095 2163])
+                    ("public" label nil (reparse-symbol classsubparts) [2165 2172])
+                    ("getScheduleUnitManager" function (:type ("master_base::ScheduleUnitManagerPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2189 2297])
+                    ("setMasterDriver" function
+                       (:arguments 
+                          ( ("masterDriver" variable
+                               (:pointer 1
+                                :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2324 2358]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2303 2430])
+                    ("private" label nil (reparse-symbol classsubparts) [2437 2445])
+                    ("_leaderChecker" variable
+                       (:pointer 1
+                        :type ("LeaderChecker" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2470 2500])
+                    ("_scheduleUnitManagerPtr" variable (:type ("master_base::ScheduleUnitManagerPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2505 2565])
+                    ("_partScheduleUnitFactoryPtr" variable (:type ("master_base::PartitionScheduleUnitFactoryPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2570 2643])
+                    ("_roleSchedules" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("master_base::ScheduleUnitPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2648 2715])
+                    ("_lock" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2720 2745]))                  
+                :type "class")
+                nil [477 2748])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("SimpleMasterScheduler" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2779 2801]))                  
+                :type "int")
+                nil [2750 2802])
+            ("SimpleMasterSchedulerCreator" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [2841 2848])
+                    ("create" function
+                       (:typemodifiers ("virtual")
+                        :type ("SimpleMasterSchedulerPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2853 2972])
+                    ("SimpleMasterSchedulerCreator" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [2977 3019]))                  
+                :type "class")
+                nil [2804 3022])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("SimpleMasterSchedulerCreator" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3053 3082]))                  
+                :type "int")
+                nil [3024 3083])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("simple_master" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3116 3130]))                  
+                :type "int")
+                nil [3085 3131]))          
+      :file "SimpleMasterScheduler.h"
+      :pointmax 3183
+      :fsize 3182
+      :lastmodtime '(22887 26929 996343 406000)
+      :unmatched-syntax '((thing 2469 . 2470) (thing 2469 . 2470) (thing 2468 . 2469) (thing 2468 . 2469) (thing 2455 . 2468) (thing 2455 . 2468) (thing 2450 . 2455) (thing 2450 . 2455) (thing 880 . 881) (thing 880 . 881) (thing 879 . 880) (thing 879 . 880) (thing 866 . 879) (thing 866 . 879))
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_SIMPLEMASTERSCHEDULER_H")
+          )
+)
+    (semanticdb-table "common.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_COMMON_H" variable (:constant-flag t) nil [43 68])
+            ("string" include (:system-flag t) nil [70 87])
+            ("assert.h" include (:system-flag t) nil [88 107])
+            ("tr1/memory" include (:system-flag t) nil [108 129])
+            ("autil/CommonMacros.h" include (:system-flag t) nil [130 161])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" variable (:constant-flag t) nil [171 203])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" variable (:constant-flag t) nil [258 288])
+            ("USE_MASTER_FRAMEWORK_NAMESPACE" variable (:constant-flag t) nil [304 334])
+            ("MASTER_FRAMEWORK_NS" variable (:constant-flag t) nil [382 401])
+            ("MF_NS" variable (:constant-flag t) nil [433 438])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" variable (:constant-flag t) nil [471 499])
+            ("SCHEDULE_LOOPINTERVAL" variable (:constant-flag t) nil [552 573]))          
+      :file "common.h"
+      :pointmax 604
+      :fsize 603
+      :lastmodtime '(22887 26022 399151 659000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("END_MASTER_FRAMEWORK_NAMESPACE" (spp-arg-list ("x") 288 . 291) . ((close-paren "}" 292 . 293) (close-paren "}" 294 . 295)))
+          ("MASTER_FRAMEWORK_NS" (spp-arg-list ("x") 401 . 404) . 
+              ((symbol "master_framework" 405 . 421) (punctuation ":" 421 . 422) (punctuation ":" 422 . 423) (symbol "x" 423 . 424)))
+          ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" (spp-arg-list ("x") 203 . 206) . 
+              ((NAMESPACE "namespace" 207 . 216) (symbol "master_framework" 217 . 233) (open-paren "{" 234 . 235) (NAMESPACE "namespace" 236 . 245) (symbol "x" 246 . 247) (open-paren "{" 248 . 249)))
+          ("MF_NS" (spp-arg-list ("x") 438 . 441) . 
+              ((symbol "master_framework" 442 . 458) (punctuation ":" 458 . 459) (punctuation ":" 459 . 460) (symbol "x" 460 . 461)))
+          ("MASTER_FRAMEWORK_TYPEDEF_PTR" (spp-arg-list ("x") 499 . 502) . 
+              ((TYPEDEF "typedef" 503 . 510) (symbol "std" 511 . 514) (punctuation ":" 514 . 515) (punctuation ":" 515 . 516) (symbol "tr1" 516 . 519) (punctuation ":" 519 . 520) (punctuation ":" 520 . 521) (symbol "shared_ptr" 521 . 531) (punctuation "<" 531 . 532) (symbol "x" 532 . 533) (punctuation ">" 533 . 534) (spp-symbol-merge ((symbol "x" 535 . 536) (symbol "Ptr" 538 . 541)) 535 . 541) (punctuation ";" 541 . 542)))
+          ("USE_MASTER_FRAMEWORK_NAMESPACE" (spp-arg-list ("x") 334 . 337) . 
+              ((USING "using" 338 . 343) (NAMESPACE "namespace" 344 . 353) (symbol "master_framework" 354 . 370) (punctuation ":" 370 . 371) (punctuation ":" 371 . 372) (symbol "x" 372 . 373)))
+          ("SCHEDULE_LOOPINTERVAL" . ((semantic-list "(1*1000*1000)" 574 . 587)))
+          ("MASTER_FRAMEWORK_COMMON_H")
+          )
+)
+    (semanticdb-table "AppPlan.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_APPPLAN_H" variable (:constant-flag t) nil [44 70])
+            ("master_framework/common.h" include nil nil [72 108])
+            ("master_framework/RolePlan.h" include nil nil [109 147])
+            ("autil/legacy/jsonizable.h" include (:system-flag t) nil [148 184])
+            ("hippo/DriverCommon.h" include (:system-flag t) nil [185 216])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("simple_master" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [251 265]))                  
+                :type "int")
+                nil [218 266])
+            ("AppPlan" type
+               (:superclasses 
+                  ( ("autil::legacy::Jsonizable" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [319 326])
+                    ("AppPlan" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("AppPlan" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [331 341])
+                    ("AppPlan" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [346 357])
+                    ("public" label nil (reparse-symbol classsubparts) [358 365])
+                    ("Jsonize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("json" variable
+                               (:reference 1
+                                :type ("autil::legacy::Jsonizable::JsonWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [402 447]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [389 448])
+                    ("public" label nil (reparse-symbol classsubparts) [454 461])
+                    ("fromString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("content" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [482 509]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [466 510])
+                    ("==" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("rh" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AppPlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [533 551]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [515 558])
+                    ("public" label nil (reparse-symbol classsubparts) [564 571])
+                    ("packageInfos" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("hippo::PackageInfo" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [576 621])
+                    ("rolePlans" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("master_base::RolePlan" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [626 681]))                  
+                :type "class")
+                nil [268 684])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("AppPlan" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [715 723]))                  
+                :type "int")
+                nil [686 724])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("simple_master" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [757 771]))                  
+                :type "int")
+                nil [726 772]))          
+      :file "AppPlan.h"
+      :pointmax 810
+      :fsize 809
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_APPPLAN_H")
+          )
+)
+    (semanticdb-table "ScheduleUnitManager.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_SCHEDULEUNITMANAGER_H" variable (:constant-flag t) nil [56 94])
+            ("master_framework/common.h" include nil nil [96 132])
+            ("autil/LoopThread.h" include nil nil [133 162])
+            ("master_framework/ScheduleUnit.h" include nil nil [163 205])
+            ("master_framework/ComboScheduleUnit.h" include nil nil [206 253])
+            ("master_framework/ScheduleUnitFactory.h" include nil nil [254 303])
+            ("hippo/MasterDriver.h" include (:system-flag t) nil [304 335])
+            ("worker_framework/LeaderElector.h" include (:system-flag t) nil [336 379])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [414 426]))                  
+                :type "int")
+                nil [381 427])
+            ("ScheduleUnitManager" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [457 464])
+                    ("ScheduleUnitManager" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("ScheduleUnitManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [469 491])
+                    ("ScheduleUnitManager" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [496 519])
+                    ("private" label nil (reparse-symbol classsubparts) [520 528])
+                    ("ScheduleUnitManager" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScheduleUnitManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [553 581]))                          
+                        :type ("ScheduleUnitManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [533 582])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScheduleUnitManager" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [618 646]))                          
+                        :type ("ScheduleUnitManager" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [587 647])
+                    ("public" label nil (reparse-symbol classsubparts) [648 655])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("hippoZkRoot" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [670 701])
+                            ("" variable (:type ("WF_NS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [716 734])
+                            ("leaderElector" variable
+                               (:pointer 1
+                                :type ("LeaderElector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [736 766])
+                            ("applicationId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [781 814]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [660 815])
+                    ("start" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [825 838])
+                    ("stop" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [848 860])
+                    ("release" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("scheduleUnitPtr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScheduleUnitPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [883 922]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [870 923])
+                    ("createScheduleUnit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [968 992])
+                            ("scheduleUnitFactoryPtr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScheduleUnitFactoryPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1005 1058]))                          
+                        :type ("ScheduleUnitPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [933 1059])
+                    ("startSchedule" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1065 1086])
+                    ("stopSchedule" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1092 1112])
+                    ("createLeaderSerializer" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("zookeeperRoot" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1179 1212])
+                            ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1225 1253])
+                            ("backupRoot" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "\"\""
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1266 1300]))                          
+                        :type ("hippo::LeaderSerializer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1118 1302])
+                    ("getRoleSlotInfos" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("roleSlots" variable
+                               (:reference 1
+                                :type ("RoleSlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1330 1355]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1308 1356])
+                    ("getMasterDriver" function
+                       (:pointer 1
+                        :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1361 1442])
+                    ("releaseSlots" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotIds" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::SlotId" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1466 1508])
+                            ("pref" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("hippo::ReleasePreference" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1531 1568]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1448 1569])
+                    ("private" label nil (reparse-symbol classsubparts) [1575 1583])
+                    ("setRolePlans" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rolePlans" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RolePlanMap" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1606 1635]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1588 1636])
+                    ("releaseUselessRoles" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("roleSlots" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RoleSlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1667 1698])
+                            ("rolePlans" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RolePlanMap" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1728 1757]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1642 1758])
+                    ("modifyProcessRestartCountLimit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("processInfos" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::ProcessInfo" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1813 1859]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1764 1860])
+                    ("public" label nil (reparse-symbol classsubparts) [1862 1869])
+                    ("schedule" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1893 1909])
+                    ("public" label nil (reparse-symbol classsubparts) [1911 1918])
+                    ("setMasterDriver" function
+                       (:arguments 
+                          ( ("masterDriver" variable
+                               (:pointer 1
+                                :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1956 1990]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1935 2076])
+                    ("getScheduleUnits" function (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("ScheduleUnitPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2082 2205])
+                    ("private" label nil (reparse-symbol classsubparts) [2211 2219])
+                    ("_hippoMasterDriver" variable
+                       (:pointer 1
+                        :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2224 2264])
+                    ("_comboScheduleUnitPtr" variable (:type ("ComboScheduleUnitPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2269 2312])
+                    ("_scheduleThreadPtr" variable (:type ("autil::LoopThreadPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2317 2357])
+                    ("_canSchedule" variable (:type "bool") (reparse-symbol classsubparts) [2362 2380]))                  
+                :type "class")
+                nil [429 2383])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("ScheduleUnitManager" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2414 2434]))                  
+                :type "int")
+                nil [2385 2435])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2468 2480]))                  
+                :type "int")
+                nil [2437 2481]))          
+      :file "ScheduleUnitManager.h"
+      :pointmax 2531
+      :fsize 2530
+      :lastmodtime '(22887 27652 567499 888000)
+      :unmatched-syntax '((thing 735 . 736) (thing 735 . 736) (thing 735 . 736) (thing 734 . 735) (thing 734 . 735) (thing 734 . 735) (thing 721 . 734) (thing 721 . 734) (thing 721 . 734))
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_SCHEDULEUNITMANAGER_H")
+          )
+)
+    (semanticdb-table "PartitionScheduleUnitFactory.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_PARTITIONSCHEDULEUNITFACTORY_H" variable (:constant-flag t) nil [65 112])
+            ("master_framework/common.h" include nil nil [114 150])
+            ("master_framework/PartitionScheduleUnit.h" include nil nil [151 202])
+            ("master_framework/ScheduleUnitFactory.h" include nil nil [203 252])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [287 299]))                  
+                :type "int")
+                nil [254 300])
+            ("PartitionScheduleUnitFactory" type
+               (:superclasses 
+                  ( ("ScheduleUnitFactory" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [368 375])
+                    ("PartitionScheduleUnitFactory" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("PartitionScheduleUnitFactory" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [380 411])
+                    ("PartitionScheduleUnitFactory" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [416 448])
+                    ("private" label nil (reparse-symbol classsubparts) [449 457])
+                    ("PartitionScheduleUnitFactory" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionScheduleUnitFactory" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [491 528]))                          
+                        :type ("PartitionScheduleUnitFactory" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [462 529])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionScheduleUnitFactory" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [574 611]))                          
+                        :type ("PartitionScheduleUnitFactory" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [534 612])
+                    ("public" label nil (reparse-symbol classsubparts) [613 620])
+                    ("createScheduleUnit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [688 712])
+                            ("hippoMasterDriver" variable
+                               (:pointer 1
+                                :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [725 764]))                          
+                        :type ("ScheduleUnitPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [640 765]))                  
+                :type "class")
+                nil [302 768])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("PartitionScheduleUnitFactory" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [799 828]))                  
+                :type "int")
+                nil [770 829])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [862 874]))                  
+                :type "int")
+                nil [831 875]))          
+      :file "PartitionScheduleUnitFactory.h"
+      :pointmax 934
+      :fsize 933
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_PARTITIONSCHEDULEUNITFACTORY_H")
+          )
+)
+    (semanticdb-table "RolePlan.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_ROLEPLAN_H" variable (:constant-flag t) nil [45 72])
+            ("master_framework/common.h" include nil nil [74 110])
+            ("master_framework/Plan.h" include nil nil [111 145])
+            ("proto/SimpleMaster.pb.h" include nil nil [146 180])
+            ("hippo/DriverCommon.h" include (:system-flag t) nil [181 212])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [247 259]))                  
+                :type "int")
+                nil [214 260])
+            ("SlotResources" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("hippo::SlotResource" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [262 317])
+            ("DeclareResources" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("hippo::Resource" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [318 372])
+            ("PackageInfos" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("hippo::PackageInfo" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [373 426])
+            ("ProcessInfos" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("hippo::ProcessInfo" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [427 480])
+            ("DataInfos" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("hippo::DataInfo" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [481 528])
+            ("Properties" type
+               (:typedef ("std::map" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil)
+                          ("std::string" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [529 583])
+            ("RolePlan" type
+               (:superclasses 
+                  ( ("Plan" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("slotResources" variable (:type ("SlotResources" type (:type "class") nil nil)) (reparse-symbol classsubparts) [621 649])
+                    ("count" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [654 668])
+                    ("priority" variable (:type ("hippo::Priority" type (:type "class") nil nil)) (reparse-symbol classsubparts) [673 698])
+                    ("packageInfos" variable (:type ("PackageInfos" type (:type "class") nil nil)) (reparse-symbol classsubparts) [703 729])
+                    ("processInfos" variable (:type ("ProcessInfos" type (:type "class") nil nil)) (reparse-symbol classsubparts) [734 760])
+                    ("dataInfos" variable (:type ("DataInfos" type (:type "class") nil nil)) (reparse-symbol classsubparts) [765 785])
+                    ("properties" variable (:type ("Properties" type (:type "class") nil nil)) (reparse-symbol classsubparts) [790 812])
+                    ("declareResources" variable (:type ("DeclareResources" type (:type "class") nil nil)) (reparse-symbol classsubparts) [817 851])
+                    ("allocateMode" variable (:type ("hippo::ResourceAllocateMode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [856 897])
+                    ("queue" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [902 920])
+                    ("RolePlan" function
+                       (:constructor-flag t
+                        :type ("RolePlan" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [930 1023])
+                    ("Jsonize" function
+                       (:arguments 
+                          ( ("json" variable
+                               (:reference 1
+                                :type ("autil::legacy::Jsonizable::JsonWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1046 1091]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1033 2025])
+                    ("getArg" function
+                       (:arguments 
+                          ( ("procName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2043 2071])
+                            ("key" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2088 2111])
+                            ("value" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2128 2147]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2031 2663]))                  
+                :type "struct")
+                nil [585 2666])
+            ("RolePlanMap" type
+               (:typedef ("std::map" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil)
+                          ("RolePlan" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [2668 2720])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2753 2765]))                  
+                :type "int")
+                nil [2722 2766]))          
+      :file "RolePlan.h"
+      :pointmax 2805
+      :fsize 2804
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_ROLEPLAN_H")
+          )
+)
+    (semanticdb-table "PartitionSchedulePlan.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_PARTITIONSCHEDULEPLAN_H" variable (:constant-flag t) nil [58 98])
+            ("master_framework/common.h" include nil nil [100 136])
+            ("master_framework/Plan.h" include nil nil [137 171])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [206 218]))                  
+                :type "int")
+                nil [173 219])
+            ("PartitionSchedulePlan" type
+               (:superclasses 
+                  ( ("Plan" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [265 272])
+                    ("PartitionSchedulePlan" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("PartitionSchedulePlan" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [277 301])
+                    ("PartitionSchedulePlan" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [306 331])
+                    ("public" label nil (reparse-symbol classsubparts) [332 339])
+                    ("serialize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("str" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [374 391]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [359 392])
+                    ("deserialize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("str" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [429 452]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [412 453])
+                    ("public" label nil (reparse-symbol classsubparts) [455 462])
+                    ("_count" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [467 482])
+                    ("_slotResources" variable (:type ("Resources" type (:type "class") nil nil)) (reparse-symbol classsubparts) [505 530])
+                    ("_processInfos" variable (:type ("ProcessInfos" type (:type "class") nil nil)) (reparse-symbol classsubparts) [535 562])
+                    ("_dataInfos" variable (:type ("DataInfos" type (:type "class") nil nil)) (reparse-symbol classsubparts) [567 588])
+                    ("_packageInfos" variable (:type ("PackageInfos" type (:type "class") nil nil)) (reparse-symbol classsubparts) [593 620]))                  
+                :type "class")
+                nil [221 623])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("PartitionSchedulePlan" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [655 677]))                  
+                :type "int")
+                nil [626 678])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [711 723]))                  
+                :type "int")
+                nil [680 724]))          
+      :file "PartitionSchedulePlan.h"
+      :pointmax 776
+      :fsize 775
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_PARTITIONSCHEDULEPLAN_H")
+          )
+)
+    (semanticdb-table "PartitionScheduleUnit.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_PARTITIONSCHEDULEUNIT_H" variable (:constant-flag t) nil [58 98])
+            ("master_framework/common.h" include nil nil [100 136])
+            ("master_framework/BasicScheduleUnit.h" include nil nil [137 184])
+            ("master_framework/RolePlan.h" include nil nil [185 223])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [258 270]))                  
+                :type "int")
+                nil [225 271])
+            ("PartitionSchedulePlan" type
+               (:typedef ("RolePlan" type (:type "class") nil nil)
+                :type "typedef")
+                nil [273 312])
+            ("PartitionScheduleUnit" type
+               (:superclasses 
+                  ( ("BasicScheduleUnit" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [371 378])
+                    ("PartitionScheduleUnit" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [405 429])
+                            ("hippoMasterDriver" variable
+                               (:pointer 1
+                                :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [456 495]))                          
+                        :type ("PartitionScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [383 496])
+                    ("PartitionScheduleUnit" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [506 531])
+                    ("private" label nil (reparse-symbol classsubparts) [537 545])
+                    ("PartitionScheduleUnit" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionScheduleUnit" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [572 602]))                          
+                        :type ("PartitionScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [550 603])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionScheduleUnit" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [641 671]))                          
+                        :type ("PartitionScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [608 672])
+                    ("public" label nil (reparse-symbol classsubparts) [678 685])
+                    ("setPlan" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("plan" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Plan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [718 735]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [705 736])
+                    ("schedule" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotInfos" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RoleSlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [775 806]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [761 807])
+                    ("getSlotInfos" function
+                       (:prototype-flag t
+                        :constant-flag t
+                        :type ("SlotInfos" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [828 865])
+                    ("private" label nil (reparse-symbol classsubparts) [871 879])
+                    ("releaseSlots" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slots" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::SlotInfo" type
+                                             (:pointer 1
+                                              :constant-flag t)
+                                              nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [902 951]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [884 952])
+                    ("resetSlots" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slots" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::SlotInfo" type
+                                             (:pointer 1
+                                              :constant-flag t)
+                                              nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [974 1024]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [958 1025])
+                    ("restartSlotProcs" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slots" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::SlotInfo" type
+                                             (:pointer 1
+                                              :constant-flag t)
+                                              nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1057 1107]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1035 1108])
+                    ("restartProcesses" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("hippo::SlotInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1136 1168])
+                            ("procNames" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::set" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1195 1234]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1114 1235])
+                    ("getNeedRestartProcs" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("processStatus" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::ProcessStatus" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1279 1334])
+                            ("needRestartProcs" variable
+                               (:reference 1
+                                :type ("std::set" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1347 1387]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1241 1388])
+                    ("getSlotProcessContext" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("hippo::SlotId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1451 1479]))                          
+                        :type ("hippo::ProcessContext" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1394 1480])
+                    ("setSlotProcessContext" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("hippo::SlotId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1513 1541])
+                            ("processContext" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("hippo::ProcessContext" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1573 1617]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1486 1618])
+                    ("clearSlotProcessContext" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotId" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("hippo::SlotId" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1653 1681]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1624 1682])
+                    ("pickupRedundantSlot" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("onlineSlots" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::SlotInfo" type
+                                             (:pointer 1
+                                              :constant-flag t)
+                                              nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1726 1775])
+                            ("redundantSlotCnt" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1788 1813])
+                            ("needReleaseSlots" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("hippo::SlotInfo" type
+                                             (:pointer 1
+                                              :constant-flag t)
+                                              nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1826 1880]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1688 1881])
+                    ("getRolePlan" function
+                       (:prototype-flag t
+                        :type ("RolePlan" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1887 1910])
+                    ("getAutoReleaseFlag" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("plan" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RolePlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1940 1961]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1916 1962])
+                    ("private" label nil (reparse-symbol classsubparts) [1963 1971])
+                    ("_plan" variable (:type ("PartitionSchedulePlan" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1976 2004])
+                    ("_slotProcessContextMap" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("hippo::SlotId" type nil nil nil)
+                              ("hippo::ProcessContext" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2009 2079])
+                    ("_lock" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2084 2109]))                  
+                :type "class")
+                nil [314 2112])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("PartitionScheduleUnit" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2143 2165]))                  
+                :type "int")
+                nil [2114 2166])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2199 2211]))                  
+                :type "int")
+                nil [2168 2212]))          
+      :file "PartitionScheduleUnit.h"
+      :pointmax 2264
+      :fsize 2263
+      :lastmodtime '(22888 13657 575649 515000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_PARTITIONSCHEDULEUNIT_H")
+          )
+)
+    (semanticdb-table "ScheduleUnit.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_SCHEDULEUNIT_H" variable (:constant-flag t) nil [49 80])
+            ("master_framework/common.h" include nil nil [82 118])
+            ("master_framework/Plan.h" include nil nil [119 153])
+            ("master_framework/AppPlan.h" include nil nil [154 191])
+            ("hippo/DriverCommon.h" include (:system-flag t) nil [192 223])
+            ("hippo/MasterDriver.h" include (:system-flag t) nil [224 255])
+            ("SlotInfos" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("hippo::SlotInfo" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [257 304])
+            ("RoleSlotInfos" type
+               (:typedef ("std::map" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil)
+                          ("SlotInfos" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [305 360])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [395 407]))                  
+                :type "int")
+                nil [362 408])
+            ("ScheduleUnitType" type
+               (:members 
+                  ( ("SUT_UNKNOWN" variable
+                       (:constant-flag t
+                        :default-value (452 453)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [438 453])
+                    ("SUT_BASIC" variable
+                       (:constant-flag t
+                        :default-value (471 472)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [459 472])
+                    ("SUT_COMBO" variable
+                       (:constant-flag t
+                        :default-value (490 491)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [478 491]))                  
+                :type "enum")
+                nil [410 494])
+            ("ScheduleUnit" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [517 524])
+                    ("ScheduleUnit" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [542 566])
+                            ("hippoMasterDriver" variable
+                               (:pointer 1
+                                :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [584 623]))                          
+                        :type ("ScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [529 624])
+                    ("ScheduleUnit" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [629 653])
+                    ("private" label nil (reparse-symbol classsubparts) [654 662])
+                    ("ScheduleUnit" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScheduleUnit" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [680 701]))                          
+                        :type ("ScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [667 702])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScheduleUnit" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [731 752]))                          
+                        :type ("ScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [707 753])
+                    ("public" label nil (reparse-symbol classsubparts) [759 766])
+                    ("getName" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [771 823])
+                    ("public" label nil (reparse-symbol classsubparts) [825 832])
+                    ("getType" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("ScheduleUnitType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [837 882])
+                    ("setPlan" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("plan" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Plan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [913 930]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [892 935])
+                    ("getRolePlans" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("rolePlans" variable
+                               (:reference 1
+                                :type ("RolePlanMap" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [967 990]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [941 1001])
+                    ("getSlotInfos" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("slotInfos" variable
+                               (:reference 1
+                                :type ("SlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1033 1054]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1007 1065])
+                    ("schedule" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("slotInfos" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RoleSlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1097 1128]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1075 1133])
+                    ("getRoles" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("roles" variable
+                               (:reference 1
+                                :type ("std::set" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1161 1190]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1139 1201])
+                    ("protected" label nil (reparse-symbol classsubparts) [1203 1213])
+                    ("_name" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1218 1236])
+                    ("_hippoMasterDriver" variable
+                       (:pointer 1
+                        :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1241 1281]))                  
+                :type "class")
+                nil [496 1284])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("ScheduleUnit" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1315 1328]))                  
+                :type "int")
+                nil [1286 1329])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1362 1374]))                  
+                :type "int")
+                nil [1331 1375]))          
+      :file "ScheduleUnit.h"
+      :pointmax 1418
+      :fsize 1417
+      :lastmodtime '(22537 49518 532248 344000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_SCHEDULEUNIT_H")
+          )
+)
+    (semanticdb-table "BasicScheduleUnit.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_BASICSCHEDULEUNIT_H" variable (:constant-flag t) nil [54 90])
+            ("master_framework/common.h" include nil nil [92 128])
+            ("master_framework/Plan.h" include nil nil [129 163])
+            ("master_framework/AppPlan.h" include nil nil [164 201])
+            ("master_framework/ScheduleUnit.h" include nil nil [202 244])
+            ("hippo/DriverCommon.h" include (:system-flag t) nil [245 276])
+            ("hippo/MasterDriver.h" include (:system-flag t) nil [277 308])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [343 355]))                  
+                :type "int")
+                nil [310 356])
+            ("BasicScheduleUnit" type
+               (:superclasses 
+                  ( ("ScheduleUnit" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [406 413])
+                    ("BasicScheduleUnit" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [436 460])
+                            ("hippoMasterDriver" variable
+                               (:pointer 1
+                                :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [478 517]))                          
+                        :type ("BasicScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [418 518])
+                    ("BasicScheduleUnit" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [523 552])
+                    ("private" label nil (reparse-symbol classsubparts) [553 561])
+                    ("BasicScheduleUnit" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("BasicScheduleUnit" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [584 610]))                          
+                        :type ("BasicScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [566 611])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("BasicScheduleUnit" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [645 671]))                          
+                        :type ("BasicScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [616 672])
+                    ("public" label nil (reparse-symbol classsubparts) [678 685])
+                    ("getType" function
+                       (:typemodifiers ("virtual")
+                        :type ("ScheduleUnitType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [705 779])
+                    ("getRolePlans" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("rolePlans" variable
+                               (:reference 1
+                                :type ("RolePlanMap" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [826 849]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [800 856])
+                    ("getSlotInfos" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("slotInfos" variable
+                               (:reference 1
+                                :type ("SlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [903 924]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [877 931])
+                    ("getRoles" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("roles" variable
+                               (:reference 1
+                                :type ("std::set" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [974 1003]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [952 1010])
+                    ("protected" label nil (reparse-symbol classsubparts) [1016 1026])
+                    ("setRolePlans" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rolePlans" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RolePlanMap" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1049 1078]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1031 1079])
+                    ("setSlotInfos" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotInfos" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1103 1130]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1085 1131])
+                    ("protected" label nil (reparse-symbol classsubparts) [1137 1147])
+                    ("_rolePlans" variable (:type ("RolePlanMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1152 1175])
+                    ("_slotInfos" variable (:type ("SlotInfos" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1180 1201])
+                    ("_lock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1206 1239]))                  
+                :type "class")
+                nil [358 1242])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("BasicScheduleUnit" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1273 1291]))                  
+                :type "int")
+                nil [1244 1292])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1325 1337]))                  
+                :type "int")
+                nil [1294 1338]))          
+      :file "BasicScheduleUnit.h"
+      :pointmax 1386
+      :fsize 1385
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_BASICSCHEDULEUNIT_H")
+          )
+)
+    (semanticdb-table "ComboScheduleUnit.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_COMBOSCHEDULEUNIT_H" variable (:constant-flag t) nil [54 90])
+            ("master_framework/common.h" include nil nil [92 128])
+            ("master_framework/ScheduleUnit.h" include nil nil [129 171])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [206 218]))                  
+                :type "int")
+                nil [173 219])
+            ("ComboScheduleUnit" type
+               (:superclasses 
+                  ( ("ScheduleUnit" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [269 276])
+                    ("ComboScheduleUnit" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [312 336])
+                            ("hippoMasterDriver" variable
+                               (:pointer 1
+                                :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [349 388]))                          
+                        :type ("ComboScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [281 389])
+                    ("ComboScheduleUnit" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [394 415])
+                    ("private" label nil (reparse-symbol classsubparts) [416 424])
+                    ("ComboScheduleUnit" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ComboScheduleUnit" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [447 473]))                          
+                        :type ("ComboScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [429 474])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ComboScheduleUnit" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [508 534]))                          
+                        :type ("ComboScheduleUnit" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [479 535])
+                    ("public" label nil (reparse-symbol classsubparts) [541 548])
+                    ("addScheduleUnit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("scheduleUnitPtr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScheduleUnitPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [574 613]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [553 614])
+                    ("releaseScheduleUnit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [649 673]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [624 674])
+                    ("getScheduleUnit" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [716 740]))                          
+                        :type ("ScheduleUnitPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [684 747])
+                    ("public" label nil (reparse-symbol classsubparts) [749 756])
+                    ("setPlan" function
+                       (:arguments 
+                          ( ("plan" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Plan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [789 806]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [776 823])
+                    ("getType" function (:type ("ScheduleUnitType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [848 902])
+                    ("getRolePlans" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rolePlans" variable
+                               (:reference 1
+                                :type ("RolePlanMap" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [941 964]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [923 971])
+                    ("getSlotInfos" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotInfos" variable
+                               (:reference 1
+                                :type ("SlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1010 1031]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [992 1038])
+                    ("schedule" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("slotInfos" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RoleSlotInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1073 1104]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1059 1105])
+                    ("getRoles" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("roles" variable
+                               (:reference 1
+                                :type ("std::set" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1148 1177]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1126 1184])
+                    ("public" label nil (reparse-symbol classsubparts) [1186 1193])
+                    ("getScheduleUnits" function (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("ScheduleUnitPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1210 1308])
+                    ("private" label nil (reparse-symbol classsubparts) [1314 1322])
+                    ("_scheduleUnitMap" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil)
+                              ("ScheduleUnitPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [1327 1383])
+                    ("_mapLock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1388 1424]))                  
+                :type "class")
+                nil [221 1427])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("ComboScheduleUnit" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1458 1476]))                  
+                :type "int")
+                nil [1429 1477])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1510 1522]))                  
+                :type "int")
+                nil [1479 1523]))          
+      :file "ComboScheduleUnit.h"
+      :pointmax 1571
+      :fsize 1570
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_COMBOSCHEDULEUNIT_H")
+          )
+)
+    (semanticdb-table "SimpleMaster.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_SIMPLEMASTER_H" variable (:constant-flag t) nil [49 80])
+            ("master_framework/common.h" include nil nil [82 118])
+            ("master_framework/AppPlan.h" include nil nil [119 156])
+            ("master_framework/MasterBase.h" include nil nil [157 197])
+            ("master_framework/SimpleMasterScheduler.h" include nil nil [198 249])
+            ("proto/SimpleMaster.pb.h" include nil nil [250 284])
+            ("autil/Lock.h" include (:system-flag t) nil [285 308])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("simple_master" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [343 357]))                  
+                :type "int")
+                nil [310 358])
+            ("SimpleMasterServiceImpl" type
+               (:prototype t
+                :type "class")
+                nil [360 390])
+            ("SimpleMaster" type
+               (:superclasses 
+                  ( ("master_base::MasterBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [445 452])
+                    ("SimpleMaster" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("SimpleMaster" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [457 472])
+                    ("SimpleMaster" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [477 501])
+                    ("private" label nil (reparse-symbol classsubparts) [503 511])
+                    ("SimpleMaster" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SimpleMaster" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [533 554]))                          
+                        :type ("SimpleMaster" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [520 555])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SimpleMaster" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [584 605]))                          
+                        :type ("SimpleMaster" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [560 606])
+                    ("public" label nil (reparse-symbol classsubparts) [608 615])
+                    ("updateAppPlan" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("proto::UpdateAppPlanRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [639 682])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("proto::UpdateAppPlanResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [706 745]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [620 746])
+                    ("updateRoleProperties" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("request" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("proto::UpdateRolePropertiesRequest" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [778 828])
+                            ("response" variable
+                               (:pointer 1
+                                :type ("proto::UpdateRolePropertiesResponse" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [859 905]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [752 906])
+                    ("getMasterDriver" function
+                       (:pointer 1
+                        :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [916 1023])
+                    ("protected" label nil (reparse-symbol classsubparts) [1029 1039])
+                    ("doInit" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1059 1073])
+                    ("doPrepareToRun" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1098 1120])
+                    ("doIdle" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1141 1155])
+                    ("doSchedule" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("roleSlotInfos" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::map" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil)
+                                          ("SlotInfos" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1198 1252])
+                            ("appPlan" variable
+                               (:reference 1
+                                :type ("AppPlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1265 1282]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1161 1290])
+                    ("protected" label nil (reparse-symbol classsubparts) [1296 1306])
+                    ("getRoleIps" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("roleSlotInfos" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::map" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil)
+                                          ("SlotInfos" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1327 1381])
+                            ("roleName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1402 1430])
+                            ("ips" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1451 1481]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1311 1482])
+                    ("getIpFromSpec" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("spec" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1513 1537]))                          
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1492 1538])
+                    ("protected" label nil (reparse-symbol classsubparts) [1540 1550])
+                    ("schedule" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1577 1593])
+                    ("startSimpleMaster" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1603 1628])
+                    ("initLeaderSerializer" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1638 1666])
+                    ("recover" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1676 1691])
+                    ("doRecoverAppPlan" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("appPlan" variable
+                               (:reference 1
+                                :type ("AppPlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1723 1740]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1701 1741])
+                    ("doUpdateAppPlan" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("appPlan" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AppPlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1772 1795]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1751 1796])
+                    ("updateProperties" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("op" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1824 1846])
+                            ("kvMap" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::map" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil)
+                                          ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1873 1921])
+                            ("rolePlan" variable
+                               (:reference 1
+                                :type ("master_base::RolePlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1948 1980]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1802 1981])
+                    ("setProperties" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("kvMap" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::map" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil)
+                                          ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2006 2054])
+                            ("rolePlan" variable
+                               (:reference 1
+                                :type ("master_base::RolePlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2078 2110]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1987 2111])
+                    ("delProperties" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("kvMap" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::map" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil)
+                                          ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2144 2192])
+                            ("rolePlan" variable
+                               (:reference 1
+                                :type ("master_base::RolePlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2216 2248]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2125 2249])
+                    ("public" label nil (reparse-symbol classsubparts) [2251 2258])
+                    ("setSimpleMasterSchedulerCreator" function
+                       (:arguments 
+                          ( ("creator" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SimpleMasterSchedulerCreatorPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2325 2372]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2275 2436])
+                    ("setLeaderSerializer" function
+                       (:arguments 
+                          ( ("leaderSerializer" variable
+                               (:pointer 1
+                                :type ("hippo::LeaderSerializer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2467 2509]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2442 2597])
+                    ("getAppPlan" function (:type ("AppPlan" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2603 2656])
+                    ("setMasterDriver" function
+                       (:arguments 
+                          ( ("masterDriver" variable
+                               (:pointer 1
+                                :type ("hippo::MasterDriver" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2683 2717]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2662 2791])
+                    ("private" label nil (reparse-symbol classsubparts) [2797 2805])
+                    ("_simpleMasterServiceImpl" variable
+                       (:pointer 1
+                        :type ("SimpleMasterServiceImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2810 2860])
+                    ("_leaderSerializer" variable
+                       (:pointer 1
+                        :type ("hippo::LeaderSerializer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2865 2908])
+                    ("_serializePath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2913 2940])
+                    ("_simpleMasterSchedulerPtr" variable (:type ("SimpleMasterSchedulerPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2945 2996])
+                    ("_simpleMasterSchedulerCreatorPtr" variable (:type ("SimpleMasterSchedulerCreatorPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3001 3066])
+                    ("_appPlan" variable (:type ("AppPlan" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3071 3088])
+                    ("_lock" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3093 3118]))                  
+                :type "class")
+                nil [391 3121])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("SimpleMaster" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3152 3165]))                  
+                :type "int")
+                nil [3123 3166])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("simple_master" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3199 3213]))                  
+                :type "int")
+                nil [3168 3214]))          
+      :file "SimpleMaster.h"
+      :pointmax 3257
+      :fsize 3256
+      :lastmodtime '(22537 49518 532248 344000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_SIMPLEMASTER_H")
+          )
+)
+    (semanticdb-table "MasterBase.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_MASTERBASE_H" variable (:constant-flag t) nil [47 76])
+            ("master_framework/common.h" include nil nil [78 114])
+            ("worker_framework/LeaderedWorkerBase.h" include (:system-flag t) nil [115 163])
+            ("hippo/MasterDriver.h" include (:system-flag t) nil [164 195])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [230 242]))                  
+                :type "int")
+                nil [197 243])
+            ("MasterBase" type
+               (:superclasses 
+                  ( ("worker_framework::worker_base::LeaderedWorkerBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [323 330])
+                    ("MasterBase" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("MasterBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [335 348])
+                    ("MasterBase" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [353 375])
+                    ("private" label nil (reparse-symbol classsubparts) [377 385])
+                    ("MasterBase" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MasterBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [405 424]))                          
+                        :type ("MasterBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [394 425])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("MasterBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [452 471]))                          
+                        :type ("MasterBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [430 472])
+                    ("protected" label nil (reparse-symbol classsubparts) [474 484])
+                    ("doInitOptions" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [489 518])
+                    ("doExtractOptions" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [523 555])
+                    ("doInit" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [560 582])
+                    ("doStart" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [587 610])
+                    ("doPrepareToRun" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [615 645])
+                    ("doIdle" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [650 674])
+                    ("doStop" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [680 704])
+                    ("becomeLeader" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [710 740])
+                    ("noLongerLeader" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [745 777])
+                    ("public" label nil (reparse-symbol classsubparts) [779 786])
+                    ("getZkPath" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [791 833])
+                    ("getHippoZkPath" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [843 895])
+                    ("getAppId" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [905 945])
+                    ("getMasterAddr" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [951 1002])
+                    ("public" label nil (reparse-symbol classsubparts) [1004 1011])
+                    ("setZkPath" function
+                       (:arguments 
+                          ( ("zkPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1043 1069]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1028 1090])
+                    ("private" label nil (reparse-symbol classsubparts) [1096 1104])
+                    ("_zkPath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1109 1129])
+                    ("_hippoZkPath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1134 1159])
+                    ("_masterAddr" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1164 1188])
+                    ("_appId" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1193 1212]))                  
+                :type "class")
+                nil [245 1215])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("MasterBase" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1246 1257]))                  
+                :type "int")
+                nil [1217 1258])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1291 1303]))                  
+                :type "int")
+                nil [1260 1304]))          
+      :file "MasterBase.h"
+      :pointmax 1345
+      :fsize 1344
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax '((thing 674 . 675) (thing 704 . 705))
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_MASTERBASE_H")
+          )
+)
+    (semanticdb-table "Plan.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_PLAN_H" variable (:constant-flag t) nil [41 64])
+            ("master_framework/common.h" include nil nil [66 102])
+            ("autil/legacy/jsonizable.h" include (:system-flag t) nil [103 139])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [174 186]))                  
+                :type "int")
+                nil [141 187])
+            ("Plan" type
+               (:superclasses 
+                  ( ("autil::legacy::Jsonizable" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [237 244])
+                    ("Plan" function
+                       (:constructor-flag t
+                        :type ("Plan" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [249 258])
+                    ("Plan" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [263 281]))                  
+                :type "class")
+                nil [189 284])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Plan" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [315 320]))                  
+                :type "int")
+                nil [286 321])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [354 366]))                  
+                :type "int")
+                nil [323 367]))          
+      :file "Plan.h"
+      :pointmax 402
+      :fsize 401
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_PLAN_H")
+          )
+)
+    (semanticdb-table "AppPlanMaker.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("MASTER_FRAMEWORK_APPPLANMAKER_H" variable (:constant-flag t) nil [49 80])
+            ("master_framework/common.h" include nil nil [82 118])
+            ("master_framework/AppPlan.h" include nil nil [119 156])
+            ("BEGIN_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("simple_master" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [191 205]))                  
+                :type "int")
+                nil [158 206])
+            ("GroupRolePair" type
+               (:typedef ("std::pair" type
+                     (:template-specifier 
+                        ( ("std::string" type nil nil nil)
+                          ("std::string" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [208 266])
+            ("AppPlanMaker" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [306 313])
+                    ("AppPlanMaker" function
+                       (:constructor-flag t
+                        :type ("AppPlanMaker" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [318 335])
+                    ("AppPlanMaker" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [340 366])
+                    ("private" label nil (reparse-symbol classsubparts) [367 375])
+                    ("AppPlanMaker" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AppPlanMaker" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [393 414]))                          
+                        :type ("AppPlanMaker" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [380 415])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AppPlanMaker" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [444 465]))                          
+                        :type ("AppPlanMaker" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [420 466])
+                    ("public" label nil (reparse-symbol classsubparts) [467 474])
+                    ("loadConfig" function
+                       (:arguments 
+                          ( ("configPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [495 525]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [479 554])
+                    ("makeAppPlan" function
+                       (:arguments 
+                          ( ("groupRoles" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("GroupRolePair" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [579 624]))                          
+                        :type ("AppPlan" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [559 664])
+                    ("protected" label nil (reparse-symbol classsubparts) [665 675])
+                    ("doLoadConfig" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("json" variable
+                               (:reference 1
+                                :type ("autil::legacy::Jsonizable::JsonWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [706 751]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [680 780])
+                    ("rewriteRolePlan" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("groupName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [814 843])
+                            ("roleName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [877 905])
+                            ("rolePlan" variable
+                               (:reference 1
+                                :type ("RolePlan" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [939 958]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [785 997])
+                    ("private" label nil (reparse-symbol classsubparts) [998 1006])
+                    ("MASTER_FRAMEWORK_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1011 1042]))                  
+                :type "class")
+                nil [285 1045])
+            ("MASTER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("AppPlanMaker" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1076 1089]))                  
+                :type "int")
+                nil [1047 1090])
+            ("END_MASTER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("master_framework" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1123 1140]))                  
+                :type "int")
+                nil [1092 1141]))          
+      :file "AppPlanMaker.h"
+      :pointmax 1184
+      :fsize 1183
+      :lastmodtime '(22537 49518 531248 346000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("MASTER_FRAMEWORK_APPPLANMAKER_H")
+          )
+)
+    (semanticdb-table "ScheduleUnitFactory.h"
+      :file "ScheduleUnitFactory.h"
+      :fsize 742
+      :lastmodtime '(22537 49518 532248 344000)))
+  :file "!ssd!sdd!git!master_framework!include!master_framework!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

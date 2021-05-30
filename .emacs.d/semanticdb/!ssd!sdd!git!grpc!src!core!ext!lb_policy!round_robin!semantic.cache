@@ -1,0 +1,500 @@
+;; Object round_robin/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "round_robin/"
+  :tables
+  (list
+    (semanticdb-table "round_robin.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("string.h" include (:system-flag t) nil [3017 3036])
+            ("grpc/support/alloc.h" include (:system-flag t) nil [3038 3069])
+            ("src/core/ext/client_channel/lb_policy_registry.h" include nil nil [3071 3130])
+            ("src/core/ext/client_channel/subchannel.h" include nil nil [3131 3182])
+            ("src/core/lib/channel/channel_args.h" include nil nil [3183 3229])
+            ("src/core/lib/debug/trace.h" include nil nil [3230 3267])
+            ("src/core/lib/iomgr/combiner.h" include nil nil [3268 3308])
+            ("src/core/lib/iomgr/sockaddr_utils.h" include nil nil [3309 3355])
+            ("src/core/lib/transport/connectivity_state.h" include nil nil [3356 3410])
+            ("src/core/lib/transport/static_metadata.h" include nil nil [3411 3462])
+            ("round_robin_lb_policy" type
+               (:typedef ("round_robin_lb_policy" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [3464 3523])
+            ("grpc_lb_round_robin_trace" variable
+               (:default-value "0"
+                :type "int")
+                nil [3525 3559])
+            ("pending_pick" type
+               (:members 
+                  ( ("next" variable
+                       (:pointer 1
+                        :type ("pending_pick" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [3717 3743])
+                    ("user_data" variable
+                       (:pointer 2
+                        :type "void")
+                        (reparse-symbol classsubparts) [3937 3954])
+                    ("initial_metadata_flags" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4065 4097])
+                    ("target" variable
+                       (:pointer 2
+                        :type ("grpc_connected_subchannel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4200 4235])
+                    ("on_complete" variable
+                       (:pointer 1
+                        :type ("grpc_closure" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4315 4341]))                  
+                :type "struct")
+                nil [3685 4357])
+            ("pending_pick" type
+               (:typedef ("pending_pick" type (:type "struct") nil nil)
+                :type "typedef")
+                nil [3685 4357])
+            ("ready_list" type
+               (:members 
+                  ( ("subchannel" variable
+                       (:pointer 1
+                        :type ("grpc_subchannel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4446 4474])
+                    ("user_data" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [4530 4546])
+                    ("next" variable
+                       (:pointer 1
+                        :type ("ready_list" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [4549 4573])
+                    ("prev" variable
+                       (:pointer 1
+                        :type ("ready_list" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [4576 4600]))                  
+                :type "struct")
+                nil [4416 4614])
+            ("ready_list" type
+               (:typedef ("ready_list" type (:type "struct") nil nil)
+                :type "typedef")
+                nil [4416 4614])
+            ("subchannel_data" type
+               (:typedef ("" type
+                     (:members 
+                        ( ("index" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4677 4690])
+                          ("policy" variable
+                             (:pointer 1
+                              :type ("round_robin_lb_policy" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4731 4761])
+                          ("subchannel" variable
+                             (:pointer 1
+                              :type ("grpc_subchannel" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [4791 4819])
+                          ("connectivity_changed_closure" variable (:type ("grpc_closure" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4888 4930])
+                          ("ready_list_node" variable
+                             (:pointer 1
+                              :type ("ready_list" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [5002 5030])
+                          ("prev_connectivity_state" variable (:type ("grpc_connectivity_state" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5236 5284])
+                          ("curr_connectivity_state" variable (:type ("grpc_connectivity_state" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5382 5430])
+                          ("user_data" variable
+                             (:pointer 1
+                              :type "void")
+                              (reparse-symbol classsubparts) [5476 5492])
+                          ("user_data_vtable" variable
+                             (:pointer 1
+                              :constant-flag t
+                              :type ("grpc_lb_user_data_vtable" type (:type "class") nil nil))
+                              (reparse-symbol classsubparts) [5540 5589]))                        
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [4616 5608])
+            ("round_robin_lb_policy" type
+               (:members 
+                  ( ("base" variable (:type ("grpc_lb_policy" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5679 5699])
+                    ("num_addresses" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5764 5785])
+                    ("num_subchannels" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5818 5841])
+                    ("subchannels" variable
+                       (:pointer 2
+                        :type ("subchannel_data" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5844 5874])
+                    ("num_transient_failures" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5933 5963])
+                    ("num_idle" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [6005 6021])
+                    ("started_picking" variable (:type "int") (reparse-symbol classsubparts) [6059 6079])
+                    ("shutdown" variable (:type "int") (reparse-symbol classsubparts) [6113 6126])
+                    ("pending_picks" variable
+                       (:pointer 1
+                        :type ("pending_pick" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6185 6213])
+                    ("state_tracker" variable (:type ("grpc_connectivity_state_tracker" type (:type "class") nil nil)) (reparse-symbol classsubparts) [6257 6303])
+                    ("ready_list" variable (:type ("ready_list" type (:type "class") nil nil)) (reparse-symbol classsubparts) [6384 6406])
+                    ("ready_list_last_pick" variable
+                       (:pointer 1
+                        :type ("ready_list" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6449 6482]))                  
+                :type "struct")
+                nil [5610 6485])
+            ("peek_next_connected_locked" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("p" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("round_robin_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6748 6779]))                  
+                :type ("ready_list" type (:type "class") nil nil))
+                nil [6702 7137])
+            ("advance_last_picked_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("p" variable
+                       (:pointer 1
+                        :type ("round_robin_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7225 7250]))                  
+                :type "void")
+                nil [7186 8031])
+            ("add_connected_sc_locked" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("p" variable
+                       (:pointer 1
+                        :type ("round_robin_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8201 8226])
+                    ("sd" variable
+                       (:pointer 1
+                        :type ("subchannel_data" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8270 8290]))                  
+                :type ("ready_list" type (:type "class") nil nil))
+                nil [8158 8984])
+            ("remove_disconnected_sc_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("p" variable
+                       (:pointer 1
+                        :type ("round_robin_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9090 9115])
+                    ("node" variable
+                       (:pointer 1
+                        :type ("ready_list" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9158 9175]))                  
+                :type "void")
+                nil [9048 9900])
+            ("is_ready_list_empty" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("p" variable
+                       (:pointer 1
+                        :type ("round_robin_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9934 9959]))                  
+                :type "bool")
+                nil [9902 10000])
+            ("rr_destroy" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10025 10049])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10050 10070]))                  
+                :type "void")
+                nil [10002 10953])
+            ("rr_shutdown_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10986 11010])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11011 11031]))                  
+                :type "void")
+                nil [10955 11897])
+            ("rr_cancel_pick_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11933 11957])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11958 11978])
+                    ("target" variable
+                       (:pointer 2
+                        :type ("grpc_connected_subchannel" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12013 12048])
+                    ("error" variable
+                       (:pointer 1
+                        :type ("grpc_error" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12083 12101]))                  
+                :type "void")
+                nil [11899 12631])
+            ("rr_cancel_picks_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12668 12692])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12693 12713])
+                    ("initial_metadata_flags_mask" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12749 12786])
+                    ("initial_metadata_flags_eq" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12822 12857])
+                    ("error" variable
+                       (:pointer 1
+                        :type ("grpc_error" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12893 12911]))                  
+                :type "void")
+                nil [12633 13520])
+            ("start_picking_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13555 13579])
+                    ("p" variable
+                       (:pointer 1
+                        :type ("round_robin_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13613 13638]))                  
+                :type "void")
+                nil [13522 14376])
+            ("rr_exit_idle_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14410 14434])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14435 14455]))                  
+                :type "void")
+                nil [14378 14590])
+            ("rr_pick_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14618 14642])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14643 14663])
+                    ("pick_args" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("grpc_lb_policy_pick_args" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14690 14732])
+                    ("target" variable
+                       (:pointer 2
+                        :type ("grpc_connected_subchannel" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14759 14794])
+                    ("user_data" variable
+                       (:pointer 2
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [14795 14812])
+                    ("on_complete" variable
+                       (:pointer 1
+                        :type ("grpc_closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14839 14865]))                  
+                :type "int")
+                nil [14592 16147])
+            ("update_state_counters" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("sd" variable
+                       (:pointer 1
+                        :type ("subchannel_data" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16183 16203]))                  
+                :type "void")
+                nil [16149 16708])
+            ("update_lb_connectivity_status" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16942 16966])
+                    ("sd" variable
+                       (:pointer 1
+                        :type ("subchannel_data" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16967 16987])
+                    ("error" variable
+                       (:pointer 1
+                        :type ("grpc_error" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16988 17006]))                  
+                :type ("grpc_connectivity_state" type (:type "class") nil nil))
+                nil [16876 19327])
+            ("rr_connectivity_changed_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19372 19396])
+                    ("arg" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [19397 19407])
+                    ("error" variable
+                       (:pointer 1
+                        :type ("grpc_error" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19451 19469]))                  
+                :type "void")
+                nil [19329 23907])
+            ("rr_check_connectivity_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23974 23998])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23999 24019])
+                    ("error" variable
+                       (:pointer 2
+                        :type ("grpc_error" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24020 24039]))                  
+                :type ("grpc_connectivity_state" type (:type "class") nil nil))
+                nil [23909 24166])
+            ("rr_notify_on_state_change_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24213 24237])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24283 24303])
+                    ("current" variable
+                       (:pointer 1
+                        :type ("grpc_connectivity_state" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24349 24382])
+                    ("notify" variable
+                       (:pointer 1
+                        :type ("grpc_closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24428 24449]))                  
+                :type "void")
+                nil [24168 24657])
+            ("rr_ping_one_locked" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24690 24714])
+                    ("pol" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24715 24735])
+                    ("closure" variable
+                       (:pointer 1
+                        :type ("grpc_closure" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24767 24789]))                  
+                :type "void")
+                nil [24659 25363])
+            ("round_robin_lb_policy_vtable" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "{
+    rr_destroy,
+    rr_shutdown_locked,
+    rr_pick_locked,
+    rr_cancel_pick_locked,
+    rr_cancel_picks_locked,
+    rr_ping_one_locked,
+    rr_exit_idle_locked,
+    rr_check_connectivity_locked,
+    rr_notify_on_state_change_locked}"
+                :type ("grpc_lb_policy_vtable" type (:type "class") nil nil))
+                nil [25365 25669])
+            ("round_robin_factory_ref" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("factory" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy_factory" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25707 25739]))                  
+                :type "void")
+                nil [25671 25742])
+            ("round_robin_factory_unref" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("factory" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy_factory" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25782 25814]))                  
+                :type "void")
+                nil [25744 25817])
+            ("round_robin_create" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("exec_ctx" variable
+                       (:pointer 1
+                        :type ("grpc_exec_ctx" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25861 25885])
+                    ("factory" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy_factory" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25928 25960])
+                    ("args" variable
+                       (:pointer 1
+                        :type ("grpc_lb_policy_args" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26003 26029]))                  
+                :type ("grpc_lb_policy" type (:type "class") nil nil))
+                nil [25819 29205])
+            ("round_robin_factory_vtable" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "{
+    round_robin_factory_ref, round_robin_factory_unref, round_robin_create,
+    \"round_robin\"}"
+                :type ("grpc_lb_policy_factory_vtable" type (:type "class") nil nil))
+                nil [29207 29376])
+            ("round_robin_lb_policy_factory" variable
+               (:typemodifiers ("static")
+                :default-value "{
+    &round_robin_factory_vtable}"
+                :type ("grpc_lb_policy_factory" type (:type "class") nil nil))
+                nil [29378 29475])
+            ("round_robin_lb_factory_create" function
+               (:pointer 1
+                :typemodifiers ("static")
+                :type ("grpc_lb_policy_factory" type (:type "class") nil nil))
+                nil [29477 29584])
+            ("grpc_lb_policy_round_robin_init" function (:type "void") nil [29613 29782])
+            ("grpc_lb_policy_round_robin_shutdown" function (:type "void") nil [29784 29829]))          
+      :file "round_robin.c"
+      :pointmax 29830
+      :fsize 29829
+      :lastmodtime '(22738 11244 0 0)
+      :unmatched-syntax '((thing 1 . 1))))
+  :file "!ssd!sdd!git!grpc!src!core!ext!lb_policy!round_robin!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

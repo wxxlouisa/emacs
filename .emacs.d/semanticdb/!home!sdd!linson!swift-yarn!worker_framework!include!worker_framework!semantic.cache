@@ -1,0 +1,931 @@
+;; Object worker_framework/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "worker_framework/"
+  :tables
+  (list
+    (semanticdb-table "LeaderedWorkerBase.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("WORKER_FRAMEWORK_LEADEREDWORKERBASE_H" variable (:constant-flag t) nil [55 92])
+            ("worker_framework/common.h" include nil nil [94 130])
+            ("worker_framework/WorkerBase.h" include nil nil [131 171])
+            ("worker_framework/LeaderElector.h" include nil nil [172 215])
+            ("cm_basic/util/zk_wrapper.h" include (:system-flag t) nil [216 253])
+            ("autil/LoopThread.h" include (:system-flag t) nil [254 283])
+            ("BEGIN_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [318 330]))                  
+                :type "int")
+                nil [285 331])
+            ("LeaderedWorkerBaseImpl" type
+               (:prototype t
+                :type "class")
+                nil [333 362])
+            ("LeaderedWorkerBase" type
+               (:superclasses 
+                  ( ("WorkerBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [411 418])
+                    ("LeaderedWorkerBase" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("LeaderedWorkerBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [423 444])
+                    ("LeaderedWorkerBase" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [449 471])
+                    ("private" label nil (reparse-symbol classsubparts) [472 480])
+                    ("LeaderedWorkerBase" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("LeaderedWorkerBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [504 531]))                          
+                        :type ("LeaderedWorkerBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [485 532])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("LeaderedWorkerBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [567 594]))                          
+                        :type ("LeaderedWorkerBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [537 595])
+                    ("protected" label nil (reparse-symbol classsubparts) [596 606])
+                    ("isLeader" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [611 641])
+                    ("getZkWrapper" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :type ("cm_basic::ZkWrapper" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [646 696])
+                    ("waitToBeLeader" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("retryTimes" variable
+                               (:default-value "LEADER_RETRY_COUNT"
+                                :type ("uint32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [729 769]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [701 777])
+                    ("initLeaderElector" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("zkRoot" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [814 840]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [783 841])
+                    ("initLeaderElector" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("zkRoot" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [877 903])
+                            ("leaseInSec" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [904 923])
+                            ("loopInterval" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [959 980])
+                            ("progressKey" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [981 1012]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [846 1013])
+                    ("shutdownLeaderElector" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1018 1055])
+                    ("getLeaderElector" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :type ("LeaderElector" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1060 1108])
+                    ("protected" label nil (reparse-symbol classsubparts) [1110 1120])
+                    ("becomeLeader" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1125 1157])
+                    ("noLongerLeader" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1162 1196])
+                    ("protected" label nil (reparse-symbol classsubparts) [1197 1207])
+                    ("getLeaderAddress" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1212 1249])
+                    ("getLeaderElectorPath" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1254 1295])
+                    ("getLeaderInfoPath" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1300 1338])
+                    ("getLeaderElectorLockPath" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1343 1388])
+                    ("private" label nil (reparse-symbol classsubparts) [1389 1397])
+                    ("_impl" variable
+                       (:pointer 1
+                        :type ("LeaderedWorkerBaseImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1402 1432])
+                    ("protected" label nil (reparse-symbol classsubparts) [1433 1443])
+                    ("DEFAULT_ZK_TIMEOUT" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "10"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1448 1494])
+                    ("LEADER_SESSION_TIMEOUT" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "DEFAULT_ZK_TIMEOUT"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1518 1584])
+                    ("LEADER_CHECK_INTERVAL" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "500 * 1000"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1589 1646])
+                    ("LEADER_RETRY_TIME_INTERVAL" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "1000 * 1000"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1661 1724])
+                    ("LEADER_RETRY_COUNT" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "300"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1735 1782])
+                    ("LEASE_IN_SECOND" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "60"
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1787 1829])
+                    ("LOOP_INTERVAL" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "2"
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1841 1880])
+                    ("LEADER_ELECTION_BASE_FILE" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1891 1942]))                  
+                :type "class")
+                nil [364 1945])
+            ("WORKER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("LeaderedWorkerBase" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1976 1995]))                  
+                :type "int")
+                nil [1947 1996])
+            ("END_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2029 2041]))                  
+                :type "int")
+                nil [1998 2042]))          
+      :file "LeaderedWorkerBase.h"
+      :pointmax 2091
+      :fsize 2090
+      :lastmodtime '(22949 22007 838129 894000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("WORKER_FRAMEWORK_LEADEREDWORKERBASE_H")
+          )
+)
+    (semanticdb-table "LeaderElector.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("WORKER_FRAMEWORK_LEADERELECTOR_H" variable (:constant-flag t) nil [50 82])
+            ("autil/Lock.h" include (:system-flag t) nil [84 107])
+            ("autil/LoopThread.h" include (:system-flag t) nil [108 137])
+            ("cm_basic/util/zk_wrapper.h" include (:system-flag t) nil [138 175])
+            ("worker_framework/common.h" include nil nil [176 212])
+            ("worker_framework/LeaderInfo.h" include nil nil [213 253])
+            ("BEGIN_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [288 300]))                  
+                :type "int")
+                nil [255 301])
+            ("LeaderElector" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [325 332])
+                    ("HandlerFuncType" variable (:type "int") (reparse-symbol classsubparts) [374 390])
+                    ("public" label nil (reparse-symbol classsubparts) [391 398])
+                    ("LeaderElector" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("zkWrapper" variable
+                               (:pointer 1
+                                :type ("cm_basic::ZkWrapper" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [417 448])
+                            ("leaderPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [449 479])
+                            ("leaseInSec" variable
+                               (:default-value "60"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [498 521])
+                            ("loopInterval" variable
+                               (:default-value "2"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [523 547])
+                            ("progressKey" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "DEFAULT_PROGRESS_KEY"
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [567 620]))                          
+                        :type ("LeaderElector" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [403 622])
+                    ("LeaderElector" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [627 652])
+                    ("private" label nil (reparse-symbol classsubparts) [653 661])
+                    ("LeaderElector" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("LeaderElector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [680 702]))                          
+                        :type ("LeaderElector" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [666 703])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("LeaderElector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [735 757]))                          
+                        :type ("LeaderElector" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [708 758])
+                    ("public" label nil (reparse-symbol classsubparts) [759 766])
+                    ("start" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [795 816])
+                    ("stop" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [821 841])
+                    ("isLeader" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [847 877])
+                    ("getLeaseExpirationTime" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [927 974])
+                    ("tryLock" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [979 1002])
+                    ("unlock" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1007 1029])
+                    ("setNoLongerLeaderHandler" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("handler" variable (:type ("HandlerFuncType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1095 1119]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1065 1120])
+                    ("setBecomeLeaderHandler" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("handler" variable (:type ("HandlerFuncType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1153 1177]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1125 1178])
+                    ("setLeaderInfo" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("leaderInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1203 1233]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1184 1234])
+                    ("setLeaderInfoPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("leaderInfoPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1262 1296]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1239 1297])
+                    ("getLeaderInfo" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1302 1344])
+                    ("getLeaderInfoPath" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1349 1395])
+                    ("writeLeaderInfo" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("leaderInfoPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1443 1477])
+                            ("leaderInfo" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1478 1508]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1401 1509])
+                    ("getZkWrapper" function
+                       (:pointer 1
+                        :type ("cm_basic::ZkWrapper" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1515 1579])
+                    ("private" label nil (reparse-symbol classsubparts) [1580 1588])
+                    ("workLoop" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1607 1627]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1593 1628])
+                    ("private" label nil (reparse-symbol classsubparts) [1641 1649])
+                    ("campaignLeader" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1674 1694]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1654 1695])
+                    ("doCampaign" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1716 1736]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1700 1737])
+                    ("holdLeader" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1759 1779]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1743 1780])
+                    ("doHoldLeader" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1803 1823]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1785 1824])
+                    ("private" label nil (reparse-symbol classsubparts) [1825 1833])
+                    ("checkStillLeader" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1868 1888]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1838 1889])
+                    ("reletLeaderTime" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("leaseExpirationTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1923 1951]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1894 1952])
+                    ("getLeaderLeaseExpirationTime" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("lastLeaderEndTime" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2012 2039])
+                            ("progressKey" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2040 2065]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1957 2066])
+                    ("getLeaderEndTimeFromString" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("leaderFileContentStr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2124 2164])
+                            ("lastLeaderEndTime" variable
+                               (:reference 1
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2165 2192])
+                            ("progressKey" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2205 2230]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2071 2231])
+                    ("private" label nil (reparse-symbol classsubparts) [2232 2240])
+                    ("lockForLease" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2245 2273])
+                    ("unlockForLease" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2278 2308])
+                    ("private" label nil (reparse-symbol classsubparts) [2309 2317])
+                    ("updateLeaderInfo" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("toBeLeader" variable (:type "bool") (reparse-symbol arg-sub-list) [2344 2360])
+                            ("leaseExpirationTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2361 2389]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2322 2390])
+                    ("writeForZk" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("zkPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2411 2437])
+                            ("content" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2438 2465])
+                            ("permanent" variable (:type "bool") (reparse-symbol arg-sub-list) [2466 2481]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2395 2482])
+                    ("progressKeyEqual" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("progressKey" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2509 2540]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2487 2541])
+                    ("generateLeaderLeaseFileStr" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("leaseExpirationTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2585 2613]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2546 2614])
+                    ("private" label nil (reparse-symbol classsubparts) [2615 2623])
+                    ("getLockPath" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("leaderPath" variable
+                               (:constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2659 2688]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2628 2689])
+                    ("getLeaseTimeFile" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("leaderPath" variable
+                               (:constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2730 2759]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2694 2760])
+                    ("private" label nil (reparse-symbol classsubparts) [2761 2769])
+                    ("_isLeader" variable (:type "bool") (reparse-symbol classsubparts) [2774 2789])
+                    ("_leaseExpirationTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2794 2823])
+                    ("_mutex" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2828 2862])
+                    ("_leaderInfoPath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2868 2896])
+                    ("_leaderInfo" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2901 2925])
+                    ("_leaderInfoMutex" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2930 2974])
+                    ("_zkWrapper" variable
+                       (:pointer 1
+                        :type ("cm_basic::ZkWrapper" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2980 3012])
+                    ("_leaderPath" variable
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3017 3047])
+                    ("_leaseTimeoutUs" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3052 3076])
+                    ("_loopInterval" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3081 3103])
+                    ("_leaderCheckThreadPtr" variable (:type ("autil::LoopThreadPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3108 3151])
+                    ("_leaderAddr" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3156 3180])
+                    ("_progressKey" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3185 3210])
+                    ("_leaderInfoHandler" variable (:type ("HandlerFuncType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3216 3251])
+                    ("_becomeLeaderHandler" variable (:type ("HandlerFuncType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3256 3293])
+                    ("_noLongerLeaderHandler" variable (:type ("HandlerFuncType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3298 3337])
+                    ("private" label nil (reparse-symbol classsubparts) [3338 3346])
+                    ("LEADER_CHECK_INTERVAL" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "500 * 1000"
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3351 3408])
+                    ("LEADER_LEASE_FILE_NAME" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3423 3471])
+                    ("LEADER_LEASE_FILE_SPLIT_SIGN" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3476 3530])
+                    ("DEFAULT_PROGRESS_KEY" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3535 3581]))                  
+                :type "class")
+                nil [303 3584])
+            ("WORKER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("LeaderElector" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3616 3630]))                  
+                :type "int")
+                nil [3587 3631])
+            ("END_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3664 3676]))                  
+                :type "int")
+                nil [3633 3677]))          
+      :file "LeaderElector.h"
+      :pointmax 3721
+      :fsize 3720
+      :lastmodtime '(22949 22007 838129 894000)
+      :unmatched-syntax '((thing 372 . 373) (thing 370 . 372) (thing 365 . 369) (thing 364 . 365) (thing 356 . 364) (thing 355 . 356) (thing 354 . 355) (thing 345 . 354) (thing 337 . 344))
+      :lexical-table 
+        '(("WORKER_FRAMEWORK_LEADERELECTOR_H")
+          )
+)
+    (semanticdb-table "WorkerBase.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("WORKER_BASE_H" variable (:constant-flag t) nil [31 44])
+            ("worker_framework/common.h" include nil nil [46 82])
+            ("autil/OptionParser.h" include (:system-flag t) nil [83 114])
+            ("arpc/ANetRPCServer.h" include (:system-flag t) nil [115 146])
+            ("http_arpc" type
+               (:members 
+                  ( ("HTTPRPCServer" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [170 190]))                  
+                :type "namespace")
+                nil [148 192])
+            ("BEGIN_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [227 239]))                  
+                :type "int")
+                nil [194 240])
+            ("WorkerBaseImpl" type
+               (:prototype t
+                :type "class")
+                nil [242 263])
+            ("WorkerBase" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [284 291])
+                    ("WorkerBase" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("WorkerBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [296 309])
+                    ("WorkerBase" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [314 336])
+                    ("private" label nil (reparse-symbol classsubparts) [337 345])
+                    ("WorkerBase" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("WorkerBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [361 380]))                          
+                        :type ("WorkerBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [350 381])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("WorkerBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [408 427]))                          
+                        :type ("WorkerBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [386 428])
+                    ("public" label nil (reparse-symbol classsubparts) [429 436])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [451 460])
+                            ("argv" variable
+                               (:pointer 2
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [461 473]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [441 474])
+                    ("run" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [479 490])
+                    ("registerService" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rpcService" variable
+                               (:pointer 1
+                                :type ("RPCService" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [529 552])
+                            ("tpd" variable
+                               (:default-value "arpc::ThreadPoolDescriptor()"
+                                :type ("arpc::ThreadPoolDescriptor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [565 626]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [495 628])
+                    ("getOptionParser" function
+                       (:prototype-flag t
+                        :type ("autil::OptionParser" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [634 673])
+                    ("getOptionParser" function
+                       (:prototype-flag t
+                        :constant-flag t
+                        :type ("autil::OptionParser" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [678 729])
+                    ("getIp" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [735 761])
+                    ("getPort" function
+                       (:prototype-flag t
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [766 791])
+                    ("getAddress" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [796 827])
+                    ("getHTTPPort" function
+                       (:prototype-flag t
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [833 862])
+                    ("getHTTPAddress" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [867 902])
+                    ("supportHTTP" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [907 932])
+                    ("initHTTPRPCServer" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [937 962])
+                    ("getCwdPath" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [968 999])
+                    ("getLogConfFile" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1004 1039])
+                    ("getVersion" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1044 1077])
+                    ("stop" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1082 1094])
+                    ("stopRPCServer" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1148 1169])
+                    ("getHTTPRPCServer" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("http_arpc::HTTPRPCServer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1174 1219])
+                    ("protected" label nil (reparse-symbol classsubparts) [1220 1230])
+                    ("doInitOptions" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1235 1266])
+                    ("doExtractOptions" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1272 1306])
+                    ("doInit" function
+                       (:typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1312 1350])
+                    ("doStart" function
+                       (:typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1355 1394])
+                    ("doPrepareToRun" function
+                       (:typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1399 1445])
+                    ("doIdle" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1450 1474])
+                    ("doStop" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1480 1504])
+                    ("setReInit" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1510 1527])
+                    ("getRPCServer" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :type ("arpc::ANetRPCServer" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1533 1569])
+                    ("private" label nil (reparse-symbol classsubparts) [1570 1578])
+                    ("initOptions" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1583 1602])
+                    ("extractOptions" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1607 1629])
+                    ("initLog" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1634 1649])
+                    ("initRPCServer" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1654 1675])
+                    ("startRPCServer" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1680 1702])
+                    ("private" label nil (reparse-symbol classsubparts) [1703 1711])
+                    ("initDeamon" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1716 1734])
+                    ("listen" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:constant-flag t
+                                :type ("C_STD_TR1::function" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1754 1780])
+                            ("" variable (:type "bool") (reparse-symbol arg-sub-list) [1780 1797])
+                            ("" variable (:type ("listenFunc" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1800 1811])
+                            ("port" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1831 1844]))                          
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1739 1845])
+                    ("changeCurrentPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1873 1897]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1850 1898])
+                    ("isStopped" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1903 1920])
+                    ("setRPCServer" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("rpcServer" variable
+                               (:pointer 1
+                                :type ("arpc::ANetRPCServer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1960 1991]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1942 1992])
+                    ("setHTTPRPCServer" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("httpRPCServer" variable
+                               (:pointer 1
+                                :type ("http_arpc::HTTPRPCServer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2019 2059]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1997 2060])
+                    ("private" label nil (reparse-symbol classsubparts) [2062 2070])
+                    ("_impl" variable
+                       (:pointer 1
+                        :type ("WorkerBaseImpl" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2075 2097]))                  
+                :type "class")
+                nil [265 2100])
+            ("createWorker" function
+               (:prototype-flag t
+                :pointer 1
+                :type ("WorkerBase" type (:type "class") nil nil))
+                nil [2102 2129])
+            ("WORKER_FRAMEWORK_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("WorkerBase" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2160 2171]))                  
+                :type "int")
+                nil [2131 2172])
+            ("END_WORKER_FRAMEWORK_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("worker_base" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2205 2217]))                  
+                :type "int")
+                nil [2174 2218]))          
+      :file "WorkerBase.h"
+      :pointmax 2243
+      :fsize 2242
+      :lastmodtime '(22949 22007 838129 894000)
+      :unmatched-syntax '((thing 1474 . 1475) (thing 1306 . 1307) (thing 1266 . 1267) (thing 1504 . 1505) (thing 1779 . 1780) (thing 1784 . 1797) (thing 1797 . 1798) (thing 1799 . 1800))
+      :lexical-table 
+        '(("WORKER_BASE_H")
+          )
+)
+    (semanticdb-table "common.h"
+      :file "common.h"
+      :fsize 823
+      :lastmodtime '(22949 22007 838129 894000)))
+  :file "!home!sdd!linson!swift-yarn!worker_framework!include!worker_framework!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

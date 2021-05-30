@@ -1,0 +1,775 @@
+;; Object anet/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "anet/"
+  :tables
+  (list
+    (semanticdb-table "transport.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ANET_TRANSPORT_H_" variable (:constant-flag t) nil [35 52])
+            ("queue" include (:system-flag t) nil [53 69])
+            ("vector" include (:system-flag t) nil [70 87])
+            ("list" include (:system-flag t) nil [88 103])
+            ("anet/thread.h" include (:system-flag t) nil [104 128])
+            ("anet/epollsocketevent.h" include (:system-flag t) nil [129 163])
+            ("anet/ipacketstreamer.h" include (:system-flag t) nil [164 197])
+            ("anet/iserveradapter.h" include (:system-flag t) nil [198 230])
+            ("anet/connection.h" include (:system-flag t) nil [231 259])
+            ("anet/iocomponent.h" include (:system-flag t) nil [260 289])
+            ("anet/itransport.h" include (:system-flag t) nil [290 318])
+            ("anet/socket.h" include (:system-flag t) nil [319 343])
+            ("anet" type
+               (:members 
+                  ( ("IoWorker" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [363 378])
+                    ("ListenFdThreadModeEnum" type
+                       (:members 
+                          ( ("SHARE_THREAD" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [874 887])
+                            ("EXCLUSIVE_LISTEN_THREAD" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [934 958]))                          
+                        :type "enum")
+                        (reparse-symbol namespacesubparts) [840 962])
+                    ("Transport" type
+                       (:superclasses 
+                          ( ("Runnable" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil)
+                            ("ITransport" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("TransportTF" friend nil (reparse-symbol classsubparts) [1023 1047])
+                            ("TCPComponentIdleTimeTF" friend nil (reparse-symbol classsubparts) [1053 1088])
+                            ("TCPCONNECTIONTF" friend nil (reparse-symbol classsubparts) [1094 1122])
+                            ("TCPComponentTF" friend nil (reparse-symbol classsubparts) [1128 1155])
+                            ("ConnectionTF" friend nil (reparse-symbol classsubparts) [1161 1186])
+                            ("public" label nil (reparse-symbol classsubparts) [1188 1195])
+                            ("CommandType" type
+                               (:members 
+                                  ( ("TC_ADD_IOC" variable
+                                       (:constant-flag t
+                                        :default-value (1240 1241)
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [1227 1241])
+                                    ("TC_REMOVE_IOC" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [1251 1270]))                                  
+                                :type "enum")
+                                (reparse-symbol classsubparts) [1200 1271])
+                            ("TransportCommand" type
+                               (:members 
+                                  ( ("type" variable (:type ("CommandType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1311 1328])
+                                    ("ioc" variable
+                                       (:pointer 1
+                                        :type ("IOComponent" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1337 1354]))                                  
+                                :type "struct")
+                                (reparse-symbol classsubparts) [1277 1361])
+                            ("Transport" function
+                               (:prototype-flag t
+                                :constructor-flag t
+                                :type ("Transport" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1367 1379])
+                            ("Transport" function
+                               (:prototype-flag t
+                                :constructor-flag t
+                                :arguments 
+                                  ( ("ioThreadNum" variable (:type "int") (reparse-symbol arg-sub-list) [1404 1420])
+                                    ("mode" variable
+                                       (:default-value "SHARE_THREAD"
+                                        :type ("ListenFdThreadModeEnum" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1421 1463]))                                  
+                                :type ("Transport" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1394 1465])
+                            ("Transport" function
+                               (:prototype-flag t
+                                :destructor-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [1472 1485])
+                            ("start" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("promotePriority" variable
+                                       (:default-value "false"
+                                        :type "bool")
+                                        (reparse-symbol arg-sub-list) [1775 1803]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [1764 1805])
+                            ("stop" function
+                               (:prototype-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [2002 2014])
+                            ("wait" function
+                               (:prototype-flag t
+                                :type "bool")
+                                (reparse-symbol classsubparts) [2222 2234])
+                            ("run" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("thread" variable
+                                       (:pointer 1
+                                        :type ("Thread" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2328 2343])
+                                    ("arg" variable
+                                       (:pointer 1
+                                        :type "void")
+                                        (reparse-symbol arg-sub-list) [2344 2354]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [2319 2355])
+                            ("runIteration" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("now" variable
+                                       (:reference 1
+                                        :type ("int64_t" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [2551 2564]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [2533 2565])
+                            ("run" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [2855 2866])
+                            ("stopRun" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [3001 3016])
+                            ("runOnce" function (:type "void") (reparse-symbol classsubparts) [3139 3228])
+                            ("reset" function (:type "void") (reparse-symbol classsubparts) [3335 3364])
+                            ("runInThread" function (:type "void") (reparse-symbol classsubparts) [3439 3481])
+                            ("listen" function
+                               (:prototype-flag t
+                                :pointer 1
+                                :arguments 
+                                  ( ("spec" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [3993 4010])
+                                    ("streamer" variable
+                                       (:pointer 1
+                                        :type ("IPacketStreamer" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4035 4061])
+                                    ("serverAdapter" variable
+                                       (:pointer 1
+                                        :type ("IServerAdapter" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4087 4117])
+                                    ("postPacketTimeout" variable
+                                       (:default-value "DEFAULT_POSTPACKET_TIMEOUT"
+                                        :type "int")
+                                        (reparse-symbol arg-sub-list) [4142 4192])
+                                    ("maxIdleTime" variable
+                                       (:default-value "MAX_IDLE_TIME_IN_MILLSECONDS"
+                                        :type "int")
+                                        (reparse-symbol arg-sub-list) [4218 4264])
+                                    ("backlog" variable
+                                       (:default-value "LISTEN_BACKLOG"
+                                        :type "int")
+                                        (reparse-symbol arg-sub-list) [4291 4319]))                                  
+                                :type ("IOComponent" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [3973 4346])
+                            ("connect" function
+                               (:prototype-flag t
+                                :pointer 1
+                                :arguments 
+                                  ( ("spec" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [4569 4586])
+                                    ("streamer" variable
+                                       (:pointer 1
+                                        :type ("IPacketStreamer" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4587 4613])
+                                    ("autoReconn" variable
+                                       (:default-value "false"
+                                        :type "bool")
+                                        (reparse-symbol arg-sub-list) [4639 4662])
+                                    ("prio" variable
+                                       (:default-value "ANET_PRIORITY_NORMAL"
+                                        :type ("CONNPRIORITY" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4664 4704]))                                  
+                                :type ("Connection" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [4549 4706])
+                            ("setTimeoutLoopInterval" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("ms" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4800 4811]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [4772 4812])
+                            ("addToCheckingList" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("ioc" variable
+                                       (:pointer 1
+                                        :type ("IOComponent" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4998 5015]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [4975 5016])
+                            ("collectNewComponets" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [5021 5048])
+                            ("lock" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [5054 5066])
+                            ("unlock" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [5071 5085])
+                            ("eventIteration" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("now" variable
+                                       (:reference 1
+                                        :type ("int64_t" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5230 5243]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [5210 5244])
+                            ("timeoutIteration" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5375 5387]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [5353 5388])
+                            ("closeComponents" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [5394 5417])
+                            ("dump" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("buf" variable
+                                       (:reference 1
+                                        :type ("ostringstream" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5514 5533]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [5504 5534])
+                            ("connectWithAddr" function
+                               (:prototype-flag t
+                                :pointer 1
+                                :arguments 
+                                  ( ("localSpec" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [5568 5590])
+                                    ("remoteSpec" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [5591 5614])
+                                    ("streamer" variable
+                                       (:pointer 1
+                                        :type ("IPacketStreamer" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5648 5674])
+                                    ("autoReconn" variable
+                                       (:default-value "false"
+                                        :type "bool")
+                                        (reparse-symbol arg-sub-list) [5675 5698])
+                                    ("prio" variable
+                                       (:default-value "ANET_PRIORITY_NORMAL"
+                                        :type ("CONNPRIORITY" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5700 5740]))                                  
+                                :type ("Connection" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [5540 5742])
+                            ("getBelongedWorker" function
+                               (:prototype-flag t
+                                :pointer 1
+                                :arguments 
+                                  ( ("ioc" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type ("IOComponent" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5848 5871]))                                  
+                                :type ("IoWorker" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [5820 5872])
+                            ("getTcpConnStats" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("connStats" variable
+                                       (:reference 1
+                                        :type ("std::vector" type
+                                             (:template-specifier 
+                                                ( ("ConnStat" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol arg-sub-list) [5898 5931]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [5877 5932])
+                            ("protected" label nil (reparse-symbol classsubparts) [5934 5944])
+                            ("parseAddr" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("src" variable
+                                       (:pointer 1
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [6172 6182])
+                                    ("args" variable
+                                       (:pointer 2
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [6183 6195])
+                                    ("cnt" variable (:type "int") (reparse-symbol arg-sub-list) [6196 6204]))                                  
+                                :type "int")
+                                (reparse-symbol classsubparts) [6158 6205])
+                            ("timeoutLoop" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [6253 6272])
+                            ("doConnect" function
+                               (:prototype-flag t
+                                :pointer 1
+                                :arguments 
+                                  ( ("localIp" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [6299 6319])
+                                    ("remoteSpec" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [6320 6343])
+                                    ("streamer" variable
+                                       (:pointer 1
+                                        :type ("IPacketStreamer" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [6371 6397])
+                                    ("autoReconn" variable (:type "bool") (reparse-symbol arg-sub-list) [6398 6414])
+                                    ("prio" variable (:type ("CONNPRIORITY" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6415 6433]))                                  
+                                :type ("Connection" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [6277 6434])
+                            ("parseLocalAddr" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("localAddr" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [6459 6481])
+                                    ("ipStr" variable
+                                       (:pointer 1
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [6482 6494])
+                                    ("ipStrBufLen" variable (:type "int") (reparse-symbol arg-sub-list) [6495 6511])
+                                    ("port" variable
+                                       (:reference 1
+                                        :type ("uint16_t" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [6536 6551]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [6439 6552])
+                            ("bindLocalAddress" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("socket" variable
+                                       (:pointer 1
+                                        :type ("Socket" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [6579 6594])
+                                    ("localAddr" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type "char")
+                                        (reparse-symbol arg-sub-list) [6595 6617]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [6557 6618])
+                            ("private" label nil (reparse-symbol classsubparts) [6620 6628])
+                            ("initialize" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [6633 6651])
+                            ("getChunkId" function
+                               (:prototype-flag t
+                                :typemodifiers ("inline")
+                                :arguments 
+                                  ( ("ioc" variable
+                                       (:pointer 1
+                                        :constant-flag t
+                                        :type ("IOComponent" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [6972 6995]))                                  
+                                :type "int")
+                                (reparse-symbol classsubparts) [6950 7002])
+                            ("private" label nil (reparse-symbol classsubparts) [7005 7013])
+                            ("_mutex" variable (:type ("ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7018 7037])
+                            ("_stopMutex" variable (:type ("ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7042 7065])
+                            ("_ioThreadNum" variable (:type "int") (reparse-symbol classsubparts) [7070 7087])
+                            ("_ioWorkers" variable
+                               (:pointer 1
+                                :type ("IoWorker" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [7092 7113])
+                            ("_listenFdThreadMode" variable
+                               (:constant-flag t
+                                :type ("ListenFdThreadModeEnum" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [7118 7167])
+                            ("_listenThreadNum" variable (:type "int") (reparse-symbol classsubparts) [7172 7193])
+                            ("_timeoutThread" variable (:type ("Thread" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7203 7225])
+                            ("_stop" variable (:type "bool") (reparse-symbol classsubparts) [7233 7244])
+                            ("_started" variable (:type "bool") (reparse-symbol classsubparts) [7279 7293])
+                            ("_promotePriority" variable (:type "bool") (reparse-symbol classsubparts) [7298 7320])
+                            ("_nextCheckTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7325 7348])
+                            ("_timeoutLoopInterval" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7354 7383])
+                            ("_checkingList" variable (:type ("std::list" type
+                                 (:template-specifier 
+                                    ( ("IOComponent" type (:pointer 1) nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [7389 7427])
+                            ("_newCheckingList" variable (:type ("std::vector" type
+                                 (:template-specifier 
+                                    ( ("IOComponent" type (:pointer 1) nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [7462 7505]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [964 7537]))                  
+                :type "namespace")
+                nil [345 7541]))          
+      :file "transport.h"
+      :pointmax 7567
+      :fsize 7566
+      :lastmodtime '(22242 30871 0 0)
+      :unmatched-syntax '((thing 1385 . 1393) (thing 1385 . 1393) (thing 1186 . 1187) (thing 1186 . 1187) (thing 1155 . 1156) (thing 1155 . 1156) (thing 1122 . 1123) (thing 1122 . 1123) (thing 1088 . 1089) (thing 1088 . 1089) (thing 1047 . 1048) (thing 1047 . 1048))
+      :lexical-table 
+        '(("ANET_TRANSPORT_H_")
+          )
+)
+    (semanticdb-table "anet.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ANET_ANET_H" variable (:constant-flag t) nil [29 40])
+            ("anet/transport.h" include (:system-flag t) nil [41 68])
+            ("anet/packet.h" include (:system-flag t) nil [70 94])
+            ("anet/controlpacket.h" include (:system-flag t) nil [95 126])
+            ("anet/ipackethandler.h" include (:system-flag t) nil [127 159])
+            ("anet/iserveradapter.h" include (:system-flag t) nil [160 192])
+            ("anet/iocomponent.h" include (:system-flag t) nil [194 223])
+            ("anet/connection.h" include (:system-flag t) nil [224 252])
+            ("anet/defaultpacket.h" include (:system-flag t) nil [254 285])
+            ("anet/defaultpacketfactory.h" include (:system-flag t) nil [286 324])
+            ("anet/defaultpacketstreamer.h" include (:system-flag t) nil [325 364])
+            ("anet/httppacket.h" include (:system-flag t) nil [367 395])
+            ("anet/httppacketfactory.h" include (:system-flag t) nil [396 431])
+            ("anet/httpstreamer.h" include (:system-flag t) nil [432 462])
+            ("anet/httppacket.h" include (:system-flag t) nil [464 492])
+            ("anet/httppacketfactory.h" include (:system-flag t) nil [493 528])
+            ("anet/httpstreamer.h" include (:system-flag t) nil [529 559])
+            ("anet/databuffer.h" include (:system-flag t) nil [561 589])
+            ("anet/ipacketfactory.h" include (:system-flag t) nil [590 622])
+            ("anet/ipacketstreamer.h" include (:system-flag t) nil [623 656])
+            ("anet/streamingcontext.h" include (:system-flag t) nil [657 691])
+            ("anet/timeutil.h" include (:system-flag t) nil [692 718])
+            ("anet/delaydecodepacket.h" include (:system-flag t) nil [719 754])
+            ("anet/delaydecodepacketfactory.h" include (:system-flag t) nil [755 797])
+            ("anet/databufferserializable.h" include (:system-flag t) nil [798 838])
+            ("anet/advancepacket.h" include (:system-flag t) nil [840 871])
+            ("anet/advancepacketfactory.h" include (:system-flag t) nil [872 910])
+            ("anet/connectionpriority.h" include (:system-flag t) nil [911 947])
+            ("anet/httprequestpacket.h" include (:system-flag t) nil [1064 1099])
+            ("anet/httppacketstreamer.h" include (:system-flag t) nil [1100 1136])
+            ("anet/httpresponsepacket.h" include (:system-flag t) nil [1137 1173])
+            ("BEGIN_ANET_NS" variable (:constant-flag t) nil [1183 1196])
+            ("END_ANET_NS" variable (:constant-flag t) nil [1224 1235])
+            ("USE_ANET_NS" variable (:constant-flag t) nil [1248 1259])
+            ("anet" type
+               (:members 
+                  ( ("AdvanceDelayDecodePacket" type
+                       (:typedef ("AdvancePacket" type
+                             (:template-specifier 
+                                ( ("DelayDecodePacket" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol namespacesubparts) [1363 1429])
+                    ("AdvanceDefaultPacket" type
+                       (:typedef ("AdvancePacket" type
+                             (:template-specifier 
+                                ( ("DefaultPacket" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol namespacesubparts) [1430 1488])
+                    ("AdvanceDelayDecodePacketFactory" type
+                       (:typedef ("AdvancePacketFactory" type
+                             (:template-specifier 
+                                ( ("DelayDecodePacket" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol namespacesubparts) [1489 1569])
+                    ("AdvanceDefaultPacketFactory" type
+                       (:typedef ("AdvancePacketFactory" type
+                             (:template-specifier 
+                                ( ("DefaultPacket" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol namespacesubparts) [1570 1642]))                  
+                :type "namespace")
+                nil [1285 1656])
+            ("ANET_VERSION" variable (:constant-flag t) nil [1667 1679]))          
+      :file "anet.h"
+      :pointmax 1717
+      :fsize 1716
+      :lastmodtime '(22249 13189 0 0)
+      :unmatched-syntax '((thing 1285 . 1298) (thing 1298 . 1300) (thing 1644 . 1655) (thing 1655 . 1656) (thing 1656 . 1657))
+      :lexical-table 
+        '(("USE_ANET_NS" (spp-arg-list nil 1259 . 1261) . 
+              ((USING "using" 1262 . 1267) (NAMESPACE "namespace" 1268 . 1277) (symbol "anet" 1278 . 1282) (punctuation ";" 1282 . 1283)))
+          ("BEGIN_ANET_NS" (spp-arg-list nil 1196 . 1198) . 
+              ((NAMESPACE "namespace" 1199 . 1208) (symbol "anet" 1209 . 1213) (open-paren "{" 1214 . 1215)))
+          ("ANET_ANET_H")
+          ("END_ANET_NS" (spp-arg-list nil 1235 . 1237) . ((close-paren "}" 1238 . 1239)))
+          ("ANET_VERSION" . ((number "040000" 1680 . 1686)))
+          )
+)
+    (semanticdb-table "packet.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ANET_PACKET_H_" variable (:constant-flag t) nil [32 46])
+            ("stdint.h" include (:system-flag t) nil [47 66])
+            ("string.h" include (:system-flag t) nil [67 86])
+            ("stdio.h" include (:system-flag t) nil [87 105])
+            ("stdlib.h" include (:system-flag t) nil [106 125])
+            ("anet/common.h" include (:system-flag t) nil [126 150])
+            ("anet/databuffer.h" include (:system-flag t) nil [151 179])
+            ("anet/channel.h" include (:system-flag t) nil [180 205])
+            ("anet/channelpool.h" include (:system-flag t) nil [206 235])
+            ("anet/connectionpriority.h" include (:system-flag t) nil [236 272])
+            ("anet/debug.h" include (:system-flag t) nil [273 296])
+            ("BEGIN_ANET_NS" function
+               (:prototype-flag t
+                :type "int")
+                nil [298 314])
+            ("ANET_PACKET_FLAG" variable (:constant-flag t) nil [324 340])
+            ("CONNECTION_CLOSE" variable (:constant-flag t) nil [369 385])
+            ("CONNECTION_KEEP_ALIVE" variable (:constant-flag t) nil [402 423])
+            ("IPacketHandler" type
+               (:prototype t
+                :type "class")
+                nil [438 459])
+            ("PacketHeader" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [482 489])
+                    ("_chid" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [494 509])
+                    ("_pcode" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [536 551])
+                    ("_dataLen" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [583 600]))                  
+                :type "class")
+                nil [461 628])
+            ("PACKET_INFO_LEN" variable
+               (:constant-flag t
+                :default-value "(int)(sizeof(int32_t) + sizeof(PacketHeader))"
+                :type "int")
+                nil [668 742])
+            ("Packet" type
+               (:members 
+                  ( ("PacketQueue" friend nil (reparse-symbol classsubparts) [763 787])
+                    ("OrderedPacketQueueTF" friend nil (reparse-symbol classsubparts) [793 826])
+                    ("OrderedPacketQueue" friend nil (reparse-symbol classsubparts) [832 863])
+                    ("public" label nil (reparse-symbol classsubparts) [866 873])
+                    ("Packet" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("Packet" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [878 887])
+                    ("Packet" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [893 911])
+                    ("getPacketHeader" function
+                       (:pointer 1
+                        :type ("PacketHeader" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [917 987])
+                    ("setPacketHeader" function
+                       (:arguments 
+                          ( ("header" variable
+                               (:pointer 1
+                                :type ("PacketHeader" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1014 1035]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [993 1141])
+                    ("free" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1327 1375])
+                    ("isRegularPacket" function
+                       (:typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1381 1440])
+                    ("encode" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("output" variable
+                               (:pointer 1
+                                :type ("DataBuffer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1825 1844]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1805 1849])
+                    ("decode" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("input" variable
+                               (:pointer 1
+                                :type ("DataBuffer" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2265 2283])
+                            ("header" variable
+                               (:pointer 1
+                                :type ("PacketHeader" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2284 2305]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2245 2310])
+                    ("getSpaceUsed" function
+                       (:typemodifiers ("virtual")
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2316 2360])
+                    ("getPacketVersion" function
+                       (:typemodifiers ("virtual")
+                        :type ("uint8_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2370 2418])
+                    ("setPacketVersion" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("version" variable (:type ("uint8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2458 2474]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2428 2477])
+                    ("getExpireTime" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2483 2545])
+                    ("setExpireTime" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("milliseconds" variable (:type "int") (reparse-symbol arg-sub-list) [2689 2706]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2670 2707])
+                    ("setChannel" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("channel" variable
+                               (:pointer 1
+                                :type ("Channel" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2733 2750]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2717 2751])
+                    ("setPcode" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pcode" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2771 2785]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2757 2786])
+                    ("getPcode" function
+                       (:prototype-flag t
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2792 2811])
+                    ("getChannel" function
+                       (:pointer 1
+                        :type ("Channel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2818 2872])
+                    ("getNext" function
+                       (:pointer 1
+                        :type ("Packet" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2886 2933])
+                    ("getDequeueCB" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [2969 2974]))                          
+                        :type ("IPacketHandler" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2939 3003])
+                    ("setDequeueCB" function
+                       (:arguments 
+                          ( ("cb" variable
+                               (:pointer 1
+                                :type ("IPacketHandler" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3026 3045]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3008 3072])
+                    ("invokeDequeueCB" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [3098 3103]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3077 3104])
+                    ("getPriority" function
+                       (:typemodifiers ("virtual")
+                        :type ("CONNPRIORITY" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3411 3489])
+                    ("setPriority" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("prio" variable (:type ("CONNPRIORITY" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3520 3538]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3495 3544])
+                    ("setChannelId" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("chid" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3654 3668]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3628 3722])
+                    ("getChannelId" function
+                       (:typemodifiers ("virtual")
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3728 3816])
+                    ("setDataLen" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("len" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3847 3859]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3822 3906])
+                    ("getDataLen" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [3939 3944]))                          
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3912 3992])
+                    ("cleanupFlags" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [4176 4221])
+                    ("dump" function
+                       (:typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [4227 4474])
+                    ("protected" label nil (reparse-symbol classsubparts) [4476 4486])
+                    ("_packetHeader" variable (:type ("PacketHeader" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4491 4518])
+                    ("_expireTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4524 4544])
+                    ("_channel" variable
+                       (:pointer 1
+                        :type ("Channel" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4549 4567])
+                    ("_packetDequeueCB" variable
+                       (:pointer 1
+                        :type ("IPacketHandler" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5649 5683])
+                    ("_next" variable
+                       (:pointer 1
+                        :type ("Packet" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5688 5702]))                  
+                :type "class")
+                nil [744 5705])
+            ("END_ANET_NS" function
+               (:prototype-flag t
+                :type "int")
+                nil [5707 5721]))          
+      :file "packet.h"
+      :pointmax 5744
+      :fsize 5743
+      :lastmodtime '(22242 30871 0 0)
+      :unmatched-syntax '((thing 863 . 864) (thing 826 . 827) (thing 787 . 788))
+      :lexical-table 
+        '(("ANET_PACKET_H_")
+          ("CONNECTION_KEEP_ALIVE" . ((string "\"Keep-Alive\"" 424 . 436)))
+          ("ANET_PACKET_FLAG" . ((number "0x416e4574" 341 . 351)))
+          ("CONNECTION_CLOSE" . ((string "\"close\"" 386 . 393)))
+          )
+))
+  :file "!ssd!sdd!git!swift!_external!usr!local!include!anet!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

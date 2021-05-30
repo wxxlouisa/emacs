@@ -1,0 +1,1735 @@
+;; Object zookeeper/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "zookeeper/"
+  :tables
+  (list
+    (semanticdb-table "ZookeeperFileSystem.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("errno.h" include (:system-flag t) nil [1 19])
+            ("autil/StringUtil.h" include (:system-flag t) nil [20 49])
+            ("fslib/fs/zookeeper/ZookeeperFileSystem.h" include nil nil [50 101])
+            ("fslib/fs/zookeeper/ZookeeperFile.h" include nil nil [102 147])
+            ("fslib/util/SafeBuffer.h" include nil nil [148 182])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [185 205])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [206 228])
+            ("fslib::util" using (:type ("fslib::util" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [229 257])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [289 299]))                  
+                :type "int")
+                nil [260 300])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [332 342])
+                    ("" variable (:type ("ZookeeperFileSystem" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [343 363]))                  
+                :type "int")
+                nil [301 364])
+            ("ZookeeperFileSystem::RECV_TIMEOUT" variable
+               (:default-value "6000"
+                :type "int")
+                nil [366 411])
+            ("ZookeeperFileSystem::ERROR_INIT_HANDLE_FAIL" variable
+               (:constant-flag t
+                :default-value "-200"
+                :type "int")
+                nil [412 473])
+            ("CONFIG_SEPARATOR" function
+               (:prototype-flag t
+                :parent "ZookeeperFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [474 530])
+            ("ZOOKEEPER_PREFIX" function
+               (:prototype-flag t
+                :parent "ZookeeperFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [531 592])
+            ("KV_SEPARATOR" function
+               (:prototype-flag t
+                :parent "ZookeeperFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [593 645])
+            ("KV_PAIR_SEPARATOR" function
+               (:prototype-flag t
+                :parent "ZookeeperFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [646 703])
+            ("ZOOFS_RETRY" function
+               (:prototype-flag t
+                :parent "ZookeeperFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [704 759])
+            ("ZookeeperFileSystem" function
+               (:constructor-flag t
+                :parent "ZookeeperFileSystem"
+                :type ("ZookeeperFileSystem" type (:type "class") nil nil))
+                nil [761 1073])
+            ("ZookeeperFileSystem" function
+               (:destructor-flag t
+                :parent "ZookeeperFileSystem"
+                :type "void")
+                nil [1075 1175])
+            ("reconnect" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1213 1225])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1225 1228])
+                    ("server" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1229 1248]))                  
+                :type "void")
+                nil [1177 1425])
+            ("zooWExistWithRetry" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1471 1483])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1483 1486])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1496 1513])
+                    ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1514 1533])
+                    ("watcherCtx" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1534 1551])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1561 1579])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1580 1596])
+                    ("server" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1597 1616]))                  
+                :type "int")
+                nil [1427 2218])
+            ("zooExistWithRetry" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2263 2275])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2275 2278])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2279 2296])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [2306 2316])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2317 2335])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2336 2352])
+                    ("server" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2353 2372]))                  
+                :type "int")
+                nil [2220 2955])
+            ("zooCreateWithRetry" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3001 3013])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3013 3016])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3017 3034])
+                    ("value" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3044 3062])
+                    ("valuelen" variable (:type "int") (reparse-symbol arg-sub-list) [3063 3076])
+                    ("acl" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("ACL_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3077 3106])
+                    ("flags" variable (:type "int") (reparse-symbol arg-sub-list) [3107 3117])
+                    ("path_buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3126 3144])
+                    ("path_buffer_len" variable (:type "int") (reparse-symbol arg-sub-list) [3145 3165])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3166 3182])
+                    ("server" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3183 3202]))                  
+                :type "int")
+                nil [2957 3860])
+            ("zooGetChildrenWithRetry" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3911 3923])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3923 3926])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3927 3944])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [3954 3964])
+                    ("strings" variable
+                       (:pointer 1
+                        :type ("String_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3965 3995])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3996 4012])
+                    ("server" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4013 4032]))                  
+                :type "int")
+                nil [3862 4628])
+            ("zooGetWithRetry" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4671 4683])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4683 4686])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4687 4704])
+                    ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [4714 4724])
+                    ("buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4725 4738])
+                    ("buffer_len" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [4739 4755])
+                    ("stat" variable
+                       (:pointer 1
+                        :type ("Stat" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4765 4783])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4784 4800])
+                    ("server" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [4801 4820]))                  
+                :type "int")
+                nil [4630 5424])
+            ("zooSetWithRetry" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5467 5479])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5479 5482])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5483 5500])
+                    ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5510 5529])
+                    ("buflen" variable (:type "int") (reparse-symbol arg-sub-list) [5530 5541])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [5542 5554])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5555 5571])
+                    ("server" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [5572 5591]))                  
+                :type "int")
+                nil [5426 6187])
+            ("zooDeleteWithRetry" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6233 6245])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6245 6248])
+                    ("path" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6249 6266])
+                    ("version" variable (:type "int") (reparse-symbol arg-sub-list) [6276 6288])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6289 6305])
+                    ("server" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [6306 6325]))                  
+                :type "int")
+                nil [6189 6908])
+            ("openFile" function
+               (:pointer 1
+                :parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6946 6974])
+                    ("flag" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6975 6985]))                  
+                :type ("File" type (:type "class") nil nil))
+                nil [6910 8821])
+            ("mmapFile" function
+               (:pointer 1
+                :parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8863 8891])
+                    ("openMode" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8933 8947])
+                    ("start" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [8948 8960])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9002 9016])
+                    ("prot" variable (:type "int") (reparse-symbol arg-sub-list) [9017 9026])
+                    ("mapFlag" variable (:type "int") (reparse-symbol arg-sub-list) [9068 9080])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9081 9094]))                  
+                :type ("MMapFile" type (:type "class") nil nil))
+                nil [8823 9162])
+            ("rename" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("oldPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9202 9229])
+                    ("newPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9269 9296]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [9164 11441])
+            ("getFileMeta" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11495 11523])
+                    ("fileMeta" variable
+                       (:reference 1
+                        :type ("FileMeta" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11532 11551]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [11443 12276])
+            ("isFile" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12316 12340]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [12278 12545])
+            ("getFileChecksum" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12597 12625]))                  
+                :type ("FileChecksum" type (:type "class") nil nil))
+                nil [12547 12643])
+            ("mkDir" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12682 12709])
+                    ("recursive" variable (:type "bool") (reparse-symbol arg-sub-list) [12747 12762]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [12645 14009])
+            ("listDir" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14050 14077])
+                    ("fileList" variable
+                       (:reference 1
+                        :type ("FileList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14117 14136]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [14011 14872])
+            ("listDir" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14913 14940])
+                    ("entryList" variable
+                       (:reference 1
+                        :type ("EntryList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14980 15001]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [14874 15028])
+            ("isDirectory" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15073 15097]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [15030 15302])
+            ("isExist" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("pathName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15343 15371]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [15304 15976])
+            ("convertErrno" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("errNum" variable (:type "int") (reparse-symbol arg-sub-list) [16022 16033]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [15978 16689])
+            ("internalCopyNode" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("oldZh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16739 16756])
+                    ("oldNode" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16766 16788])
+                    ("oldRetryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16789 16808])
+                    ("oldServer" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16809 16833])
+                    ("newZh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16842 16859])
+                    ("newNode" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16860 16882])
+                    ("newRetryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16883 16902])
+                    ("newServer" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16911 16935]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [16691 20551])
+            ("freeStringVector" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("v" variable
+                       (:pointer 1
+                        :type ("String_vector" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [20596 20620]))                  
+                :type "void")
+                nil [20553 20785])
+            ("remove" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("pathName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [20825 20853]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [20787 22200])
+            ("internalRemoveNode" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [22253 22267])
+                    ("node" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [22277 22296])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [22297 22313])
+                    ("server" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [22314 22335]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [22203 23341])
+            ("internalCreateParentNode" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23399 23413])
+                    ("node" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23423 23442])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23443 23459])
+                    ("server" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23460 23481]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [23343 24622])
+            ("internalGetZhandleAndPath" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("pathName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24681 24704])
+                    ("config" variable
+                       (:reference 1
+                        :type ("ZookeeperFsConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24713 24739])
+                    ("" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24740 24751])
+                    ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [24752 24755])
+                    ("server" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24756 24771])
+                    ("path" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24772 24785]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [24624 25488])
+            ("parsePath" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("pathName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25526 25549])
+                    ("server" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25550 25565])
+                    ("dstPath" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25602 25618]))                  
+                :type "bool")
+                nil [25490 25933])
+            ("parsePath" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("fullPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25971 25994])
+                    ("filePath" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25995 26012])
+                    ("config" variable
+                       (:reference 1
+                        :type ("ZookeeperFsConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26049 26075]))                  
+                :type "bool")
+                nil [25935 27611])
+            ("eliminateSeqSlash" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [27666 27682])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [27683 27694])
+                    ("dst" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [27703 27715])
+                    ("keepLastSlash" variable (:type "bool") (reparse-symbol arg-sub-list) [27716 27735]))                  
+                :type "bool")
+                nil [27613 28271])
+            ("parseConfig" function
+               (:parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("configUri" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28311 28335])
+                    ("config" variable
+                       (:reference 1
+                        :type ("ZookeeperFsConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [28374 28400]))                  
+                :type "bool")
+                nil [28273 29778])
+            ("createFileLock" function
+               (:pointer 1
+                :parent "ZookeeperFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [29826 29854]))                  
+                :type ("FileLock" type (:type "class") nil nil))
+                nil [29780 29945])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [29975 29985]))                  
+                :type "int")
+                nil [29948 29986]))          
+      :file "ZookeeperFileSystem.cpp"
+      :pointmax 29987
+      :fsize 29986
+      :lastmodtime '(22901 25295 197410 955000)
+      :unmatched-syntax '((thing 6244 . 6245) (thing 6244 . 6245) (thing 5478 . 5479) (thing 5478 . 5479) (thing 4682 . 4683) (thing 4682 . 4683) (thing 3922 . 3923) (thing 3922 . 3923) (thing 3012 . 3013) (thing 3012 . 3013) (thing 2274 . 2275) (thing 2274 . 2275) (thing 1482 . 1483) (thing 1482 . 1483) (thing 1224 . 1225) (thing 1224 . 1225) (thing 750 . 757) (thing 750 . 757) (thing 698 . 701) (thing 698 . 701) (thing 640 . 643) (thing 640 . 643) (thing 582 . 590) (thing 582 . 590) (thing 525 . 528) (thing 525 . 528) (thing 24750 . 24751) (thing 24750 . 24751)))
+    (semanticdb-table "ZookeeperFileSystem.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_PLUGIN_ZOOKEEPERFILESYSTEM_H" variable (:constant-flag t) nil [52 86])
+            ("autil/Log.h" include (:system-flag t) nil [88 110])
+            ("zookeeper/zookeeper.h" include (:system-flag t) nil [111 143])
+            ("fslib/common.h" include nil nil [144 169])
+            ("fslib/fs/AbstractFileSystem.h" include nil nil [170 210])
+            ("fslib/fs/zookeeper/ZookeeperFileLock.h" include nil nil [211 260])
+            ("fslib/fs/zookeeper/ZookeeperFileLockCreator.h" include nil nil [261 317])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [348 358]))                  
+                :type "int")
+                nil [319 359])
+            ("fslib" using (:type ("fslib" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [360 382])
+            ("fslib::fs" using (:type ("fslib::fs" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [383 409])
+            ("ZookeeperFsConfig" type
+               (:members 
+                  ( ("_retry" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [442 456]))                  
+                :type "struct")
+                nil [411 459])
+            ("ZookeeperFileSystem" type
+               (:superclasses 
+                  ( ("fslib::fs::AbstractFileSystem" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [528 535])
+                    ("RECV_TIMEOUT" variable
+                       (:typemodifiers ("static")
+                        :type "int")
+                        (reparse-symbol classsubparts) [540 564])
+                    ("ERROR_INIT_HANDLE_FAIL" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [569 609])
+                    ("CONFIG_SEPARATOR" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [614 656])
+                    ("ZOOKEEPER_PREFIX" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [665 707])
+                    ("KV_SEPARATOR" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [712 750])
+                    ("KV_PAIR_SEPARATOR" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [755 798])
+                    ("ZOOFS_RETRY" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [803 840])
+                    ("public" label nil (reparse-symbol classsubparts) [846 853])
+                    ("ZookeeperFileSystem" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("ZookeeperFileSystem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [858 880])
+                    ("ZookeeperFileSystem" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [885 908])
+                    ("public" label nil (reparse-symbol classsubparts) [910 917])
+                    ("openFile" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [950 978])
+                            ("flag" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [979 989]))                          
+                        :type ("File" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [935 990])
+                    ("mmapFile" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1028 1056])
+                            ("openMode" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1057 1071])
+                            ("start" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1108 1120])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1121 1135])
+                            ("prot" variable (:type "int") (reparse-symbol arg-sub-list) [1136 1145])
+                            ("mapFlag" variable (:type "int") (reparse-symbol arg-sub-list) [1182 1194])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1195 1208]))                          
+                        :type ("MMapFile" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1009 1209])
+                    ("rename" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("oldPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1245 1272])
+                            ("newPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1308 1335]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1228 1336])
+                    ("getFileMeta" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1381 1409])
+                            ("fileMeta" variable
+                               (:reference 1
+                                :type ("FileMeta" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1421 1440]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1359 1441])
+                    ("isFile" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1477 1501]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1460 1502])
+                    ("getFileChecksum" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1550 1578]))                          
+                        :type ("FileChecksum" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1521 1579])
+                    ("mkDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1614 1641])
+                            ("recursive" variable
+                               (:default-value "false"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1676 1698]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1598 1700])
+                    ("listDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1737 1764])
+                            ("fileList" variable
+                               (:reference 1
+                                :type ("FileList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1800 1819]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1719 1820])
+                    ("isDirectory" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1862 1886]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1840 1887])
+                    ("remove" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pathName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1923 1951]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1906 1952])
+                    ("isExist" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pathName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1993 2021]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1975 2022])
+                    ("listDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2059 2086])
+                            ("entryList" variable
+                               (:reference 1
+                                :type ("EntryList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2123 2144]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2041 2145])
+                    ("createFileReadWriteLock" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2220 2248]))                          
+                        :type ("FileReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2164 2281])
+                    ("createFileLock" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2325 2353]))                          
+                        :type ("FileLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2300 2354])
+                    ("getCapability" function (:type ("FileSystemCapability" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2374 2493])
+                    ("convertErrno" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("errNum" variable (:type "int") (reparse-symbol arg-sub-list) [2533 2544]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2503 2545])
+                    ("internalGetZhandleAndPath" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("pathName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2611 2639])
+                            ("config" variable
+                               (:reference 1
+                                :type ("ZookeeperFsConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2640 2666])
+                            ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2679 2690])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2691 2694])
+                            ("server" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2695 2715])
+                            ("path" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2716 2734]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2555 2735])
+                    ("zooWExistWithRetry" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2771 2783])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2783 2786])
+                            ("path" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [2787 2804])
+                            ("watcher" variable (:type ("watcher_fn" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2839 2858])
+                            ("watcherCtx" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [2859 2876])
+                            ("stat" variable
+                               (:pointer 1
+                                :type ("Stat" type
+                                     (:prototype t
+                                      :type "struct")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2912 2930])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2931 2947])
+                            ("server" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [2982 3001]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [2741 3002])
+                    ("zooExistWithRetry" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3036 3048])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3048 3051])
+                            ("path" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3052 3069])
+                            ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [3070 3080])
+                            ("stat" variable
+                               (:pointer 1
+                                :type ("Stat" type
+                                     (:prototype t
+                                      :type "struct")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [3115 3133])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3134 3150])
+                            ("server" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3184 3203]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [3007 3204])
+                    ("zooCreateWithRetry" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3239 3251])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3251 3254])
+                            ("path" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3255 3272])
+                            ("value" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3308 3326])
+                            ("valuelen" variable (:type "int") (reparse-symbol arg-sub-list) [3327 3340])
+                            ("acl" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("ACL_vector" type
+                                     (:prototype t
+                                      :type "struct")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [3376 3405])
+                            ("flags" variable (:type "int") (reparse-symbol arg-sub-list) [3406 3416])
+                            ("path_buffer" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3451 3469])
+                            ("path_buffer_len" variable (:type "int") (reparse-symbol arg-sub-list) [3470 3490])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3526 3542])
+                            ("server" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3543 3562]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [3209 3563])
+                    ("zooGetChildrenWithRetry" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3603 3615])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3615 3618])
+                            ("path" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3619 3636])
+                            ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [3650 3660])
+                            ("strings" variable
+                               (:pointer 1
+                                :type ("String_vector" type
+                                     (:prototype t
+                                      :type "struct")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [3661 3691])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3692 3708])
+                            ("server" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3721 3740]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [3568 3741])
+                    ("zooGetWithRetry" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3773 3785])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3785 3788])
+                            ("path" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3789 3806])
+                            ("watch" variable (:type "int") (reparse-symbol arg-sub-list) [3839 3849])
+                            ("buffer" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3850 3863])
+                            ("buffer_len" variable
+                               (:pointer 1
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [3864 3880])
+                            ("stat" variable
+                               (:pointer 1
+                                :type ("Stat" type
+                                     (:prototype t
+                                      :type "struct")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [3913 3931])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3932 3948])
+                            ("server" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3980 3999]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [3746 4000])
+                    ("zooSetWithRetry" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4032 4044])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4044 4047])
+                            ("path" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [4048 4065])
+                            ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [4066 4085])
+                            ("buflen" variable (:type "int") (reparse-symbol arg-sub-list) [4118 4129])
+                            ("version" variable (:type "int") (reparse-symbol arg-sub-list) [4130 4142])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4143 4159])
+                            ("server" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [4191 4210]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [4005 4211])
+                    ("zooDeleteWithRetry" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4246 4258])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4258 4261])
+                            ("path" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [4262 4279])
+                            ("version" variable (:type "int") (reparse-symbol arg-sub-list) [4315 4327])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4328 4344])
+                            ("server" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [4379 4398]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [4216 4399])
+                    ("private" label nil (reparse-symbol classsubparts) [4401 4409])
+                    ("freeStringVector" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("v" variable
+                               (:pointer 1
+                                :type ("String_vector" type
+                                     (:prototype t
+                                      :type "struct")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [4443 4467]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4414 4468])
+                    ("internalCopyNode" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("oldZh" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4500 4517])
+                            ("oldNode" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4518 4545])
+                            ("oldRetryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4577 4596])
+                            ("oldServer" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4597 4626])
+                            ("newZh" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4658 4675])
+                            ("newNode" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4676 4703])
+                            ("newRetryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4736 4755])
+                            ("newServer" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4756 4785]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4473 4786])
+                    ("internalRemoveNode" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("zh" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4820 4834])
+                            ("node" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4835 4859])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4893 4909])
+                            ("server" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4910 4936]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4791 4937])
+                    ("internalCreateParentNode" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("zh" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4977 4991])
+                            ("node" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4992 5016])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5029 5045])
+                            ("server" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5046 5072]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4942 5073])
+                    ("reconnect" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5100 5112])
+                            ("" variable (:type ("zh" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5112 5115])
+                            ("server" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [5116 5135]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5078 5136])
+                    ("parsePath" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("pathName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5167 5195])
+                            ("server" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5196 5216])
+                            ("dstPath" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5243 5264]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [5145 5265])
+                    ("public" label nil (reparse-symbol classsubparts) [5271 5278])
+                    ("eliminateSeqSlash" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("src" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [5313 5329])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5330 5341])
+                            ("dst" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5376 5393])
+                            ("keepLastSlash" variable
+                               (:default-value "true"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [5394 5419]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [5283 5421])
+                    ("parsePath" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("fullPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5448 5476])
+                            ("filePath" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5477 5499])
+                            ("config" variable
+                               (:reference 1
+                                :type ("ZookeeperFsConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5530 5556]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [5426 5557])
+                    ("parseConfig" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("configUri" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5586 5615])
+                            ("config" variable
+                               (:reference 1
+                                :type ("ZookeeperFsConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5644 5670]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [5562 5671])
+                    ("private" label nil (reparse-symbol classsubparts) [5673 5681])
+                    ("_logFile" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5686 5701]))                  
+                :type "class")
+                nil [461 5704])
+            ("ZookeeperFileSystemPtr" type
+               (:typedef ("std::auto_ptr" type
+                     (:template-specifier 
+                        ( ("ZookeeperFileSystem" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [5705 5771])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5800 5810]))                  
+                :type "int")
+                nil [5773 5811]))          
+      :file "ZookeeperFileSystem.h"
+      :pointmax 5857
+      :fsize 5856
+      :lastmodtime '(22536 44787 13203 96000)
+      :unmatched-syntax '((thing 2689 . 2690) (thing 2782 . 2783) (thing 3047 . 3048) (thing 3250 . 3251) (thing 3614 . 3615) (thing 3784 . 3785) (thing 4043 . 4044) (thing 4257 . 4258) (thing 5111 . 5112))
+      :lexical-table 
+        '(("FSLIB_PLUGIN_ZOOKEEPERFILESYSTEM_H")
+          )
+)
+    (semanticdb-table "ZookeeperFile.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_PLUGIN_ZOOKEEPERFILE_H" variable (:constant-flag t) nil [46 74])
+            ("autil/Log.h" include (:system-flag t) nil [76 98])
+            ("zookeeper/zookeeper.h" include (:system-flag t) nil [99 131])
+            ("fslib/common.h" include nil nil [132 157])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [188 198]))                  
+                :type "int")
+                nil [159 199])
+            ("ZookeeperFile" type
+               (:superclasses 
+                  ( ("File" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [237 244])
+                    ("ZookeeperFile" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("zh" variable
+                               (:pointer 1
+                                :type ("zhandle_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [263 277])
+                            ("server" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [278 304])
+                            ("path" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [305 323])
+                            ("flag" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [343 353])
+                            ("fileSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [354 371])
+                            ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [372 388])
+                            ("ec" variable
+                               (:default-value "EC_OK"
+                                :type ("ErrorCode" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [389 409]))                          
+                        :type ("ZookeeperFile" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [249 411])
+                    ("ZookeeperFile" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [417 434])
+                    ("public" label nil (reparse-symbol classsubparts) [436 443])
+                    ("read" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [474 487])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [488 502]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [461 503])
+                    ("write" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [540 559])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [560 574]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [526 575])
+                    ("pread" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [608 621])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [622 636])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [637 650]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [594 651])
+                    ("pwrite" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [689 708])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [709 723])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [724 737]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [674 738])
+                    ("flush" function
+                       (:prototype-flag t
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [757 775])
+                    ("close" function
+                       (:prototype-flag t
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [794 812])
+                    ("seek" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [846 861])
+                            ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [862 876]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [831 877])
+                    ("tell" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [896 911])
+                    ("isOpened" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [930 952])
+                    ("isEof" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [971 984])
+                    ("public" label nil (reparse-symbol classsubparts) [986 993])
+                    ("setLastErrorCode" function
+                       (:arguments 
+                          ( ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1035 1048]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1013 1085])
+                    ("private" label nil (reparse-symbol classsubparts) [1086 1094])
+                    ("_zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1099 1114])
+                    ("_server" variable
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1119 1145])
+                    ("_buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [1150 1164])
+                    ("_size" variable (:type "int") (reparse-symbol classsubparts) [1169 1179])
+                    ("_curPos" variable (:type "int") (reparse-symbol classsubparts) [1184 1196])
+                    ("_retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1201 1218])
+                    ("_isEof" variable (:type "bool") (reparse-symbol classsubparts) [1223 1235])
+                    ("_flag" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1240 1251]))                  
+                :type "class")
+                nil [201 1254])
+            ("ZookeeperFilePtr" type
+               (:typedef ("std::auto_ptr" type
+                     (:template-specifier 
+                        ( ("ZookeeperFile" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [1256 1310])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1339 1349]))                  
+                :type "int")
+                nil [1312 1350]))          
+      :file "ZookeeperFile.h"
+      :pointmax 1390
+      :fsize 1389
+      :lastmodtime '(22536 44787 12203 97000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("FSLIB_PLUGIN_ZOOKEEPERFILE_H")
+          )
+)
+    (semanticdb-table "ZookeeperFileLock.h"
+      :file "ZookeeperFileLock.h"
+      :fsize 1413
+      :lastmodtime '(22536 44787 12203 97000))
+    (semanticdb-table "ZookeeperFileLockCreator.h"
+      :file "ZookeeperFileLockCreator.h"
+      :fsize 671
+      :lastmodtime '(22536 44787 12203 97000))
+    (semanticdb-table "ZookeeperFile.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("errno.h" include (:system-flag t) nil [1 19])
+            ("autil/TimeUtility.h" include (:system-flag t) nil [20 50])
+            ("fslib/fs/zookeeper/ZookeeperFile.h" include nil nil [51 96])
+            ("fslib/fs/zookeeper/ZookeeperFileSystem.h" include nil nil [97 148])
+            ("fslib/util/SafeBuffer.h" include nil nil [149 183])
+            ("fslib/util/LongIntervalLog.h" include nil nil [184 223])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [225 245])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [246 268])
+            ("fslib::util" using (:type ("fslib::util" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [269 297])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [328 338]))                  
+                :type "int")
+                nil [299 339])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [371 381])
+                    ("" variable (:type ("ZookeeperFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [382 396]))                  
+                :type "int")
+                nil [340 397])
+            ("ZookeeperFile" function
+               (:constructor-flag t
+                :parent "ZookeeperFile"
+                :arguments 
+                  ( ("zh" variable
+                       (:pointer 1
+                        :type ("zhandle_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [428 442])
+                    ("server" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [443 464])
+                    ("path" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [465 478])
+                    ("flag" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [509 519])
+                    ("fileSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [520 537])
+                    ("retryCnt" variable (:type ("int8_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [538 554])
+                    ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [555 568]))                  
+                :type ("ZookeeperFile" type (:type "class") nil nil))
+                nil [399 1490])
+            ("ZookeeperFile" function
+               (:destructor-flag t
+                :parent "ZookeeperFile"
+                :type "void")
+                nil [1492 1778])
+            ("read" function
+               (:parent "ZookeeperFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1808 1821])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1822 1836]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [1780 2910])
+            ("write" function
+               (:parent "ZookeeperFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2945 2964])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2965 2979]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [2916 4986])
+            ("pread" function
+               (:parent "ZookeeperFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [5017 5030])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5031 5045])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5046 5059]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [4988 6224])
+            ("pwrite" function
+               (:parent "ZookeeperFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [6260 6279])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6280 6294])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6295 6308]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [6230 6499])
+            ("flush" function
+               (:parent "ZookeeperFile"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [6501 7045])
+            ("close" function
+               (:parent "ZookeeperFile"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [7047 7765])
+            ("seek" function
+               (:parent "ZookeeperFile"
+                :arguments 
+                  ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7797 7812])
+                    ("seekFlag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7813 7831]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [7767 8977])
+            ("tell" function
+               (:parent "ZookeeperFile"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [8979 9300])
+            ("isOpened" function
+               (:parent "ZookeeperFile"
+                :type "bool")
+                nil [9302 9368])
+            ("isEof" function
+               (:parent "ZookeeperFile"
+                :type "bool")
+                nil [9370 9621])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("zookeeper" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9650 9660]))                  
+                :type "int")
+                nil [9623 9661]))          
+      :file "ZookeeperFile.cpp"
+      :pointmax 9663
+      :fsize 9662
+      :lastmodtime '(22536 44787 12203 97000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!fs_lib!fslib_zookeeper_plugin!fslib!fs!zookeeper!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

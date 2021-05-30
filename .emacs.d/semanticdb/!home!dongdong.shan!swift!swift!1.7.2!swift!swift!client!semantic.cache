@@ -1,0 +1,276 @@
+;; Object client/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "client/"
+  :tables
+  (list
+    (semanticdb-table "SingleSwiftWriter.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/client/SingleSwiftWriter.h" include nil nil [1 44])
+            ("autil/TimeUtility.h" include nil nil [45 75])
+            ("autil/ZlibCompressor.h" include nil nil [76 109])
+            ("swift/protocol/MessageCompressor.h" include nil nil [110 155])
+            ("swift/protocol/FBMessageWriter.h" include nil nil [156 199])
+            ("swift/client/version.h" include nil nil [200 233])
+            ("swift/common/Singleton.h" include nil nil [234 269])
+            ("swift/common/ThreadBasedObjectPool.h" include nil nil [270 317])
+            ("flatbuffers/flatbuffers.h" include nil nil [318 354])
+            ("limits" include (:system-flag t) nil [355 372])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [374 394])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [395 417])
+            ("flatbuffers" using (:type ("flatbuffers" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [418 446])
+            ("swift::common" using (:type ("swift::common" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [447 477])
+            ("swift::util" using (:type ("swift::util" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [478 506])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("protocol" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [527 536]))                  
+                :type "int")
+                nil [507 537])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [561 568]))                  
+                :type "int")
+                nil [539 569])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [586 593])
+                    ("" variable (:type ("SingleSwiftWriter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [594 612]))                  
+                :type "int")
+                nil [570 613])
+            ("SingleSwiftWriter::INVALID_CHECK_POINT_ID" variable
+               (:default-value "numeric_limits<int64_t>::min()"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [615 698])
+            ("SingleSwiftWriter" function
+               (:constructor-flag t
+                :parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("adminAdapter" variable (:type ("SwiftAdminAdapterPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [785 819])
+                    ("channelManager" variable (:type ("SwiftRpcChannelManagerPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [857 898])
+                    ("partitionId" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [936 957])
+                    ("config" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SwiftWriterConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [958 990])
+                    ("blockPool" variable (:type ("BlockPoolPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1028 1051])
+                    ("mergeThreadPool" variable (:type ("autil::ThreadPoolPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1089 1126])
+                    ("limiter" variable (:type ("BufferSizeLimiterPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1164 1193]))                  
+                :type ("SingleSwiftWriter" type (:type "class") nil nil))
+                nil [748 2141])
+            ("SingleSwiftWriter" function
+               (:destructor-flag t
+                :parent "SingleSwiftWriter"
+                :type "void")
+                nil [2143 2541])
+            ("write" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("msgInfo" variable
+                       (:reference 1
+                        :type ("MessageInfo" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2578 2599])
+                    ("isSynchronous" variable (:type "bool") (reparse-symbol arg-sub-list) [2600 2619]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [2543 3431])
+            ("addMsgFail" function
+               (:parent "SingleSwiftWriter"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [3433 4498])
+            ("getCommittedCheckpointId" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("checkpoint" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4549 4569]))                  
+                :type "bool")
+                nil [4500 4833])
+            ("getMaxCheckpointId" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("checkpoint" variable
+                       (:reference 1
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4878 4898]))                  
+                :type "bool")
+                nil [4835 4955])
+            ("isBufferEmpty" function
+               (:parent "SingleSwiftWriter"
+                :type "bool")
+                nil [4957 5045])
+            ("isSent" function
+               (:parent "SingleSwiftWriter"
+                :type "bool")
+                nil [5047 5130])
+            ("sendRequest" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5168 5180])
+                    ("force" variable (:type "bool") (reparse-symbol arg-sub-list) [5181 5192]))                  
+                :type "void")
+                nil [5132 6092])
+            ("clearBuffer" function
+               (:parent "SingleSwiftWriter"
+                :type "void")
+                nil [6094 6161])
+            ("sendSyncRequest" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6203 6215])
+                    ("retryTimes" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6216 6236]))                  
+                :type "void")
+                nil [6163 7225])
+            ("needWaitForBrokerBusy" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("currentTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7273 7293]))                  
+                :type "bool")
+                nil [7227 8201])
+            ("postSendMessageRequest" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8250 8262])
+                    ("timeout" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8263 8279]))                  
+                :type "bool")
+                nil [8203 11199])
+            ("getUnsendMessageCount" function
+               (:parent "SingleSwiftWriter"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [11201 11296])
+            ("getUnsendMessageSize" function
+               (:parent "SingleSwiftWriter"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [11298 11391])
+            ("getUncommittedMsgCount" function
+               (:parent "SingleSwiftWriter"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [11393 11494])
+            ("getUncommittedMsgSize" function
+               (:parent "SingleSwiftWriter"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [11496 11595])
+            ("needDetectCommitProgress" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("now" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11646 11658]))                  
+                :type "bool")
+                nil [11597 11823])
+            ("handleSendMessageResponse" function
+               (:parent "SingleSwiftWriter"
+                :type "void")
+                nil [11825 16426])
+            ("setCallBackFunc" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("" variable
+                       (:constant-flag t
+                        :type ("std::tr1::function" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16468 16493])
+                    ("" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16493 16512])
+                    ("" variable (:type ("func" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16515 16520]))                  
+                :type "void")
+                nil [16428 16542])
+            ("setCheckpointId" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("checkpointId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16584 16605]))                  
+                :type "void")
+                nil [16544 16672])
+            ("setLastErrorCode" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16715 16728]))                  
+                :type "void")
+                nil [16674 16786])
+            ("getLastErrorCode" function
+               (:parent "SingleSwiftWriter"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [16788 16901])
+            ("setLastRefreshTime" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("refreshTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16946 16966]))                  
+                :type "void")
+                nil [16903 17031])
+            ("getLastRefreshTime" function
+               (:parent "SingleSwiftWriter"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [17033 17144])
+            ("updateRangeUtil" function
+               (:parent "SingleSwiftWriter"
+                :arguments 
+                  ( ("rangeUtil" variable
+                       (:constant-flag t
+                        :type ("RangeUtilPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17186 17215]))                  
+                :type "void")
+                nil [17146 17264])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17286 17293]))                  
+                :type "int")
+                nil [17266 17294]))          
+      :file "SingleSwiftWriter.cpp"
+      :pointmax 17296
+      :fsize 17295
+      :lastmodtime '(23517 5956 504044 519000)
+      :unmatched-syntax '((thing 739 . 740) (thing 737 . 739) (thing 735 . 736) (thing 734 . 735) (thing 732 . 733) (thing 730 . 731) (thing 713 . 729) (thing 705 . 712) (thing 699 . 704) (thing 16492 . 16493) (thing 16503 . 16512) (thing 16512 . 16513) (thing 16514 . 16515)))
+    (semanticdb-table "SingleSwiftWriter.h"
+      :file "SingleSwiftWriter.h"
+      :fsize 3232
+      :lastmodtime '(23517 5303 963995 383000))
+    (semanticdb-table "MessageInfo.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_MESSAGEINFO_H" variable (:constant-flag t) nil [37 56])
+            ("swift/common/Common.h" include nil nil [58 90])
+            ("swift/common/Log.h" include nil nil [91 120])
+            ("swift/common/MessageInfo.h" include nil nil [121 158])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [182 189]))                  
+                :type "int")
+                nil [160 190])
+            ("MessageInfo" type
+               (:typedef ("common::MessageInfo" type (:type "class") nil nil)
+                :type "typedef")
+                nil [192 232])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("client" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [254 261]))                  
+                :type "int")
+                nil [234 262]))          
+      :file "MessageInfo.h"
+      :pointmax 293
+      :fsize 292
+      :lastmodtime '(23517 5303 962995 383000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SWIFT_MESSAGEINFO_H")
+          )
+))
+  :file "!home!dongdong.shan!swift!swift!1.7.2!swift!swift!client!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

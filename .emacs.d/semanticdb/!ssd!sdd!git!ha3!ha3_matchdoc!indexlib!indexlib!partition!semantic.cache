@@ -1,0 +1,1909 @@
+;; Object partition/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "partition/"
+  :tables
+  (list
+    (semanticdb-table "online_partition.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__INDEXLIB_ONLINE_PARTITION_H" variable (:constant-flag t) nil [47 76])
+            ("tr1/memory" include (:system-flag t) nil [78 99])
+            ("indexlib/indexlib.h" include nil nil [100 130])
+            ("indexlib/common/log.h" include nil nil [131 163])
+            ("indexlib/common/common.h" include nil nil [164 199])
+            ("indexlib/index/index_partition.h" include nil nil [200 243])
+            ("indexlib/index/calculator/partition_size_calculator.h" include nil nil [244 308])
+            ("indexlib/partition/reader_container.h" include nil nil [309 357])
+            ("indexlib/partition/partition_modifier.h" include nil nil [358 408])
+            ("indexlib/monitor/monitor.h" include nil nil [409 446])
+            ("indexlib/partition/online_partition_reader.h" include nil nil [447 502])
+            ("indexlib/partition/online_partition_metrics.h" include nil nil [503 559])
+            ("indexlib/partition/partition_resource_calculator.h" include nil nil [560 621])
+            ("indexlib/partition/join_segment_writer.h" include nil nil [622 673])
+            ("indexlib/partition/reopen_decider.h" include nil nil [674 720])
+            ("indexlib/partition/segment/in_memory_segment_container.h" include nil nil [721 788])
+            ("indexlib/partition/open_executor/open_executor_chain.h" include nil nil [789 854])
+            ("indexlib/partition/open_executor/executor_resource.h" include nil nil [855 918])
+            ("indexlib/partition/online_partition_task_item.h" include nil nil [919 977])
+            ("DECLARE_REFERENCE_CLASS" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1003 1013])
+                    ("" variable (:type ("PartitionData" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1014 1028]))                  
+                :type "int")
+                nil [979 1029])
+            ("DECLARE_REFERENCE_CLASS" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1054 1064])
+                    ("" variable (:type ("OnlinePartitionWriter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1065 1087]))                  
+                :type "int")
+                nil [1030 1088])
+            ("DECLARE_REFERENCE_CLASS" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1113 1120])
+                    ("" variable (:type ("ExecutorScheduler" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1121 1139]))                  
+                :type "int")
+                nil [1089 1140])
+            ("DECLARE_REFERENCE_CLASS" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1165 1172])
+                    ("" variable (:type ("CounterMap" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1173 1184]))                  
+                :type "int")
+                nil [1141 1185])
+            ("IE_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1206 1216]))                  
+                :type "int")
+                nil [1187 1217])
+            ("OnlinePartition" type
+               (:superclasses 
+                  ( ("index::IndexPartition" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1274 1281])
+                    ("IndexPhase" type
+                       (:members 
+                          ( ("FORCE_OPEN" variable
+                               (:constant-flag t
+                                :default-value (1329 1330)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1316 1330])
+                            ("FORCE_REOPEN" variable
+                               (:constant-flag t
+                                :default-value (1355 1356)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1340 1356])
+                            ("SWITCH_FLUSH_RT" variable
+                               (:constant-flag t
+                                :default-value (1384 1385)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1366 1385])
+                            ("RECLAIM_READER_MEM" variable
+                               (:constant-flag t
+                                :default-value (1416 1417)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1395 1417])
+                            ("NORMAL_REOPEN" variable
+                               (:constant-flag t
+                                :default-value (1443 1444)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1427 1444])
+                            ("REOPEN_RT" variable
+                               (:constant-flag t
+                                :default-value (1466 1467)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1454 1467])
+                            ("OPENING" variable
+                               (:constant-flag t
+                                :default-value (1488 1489)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1477 1489])
+                            ("PENDING" variable
+                               (:constant-flag t
+                                :default-value (1510 1511)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [1499 1511]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [1286 1519])
+                    ("IndexPhaseGuard" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [1557 1564])
+                            ("IndexPhaseGuard" function
+                               (:constructor-flag t
+                                :arguments 
+                                  ( ("argument" variable
+                                       (:reference 1
+                                        :typemodifiers ("volatile")
+                                        :type ("IndexPhase" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1589 1619])
+                                    ("phrase" variable (:type ("IndexPhase" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1620 1638]))                                  
+                                :type ("IndexPhaseGuard" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1573 1724])
+                            ("IndexPhaseGuard" function
+                               (:destructor-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [1734 1805])
+                            ("private" label nil (reparse-symbol classsubparts) [1810 1818])
+                            ("mArgument" variable
+                               (:typemodifiers ("volatile")
+                                :type ("IndexPhase" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1827 1858]))                          
+                        :type "class")
+                        (reparse-symbol classsubparts) [1525 1865])
+                    ("public" label nil (reparse-symbol classsubparts) [1871 1878])
+                    ("OnlinePartition" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("partitionName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1899 1932])
+                            ("partitionResource" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("index::IndexPartitionResource" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1953 2008]))                          
+                        :type ("OnlinePartition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1883 2009])
+                    ("OnlinePartition" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("partitionName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2051 2084])
+                            ("memQuotaController" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("common::MemoryQuotaControllerPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2105 2164])
+                            ("metricProvider" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("amonitor::client::MetricProvider" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2185 2240]))                          
+                        :type ("OnlinePartition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2035 2242])
+                    ("OnlinePartition" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("OnlinePartition" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2267 2285])
+                    ("OnlinePartition" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2290 2309])
+                    ("public" label nil (reparse-symbol classsubparts) [2311 2318])
+                    ("Open" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dir" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2366 2389])
+                            ("schema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2390 2436])
+                            ("options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2450 2495])
+                            ("targetVersionId" variable
+                               (:default-value "INVALID_VERSION"
+                                :type ("versionid_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2508 2553]))                          
+                        :type ("OpenStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2337 2555])
+                    ("ReOpen" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [2592 2609])
+                            ("targetVersionId" variable
+                               (:default-value "INVALID_VERSION"
+                                :type ("versionid_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2646 2691]))                          
+                        :type ("OpenStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2574 2693])
+                    ("AddVirtualAttributes" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("mainVirtualAttrConfigs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::AttributeConfigVector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2752 2812])
+                            ("subVirtualAttrConfigs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::AttributeConfigVector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2825 2884]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2713 2885])
+                    ("ReOpenNewSegment" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2905 2929])
+                    ("Close" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2948 2961])
+                    ("GetWriter" function
+                       (:prototype-flag t
+                        :type ("PartitionWriterPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2981 3018])
+                    ("GetReader" function
+                       (:prototype-flag t
+                        :type ("index::IndexPartitionReaderPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3037 3086])
+                    ("CheckMemoryStatus" function
+                       (:prototype-flag t
+                        :type ("MemoryStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3105 3144])
+                    ("GetIncVersionTimestamp" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3149 3188])
+                    ("GetSchema" function (:type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3208 3318])
+                    ("ExecuteTask" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("taskType" variable (:type ("OnlinePartitionTaskItem::TaskType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3340 3383]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3323 3384])
+                    ("public" label nil (reparse-symbol classsubparts) [3394 3401])
+                    ("GetPartitionData" function (:type ("PartitionDataPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3426 3510])
+                    ("GetFileSystem" function
+                       (:constant-flag t
+                        :type ("file_system::IndexlibFileSystemPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3547 3638])
+                    ("GetPartitionMetrics" function (:type ("OnlinePartitionMetrics" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3644 3730])
+                    ("TEST_SetDumpSegmentContainer" function
+                       (:arguments 
+                          ( ("dumpSegmentContainer" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("DumpSegmentContainerPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3770 3822]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3736 3888])
+                    ("protected" label nil (reparse-symbol classsubparts) [3890 3900])
+                    ("InitReader" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("partData" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionDataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3953 3986]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3929 3987])
+                    ("CreateResourceCalculator" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4070 4115])
+                            ("partitionData" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionDataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4128 4166])
+                            ("writer" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionWriterPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4179 4212])
+                            ("pluginManager" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("plugin::PluginManagerPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4225 4271]))                          
+                        :type ("PartitionResourceCalculatorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3993 4278])
+                    ("ReportMetrics" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [4283 4312])
+                    ("ExecuteCleanResourceTask" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [4317 4357])
+                    ("DumpSegmentOverInterval" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [4363 4394])
+                    ("private" label nil (reparse-symbol classsubparts) [4400 4408])
+                    ("DoOpen" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dir" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4431 4454])
+                            ("schema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4478 4524])
+                            ("options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4548 4593])
+                            ("targetVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4616 4644])
+                            ("indexPhase" variable (:type ("IndexPhase" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4667 4689]))                          
+                        :type ("OpenStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4413 4690])
+                    ("DoInitReader" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partData" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionDataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4714 4747])
+                            ("flushRtSegmentId" variable (:type ("segmentid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4748 4777]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4696 4778])
+                    ("InitWriter" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partData" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionDataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4799 4832]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4783 4833])
+                    ("InitResourceCleaner" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [4838 4865])
+                    ("InitResourceCalculator" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [4870 4900])
+                    ("CheckDataPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dir" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4925 4948]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4906 4955])
+                    ("CheckParam" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("schema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4977 5023])
+                            ("options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5044 5089]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4961 5096])
+                    ("CleanResource" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [5102 5123])
+                    ("UpdateOnlinePartitionMetrics" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [5128 5164])
+                    ("LoadReaderPatch" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partitionData" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionDataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5191 5229])
+                            ("reader" variable
+                               (:reference 1
+                                :type ("index::OnlinePartitionReaderPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5255 5295]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5170 5296])
+                    ("SwitchReader" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("reader" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("index::OnlinePartitionReaderPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5320 5366]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5302 5367])
+                    ("AddOnDiskIndexCleaner" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [5373 5402])
+                    ("AddVirtualAttributeDataCleaner" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("oldSchema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5457 5506])
+                            ("newSchema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5519 5568]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5408 5569])
+                    ("AddVirtualAttributeDataCleaner" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("oldSchema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::AttributeSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5624 5668])
+                            ("newSchema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::AttributeSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5681 5725])
+                            ("isSub" variable (:type "bool") (reparse-symbol arg-sub-list) [5738 5749]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5575 5750])
+                    ("CreateRtSchema" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dir" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5816 5839])
+                            ("options" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionOptions" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5853 5898]))                          
+                        :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5756 5899])
+                    ("CreateNewSchema" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("schema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5966 6012])
+                            ("mainVirtualAttrConfigs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::AttributeConfigVector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6025 6085])
+                            ("subVirtualAttrConfigs" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::AttributeConfigVector" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6098 6157]))                          
+                        :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5905 6158])
+                    ("ResetRtAndJoinDirPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileSystem" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("file_system::IndexlibFileSystemPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6204 6257]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6164 6258])
+                    ("CreateReaderModifier" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("reader" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("index::IndexPartitionReaderPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6323 6368]))                          
+                        :type ("PartitionModifierPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6268 6369])
+                    ("CreateJoinSegmentWriter" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("onDiskVersion" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("index::Version" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6434 6470]))                          
+                        :type ("JoinSegmentWriterPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6376 6477])
+                    ("InitAccessCounters" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("counterMap" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("common::CounterMapPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6507 6547])
+                            ("schema" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6576 6622]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [6483 6623])
+                    ("SetEnableReleaseOperationAfterDump" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("releaseOperations" variable (:type "bool") (reparse-symbol arg-sub-list) [6668 6691]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6628 6692])
+                    ("MakeReopenDecision" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [6755 6772])
+                            ("targetVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6785 6813])
+                            ("onDiskVersion" variable
+                               (:reference 1
+                                :type ("index::Version" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [6826 6856]))                          
+                        :type ("ReopenDecider::ReopenType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6697 6857])
+                    ("DoClose" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [6867 6882])
+                    ("Reset" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [6888 6901])
+                    ("PrepareIntervalTask" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [6906 6933])
+                    ("DumpSegmentThread" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [6938 6963])
+                    ("private" label nil (reparse-symbol classsubparts) [6965 6973])
+                    ("ScopedLockPtr" type
+                       (:typedef ("std::tr1::shared_ptr" type
+                             (:template-specifier 
+                                ( ("autil::ScopedLock" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [6978 7040])
+                    ("DoReopen" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [7082 7099])
+                            ("targetVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7100 7128]))                          
+                        :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7046 7129])
+                    ("NormalReopen" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("scopedLock" variable
+                               (:reference 1
+                                :type ("ScopedLockPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7174 7200])
+                            ("onDiskVersion" variable
+                               (:reference 1
+                                :type ("index::Version" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7245 7275]))                          
+                        :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7134 7276])
+                    ("ForceReopen" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("onDiskVersion" variable
+                               (:reference 1
+                                :type ("index::Version" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7304 7334]))                          
+                        :type ("OpenStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7281 7335])
+                    ("ReclaimReaderMem" function
+                       (:prototype-flag t
+                        :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7340 7386])
+                    ("SwitchFlushRtSegments" function
+                       (:prototype-flag t
+                        :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7391 7442])
+                    ("CreateExecutorResource" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("onDiskVersion" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("index::Version" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7488 7524])
+                            ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [7569 7586]))                          
+                        :type ("ExecutorResource" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7448 7587])
+                    ("CreateUnlockExecutor" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("scopedLock" variable
+                               (:reference 1
+                                :type ("ScopedLockPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7630 7656]))                          
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7593 7657])
+                    ("CreatePreloadExecutor" function
+                       (:prototype-flag t
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7662 7702])
+                    ("CreatePreJoinExecutor" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("joinSegWriter" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("JoinSegmentWriterPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7745 7787]))                          
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7707 7788])
+                    ("CreateLockExecutor" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("scopedLock" variable
+                               (:reference 1
+                                :type ("ScopedLockPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7828 7854]))                          
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7793 7855])
+                    ("CreateReclaimRtIndexExecutor" function
+                       (:prototype-flag t
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7860 7907])
+                    ("CreateReclaimRtSegmentsExecutor" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("reclaimBuildingSegment" variable
+                               (:default-value "true"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [7960 7994]))                          
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7912 7996])
+                    ("CreateGenerateJoinSegmentExecutor" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("joinSegWriter" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("JoinSegmentWriterPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8060 8102]))                          
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8001 8103])
+                    ("CreateReopenPartitionReaderExecutor" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("hasPreload" variable (:type "bool") (reparse-symbol arg-sub-list) [8168 8184]))                          
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8108 8185])
+                    ("CreateReleaseReaderExecutor" function
+                       (:prototype-flag t
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8190 8236])
+                    ("CreateDumpSegmentExecutor" function
+                       (:prototype-flag t
+                        :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8241 8285])
+                    ("CreateReopenExecutorChain" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("onDiskVersion" variable
+                               (:reference 1
+                                :type ("index::Version" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8345 8375])
+                            ("scopedLock" variable
+                               (:reference 1
+                                :type ("ScopedLockPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8388 8414]))                          
+                        :type ("OpenExecutorChainPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8290 8415])
+                    ("CreateForceReopenExecutorChain" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("onDiskVersion" variable
+                               (:reference 1
+                                :type ("index::Version" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8480 8510]))                          
+                        :type ("OpenExecutorChainPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8420 8511])
+                    ("GetLatestLinkRtSegId" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partData" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionDataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8550 8583])
+                            ("memReserver" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("common::MemoryReserverPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8596 8641]))                          
+                        :type ("segmentid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8517 8648])
+                    ("ReclaimRemainFlushRtIndex" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partData" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("PartitionDataPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8685 8718]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8654 8719])
+                    ("UpdateSwitchRtSegmentSize" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [8724 8757])
+                    ("GetLatestNeedSkipIncTs" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("incVersion" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("index::Version" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8794 8827]))                          
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8763 8834])
+                    ("protected" label nil (reparse-symbol classsubparts) [8840 8850])
+                    ("mRtSchema" variable (:type ("config::IndexPartitionSchemaPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [8855 8897])
+                    ("mWriter" variable (:type ("OnlinePartitionWriterPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [8902 8935])
+                    ("mReaderLock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8941 8980])
+                    ("mSchemaLock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::RecursiveThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8985 9033])
+                    ("mCleanerLock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::RecursiveThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9038 9087])
+                    ("mReader" variable (:type ("index::OnlinePartitionReaderPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9097 9137])
+                    ("mReaderContainer" variable (:type ("ReaderContainerPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9142 9178])
+                    ("mLoadedIncVersion" variable (:type ("index::Version" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9183 9216])
+                    ("mResourceCleaner" variable (:type ("common::ExecutorSchedulerPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9221 9267])
+                    ("mDumpSegmentContainer" variable (:type ("DumpSegmentContainerPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9272 9318])
+                    ("mSearchCache" variable (:type ("util::SearchCachePartitionWrapperPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9324 9374])
+                    ("mResourceCalculator" variable (:type ("PartitionResourceCalculatorPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9379 9430])
+                    ("mOnlinePartMetrics" variable (:type ("OnlinePartitionMetricsPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9435 9480])
+                    ("mClosed" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [9485 9507])
+                    ("mIsServiceNormal" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [9512 9543])
+                    ("mIndexPhase" variable
+                       (:typemodifiers ("volatile")
+                        :type ("IndexPhase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9548 9580])
+                    ("mCleanResourceTaskId" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9585 9614])
+                    ("mReportMetricsTaskId" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9619 9648])
+                    ("mIntervalDumpTaskId" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9653 9681])
+                    ("mLatestNeedSkipIncTs" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9686 9715])
+                    ("mDumpSegmentThread" variable (:type ("autil::ThreadPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9720 9756])
+                    ("private" label nil (reparse-symbol classsubparts) [9757 9765])
+                    ("OnlinePartitionTest" friend nil (reparse-symbol classsubparts) [9770 9802])
+                    ("ReopenDeciderTest" friend nil (reparse-symbol classsubparts) [9808 9838])
+                    ("OnlinePartitionInteTest" friend nil (reparse-symbol classsubparts) [9844 9880])
+                    ("ForceReopenInteTest" friend nil (reparse-symbol classsubparts) [9886 9918])
+                    ("MemoryControllerTest" friend nil (reparse-symbol classsubparts) [9924 9957])
+                    ("OnlinePartitionExceptionTest" friend nil (reparse-symbol classsubparts) [9963 10004])
+                    ("PartitionMemControlPerfTest" friend nil (reparse-symbol classsubparts) [10010 10050])
+                    ("DumpContainerFlushExecutorTest" friend nil (reparse-symbol classsubparts) [10056 10099])
+                    ("IE_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [10105 10122]))                  
+                :type "class")
+                nil [1219 10125])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("OnlinePartition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10145 10161]))                  
+                :type "int")
+                nil [10127 10162])
+            ("IE_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10181 10191]))                  
+                :type "int")
+                nil [10164 10192]))          
+      :file "online_partition.h"
+      :pointmax 10233
+      :fsize 10232
+      :lastmodtime '(23073 10864 528951 499000)
+      :unmatched-syntax '((thing 9802 . 9803) (thing 9838 . 9839) (thing 9880 . 9881) (thing 9918 . 9919) (thing 9957 . 9958) (thing 10004 . 10005) (thing 10050 . 10051) (thing 10099 . 10100))
+      :lexical-table 
+        '(("__INDEXLIB_ONLINE_PARTITION_H")
+          )
+)
+    (semanticdb-table "online_partition.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("indexlib/partition/online_partition.h" include nil nil [1 49])
+            ("indexlib/partition/online_partition_writer.h" include nil nil [50 105])
+            ("indexlib/partition/online_partition_reader.h" include nil nil [106 161])
+            ("indexlib/partition/partition_data.h" include nil nil [162 208])
+            ("indexlib/partition/on_disk_partition_data.h" include nil nil [209 263])
+            ("indexlib/partition/partition_data_creator.h" include nil nil [264 318])
+            ("indexlib/partition/index_format_version.h" include nil nil [319 371])
+            ("indexlib/config/index_partition_options.h" include nil nil [372 424])
+            ("indexlib/config/index_partition_schema.h" include nil nil [425 476])
+            ("indexlib/index/schema_adapter.h" include nil nil [477 519])
+            ("indexlib/index/version_committer.h" include nil nil [520 565])
+            ("indexlib/index/index_locator.h" include nil nil [566 607])
+            ("indexlib/index/version_loader.h" include nil nil [608 650])
+            ("indexlib/index/memory_stat_collector.h" include nil nil [651 700])
+            ("indexlib/index/memory_stat_reporter.h" include nil nil [701 749])
+            ("indexlib/common/exception.h" include nil nil [750 788])
+            ("indexlib/common/executor_scheduler.h" include nil nil [789 836])
+            ("indexlib/common/memory_quota_controller_creator.h" include nil nil [837 897])
+            ("indexlib/storage/file_system_wrapper.h" include nil nil [898 947])
+            ("indexlib/partition/segment_directory.h" include nil nil [948 997])
+            ("indexlib/partition/patch_loader.h" include nil nil [998 1042])
+            ("indexlib/partition/partition_modifier_creator.h" include nil nil [1043 1101])
+            ("indexlib/partition/join_segment_directory.h" include nil nil [1102 1156])
+            ("indexlib/index/attribute/virtual_attribute_data_appender.h" include nil nil [1157 1226])
+            ("indexlib/util/path_util.h" include nil nil [1227 1263])
+            ("indexlib/partition/on_disk_realtime_data_calculator.h" include nil nil [1264 1328])
+            ("indexlib/partition/on_disk_index_cleaner.h" include nil nil [1329 1382])
+            ("indexlib/partition/partition_reader_cleaner.h" include nil nil [1383 1439])
+            ("indexlib/partition/in_memory_index_cleaner.h" include nil nil [1440 1495])
+            ("indexlib/partition/in_mem_virtual_attribute_cleaner.h" include nil nil [1496 1560])
+            ("indexlib/partition/segment/in_memory_segment_cleaner.h" include nil nil [1561 1626])
+            ("indexlib/partition/realtime_segment_directory.h" include nil nil [1627 1685])
+            ("indexlib/partition/deploy_index_validator.h" include nil nil [1686 1740])
+            ("indexlib/partition/open_executor/lock_executor.h" include nil nil [1741 1800])
+            ("indexlib/partition/open_executor/preload_executor.h" include nil nil [1801 1863])
+            ("indexlib/partition/open_executor/prejoin_executor.h" include nil nil [1864 1926])
+            ("indexlib/partition/open_executor/reclaim_rt_index_executor.h" include nil nil [1927 1998])
+            ("indexlib/partition/open_executor/reclaim_rt_segments_executor.h" include nil nil [1999 2073])
+            ("indexlib/partition/open_executor/generate_join_segment_executor.h" include nil nil [2074 2150])
+            ("indexlib/partition/open_executor/reopen_partition_reader_executor.h" include nil nil [2151 2229])
+            ("indexlib/partition/open_executor/release_partition_reader_executor.h" include nil nil [2230 2309])
+            ("indexlib/partition/open_executor/dump_segment_executor.h" include nil nil [2310 2377])
+            ("indexlib/partition/open_executor/dump_container_flush_executor.h" include nil nil [2378 2453])
+            ("indexlib/plugin/index_plugin_loader.h" include nil nil [2454 2502])
+            ("indexlib/plugin/plugin_manager.h" include nil nil [2503 2546])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [2548 2568])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [2569 2591])
+            ("amonitor::client" using (:type ("amonitor::client" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [2592 2625])
+            ("amonitor" using (:type ("amonitor" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [2626 2651])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("util" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2670 2675]))                  
+                :type "int")
+                nil [2653 2676])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("config" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2694 2701]))                  
+                :type "int")
+                nil [2677 2702])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2720 2727]))                  
+                :type "int")
+                nil [2703 2728])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2746 2752]))                  
+                :type "int")
+                nil [2729 2753])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2771 2779]))                  
+                :type "int")
+                nil [2754 2780])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("file_system" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2798 2810]))                  
+                :type "int")
+                nil [2781 2811])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("plugin" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2829 2836]))                  
+                :type "int")
+                nil [2812 2837])
+            ("IE_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2858 2868]))                  
+                :type "int")
+                nil [2839 2869])
+            ("IE_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2883 2893])
+                    ("" variable (:type ("OnlinePartition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2894 2910]))                  
+                :type "int")
+                nil [2870 2911])
+            ("IE_LOG_PREFIX" variable (:constant-flag t) nil [2921 2934])
+            ("OnlinePartition" function
+               (:constructor-flag t
+                :parent "OnlinePartition"
+                :arguments 
+                  ( ("partitionName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2992 3020])
+                    ("partitionResource" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionResource" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3054 3102]))                  
+                :type ("OnlinePartition" type (:type "class") nil nil))
+                nil [2959 3878])
+            ("OnlinePartition" function
+               (:constructor-flag t
+                :parent "OnlinePartition"
+                :arguments 
+                  ( ("partitionName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3913 3941])
+                    ("memQuotaController" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MemoryQuotaControllerPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3975 4026])
+                    ("metricProvider" variable
+                       (:pointer 1
+                        :type ("MetricProvider" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4060 4091]))                  
+                :type ("OnlinePartition" type (:type "class") nil nil))
+                nil [3880 4604])
+            ("OnlinePartition" function
+               (:constructor-flag t
+                :parent "OnlinePartition"
+                :type ("OnlinePartition" type (:type "class") nil nil))
+                nil [4606 5176])
+            ("Reset" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [5178 5470])
+            ("OnlinePartition" function
+               (:destructor-flag t
+                :parent "OnlinePartition"
+                :type "void")
+                nil [5472 5725])
+            ("SetEnableReleaseOperationAfterDump" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("releaseOperations" variable (:type "bool") (reparse-symbol arg-sub-list) [5784 5807]))                  
+                :type "void")
+                nil [5727 5912])
+            ("Open" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5973 5991])
+                    ("schema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5992 6030])
+                    ("options" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6040 6077])
+                    ("targetVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6078 6106]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [5915 7063])
+            ("DoOpen" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7125 7143])
+                    ("schema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7144 7182])
+                    ("options" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7192 7229])
+                    ("targetVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7230 7258])
+                    ("indexPhase" variable (:type ("OnlinePartition::IndexPhase" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7267 7306]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [7065 12180])
+            ("PrepareIntervalTask" function
+               (:parent "OnlinePartition"
+                :type "bool")
+                nil [12182 14192])
+            ("CheckDataPath" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [14230 14248]))                  
+                :type "void")
+                nil [14194 14986])
+            ("CheckParam" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("schema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15021 15059])
+                    ("options" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15093 15130]))                  
+                :type "void")
+                nil [14988 16457])
+            ("InitReader" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("partData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16492 16525]))                  
+                :type "void")
+                nil [16459 17039])
+            ("DoInitReader" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("partData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17076 17109])
+                    ("flushRtSegmentId" variable (:type ("segmentid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [17145 17174]))                  
+                :type "void")
+                nil [17041 17762])
+            ("InitWriter" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("partData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17797 17830]))                  
+                :type "void")
+                nil [17764 18228])
+            ("InitResourceCleaner" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [18230 19247])
+            ("InitResourceCalculator" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [19249 19427])
+            ("CreateResourceCalculator" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("options" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19511 19548])
+                    ("partitionData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19557 19595])
+                    ("writer" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionWriterPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19604 19637])
+                    ("pluginManager" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("plugin::PluginManagerPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19646 19692]))                  
+                :type ("PartitionResourceCalculatorPtr" type (:type "class") nil nil))
+                nil [19429 20014])
+            ("SwitchFlushRtSegments" function
+               (:parent "OnlinePartition"
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [20016 21228])
+            ("ReclaimReaderMem" function
+               (:parent "OnlinePartition"
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [21230 22074])
+            ("ReOpen" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [22136 22153])
+                    ("targetVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [22154 22182]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [22076 23233])
+            ("CreateJoinSegmentWriter" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("onDiskVersion" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Version" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23306 23335]))                  
+                :type ("JoinSegmentWriterPtr" type (:type "class") nil nil))
+                nil [23235 23701])
+            ("ForceReopen" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("onDiskVersion" variable
+                       (:reference 1
+                        :type ("Version" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23768 23791]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [23703 24744])
+            ("SwitchReader" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("reader" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("OnlinePartitionReaderPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24781 24820]))                  
+                :type "void")
+                nil [24746 25140])
+            ("AddOnDiskIndexCleaner" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [25142 25456])
+            ("AddVirtualAttributeDataCleaner" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("oldSchema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25520 25561])
+                    ("newSchema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25570 25611]))                  
+                :type "void")
+                nil [25458 26222])
+            ("AddVirtualAttributeDataCleaner" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("oldSchema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AttributeSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26286 26322])
+                    ("newSchema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AttributeSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [26331 26367])
+                    ("isSub" variable (:type "bool") (reparse-symbol arg-sub-list) [26376 26387]))                  
+                :type "void")
+                nil [26224 26931])
+            ("MakeReopenDecision" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [27004 27021])
+                    ("targetVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [27022 27050])
+                    ("onDiskVersion" variable
+                       (:reference 1
+                        :type ("Version" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [27051 27074]))                  
+                :type ("ReopenDecider::ReopenType" type (:type "class") nil nil))
+                nil [26933 27566])
+            ("DoReopen" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [27630 27647])
+                    ("targetVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [27648 27676]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [27568 29665])
+            ("ReportMetrics" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [29667 29997])
+            ("CleanResource" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [29999 30239])
+            ("UpdateOnlinePartitionMetrics" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [30241 32178])
+            ("LoadReaderPatch" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("partitionData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [32227 32265])
+                    ("reader" variable
+                       (:reference 1
+                        :type ("OnlinePartitionReaderPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [32266 32299]))                  
+                :type "void")
+                nil [32180 33549])
+            ("ReOpenNewSegment" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [33551 34758])
+            ("Close" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [34760 34940])
+            ("DoClose" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [34942 36598])
+            ("GetWriter" function
+               (:parent "OnlinePartition"
+                :type ("PartitionWriterPtr" type (:type "class") nil nil))
+                nil [36600 36709])
+            ("GetReader" function
+               (:parent "OnlinePartition"
+                :type ("IndexPartitionReaderPtr" type (:type "class") nil nil))
+                nil [36711 36827])
+            ("GetIncVersionTimestamp" function
+               (:parent "OnlinePartition"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [36829 37428])
+            ("CheckMemoryStatus" function
+               (:parent "OnlinePartition"
+                :type ("IndexPartition::MemoryStatus" type (:type "class") nil nil))
+                nil [37430 39609])
+            ("AddVirtualAttributes" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("mainVirtualAttrConfigs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AttributeConfigVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [39663 39715])
+                    ("subVirtualAttrConfigs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AttributeConfigVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [39724 39775]))                  
+                :type "void")
+                nil [39611 40700])
+            ("CreateNewSchema" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("schema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [40768 40806])
+                    ("mainVirtualAttrConfigs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AttributeConfigVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [40815 40867])
+                    ("subVirtualAttrConfigs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AttributeConfigVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [40876 40927]))                  
+                :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                nil [40702 41588])
+            ("CreateRtSchema" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [41655 41673])
+                    ("options" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [41674 41711]))                  
+                :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                nil [41590 42599])
+            ("ResetRtAndJoinDirPath" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("fileSystem" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("file_system::IndexlibFileSystemPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [42654 42707]))                  
+                :type "void")
+                nil [42601 43270])
+            ("CreateReaderModifier" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("reader" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionReaderPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [43340 43378]))                  
+                :type ("PartitionModifierPtr" type (:type "class") nil nil))
+                nil [43272 43534])
+            ("InitAccessCounters" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("counterMap" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("CounterMapPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [43586 43618])
+                    ("schema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [43627 43665]))                  
+                :type "bool")
+                nil [43536 45837])
+            ("ExecuteTask" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("taskType" variable (:type ("OnlinePartitionTaskItem::TaskType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [45873 45916]))                  
+                :type "void")
+                nil [45839 46548])
+            ("ExecuteCleanResourceTask" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [46550 47068])
+            ("NormalReopen" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("scopedLock" variable
+                       (:reference 1
+                        :type ("ScopedLockPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [47136 47162])
+                    ("onDiskVersion" variable
+                       (:reference 1
+                        :type ("Version" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [47163 47186]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [47070 48677])
+            ("CreateUnlockExecutor" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("scopedLock" variable
+                       (:reference 1
+                        :type ("ScopedLockPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [48733 48759]))                  
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [48679 48834])
+            ("CreatePreloadExecutor" function
+               (:parent "OnlinePartition"
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [48835 48946])
+            ("CreatePreJoinExecutor" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("joinSegWriter" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("JoinSegmentWriterPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [49002 49044]))                  
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [48947 49112])
+            ("CreateLockExecutor" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("scopedLock" variable
+                       (:reference 1
+                        :type ("ScopedLockPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [49166 49192]))                  
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [49114 49265])
+            ("CreateDumpSegmentExecutor" function
+               (:parent "OnlinePartition"
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [49266 49399])
+            ("CreateReclaimRtIndexExecutor" function
+               (:parent "OnlinePartition"
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [49400 49525])
+            ("CreateReclaimRtSegmentsExecutor" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("reclaimBuildingSegment" variable (:type "bool") (reparse-symbol arg-sub-list) [49591 49619]))                  
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [49526 49706])
+            ("CreateGenerateJoinSegmentExecutor" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("joinSegWriter" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("JoinSegmentWriterPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [49783 49825]))                  
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [49707 49905])
+            ("CreateReopenPartitionReaderExecutor" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("hasPreload" variable (:type "bool") (reparse-symbol arg-sub-list) [49975 49991]))                  
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [49906 50086])
+            ("CreateReleaseReaderExecutor" function
+               (:parent "OnlinePartition"
+                :type ("OpenExecutorPtr" type (:type "class") nil nil))
+                nil [50087 50219])
+            ("CreateExecutorResource" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("onDiskVersion" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Version" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [50278 50307])
+                    ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [50316 50333]))                  
+                :type ("ExecutorResource" type (:type "class") nil nil))
+                nil [50221 51298])
+            ("CreateReopenExecutorChain" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("onDiskVersion" variable
+                       (:reference 1
+                        :type ("Version" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [51373 51396])
+                    ("scopedLock" variable
+                       (:reference 1
+                        :type ("ScopedLockPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [51397 51423]))                  
+                :type ("OpenExecutorChainPtr" type (:type "class") nil nil))
+                nil [51300 53279])
+            ("CreateForceReopenExecutorChain" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("onDiskVersion" variable
+                       (:reference 1
+                        :type ("Version" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [53359 53382]))                  
+                :type ("OpenExecutorChainPtr" type (:type "class") nil nil))
+                nil [53281 54437])
+            ("GetLatestLinkRtSegId" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("partData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [54498 54531])
+                    ("memReserver" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MemoryReserverPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [54532 54569]))                  
+                :type ("segmentid_t" type (:type "class") nil nil))
+                nil [54439 55609])
+            ("ReclaimRemainFlushRtIndex" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("partData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [55659 55692]))                  
+                :type "void")
+                nil [55611 56505])
+            ("UpdateSwitchRtSegmentSize" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [56507 57524])
+            ("GetLatestNeedSkipIncTs" function
+               (:parent "OnlinePartition"
+                :arguments 
+                  ( ("incVersion" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Version" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [57574 57600]))                  
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [57526 58089])
+            ("DumpSegmentOverInterval" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [58091 59081])
+            ("DumpSegmentThread" function
+               (:parent "OnlinePartition"
+                :type "void")
+                nil [59083 59880])
+            ("IE_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [59921 59931]))                  
+                :type "int")
+                nil [59904 59932]))          
+      :file "online_partition.cpp"
+      :pointmax 59934
+      :fsize 59933
+      :lastmodtime '(23073 10864 528951 499000)
+      :unmatched-syntax nil)
+    (semanticdb-table "offline_partition.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("autil/legacy/json.h" include (:system-flag t) nil [1 31])
+            ("autil/StringTokenizer.h" include (:system-flag t) nil [32 66])
+            ("autil/legacy/string_tools.h" include (:system-flag t) nil [67 105])
+            ("indexlib/partition/offline_partition.h" include nil nil [106 155])
+            ("indexlib/partition/partition_data.h" include nil nil [156 202])
+            ("indexlib/partition/partition_data_creator.h" include nil nil [203 257])
+            ("indexlib/partition/offline_partition_writer.h" include nil nil [258 314])
+            ("indexlib/partition/segment_directory.h" include nil nil [315 364])
+            ("indexlib/partition/index_format_version.h" include nil nil [365 417])
+            ("indexlib/partition/partition_modifier_creator.h" include nil nil [418 476])
+            ("indexlib/partition/segment/in_memory_segment_releaser.h" include nil nil [477 543])
+            ("indexlib/partition/offline_partition_reader.h" include nil nil [544 600])
+            ("indexlib/config/index_partition_options.h" include nil nil [601 653])
+            ("indexlib/config/index_partition_schema.h" include nil nil [654 705])
+            ("indexlib/index/schema_adapter.h" include nil nil [706 748])
+            ("indexlib/index/version_loader.h" include nil nil [749 791])
+            ("indexlib/common/exception.h" include nil nil [792 830])
+            ("indexlib/common/memory_quota_controller_creator.h" include nil nil [831 891])
+            ("indexlib/storage/file_system_wrapper.h" include nil nil [892 941])
+            ("indexlib/config/cache_load_strategy.h" include nil nil [942 990])
+            ("indexlib/common/memory_quota_controller_creator.h" include nil nil [991 1051])
+            ("indexlib/plugin/index_plugin_loader.h" include (:system-flag t) nil [1052 1100])
+            ("indexlib/plugin/plugin_manager.h" include (:system-flag t) nil [1101 1144])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1146 1166])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1167 1189])
+            ("amonitor::client" using (:type ("amonitor::client" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1190 1223])
+            ("amonitor" using (:type ("amonitor" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1224 1249])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("config" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1268 1275]))                  
+                :type "int")
+                nil [1251 1276])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1294 1301]))                  
+                :type "int")
+                nil [1277 1302])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1320 1326]))                  
+                :type "int")
+                nil [1303 1327])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("storage" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1345 1353]))                  
+                :type "int")
+                nil [1328 1354])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("plugin" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1372 1379]))                  
+                :type "int")
+                nil [1355 1380])
+            ("IE_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1401 1411]))                  
+                :type "int")
+                nil [1382 1412])
+            ("IE_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1426 1436])
+                    ("" variable (:type ("OfflinePartition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1437 1454]))                  
+                :type "int")
+                nil [1413 1455])
+            ("OfflinePartition" function
+               (:constructor-flag t
+                :parent "OfflinePartition"
+                :arguments 
+                  ( ("partitionName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1492 1520])
+                    ("partitionResource" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionResource" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1521 1569]))                  
+                :type ("OfflinePartition" type (:type "class") nil nil))
+                nil [1457 1938])
+            ("OfflinePartition" function
+               (:constructor-flag t
+                :parent "OfflinePartition"
+                :arguments 
+                  ( ("partitionName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1975 2003])
+                    ("memQuotaController" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("MemoryQuotaControllerPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2039 2090])
+                    ("metricProvider" variable
+                       (:pointer 1
+                        :type ("MetricProvider" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2126 2157]))                  
+                :type ("OfflinePartition" type (:type "class") nil nil))
+                nil [1940 2611])
+            ("OfflinePartition" function
+               (:constructor-flag t
+                :parent "OfflinePartition"
+                :arguments 
+                  ( ("metricProvider" variable
+                       (:pointer 1
+                        :type ("MetricProvider" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2648 2679]))                  
+                :type ("OfflinePartition" type (:type "class") nil nil))
+                nil [2613 3016])
+            ("OfflinePartition" function
+               (:destructor-flag t
+                :parent "OfflinePartition"
+                :type "void")
+                nil [3018 3194])
+            ("Open" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3255 3273])
+                    ("schema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3274 3312])
+                    ("options" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3322 3359])
+                    ("versionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3360 3382]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [3196 4207])
+            ("DoOpen" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4270 4288])
+                    ("schema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4289 4327])
+                    ("options" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4337 4374])
+                    ("versionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4375 4397]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [4209 6148])
+            ("InitPartitionData" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6200 6218])
+                    ("versionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6219 6241])
+                    ("counterMap" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("CounterMapPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6250 6282])
+                    ("pluginManager" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PluginManagerPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6291 6329]))                  
+                :type "void")
+                nil [6150 7221])
+            ("RewriteLoadConfigs" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("options" variable
+                       (:reference 1
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7265 7296]))                  
+                :type "void")
+                nil [7223 8448])
+            ("ReOpenNewSegment" function
+               (:parent "OfflinePartition"
+                :type "void")
+                nil [8450 8765])
+            ("ReOpen" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("forceReopen" variable (:type "bool") (reparse-symbol arg-sub-list) [8859 8876])
+                    ("reopenVersionId" variable (:type ("versionid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8877 8905]))                  
+                :type ("IndexPartition::OpenStatus" type (:type "class") nil nil))
+                nil [8798 8948])
+            ("Close" function
+               (:parent "OfflinePartition"
+                :type "void")
+                nil [8950 9536])
+            ("GetWriter" function
+               (:parent "OfflinePartition"
+                :type ("PartitionWriterPtr" type (:type "class") nil nil))
+                nil [9538 9616])
+            ("GetReader" function
+               (:parent "OfflinePartition"
+                :type ("IndexPartitionReaderPtr" type (:type "class") nil nil))
+                nil [9618 10391])
+            ("CreatePartitionWriter" function
+               (:parent "OfflinePartition"
+                :type ("OfflinePartitionWriterPtr" type (:type "class") nil nil))
+                nil [10393 10656])
+            ("StoreSchemaAndFormatVersionFile" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10722 10745]))                  
+                :type "void")
+                nil [10658 11041])
+            ("InitWriter" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("partData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11077 11110]))                  
+                :type "void")
+                nil [11043 11340])
+            ("CreateModifier" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("partData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("PartitionDataPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11405 11438]))                  
+                :type ("PartitionModifierPtr" type (:type "class") nil nil))
+                nil [11342 11661])
+            ("IsEmptyDir" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("dir" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11697 11715]))                  
+                :type "bool")
+                nil [11663 12739])
+            ("CheckParam" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("schema" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionSchemaPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12775 12813])
+                    ("options" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("IndexPartitionOptions" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12848 12885]))                  
+                :type "void")
+                nil [12741 13193])
+            ("AddVirtualAttributes" function
+               (:parent "OfflinePartition"
+                :arguments 
+                  ( ("mainVirtualAttrConfigs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AttributeConfigVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13248 13300])
+                    ("subVirtualAttrConfigs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("AttributeConfigVector" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [13309 13360]))                  
+                :type "void")
+                nil [13195 13484])
+            ("BackGroundThread" function
+               (:parent "OfflinePartition"
+                :type "void")
+                nil [13486 14138])
+            ("IE_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("partition" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14157 14167]))                  
+                :type "int")
+                nil [14140 14168]))          
+      :file "offline_partition.cpp"
+      :pointmax 14170
+      :fsize 14169
+      :lastmodtime '(23073 10864 527951 500000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!ha3!ha3_matchdoc!indexlib!indexlib!partition!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

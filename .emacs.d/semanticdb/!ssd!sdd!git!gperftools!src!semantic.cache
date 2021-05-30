@@ -1,0 +1,538 @@
+;; Object src/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "src/"
+  :tables
+  (list
+    (semanticdb-table "thread_cache.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("config.h" include (:system-flag t) nil [1681 1700])
+            ("thread_cache.h" include nil nil [1701 1726])
+            ("errno.h" include (:system-flag t) nil [1727 1745])
+            ("string.h" include (:system-flag t) nil [1746 1765])
+            ("algorithm" include (:system-flag t) nil [1800 1820])
+            ("base/commandlineflags.h" include nil nil [1856 1890])
+            ("base/spinlock.h" include nil nil [1918 1944])
+            ("getenv_safe.h" include nil nil [1980 2004])
+            ("central_freelist.h" include nil nil [2046 2075])
+            ("maybe_threads.h" include nil nil [2115 2141])
+            ("std::min" using (:type ("std::min" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [2143 2158])
+            ("std::max" using (:type ("std::max" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [2159 2174])
+            ("tcmalloc" type
+               (:members 
+                  ( ("phinited" variable
+                       (:typemodifiers ("static")
+                        :default-value "false"
+                        :type "bool")
+                        (reparse-symbol namespacesubparts) [2778 2807])
+                    ("ThreadCache::per_thread_cache_size_" variable
+                       (:typemodifiers ("volatile")
+                        :default-value "kMaxThreadCacheSize"
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [2809 2883])
+                    ("ThreadCache::overall_thread_cache_size_" variable
+                       (:default-value "kDefaultOverallThreadCacheSize"
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [2884 2964])
+                    ("ThreadCache::unclaimed_cache_space_" variable
+                       (:default-value "kDefaultOverallThreadCacheSize"
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [2965 3042])
+                    ("threadcache_allocator" variable (:type ("PageHeapAllocator" type
+                         (:template-specifier 
+                            ( ("ThreadCache" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol namespacesubparts) [3043 3096])
+                    ("ThreadCache::thread_heaps_" variable
+                       (:pointer 1
+                        :default-value "NULL"
+                        :type ("ThreadCache" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [3097 3144])
+                    ("ThreadCache::thread_heap_count_" variable
+                       (:default-value "0"
+                        :type "int")
+                        (reparse-symbol namespacesubparts) [3145 3185])
+                    ("ThreadCache::next_memory_steal_" variable
+                       (:pointer 1
+                        :default-value "NULL"
+                        :type ("ThreadCache" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [3186 3238])
+                    ("ThreadCache::tsd_inited_" variable
+                       (:default-value "false"
+                        :type "bool")
+                        (reparse-symbol namespacesubparts) [3367 3405])
+                    ("ThreadCache::heap_key_" variable (:type ("pthread_key_t" type (:type "class") nil nil)) (reparse-symbol namespacesubparts) [3406 3443])
+                    ("Init" function
+                       (:parent "ThreadCache"
+                        :arguments 
+                          ( ("tid" variable (:type ("pthread_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3468 3482]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [3445 4101])
+                    ("Cleanup" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [4103 4335])
+                    ("FetchFromCentralCache" function
+                       (:pointer 1
+                        :parent "ThreadCache"
+                        :arguments 
+                          ( ("cl" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4539 4549])
+                            ("byte_size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4550 4567]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [4498 5901])
+                    ("ListTooLong" function
+                       (:parent "ThreadCache"
+                        :arguments 
+                          ( ("list" variable
+                               (:pointer 1
+                                :type ("FreeList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5933 5948])
+                            ("cl" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5949 5959]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [5903 6930])
+                    ("ReleaseToCentralCache" function
+                       (:parent "ThreadCache"
+                        :arguments 
+                          ( ("src" variable
+                               (:pointer 1
+                                :type ("FreeList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [7051 7065])
+                            ("cl" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7066 7076])
+                            ("N" variable (:type "int") (reparse-symbol arg-sub-list) [7077 7083]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [7011 7758])
+                    ("Scavenge" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [7804 9242])
+                    ("IncreaseCacheLimit" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [9244 9361])
+                    ("IncreaseCacheLimitLocked" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [9363 10385])
+                    ("GetSamplePeriod" function
+                       (:parent "ThreadCache"
+                        :type "int")
+                        (reparse-symbol namespacesubparts) [10387 10462])
+                    ("InitModule" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [10464 10813])
+                    ("InitTSD" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [10815 11306])
+                    ("CreateCacheIfNecessary" function
+                       (:pointer 1
+                        :parent "ThreadCache"
+                        :type ("ThreadCache" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [11308 13185])
+                    ("NewHeap" function
+                       (:pointer 1
+                        :parent "ThreadCache"
+                        :arguments 
+                          ( ("tid" variable (:type ("pthread_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13221 13235]))                          
+                        :type ("ThreadCache" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [13187 13678])
+                    ("BecomeIdle" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [13680 14425])
+                    ("BecomeTemporarilyIdle" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [14427 14548])
+                    ("DestroyThreadCache" function
+                       (:parent "ThreadCache"
+                        :arguments 
+                          ( ("ptr" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [14587 14597]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [14550 14974])
+                    ("DeleteCache" function
+                       (:parent "ThreadCache"
+                        :arguments 
+                          ( ("heap" variable
+                               (:pointer 1
+                                :type ("ThreadCache" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [15006 15024]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [14976 15582])
+                    ("RecomputePerThreadCacheSize" function
+                       (:parent "ThreadCache"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [15584 16428])
+                    ("GetThreadStats" function
+                       (:parent "ThreadCache"
+                        :arguments 
+                          ( ("total_bytes" variable
+                               (:pointer 1
+                                :type ("uint64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16463 16485])
+                            ("class_count" variable
+                               (:pointer 1
+                                :type ("uint64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [16486 16508]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [16430 16750])
+                    ("set_overall_thread_cache_size" function
+                       (:parent "ThreadCache"
+                        :arguments 
+                          ( ("new_size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [16800 16816]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [16752 17073]))                  
+                :type "namespace")
+                nil [2756 17076]))          
+      :file "thread_cache.cc"
+      :pointmax 17100
+      :fsize 17099
+      :lastmodtime '(22532 36516 55583 772000)
+      :unmatched-syntax nil)
+    (semanticdb-table "common.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("TCMALLOC_COMMON_H_" variable (:constant-flag t) nil [1763 1781])
+            ("config.h" include nil nil [1783 1802])
+            ("stddef.h" include (:system-flag t) nil [1803 1822])
+            ("internal_logging.h" include nil nil [1952 1981])
+            ("base/basictypes.h" include nil nil [2002 2030])
+            ("LIKELY" variable (:constant-flag t) nil [2186 2192])
+            ("UNLIKELY" variable (:constant-flag t) nil [2208 2216])
+            ("PageID" type
+               (:typedef ("uintptr_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [2268 2293])
+            ("Length" type
+               (:typedef ("uintptr_t" type (:type "class") nil nil)
+                :type "typedef")
+                nil [2346 2371])
+            ("kMinAlign" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "16"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [2981 3018])
+            ("kBaseClasses" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "9"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [3019 3056])
+            ("kPageShift" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "13"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [3909 3946])
+            ("kNumClasses" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "kBaseClasses + 79"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [3947 3999])
+            ("kPageShift" variable (:type "int") nil [4099 4110])
+            ("kMaxSize" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "256 * 1024"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [4111 4156])
+            ("kAlignment" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "8"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [4157 4193])
+            ("kLargeSizeClass" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "0"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [4194 4234])
+            ("kDefaultOverallThreadCacheSize" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "8u * kMaxThreadCacheSize"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [4634 4712])
+            ("kMinThreadCacheSize" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "kMaxSize * 2"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [4766 4821])
+            ("kMaxOverages" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "3"
+                :type "int")
+                nil [5167 5201])
+            ("kMaxDynamicFreeListLength" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "8192"
+                :type "int")
+                nil [5547 5597])
+            ("kPageShift" variable (:type "int") nil [5665 5676])
+            ("kAddressBits" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "(sizeof(void*) < 8 ? (8 * sizeof(void*)) : 48)"
+                :type "int")
+                nil [6076 6155])
+            ("tcmalloc" type
+               (:members 
+                  ( ("pages" function
+                       (:typemodifiers ("inline")
+                        :arguments 
+                          ( ("bytes" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6389 6402]))                          
+                        :type ("Length" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [6369 6486])
+                    ("AlignmentForSize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6614 6626]))                          
+                        :type "int")
+                        (reparse-symbol namespacesubparts) [6593 6627])
+                    ("SizeMap" type
+                       (:members 
+                          ( ("private" label nil (reparse-symbol classsubparts) [6682 6690])
+                            ("num_objects_to_move_" variable
+                               (:dereference 1
+                                :type "int")
+                                (reparse-symbol classsubparts) [7041 7079])
+                            ("kMaxSmallSize" variable
+                               (:typemodifiers ("static")
+                                :constant-flag t
+                                :default-value "1024"
+                                :type "int")
+                                (reparse-symbol classsubparts) [8137 8175])
+                            ("kClassArraySize" variable
+                               (:typemodifiers ("static")
+                                :constant-flag t
+                                :default-value "((kMaxSize + 127 + (120 << 7)) >> 7) + 1"
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [8178 8263])
+                            ("class_array_" variable
+                               (:dereference 1
+                                :type "unsigned char")
+                                (reparse-symbol classsubparts) [8266 8310])
+                            ("SmallSizeClass" function
+                               (:typemodifiers ("static" "inline")
+                                :arguments 
+                                  ( ("s" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8350 8359]))                                  
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [8314 8413])
+                            ("LargeSizeClass" function
+                               (:typemodifiers ("static" "inline")
+                                :arguments 
+                                  ( ("s" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8453 8462]))                                  
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [8417 8531])
+                            ("ClassIndex" function
+                               (:typemodifiers ("static" "inline")
+                                :arguments 
+                                  ( ("s" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8630 8639]))                                  
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [8598 8882])
+                            ("NumMoveSize" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8902 8914]))                                  
+                                :type "int")
+                                (reparse-symbol classsubparts) [8886 8915])
+                            ("class_to_size_" variable
+                               (:dereference 1
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [8983 9018])
+                            ("class_to_pages_" variable
+                               (:dereference 1
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [9092 9128])
+                            ("public" label nil (reparse-symbol classsubparts) [9131 9138])
+                            ("SizeMap" function
+                               (:constructor-flag t
+                                :type ("SizeMap" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [9280 9293])
+                            ("Init" function
+                               (:prototype-flag t
+                                :type "void")
+                                (reparse-symbol classsubparts) [9332 9344])
+                            ("SizeClass" function
+                               (:typemodifiers ("inline")
+                                :arguments 
+                                  ( ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9369 9381]))                                  
+                                :type "int")
+                                (reparse-symbol classsubparts) [9348 9430])
+                            ("MaybeSizeClass" function
+                               (:typemodifiers ("inline")
+                                :arguments 
+                                  ( ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9461 9473])
+                                    ("size_class" variable
+                                       (:pointer 1
+                                        :type ("size_t" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [9474 9493]))                                  
+                                :type "bool")
+                                (reparse-symbol classsubparts) [9434 9776])
+                            ("ByteSizeForClass" function
+                               (:typemodifiers ("inline")
+                                :arguments 
+                                  ( ("cl" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9856 9866]))                                  
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [9825 9903])
+                            ("class_to_size" function
+                               (:typemodifiers ("inline")
+                                :arguments 
+                                  ( ("cl" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9999 10009]))                                  
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [9971 10046])
+                            ("class_to_pages" function
+                               (:typemodifiers ("inline")
+                                :arguments 
+                                  ( ("cl" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10149 10159]))                                  
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [10120 10197])
+                            ("num_objects_to_move" function
+                               (:typemodifiers ("inline")
+                                :arguments 
+                                  ( ("cl" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10580 10590]))                                  
+                                :type "int")
+                                (reparse-symbol classsubparts) [10549 10633]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [6665 10636])
+                    ("MetaDataAlloc" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("bytes" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10837 10850]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [10817 10851])
+                    ("metadata_system_bytes" function
+                       (:prototype-flag t
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [10952 10985])
+                    ("kMaxStackDepth" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "31"
+                        :type "int")
+                        (reparse-symbol namespacesubparts) [11124 11161])
+                    ("StackTrace" type
+                       (:members 
+                          ( ("size" variable (:type ("uintptr_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [11184 11199])
+                            ("depth" variable (:type ("uintptr_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [11229 11245])
+                            ("stack" variable
+                               (:pointer 1
+                                :dereference 1
+                                :type "void")
+                                (reparse-symbol classsubparts) [11301 11333]))                          
+                        :type "struct")
+                        (reparse-symbol namespacesubparts) [11162 11336]))                  
+                :type "namespace")
+                nil [6221 11339]))          
+      :file "common.h"
+      :pointmax 11394
+      :fsize 11393
+      :lastmodtime '(22532 36516 31583 805000)
+      :unmatched-syntax '((thing 5663 . 5664) (thing 5662 . 5663) (thing 5636 . 5661) (thing 5634 . 5635) (thing 5619 . 5633) (thing 5612 . 5618) (thing 5606 . 5611) (thing 5599 . 5605) (thing 5038 . 5039) (thing 5036 . 5038) (thing 5034 . 5035) (thing 5033 . 5034) (thing 5031 . 5032) (thing 5029 . 5030) (thing 5016 . 5028) (thing 5009 . 5015) (thing 5003 . 5008) (thing 4996 . 5002) (thing 4353 . 4354) (thing 4336 . 4353) (thing 4334 . 4335) (thing 4333 . 4334) (thing 4331 . 4332) (thing 4329 . 4330) (thing 4319 . 4328) (thing 4312 . 4318) (thing 4306 . 4311) (thing 4299 . 4305) (thing 4097 . 4098) (thing 4096 . 4097) (thing 4094 . 4095) (thing 4092 . 4093) (thing 4080 . 4089) (thing 4073 . 4079) (thing 4067 . 4072) (thing 4060 . 4066) (thing 4057 . 4058) (thing 4055 . 4057) (thing 4053 . 4054) (thing 4052 . 4053) (thing 4050 . 4051) (thing 4048 . 4049) (thing 4028 . 4047) (thing 4021 . 4027) (thing 4015 . 4020) (thing 4008 . 4014))
+      :lexical-table 
+        '(("UNLIKELY" (spp-arg-list ("x") 2216 . 2219) . ((semantic-list "(x)" 2220 . 2223)))
+          ("TCMALLOC_COMMON_H_")
+          ("LIKELY" (spp-arg-list ("x") 2192 . 2195) . ((semantic-list "(x)" 2196 . 2199)))
+          )
+)
+    (semanticdb-table "common.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("stdlib.h" include (:system-flag t) nil [1687 1706])
+            ("config.h" include nil nil [1732 1751])
+            ("common.h" include nil nil [1752 1771])
+            ("system-alloc.h" include nil nil [1772 1797])
+            ("base/spinlock.h" include nil nil [1798 1824])
+            ("getenv_safe.h" include nil nil [1825 1849])
+            ("tcmalloc" type
+               (:members 
+                  ( ("FLAGS_tcmalloc_transfer_num_objects" variable
+                       (:typemodifiers ("static")
+                        :type ("int32" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [2000 2049])
+                    ("kDefaultTransferNumObjecs" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "512"
+                        :type ("int32" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [2051 2102])
+                    ("InitTCMallocTransferNumObjects" function
+                       (:typemodifiers ("static" "inline")
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [2297 2602])
+                    ("LgFloor" function
+                       (:typemodifiers ("static" "inline")
+                        :arguments 
+                          ( ("n" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2752 2761]))                          
+                        :type "int")
+                        (reparse-symbol namespacesubparts) [2726 2959])
+                    ("AlignmentForSize" function
+                       (:arguments 
+                          ( ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2982 2994]))                          
+                        :type "int")
+                        (reparse-symbol namespacesubparts) [2961 3687])
+                    ("NumMoveSize" function
+                       (:parent "SizeMap"
+                        :arguments 
+                          ( ("size" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3714 3726]))                          
+                        :type "int")
+                        (reparse-symbol namespacesubparts) [3689 4535])
+                    ("Init" function
+                       (:parent "SizeMap"
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [4570 7884])
+                    ("metadata_system_bytes_" variable
+                       (:typemodifiers ("static")
+                        :default-value "0"
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [7955 7998])
+                    ("metadata_chunk_alloc_" variable
+                       (:pointer 1
+                        :typemodifiers ("static")
+                        :type "char")
+                        (reparse-symbol namespacesubparts) [8271 8306])
+                    ("metadata_chunk_avail_" variable
+                       (:typemodifiers ("static")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [8307 8343])
+                    ("metadata_alloc_lock" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("" variable (:type ("SpinLock::LINKER_INITIALIZED" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8381 8410]))                          
+                        :type ("SpinLock" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [8345 8411])
+                    ("MetaDataAlloc" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("bytes" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8433 8446]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [8413 9753])
+                    ("metadata_system_bytes" function (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol namespacesubparts) [9755 9822]))                  
+                :type "namespace")
+                nil [1873 9825]))          
+      :file "common.cc"
+      :pointmax 9849
+      :fsize 9848
+      :lastmodtime '(22532 36516 31583 805000)
+      :unmatched-syntax '((thing 7999 . 8005) (thing 8006 . 8011) (thing 8012 . 8018) (thing 8019 . 8042) (thing 8043 . 8044) (thing 8045 . 8046) (thing 8046 . 8047) (thing 8047 . 8051) (thing 8051 . 8052) (thing 8052 . 8056) (thing 8056 . 8057) (thing 8205 . 8211) (thing 8212 . 8217) (thing 8218 . 8224) (thing 8225 . 8244) (thing 8245 . 8246) (thing 8247 . 8253) (thing 8253 . 8268) (thing 8268 . 8269))))
+  :file "!ssd!sdd!git!gperftools!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

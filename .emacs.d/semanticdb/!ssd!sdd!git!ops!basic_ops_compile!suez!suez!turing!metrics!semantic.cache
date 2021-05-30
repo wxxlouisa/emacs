@@ -1,0 +1,939 @@
+;; Object metrics/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "metrics/"
+  :tables
+  (list
+    (semanticdb-table "Monitor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_TURING_MONITOR_H" variable (:constant-flag t) nil [42 66])
+            ("amonitor/client/MetricSampler.h" include (:system-flag t) nil [68 110])
+            ("amonitor/client/MetricProvider.h" include (:system-flag t) nil [111 154])
+            ("amonitor::client::INPUT_METRIC" using (:type ("amonitor::client::INPUT_METRIC" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [156 193])
+            ("amonitor::client::QPS_METRIC" using (:type ("amonitor::client::QPS_METRIC" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [194 229])
+            ("amonitor::client::STATUS_METRIC" using (:type ("amonitor::client::STATUS_METRIC" type
+                 (:prototype t
+                  :type "class")
+                  nil nil)) nil [230 268])
+            ("suez" type
+               (:members 
+                  ( ("turing" type
+                       (:members 
+                          ( ("SUEZ_DECLARE_METRIC" variable (:constant-flag t) (reparse-symbol namespacesubparts) [315 334])
+                            ("SUEZ_DECLARE_METRIC_STR" variable (:constant-flag t) (reparse-symbol namespacesubparts) [1434 1457])
+                            ("SUEZ_REPORT_METRIC" variable (:constant-flag t) (reparse-symbol namespacesubparts) [2399 2417])
+                            ("SUEZ_INCREASE_QPS" variable (:constant-flag t) (reparse-symbol namespacesubparts) [2651 2668])
+                            ("SUEZ_INCREASE_VALUE" variable (:constant-flag t) (reparse-symbol namespacesubparts) [2863 2882])
+                            ("ScopeTime2" type
+                               (:members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [3116 3123])
+                                    ("ScopeTime2" function
+                                       (:constructor-flag t
+                                        :type ("ScopeTime2" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [3128 3191])
+                                    ("ScopeTime2" function
+                                       (:destructor-flag t
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [3196 3212])
+                                    ("done" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3217 3348])
+                                    ("us_done" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3353 3476])
+                                    ("private" label nil (reparse-symbol classsubparts) [3478 3486])
+                                    ("_beginTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3491 3510]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [3097 3513]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [287 3515]))                  
+                :type "namespace")
+                nil [270 3517]))          
+      :file "Monitor.h"
+      :pointmax 3554
+      :fsize 3553
+      :lastmodtime '(23348 24470 238772 927000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SUEZ_INCREASE_QPS" (spp-arg-list ("metric") 2668 . 2676) . 
+              ((DO "do" 2686 . 2688) (semantic-list "{                             \\
+        if ((metric)) {              \\
+            (metric)->increaseQps(); \\
+        }                            \\
+    }" 2689 . 2843) (WHILE "while" 2844 . 2849) (semantic-list "(0)" 2850 . 2853)))
+          ("ISEARCH_TURING_MONITOR_H")
+          ("SUEZ_REPORT_METRIC" (spp-arg-list ("metric" "count") 2417 . 2432) . 
+              ((DO "do" 2442 . 2444) (semantic-list "{                                     \\
+        if ((metric)) {                      \\
+            (metric)->reportMetric((count)); \\
+        }                                    \\
+    }" 2445 . 2631) (WHILE "while" 2632 . 2637) (semantic-list "(0)" 2638 . 2641)))
+          ("SUEZ_INCREASE_VALUE" (spp-arg-list ("metric" "value") 2882 . 2897) . 
+              ((DO "do" 2904 . 2906) (semantic-list "{                                   \\
+        if ((metric)) {                    \\
+            (metric)->increaseQps(value);  \\
+        }                                  \\
+    }" 2907 . 3085) (WHILE "while" 3086 . 3091) (semantic-list "(0)" 3092 . 3095)))
+          ("SUEZ_DECLARE_METRIC" (spp-arg-list ("metricProvider" "metricName" "metricType" "unit") 334 . 380) . ((semantic-list "({                                                                                             \\
+        amonitor::client::MetricSampler *metric = NULL;                                            \\
+        if ((metricProvider)) {                                                                    \\
+            metric = (metricProvider)->declareMetric(#metricName, metricType, unit);               \\
+            if (!metric) {                                                                         \\
+                std::string errorMsg = \"register metric[\" + std::string(#metricName) + \"] failed\"; \\
+                AUTIL_LOG(WARN, \"%s\", errorMsg.c_str());                                           \\
+            }                                                                                      \\
+        }                                                                                          \\
+        metric;                                                                                    \\
+    })" 412 . 1424)))
+          ("SUEZ_DECLARE_METRIC_STR" (spp-arg-list ("metricProvider" "metricName" "metricType" "unit") 1457 . 1503) . ((semantic-list "({                                                                               \\
+        amonitor::client::MetricSampler *metric = NULL;                              \\
+        if ((metricProvider)) {                                                      \\
+            metric = (metricProvider)->declareMetric(metricName, metricType, unit);  \\
+            if (!metric) {                                                           \\
+                std::string errorMsg = \"register metric[\" + metricName + \"] failed\"; \\
+                AUTIL_LOG(WARN, \"%s\", errorMsg.c_str());                             \\
+            }                                                                        \\
+        }                                                                            \\
+        metric;                                                                      \\
+    })" 1517 . 2389)))
+          )
+)
+    (semanticdb-table "BizMetrics.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("suez/turing/metrics/BizMetrics.h" include nil nil [1 44])
+            ("suez/turing/metrics/Monitor.h" include nil nil [45 85])
+            ("autil/StringUtil.h" include (:system-flag t) nil [86 115])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [117 137])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [138 160])
+            ("amonitor" using (:type ("amonitor" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [161 186])
+            ("amonitor::client" using (:type ("amonitor::client" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [187 220])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [238 244]))                  
+                :type "int")
+                nil [221 245])
+            ("suez" type
+               (:members 
+                  ( ("turing" type
+                       (:members 
+                          ( ("AUTIL_LOG_SETUP" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [300 307])
+                                    ("" variable (:type ("BasicMetrics" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [308 321]))                                  
+                                :type "int")
+                                (reparse-symbol namespacesubparts) [284 322])
+                            ("AUTIL_LOG_SETUP" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [339 346])
+                                    ("" variable (:type ("BizMetrics" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [347 358]))                                  
+                                :type "int")
+                                (reparse-symbol namespacesubparts) [323 359])
+                            ("AUTIL_LOG_SETUP" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [376 383])
+                                    ("" variable (:type ("IndexTableMetrics" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [384 402]))                                  
+                                :type "int")
+                                (reparse-symbol namespacesubparts) [360 403])
+                            ("IndexTableMetrics" function
+                               (:constructor-flag t
+                                :parent "IndexTableMetrics"
+                                :arguments 
+                                  ( ("metricProvider" variable
+                                       (:pointer 1
+                                        :type ("MetricProvider" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [442 473])
+                                    ("path" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [474 493]))                                  
+                                :type ("IndexTableMetrics" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [405 1915])
+                            ("declare" function
+                               (:parent "BasicMetrics"
+                                :arguments 
+                                  ( ("metricProvider" variable
+                                       (:pointer 1
+                                        :type ("MetricProvider" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1944 1975]))                                  
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [1917 3348])
+                            ("BizMetrics" function
+                               (:constructor-flag t
+                                :parent "BizMetrics"
+                                :type ("BizMetrics" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [3350 3538])
+                            ("BizMetrics" function
+                               (:destructor-flag t
+                                :parent "BizMetrics"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [3540 3790])
+                            ("init" function
+                               (:parent "BizMetrics"
+                                :arguments 
+                                  ( ("nodePath" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3814 3837])
+                                    ("metricGather" variable
+                                       (:pointer 1
+                                        :type ("MetricGather" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [3838 3865]))                                  
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [3792 4022])
+                            ("declare" function
+                               (:parent "BizMetrics"
+                                :arguments 
+                                  ( ("metricProvider" variable
+                                       (:pointer 1
+                                        :type ("MetricProvider" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4049 4080]))                                  
+                                :type "bool")
+                                (reparse-symbol namespacesubparts) [4024 4144])
+                            ("reportMetrics" function
+                               (:parent "BizMetrics"
+                                :arguments 
+                                  ( ("collector" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("MetricsCollectorPtr" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [4177 4214])
+                                    ("phaseNumber" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4215 4236]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [4146 5213])
+                            ("declareUserMetrics" function
+                               (:pointer 1
+                                :parent "BizMetrics"
+                                :arguments 
+                                  ( ("name" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5263 5287])
+                                    ("metricType" variable (:type ("amonitor::client::MetricType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5296 5336])
+                                    ("unit" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5345 5369]))                                  
+                                :type ("MetricSampler_t" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [5215 5883])
+                            ("declareTableMetrics" function
+                               (:pointer 1
+                                :parent "BizMetrics"
+                                :arguments 
+                                  ( ("name" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [5936 5960]))                                  
+                                :type ("IndexTableMetrics" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [5885 6479])
+                            ("reportUserMetrics" function
+                               (:parent "BizMetrics"
+                                :arguments 
+                                  ( ("value" variable (:type "double") (reparse-symbol arg-sub-list) [6516 6529])
+                                    ("name" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [6530 6554])
+                                    ("metricType" variable (:type ("amonitor::client::MetricType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6594 6634])
+                                    ("unit" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [6674 6698]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [6481 6897])
+                            ("reportKVMetrics" function
+                               (:parent "BizMetrics"
+                                :arguments 
+                                  ( ("metricsCollector" variable (:type ("KVMetricsCollectorPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6933 6972])
+                                    ("path" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [7010 7029]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [6900 8440]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [264 8443]))                  
+                :type "namespace")
+                nil [247 8445]))          
+      :file "BizMetrics.cpp"
+      :pointmax 8446
+      :fsize 8445
+      :lastmodtime '(23372 34805 496934 673000)
+      :unmatched-syntax nil)
+    (semanticdb-table "BizMetrics.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SUEZ_TURING_BIZMETRICS_H" variable (:constant-flag t) nil [42 66])
+            ("autil/Log.h" include (:system-flag t) nil [68 90])
+            ("unordered_map" include (:system-flag t) nil [91 115])
+            ("amonitor/client/MetricGather.h" include (:system-flag t) nil [116 157])
+            ("amonitor/client/MetricProvider.h" include (:system-flag t) nil [158 201])
+            ("indexlib/index/kv/kv_metrics_collector.h" include nil nil [202 253])
+            ("suez" type
+               (:members 
+                  ( ("turing" type
+                       (:members 
+                          ( ("MetricSampler_t" type
+                               (:typedef ("amonitor::client::MetricSampler" type (:type "class") nil nil)
+                                :type "typedef")
+                                (reparse-symbol namespacesubparts) [292 348])
+                            ("BasicMetrics" type
+                               (:members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [372 379])
+                                    ("BasicMetrics" function
+                                       (:constructor-flag t
+                                        :type ("BasicMetrics" type (:type "struct") nil nil))
+                                        (reparse-symbol classsubparts) [384 446])
+                                    ("declare" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("metricProvider" variable
+                                               (:pointer 1
+                                                :type ("amonitor::client::MetricProvider" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [464 513]))                                          
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [451 514])
+                                    ("public" label nil (reparse-symbol classsubparts) [516 523])
+                                    ("queueTimeMetric" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [528 561])
+                                    ("searchQpsMetric" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [566 599])
+                                    ("errorQpsMetric" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [604 636])
+                                    ("formatLatencyMetric" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [641 678])
+                                    ("beforeRunGraphLatencyMetric" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [683 728])
+                                    ("rpcUseLatencyMetric" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [733 770])
+                                    ("searchLatencyMetric" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [775 812])
+                                    ("resultLenMetric" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [817 850])
+                                    ("cavaAllocateSize" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [856 890])
+                                    ("cavaAllocateCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [895 930])
+                                    ("cavaModuleCacheCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [935 973])
+                                    ("cavaCompileQueueSize" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [978 1016])
+                                    ("private" label nil (reparse-symbol classsubparts) [1018 1026])
+                                    ("AUTIL_LOG_DECLARE" function
+                                       (:prototype-flag t
+                                        :type "int")
+                                        (reparse-symbol classsubparts) [1031 1051]))                                  
+                                :type "struct")
+                                (reparse-symbol namespacesubparts) [350 1054])
+                            ("MetricsCollector" type
+                               (:members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [1081 1088])
+                                    ("MetricsCollector" function
+                                       (:constructor-flag t
+                                        :type ("MetricsCollector" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1093 1450])
+                                    ("MetricsCollector" function
+                                       (:destructor-flag t
+                                        :typemodifiers ("virtual")
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [1455 1485])
+                                    ("public" label nil (reparse-symbol classsubparts) [1487 1494])
+                                    ("_formatLatency" variable (:type "double") (reparse-symbol classsubparts) [1499 1521])
+                                    ("_searchLatency" variable (:type "double") (reparse-symbol classsubparts) [1526 1548])
+                                    ("_beforeRunGraphLatency" variable (:type "double") (reparse-symbol classsubparts) [1553 1583])
+                                    ("_rpcUseLatency" variable (:type "double") (reparse-symbol classsubparts) [1588 1610])
+                                    ("_queueTime" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1615 1634])
+                                    ("_resultLen" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1639 1658])
+                                    ("_hasError" variable (:type "bool") (reparse-symbol classsubparts) [1663 1678])
+                                    ("_cavaAllocateSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1684 1710])
+                                    ("_cavaAllocateCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1715 1742])
+                                    ("_cavaModuleCacheCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1747 1777])
+                                    ("_cavaCompileQueueSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1782 1812]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [1056 1815])
+                            ("MetricsCollectorPtr" type
+                               (:typedef ("std::shared_ptr" type
+                                     (:template-specifier 
+                                        ( ("MetricsCollector" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil)
+                                :type "typedef")
+                                (reparse-symbol namespacesubparts) [1817 1879])
+                            ("MetricSampler_t" type
+                               (:typedef ("amonitor::client::MetricSampler" type (:type "class") nil nil)
+                                :type "typedef")
+                                (reparse-symbol namespacesubparts) [1881 1937])
+                            ("IndexTableMetrics" type
+                               (:members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [1965 1972])
+                                    ("IndexTableMetrics" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :arguments 
+                                          ( ("metricProvider" variable
+                                               (:pointer 1
+                                                :type ("amonitor::client::MetricProvider" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [1995 2044])
+                                            ("path" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2067 2091]))                                          
+                                        :type ("IndexTableMetrics" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [1977 2092])
+                                    ("public" label nil (reparse-symbol classsubparts) [2093 2100])
+                                    ("blockCacheHitCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2105 2141])
+                                    ("blockCacheMissCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2146 2183])
+                                    ("blockCacheReadLatency" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2188 2227])
+                                    ("searchCacheHitCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2232 2269])
+                                    ("searchCacheMissCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2274 2312])
+                                    ("prepareLatency" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2317 2349])
+                                    ("memTableLatency" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2354 2387])
+                                    ("ssTableLatency" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2392 2424])
+                                    ("memTableCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2429 2460])
+                                    ("ssTableCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2465 2495])
+                                    ("searchCacheResultCount" variable
+                                       (:pointer 1
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2500 2540])
+                                    ("private" label nil (reparse-symbol classsubparts) [2541 2549])
+                                    ("AUTIL_LOG_DECLARE" function
+                                       (:prototype-flag t
+                                        :type "int")
+                                        (reparse-symbol classsubparts) [2554 2574]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [1939 2577])
+                            ("BizMetrics" type
+                               (:members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [2598 2605])
+                                    ("BizMetrics" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :type ("BizMetrics" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2610 2623])
+                                    ("BizMetrics" function
+                                       (:prototype-flag t
+                                        :destructor-flag t
+                                        :typemodifiers ("virtual")
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [2628 2650])
+                                    ("private" label nil (reparse-symbol classsubparts) [2652 2660])
+                                    ("BizMetrics" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :arguments 
+                                          ( ("" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("BizMetrics" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2676 2695]))                                          
+                                        :type ("BizMetrics" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2665 2696])
+                                    ("=" function
+                                       (:prototype-flag t
+                                        :operator-flag t
+                                        :arguments 
+                                          ( ("" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("BizMetrics" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2723 2742]))                                          
+                                        :type ("BizMetrics" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [2701 2743])
+                                    ("public" label nil (reparse-symbol classsubparts) [2749 2756])
+                                    ("init" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("nodePath" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2771 2799])
+                                            ("metricGather" variable
+                                               (:pointer 1
+                                                :type ("amonitor::client::MetricGather" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2818 2863]))                                          
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [2761 2864])
+                                    ("reportMetrics" function
+                                       (:prototype-flag t
+                                        :typemodifiers ("virtual")
+                                        :arguments 
+                                          ( ("collector" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("MetricsCollectorPtr" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2896 2933])
+                                            ("phaseNumber" variable
+                                               (:default-value "0"
+                                                :type ("uint32_t" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2934 2958]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [2869 2960])
+                                    ("public" label nil (reparse-symbol classsubparts) [2962 2969])
+                                    ("declare" function
+                                       (:prototype-flag t
+                                        :typemodifiers ("virtual")
+                                        :arguments 
+                                          ( ("metricProvider" variable
+                                               (:pointer 1
+                                                :type ("amonitor::client::MetricProvider" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [2995 3044]))                                          
+                                        :type "bool")
+                                        (reparse-symbol classsubparts) [2974 3045])
+                                    ("public" label nil (reparse-symbol classsubparts) [3051 3058])
+                                    ("reportUserMetrics" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("value" variable (:type "double") (reparse-symbol arg-sub-list) [3086 3099])
+                                            ("name" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3100 3124])
+                                            ("metricType" variable (:type ("amonitor::client::MetricType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3152 3192])
+                                            ("unit" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3220 3244]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [3063 3245])
+                                    ("reportKVMetrics" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("" variable (:type ("IE_NAMESPACE" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3271 3290])
+                                            ("metricsCollector" variable (:type ("KVMetricsCollectorPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3292 3331])
+                                            ("path" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3357 3381]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [3250 3382])
+                                    ("private" label nil (reparse-symbol classsubparts) [3384 3392])
+                                    ("declareUserMetrics" function
+                                       (:prototype-flag t
+                                        :pointer 1
+                                        :arguments 
+                                          ( ("name" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3433 3457])
+                                            ("metricType" variable (:type ("amonitor::client::MetricType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3470 3510])
+                                            ("unit" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3523 3547]))                                          
+                                        :type ("MetricSampler_t" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [3397 3548])
+                                    ("declareTableMetrics" function
+                                       (:prototype-flag t
+                                        :pointer 1
+                                        :arguments 
+                                          ( ("name" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [3593 3617]))                                          
+                                        :type ("IndexTableMetrics" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [3554 3618])
+                                    ("protected" label nil (reparse-symbol classsubparts) [3620 3630])
+                                    ("_basicMetrics" variable (:type ("BasicMetrics" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3635 3662])
+                                    ("private" label nil (reparse-symbol classsubparts) [3668 3676])
+                                    ("_metricProvider" variable
+                                       (:pointer 1
+                                        :type ("amonitor::client::MetricProvider" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [3681 3731])
+                                    ("_userMetrics" variable
+                                       (:pointer 1
+                                        :type ("std::unordered_map" type
+                                             (:template-specifier 
+                                                ( ("std::string" type nil nil nil)
+                                                  ("MetricSampler_t" type (:pointer 1) nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol classsubparts) [3736 3801])
+                                    ("_tableMetrics" variable
+                                       (:pointer 1
+                                        :type ("std::unordered_map" type
+                                             (:template-specifier 
+                                                ( ("std::string" type nil nil nil)
+                                                  ("IndexTableMetrics" type (:pointer 1) nil nil))                                                
+                                              :type "class")
+                                              nil nil))
+                                        (reparse-symbol classsubparts) [3806 3874])
+                                    ("_rwLock" variable (:type ("autil::ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3879 3908])
+                                    ("_rwLockTable" variable (:type ("autil::ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3913 3947])
+                                    ("private" label nil (reparse-symbol classsubparts) [3953 3961])
+                                    ("AUTIL_LOG_DECLARE" function
+                                       (:prototype-flag t
+                                        :type "int")
+                                        (reparse-symbol classsubparts) [3966 3986]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [2579 3989])
+                            ("BizMetricsPtr" type
+                               (:typedef ("std::shared_ptr" type
+                                     (:template-specifier 
+                                        ( ("BizMetrics" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil)
+                                :type "typedef")
+                                (reparse-symbol namespacesubparts) [3990 4040]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [272 4042]))                  
+                :type "namespace")
+                nil [255 4044]))          
+      :file "BizMetrics.h"
+      :pointmax 4053
+      :fsize 4052
+      :lastmodtime '(23372 34798 624932 388000)
+      :unmatched-syntax '((thing 1373 . 1374) (thing 1349 . 1350) (thing 1337 . 1340) (thing 1338 . 1339) (thing 1316 . 1337) (thing 1314 . 1315) (thing 1302 . 1305) (thing 1303 . 1304) (thing 1284 . 1302) (thing 1282 . 1283) (thing 1270 . 1273) (thing 1271 . 1272) (thing 1253 . 1270) (thing 1251 . 1252) (thing 1235 . 1242) (thing 1226 . 1235) (thing 1224 . 1225) (thing 1212 . 1215) (thing 1213 . 1214) (thing 1202 . 1212) (thing 1200 . 1201) (thing 1188 . 1191) (thing 1189 . 1190) (thing 1178 . 1188) (thing 1176 . 1177) (thing 1162 . 1167) (thing 1163 . 1166) (thing 1140 . 1162) (thing 1138 . 1139) (thing 1124 . 1129) (thing 1125 . 1128) (thing 1110 . 1124) (thing 1108 . 1109) (thing 1094 . 1099) (thing 1095 . 1098) (thing 1080 . 1094) (thing 1078 . 1079) (thing 1067 . 1069) (thing 1051 . 1067) (thing 3061 . 3068) (thing 3068 . 3069) (thing 3069 . 3070) (thing 3111 . 3118) (thing 3118 . 3119) (thing 3119 . 3120) (thing 3184 . 3191) (thing 3191 . 3192) (thing 3192 . 3193) (thing 3283 . 3290) (thing 3290 . 3291) (thing 3291 . 3292))
+      :lexical-table 
+        '(("SUEZ_TURING_BIZMETRICS_H")
+          )
+)
+    (semanticdb-table "BizMetricsManager.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("suez/turing/metrics/BizMetricsManager.h" include nil nil [1 51])
+            ("suez/common/IpUtil.h" include (:system-flag t) nil [52 83])
+            ("sstream" include (:system-flag t) nil [84 102])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [104 124])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [125 147])
+            ("amonitor::client" using (:type ("amonitor::client" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [149 182])
+            ("suez" type
+               (:members 
+                  ( ("turing" type
+                       (:members 
+                          ( ("AUTIL_LOG_SETUP" function
+                               (:prototype-flag t
+                                :arguments 
+                                  ( ("" variable (:type ("turing" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [236 243])
+                                    ("" variable (:type ("BizMetricsManager" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [244 262]))                                  
+                                :type "int")
+                                (reparse-symbol namespacesubparts) [220 263])
+                            ("BizMetricsManager" function
+                               (:constructor-flag t
+                                :parent "BizMetricsManager"
+                                :type ("BizMetricsManager" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [265 328])
+                            ("BizMetricsManager" function
+                               (:destructor-flag t
+                                :parent "BizMetricsManager"
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [330 427])
+                            ("init" function
+                               (:parent "BizMetricsManager"
+                                :arguments 
+                                  ( ("metricGather" variable
+                                       (:pointer 1
+                                        :type ("MetricGather" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [458 485])
+                                    ("nodePath" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [486 509])
+                                    ("bizMetricsCreator" variable (:type ("BizMetricsCreator" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [539 575]))                                  
+                                :type "void")
+                                (reparse-symbol namespacesubparts) [429 683])
+                            ("getBizMetrics" function
+                               (:parent "BizMetricsManager"
+                                :arguments 
+                                  ( ("biz" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [732 755])
+                                    ("src" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [756 779]))                                  
+                                :type ("BizMetricsPtr" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [685 880])
+                            ("generateNodePath" function
+                               (:parent "BizMetricsManager"
+                                :arguments 
+                                  ( ("parentNodePath" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [925 954])
+                                    ("biz" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [955 973])
+                                    ("src" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1017 1035]))                                  
+                                :type ("string" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [882 1313])
+                            ("getBizMetrics" function
+                               (:parent "BizMetricsManager"
+                                :arguments 
+                                  ( ("nodePath" variable
+                                       (:reference 1
+                                        :constant-flag t
+                                        :type ("string" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1362 1385]))                                  
+                                :type ("BizMetricsPtr" type (:type "class") nil nil))
+                                (reparse-symbol namespacesubparts) [1315 1983]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [201 1985]))                  
+                :type "namespace")
+                nil [184 1987]))          
+      :file "BizMetricsManager.cpp"
+      :pointmax 1988
+      :fsize 1987
+      :lastmodtime '(23363 6769 945636 295000)
+      :unmatched-syntax nil)
+    (semanticdb-table "BizMetricsManager.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("ISEARCH_TURING_BIZMETRICSMANAGER_H" variable (:constant-flag t) nil [52 86])
+            ("autil/Log.h" include (:system-flag t) nil [88 110])
+            ("suez/turing/metrics/BizMetrics.h" include nil nil [111 154])
+            ("suez" type
+               (:members 
+                  ( ("turing" type
+                       (:members 
+                          ( ("BizMetricsManager" type
+                               (:members 
+                                  ( ("public" label nil (reparse-symbol classsubparts) [219 226])
+                                    ("BizMetricsCreator" variable (:type "int") (reparse-symbol classsubparts) [269 287])
+                                    ("BizMetricsManager" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :type ("BizMetricsManager" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [293 313])
+                                    ("BizMetricsManager" function
+                                       (:prototype-flag t
+                                        :destructor-flag t
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [318 339])
+                                    ("private" label nil (reparse-symbol classsubparts) [341 349])
+                                    ("BizMetricsManager" function
+                                       (:prototype-flag t
+                                        :constructor-flag t
+                                        :arguments 
+                                          ( ("" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("BizMetricsManager" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [372 398]))                                          
+                                        :type ("BizMetricsManager" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [354 399])
+                                    ("=" function
+                                       (:prototype-flag t
+                                        :operator-flag t
+                                        :arguments 
+                                          ( ("" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("BizMetricsManager" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [433 459]))                                          
+                                        :type ("BizMetricsManager" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [404 460])
+                                    ("public" label nil (reparse-symbol classsubparts) [462 469])
+                                    ("init" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("metricGather" variable
+                                               (:pointer 1
+                                                :type ("amonitor::client::MetricGather" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [484 529])
+                                            ("nodePath" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [530 558])
+                                            ("bizMetricsCreator" variable
+                                               (:default-value "[]() { return new BizMetrics; }"
+                                                :type ("BizMetricsCreator" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [573 642]))                                          
+                                        :type "void")
+                                        (reparse-symbol classsubparts) [474 644])
+                                    ("getBizMetrics" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("bizName" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [678 705])
+                                            ("src" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [706 729]))                                          
+                                        :type ("BizMetricsPtr" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [650 730])
+                                    ("private" label nil (reparse-symbol classsubparts) [732 740])
+                                    ("getBizMetrics" function
+                                       (:prototype-flag t
+                                        :arguments 
+                                          ( ("nodePath" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [773 801]))                                          
+                                        :type ("BizMetricsPtr" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [745 802])
+                                    ("generateNodePath" function
+                                       (:prototype-flag t
+                                        :typemodifiers ("static")
+                                        :arguments 
+                                          ( ("parentNodePath" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [843 877])
+                                            ("biz" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [878 901])
+                                            ("src" variable
+                                               (:reference 1
+                                                :constant-flag t
+                                                :type ("std::string" type (:type "class") nil nil))
+                                                (reparse-symbol arg-sub-list) [942 965]))                                          
+                                        :type ("std::string" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [807 966])
+                                    ("private" label nil (reparse-symbol classsubparts) [968 976])
+                                    ("_metricGather" variable
+                                       (:pointer 1
+                                        :type ("amonitor::client::MetricGather" type (:type "class") nil nil))
+                                        (reparse-symbol classsubparts) [981 1027])
+                                    ("_nodePath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1032 1054])
+                                    ("_metricMutex" variable (:type ("autil::ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1060 1094])
+                                    ("BizMetricsMap" type
+                                       (:typedef ("std::map" type
+                                             (:template-specifier 
+                                                ( ("std::string" type nil nil nil)
+                                                  ("BizMetricsPtr" type nil nil nil))                                                
+                                              :type "class")
+                                              nil nil)
+                                        :type "typedef")
+                                        (reparse-symbol classsubparts) [1099 1158])
+                                    ("_bizMetricsMap" variable (:type ("BizMetricsMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1163 1192])
+                                    ("_bizMetricsCreator" variable (:type ("BizMetricsCreator" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1197 1234])
+                                    ("private" label nil (reparse-symbol classsubparts) [1236 1244])
+                                    ("AUTIL_LOG_DECLARE" function
+                                       (:prototype-flag t
+                                        :type "int")
+                                        (reparse-symbol classsubparts) [1249 1269]))                                  
+                                :type "class")
+                                (reparse-symbol namespacesubparts) [193 1272]))                          
+                        :type "namespace")
+                        (reparse-symbol namespacesubparts) [173 1274]))                  
+                :type "namespace")
+                nil [156 1276]))          
+      :file "BizMetricsManager.h"
+      :pointmax 1323
+      :fsize 1322
+      :lastmodtime '(23363 6769 945636 295000)
+      :unmatched-syntax '((thing 267 . 268) (thing 265 . 267) (thing 264 . 265) (thing 253 . 263) (thing 252 . 253) (thing 244 . 252) (thing 243 . 244) (thing 242 . 243) (thing 239 . 242) (thing 231 . 238))
+      :lexical-table 
+        '(("ISEARCH_TURING_BIZMETRICSMANAGER_H")
+          )
+))
+  :file "!ssd!sdd!git!ops!basic_ops_compile!suez!suez!turing!metrics!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,2191 @@
+;; Object monitor/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "monitor/"
+  :tables
+  (list
+    (semanticdb-table "AmonMetricsReporter.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_AMONMETRICSREPORTER_H" variable (:constant-flag t) nil [45 72])
+            ("swift/common/Common.h" include nil nil [74 106])
+            ("swift/common/Log.h" include nil nil [107 136])
+            ("swift/monitor/Metrics.h" include nil nil [137 171])
+            ("swift/util/Atomic.h" include nil nil [172 202])
+            ("swift/protocol/Common.pb.h" include nil nil [203 240])
+            ("autil/Lock.h" include nil nil [241 264])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [288 296]))                  
+                :type "int")
+                nil [266 297])
+            ("PartitionMetrics" type
+               (:members 
+                  ( ("writeRequestQueueSize" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [329 360])
+                    ("writeRequestQueueDataSize" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [365 400])
+                    ("actualDataSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [405 428])
+                    ("actualMetaSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [433 456])
+                    ("leftToBeCommittedDataSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [461 495])
+                    ("lastAcceptedMsgTimeStamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [500 533])
+                    ("oldestMsgTimeStampInBuffer" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [538 573])
+                    ("commitDelay" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [578 598])
+                    ("usedBufferSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [603 626])
+                    ("unusedMaxBufferSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [631 659])
+                    ("reserveFreeBufferSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [664 694])
+                    ("maxMsgId" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [699 716])
+                    ("msgCountInBuffer" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [721 746])
+                    ("topicMode" variable (:type ("protocol::TopicMode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [751 781])
+                    ("partitionStatus" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [786 810])
+                    ("public" label nil (reparse-symbol classsubparts) [811 818])
+                    ("PartitionMetrics" function
+                       (:constructor-flag t
+                        :type ("PartitionMetrics" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [823 1303]))                  
+                :type "struct")
+                nil [299 1306])
+            ("REPORT" variable (:constant-flag t) nil [1316 1322])
+            ("INCREASEQPS" variable (:constant-flag t) nil [1707 1718])
+            ("INCREASEQPS2" variable (:constant-flag t) nil [2091 2103])
+            ("AmonMetricsReporter" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [2523 2530])
+                    ("AmonMetricsReporter" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2535 2557])
+                    ("AmonMetricsReporter" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [2562 2585])
+                    ("private" label nil (reparse-symbol classsubparts) [2586 2594])
+                    ("AmonMetricsReporter" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AmonMetricsReporter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2619 2647]))                          
+                        :type ("AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2599 2648])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AmonMetricsReporter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2684 2712]))                          
+                        :type ("AmonMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2653 2713])
+                    ("public" label nil (reparse-symbol classsubparts) [2714 2721])
+                    ("setMetrics" function
+                       (:arguments 
+                          ( ("metrics" variable
+                               (:pointer 1
+                                :type ("Metrics" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2742 2759]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2726 2851])
+                    ("report" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("partitionMetrics" variable (:type ("PartitionMetrics" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2868 2902]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2856 2903])
+                    ("public" label nil (reparse-symbol classsubparts) [2905 2912])
+                    ("setLastReadMsgTimeStamp" function
+                       (:arguments 
+                          ( ("lastReadMsgTimeInterval" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2946 2978]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2917 3052])
+                    ("incReadRequestQps" function (:type "void") (reparse-symbol classsubparts) [3084 3153])
+                    ("incWriteRequestQps" function (:type "void") (reparse-symbol classsubparts) [3158 3229])
+                    ("reportReadRequestLatency" function
+                       (:arguments 
+                          ( ("readRequestLatency" variable (:type "double") (reparse-symbol arg-sub-list) [3264 3290]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3234 3354])
+                    ("reportWriteRequestLatency" function
+                       (:arguments 
+                          ( ("writeRequestLatency" variable (:type "double") (reparse-symbol arg-sub-list) [3390 3417]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3359 3483])
+                    ("reportRequiredMsgsCountPerReadRequest" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3531 3546]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3488 3610])
+                    ("reportReturnedMsgsCountPerReadRequest" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3658 3673]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3615 3737])
+                    ("reportReturnedMsgsSizePerReadRequest" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3784 3797]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3742 3859])
+                    ("reportFieldFilterMsgsSizePerReadRequest" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3909 3922]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3864 3987])
+                    ("reportFieldFilterReadMsgCountPerReadRequest" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4041 4054]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3992 4123])
+                    ("reportReturnedMsgSize" function
+                       (:arguments 
+                          ( ("msgLen" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4155 4170]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4128 4219])
+                    ("reportReadMsgQPS" function
+                       (:arguments 
+                          ( ("readMsgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4246 4267]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4224 4323])
+                    ("reportTotalReadMsgQPS" function
+                       (:arguments 
+                          ( ("readMsgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4355 4376]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4328 4437])
+                    ("reportReadMsgQPS_PB" function
+                       (:arguments 
+                          ( ("readMsgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4467 4488]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4442 4547])
+                    ("reportReadMsgQPS_FB" function
+                       (:arguments 
+                          ( ("readMsgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4577 4598]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4552 4657])
+                    ("reportRawFieldFilteredMsgSize" function
+                       (:arguments 
+                          ( ("rawMsgLen" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4697 4715]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4662 4775])
+                    ("reportFieldFilteredMsgSize" function
+                       (:arguments 
+                          ( ("filteredMsgLen" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4812 4835]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4780 4897])
+                    ("reportFieldFilterUpdatedMsgRatio" function
+                       (:arguments 
+                          ( ("ratio" variable (:type "double") (reparse-symbol arg-sub-list) [4940 4953]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4902 5012])
+                    ("reportFieldFilteredMsgRatio" function
+                       (:arguments 
+                          ( ("ratio" variable (:type "double") (reparse-symbol arg-sub-list) [5050 5063]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5017 5117])
+                    ("reportMsgsCountPerWriteRequest" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5158 5173]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5122 5230])
+                    ("reportMsgsCountWithMergedPerWriteRequest" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5281 5296]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5235 5363])
+                    ("reportMsgsSizePerWriteRequest" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5403 5416]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5368 5471])
+                    ("reportAcceptedMsgSize" function
+                       (:arguments 
+                          ( ("msgSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5503 5519]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5476 5568])
+                    ("reportAcceptedCompressMsgSize" function
+                       (:arguments 
+                          ( ("msgSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5608 5624]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5573 5681])
+                    ("reportAcceptedUncompressMsgSize" function
+                       (:arguments 
+                          ( ("msgSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5723 5739]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5686 5798])
+                    ("reportAcceptedMsgQps" function
+                       (:arguments 
+                          ( ("msgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5829 5846]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5803 5902])
+                    ("reportTotalAcceptedMsgQps" function
+                       (:arguments 
+                          ( ("msgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5938 5955]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5907 6016])
+                    ("reportAcceptedMsgQps_FB" function
+                       (:arguments 
+                          ( ("msgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6050 6067]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6021 6126])
+                    ("reportAcceptedMsgQps_PB" function
+                       (:arguments 
+                          ( ("msgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6160 6177]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6131 6236])
+                    ("reportAcceptedCompressMsgQps" function
+                       (:arguments 
+                          ( ("msgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6275 6292]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6241 6356])
+                    ("reportAcceptedUncompressMsgQps" function
+                       (:arguments 
+                          ( ("msgCount" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6397 6414]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6361 6480])
+                    ("reportAcceptedMsgsCountPerWriteRequest" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6529 6544]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6485 6609])
+                    ("reportAcceptedMsgsSizePerWriteRequest" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6657 6670]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6614 6733])
+                    ("reportMsgReadQpsFromMemory" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6770 6785]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6738 6844])
+                    ("reportMsgReadQpsWithMergedFromMemory" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6891 6906]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6849 6975])
+                    ("reportMsgReadQpsFromDFS" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7009 7024]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6980 7080])
+                    ("reportMsgReadQpsWithMergedFromDFS" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7124 7139]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7085 7205])
+                    ("reportMsgReadRateFromMemory" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7243 7256]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7210 7315])
+                    ("reportMsgReadRateFromDFS" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7350 7363]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7320 7419])
+                    ("reportDFSWriteRate" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7448 7461]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7424 7511])
+                    ("reportDFSCommitSize" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7541 7554]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7516 7599])
+                    ("reportDFSCommitLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type "double") (reparse-symbol arg-sub-list) [7632 7647]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7604 7698])
+                    ("reportDFSCommitInterval" function
+                       (:arguments 
+                          ( ("interval" variable (:type "double") (reparse-symbol arg-sub-list) [7732 7748]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7703 7801])
+                    ("reportDFSCommitQps" function (:type "void") (reparse-symbol classsubparts) [7806 7874])
+                    ("reportClientCommitQps" function (:type "void") (reparse-symbol classsubparts) [7879 7953])
+                    ("reportClientCommitDelay" function
+                       (:arguments 
+                          ( ("delay" variable (:type "double") (reparse-symbol arg-sub-list) [7987 8000]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7958 8050])
+                    ("reportNumOfWriteRequestToProcess" function
+                       (:arguments 
+                          ( ("count" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8093 8108]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8055 8167])
+                    ("reportDataSizeOfWriteRequestToProcess" function
+                       (:arguments 
+                          ( ("dataSize" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8215 8233]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8172 8300])
+                    ("incTimeoutNumOfWriteRequest" function (:type "void") (reparse-symbol classsubparts) [8305 8394])
+                    ("incDeniedNumOfWriteRequestWithError" function (:type "void") (reparse-symbol classsubparts) [8399 8504])
+                    ("reportMsgCompressedRatio" function
+                       (:arguments 
+                          ( ("msgCompressedRatio" variable (:type "float") (reparse-symbol arg-sub-list) [8539 8564]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8509 8628])
+                    ("reportMsgCompressedLatency" function
+                       (:arguments 
+                          ( ("msgCompressedLatency" variable (:type "double") (reparse-symbol arg-sub-list) [8665 8693]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8633 8761])
+                    ("reportMsgDecompressedRatio" function
+                       (:arguments 
+                          ( ("msgDecompressedRatio" variable (:type "float") (reparse-symbol arg-sub-list) [8798 8825]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8766 8893])
+                    ("reportMsgDecompressedLatency" function
+                       (:arguments 
+                          ( ("msgDecompressedLatency" variable (:type "double") (reparse-symbol arg-sub-list) [8932 8962]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [8898 9034])
+                    ("reportRequestCompressedRatio" function
+                       (:arguments 
+                          ( ("requestCompressedRatio" variable (:type "float") (reparse-symbol arg-sub-list) [9073 9102]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [9039 9174])
+                    ("reportRequestCompressedLatency" function
+                       (:arguments 
+                          ( ("requestCompressedLatency" variable (:type "double") (reparse-symbol arg-sub-list) [9215 9247]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [9179 9323])
+                    ("reportRequestDecompressedRatio" function
+                       (:arguments 
+                          ( ("requestDecompressedRatio" variable (:type "float") (reparse-symbol arg-sub-list) [9364 9395]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [9328 9471])
+                    ("reportRequestDecompressedLatency" function
+                       (:arguments 
+                          ( ("requestDecompressedLatency" variable (:type "double") (reparse-symbol arg-sub-list) [9514 9548]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [9476 9628])
+                    ("incGetMinMessageIdByTimeQps" function (:type "void") (reparse-symbol classsubparts) [9633 9722])
+                    ("reportGetMinMessageIdByTimeLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type "double") (reparse-symbol arg-sub-list) [9767 9782]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [9727 9845])
+                    ("incPartitionReadMetaFileFailedQps" function (:type "void") (reparse-symbol classsubparts) [9850 9951])
+                    ("incPartitionReadDataFileFailedQps" function (:type "void") (reparse-symbol classsubparts) [9956 10057])
+                    ("reportPartitionReadMetaRateFromDFS" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10102 10115]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [10062 10181])
+                    ("reportPartitionReadDataRateFromDFS" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10226 10239]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [10186 10305])
+                    ("reportPartitionActualReadMetaRateFromDFS" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10356 10369]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [10310 10441])
+                    ("reportPartitionActualReadDataRateFromDFS" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10492 10505]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [10446 10577])
+                    ("reportRecycleSize" function
+                       (:arguments 
+                          ( ("recycleSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10605 10625]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [10582 10696])
+                    ("incRecycleQps" function (:type "void") (reparse-symbol classsubparts) [10701 10771])
+                    ("incReadBusyErrorQps" function (:type "void") (reparse-symbol classsubparts) [10776 10849])
+                    ("incWriteBusyErrorQps" function (:type "void") (reparse-symbol classsubparts) [10854 10929])
+                    ("incMessageLostErrorQps" function (:type "void") (reparse-symbol classsubparts) [10934 11013])
+                    ("incBrokerNodataErrorQps" function (:type "void") (reparse-symbol classsubparts) [11018 11099])
+                    ("incOtherReadErrorQps" function (:type "void") (reparse-symbol classsubparts) [11104 11179])
+                    ("incOtherWriteErrorQps" function (:type "void") (reparse-symbol classsubparts) [11184 11261])
+                    ("incWorkerReadBlockQps" function (:type "void") (reparse-symbol classsubparts) [11294 11371])
+                    ("incWorkerReadBlockErrorQps" function (:type "void") (reparse-symbol classsubparts) [11376 11463])
+                    ("reportWorkerDfsReadRate" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11497 11510]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [11468 11565])
+                    ("reportWorkerDfsActualReadRate" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11605 11618]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [11570 11679])
+                    ("reportWorkerBlockCacheHitRatio" function
+                       (:arguments 
+                          ( ("ratio" variable (:type "double") (reparse-symbol arg-sub-list) [11720 11733]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [11684 11790])
+                    ("incWorkerReadDataBlockQps" function (:type "void") (reparse-symbol classsubparts) [11795 11880])
+                    ("incWorkerReadDataBlockErrorQps" function (:type "void") (reparse-symbol classsubparts) [11885 11980])
+                    ("reportWorkerDfsReadDataRate" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12018 12031]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [11985 12090])
+                    ("reportWorkerDfsActualReadDataRate" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12134 12147]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [12095 12212])
+                    ("reportWorkerDataBlockCacheHitRatio" function
+                       (:arguments 
+                          ( ("ratio" variable (:type "double") (reparse-symbol arg-sub-list) [12257 12270]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [12217 12331])
+                    ("incWorkerReadMetaBlockQps" function (:type "void") (reparse-symbol classsubparts) [12336 12421])
+                    ("incWorkerReadMetaBlockErrorQps" function (:type "void") (reparse-symbol classsubparts) [12426 12521])
+                    ("reportWorkerDfsReadMetaRate" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12559 12572]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [12526 12631])
+                    ("reportWorkerDfsActualReadMetaRate" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12675 12688]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [12636 12753])
+                    ("reportWorkerMetaBlockCacheHitRatio" function
+                       (:arguments 
+                          ( ("ratio" variable (:type "double") (reparse-symbol arg-sub-list) [12798 12811]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [12758 12872])
+                    ("reportCacheFileCount" function
+                       (:arguments 
+                          ( ("count" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12903 12917]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [12877 12964])
+                    ("reportFileCacheUsedSize" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12998 13011]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [12969 13060])
+                    ("reportFileCacheUsedRatio" function
+                       (:arguments 
+                          ( ("ratio" variable (:type "double") (reparse-symbol arg-sub-list) [13095 13108]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [13065 13159])
+                    ("reportReadThreadUsedCount" function
+                       (:arguments 
+                          ( ("readThreadCount" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13195 13219]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [13164 13281])
+                    ("reportWriteThreadUsedCount" function
+                       (:arguments 
+                          ( ("writeThreadCount" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13318 13343]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [13286 13407])
+                    ("reportMaxIdThreadUsedCount" function
+                       (:arguments 
+                          ( ("maxIdThreadCount" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13444 13469]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [13412 13536])
+                    ("reportMinIdThreadUsedCount" function
+                       (:arguments 
+                          ( ("minIdThreadCount" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13573 13598]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [13541 13665])
+                    ("reportReadFileThreadUsedCount" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13705 13718]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [13670 13773])
+                    ("reportActualReadingFileThreadCount" function
+                       (:arguments 
+                          ( ("size" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13818 13831]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [13778 13891])
+                    ("reportMessageTotalUsedBufferSize" function
+                       (:arguments 
+                          ( ("messageBufferSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [13934 13960]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [13896 14031])
+                    ("reportMessageTotalUnusedBufferSize" function
+                       (:arguments 
+                          ( ("bufferSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14076 14095]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [14036 14161])
+                    ("reportCommitMessageQueueSize" function
+                       (:arguments 
+                          ( ("queueSize" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14200 14218]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [14166 14277])
+                    ("reportWorkerLoadPartitionCount" function
+                       (:arguments 
+                          ( ("count" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14318 14332]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [14282 14385])
+                    ("reportWorkerLoadPartitionQps" function (:type "void") (reparse-symbol classsubparts) [14390 14472])
+                    ("reportWorkerUnloadPartitionQps" function (:type "void") (reparse-symbol classsubparts) [14477 14563])
+                    ("reportWorkerLoadPartitionLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type "double") (reparse-symbol arg-sub-list) [14606 14621]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [14568 14676])
+                    ("reportWorkerUnloadPartitionLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type "double") (reparse-symbol arg-sub-list) [14721 14736]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [14681 14793])
+                    ("reportBrokerQueueSize" function
+                       (:arguments 
+                          ( ("queueLen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14825 14841]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [14798 14892])
+                    ("reportServiceStatus" function
+                       (:arguments 
+                          ( ("status" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [14922 14936]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [14897 14983])
+                    ("reportRejectTime" function
+                       (:arguments 
+                          ( ("time" variable (:type "double") (reparse-symbol arg-sub-list) [15010 15022]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [14988 15064])
+                    ("incRecycleFileCacheQps" function (:type "void") (reparse-symbol classsubparts) [15069 15148])
+                    ("incRecycleBlockCacheQps" function (:type "void") (reparse-symbol classsubparts) [15153 15234])
+                    ("private" label nil (reparse-symbol classsubparts) [15236 15244])
+                    ("_metrics" variable
+                       (:pointer 1
+                        :type ("Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [15249 15267])
+                    ("_metricSamplers" variable
+                       (:pointer 1
+                        :type ("MetricSamplers" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [15272 15304])
+                    ("_lastReadMsgTimeStamp" variable (:type ("util::Atomic64" type (:type "class") nil nil)) (reparse-symbol classsubparts) [15309 15346])
+                    ("private" label nil (reparse-symbol classsubparts) [15347 15355])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [15360 15380]))                  
+                :type "class")
+                nil [2495 15383])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("AmonMetricsReporter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15403 15423]))                  
+                :type "int")
+                nil [15385 15424])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [15446 15454]))                  
+                :type "int")
+                nil [15426 15455]))          
+      :file "AmonMetricsReporter.h"
+      :pointmax 15494
+      :fsize 15493
+      :lastmodtime '(22922 51750 338766 176000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("INCREASEQPS2" (spp-arg-list ("metricName" "incCount") 2103 . 2125) . 
+              ((IF "if" 2158 . 2160) (semantic-list "(!_metrics || !_metrics->hasInit())" 2161 . 2196) (semantic-list "{                         \\
+        return;                                                      \\
+    }" 2197 . 2301) (symbol "assert" 2371 . 2377) (semantic-list "(_metricSamplers->metricName)" 2377 . 2406) (punctuation ";" 2406 . 2407) (symbol "_metricSamplers" 2442 . 2457) (punctuation "-" 2457 . 2458) (punctuation ">" 2458 . 2459) (symbol "metricName" 2459 . 2469) (punctuation "-" 2469 . 2470) (punctuation ">" 2470 . 2471) (symbol "increaseQps" 2471 . 2482) (semantic-list "(incCount)" 2482 . 2492) (punctuation ";" 2492 . 2493)))
+          ("SWIFT_AMONMETRICSREPORTER_H")
+          ("INCREASEQPS" (spp-arg-list ("metricName") 1718 . 1730) . 
+              ((IF "if" 1770 . 1772) (semantic-list "(!_metrics || !_metrics->hasInit())" 1773 . 1808) (semantic-list "{                     \\
+        return;                                                  \\
+    }" 1809 . 1905) (symbol "assert" 1971 . 1977) (semantic-list "(_metricSamplers->metricName)" 1977 . 2006) (punctuation ";" 2006 . 2007) (symbol "_metricSamplers" 2038 . 2053) (punctuation "-" 2053 . 2054) (punctuation ">" 2054 . 2055) (symbol "metricName" 2055 . 2065) (punctuation "-" 2065 . 2066) (punctuation ">" 2066 . 2067) (symbol "increaseQps" 2067 . 2078) (semantic-list "()" 2078 . 2080) (punctuation ";" 2080 . 2081)))
+          ("REPORT" (spp-arg-list ("metricName" "metricValue") 1322 . 1347) . 
+              ((IF "if" 1378 . 1380) (semantic-list "(!_metrics || !_metrics->hasInit())" 1381 . 1416) (semantic-list "{                    \\
+        return;                                                 \\
+    }" 1417 . 1511) (symbol "assert" 1576 . 1582) (semantic-list "(_metricSamplers->metricName)" 1582 . 1611) (punctuation ";" 1611 . 1612) (symbol "_metricSamplers" 1642 . 1657) (punctuation "-" 1657 . 1658) (punctuation ">" 1658 . 1659) (symbol "metricName" 1659 . 1669) (punctuation "-" 1669 . 1670) (punctuation ">" 1670 . 1671) (symbol "reportMetric" 1671 . 1683) (semantic-list "(metricValue)" 1683 . 1696) (punctuation ";" 1696 . 1697)))
+          )
+)
+    (semanticdb-table "Metrics.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_METRICS_H" variable (:constant-flag t) nil [33 48])
+            ("swift/common/Common.h" include nil nil [50 82])
+            ("swift/common/Log.h" include nil nil [83 112])
+            ("swift/monitor/Monitor.h" include nil nil [113 147])
+            ("amonitor/client/NodeSampler.h" include nil nil [148 188])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [211 219]))                  
+                :type "int")
+                nil [189 220])
+            ("metricSampler_t" type
+               (:typedef ("amonitor::client::MetricSampler" type (:type "class") nil nil)
+                :type "typedef")
+                nil [222 278])
+            ("MetricType" type
+               (:members 
+                  ( ("SWIFT_WORKER_METRIC_TYPE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [301 326])
+                    ("SWIFT_PARTITION_METRIC_TYPE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [331 359])
+                    ("SWIFT_ADMIN_METRIC_TYPE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [364 388])
+                    ("SWIFT_CLIENT_METRIC_TYPE" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [393 419]))                  
+                :type "enum")
+                nil [279 420])
+            ("MetricSamplers" type
+               (:members 
+                  ( ("readRequestQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [472 504])
+                    ("writeRequestQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [509 542])
+                    ("readRequestLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [547 583])
+                    ("writeRequestLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [588 625])
+                    ("requiredMsgsCountPerReadRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [630 679])
+                    ("returnedMsgsCountPerReadRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [684 733])
+                    ("returnedMsgsSizePerReadRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [738 786])
+                    ("fieldFilterMsgsSizePerReadRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [791 842])
+                    ("fieldFilterReadMsgCountPerReadRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [847 902])
+                    ("returnedMsgSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [907 940])
+                    ("readMsgQPS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [948 976])
+                    ("totalReadMsgQPS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [984 1017])
+                    ("readMsgQPS_PB" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1025 1056])
+                    ("readMsgQPS_FB" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1064 1095])
+                    ("rawFieldFilteredMsgSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1103 1144])
+                    ("fieldFilteredMsgSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1149 1187])
+                    ("fieldFilteredMsgRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1192 1231])
+                    ("fieldFilterUpdatedMsgRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1236 1280])
+                    ("msgsCountPerWriteRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1288 1330])
+                    ("msgsCountWithMergedPerWriteRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1335 1387])
+                    ("msgsSizePerWriteRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1392 1433])
+                    ("acceptedMsgsCountPerWriteRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1438 1488])
+                    ("acceptedMsgsSizePerWriteRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1493 1542])
+                    ("acceptedMsgQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1547 1579])
+                    ("totalAcceptedMsgQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1584 1621])
+                    ("acceptedMsgQps_FB" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1626 1661])
+                    ("acceptedMsgQps_PB" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1666 1701])
+                    ("acceptedMsgSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1706 1739])
+                    ("acceptedCompressMsgQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1744 1784])
+                    ("acceptedCompressMsgSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1789 1830])
+                    ("acceptedUncompressMsgQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1835 1877])
+                    ("acceptedUncompressMsgSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1882 1925])
+                    ("msgReadQpsFromMemory" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1930 1968])
+                    ("msgReadQpsWithMergedFromMemory" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1973 2021])
+                    ("msgReadQpsFromDFS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2026 2061])
+                    ("msgReadQpsWithMergedFromDFS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2066 2111])
+                    ("msgReadRateFromMemory" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2116 2155])
+                    ("msgReadRateFromDFS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2160 2196])
+                    ("dfsWriteRate" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2201 2231])
+                    ("dfsCommitSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2236 2267])
+                    ("dfsCommitLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2272 2306])
+                    ("dfsCommitInterval" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2311 2346])
+                    ("dfsCommitQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2351 2381])
+                    ("clientCommitQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2386 2419])
+                    ("clientCommitDelay" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2424 2459])
+                    ("numOfWriteRequestToProcess" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2464 2508])
+                    ("dataSizeOfWriteRequestToProcess" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2513 2562])
+                    ("timeoutNumOfWriteRequest" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2567 2609])
+                    ("deniedNumOfWriteRequestWithError" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2614 2664])
+                    ("msgCompressedRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2669 2705])
+                    ("msgCompressedLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2710 2748])
+                    ("msgDecompressedRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2753 2791])
+                    ("msgDecompressedLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2796 2836])
+                    ("requestCompressedRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2841 2881])
+                    ("requestCompressedLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2886 2928])
+                    ("requestDecompressedRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2933 2975])
+                    ("requestDecompressedLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2980 3024])
+                    ("getMinMessageIdByTimeQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3029 3071])
+                    ("getMinMessageIdByTimeLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3076 3122])
+                    ("partitionReadFileMetaFailedQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3127 3175])
+                    ("partitionReadFileDataFailedQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3180 3228])
+                    ("partitionReadMetaRateFromDFS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3233 3279])
+                    ("partitionReadDataRateFromDFS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3284 3330])
+                    ("partitionActualReadMetaRateFromDFS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3335 3387])
+                    ("partitionActualReadDataRateFromDFS" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3392 3444])
+                    ("partitionRecycleBufferSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3449 3493])
+                    ("partitionRecycleQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3498 3535])
+                    ("readBusyErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3540 3574])
+                    ("writeBusyErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3579 3614])
+                    ("messageLostErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3619 3656])
+                    ("brokerNodataErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3661 3699])
+                    ("otherReadErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3704 3739])
+                    ("otherWriteErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3744 3780])
+                    ("maxMsgId" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3786 3812])
+                    ("msgCountInBuffer" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3817 3851])
+                    ("partitionStatus" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3856 3889])
+                    ("lastAcceptedMsgTimeInterval" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3894 3939])
+                    ("lastReadMsgTimeInterval" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3944 3985])
+                    ("partitionOldestMsgTimeStampInBuffer" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3990 4043])
+                    ("partitionCommitDelay" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4048 4086])
+                    ("leftToBeCommittedDataSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4091 4134])
+                    ("leftToBeCommittedDataUseBufferRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4139 4192])
+                    ("partitionDataSizeInBuffer" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4197 4240])
+                    ("partitionMetaSizeInBuffer" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4245 4288])
+                    ("partitionUsedBufferSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4293 4334])
+                    ("partitionUnusedMaxBufferSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4339 4385])
+                    ("partitionReserveFreeBufferSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4390 4438])
+                    ("workerReadBlockQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4476 4512])
+                    ("workerReadBlockErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4517 4558])
+                    ("workerDfsReadRate" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4563 4598])
+                    ("workerDfsActualReadRate" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4603 4644])
+                    ("workerBlockCacheHitRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4649 4691])
+                    ("workerReadDataBlockQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4696 4736])
+                    ("workerReadDataBlockErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4741 4786])
+                    ("workerDfsReadDataRate" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4791 4830])
+                    ("workerDfsActualReadDataRate" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4835 4880])
+                    ("workerDataBlockCacheHitRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4885 4931])
+                    ("workerReadMetaBlockQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4936 4976])
+                    ("workerReadMetaBlockErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4981 5026])
+                    ("workerDfsReadMetaRate" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5031 5070])
+                    ("workerDfsActualReadMetaRate" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5075 5120])
+                    ("workerMetaBlockCacheHitRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5125 5171])
+                    ("cacheFileCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5176 5208])
+                    ("fileCacheUsedSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5213 5248])
+                    ("fileCacheUsedRatio" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5253 5289])
+                    ("recycleFileCacheQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5294 5331])
+                    ("recycleBlockCacheQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5336 5374])
+                    ("readUsedThreadCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5379 5416])
+                    ("writeUsedThreadCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5421 5459])
+                    ("maxMsgIdUsedThreadCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5464 5505])
+                    ("minMsgIdUsedThreadCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5510 5551])
+                    ("readFileUsedThreadCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5556 5597])
+                    ("actualReadingFileThreadCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5602 5648])
+                    ("messageTotalUsedBufferSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5653 5697])
+                    ("messageTotalUnusedBufferSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5705 5751])
+                    ("commitMessageQueueSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5756 5796])
+                    ("loadedPartitionCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5801 5839])
+                    ("loadPartitionQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5844 5878])
+                    ("loadPartitionLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5883 5921])
+                    ("unloadPartitionQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5926 5962])
+                    ("unloadPartitionLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5967 6007])
+                    ("brokerQueueSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6012 6045])
+                    ("serviceStatus" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6050 6081])
+                    ("rejectTime" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6086 6114])
+                    ("scheduleTime" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6148 6178])
+                    ("workerCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6183 6212])
+                    ("aliveWorkerCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6217 6251])
+                    ("aliveWorkerPercent" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6256 6292])
+                    ("deadWorkerCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6297 6330])
+                    ("unknownWorkerCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6335 6371])
+                    ("adminCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6377 6405])
+                    ("aliveAdminCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6410 6443])
+                    ("aliveAdminPercent" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6448 6483])
+                    ("deadAdminCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6488 6520])
+                    ("unknownAdminCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6525 6560])
+                    ("topicCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6566 6594])
+                    ("partialRunningTopicCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6599 6641])
+                    ("runningTopicCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6646 6681])
+                    ("runningTopicPercent" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6686 6723])
+                    ("waitingTopicCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6728 6763])
+                    ("partitionCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6769 6801])
+                    ("runningPartitionCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6806 6845])
+                    ("runningPartitionPercent" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6850 6891])
+                    ("waitingPartitionCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6896 6935])
+                    ("loadingPartitionCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6940 6979])
+                    ("createTopicQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6985 7017])
+                    ("deleteTopicQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7022 7054])
+                    ("modifyTopicQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7059 7091])
+                    ("getSysInfoQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7096 7127])
+                    ("getTopicInfoQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7132 7165])
+                    ("getAllTopicInfoQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7170 7206])
+                    ("getAllTopicNameQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7211 7247])
+                    ("getPartitionInfoQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7252 7289])
+                    ("getRoleAddressQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7294 7329])
+                    ("getLeaderInfoQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7334 7368])
+                    ("getAllWorkerStatusQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7373 7412])
+                    ("getWorkerErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7417 7452])
+                    ("getPartitionErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7457 7495])
+                    ("updateConfigQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7500 7533])
+                    ("updateBrokerConfigQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7538 7577])
+                    ("rollbackBrokerConfigQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7582 7623])
+                    ("transferPartitionQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7628 7666])
+                    ("createTopicLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7672 7708])
+                    ("deleteTopicLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7713 7749])
+                    ("modifyTopicLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7754 7790])
+                    ("getSysInfoLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7795 7830])
+                    ("getTopicInfoLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7835 7872])
+                    ("getAllTopicInfoLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7877 7917])
+                    ("getAllTopicNameLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7922 7962])
+                    ("getPartitionInfoLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7967 8008])
+                    ("getRoleAddressLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8013 8052])
+                    ("getLeaderInfoLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8057 8095])
+                    ("getAllWorkerStatusLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8100 8143])
+                    ("updateConfigLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8148 8185])
+                    ("updateBrokerConfigLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8190 8233])
+                    ("rollbackBrokerConfigLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8238 8283])
+                    ("transferPartitionLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8288 8330])
+                    ("getWorkerErrorLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8335 8374])
+                    ("getPartitionErrorLatency" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8379 8421])
+                    ("isLeader" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8426 8452])
+                    ("adminQueueSize" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8457 8489])
+                    ("produceQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8527 8555])
+                    ("consumerQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8560 8589])
+                    ("checkErrorQps" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8594 8625])
+                    ("produceCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8630 8660])
+                    ("consumerCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8665 8696])
+                    ("errorCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8701 8729])
+                    ("dupCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8734 8760])
+                    ("missCount" variable
+                       (:pointer 1
+                        :type ("metricSampler_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8765 8792]))                  
+                :type "struct")
+                nil [422 8795])
+            ("Monitor" type
+               (:prototype t
+                :type "class")
+                nil [8797 8811])
+            ("Metrics" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [8828 8835])
+                    ("Metrics" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("topicName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8848 8877])
+                            ("partitionName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8891 8924])
+                            ("topicGroup" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8937 8967]))                          
+                        :type ("Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8840 8968])
+                    ("Metrics" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("roleName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8981 9009])
+                            ("isWorker" variable
+                               (:default-value "true"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [9010 9030]))                          
+                        :type ("Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8973 9032])
+                    ("Metrics" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9037 9047])
+                    ("Metrics" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [9052 9063])
+                    ("private" label nil (reparse-symbol classsubparts) [9064 9072])
+                    ("Metrics" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Metrics" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9085 9101]))                          
+                        :type ("Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9077 9102])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Metrics" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9126 9142]))                          
+                        :type ("Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9107 9143])
+                    ("public" label nil (reparse-symbol classsubparts) [9144 9151])
+                    ("init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("nodeSampler" variable
+                               (:pointer 1
+                                :type ("amonitor::client::NodeSampler" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9166 9209]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [9156 9210])
+                    ("hasInit" function (:type "bool") (reparse-symbol classsubparts) [9215 9250])
+                    ("reset" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [9256 9269])
+                    ("getMetricSamplers" function
+                       (:pointer 1
+                        :type ("MetricSamplers" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9274 9350])
+                    ("getNodePath" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9355 9415])
+                    ("setMonitor" function
+                       (:arguments 
+                          ( ("monitor" variable
+                               (:pointer 1
+                                :type ("Monitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9436 9453]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [9420 9477])
+                    ("private" label nil (reparse-symbol classsubparts) [9478 9486])
+                    ("registPartitionMetrics" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("nodeSampler" variable
+                               (:pointer 1
+                                :type ("amonitor::client::NodeSampler" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9519 9562]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [9491 9563])
+                    ("registWorkerMetrics" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("nodeSampler" variable
+                               (:pointer 1
+                                :type ("amonitor::client::NodeSampler" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9593 9636]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [9568 9637])
+                    ("registAdminMetrics" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("nodeSampler" variable
+                               (:pointer 1
+                                :type ("amonitor::client::NodeSampler" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9666 9709]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [9642 9710])
+                    ("registClientMetrics" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("nodeSampler" variable
+                               (:pointer 1
+                                :type ("amonitor::client::NodeSampler" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9740 9783]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [9715 9784])
+                    ("private" label nil (reparse-symbol classsubparts) [9785 9793])
+                    ("_nodePath" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9798 9820])
+                    ("_hasInit" variable (:type "bool") (reparse-symbol classsubparts) [9825 9839])
+                    ("_metricSamplers" variable
+                       (:pointer 1
+                        :type ("MetricSamplers" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9844 9876])
+                    ("_monitor" variable
+                       (:pointer 1
+                        :type ("Monitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [9881 9899])
+                    ("_metricType" variable (:type ("MetricType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [9904 9927])
+                    ("private" label nil (reparse-symbol classsubparts) [9928 9936])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [9941 9961]))                  
+                :type "class")
+                nil [8812 9964])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Metrics" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9984 9992]))                  
+                :type "int")
+                nil [9966 9993])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10015 10023]))                  
+                :type "int")
+                nil [9995 10024]))          
+      :file "Metrics.h"
+      :pointmax 10051
+      :fsize 10050
+      :lastmodtime '(22925 10924 928563 808000)
+      :unmatched-syntax '((thing 9215 . 9216) (thing 9250 . 9251))
+      :lexical-table 
+        '(("SWIFT_METRICS_H")
+          )
+)
+    (semanticdb-table "Metrics.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/monitor/Metrics.h" include nil nil [1 35])
+            ("autil/StringUtil.h" include nil nil [36 65])
+            ("swift/common/PathDefine.h" include nil nil [66 102])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [104 124])
+            ("amonitor::client" using (:type ("amonitor::client" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [125 158])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [182 190]))                  
+                :type "int")
+                nil [160 191])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [208 216])
+                    ("" variable (:type ("Metrics" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [217 225]))                  
+                :type "int")
+                nil [192 226])
+            ("SWIFT_USE_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("common" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [247 254]))                  
+                :type "int")
+                nil [227 255])
+            ("READ_MSG_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Read_Metrics/message/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [257 330])
+            ("READ_REQUEST_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Read_Metrics/request/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [331 408])
+            ("WRITE_MSG_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Write_Metrics/message/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [409 484])
+            ("WRITE_REQUEST_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Write_Metrics/request/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [485 564])
+            ("WRITE_REQUEST_SECURITY_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Write_Metrics/request/security/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [565 662])
+            ("PARTITION_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Partition_Metrics/other/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [663 740])
+            ("PARTITION_DFS_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Partition_Metrics/dfs/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [741 820])
+            ("PARTITION_MEMORY_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Partition_Metrics/memory/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [821 906])
+            ("PARTITION_ERROR_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Partition_Metrics/error/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [907 990])
+            ("WORKER_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Worker_Metrics/memory/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [991 1063])
+            ("WORKER_DFS_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Worker_Metrics/dfs/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [1064 1137])
+            ("WORKER_ERROR_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Worker_Metrics/error/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [1138 1215])
+            ("ADMIN_GROUP_METRIC" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"Admin_Metrics/\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [1216 1279])
+            ("REGISTER" variable (:constant-flag t) nil [1289 1297])
+            ("REGISTER_IN_GROUP" variable (:constant-flag t) nil [1631 1648])
+            ("Metrics" function
+               (:constructor-flag t
+                :parent "Metrics"
+                :arguments 
+                  ( ("topicName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2323 2352])
+                    ("partitionName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2370 2403])
+                    ("topicGroup" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2421 2451]))                  
+                :type ("Metrics" type (:type "class") nil nil))
+                nil [2306 2665])
+            ("Metrics" function
+               (:constructor-flag t
+                :parent "Metrics"
+                :type ("Metrics" type (:type "class") nil nil))
+                nil [2667 2844])
+            ("Metrics" function
+               (:constructor-flag t
+                :parent "Metrics"
+                :arguments 
+                  ( ("roleName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2863 2891])
+                    ("isWorker" variable (:type "bool") (reparse-symbol arg-sub-list) [2892 2906]))                  
+                :type ("Metrics" type (:type "class") nil nil))
+                nil [2846 3480])
+            ("Metrics" function
+               (:destructor-flag t
+                :parent "Metrics"
+                :type "void")
+                nil [3482 3603])
+            ("reset" function
+               (:parent "Metrics"
+                :type "void")
+                nil [3605 3708])
+            ("init" function
+               (:parent "Metrics"
+                :arguments 
+                  ( ("nodeSampler" variable
+                       (:pointer 1
+                        :type ("NodeSampler" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3729 3754]))                  
+                :type "bool")
+                nil [3710 4212])
+            ("registPartitionMetrics" function
+               (:parent "Metrics"
+                :arguments 
+                  ( ("nodeSampler" variable
+                       (:pointer 1
+                        :type ("NodeSampler" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4251 4276]))                  
+                :type "bool")
+                nil [4214 12000])
+            ("registClientMetrics" function
+               (:parent "Metrics"
+                :arguments 
+                  ( ("nodeSampler" variable
+                       (:pointer 1
+                        :type ("NodeSampler" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12036 12061]))                  
+                :type "bool")
+                nil [12002 12423])
+            ("registWorkerMetrics" function
+               (:parent "Metrics"
+                :arguments 
+                  ( ("nodeSampler" variable
+                       (:pointer 1
+                        :type ("NodeSampler" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12459 12484]))                  
+                :type "bool")
+                nil [12425 15632])
+            ("registAdminMetrics" function
+               (:parent "Metrics"
+                :arguments 
+                  ( ("nodeSampler" variable
+                       (:pointer 1
+                        :type ("NodeSampler" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15667 15692]))                  
+                :type "bool")
+                nil [15634 20176])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [20199 20207]))                  
+                :type "int")
+                nil [20179 20208]))          
+      :file "Metrics.cpp"
+      :pointmax 20210
+      :fsize 20209
+      :lastmodtime '(22925 10947 140565 558000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("REGISTER" (spp-arg-list ("metricName" "metricType" "metricUnit") 1297 . 1333) . 
+              ((symbol "_metricSamplers" 1352 . 1367) (punctuation "-" 1367 . 1368) (punctuation ">" 1368 . 1369) (symbol "metricName" 1369 . 1379) (punctuation "=" 1380 . 1381) (symbol "nodeSampler" 1382 . 1393) (punctuation "-" 1393 . 1394) (punctuation ">" 1394 . 1395) (symbol "registerMetric" 1395 . 1409) (semantic-list "(   \\
+            #metricName, metricType##_METRIC, metricUnit)" 1409 . 1472) (punctuation ";" 1472 . 1473) (IF "if" 1486 . 1488) (semantic-list "(!_metricSamplers->metricName)" 1489 . 1519) (semantic-list "{                          \\
+        return false;                                            \\
+    }" 1520 . 1621)))
+          ("REGISTER_IN_GROUP" (spp-arg-list ("metricName" "metricType" "metricUnit" "groupName") 1648 . 1695) . ((semantic-list "{                                                                    \\
+        std::string name = groupName;                                    \\
+        name += #metricName;                                             \\
+        _metricSamplers->metricName = nodeSampler->registerMetric(       \\
+                name, metricType##_METRIC, metricUnit);                  \\
+        if (!_metricSamplers->metricName) {                              \\
+            return false;                                                \\
+        }                                                                \\
+    }" 1702 . 2303)))
+          )
+)
+    (semanticdb-table "Monitor.h"
+      :file "Monitor.h"
+      :fsize 730
+      :lastmodtime '(22902 56250 775870 45000))
+    (semanticdb-table "AdminMetricsReporter.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("swift/monitor/AdminMetricsReporter.h" include nil nil [1 48])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [72 80]))                  
+                :type "int")
+                nil [50 81])
+            ("SWIFT_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [98 106])
+                    ("" variable (:type ("AdminMetricsReporter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [107 128]))                  
+                :type "int")
+                nil [82 129])
+            ("AdminMetricsReporter" function
+               (:constructor-flag t
+                :parent "AdminMetricsReporter"
+                :type ("AdminMetricsReporter" type (:type "class") nil nil))
+                nil [131 230])
+            ("AdminMetricsReporter" function
+               (:destructor-flag t
+                :parent "AdminMetricsReporter"
+                :type "void")
+                nil [232 282])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [304 312]))                  
+                :type "int")
+                nil [284 313]))          
+      :file "AdminMetricsReporter.cpp"
+      :pointmax 315
+      :fsize 314
+      :lastmodtime '(22902 56250 775870 45000)
+      :unmatched-syntax nil)
+    (semanticdb-table "AdminMetricsReporter.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SWIFT_ADMINMETRICSREPORTER_H" variable (:constant-flag t) nil [46 74])
+            ("swift/common/Common.h" include nil nil [76 108])
+            ("swift/common/Log.h" include nil nil [109 138])
+            ("swift/monitor/Metrics.h" include nil nil [139 173])
+            ("swift/util/Atomic.h" include nil nil [174 204])
+            ("swift/protocol/Common.pb.h" include nil nil [205 242])
+            ("autil/Lock.h" include nil nil [243 266])
+            ("SWIFT_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [290 298]))                  
+                :type "int")
+                nil [268 299])
+            ("REPORT" variable (:constant-flag t) nil [308 314])
+            ("INCREASEQPS" variable (:constant-flag t) nil [699 710])
+            ("INCREASEQPS2" variable (:constant-flag t) nil [1083 1095])
+            ("AdminMetricsReporter" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1516 1523])
+                    ("AdminMetricsReporter" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("AdminMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1528 1551])
+                    ("AdminMetricsReporter" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1556 1580])
+                    ("private" label nil (reparse-symbol classsubparts) [1581 1589])
+                    ("AdminMetricsReporter" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AdminMetricsReporter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1615 1644]))                          
+                        :type ("AdminMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1594 1645])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("AdminMetricsReporter" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1682 1711]))                          
+                        :type ("AdminMetricsReporter" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1650 1712])
+                    ("public" label nil (reparse-symbol classsubparts) [1713 1720])
+                    ("setMetrics" function
+                       (:arguments 
+                          ( ("metrics" variable
+                               (:pointer 1
+                                :type ("Metrics" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1741 1758]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1725 1850])
+                    ("reportScheduleTime" function
+                       (:arguments 
+                          ( ("time" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1879 1892]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1855 1936])
+                    ("reportWorkerCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [1964 1974]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1941 2018])
+                    ("reportAliveWorkerCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2051 2061]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2023 2110])
+                    ("reportAliveWorkerPercent" function
+                       (:arguments 
+                          ( ("percent" variable (:type "double") (reparse-symbol arg-sub-list) [2145 2160]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2115 2213])
+                    ("reportDeadWorkerCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2245 2255]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2218 2303])
+                    ("reportUnknownWorkerCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2338 2348]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2308 2399])
+                    ("reportAdminCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2427 2437]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2405 2480])
+                    ("reportAliveAdminCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2512 2522]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2485 2570])
+                    ("reportAliveAdminPercent" function
+                       (:arguments 
+                          ( ("percent" variable (:type "double") (reparse-symbol arg-sub-list) [2604 2619]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2575 2671])
+                    ("reportDeadAdminCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2702 2712]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2676 2759])
+                    ("reportUnknownAdminCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2793 2803]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2764 2853])
+                    ("reportTopicCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2881 2891]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2859 2934])
+                    ("reportRunningTopicCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [2968 2978]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2939 3028])
+                    ("reportRunningTopicPercent" function
+                       (:arguments 
+                          ( ("percent" variable (:type "double") (reparse-symbol arg-sub-list) [3064 3079]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3033 3133])
+                    ("reportPartialRunningTopicCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [3179 3189]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3143 3246])
+                    ("reportWaitingTopicCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [3281 3291]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3252 3341])
+                    ("reportPartitionCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [3373 3383]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3347 3430])
+                    ("reportRunningPartitionCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [3468 3478]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3435 3532])
+                    ("reportRunningPartitionPercent" function
+                       (:arguments 
+                          ( ("percent" variable (:type "double") (reparse-symbol arg-sub-list) [3573 3588]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3538 3646])
+                    ("reportWaitingPartitionCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [3685 3695]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3652 3749])
+                    ("reportLoadingPartitionCount" function
+                       (:arguments 
+                          ( ("count" variable (:type "int") (reparse-symbol arg-sub-list) [3787 3797]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3754 3851])
+                    ("inccreateTopicQps" function (:type "void") (reparse-symbol classsubparts) [3857 3926])
+                    ("incdeleteTopicQps" function (:type "void") (reparse-symbol classsubparts) [3931 4000])
+                    ("incmodifyTopicQps" function (:type "void") (reparse-symbol classsubparts) [4005 4074])
+                    ("incgetSysInfoQps" function (:type "void") (reparse-symbol classsubparts) [4079 4146])
+                    ("incgetTopicInfoQps" function (:type "void") (reparse-symbol classsubparts) [4151 4222])
+                    ("incgetAllTopicInfoQps" function (:type "void") (reparse-symbol classsubparts) [4227 4304])
+                    ("incgetAllTopicNameQps" function (:type "void") (reparse-symbol classsubparts) [4309 4386])
+                    ("incgetPartitionInfoQps" function (:type "void") (reparse-symbol classsubparts) [4392 4471])
+                    ("incgetRoleAddressQps" function (:type "void") (reparse-symbol classsubparts) [4476 4551])
+                    ("incgetLeaderInfoQps" function (:type "void") (reparse-symbol classsubparts) [4556 4629])
+                    ("incgetAllWorkerStatusQps" function (:type "void") (reparse-symbol classsubparts) [4634 4717])
+                    ("incgetWorkerErrorQps" function (:type "void") (reparse-symbol classsubparts) [4722 4797])
+                    ("incgetPartitionErrorQps" function (:type "void") (reparse-symbol classsubparts) [4802 4883])
+                    ("incupdateConfigQps" function (:type "void") (reparse-symbol classsubparts) [4888 4959])
+                    ("incupdateBrokerConfigQps" function (:type "void") (reparse-symbol classsubparts) [4964 5047])
+                    ("incrollbackBrokerConfigQps" function (:type "void") (reparse-symbol classsubparts) [5052 5139])
+                    ("inctransferPartitionQps" function (:type "void") (reparse-symbol classsubparts) [5144 5225])
+                    ("reportcreateTopicLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5261 5277]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5231 5330])
+                    ("reportdeleteTopicLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5365 5381]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5335 5434])
+                    ("reportmodifyTopicLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5469 5485]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5439 5539])
+                    ("reportgetSysInfoLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5573 5589]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5544 5641])
+                    ("reportgetTopicInfoLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5677 5693]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5646 5747])
+                    ("reportgetAllTopicInfoLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5786 5802]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5752 5859])
+                    ("reportgetAllTopicNameLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5898 5914]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5864 5971])
+                    ("reportgetPartitionInfoLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6012 6028]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5977 6086])
+                    ("reportgetRoleAddressLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6124 6140]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6091 6196])
+                    ("reportgetLeaderInfoLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6233 6249]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6201 6304])
+                    ("reportgetAllWorkerStatusLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6346 6362]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6309 6422])
+                    ("reportgetWorkerErrorLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6460 6476]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6427 6532])
+                    ("reportgetPartitionErrorLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6573 6589]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6537 6648])
+                    ("reportupdateConfigLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6684 6700]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6653 6754])
+                    ("reportupdateBrokerConfigLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6796 6812]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6759 6872])
+                    ("reportrollbackBrokerConfigLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6916 6932]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6877 6994])
+                    ("reporttransferPartitionLatency" function
+                       (:arguments 
+                          ( ("latency" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7035 7051]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [6999 7110])
+                    ("reportIsLeader" function
+                       (:arguments 
+                          ( ("percent" variable (:type "double") (reparse-symbol arg-sub-list) [7136 7151]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7116 7194])
+                    ("reportAdminQueueSize" function
+                       (:arguments 
+                          ( ("queueLen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7225 7241]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [7199 7291])
+                    ("private" label nil (reparse-symbol classsubparts) [7292 7300])
+                    ("_metrics" variable
+                       (:pointer 1
+                        :type ("Metrics" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7305 7323])
+                    ("_metricSamplers" variable
+                       (:pointer 1
+                        :type ("MetricSamplers" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7328 7360])
+                    ("private" label nil (reparse-symbol classsubparts) [7361 7369])
+                    ("SWIFT_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [7374 7394]))                  
+                :type "class")
+                nil [1487 7397])
+            ("SWIFT_TYPEDEF_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("AdminMetricsReporter" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7417 7438]))                  
+                :type "int")
+                nil [7399 7439])
+            ("SWIFT_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("monitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7461 7469]))                  
+                :type "int")
+                nil [7441 7470]))          
+      :file "AdminMetricsReporter.h"
+      :pointmax 7510
+      :fsize 7509
+      :lastmodtime '(22925 10910 737562 28000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("INCREASEQPS2" (spp-arg-list ("metricName" "incCount") 1095 . 1117) . 
+              ((IF "if" 1150 . 1152) (semantic-list "(!_metrics || !_metrics->hasInit())" 1153 . 1188) (semantic-list "{                         \\
+        return;                                                      \\
+    }" 1189 . 1293) (symbol "assert" 1363 . 1369) (semantic-list "(_metricSamplers->metricName)" 1369 . 1398) (punctuation ";" 1398 . 1399) (symbol "_metricSamplers" 1434 . 1449) (punctuation "-" 1449 . 1450) (punctuation ">" 1450 . 1451) (symbol "metricName" 1451 . 1461) (punctuation "-" 1461 . 1462) (punctuation ">" 1462 . 1463) (symbol "increaseQps" 1463 . 1474) (semantic-list "(incCount)" 1474 . 1484) (punctuation ";" 1484 . 1485)))
+          ("SWIFT_ADMINMETRICSREPORTER_H")
+          ("INCREASEQPS" (spp-arg-list ("metricName") 710 . 722) . 
+              ((IF "if" 762 . 764) (semantic-list "(!_metrics || !_metrics->hasInit())" 765 . 800) (semantic-list "{                     \\
+        return;                                                  \\
+    }" 801 . 897) (symbol "assert" 963 . 969) (semantic-list "(_metricSamplers->metricName)" 969 . 998) (punctuation ";" 998 . 999) (symbol "_metricSamplers" 1030 . 1045) (punctuation "-" 1045 . 1046) (punctuation ">" 1046 . 1047) (symbol "metricName" 1047 . 1057) (punctuation "-" 1057 . 1058) (punctuation ">" 1058 . 1059) (symbol "increaseQps" 1059 . 1070) (semantic-list "()" 1070 . 1072) (punctuation ";" 1072 . 1073)))
+          ("REPORT" (spp-arg-list ("metricName" "metricValue") 314 . 339) . 
+              ((IF "if" 370 . 372) (semantic-list "(!_metrics || !_metrics->hasInit())" 373 . 408) (semantic-list "{                    \\
+        return;                                                 \\
+    }" 409 . 503) (symbol "assert" 568 . 574) (semantic-list "(_metricSamplers->metricName)" 574 . 603) (punctuation ";" 603 . 604) (symbol "_metricSamplers" 634 . 649) (punctuation "-" 649 . 650) (punctuation ">" 650 . 651) (symbol "metricName" 651 . 661) (punctuation "-" 661 . 662) (punctuation ">" 662 . 663) (symbol "reportMetric" 663 . 675) (semantic-list "(metricValue)" 675 . 688) (punctuation ";" 688 . 689)))
+          )
+))
+  :file "!ssd!sdd!git!swift!swift_1_5!swift!swift!monitor!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

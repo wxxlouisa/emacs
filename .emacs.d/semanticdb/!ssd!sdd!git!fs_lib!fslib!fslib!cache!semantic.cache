@@ -1,0 +1,1210 @@
+;; Object cache/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "cache/"
+  :tables
+  (list
+    (semanticdb-table "CacheFile.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("stack" include (:system-flag t) nil [1 17])
+            ("fslib/cache/CacheFile.h" include (:system-flag t) nil [18 52])
+            ("fslib/common/common_define.h" include (:system-flag t) nil [53 92])
+            ("autil/TimeUtility.h" include (:system-flag t) nil [93 123])
+            ("fslib/cache/BlockWorkItem.h" include (:system-flag t) nil [124 162])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [163 183])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [184 206])
+            ("FSLIB_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [229 235]))                  
+                :type "int")
+                nil [207 236])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [268 274])
+                    ("" variable (:type ("CacheFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [275 285]))                  
+                :type "int")
+                nil [237 286])
+            ("CacheFile::_alignment" variable
+               (:default-value "getpagesize()"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [288 333])
+            ("barrier" variable (:constant-flag t) nil [342 349])
+            ("CacheFile" function
+               (:constructor-flag t
+                :parent "CacheFile"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [413 441])
+                    ("cache" variable
+                       (:pointer 1
+                        :type ("FileBlockCache" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [442 464])
+                    ("id" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [487 498])
+                    ("blockSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [499 516]))                  
+                :type ("CacheFile" type (:type "class") nil nil))
+                nil [392 753])
+            ("CacheFile" function
+               (:destructor-flag t
+                :parent "CacheFile"
+                :type "void")
+                nil [755 999])
+            ("open" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("mode" variable (:type ("fslib::Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1022 1039])
+                    ("useDirectIO" variable (:type "bool") (reparse-symbol arg-sub-list) [1040 1057])
+                    ("isAsync" variable (:type "bool") (reparse-symbol arg-sub-list) [1058 1071]))                  
+                :type "bool")
+                nil [1001 2056])
+            ("read" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2082 2095])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2096 2107]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [2058 2182])
+            ("read" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2208 2221])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2222 2233])
+                    ("fromCacheSize" variable
+                       (:reference 1
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2234 2256]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [2184 2794])
+            ("pread" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2821 2834])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2835 2846])
+                    ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2847 2862]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [2796 2946])
+            ("pread" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2973 2986])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2987 2998])
+                    ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2999 3014])
+                    ("fromCacheSize" variable
+                       (:reference 1
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3015 3037]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [2948 4123])
+            ("getOneBlock" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4161 4176])
+                    ("fromCache" variable
+                       (:reference 1
+                        :type "bool")
+                        (reparse-symbol arg-sub-list) [4177 4193]))                  
+                :type ("FileBlockPtr" type (:type "class") nil nil))
+                nil [4125 5145])
+            ("getBlockFromCache" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5189 5204]))                  
+                :type ("FileBlockPtr" type (:type "class") nil nil))
+                nil [5147 5460])
+            ("putBlockToCache" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5494 5509])
+                    ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5510 5533]))                  
+                :type "void")
+                nil [5462 5739])
+            ("putBufferToCache" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5783 5806])
+                    ("curOff" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5807 5822])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5823 5834]))                  
+                :type "void")
+                nil [5741 6040])
+            ("write" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [6067 6086])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6087 6098])
+                    ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6099 6114]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [6042 6803])
+            ("writeSlice" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [6835 6854])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6855 6866])
+                    ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6867 6882]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [6805 7907])
+            ("write" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [7934 7953])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7954 7965]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [7909 8375])
+            ("doWriteAuto" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8408 8431])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8432 8443])
+                    ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8444 8459]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [8377 8686])
+            ("doWriteSafe" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8719 8742])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8743 8754])
+                    ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8755 8770]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [8688 9045])
+            ("doWrite" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9074 9097])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9098 9109])
+                    ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [9110 9125]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [9047 10318])
+            ("pwrite" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [10346 10365])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10366 10377])
+                    ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10378 10393]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [10320 10808])
+            ("close" function
+               (:parent "CacheFile"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [10810 11352])
+            ("flush" function
+               (:parent "CacheFile"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [11354 12004])
+            ("seek" function
+               (:parent "CacheFile"
+                :arguments 
+                  ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12032 12047])
+                    ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12048 12062]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [12006 12264])
+            ("tell" function
+               (:parent "CacheFile"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [12266 12544])
+            ("isOpened" function
+               (:parent "CacheFile"
+                :type "bool")
+                nil [12546 12629])
+            ("isEof" function
+               (:parent "CacheFile"
+                :type "bool")
+                nil [12631 12843])
+            ("FSLIB_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12865 12871]))                  
+                :type "int")
+                nil [12845 12872]))          
+      :file "CacheFile.cpp"
+      :pointmax 12873
+      :fsize 12872
+      :lastmodtime '(22813 15191 535076 87000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("barrier" (spp-arg-list nil 349 . 351) . 
+              ((symbol "__asm__" 353 . 360) (symbol "__volatile__" 361 . 373) (semantic-list "(\"\": : :\"memory\")" 373 . 390)))
+          )
+)
+    (semanticdb-table "CacheFile.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_CACHEFILE_H" variable (:constant-flag t) nil [35 52])
+            ("deque" include (:system-flag t) nil [54 70])
+            ("fslib/fslib.h" include (:system-flag t) nil [71 95])
+            ("fslib/fs/FileSystem.h" include nil nil [96 128])
+            ("fslib/fs/File.h" include (:system-flag t) nil [129 155])
+            ("fslib/cache/FileBlock.h" include (:system-flag t) nil [156 190])
+            ("fslib/cache/FileBlockPool.h" include (:system-flag t) nil [191 229])
+            ("fslib/cache/atomic.h" include (:system-flag t) nil [230 261])
+            ("fslib/cache/FifoCache.h" include (:system-flag t) nil [262 296])
+            ("autil/Cache.h" include (:system-flag t) nil [297 321])
+            ("autil/Log.h" include (:system-flag t) nil [322 344])
+            ("autil/Lock.h" include (:system-flag t) nil [345 368])
+            ("autil/ThreadPool.h" include (:system-flag t) nil [369 398])
+            ("autil/AtomicCounter.h" include (:system-flag t) nil [399 431])
+            ("FSLIB_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [455 461]))                  
+                :type "int")
+                nil [433 462])
+            ("CacheKey" type
+               (:typedef ("std::pair" type
+                     (:template-specifier 
+                        ( ("std::pair" type nil nil nil)
+                          ("std::pair" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [463 571])
+            ("PreReadWindow" type
+               (:typedef ("std::deque" type
+                     (:template-specifier 
+                        ( ("FileBlockPtr" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [572 619])
+            ("FileBlockCache" type
+               (:typedef ("FifoCache" type
+                     (:template-specifier 
+                        ( ("CacheKey" type nil nil nil)
+                          ("FileBlockPtr" type nil nil nil)
+                          ("GetFileBlockSize" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [620 695])
+            ("CacheFile" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [715 722])
+                    ("CacheFile" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1288 1316])
+                            ("cache" variable
+                               (:pointer 1
+                                :type ("FileBlockCache" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1317 1339])
+                            ("id" variable
+                               (:default-value "0"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1355 1369])
+                            ("blockSize" variable
+                               (:default-value "DEFAULT_FILE_BLOCK_SIZE"
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1371 1413]))                          
+                        :type ("CacheFile" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1278 1415])
+                    ("CacheFile" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1420 1441])
+                    ("public" label nil (reparse-symbol classsubparts) [1442 1449])
+                    ("open" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("mode" variable (:type ("fslib::Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1472 1489])
+                            ("useDirectIO" variable
+                               (:default-value "true"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1490 1513])
+                            ("isAsync" variable
+                               (:default-value "true"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [1538 1557]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1454 1559])
+                    ("read" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1585 1598])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1599 1610]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1564 1611])
+                    ("read" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1629 1642])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1643 1654])
+                            ("fromCacheSize" variable
+                               (:reference 1
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1655 1677]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1616 1678])
+                    ("write" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1705 1724])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1725 1736]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1683 1737])
+                    ("pread" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1764 1777])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1778 1789])
+                            ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1790 1805]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1742 1806])
+                    ("pread" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1825 1838])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1839 1850])
+                            ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1851 1866])
+                            ("fromCacheSize" variable
+                               (:reference 1
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1867 1889]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1811 1890])
+                    ("pwrite" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1918 1937])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1938 1949])
+                            ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1950 1965]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1895 1966])
+                    ("flush" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1971 1997])
+                    ("close" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2002 2028])
+                    ("seek" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2056 2071])
+                            ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2072 2086]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2033 2087])
+                    ("tell" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2092 2115])
+                    ("isOpened" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2120 2150])
+                    ("isEof" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2155 2176])
+                    ("getLastError" function
+                       (:typemodifiers ("virtual")
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2181 2265])
+                    ("getFileName" function
+                       (:pointer 1
+                        :typemodifiers ("virtual")
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol classsubparts) [2270 2351])
+                    ("getActualFileLen" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2356 2443])
+                    ("private" label nil (reparse-symbol classsubparts) [2445 2453])
+                    ("getOneBlock" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2483 2498])
+                            ("fromCache" variable
+                               (:reference 1
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [2499 2515]))                          
+                        :type ("FileBlockPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2458 2516])
+                    ("getBlockFromCache" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2552 2567]))                          
+                        :type ("FileBlockPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2521 2568])
+                    ("putBlockToCache" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2594 2609])
+                            ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2610 2633]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2573 2634])
+                    ("putBufferToCache" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileBLock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2661 2684])
+                            ("curOff" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2685 2700])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2701 2712]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2639 2713])
+                    ("write" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [2732 2751])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2752 2763])
+                            ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2764 2779]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2718 2780])
+                    ("writeSlice" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [2804 2823])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2824 2835])
+                            ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2836 2851]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2785 2852])
+                    ("doWriteAuto" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2877 2900])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2901 2912])
+                            ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2913 2928]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2857 2929])
+                    ("doWriteSafe" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2954 2977])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2978 2989])
+                            ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2990 3005]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2934 3006])
+                    ("doWrite" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileBlock" variable (:type ("FileBlockPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3027 3050])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3051 3062])
+                            ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3063 3078]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3011 3079])
+                    ("private" label nil (reparse-symbol classsubparts) [3080 3088])
+                    ("CacheFileTest" friend nil (reparse-symbol classsubparts) [3093 3119])
+                    ("private" label nil (reparse-symbol classsubparts) [3122 3130])
+                    ("_file" variable
+                       (:pointer 1
+                        :type ("fs::File" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3135 3151])
+                    ("_fileName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3156 3178])
+                    ("_cache" variable
+                       (:pointer 1
+                        :type ("FileBlockCache" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3183 3207])
+                    ("_blockSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3212 3230])
+                    ("_alignment" variable
+                       (:typemodifiers ("static")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3235 3260])
+                    ("_mutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3265 3291])
+                    ("_blockMutex" variable (:type ("autil::ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3296 3327])
+                    ("_id" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3332 3344])
+                    ("_threadPool" variable
+                       (:pointer 1
+                        :type ("autil::ThreadPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3349 3380])
+                    ("_writeFailedCount" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3385 3411])
+                    ("_unWrittenLen" variable (:type ("atomic64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3416 3441])
+                    ("_unWrittenLenSnapshot" variable (:type ("atomic64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3446 3479])
+                    ("_actualFileLen" variable (:type ("atomic64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3484 3510]))                  
+                :type "class")
+                nil [697 3513])
+            ("FSLIB_TYPEDEF_AUTO_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("CacheFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3538 3548]))                  
+                :type "int")
+                nil [3515 3549])
+            ("FSLIB_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3571 3577]))                  
+                :type "int")
+                nil [3551 3578]))          
+      :file "CacheFile.h"
+      :pointmax 3607
+      :fsize 3606
+      :lastmodtime '(22813 14895 426843 999000)
+      :unmatched-syntax '((thing 3119 . 3120) (thing 3119 . 3120) (thing 3119 . 3120))
+      :lexical-table 
+        '(("FSLIB_CACHEFILE_H")
+          )
+)
+    (semanticdb-table "FileBlock.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("fslib/cache/FileBlock.h" include (:system-flag t) nil [1 35])
+            ("FSLIB_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [59 65]))                  
+                :type "int")
+                nil [37 66])
+            ("FSLIB_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [89 95]))                  
+                :type "int")
+                nil [69 96]))          
+      :file "FileBlock.cpp"
+      :pointmax 98
+      :fsize 97
+      :lastmodtime '(22552 25559 935984 597000)
+      :unmatched-syntax nil)
+    (semanticdb-table "FileBlock.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_FILEBLOCK_H" variable (:constant-flag t) nil [35 52])
+            ("cstdlib" include (:system-flag t) nil [54 72])
+            ("cassert" include (:system-flag t) nil [73 91])
+            ("unistd.h" include (:system-flag t) nil [92 111])
+            ("fslib/common/common_define.h" include (:system-flag t) nil [112 151])
+            ("fslib/cache/FileBlockPool.h" include (:system-flag t) nil [152 190])
+            ("FSLIB_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [214 220]))                  
+                :type "int")
+                nil [192 221])
+            ("FileBlock" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [242 249])
+                    ("FileBlock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("offset" variable
+                               (:default-value "0"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [264 282])
+                            ("blockSize" variable
+                               (:default-value "DEFAULT_FILE_BLOCK_SIZE"
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [284 326]))                          
+                        :type ("FileBlock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [254 463])
+                    ("FileBlock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [469 673])
+                    ("private" label nil (reparse-symbol classsubparts) [674 682])
+                    ("FileBlock" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FileBlock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [697 715]))                          
+                        :type ("FileBlock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [687 716])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FileBlock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [744 762]))                          
+                        :type ("FileBlock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [721 763])
+                    ("public" label nil (reparse-symbol classsubparts) [764 771])
+                    ("init" function
+                       (:arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("FileBlockPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [789 815]))                          
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [776 1183])
+                    ("initWithBuffer" function
+                       (:arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [1211 1224]))                          
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1188 1302])
+                    ("getOffset" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1307 1349])
+                    ("getActualLen" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1354 1402])
+                    ("setActualLen" function
+                       (:arguments 
+                          ( ("actualLen" variable
+                               (:constant-flag t
+                                :type ("size_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1425 1448]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1407 1488])
+                    ("getBlockSize" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1493 1555])
+                    ("getBuffer" function
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [1560 1615])
+                    ("private" label nil (reparse-symbol classsubparts) [1617 1625])
+                    ("_buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [1630 1644])
+                    ("_offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1649 1665])
+                    ("_actualLen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1670 1688])
+                    ("_blockSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1693 1711])
+                    ("_pool" variable
+                       (:pointer 1
+                        :type ("FileBlockPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1716 1737]))                  
+                :type "class")
+                nil [224 1740])
+            ("FSLIB_TYPEDEF_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("FileBlock" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1767 1777]))                  
+                :type "int")
+                nil [1742 1778])
+            ("GetFileBlockSize" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1805 1812])
+                    ("()" function
+                       (:operator-flag t
+                        :arguments 
+                          ( ("value" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("FileBlockPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1837 1863]))                          
+                        :type ("uint64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1817 1909]))                  
+                :type "class")
+                nil [1780 1912])
+            ("FSLIB_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1934 1940]))                  
+                :type "int")
+                nil [1914 1941]))          
+      :file "FileBlock.h"
+      :pointmax 1970
+      :fsize 1969
+      :lastmodtime '(22552 25559 935984 597000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("FSLIB_FILEBLOCK_H")
+          )
+)
+    (semanticdb-table "FifoCache.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_FIFOCACHE_H" variable (:constant-flag t) nil [35 52])
+            ("map" include (:system-flag t) nil [54 68])
+            ("deque" include (:system-flag t) nil [69 85])
+            ("cassert" include (:system-flag t) nil [86 104])
+            ("iostream" include (:system-flag t) nil [105 124])
+            ("autil/Lock.h" include (:system-flag t) nil [125 148])
+            ("autil/Cache.h" include (:system-flag t) nil [149 173])
+            ("autil/StringUtil.h" include (:system-flag t) nil [174 203])
+            ("autil/Log.h" include (:system-flag t) nil [204 226])
+            ("fslib/fslib.h" include nil nil [227 251])
+            ("fslib/fs/FileSystem.h" include nil nil [252 284])
+            ("fslib/common/common_define.h" include nil nil [285 324])
+            ("fslib/cache/FileBlockPool.h" include (:system-flag t) nil [325 363])
+            ("FSLIB_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [387 393]))                  
+                :type "int")
+                nil [365 394])
+            ("FifoCache" type
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "class"
+                :members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [464 472])
+                    ("ActiveKeys" type
+                       (:typedef ("std::deque" type
+                             (:template-specifier 
+                                ( ("K" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [477 511])
+                    ("CacheValue" type
+                       (:typedef ("std::pair" type
+                             (:template-specifier 
+                                ( ("int32_t" type nil nil nil)
+                                  ("V" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [516 557])
+                    ("CacheMap" type
+                       (:typedef ("std::map" type
+                             (:template-specifier 
+                                ( ("K" type nil nil nil)
+                                  ("CacheValue" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [562 603])
+                    ("public" label nil (reparse-symbol classsubparts) [605 612])
+                    ("FifoCache" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("cacheSize" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [627 646])
+                            ("pool" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("FileBlockPool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [661 687])
+                            ("getSizeCallBack" variable
+                               (:default-value "GetSizeCallBack()"
+                                :type ("GetSizeCallBack" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [703 754]))                          
+                        :type ("FifoCache" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [617 756])
+                    ("FifoCache" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [761 774])
+                    ("public" label nil (reparse-symbol classsubparts) [776 783])
+                    ("setCacheSize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("cacheSize" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [806 825]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [788 826])
+                    ("warmUp" function
+                       (:arguments 
+                          ( ("keyList" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("K" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [843 873])
+                            ("valueList" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("V" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [904 936]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [831 967])
+                    ("invalidate" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("key" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("K" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [988 1001]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [972 1002])
+                    ("invalidate" function
+                       (:arguments 
+                          ( ("keyList" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("K" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [1023 1053]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1007 1084])
+                    ("put" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("key" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("K" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1098 1111])
+                            ("val" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("V" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1112 1125]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1089 1126])
+                    ("get" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("key" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("K" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1140 1153])
+                            ("val" variable
+                               (:reference 1
+                                :type ("V" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1154 1161]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1131 1162])
+                    ("update" function
+                       (:arguments 
+                          ( ("key" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("K" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1179 1192])
+                            ("newVal" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("V" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1193 1209]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1167 1262])
+                    ("getHitRatio" function
+                       (:prototype-flag t
+                        :type "float")
+                        (reparse-symbol classsubparts) [1267 1293])
+                    ("isInCache" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("key" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("K" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1313 1326]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1298 1327])
+                    ("getTotalQueryTimes" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1333 1400])
+                    ("getHitQueryTimes" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1406 1471])
+                    ("getGetSizeCallBack" function (:type ("GetSizeCallBack" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1477 1559])
+                    ("getFileBlockPool" function
+                       (:pointer 1
+                        :type ("FileBlockPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1564 1633])
+                    ("private" label nil (reparse-symbol classsubparts) [1635 1643])
+                    ("removeHead" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1648 1666])
+                    ("FifoCacheTest" friend nil (reparse-symbol classsubparts) [1671 1697])
+                    ("private" label nil (reparse-symbol classsubparts) [1704 1712])
+                    ("_getSizeCallBack" variable (:type ("GetSizeCallBack" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1717 1750])
+                    ("_rwLock" variable
+                       (:typemodifiers ("mutable")
+                        :type ("autil::ReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1756 1793])
+                    ("_cacheSize" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1798 1818])
+                    ("_cacheSpaceUsed" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1823 1848])
+                    ("_activeKeys" variable (:type ("ActiveKeys" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1853 1876])
+                    ("_cacheMap" variable (:type ("CacheMap" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1881 1900])
+                    ("_numHits" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1906 1923])
+                    ("_numGets" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1928 1945])
+                    ("_pool" variable
+                       (:pointer 1
+                        :type ("FileBlockPool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1950 1971])
+                    ("private" label nil (reparse-symbol classsubparts) [1973 1981])
+                    ("_logger" variable
+                       (:pointer 1
+                        :typemodifiers ("static")
+                        :type ("alog::Logger" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1986 2015]))                  )
+                nil [396 2019])
+            ("FifoCache" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type ("FifoCache" type (:type "class") nil nil)
+                :arguments 
+                  ( ("cacheSize" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2125 2144])
+                    ("pool" variable
+                       (:pointer 1
+                        :type ("FileBlockPool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2145 2165])
+                    ("getSizeCallBack" variable (:type ("GetSizeCallBack" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2166 2198]))                  
+                :parent "FifoCache"
+                :constructor-flag t)
+                nil [2021 2453])
+            ("FifoCache" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "void"
+                :parent "FifoCache"
+                :destructor-flag t)
+                nil [2455 2556])
+            ("setCacheSize" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("cacheSize" variable (:type ("uint64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2661 2680]))                  
+                :parent "FifoCache")
+                nil [2558 2867])
+            ("put" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "bool"
+                :arguments 
+                  ( ("key" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("K" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2963 2976])
+                    ("val" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("V" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2977 2990]))                  
+                :parent "FifoCache")
+                nil [2869 3833])
+            ("get" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "bool"
+                :arguments 
+                  ( ("key" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("K" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3929 3942])
+                    ("val" variable
+                       (:reference 1
+                        :type ("V" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3943 3950]))                  
+                :parent "FifoCache")
+                nil [3835 4214])
+            ("getHitRatio" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "float"
+                :parent "FifoCache")
+                nil [4216 4469])
+            ("removeHead" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "void"
+                :parent "FifoCache")
+                nil [4472 4943])
+            ("invalidate" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "bool"
+                :arguments 
+                  ( ("key" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("K" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5046 5059]))                  
+                :parent "FifoCache")
+                nil [4945 5337])
+            ("isInCache" function
+               (:template 
+                  ( ("K" type (:type "class") nil nil)
+                    ("V" type (:type "class") nil nil)
+                    ("GetSizeCallBack" type (:type "class") nil nil))                  
+                :type "bool"
+                :arguments 
+                  ( ("key" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("K" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5439 5452]))                  
+                :parent "FifoCache")
+                nil [5339 5605])
+            ("FifoCache::_logger" variable
+               (:pointer 1
+                :default-value "alog::Logger::getLogger(\"fslib.FiFoCache\")"
+                :type ("alog::Logger" type (:type "class") nil nil))
+                nil [5607 5758])
+            ("FSLIB_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5780 5786]))                  
+                :type "int")
+                nil [5760 5787]))          
+      :file "FifoCache.h"
+      :pointmax 5819
+      :fsize 5818
+      :lastmodtime '(22552 25559 935984 597000)
+      :unmatched-syntax '((thing 1697 . 1698) (thing 4469 . 4470))
+      :lexical-table 
+        '(("FSLIB_FIFOCACHE_H")
+          )
+)
+    (semanticdb-table "FileBlockPool.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("fslib/cache/FileBlockPool.h" include nil nil [1 39])
+            ("unistd.h" include (:system-flag t) nil [40 59])
+            ("errno.h" include (:system-flag t) nil [60 78])
+            ("FSLIB_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [102 108]))                  
+                :type "int")
+                nil [80 109])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [141 147])
+                    ("" variable (:type ("FileBlockPool" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [148 162]))                  
+                :type "int")
+                nil [110 163])
+            ("FileBlockPool" function
+               (:constructor-flag t
+                :parent "FileBlockPool"
+                :arguments 
+                  ( ("bufferSize" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [194 213])
+                    ("blockSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [214 231])
+                    ("forceAllocate" variable (:type "bool") (reparse-symbol arg-sub-list) [262 281]))                  
+                :type ("FileBlockPool" type (:type "class") nil nil))
+                nil [165 751])
+            ("FileBlockPool" function
+               (:destructor-flag t
+                :parent "FileBlockPool"
+                :type "void")
+                nil [753 931])
+            ("allocate" function
+               (:parent "FileBlockPool"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [965 972])
+                    ("" variable (:type ("buf" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [972 976]))                  
+                :type ("int32_t" type (:type "class") nil nil))
+                nil [933 1709])
+            ("deAllocate" function
+               (:parent "FileBlockPool"
+                :arguments 
+                  ( ("" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [1742 1749])
+                    ("" variable (:type ("buf" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1749 1753]))                  
+                :type "void")
+                nil [1711 1957])
+            ("FSLIB_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("cache" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1979 1985]))                  
+                :type "int")
+                nil [1959 1986]))          
+      :file "FileBlockPool.cpp"
+      :pointmax 1988
+      :fsize 1987
+      :lastmodtime '(22552 25559 936984 595000)
+      :unmatched-syntax '((thing 971 . 972) (thing 1748 . 1749)))
+    (semanticdb-table "FileBlockPool.h"
+      :major-mode 'c++-mode
+      :tags nil
+      :file "FileBlockPool.h"
+      :pointmax 1326
+      :fsize 1325
+      :lastmodtime '(22552 25559 936984 595000)
+      :unmatched-syntax nil))
+  :file "!ssd!sdd!git!fs_lib!fslib!fslib!cache!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

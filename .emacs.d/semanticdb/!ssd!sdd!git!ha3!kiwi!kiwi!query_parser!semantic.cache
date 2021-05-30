@@ -1,0 +1,2452 @@
+;; Object query_parser/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "query_parser/"
+  :tables
+  (list
+    (semanticdb-table "query.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_QUERY_H_" variable (:constant-flag t) nil [33 48])
+            ("tr1/memory" include (:system-flag t) nil [50 71])
+            ("ostream" include (:system-flag t) nil [72 90])
+            ("kiwi/kiwi.h" include nil nil [91 113])
+            ("kiwi/common/common.h" include nil nil [114 145])
+            ("kiwi/common/log.h" include nil nil [146 174])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [197 210]))                  
+                :type "int")
+                nil [176 211])
+            ("QueryType" type
+               (:members 
+                  ( ("TERM_QUERY" variable
+                       (:constant-flag t
+                        :default-value (247 248)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [234 248])
+                    ("NUMBER_QUERY" variable
+                       (:constant-flag t
+                        :default-value (269 270)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [254 270])
+                    ("PHRASE_QUERY" variable
+                       (:constant-flag t
+                        :default-value (291 292)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [276 292])
+                    ("AND_QUERY" variable
+                       (:constant-flag t
+                        :default-value (310 311)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [298 311])
+                    ("OR_QUERY" variable
+                       (:constant-flag t
+                        :default-value (328 329)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [317 329])
+                    ("RANK_QUERY" variable
+                       (:constant-flag t
+                        :default-value (348 349)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [335 349])
+                    ("ANDNOT_QUERY" variable
+                       (:constant-flag t
+                        :default-value (370 371)
+                        :type "int")
+                        (reparse-symbol enumsubparts) [355 371])
+                    ("UNKNOWN_QUERY" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [377 392]))                  
+                :type "enum")
+                nil [213 393])
+            ("QueryVisitor" type
+               (:prototype t
+                :type "class")
+                nil [395 414])
+            ("ModifyQueryVisitor" type
+               (:prototype t
+                :type "class")
+                nil [415 440])
+            ("Query" type
+               (:prototype t
+                :type "class")
+                nil [442 454])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Query" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [473 479]))                  
+                :type "int")
+                nil [455 480])
+            ("Query" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [496 503])
+                    ("QueryVector" type
+                       (:typedef ("std::vector" type
+                             (:template-specifier 
+                                ( ("QueryPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [508 550])
+                    ("public" label nil (reparse-symbol classsubparts) [552 559])
+                    ("Query" function
+                       (:constructor-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [564 574])
+                    ("Query" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [579 598])
+                    ("public" label nil (reparse-symbol classsubparts) [600 607])
+                    ("==" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :operator-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [638 657]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [612 668])
+                    ("Accept" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("query_parser::QueryVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [693 729]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [673 740])
+                    ("Accept" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("query_parser::ModifyQueryVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [765 807]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [745 812])
+                    ("GetQueryName" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [817 862])
+                    ("ToString" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [867 908])
+                    ("GetType" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("QueryType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [913 951])
+                    ("AddQuery" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("queryPtr" variable (:type ("QueryPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [979 997]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [957 1036])
+                    ("GetChildQuery" function
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("QueryPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1042 1119])
+                    ("GetChildQuery" function
+                       (:pointer 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("QueryPtr" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol classsubparts) [1125 1190])
+                    ("public" label nil (reparse-symbol classsubparts) [1192 1199])
+                    ("CreateQuery" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("type" variable (:type ("QueryType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1230 1245]))                          
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1204 1246])
+                    ("protected" label nil (reparse-symbol classsubparts) [1702 1712])
+                    ("mChildren" variable (:type ("QueryVector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1717 1739])
+                    ("private" label nil (reparse-symbol classsubparts) [1741 1749])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1754 1773]))                  
+                :type "class")
+                nil [482 1776])
+            ("<<" function
+               (:prototype-flag t
+                :operator-flag t
+                :arguments 
+                  ( ("out" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1883 1901])
+                    ("query" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1902 1921]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [1856 1922])
+            ("NonLeafQueryCompare" variable (:constant-flag t) nil [1932 1951])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3734 3747]))                  
+                :type "int")
+                nil [3715 3748]))          
+      :file "query.h"
+      :pointmax 3775
+      :fsize 3774
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("NonLeafQueryCompare" (spp-arg-list ("QueryClass" "query") 1951 . 1970) . 
+              ((IF "if" 2002 . 2004) (semantic-list "(&query == this)" 2005 . 2021) (semantic-list "{                                                                   \\
+        return true;                                                    \\
+    }" 2076 . 2225) (IF "if" 2298 . 2300) (semantic-list "(query.GetType() != GetType())" 2301 . 2331) (semantic-list "{                                                                   \\
+        return false;                                                   \\
+    }" 2372 . 2521) (CONST "const" 2594 . 2599) (symbol "QueryVector" 2600 . 2611) (punctuation "&" 2612 . 2613) (symbol "children2" 2613 . 2622) (punctuation "=" 2623 . 2624) (symbol "dynamic_cast" 2625 . 2637) (punctuation "<" 2637 . 2638) (CONST "const" 2638 . 2643) (symbol "QueryClass" 2644 . 2654) (punctuation "&" 2654 . 2655) (punctuation ">" 2655 . 2656) (semantic-list "(query)" 2656 . 2663) (punctuation "." 2663 . 2664) (symbol "mChildren" 2664 . 2673) (punctuation ";" 2673 . 2674) (IF "if" 2681 . 2683) (semantic-list "(mChildren.size() != children2.size())" 2684 . 2722) (semantic-list "{                                                                   \\
+        return false;                                                   \\
+    }" 2755 . 2904) (symbol "QueryVector" 2977 . 2988) (punctuation ":" 2988 . 2989) (punctuation ":" 2989 . 2990) (symbol "const_iterator" 2990 . 3004) (symbol "it1" 3005 . 3008) (punctuation "=" 3009 . 3010) (symbol "mChildren" 3011 . 3020) (punctuation "." 3020 . 3021) (symbol "begin" 3021 . 3026) (semantic-list "()" 3026 . 3028) (punctuation ";" 3028 . 3029) (symbol "QueryVector" 3051 . 3062) (punctuation ":" 3062 . 3063) (punctuation ":" 3063 . 3064) (symbol "const_iterator" 3064 . 3078) (symbol "it2" 3079 . 3082) (punctuation "=" 3083 . 3084) (symbol "children2" 3085 . 3094) (punctuation "." 3094 . 3095) (symbol "begin" 3095 . 3100) (semantic-list "()" 3100 . 3102) (punctuation ";" 3102 . 3103) (FOR "for" 3125 . 3128) (semantic-list "(; it1 != mChildren.end(); it1++, it2++)" 3129 . 3169) (semantic-list "{                                                                   \\
+        if (!( *(*it1) == *(*it2) ))                                    \\
+        {                                                               \\
+            return false;                                               \\
+        }                                                               \\
+    }" 3199 . 3570) (RETURN "return" 3643 . 3649) (symbol "true" 3650 . 3654) (punctuation ";" 3654 . 3655)))
+          ("__KIWI_QUERY_H_")
+          )
+)
+    (semanticdb-table "query_validator.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_QUERY_VALIDATOR_H_" variable (:constant-flag t) nil [43 68])
+            ("tr1/memory" include (:system-flag t) nil [70 91])
+            ("kiwi/kiwi.h" include nil nil [92 114])
+            ("kiwi/common/common.h" include nil nil [115 146])
+            ("kiwi/common/log.h" include nil nil [147 175])
+            ("kiwi/query_parser/query_visitor.h" include nil nil [176 220])
+            ("kiwi/config/index_infos.h" include nil nil [221 257])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [280 293]))                  
+                :type "int")
+                nil [259 294])
+            ("QueryValidator" type
+               (:superclasses 
+                  ( ("QueryVisitor" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [341 348])
+                    ("QueryValidator" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("indexInfos" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("config::IndexInfos" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [368 405]))                          
+                        :type ("QueryValidator" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [353 406])
+                    ("QueryValidator" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [411 431])
+                    ("public" label nil (reparse-symbol classsubparts) [432 439])
+                    ("ErrorCode" type
+                       (:members 
+                          ( ("ERROR_NONE" variable
+                               (:constant-flag t
+                                :default-value (482 483)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [469 483])
+                            ("ERROR_INDEX_NOT_EXIST" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [493 515])
+                            ("ERROR_INDEX_TYPE_INVALID" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [524 549])
+                            ("ERROR_INDEX_FIELD_INVALID" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [558 584])
+                            ("ERROR_NULL_PHRASE_QUERY" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [593 617])
+                            ("ERROR_NUMBER_RANGEMERROR" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [626 651])
+                            ("ERROR_NULL_QUERY" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [660 677]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [444 684])
+                    ("public" label nil (reparse-symbol classsubparts) [686 693])
+                    ("Validate" function
+                       (:arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [712 731]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [698 828])
+                    ("GetErrorCode" function (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [833 898])
+                    ("GetErrorMsg" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [903 975])
+                    ("VisitTermQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("TermQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1008 1031]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [980 1032])
+                    ("VisitPhraseQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("PhraseQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1067 1092]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1037 1093])
+                    ("VisitAndQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("AndQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1125 1147]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1098 1148])
+                    ("VisitOrQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("OrQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1179 1200]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1153 1201])
+                    ("VisitAndNotQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("AndNotQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1236 1261]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1206 1262])
+                    ("VisitRankQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("RankQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1295 1318]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1267 1319])
+                    ("VisitNumberQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("NumberQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1354 1379]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1324 1380])
+                    ("private" label nil (reparse-symbol classsubparts) [1381 1389])
+                    ("ValidateIndexName" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("indexName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1417 1446]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1394 1447])
+                    ("ValidateIndexFields" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("indexName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1477 1506])
+                            ("requiredFields" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RequiredFields" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1537 1574]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1452 1575])
+                    ("ValidateAdvancedQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1607 1626]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1580 1627])
+                    ("CheckNullQuery" function
+                       (:template 
+                          ( ("T" type (:type "class") nil nil))                          
+                        :type "bool"
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("T" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1682 1697]))                          
+                        :prototype-flag t)
+                        (reparse-symbol classsubparts) [1637 1698])
+                    ("private" label nil (reparse-symbol classsubparts) [1699 1707])
+                    ("Reset" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1712 1725])
+                    ("private" label nil (reparse-symbol classsubparts) [1726 1734])
+                    ("mIndexInfos" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("config::IndexInfos" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1739 1777])
+                    ("mErrorCode" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1782 1803])
+                    ("mErrorMsg" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1808 1830])
+                    ("private" label nil (reparse-symbol classsubparts) [1832 1840])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1845 1864]))                  
+                :type "class")
+                nil [296 1867])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("QueryValidator" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1887 1902]))                  
+                :type "int")
+                nil [1869 1903])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1924 1937]))                  
+                :type "int")
+                nil [1905 1938]))          
+      :file "query_validator.h"
+      :pointmax 1975
+      :fsize 1974
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__KIWI_QUERY_VALIDATOR_H_")
+          )
+)
+    (semanticdb-table "query_visitor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_QUERY_VISITOR_H_" variable (:constant-flag t) nil [41 64])
+            ("tr1/memory" include (:system-flag t) nil [66 87])
+            ("kiwi/kiwi.h" include nil nil [88 110])
+            ("kiwi/common/common.h" include nil nil [111 142])
+            ("kiwi/common/log.h" include nil nil [143 171])
+            ("kiwi/query_parser/term_query.h" include nil nil [172 213])
+            ("kiwi/query_parser/phrase_query.h" include nil nil [214 257])
+            ("kiwi/query_parser/and_query.h" include nil nil [258 298])
+            ("kiwi/query_parser/or_query.h" include nil nil [299 338])
+            ("kiwi/query_parser/andnot_query.h" include nil nil [339 382])
+            ("kiwi/query_parser/rank_query.h" include nil nil [383 424])
+            ("kiwi/query_parser/number_query.h" include nil nil [425 468])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [491 504]))                  
+                :type "int")
+                nil [470 505])
+            ("QueryVisitor" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [528 535])
+                    ("QueryVisitor" function
+                       (:constructor-flag t
+                        :type ("QueryVisitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [540 557])
+                    ("QueryVisitor" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [562 588])
+                    ("public" label nil (reparse-symbol classsubparts) [590 597])
+                    ("VisitTermQuery" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("TermQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [630 653]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [602 658])
+                    ("VisitPhraseQuery" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("PhraseQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [693 718]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [663 723])
+                    ("VisitAndQuery" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("AndQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [755 777]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [728 782])
+                    ("VisitOrQuery" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("OrQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [813 834]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [787 839])
+                    ("VisitAndNotQuery" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("AndNotQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [874 899]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [844 904])
+                    ("VisitRankQuery" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("RankQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [937 960]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [909 965])
+                    ("VisitNumberQuery" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("NumberQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1000 1025]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [970 1030])
+                    ("private" label nil (reparse-symbol classsubparts) [1032 1040])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1045 1064]))                  
+                :type "class")
+                nil [507 1067])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("QueryVisitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1087 1100]))                  
+                :type "int")
+                nil [1069 1101])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1122 1135]))                  
+                :type "int")
+                nil [1103 1136]))          
+      :file "query_visitor.h"
+      :pointmax 1171
+      :fsize 1170
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__KIWI_QUERY_VISITOR_H_")
+          )
+)
+    (semanticdb-table "and_query.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("kiwi/query_parser/and_query.h" include nil nil [1 41])
+            ("kiwi/query_parser/query_visitor.h" include nil nil [42 86])
+            ("kiwi/query_parser/modify_query_visitor.h" include nil nil [87 138])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [140 160])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [183 196]))                  
+                :type "int")
+                nil [162 197])
+            ("KIWI_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [213 226])
+                    ("" variable (:type ("AndQuery" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [227 236]))                  
+                :type "int")
+                nil [198 237])
+            ("==" function
+               (:operator-flag t
+                :parent "AndQuery"
+                :arguments 
+                  ( ("query" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [267 286]))                  
+                :type "bool")
+                nil [239 338])
+            ("ToString" function
+               (:parent "AndQuery"
+                :type ("string" type (:type "class") nil nil))
+                nil [340 670])
+            ("Accept" function
+               (:parent "AndQuery"
+                :arguments 
+                  ( ("visitor" variable
+                       (:pointer 1
+                        :type ("QueryVisitor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [694 716]))                  
+                :type "void")
+                nil [672 760])
+            ("Accept" function
+               (:parent "AndQuery"
+                :arguments 
+                  ( ("visitor" variable
+                       (:pointer 1
+                        :type ("ModifyQueryVisitor" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [784 812]))                  
+                :type "void")
+                nil [762 850])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [871 884]))                  
+                :type "int")
+                nil [852 885]))          
+      :file "and_query.cpp"
+      :pointmax 887
+      :fsize 886
+      :lastmodtime '(23257 17519 324259 73000)
+      :unmatched-syntax nil)
+    (semanticdb-table "and_query.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_AND_QUERY_H_" variable (:constant-flag t) nil [37 56])
+            ("tr1/memory" include (:system-flag t) nil [58 79])
+            ("kiwi/kiwi.h" include nil nil [80 102])
+            ("kiwi/common/common.h" include nil nil [103 134])
+            ("kiwi/common/log.h" include nil nil [135 163])
+            ("kiwi/query_parser/query.h" include nil nil [164 200])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [223 236]))                  
+                :type "int")
+                nil [202 237])
+            ("AndQuery" type
+               (:superclasses 
+                  ( ("Query" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [271 278])
+                    ("AndQuery" function
+                       (:constructor-flag t
+                        :type ("AndQuery" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [283 296])
+                    ("AndQuery" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [301 315])
+                    ("public" label nil (reparse-symbol classsubparts) [317 324])
+                    ("==" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [362 381]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [344 388])
+                    ("Accept" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("QueryVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [420 442]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [408 449])
+                    ("Accept" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("ModifyQueryVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [481 509]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [469 510])
+                    ("GetQueryName" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [530 585])
+                    ("ToString" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [605 634])
+                    ("GetType" function (:type ("QueryType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [655 702])
+                    ("private" label nil (reparse-symbol classsubparts) [704 712])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [717 736]))                  
+                :type "class")
+                nil [239 739])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("AndQuery" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [759 768]))                  
+                :type "int")
+                nil [741 769])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [790 803]))                  
+                :type "int")
+                nil [771 804]))          
+      :file "and_query.h"
+      :pointmax 835
+      :fsize 834
+      :lastmodtime '(23257 17519 324259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__KIWI_AND_QUERY_H_")
+          )
+)
+    (semanticdb-table "modify_query_visitor.h"
+      :file "modify_query_visitor.h"
+      :fsize 1173
+      :lastmodtime '(23257 17519 324259 73000))
+    (semanticdb-table "term.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("kiwi/query_parser/term.h" include nil nil [1 36])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [38 58])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [81 94]))                  
+                :type "int")
+                nil [60 95])
+            ("KIWI_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [111 124])
+                    ("" variable (:type ("Term" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [125 130]))                  
+                :type "int")
+                nil [96 131])
+            ("ToString" function
+               (:parent "Term"
+                :type ("string" type (:type "class") nil nil))
+                nil [133 286])
+            ("FormatString" function
+               (:parent "Term"
+                :arguments 
+                  ( ("ss" variable
+                       (:reference 1
+                        :type ("stringstream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [312 329]))                  
+                :type "void")
+                nil [288 864])
+            ("<<" function
+               (:operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [887 899])
+                    ("term" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [900 917]))                  
+                :type ("ostream" type (:type "class") nil nil))
+                nil [866 955])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [976 989]))                  
+                :type "int")
+                nil [957 990]))          
+      :file "term.cpp"
+      :pointmax 992
+      :fsize 991
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil)
+    (semanticdb-table "term.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_TERM_H_" variable (:constant-flag t) nil [32 46])
+            ("tr1/memory" include (:system-flag t) nil [48 69])
+            ("kiwi/kiwi.h" include nil nil [70 92])
+            ("kiwi/common/common.h" include nil nil [93 124])
+            ("kiwi/common/log.h" include nil nil [125 153])
+            ("kiwi/query_parser/token.h" include nil nil [154 190])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [213 226]))                  
+                :type "int")
+                nil [192 227])
+            ("RequiredFields" type
+               (:members 
+                  ( ("RequiredFields" function
+                       (:constructor-flag t
+                        :type ("RequiredFields" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [257 310])
+                    ("==" function
+                       (:operator-flag t
+                        :arguments 
+                          ( ("other" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RequiredFields" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [334 362]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [316 727])
+                    ("!=" function
+                       (:operator-flag t
+                        :arguments 
+                          ( ("other" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RequiredFields" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [751 779]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [733 819])
+                    ("fields" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("std::string" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [825 857])
+                    ("isRequiredAnd" variable (:type "bool") (reparse-symbol classsubparts) [862 881]))                  
+                :type "struct")
+                nil [229 884])
+            ("Term" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [899 906])
+                    ("TermType" type
+                       (:members 
+                          ( ("TT_STRING" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [939 949])
+                            ("TT_NUMBER" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [958 968]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [911 975])
+                    ("public" label nil (reparse-symbol classsubparts) [977 984])
+                    ("Term" function
+                       (:constructor-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [989 1040])
+                    ("Term" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("word" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1051 1068])
+                            ("indexName" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1069 1091])
+                            ("requiredFields" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RequiredFields" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1102 1139])
+                            ("boost" variable
+                               (:default-value "DEFAULT_BOOST_VALUE"
+                                :type ("int32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1150 1185])
+                            ("truncateName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "\"\""
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1196 1232]))                          
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1046 1409])
+                    ("Term" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("token" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Token" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1420 1439])
+                            ("indexName" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1440 1462])
+                            ("requiredFields" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RequiredFields" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1473 1510])
+                            ("boost" variable
+                               (:default-value "DEFAULT_BOOST_VALUE"
+                                :type ("int32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1521 1556])
+                            ("truncateName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "\"\""
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1567 1603]))                          
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1415 1778])
+                    ("Term" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("t" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1789 1803]))                          
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1784 2058])
+                    ("Term" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [2064 2082])
+                    ("public" label nil (reparse-symbol classsubparts) [2084 2091])
+                    ("GetWord" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2096 2174])
+                    ("SetWord" function
+                       (:arguments 
+                          ( ("word" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [2193 2210]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2180 2293])
+                    ("GetToken" function
+                       (:constant-flag t
+                        :type ("Token" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2300 2348])
+                    ("GetToken" function (:type ("Token" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2353 2389])
+                    ("GetIndexName" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2395 2457])
+                    ("SetIndexName" function
+                       (:arguments 
+                          ( ("indexName" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [2480 2502]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2462 2529])
+                    ("GetRequiredFields" function
+                       (:constant-flag t
+                        :type ("RequiredFields" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2535 2613])
+                    ("GetBoost" function (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2619 2660])
+                    ("SetBoost" function
+                       (:arguments 
+                          ( ("boost" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2679 2693]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2665 2711])
+                    ("GetTruncateName" function
+                       (:constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2717 2783])
+                    ("SetTruncateName" function
+                       (:arguments 
+                          ( ("truncateName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2809 2841]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2788 2878])
+                    ("HasTruncateName" function (:type "bool") (reparse-symbol classsubparts) [2884 2946])
+                    ("CopyRequiredFields" function
+                       (:arguments 
+                          ( ("requiredFields" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RequiredFields" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2976 3013]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2952 3286])
+                    ("GetTermType" function
+                       (:typemodifiers ("virtual")
+                        :type ("TermType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3292 3348])
+                    ("GetTermName" function
+                       (:typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3353 3409])
+                    ("==" function
+                       (:operator-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("term" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3441 3458]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3415 3704])
+                    ("!=" function
+                       (:operator-flag t
+                        :arguments 
+                          ( ("term" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3728 3745]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3710 3779])
+                    ("ToString" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3785 3822])
+                    ("FormatString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("ss" variable
+                               (:reference 1
+                                :type ("std::stringstream" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3845 3867]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3827 3874])
+                    ("HasRequiredFields" function (:type "bool") (reparse-symbol classsubparts) [3880 3958])
+                    ("protected" label nil (reparse-symbol classsubparts) [4074 4084])
+                    ("mToken" variable (:type ("Token" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4089 4102])
+                    ("mIndexName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4107 4130])
+                    ("mRequiredFields" variable (:type ("RequiredFields" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4135 4166])
+                    ("mBoost" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4171 4186])
+                    ("mTruncateName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4191 4217])
+                    ("public" label nil (reparse-symbol classsubparts) [4219 4226])
+                    ("DEFAULT_BOOST_VALUE" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "100"
+                        :type ("int32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4231 4278])
+                    ("private" label nil (reparse-symbol classsubparts) [4279 4287])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [4292 4311]))                  
+                :type "class")
+                nil [886 4314])
+            ("TermVector" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("Term" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [4315 4352])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("Term" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4371 4376]))                  
+                :type "int")
+                nil [4353 4377])
+            ("<" function
+               (:operator-flag t
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("lhs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4471 4487])
+                    ("rhs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4488 4504]))                  
+                :type "bool")
+                nil [4447 4887])
+            (">" function
+               (:operator-flag t
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("lhs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4913 4929])
+                    ("rhs" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4930 4946]))                  
+                :type "bool")
+                nil [4889 4972])
+            ("<<" function
+               (:prototype-flag t
+                :operator-flag t
+                :arguments 
+                  ( ("os" variable
+                       (:reference 1
+                        :type ("std::ostream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5001 5018])
+                    ("term" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5019 5036]))                  
+                :type ("std::ostream" type (:type "class") nil nil))
+                nil [4974 5037])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5058 5071]))                  
+                :type "int")
+                nil [5039 5072]))          
+      :file "term.h"
+      :pointmax 5098
+      :fsize 5097
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__KIWI_TERM_H_")
+          )
+)
+    (semanticdb-table "token.h"
+      :file "token.h"
+      :fsize 5159
+      :lastmodtime '(23257 17519 327259 74000))
+    (semanticdb-table "term_query.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_TERM_QUERY_H_" variable (:constant-flag t) nil [38 58])
+            ("tr1/memory" include (:system-flag t) nil [60 81])
+            ("kiwi/kiwi.h" include nil nil [82 104])
+            ("kiwi/common/common.h" include nil nil [105 136])
+            ("kiwi/common/log.h" include nil nil [137 165])
+            ("kiwi/query_parser/query.h" include nil nil [166 202])
+            ("kiwi/query_parser/term.h" include nil nil [203 238])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [261 274]))                  
+                :type "int")
+                nil [240 275])
+            ("TermQuery" type
+               (:superclasses 
+                  ( ("Query" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [310 317])
+                    ("TermQuery" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("term" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [332 349]))                          
+                        :type ("TermQuery" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [322 378])
+                    ("TermQuery" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("word" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [394 411])
+                            ("indexName" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [412 434])
+                            ("requiredFields" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RequiredFields" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [449 486])
+                            ("boost" variable
+                               (:default-value "Term"
+                                :type ("int32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [501 521])
+                            ("" variable (:type ("DEFAULT_BOOST_VALUE" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [523 543])
+                            ("truncateName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "\"\""
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [558 594]))                          
+                        :type ("TermQuery" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [384 672])
+                    ("TermQuery" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("token" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Token" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [688 707])
+                            ("indexName" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [708 730])
+                            ("requiredFields" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RequiredFields" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [745 782])
+                            ("boost" variable
+                               (:default-value "Term"
+                                :type ("int32_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [797 817])
+                            ("" variable (:type ("DEFAULT_BOOST_VALUE" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [819 839])
+                            ("truncateName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :default-value "\"\""
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [854 890]))                          
+                        :type ("TermQuery" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [678 970])
+                    ("TermQuery" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [976 991])
+                    ("public" label nil (reparse-symbol classsubparts) [993 1000])
+                    ("SetTerm" function
+                       (:arguments 
+                          ( ("term" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Term" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1018 1035]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1005 1053])
+                    ("GetTerm" function
+                       (:constant-flag t
+                        :type ("Term" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1058 1103])
+                    ("GetTerm" function (:type ("Term" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1108 1141])
+                    ("==" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1180 1199]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1162 1206])
+                    ("Accept" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("QueryVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1238 1260]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1226 1267])
+                    ("Accept" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("visitor" variable
+                               (:pointer 1
+                                :type ("ModifyQueryVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1299 1327]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1287 1328])
+                    ("GetQueryName" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1348 1404])
+                    ("ToString" function
+                       (:prototype-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1424 1453])
+                    ("GetType" function (:type ("QueryType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1473 1521])
+                    ("private" label nil (reparse-symbol classsubparts) [1523 1531])
+                    ("mTerm" variable (:type ("Term" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1536 1547])
+                    ("private" label nil (reparse-symbol classsubparts) [1549 1557])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1562 1581]))                  
+                :type "class")
+                nil [277 1584])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("TermQuery" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1604 1614]))                  
+                :type "int")
+                nil [1586 1615])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1636 1649]))                  
+                :type "int")
+                nil [1617 1650]))          
+      :file "term_query.h"
+      :pointmax 1682
+      :fsize 1681
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax '((thing 818 . 819) (thing 817 . 818) (thing 522 . 523) (thing 521 . 522))
+      :lexical-table 
+        '(("__KIWI_TERM_QUERY_H_")
+          )
+)
+    (semanticdb-table "query_term_visitor.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("kiwi/query_parser/query_term_visitor.h" include nil nil [1 50])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [52 72])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [95 108]))                  
+                :type "int")
+                nil [74 109])
+            ("KIWI_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [125 138])
+                    ("" variable (:type ("QueryTermVisitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [139 156]))                  
+                :type "int")
+                nil [110 157])
+            ("QueryTermVisitor" function
+               (:constructor-flag t
+                :parent "QueryTermVisitor"
+                :arguments 
+                  ( ("visitType" variable (:type ("VisitTermType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [194 218]))                  
+                :type ("QueryTermVisitor" type (:type "class") nil nil))
+                nil [159 254])
+            ("QueryTermVisitor" function
+               (:destructor-flag t
+                :parent "QueryTermVisitor"
+                :type "void")
+                nil [256 297])
+            ("VisitTermQuery" function
+               (:parent "QueryTermVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("TermQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [337 360]))                  
+                :type "void")
+                nil [299 437])
+            ("VisitPhraseQuery" function
+               (:parent "QueryTermVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("PhraseQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [479 504]))                  
+                :type "void")
+                nil [439 679])
+            ("VisitAndQuery" function
+               (:parent "QueryTermVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("AndQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [718 740]))                  
+                :type "void")
+                nil [681 774])
+            ("VisitOrQuery" function
+               (:parent "QueryTermVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("OrQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [812 833]))                  
+                :type "void")
+                nil [776 867])
+            ("VisitAndNotQuery" function
+               (:parent "QueryTermVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("AndNotQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [909 934]))                  
+                :type "void")
+                nil [869 1248])
+            ("VisitRankQuery" function
+               (:parent "QueryTermVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("RankQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1288 1311]))                  
+                :type "void")
+                nil [1250 1623])
+            ("VisitNumberQuery" function
+               (:parent "QueryTermVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("NumberQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1665 1690]))                  
+                :type "void")
+                nil [1625 1693])
+            ("VisitAdvancedQuery" function
+               (:parent "QueryTermVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("Query" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1737 1756]))                  
+                :type "void")
+                nil [1695 1941])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1962 1975]))                  
+                :type "int")
+                nil [1943 1976]))          
+      :file "query_term_visitor.cpp"
+      :pointmax 1978
+      :fsize 1977
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil)
+    (semanticdb-table "query_term_visitor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_QUERY_TERM_VISITOR_H_" variable (:constant-flag t) nil [46 74])
+            ("tr1/memory" include (:system-flag t) nil [76 97])
+            ("kiwi/kiwi.h" include nil nil [98 120])
+            ("kiwi/common/common.h" include nil nil [121 152])
+            ("kiwi/common/log.h" include nil nil [153 181])
+            ("kiwi/query_parser/query_visitor.h" include nil nil [182 226])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [249 262]))                  
+                :type "int")
+                nil [228 263])
+            ("QueryTermVisitor" type
+               (:superclasses 
+                  ( ("QueryVisitor" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [312 319])
+                    ("VisitTermType" type
+                       (:typedef ("int32_t" type (:type "class") nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [324 354])
+                    ("VT_RANK_QUERY" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "1"
+                        :type ("VisitTermType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [359 404])
+                    ("VT_ANDNOT_QUERY" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "2"
+                        :type ("VisitTermType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [409 456])
+                    ("VT_NO_AUX_TERM" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "0"
+                        :type ("VisitTermType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [461 507])
+                    ("VT_ALL" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "0xffff"
+                        :type ("VisitTermType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [512 555])
+                    ("public" label nil (reparse-symbol classsubparts) [557 564])
+                    ("QueryTermVisitor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("VisitType" variable
+                               (:default-value "VT_RANK_QUERY"
+                                :type ("VisitTermType" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [586 625]))                          
+                        :type ("QueryTermVisitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [569 627])
+                    ("QueryTermVisitor" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [632 660])
+                    ("public" label nil (reparse-symbol classsubparts) [662 669])
+                    ("VisitTermQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("TermQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [702 725]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [674 726])
+                    ("VisitPhraseQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("PhraseQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [761 786]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [731 787])
+                    ("VisitAndQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("AndQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [819 841]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [792 842])
+                    ("VisitOrQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("OrQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [873 894]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [847 895])
+                    ("VisitAndNotQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("AndNotQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [930 955]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [900 956])
+                    ("VisitRankQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("RankQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [989 1012]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [961 1013])
+                    ("VisitNumberQuery" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("NumberQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1048 1073]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1018 1074])
+                    ("GetTermVector" function
+                       (:constant-flag t
+                        :type ("TermVector" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1080 1155])
+                    ("private" label nil (reparse-symbol classsubparts) [1156 1164])
+                    ("VisitAdvancedQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("Query" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1193 1212]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1169 1213])
+                    ("private" label nil (reparse-symbol classsubparts) [1214 1222])
+                    ("mTermVector" variable (:type ("TermVector" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1227 1250])
+                    ("mVisitTermType" variable (:type ("VisitTermType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1255 1284])
+                    ("private" label nil (reparse-symbol classsubparts) [1285 1293])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1298 1317]))                  
+                :type "class")
+                nil [265 1320])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("QueryTermVisitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1340 1357]))                  
+                :type "int")
+                nil [1322 1358])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1379 1392]))                  
+                :type "int")
+                nil [1360 1393]))          
+      :file "query_term_visitor.h"
+      :pointmax 1433
+      :fsize 1432
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__KIWI_QUERY_TERM_VISITOR_H_")
+          )
+)
+    (semanticdb-table "phrase_query.h"
+      :file "phrase_query.h"
+      :fsize 1200
+      :lastmodtime '(23257 17519 325259 73000))
+    (semanticdb-table "or_query.h"
+      :file "or_query.h"
+      :fsize 823
+      :lastmodtime '(23257 17519 325259 73000))
+    (semanticdb-table "andnot_query.h"
+      :file "andnot_query.h"
+      :fsize 860
+      :lastmodtime '(23257 17519 324259 73000))
+    (semanticdb-table "rank_query.h"
+      :file "rank_query.h"
+      :fsize 1158
+      :lastmodtime '(23257 17519 325259 73000))
+    (semanticdb-table "number_query.h"
+      :file "number_query.h"
+      :fsize 1441
+      :lastmodtime '(23257 17519 324259 73000))
+    (semanticdb-table "json_parser.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("kiwi/query_parser/json_parser.h" include nil nil [1 43])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [45 65])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [88 101]))                  
+                :type "int")
+                nil [67 102])
+            ("KIWI_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [118 131])
+                    ("" variable (:type ("JsonParser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [132 143]))                  
+                :type "int")
+                nil [103 144])
+            ("JsonParser" function
+               (:constructor-flag t
+                :parent "JsonParser"
+                :type ("JsonParser" type (:type "class") nil nil))
+                nil [146 193])
+            ("JsonParser" function
+               (:destructor-flag t
+                :parent "JsonParser"
+                :type "void")
+                nil [195 225])
+            ("SetErrorInfo" function
+               (:parent "JsonParser"
+                :arguments 
+                  ( ("status" variable (:type ("Status" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [257 271])
+                    ("errorMsg" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [272 295]))                  
+                :type "void")
+                nil [227 347])
+            ("GetString" function
+               (:parent "JsonParser"
+                :arguments 
+                  ( ("value" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SimpleValue" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [376 401])
+                    ("keyWord" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [402 424])
+                    ("defaultValue" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [452 479])
+                    ("str" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [480 492]))                  
+                :type "bool")
+                nil [349 790])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [811 824]))                  
+                :type "int")
+                nil [792 825]))          
+      :file "json_parser.cpp"
+      :pointmax 827
+      :fsize 826
+      :lastmodtime '(23257 17519 324259 73000)
+      :unmatched-syntax nil)
+    (semanticdb-table "json_parser.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_JSON_PARSER_H_" variable (:constant-flag t) nil [39 60])
+            ("tr1/memory" include (:system-flag t) nil [62 83])
+            ("kiwi/kiwi.h" include nil nil [84 106])
+            ("kiwi/common/common.h" include nil nil [107 138])
+            ("kiwi/common/log.h" include nil nil [139 167])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [190 203]))                  
+                :type "int")
+                nil [169 204])
+            ("JsonParser" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [225 232])
+                    ("Status" type
+                       (:members 
+                          ( ("OK" variable
+                               (:constant-flag t
+                                :default-value (264 265)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [259 265])
+                            ("SYNTAX_ERROR" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [275 288])
+                            ("EVALUATE_ERROR" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [297 312])
+                            ("NOT_SUPPORT" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [321 333]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [237 340])
+                    ("public" label nil (reparse-symbol classsubparts) [342 349])
+                    ("JsonParser" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("JsonParser" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [354 367])
+                    ("JsonParser" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [372 394])
+                    ("public" label nil (reparse-symbol classsubparts) [395 402])
+                    ("GetErrorMsg" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [407 454])
+                    ("GetStatus" function (:type ("Status" type (:type "class") nil nil)) (reparse-symbol classsubparts) [459 497])
+                    ("protected" label nil (reparse-symbol classsubparts) [503 513])
+                    ("SetErrorInfo" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("status" variable (:type ("Status" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [536 550])
+                            ("errorMsg" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [551 579]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [518 580])
+                    ("GetString" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("value" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("SimpleValue" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [600 625])
+                            ("keyWord" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [626 653])
+                            ("defaultValue" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [674 706])
+                            ("str" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [707 724]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [585 725])
+                    ("private" label nil (reparse-symbol classsubparts) [727 735])
+                    ("mStatus" variable (:type ("Status" type (:type "class") nil nil)) (reparse-symbol classsubparts) [740 755])
+                    ("mErrorMsg" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [760 782])
+                    ("private" label nil (reparse-symbol classsubparts) [784 792])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [797 816]))                  
+                :type "class")
+                nil [206 819])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("JsonParser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [839 850]))                  
+                :type "int")
+                nil [821 851])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [872 885]))                  
+                :type "int")
+                nil [853 886]))          
+      :file "json_parser.h"
+      :pointmax 919
+      :fsize 918
+      :lastmodtime '(23257 17519 324259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__KIWI_JSON_PARSER_H_")
+          )
+)
+    (semanticdb-table "aux_optimizer_parser.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("kiwi/query_parser/aux_optimizer_parser.h" include nil nil [1 52])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [54 74])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [97 110]))                  
+                :type "int")
+                nil [76 111])
+            ("KIWI_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [127 140])
+                    ("" variable (:type ("AuxOptimizerParser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [141 160]))                  
+                :type "int")
+                nil [112 161])
+            ("AuxOptimizerParser::OPTIMIZER_NAME" variable
+               (:constant-flag t
+                :default-value "\"name\""
+                :type ("string" type (:type "class") nil nil))
+                nil [163 220])
+            ("AuxOptimizerParser::AUX_NAME" variable
+               (:constant-flag t
+                :default-value "\"aux_name\""
+                :type ("string" type (:type "class") nil nil))
+                nil [221 276])
+            ("AuxOptimizerParser::SELECT_TYPE" variable
+               (:constant-flag t
+                :default-value "\"select\""
+                :type ("string" type (:type "class") nil nil))
+                nil [277 333])
+            ("AuxOptimizerParser" function
+               (:constructor-flag t
+                :parent "AuxOptimizerParser"
+                :type ("AuxOptimizerParser" type (:type "class") nil nil))
+                nil [335 380])
+            ("AuxOptimizerParser" function
+               (:destructor-flag t
+                :parent "AuxOptimizerParser"
+                :type "void")
+                nil [382 428])
+            ("Parse" function
+               (:parent "AuxOptimizerParser"
+                :arguments 
+                  ( ("optimizerJson" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SimpleValue" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [461 494])
+                    ("params" variable
+                       (:reference 1
+                        :type ("vector" type
+                             (:template-specifier 
+                                ( ("AuxOptimizerParam" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [527 561]))                  
+                :type "bool")
+                nil [430 972])
+            ("ParseAuxOptimizerParam" function
+               (:parent "AuxOptimizerParser"
+                :arguments 
+                  ( ("optimizerJson" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("SimpleValue" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1022 1055])
+                    ("param" variable
+                       (:reference 1
+                        :type ("AuxOptimizerParam" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1104 1129]))                  
+                :type "bool")
+                nil [974 2098])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2119 2132]))                  
+                :type "int")
+                nil [2100 2133]))          
+      :file "aux_optimizer_parser.cpp"
+      :pointmax 2135
+      :fsize 2134
+      :lastmodtime '(23257 17519 324259 73000)
+      :unmatched-syntax nil)
+    (semanticdb-table "aux_optimizer_parser.h"
+      :file "aux_optimizer_parser.h"
+      :fsize 1083
+      :lastmodtime '(23257 17519 324259 73000))
+    (semanticdb-table "term_df_visitor.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("kiwi/query_parser/term_df_visitor.h" include nil nil [1 47])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [49 69])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [92 105]))                  
+                :type "int")
+                nil [71 106])
+            ("KIWI_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [122 135])
+                    ("" variable (:type ("TermDFVisitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [136 150]))                  
+                :type "int")
+                nil [107 151])
+            ("TermDFVisitor" function
+               (:constructor-flag t
+                :parent "TermDFVisitor"
+                :arguments 
+                  ( ("auxListTerm" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("TermDFMap" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [182 211]))                  
+                :type ("TermDFVisitor" type (:type "class") nil nil))
+                nil [153 261])
+            ("TermDFVisitor" function
+               (:destructor-flag t
+                :parent "TermDFVisitor"
+                :type "void")
+                nil [263 299])
+            ("VisitTermQuery" function
+               (:parent "TermDFVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("TermQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [336 359]))                  
+                :type "void")
+                nil [301 576])
+            ("VisitPhraseQuery" function
+               (:parent "TermDFVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("PhraseQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [615 640]))                  
+                :type "void")
+                nil [578 1099])
+            ("VisitAndQuery" function
+               (:parent "TermDFVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("AndQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1135 1157]))                  
+                :type "void")
+                nil [1101 1425])
+            ("VisitOrQuery" function
+               (:parent "TermDFVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("OrQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1460 1481]))                  
+                :type "void")
+                nil [1427 1712])
+            ("VisitAndNotQuery" function
+               (:parent "TermDFVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("AndNotQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1751 1776]))                  
+                :type "void")
+                nil [1714 1914])
+            ("VisitRankQuery" function
+               (:parent "TermDFVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("RankQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1951 1974]))                  
+                :type "void")
+                nil [1916 2112])
+            ("VisitNumberQuery" function
+               (:parent "TermDFVisitor"
+                :arguments 
+                  ( ("query" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("NumberQuery" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2151 2176]))                  
+                :type "void")
+                nil [2114 2399])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2420 2433]))                  
+                :type "int")
+                nil [2401 2434]))          
+      :file "term_df_visitor.cpp"
+      :pointmax 2436
+      :fsize 2435
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil)
+    (semanticdb-table "term_df_visitor.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_TERM_DF_VISITOR_H_" variable (:constant-flag t) nil [43 68])
+            ("tr1/memory" include (:system-flag t) nil [70 91])
+            ("kiwi/kiwi.h" include nil nil [92 114])
+            ("kiwi/common/common.h" include nil nil [115 146])
+            ("kiwi/common/log.h" include nil nil [147 175])
+            ("kiwi/query_parser/query_visitor.h" include nil nil [176 220])
+            ("kiwi/query_parser/auxiliary_chain_define.h" include nil nil [221 274])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [297 310]))                  
+                :type "int")
+                nil [276 311])
+            ("TermDFVisitor" type
+               (:superclasses 
+                  ( ("QueryVisitor" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [357 364])
+                    ("TermDFVisitor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("auxListTerm" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TermDFMap" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [383 412]))                          
+                        :type ("TermDFVisitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [369 413])
+                    ("TermDFVisitor" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [418 435])
+                    ("private" label nil (reparse-symbol classsubparts) [436 444])
+                    ("TermDFVisitor" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TermDFVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [463 485]))                          
+                        :type ("TermDFVisitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [449 486])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("TermDFVisitor" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [516 538]))                          
+                        :type ("TermDFVisitor" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [491 539])
+                    ("public" label nil (reparse-symbol classsubparts) [540 547])
+                    ("VisitTermQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("TermQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [587 610]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [567 611])
+                    ("VisitPhraseQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("PhraseQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [653 678]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [631 679])
+                    ("VisitAndQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("AndQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [718 740]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [699 741])
+                    ("VisitOrQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("OrQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [779 800]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [761 801])
+                    ("VisitAndNotQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("AndNotQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [843 868]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [821 869])
+                    ("VisitRankQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("RankQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [909 932]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [889 933])
+                    ("VisitNumberQuery" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("query" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("NumberQuery" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [975 1000]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [953 1001])
+                    ("public" label nil (reparse-symbol classsubparts) [1002 1009])
+                    ("GetDF" function (:type ("df_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1014 1060])
+                    ("private" label nil (reparse-symbol classsubparts) [1061 1069])
+                    ("mAuxListTerm" variable
+                       (:constant-flag t
+                        :type ("TermDFMap" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1074 1104])
+                    ("mDf" variable (:type ("df_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1109 1118])
+                    ("private" label nil (reparse-symbol classsubparts) [1120 1128])
+                    ("KIWI_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1133 1152]))                  
+                :type "class")
+                nil [313 1155])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("TermDFVisitor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1175 1189]))                  
+                :type "int")
+                nil [1157 1190])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1211 1224]))                  
+                :type "int")
+                nil [1192 1225]))          
+      :file "term_df_visitor.h"
+      :pointmax 1262
+      :fsize 1261
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__KIWI_TERM_DF_VISITOR_H_")
+          )
+)
+    (semanticdb-table "auxiliary_chain_define.h"
+      :file "auxiliary_chain_define.h"
+      :fsize 602
+      :lastmodtime '(23257 17519 324259 73000))
+    (semanticdb-table "query_parser_define.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__KIWI_QUERY_PARSER_DEFINE_H_" variable (:constant-flag t) nil [47 76])
+            ("tr1/memory" include (:system-flag t) nil [78 99])
+            ("KIWI_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [122 135]))                  
+                :type "int")
+                nil [101 136])
+            ("TERM_QUERY_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"match\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [138 192])
+            ("PHRASE_QUERY_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"match_phrase\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [193 256])
+            ("AND_QUERY_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"and\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [257 308])
+            ("OR_QUERY_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"or\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [309 358])
+            ("ANDNOT_QUERY_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"andnot\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [359 416])
+            ("RANK_QUERY_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"rank\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [417 470])
+            ("QUERY_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"query\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [472 521])
+            ("BOOST_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"boost\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [522 571])
+            ("MATCH_FIELDS_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"match_fields\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [572 635])
+            ("MATCH_FIELDS_OPERATOR_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"match_fields_operator\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [636 717])
+            ("AUX_NAME_KEYWORD" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"aux_name\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [718 773])
+            ("KV_KEY" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"key\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [774 814])
+            ("INFIX_SEARCH_KEY" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"infix\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [815 867])
+            ("PREFIX_SEARCH_KEY" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"prefix\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [868 922])
+            ("MAX_SEARCH_COUNT" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "\"max_search_count\""
+                :type ("std::string" type (:type "class") nil nil))
+                nil [923 986])
+            ("TrieSearchType" type
+               (:members 
+                  ( ("KEY_SEARCH" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1013 1024])
+                    ("PREFIX_SEARCH" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1029 1043])
+                    ("INFIX_SEARCH" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [1048 1062]))                  
+                :type "enum")
+                nil [988 1063])
+            ("KIWI_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("query_parser" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1084 1097]))                  
+                :type "int")
+                nil [1065 1098]))          
+      :file "query_parser_define.h"
+      :pointmax 1106
+      :fsize 1105
+      :lastmodtime '(23257 17519 325259 73000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__KIWI_QUERY_PARSER_DEFINE_H_")
+          )
+))
+  :file "!ssd!sdd!git!ha3!kiwi!kiwi!query_parser!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

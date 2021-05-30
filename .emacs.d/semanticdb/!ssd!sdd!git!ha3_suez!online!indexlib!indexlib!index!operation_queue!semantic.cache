@@ -1,0 +1,860 @@
+;; Object operation_queue/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "operation_queue/"
+  :tables
+  (list
+    (semanticdb-table "operation_base.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__INDEXLIB_OPERATION_BASE_H" variable (:constant-flag t) nil [45 72])
+            ("tr1/memory" include (:system-flag t) nil [74 95])
+            ("autil/mem_pool/Pool.h" include (:system-flag t) nil [96 128])
+            ("indexlib/indexlib.h" include nil nil [129 159])
+            ("indexlib/common/log.h" include nil nil [160 192])
+            ("indexlib/common/common.h" include nil nil [193 228])
+            ("indexlib/index/index_partition_reader.h" include nil nil [229 279])
+            ("indexlib/index/primarykey/primary_key_index_reader.h" include nil nil [280 343])
+            ("indexlib/partition/partition_modifier.h" include nil nil [344 394])
+            ("IE_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [415 421]))                  
+                :type "int")
+                nil [396 422])
+            ("OperationBase" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [446 453])
+                    ("SerializedOperationType" type
+                       (:members 
+                          ( ("INVALID_SERIALIZE_OP" variable
+                               (:constant-flag t
+                                :default-value (524 525)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [501 525])
+                            ("REMOVE_OP" variable
+                               (:constant-flag t
+                                :default-value (547 548)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [535 548])
+                            ("UPDATE_FIELD_OP" variable
+                               (:constant-flag t
+                                :default-value (576 577)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [558 577])
+                            ("SUB_DOC_OP" variable
+                               (:constant-flag t
+                                :default-value (600 601)
+                                :type "int")
+                                (reparse-symbol enumsubparts) [587 601]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [458 608])
+                    ("public" label nil (reparse-symbol classsubparts) [614 621])
+                    ("OperationBase" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [640 658]))                          
+                        :type ("OperationBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [626 698])
+                    ("OperationBase" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [704 731])
+                    ("public" label nil (reparse-symbol classsubparts) [737 744])
+                    ("Load" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [767 795])
+                            ("" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [796 802])
+                            ("" variable (:type ("cursor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [803 810]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [749 815])
+                    ("Process" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("modifier" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("partition::PartitionModifierPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [841 889]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [820 894])
+                    ("Clone" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :pointer 1
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [928 956]))                          
+                        :type ("OperationBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [899 961])
+                    ("GetSerializedType" function
+                       (:typemodifiers ("virtual")
+                        :type ("SerializedOperationType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [966 1061])
+                    ("GetDocOperateType" function
+                       (:typemodifiers ("virtual")
+                        :type ("DocOperateType" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1071 1146])
+                    ("GetTimestamp" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1156 1207])
+                    ("GetMemoryUse" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1212 1252])
+                    ("GetSegmentId" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("segmentid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1257 1302])
+                    ("GetSerializeSize" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1307 1351])
+                    ("Serialize" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1381 1394])
+                            ("bufferLen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1395 1412]))                          
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1356 1423])
+                    ("protected" label nil (reparse-symbol classsubparts) [1425 1435])
+                    ("GetDocIdFromPrimaryKey" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("reader" variable
+                               (:pointer 1
+                                :type ("IndexPartitionReader" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1471 1500])
+                            ("pkHash" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("autil::uint128_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1536 1567]))                          
+                        :type ("docid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1440 1568])
+                    ("protected" label nil (reparse-symbol classsubparts) [1574 1584])
+                    ("mTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1589 1608])
+                    ("private" label nil (reparse-symbol classsubparts) [1610 1618])
+                    ("IE_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1623 1640]))                  
+                :type "class")
+                nil [424 1643])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("OperationBase" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1663 1677]))                  
+                :type "int")
+                nil [1645 1678])
+            ("GetDocIdFromPrimaryKey" function
+               (:parent "OperationBase"
+                :typemodifiers ("inline")
+                :arguments 
+                  ( ("reader" variable
+                       (:pointer 1
+                        :type ("IndexPartitionReader" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1809 1838])
+                    ("pkHash" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("autil::uint128_t" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1839 1870]))                  
+                :type ("docid_t" type (:type "class") nil nil))
+                nil [1747 2073])
+            ("IE_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2092 2098]))                  
+                :type "int")
+                nil [2075 2099]))          
+      :file "operation_base.h"
+      :pointmax 2138
+      :fsize 2137
+      :lastmodtime '(22468 63471 546782 95000)
+      :unmatched-syntax '((thing 801 . 802))
+      :lexical-table 
+        '(("__INDEXLIB_OPERATION_BASE_H")
+          )
+)
+    (semanticdb-table "remove_operation.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__INDEXLIB_REMOVE_OPERATION_H" variable (:constant-flag t) nil [47 76])
+            ("tr1/memory" include (:system-flag t) nil [78 99])
+            ("autil/LongHashValue.h" include (:system-flag t) nil [100 132])
+            ("indexlib/indexlib.h" include nil nil [133 163])
+            ("indexlib/common/log.h" include nil nil [164 196])
+            ("indexlib/common/common.h" include nil nil [197 232])
+            ("indexlib/util/pool_util.h" include nil nil [233 269])
+            ("indexlib/index/operation_queue/operation_base.h" include nil nil [270 328])
+            ("IE_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [349 355]))                  
+                :type "int")
+                nil [330 356])
+            ("RemoveOperation" type
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "class"
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [426 433])
+                    ("RemoveOperation" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [454 472]))                          
+                        :type ("RemoveOperation" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [438 473])
+                    ("RemoveOperation" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [478 499])
+                    ("public" label nil (reparse-symbol classsubparts) [505 512])
+                    ("Init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pk" variable (:type ("T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [527 532])
+                            ("segmentId" variable (:type ("segmentid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [533 555]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [517 556])
+                    ("Load" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [591 619])
+                            ("" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [620 626])
+                            ("" variable (:type ("cursor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [627 634]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [581 635])
+                    ("Process" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("modifier" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("partition::PartitionModifierPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [678 726]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [665 727])
+                    ("Clone" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [773 801]))                          
+                        :type ("OperationBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [752 802])
+                    ("GetSerializedType" function (:type ("SerializedOperationType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [829 916])
+                    ("GetDocOperateType" function (:type ("DocOperateType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [940 1007])
+                    ("GetMemoryUse" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1031 1098])
+                    ("GetSegmentId" function (:type ("segmentid_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1122 1188])
+                    ("GetSerializeSize" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1213 1297])
+                    ("Serialize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1339 1352])
+                            ("bufferLen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1353 1370]))                          
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1322 1377])
+                    ("private" label nil (reparse-symbol classsubparts) [1383 1391])
+                    ("mPkHash" variable (:type ("T" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1396 1406])
+                    ("mSegmentId" variable (:type ("segmentid_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1411 1434])
+                    ("private" label nil (reparse-symbol classsubparts) [1436 1444])
+                    ("RemoveOperationTest" friend nil (reparse-symbol classsubparts) [1449 1481])
+                    ("RemoveOperationCreatorTest" friend nil (reparse-symbol classsubparts) [1487 1526])
+                    ("IE_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [1532 1549]))                  
+                :superclasses 
+                  ( ("OperationBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  )
+                nil [358 1552])
+            ("IE_LOG_SETUP_TEMPLATE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1652 1658])
+                    ("" variable (:type ("RemoveOperation" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1659 1675]))                  
+                :type "int")
+                nil [1630 1676])
+            ("RemoveOperation" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("RemoveOperation" type (:type "class") nil nil)
+                :arguments 
+                  ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1735 1753]))                  
+                :parent "RemoveOperation"
+                :constructor-flag t)
+                nil [1678 1843])
+            ("Init" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("pk" variable (:type ("T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1896 1901])
+                    ("segmentId" variable (:type ("segmentid_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1902 1924]))                  
+                :parent "RemoveOperation")
+                nil [1845 1974])
+            ("Process" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("modifier" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("partition::PartitionModifierPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2030 2078]))                  
+                :parent "RemoveOperation")
+                nil [1976 2476])
+            ("Clone" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("OperationBase" type (:type "class") nil nil)
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2540 2568]))                  
+                :parent "RemoveOperation"
+                :pointer 1)
+                nil [2478 2903])
+            ("Serialize" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type ("size_t" type (:type "class") nil nil)
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [2963 2976])
+                    ("bufferLen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2977 2994]))                  
+                :parent "RemoveOperation")
+                nil [2905 3212])
+            ("Load" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "bool"
+                :arguments 
+                  ( ("pool" variable
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3265 3293])
+                    ("" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3294 3300])
+                    ("" variable (:type ("cursor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3301 3308]))                  
+                :parent "RemoveOperation")
+                nil [3214 3455])
+            ("IE_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3474 3480]))                  
+                :type "int")
+                nil [3457 3481]))          
+      :file "remove_operation.h"
+      :pointmax 3522
+      :fsize 3521
+      :lastmodtime '(22545 35327 421057 976000)
+      :unmatched-syntax '((thing 1526 . 1527) (thing 1525 . 1526) (thing 1481 . 1482) (thing 1480 . 1481) (thing 625 . 626) (thing 624 . 625) (thing 3298 . 3299) (thing 3299 . 3300))
+      :lexical-table 
+        '(("__INDEXLIB_REMOVE_OPERATION_H")
+          )
+)
+    (semanticdb-table "operation_block.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("indexlib/index/operation_queue/operation_block.h" include nil nil [1 60])
+            ("indexlib/index/operation_queue/operation_dumper.h" include nil nil [61 121])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [123 143])
+            ("IE_NAMESPACE_USE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("file_system" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [161 173]))                  
+                :type "int")
+                nil [144 174])
+            ("IE_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [195 201]))                  
+                :type "int")
+                nil [176 202])
+            ("IE_LOG_SETUP" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [216 222])
+                    ("" variable (:type ("OperationBlock" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [223 238]))                  
+                :type "int")
+                nil [203 239])
+            ("Dump" function
+               (:parent "OperationBlock"
+                :arguments 
+                  ( ("fileWriter" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("FileWriterPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [267 299])
+                    ("maxOpSerializeSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [327 353])
+                    ("releaseAfterDump" variable (:type "bool") (reparse-symbol arg-sub-list) [380 402]))                  
+                :type "void")
+                nil [241 912])
+            ("IE_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [931 937]))                  
+                :type "int")
+                nil [914 938]))          
+      :file "operation_block.cpp"
+      :pointmax 940
+      :fsize 939
+      :lastmodtime '(22545 34594 193889 723000)
+      :unmatched-syntax nil)
+    (semanticdb-table "operation_block.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__INDEXLIB_OPERATION_BLOCK_H" variable (:constant-flag t) nil [46 74])
+            ("tr1/memory" include (:system-flag t) nil [76 97])
+            ("autil/mem_pool/Pool.h" include (:system-flag t) nil [98 130])
+            ("autil/mem_pool/ChunkAllocatorBase.h" include (:system-flag t) nil [131 177])
+            ("indexlib/indexlib.h" include nil nil [178 208])
+            ("indexlib/common/log.h" include nil nil [209 241])
+            ("indexlib/common/common.h" include nil nil [242 277])
+            ("indexlib/file_system/file_writer.h" include nil nil [278 323])
+            ("indexlib/index/operation_queue/operation_base.h" include nil nil [324 382])
+            ("indexlib/index/operation_queue/operation_factory.h" include nil nil [383 444])
+            ("indexlib/util/mmap_allocator.h" include nil nil [445 486])
+            ("indexlib/util/mmap_vector.h" include nil nil [487 525])
+            ("IE_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [546 552]))                  
+                :type "int")
+                nil [527 553])
+            ("OperationBlock" type
+               (:prototype t
+                :type "class")
+                nil [554 575])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("OperationBlock" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [594 609]))                  
+                :type "int")
+                nil [576 610])
+            ("OperationBlock" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [635 642])
+                    ("OperationVec" type
+                       (:typedef ("util::MMapVector" type
+                             (:template-specifier 
+                                ( ("OperationBase" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [647 701])
+                    ("OperationVecPtr" type
+                       (:typedef ("std::tr1::shared_ptr" type
+                             (:template-specifier 
+                                ( ("OperationVec" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [706 765])
+                    ("public" label nil (reparse-symbol classsubparts) [870 877])
+                    ("OperationBlock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("maxBlockSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [897 917]))                          
+                        :type ("OperationBlock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [882 1340])
+                    ("OperationBlock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("other" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("OperationBlock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1361 1389]))                          
+                        :type ("OperationBlock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1346 1600])
+                    ("OperationBlock" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1606 1660])
+                    ("public" label nil (reparse-symbol classsubparts) [1662 1669])
+                    ("Clone" function
+                       (:pointer 1
+                        :typemodifiers ("virtual")
+                        :type ("OperationBlock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1674 1816])
+                    ("CreateOperationBlockForRead" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("mOpFactory" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("OperationFactory" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1889 1924]))                          
+                        :type ("OperationBlockPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1822 1997])
+                    ("AddOperation" function
+                       (:typemodifiers ("virtual")
+                        :arguments 
+                          ( ("operation" variable
+                               (:pointer 1
+                                :type ("OperationBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2029 2054]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2003 2216])
+                    ("GetTotalMemoryUse" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2222 2498])
+                    ("Size" function
+                       (:typemodifiers ("virtual")
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2504 2581])
+                    ("Dump" function
+                       (:prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("fileWriter" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("file_system::FileWriterPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2605 2650])
+                            ("maxOpSerializeSize" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2674 2700])
+                            ("releaseAfterDump" variable (:type "bool") (reparse-symbol arg-sub-list) [2723 2745]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2587 2746])
+                    ("GetPool" function
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2752 2818])
+                    ("GetMinTimestamp" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2824 2885])
+                    ("GetMaxTimestamp" function (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2891 2952])
+                    ("GetOperations" function
+                       (:constant-flag t
+                        :type ("OperationVec" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2958 3157])
+                    ("Reset" function (:type "void") (reparse-symbol classsubparts) [3163 3613])
+                    ("private" label nil (reparse-symbol classsubparts) [3615 3623])
+                    ("UpdateTimestamp" function
+                       (:arguments 
+                          ( ("ts" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3649 3660]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3628 4087])
+                    ("protected" label nil (reparse-symbol classsubparts) [4089 4099])
+                    ("AllocatorPtr" type
+                       (:typedef ("std::tr1::shared_ptr" type
+                             (:template-specifier 
+                                ( ("autil::mem_pool::ChunkAllocatorBase" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [4104 4183])
+                    ("PoolPtr" type
+                       (:typedef ("std::tr1::shared_ptr" type
+                             (:template-specifier 
+                                ( ("autil::mem_pool::Pool" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :type "typedef")
+                        (reparse-symbol classsubparts) [4188 4248])
+                    ("mOperations" variable (:type ("OperationVecPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4254 4282])
+                    ("mMinTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4287 4309])
+                    ("mMaxTimestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4314 4336])
+                    ("mPool" variable (:type ("PoolPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4341 4355])
+                    ("mAllocator" variable (:type ("util::MMapAllocatorPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4360 4394])
+                    ("private" label nil (reparse-symbol classsubparts) [4396 4404])
+                    ("IE_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [4409 4426]))                  
+                :type "class")
+                nil [612 4429])
+            ("OperationBlockVec" type
+               (:typedef ("std::vector" type
+                     (:template-specifier 
+                        ( ("OperationBlockPtr" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [4431 4488])
+            ("OperationBlockInfo" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [4575 4582])
+                    ("OperationBlockInfo" function
+                       (:constructor-flag t
+                        :type ("OperationBlockInfo" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4587 4679])
+                    ("OperationBlockInfo" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("noLastBlockOpCount" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4704 4730])
+                            ("noLastBlockMemUse" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4754 4779])
+                            ("curBlock" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("OperationBlockPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4803 4837]))                          
+                        :type ("OperationBlockInfo" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4685 4972])
+                    ("GetTotalMemoryUse" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4978 5118])
+                    ("Size" function (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5124 5238])
+                    ("GetPool" function
+                       (:pointer 1
+                        :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5244 5358])
+                    ("==" function
+                       (:operator-flag t
+                        :arguments 
+                          ( ("other" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("OperationBlockInfo" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5380 5412]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [5364 5613])
+                    ("public" label nil (reparse-symbol classsubparts) [5615 5622])
+                    ("mNoLastBlockOpCount" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5627 5654])
+                    ("mNoLastBlockMemUse" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5659 5685])
+                    ("mCurBlock" variable (:type ("OperationBlockPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5690 5718]))                  
+                :type "class")
+                nil [4548 5721])
+            ("IE_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5740 5746]))                  
+                :type "int")
+                nil [5723 5747]))          
+      :file "operation_block.h"
+      :pointmax 5787
+      :fsize 5786
+      :lastmodtime '(22545 34594 193889 723000)
+      :unmatched-syntax '((thing 861 . 862) (thing 857 . 861) (thing 855 . 856) (thing 850 . 854) (thing 848 . 849) (thing 829 . 847) (thing 818 . 819) (thing 792 . 817) (thing 784 . 791) (thing 777 . 783) (thing 771 . 776))
+      :lexical-table 
+        '(("__INDEXLIB_OPERATION_BLOCK_H")
+          )
+)
+    (semanticdb-table "operation_factory.h"
+      :file "operation_factory.h"
+      :fsize 4673
+      :lastmodtime '(22545 34594 193889 723000))
+    (semanticdb-table "operation_dumper.h"
+      :file "operation_dumper.h"
+      :fsize 1955
+      :lastmodtime '(22545 34594 193889 723000))
+    (semanticdb-table "sub_doc_operation.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("__INDEXLIB_SUB_DOC_OPERATION_H" variable (:constant-flag t) nil [48 78])
+            ("tr1/memory" include (:system-flag t) nil [80 101])
+            ("indexlib/indexlib.h" include nil nil [102 132])
+            ("indexlib/common/log.h" include nil nil [133 165])
+            ("indexlib/common/common.h" include nil nil [166 201])
+            ("indexlib/index/operation_queue/operation_base.h" include nil nil [202 260])
+            ("IE_NAMESPACE_BEGIN" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [281 287]))                  
+                :type "int")
+                nil [262 288])
+            ("SubDocOperation" type
+               (:superclasses 
+                  ( ("OperationBase" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [337 344])
+                    ("SubDocOperation" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("timestamp" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [374 392])
+                            ("mainPkType" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [393 414])
+                            ("subPkType" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [415 435]))                          
+                        :type ("SubDocOperation" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [349 840])
+                    ("SubDocOperation" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [850 869])
+                    ("public" label nil (reparse-symbol classsubparts) [875 882])
+                    ("Init" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("docOperateType" variable (:type ("DocOperateType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [897 927])
+                            ("mainOperation" variable
+                               (:pointer 1
+                                :type ("OperationBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [928 957])
+                            ("subOperations" variable
+                               (:pointer 2
+                                :type ("OperationBase" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [973 1003])
+                            ("subOperationCount" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1004 1029]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [887 1030])
+                    ("Load" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1064 1092])
+                            ("" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1093 1099])
+                            ("" variable (:type ("cursor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1100 1107]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1054 1108])
+                    ("Process" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("modifier" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("partition::PartitionModifierPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1145 1193]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1132 1194])
+                    ("Clone" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1235 1263]))                          
+                        :type ("OperationBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1214 1264])
+                    ("GetSerializedType" function (:type ("SerializedOperationType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1291 1379])
+                    ("GetDocOperateType" function (:type ("DocOperateType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1399 1471])
+                    ("GetMemoryUse" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1491 1519])
+                    ("GetSegmentId" function
+                       (:prototype-flag t
+                        :type ("segmentid_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1543 1576])
+                    ("GetSerializeSize" function
+                       (:prototype-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1601 1633])
+                    ("Serialize" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1675 1688])
+                            ("bufferLen" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1689 1706]))                          
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1658 1713])
+                    ("private" label nil (reparse-symbol classsubparts) [1715 1723])
+                    ("LoadOperation" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("pool" variable
+                               (:pointer 1
+                                :type ("autil::mem_pool::Pool" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1766 1794])
+                            ("" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1795 1801])
+                            ("" variable (:type ("cursor" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1802 1809])
+                            ("docOpType" variable (:type ("DocOperateType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1818 1843])
+                            ("pkType" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1844 1861]))                          
+                        :type ("OperationBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1728 1862])
+                    ("private" label nil (reparse-symbol classsubparts) [1868 1876])
+                    ("mMainOperation" variable
+                       (:pointer 1
+                        :type ("OperationBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1881 1911])
+                    ("mSubOperations" variable
+                       (:pointer 2
+                        :type ("OperationBase" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1916 1947])
+                    ("mSubOperationCount" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1952 1978])
+                    ("mDocOperateType" variable (:type ("DocOperateType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1983 2014])
+                    ("mMainPkType" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2019 2041])
+                    ("mSubPkType" variable (:type ("IndexType" type (:type "class") nil nil)) (reparse-symbol classsubparts) [2046 2067])
+                    ("private" label nil (reparse-symbol classsubparts) [2069 2077])
+                    ("SubDocOperationTest" friend nil (reparse-symbol classsubparts) [2082 2114])
+                    ("SubDocOperationCreatorTest" friend nil (reparse-symbol classsubparts) [2120 2159])
+                    ("OperationFactoryTest" friend nil (reparse-symbol classsubparts) [2165 2198])
+                    ("IE_LOG_DECLARE" function
+                       (:prototype-flag t
+                        :type "int")
+                        (reparse-symbol classsubparts) [2204 2221]))                  
+                :type "class")
+                nil [290 2224])
+            ("DEFINE_SHARED_PTR" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("SubDocOperation" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2244 2260]))                  
+                :type "int")
+                nil [2226 2261])
+            ("IE_NAMESPACE_END" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("index" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2280 2286]))                  
+                :type "int")
+                nil [2263 2287]))          
+      :file "sub_doc_operation.h"
+      :pointmax 2329
+      :fsize 2328
+      :lastmodtime '(22468 63471 547782 93000)
+      :unmatched-syntax '((thing 1098 . 1099) (thing 1800 . 1801) (thing 2114 . 2115) (thing 2159 . 2160) (thing 2198 . 2199))
+      :lexical-table 
+        '(("__INDEXLIB_SUB_DOC_OPERATION_H")
+          )
+))
+  :file "!ssd!sdd!git!ha3_suez!online!indexlib!indexlib!index!operation_queue!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

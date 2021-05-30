@@ -1,0 +1,658 @@
+;; Object autil/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "autil/"
+  :tables
+  (list
+    (semanticdb-table "Lock.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("AUTIL_LOCK_H" variable (:constant-flag t) nil [30 42])
+            ("autil/CommonMacros.h" include nil nil [44 75])
+            ("autil/TimeUtility.h" include nil nil [76 106])
+            ("pthread.h" include (:system-flag t) nil [107 127])
+            ("cassert" include (:system-flag t) nil [128 146])
+            ("atomic" include (:system-flag t) nil [147 164])
+            ("AUTIL_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("autil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [188 194]))                  
+                :type "int")
+                nil [166 195])
+            ("ThreadMutex" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [217 224])
+                    ("ThreadMutex" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("mta" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :default-value "NULL"
+                                :type ("pthread_mutexattr_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [241 278]))                          
+                        :type ("ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [229 329])
+                    ("ThreadMutex" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [335 397])
+                    ("lock" function (:type "int") (reparse-symbol classsubparts) [403 465])
+                    ("trylock" function (:type "int") (reparse-symbol classsubparts) [471 540])
+                    ("unlock" function (:type "int") (reparse-symbol classsubparts) [546 612])
+                    ("private" label nil (reparse-symbol classsubparts) [613 621])
+                    ("ThreadMutex" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ThreadMutex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [638 657]))                          
+                        :type ("ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [626 658])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ThreadMutex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [688 707]))                          
+                        :type ("ThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [663 708])
+                    ("protected" label nil (reparse-symbol classsubparts) [709 719])
+                    ("_mutex" variable (:type ("pthread_mutex_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [724 747]))                  
+                :type "class")
+                nil [197 750])
+            ("RecursiveThreadMutex" type
+               (:superclasses 
+                  ( ("ThreadMutex" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [802 809])
+                    ("RecursiveThreadMutex" function
+                       (:constructor-flag t
+                        :type ("RecursiveThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [814 898])
+                    ("private" label nil (reparse-symbol classsubparts) [900 908])
+                    ("RecursiveThreadMutex" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RecursiveThreadMutex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [934 962]))                          
+                        :type ("RecursiveThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [913 963])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("RecursiveThreadMutex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1002 1030]))                          
+                        :type ("RecursiveThreadMutex" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [968 1031])
+                    ("private" label nil (reparse-symbol classsubparts) [1032 1040])
+                    ("RECURSIVE_PTHREAD_MUTEXATTR_PTR" variable
+                       (:pointer 1
+                        :typemodifiers ("static")
+                        :constant-flag t
+                        :type ("pthread_mutexattr_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1045 1111]))                  
+                :type "class")
+                nil [752 1114])
+            ("ThreadCond" type
+               (:superclasses 
+                  ( ("ThreadMutex" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1156 1163])
+                    ("ThreadCond" function
+                       (:constructor-flag t
+                        :type ("ThreadCond" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1168 1229])
+                    ("ThreadCond" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1235 1294])
+                    ("wait" function
+                       (:arguments 
+                          ( ("usec" variable
+                               (:default-value "0"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1309 1325]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [1300 1608])
+                    ("signal" function (:type "int") (reparse-symbol classsubparts) [1614 1678])
+                    ("broadcast" function (:type "int") (reparse-symbol classsubparts) [1684 1754])
+                    ("protected" label nil (reparse-symbol classsubparts) [1756 1766])
+                    ("_cond" variable (:type ("pthread_cond_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1771 1793]))                  
+                :type "class")
+                nil [1116 1796])
+            ("ProducerConsumerCond" type
+               (:superclasses 
+                  ( ("ThreadMutex" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1848 1855])
+                    ("ProducerConsumerCond" function
+                       (:constructor-flag t
+                        :type ("ProducerConsumerCond" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1860 1988])
+                    ("ProducerConsumerCond" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1994 2117])
+                    ("public" label nil (reparse-symbol classsubparts) [2118 2125])
+                    ("producerWait" function
+                       (:arguments 
+                          ( ("usec" variable
+                               (:default-value "0"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2147 2163]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [2130 2214])
+                    ("signalProducer" function (:type "int") (reparse-symbol classsubparts) [2220 2286])
+                    ("broadcastProducer" function (:type "int") (reparse-symbol classsubparts) [2292 2364])
+                    ("consumerWait" function
+                       (:arguments 
+                          ( ("usec" variable
+                               (:default-value "0"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2387 2403]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [2370 2454])
+                    ("signalConsumer" function (:type "int") (reparse-symbol classsubparts) [2460 2526])
+                    ("broadcastConsumer" function (:type "int") (reparse-symbol classsubparts) [2532 2604])
+                    ("private" label nil (reparse-symbol classsubparts) [2606 2614])
+                    ("wait" function
+                       (:arguments 
+                          ( ("cond" variable
+                               (:reference 1
+                                :type ("pthread_cond_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2628 2649])
+                            ("usec" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2650 2663]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [2619 2943])
+                    ("signal" function
+                       (:typemodifiers ("static")
+                        :arguments 
+                          ( ("cond" variable
+                               (:reference 1
+                                :type ("pthread_cond_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2967 2988]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [2949 3039])
+                    ("broadcast" function
+                       (:typemodifiers ("static")
+                        :arguments 
+                          ( ("cond" variable
+                               (:reference 1
+                                :type ("pthread_cond_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3066 3087]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [3045 3141])
+                    ("protected" label nil (reparse-symbol classsubparts) [3143 3153])
+                    ("_producerCond" variable (:type ("pthread_cond_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3158 3188])
+                    ("_consumerCond" variable (:type ("pthread_cond_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3193 3223]))                  
+                :type "class")
+                nil [1798 3226])
+            ("ScopedLock" type
+               (:members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [3247 3255])
+                    ("_lock" variable (:type ("ThreadMutex" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3260 3279])
+                    ("private" label nil (reparse-symbol classsubparts) [3280 3288])
+                    ("ScopedLock" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScopedLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3304 3323]))                          
+                        :type ("ScopedLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3293 3324])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScopedLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3352 3371]))                          
+                        :type ("ScopedLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3329 3372])
+                    ("public" label nil (reparse-symbol classsubparts) [3374 3381])
+                    ("ScopedLock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("lock" variable
+                               (:reference 1
+                                :type ("ThreadMutex" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3406 3424]))                          
+                        :type ("ScopedLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3395 3516])
+                    ("ScopedLock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [3522 3615]))                  
+                :type "class")
+                nil [3228 3618])
+            ("ReadWriteLock" type
+               (:members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [3642 3650])
+                    ("ReadWriteLock" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ReadWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3669 3690]))                          
+                        :type ("ReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3655 3691])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ReadWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3723 3744]))                          
+                        :type ("ReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3696 3745])
+                    ("public" label nil (reparse-symbol classsubparts) [3746 3753])
+                    ("Mode" type
+                       (:members 
+                          ( ("PREFER_READER" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [3778 3792])
+                            ("PREFER_WRITER" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol enumsubparts) [3801 3820]))                          
+                        :type "enum")
+                        (reparse-symbol classsubparts) [3758 3821])
+                    ("ReadWriteLock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("mode" variable
+                               (:default-value "PREFER_READER"
+                                :type ("Mode" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3841 3866]))                          
+                        :type ("ReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3827 4345])
+                    ("ReadWriteLock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [4351 4415])
+                    ("rdlock" function (:type "int") (reparse-symbol classsubparts) [4421 4487])
+                    ("wrlock" function (:type "int") (reparse-symbol classsubparts) [4493 4559])
+                    ("tryrdlock" function (:type "int") (reparse-symbol classsubparts) [4565 4637])
+                    ("trywrlock" function (:type "int") (reparse-symbol classsubparts) [4643 4715])
+                    ("unlock" function (:type "int") (reparse-symbol classsubparts) [4721 4787])
+                    ("protected" label nil (reparse-symbol classsubparts) [4789 4799])
+                    ("_lock" variable (:type ("pthread_rwlock_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4804 4827]))                  
+                :type "class")
+                nil [3620 4830])
+            ("ScopedReadLock" type
+               (:members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [4855 4863])
+                    ("_lock" variable (:type ("ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [4868 4889])
+                    ("private" label nil (reparse-symbol classsubparts) [4890 4898])
+                    ("ScopedReadLock" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScopedReadLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4918 4940]))                          
+                        :type ("ScopedReadLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4903 4941])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScopedReadLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4974 4996]))                          
+                        :type ("ScopedReadLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4946 4997])
+                    ("public" label nil (reparse-symbol classsubparts) [4998 5005])
+                    ("ScopedReadLock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("lock" variable
+                               (:reference 1
+                                :type ("ReadWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5034 5054]))                          
+                        :type ("ScopedReadLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5019 5160])
+                    ("ScopedReadLock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [5165 5262]))                  
+                :type "class")
+                nil [4832 5265])
+            ("ScopedWriteLock" type
+               (:members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [5291 5299])
+                    ("_lock" variable (:type ("ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5304 5325])
+                    ("private" label nil (reparse-symbol classsubparts) [5326 5334])
+                    ("ScopedWriteLock" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScopedWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5355 5378]))                          
+                        :type ("ScopedWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5339 5379])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScopedWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5413 5436]))                          
+                        :type ("ScopedWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5384 5437])
+                    ("public" label nil (reparse-symbol classsubparts) [5438 5445])
+                    ("ScopedWriteLock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("lock" variable
+                               (:reference 1
+                                :type ("ReadWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5475 5495]))                          
+                        :type ("ScopedWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5459 5601])
+                    ("ScopedWriteLock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [5606 5704]))                  
+                :type "class")
+                nil [5267 5707])
+            ("ScopedReadWriteLock" type
+               (:members 
+                  ( ("private" label nil (reparse-symbol classsubparts) [5737 5745])
+                    ("_lock" variable (:type ("ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5750 5771])
+                    ("_mode" variable (:type "char") (reparse-symbol classsubparts) [5776 5787])
+                    ("private" label nil (reparse-symbol classsubparts) [5788 5796])
+                    ("ScopedReadWriteLock" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScopedReadWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5821 5848]))                          
+                        :type ("ScopedReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5801 5849])
+                    ("=" function
+                       (:prototype-flag t
+                        :operator-flag t
+                        :arguments 
+                          ( ("" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("ScopedReadWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5887 5914]))                          
+                        :type ("ScopedReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5854 5915])
+                    ("public" label nil (reparse-symbol classsubparts) [5917 5924])
+                    ("ScopedReadWriteLock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("lock" variable
+                               (:reference 1
+                                :type ("ReadWriteLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5958 5978])
+                            ("mode" variable
+                               (:constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [5979 5995]))                          
+                        :type ("ScopedReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [5938 6307])
+                    ("ScopedReadWriteLock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [6313 6533]))                  
+                :type "class")
+                nil [5709 6536])
+            ("Notifier" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [6555 6562])
+                    ("EXITED" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "(1 << 16) + 1"
+                        :type "int")
+                        (reparse-symbol classsubparts) [6565 6605])
+                    ("public" label nil (reparse-symbol classsubparts) [6606 6613])
+                    ("Notifier" function
+                       (:constructor-flag t
+                        :type ("Notifier" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [6618 6683])
+                    ("notifyExit" function (:type "int") (reparse-symbol classsubparts) [6689 6809])
+                    ("notify" function (:type "int") (reparse-symbol classsubparts) [6815 6938])
+                    ("waitNotification" function
+                       (:arguments 
+                          ( ("timeout" variable
+                               (:default-value "-1"
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [7048 7064]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [7027 7107])
+                    ("private" label nil (reparse-symbol classsubparts) [7109 7117])
+                    ("_accumulatedNotification" variable
+                       (:typemodifiers ("volatile")
+                        :type "int")
+                        (reparse-symbol classsubparts) [7122 7160])
+                    ("_exitFlag" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [7165 7189])
+                    ("_cond" variable (:type ("ThreadCond" type (:type "class") nil nil)) (reparse-symbol classsubparts) [7194 7211])
+                    ("private" label nil (reparse-symbol classsubparts) [7213 7221])
+                    ("wait" function
+                       (:arguments 
+                          ( ("timeout" variable (:type "int") (reparse-symbol arg-sub-list) [7235 7247]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [7226 7641]))                  
+                :type "class")
+                nil [6538 7644])
+            ("TerminateClosure" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [7671 7678])
+                    ("TerminateClosure" function
+                       (:constructor-flag t
+                        :type ("TerminateClosure" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7683 7704])
+                    ("TerminateClosure" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [7709 7739])
+                    ("public" label nil (reparse-symbol classsubparts) [7740 7747])
+                    ("Run" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [7752 7775]))                  
+                :type "class")
+                nil [7646 7778])
+            ("TerminateNotifier" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [7806 7813])
+                    ("EXITED" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :default-value "(1 << 16) + 1"
+                        :type "int")
+                        (reparse-symbol classsubparts) [7816 7856])
+                    ("public" label nil (reparse-symbol classsubparts) [7857 7864])
+                    ("TerminateNotifier" function
+                       (:constructor-flag t
+                        :type ("TerminateNotifier" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [7869 7965])
+                    ("inc" function (:type "int") (reparse-symbol classsubparts) [8074 8166])
+                    ("dec" function (:type "int") (reparse-symbol classsubparts) [8171 8816])
+                    ("wait" function
+                       (:arguments 
+                          ( ("timeout" variable
+                               (:default-value "-1"
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [8972 8988]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [8963 9329])
+                    ("peek" function (:type "int") (reparse-symbol classsubparts) [9334 9414])
+                    ("onTerminate" function
+                       (:arguments 
+                          ( ("closure" variable
+                               (:pointer 1
+                                :type ("TerminateClosure" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9686 9713]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [9670 10331])
+                    ("private" label nil (reparse-symbol classsubparts) [10601 10609])
+                    ("_count" variable
+                       (:typemodifiers ("volatile")
+                        :type "int")
+                        (reparse-symbol classsubparts) [10614 10634])
+                    ("_exitFlag" variable
+                       (:typemodifiers ("volatile")
+                        :type "bool")
+                        (reparse-symbol classsubparts) [10639 10663])
+                    ("_cond" variable (:type ("autil::ThreadCond" type (:type "class") nil nil)) (reparse-symbol classsubparts) [10668 10692])
+                    ("_closure" variable
+                       (:pointer 1
+                        :type ("TerminateClosure" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [10697 10725]))                  
+                :type "class")
+                nil [7780 10728])
+            ("TicketSpinLock" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [10753 10760])
+                    ("TicketSpinLock" function
+                       (:constructor-flag t
+                        :type ("TicketSpinLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [10765 10827])
+                    ("TicketSpinLock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [10832 10852])
+                    ("private" label nil (reparse-symbol classsubparts) [10854 10862])
+                    ("public" label nil (reparse-symbol classsubparts) [10981 10988])
+                    ("users" variable (:type ("std::atomic" type
+                         (:template-specifier 
+                            ( ("uint16_t" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [10993 11021])
+                    ("ticket" variable (:type ("std::atomic" type
+                         (:template-specifier 
+                            ( ("uint16_t" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [11026 11055]))                  
+                :type "class")
+                nil [10730 11058])
+            ("ScopedTicketSpinLock" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [11089 11096])
+                    ("ScopedTicketSpinLock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("lock_" variable
+                               (:reference 1
+                                :type ("TicketSpinLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11122 11144]))                          
+                        :type ("ScopedTicketSpinLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [11101 11312])
+                    ("ScopedTicketSpinLock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [11317 11371])
+                    ("private" label nil (reparse-symbol classsubparts) [11373 11381])
+                    ("private" label nil (reparse-symbol classsubparts) [11511 11519])
+                    ("lock" variable (:type ("TicketSpinLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [11524 11545]))                  
+                :type "class")
+                nil [11060 11548])
+            ("SpinLock" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [11567 11574])
+                    ("lock" function (:type "void") (reparse-symbol classsubparts) [11579 11660])
+                    ("unlock" function (:type "void") (reparse-symbol classsubparts) [11665 11733])
+                    ("private" label nil (reparse-symbol classsubparts) [11734 11742])
+                    ("flag" variable
+                       (:default-value "ATOMIC_FLAG_INIT"
+                        :type ("std::atomic_flag" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [11747 11788]))                  
+                :type "class")
+                nil [11550 11791])
+            ("ScopedSpinLock" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [11816 11823])
+                    ("ScopedSpinLock" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("lock" variable
+                               (:reference 1
+                                :type ("SpinLock" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [11843 11858]))                          
+                        :type ("ScopedSpinLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [11828 11914])
+                    ("ScopedSpinLock" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [11919 11968])
+                    ("private" label nil (reparse-symbol classsubparts) [11969 11977])
+                    ("private" label nil (reparse-symbol classsubparts) [12095 12103])
+                    ("_lock" variable (:type ("SpinLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [12108 12124]))                  
+                :type "class")
+                nil [11793 12127])
+            ("AUTIL_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("autil" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [12149 12155]))                  
+                :type "int")
+                nil [12129 12156]))          
+      :file "Lock.h"
+      :pointmax 12181
+      :fsize 12180
+      :lastmodtime '(23078 16008 801900 56000)
+      :unmatched-syntax '((thing 3386 . 3394) (thing 5010 . 5018) (thing 5450 . 5458) (thing 5929 . 5937) (thing 10867 . 10881) (thing 10881 . 10905) (thing 10906 . 10907) (thing 10908 . 10914) (thing 10914 . 10915) (thing 10920 . 10934) (thing 10934 . 10935) (thing 10936 . 10944) (thing 10944 . 10945) (thing 10945 . 10969) (thing 10970 . 10971) (thing 10972 . 10978) (thing 10978 . 10979) (thing 11386 . 11406) (thing 11406 . 11430) (thing 11431 . 11432) (thing 11433 . 11439) (thing 11439 . 11440) (thing 11445 . 11465) (thing 11465 . 11466) (thing 11467 . 11475) (thing 11475 . 11476) (thing 11476 . 11500) (thing 11501 . 11502) (thing 11503 . 11509) (thing 11509 . 11510) (thing 11982 . 11996) (thing 11996 . 12020) (thing 12021 . 12022) (thing 12023 . 12029) (thing 12029 . 12030) (thing 12035 . 12049) (thing 12049 . 12050) (thing 12051 . 12059) (thing 12059 . 12060) (thing 12060 . 12084) (thing 12085 . 12086) (thing 12087 . 12093) (thing 12093 . 12094))
+      :lexical-table 
+        '(("AUTIL_LOCK_H")
+          )
+))
+  :file "!ssd!sdd!git!ha3!ha3_matchdoc!autil!autil!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

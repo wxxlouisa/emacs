@@ -1,0 +1,1429 @@
+;; Object hdfs/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "hdfs/"
+  :tables
+  (list
+    (semanticdb-table "HdfsFileSystem.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("errno.h" include (:system-flag t) nil [1 19])
+            ("stdlib.h" include (:system-flag t) nil [20 39])
+            ("autil/StringUtil.h" include (:system-flag t) nil [40 69])
+            ("fslib/config.h" include nil nil [70 95])
+            ("fslib/fs/hdfs/HdfsFileSystem.h" include nil nil [96 137])
+            ("fslib/fs/hdfs/HdfsFile.h" include nil nil [138 173])
+            ("glob.h" include (:system-flag t) nil [174 191])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [193 213])
+            ("autil" using (:type ("autil" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [214 236])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [267 272]))                  
+                :type "int")
+                nil [238 273])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [305 310])
+                    ("" variable (:type ("HdfsFileSystem" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [311 326]))                  
+                :type "int")
+                nil [274 327])
+            ("HdfsFileSystem::MAX_CONNECTION" variable
+               (:constant-flag t
+                :default-value "5"
+                :type ("size_t" type (:type "class") nil nil))
+                nil [329 377])
+            ("HADOOP_CLASSPATH_ENV" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [378 454])
+            ("CLASSPATH_ENV" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [455 511])
+            ("HADOOP_HOME_ENV" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [512 572])
+            ("HDFS_PREFIX" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [573 625])
+            ("KV_SEPARATOR" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [627 674])
+            ("KV_PAIR_SEPARATOR" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [675 727])
+            ("CONFIG_SEPARATOR" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [728 779])
+            ("HDFS_BUFFER_SIZE" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [780 833])
+            ("HDFS_REPLICA" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [834 883])
+            ("HDFS_BLOCK_SIZE" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [884 936])
+            ("HDFS_USER" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [937 984])
+            ("HDFS_GROUPS" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [985 1036])
+            ("HDFS_GROUP_SEPARATOR" function
+               (:prototype-flag t
+                :parent "HdfsFileSystem"
+                :constant-flag t
+                :type ("string" type (:type "class") nil nil))
+                nil [1037 1092])
+            ("HdfsFileSystem" function
+               (:constructor-flag t
+                :parent "HdfsFileSystem"
+                :type ("HdfsFileSystem" type (:type "class") nil nil))
+                nil [1099 1156])
+            ("HdfsFileSystem" function
+               (:destructor-flag t
+                :parent "HdfsFileSystem"
+                :type "void")
+                nil [1158 1196])
+            ("eliminateSeqSlash" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("src" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1237 1253])
+                    ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1254 1265])
+                    ("dst" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1305 1317])
+                    ("keepLastSlash" variable (:type "bool") (reparse-symbol arg-sub-list) [1318 1337]))                  
+                :type "bool")
+                nil [1198 1874])
+            ("parsePath" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("fullPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1907 1930])
+                    ("filePath" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1931 1948])
+                    ("config" variable
+                       (:reference 1
+                        :type ("HdfsFsConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1980 2001]))                  
+                :type "bool")
+                nil [1876 3763])
+            ("parseConfig" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("configStr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3798 3822])
+                    ("config" variable
+                       (:reference 1
+                        :type ("HdfsFsConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3823 3844]))                  
+                :type "bool")
+                nil [3765 8019])
+            ("openFile" function
+               (:pointer 1
+                :parent "HdfsFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [8052 8075])
+                    ("flag" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [8076 8086]))                  
+                :type ("File" type (:type "class") nil nil))
+                nil [8021 11180])
+            ("mmapFile" function
+               (:pointer 1
+                :parent "HdfsFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11221 11244])
+                    ("openMode" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11245 11259])
+                    ("start" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [11296 11308])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11309 11323])
+                    ("prot" variable (:type "int") (reparse-symbol arg-sub-list) [11324 11333])
+                    ("mapFlag" variable (:type "int") (reparse-symbol arg-sub-list) [11370 11382])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [11383 11396]))                  
+                :type ("MMapFile" type (:type "class") nil nil))
+                nil [11186 11464])
+            ("rename" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("oldPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11499 11521])
+                    ("newPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [11555 11577]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [11466 16148])
+            ("getFileMeta" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16192 16215])
+                    ("fileMeta" variable
+                       (:reference 1
+                        :type ("FileMeta" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16254 16273]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [16154 17120])
+            ("isFile" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [17159 17178]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [17126 17963])
+            ("getFileChecksum" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("fileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18010 18033]))                  
+                :type ("FileChecksum" type (:type "class") nil nil))
+                nil [17965 18051])
+            ("mkDir" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [18085 18107])
+                    ("recursive" variable (:type "bool") (reparse-symbol arg-sub-list) [18140 18155]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [18053 19159])
+            ("listDir" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19195 19217])
+                    ("fileList" variable
+                       (:reference 1
+                        :type ("FileList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19252 19271]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [19161 19558])
+            ("listDir" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("dirName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19594 19616])
+                    ("entryList" variable
+                       (:reference 1
+                        :type ("EntryList" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19651 19672]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [19560 21399])
+            ("isDirectory" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [21439 21458]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [21401 22249])
+            ("remove" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [22288 22307]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [22255 23151])
+            ("isExist" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23187 23206]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [23153 23499])
+            ("internalIsExist" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("hdfsConnection" variable (:type ("HdfsConnectionPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [23543 23576])
+                    ("dstPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23585 23607]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [23501 24066])
+            ("splitServerAndPath" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("srcPath" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24113 24135])
+                    ("server" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24136 24151])
+                    ("dstPath" variable
+                       (:reference 1
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24161 24177]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [24068 24500])
+            ("getHdfsConnection" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("username" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24554 24582]))                  
+                :type ("HdfsConnectionPtr" type (:type "class") nil nil))
+                nil [24502 24819])
+            ("connectServer" function
+               (:parent "HdfsFileSystem"
+                :arguments 
+                  ( ("server" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24861 24882])
+                    ("fsConfig" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HdfsFsConfig" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24923 24952])
+                    ("hdfsConnection" variable
+                       (:reference 1
+                        :type ("HdfsConnectionPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [24993 25027]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [24821 33557]))          
+      :file "HdfsFileSystem.cpp"
+      :pointmax 33557
+      :fsize 33556
+      :lastmodtime '(22552 24104 193142 59000)
+      :unmatched-syntax '((thing 1087 . 1090) (thing 1026 . 1034) (thing 976 . 982) (thing 929 . 934) (thing 876 . 881) (thing 826 . 831) (thing 774 . 777) (thing 722 . 725) (thing 669 . 672) (thing 614 . 623) (thing 557 . 570) (thing 498 . 509) (thing 428 . 452)))
+    (semanticdb-table "HdfsFile.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("fslib/fs/hdfs/HdfsFile.h" include nil nil [1 36])
+            ("fslib/fs/hdfs/HdfsFileSystem.h" include nil nil [37 78])
+            ("fslib/util/LongIntervalLog.h" include nil nil [79 118])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [120 140])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [170 175]))                  
+                :type "int")
+                nil [141 176])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [208 213])
+                    ("" variable (:type ("HdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [214 223]))                  
+                :type "int")
+                nil [177 224])
+            ("HdfsFile" function
+               (:constructor-flag t
+                :parent "HdfsFile"
+                :arguments 
+                  ( ("path" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [245 264])
+                    ("connection" variable
+                       (:reference 1
+                        :type ("HdfsConnectionPtr" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [265 295])
+                    ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [320 334])
+                    ("curPos" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [335 350])
+                    ("ec" variable (:type ("ErrorCode" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [351 364]))                  
+                :type ("HdfsFile" type (:type "class") nil nil))
+                nil [226 806])
+            ("HdfsFile" function
+               (:destructor-flag t
+                :parent "HdfsFile"
+                :type "void")
+                nil [808 874])
+            ("read" function
+               (:parent "HdfsFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [899 912])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [913 927]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [876 2575])
+            ("write" function
+               (:parent "HdfsFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [2601 2620])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2621 2635]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [2577 3906])
+            ("pread" function
+               (:parent "HdfsFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [3932 3945])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3946 3960])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3961 3974]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [3908 5356])
+            ("pwrite" function
+               (:parent "HdfsFile"
+                :arguments 
+                  ( ("buffer" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "void")
+                        (reparse-symbol arg-sub-list) [5383 5402])
+                    ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5403 5417])
+                    ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5418 5431]))                  
+                :type ("ssize_t" type (:type "class") nil nil))
+                nil [5358 5597])
+            ("flush" function
+               (:parent "HdfsFile"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [5599 6254])
+            ("close" function
+               (:parent "HdfsFile"
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [6256 7064])
+            ("seek" function
+               (:parent "HdfsFile"
+                :arguments 
+                  ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7091 7106])
+                    ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [7107 7121]))                  
+                :type ("ErrorCode" type (:type "class") nil nil))
+                nil [7066 9211])
+            ("tell" function
+               (:parent "HdfsFile"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [9213 9523])
+            ("isOpened" function
+               (:parent "HdfsFile"
+                :type "bool")
+                nil [9525 9611])
+            ("isEof" function
+               (:parent "HdfsFile"
+                :type "bool")
+                nil [9613 9658])
+            ("getFileLen" function
+               (:parent "HdfsFile"
+                :type ("int64_t" type (:type "class") nil nil))
+                nil [9660 9999])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("fs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [10027 10030]))                  
+                :type "int")
+                nil [10000 10031]))          
+      :file "HdfsFile.cpp"
+      :pointmax 10032
+      :fsize 10031
+      :lastmodtime '(22552 24104 192142 60000)
+      :unmatched-syntax nil)
+    (semanticdb-table "HdfsFileSystem.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_PLUGIN_HDFSFILESYSTEM_H" variable (:constant-flag t) nil [47 76])
+            ("map" include (:system-flag t) nil [78 92])
+            ("autil/Lock.h" include (:system-flag t) nil [93 116])
+            ("fslib/common.h" include nil nil [117 142])
+            ("fslib/fs/AbstractFileSystem.h" include (:system-flag t) nil [143 183])
+            ("fslib/fs/hdfs/HdfsConnection.h" include nil nil [184 225])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [256 261]))                  
+                :type "int")
+                nil [227 262])
+            ("fslib::fs" using (:type ("fslib::fs" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [264 290])
+            ("HdfsFsConfig" type
+               (:members 
+                  ( ("_user" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [319 331])
+                    ("_groups" variable
+                       (:pointer 2
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol classsubparts) [336 357])
+                    ("_bufferSize" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [362 382])
+                    ("_blockSize" variable (:type ("int32_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [387 406])
+                    ("_replica" variable (:type ("int16_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [411 428])
+                    ("_groupNum" variable (:type ("int16_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [433 451])
+                    ("public" label nil (reparse-symbol classsubparts) [452 459])
+                    ("HdfsFsConfig" function
+                       (:constructor-flag t
+                        :type ("HdfsFsConfig" type (:type "struct") nil nil))
+                        (reparse-symbol classsubparts) [464 626])
+                    ("HdfsFsConfig" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [631 878]))                  
+                :type "struct")
+                nil [293 881])
+            ("HdfsFileSystem" type
+               (:superclasses 
+                  ( ("fslib::fs::AbstractFileSystem" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [945 952])
+                    ("MAX_CONNECTION" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("size_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [957 992])
+                    ("HADOOP_CLASSPATH_ENV" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [997 1043])
+                    ("CLASSPATH_ENV" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1048 1087])
+                    ("HADOOP_HOME_ENV" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1092 1133])
+                    ("HDFS_PREFIX" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1138 1175])
+                    ("KV_SEPARATOR" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1181 1219])
+                    ("KV_PAIR_SEPARATOR" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1224 1267])
+                    ("CONFIG_SEPARATOR" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1272 1314])
+                    ("HDFS_BUFFER_SIZE" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1319 1361])
+                    ("HDFS_REPLICA" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1366 1404])
+                    ("HDFS_BLOCK_SIZE" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1409 1450])
+                    ("HDFS_USER" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1455 1490])
+                    ("HDFS_GROUPS" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1495 1532])
+                    ("HDFS_GROUP_SEPARATOR" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1537 1583])
+                    ("DEFAULT_PANGU_AUTO_COMMIT_LIMIT" variable
+                       (:typemodifiers ("static")
+                        :constant-flag t
+                        :type ("uint32_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1588 1642])
+                    ("public" label nil (reparse-symbol classsubparts) [1648 1655])
+                    ("HdfsFileSystemTest" friend nil (reparse-symbol classsubparts) [1660 1691])
+                    ("public" label nil (reparse-symbol classsubparts) [1694 1701])
+                    ("HdfsFileSystem" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("HdfsFileSystem" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1706 1723])
+                    ("HdfsFileSystem" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [1728 1746])
+                    ("public" label nil (reparse-symbol classsubparts) [1748 1755])
+                    ("openFile" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1788 1816])
+                            ("mode" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1817 1827]))                          
+                        :type ("File" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1773 1828])
+                    ("mmapFile" function
+                       (:prototype-flag t
+                        :pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1866 1894])
+                            ("openMode" variable (:type ("Flag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1895 1909])
+                            ("start" variable
+                               (:pointer 1
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [1947 1959])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1960 1974])
+                            ("prot" variable (:type "int") (reparse-symbol arg-sub-list) [1975 1984])
+                            ("mapFlag" variable (:type "int") (reparse-symbol arg-sub-list) [2022 2034])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2035 2048]))                          
+                        :type ("MMapFile" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1847 2049])
+                    ("rename" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("oldPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2085 2112])
+                            ("newPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2148 2175]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2068 2176])
+                    ("getFileMeta" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2221 2249])
+                            ("fileMeta" variable
+                               (:reference 1
+                                :type ("FileMeta" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2262 2281]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2199 2282])
+                    ("isFile" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2322 2346]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2305 2347])
+                    ("getFileChecksum" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2395 2423]))                          
+                        :type ("FileChecksum" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2366 2424])
+                    ("mkDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2459 2486])
+                            ("recursive" variable
+                               (:default-value "false"
+                                :type "bool")
+                                (reparse-symbol arg-sub-list) [2520 2542]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2443 2544])
+                    ("listDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2581 2608])
+                            ("fileList" variable
+                               (:reference 1
+                                :type ("FileList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2644 2663]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2563 2664])
+                    ("isDirectory" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2705 2729]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2683 2730])
+                    ("remove" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2766 2790]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2749 2791])
+                    ("isExist" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2828 2853]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2810 2854])
+                    ("listDir" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("dirName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2891 2918])
+                            ("entryList" variable
+                               (:reference 1
+                                :type ("EntryList" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2954 2975]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2873 2976])
+                    ("createFileReadWriteLock" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3051 3079]))                          
+                        :type ("FileReadWriteLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2995 3112])
+                    ("createFileLock" function
+                       (:pointer 1
+                        :arguments 
+                          ( ("fileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3160 3188]))                          
+                        :type ("FileLock" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3135 3217])
+                    ("getCapability" function (:type ("FileSystemCapability" type (:type "class") nil nil)) (reparse-symbol classsubparts) [3240 3325])
+                    ("convertErrno" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("errNum" variable (:type "int") (reparse-symbol arg-sub-list) [3365 3376]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3335 3377])
+                    ("public" label nil (reparse-symbol classsubparts) [3379 3386])
+                    ("parsePath" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3413 3437])
+                            ("filePath" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3438 3460])
+                            ("config" variable
+                               (:reference 1
+                                :type ("HdfsFsConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3487 3508]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3391 3509])
+                    ("getHdfsConnection" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3550 3574]))                          
+                        :type ("HdfsConnectionPtr" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3514 3575])
+                    ("private" label nil (reparse-symbol classsubparts) [3580 3588])
+                    ("eliminateSeqSlash" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("src" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [3623 3639])
+                            ("len" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3640 3651])
+                            ("dst" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3686 3703])
+                            ("keepLastSlash" variable (:type "bool") (reparse-symbol arg-sub-list) [3704 3723]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3593 3724])
+                    ("parseConfig" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("configStr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3753 3782])
+                            ("config" variable
+                               (:reference 1
+                                :type ("HdfsFsConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3811 3832]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3729 3833])
+                    ("splitServerAndPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("srcPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3868 3895])
+                            ("server" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3929 3949])
+                            ("dstPath" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3983 4004]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3839 4005])
+                    ("connectServer" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("server" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4039 4065])
+                            ("fsConfig" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("HdfsFsConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4094 4123])
+                            ("hdfsFs" variable
+                               (:reference 1
+                                :type ("HdfsConnectionPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4152 4178]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4015 4179])
+                    ("internalGetConnectionAndPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("srcPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4224 4251])
+                            ("fsConfig" variable
+                               (:reference 1
+                                :type ("HdfsFsConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4264 4287])
+                            ("hdfsConnection" variable
+                               (:reference 1
+                                :type ("HdfsConnectionPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4300 4334])
+                            ("dstPath" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4348 4369]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4185 4370])
+                    ("getConnectUser" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("fsConfig" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("HdfsFsConfig" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4400 4429])
+                            ("username" variable
+                               (:reference 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4430 4452]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4380 4453])
+                    ("internalIsExist" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("hdfsConnection" variable (:type ("HdfsConnectionPtr" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [4484 4517])
+                            ("dstPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4548 4575]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4458 4576])
+                    ("initClassPath" function
+                       (:prototype-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [4582 4603])
+                    ("getHadoopClassPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("hadoopClassPath" variable
+                               (:pointer 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4632 4661]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [4608 4662])
+                    ("getHadoopHome" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("hadoopHome" variable
+                               (:pointer 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4686 4710]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4667 4711])
+                    ("genHadoopClassPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("hadoopHome" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4740 4770])
+                            ("hadoopClassPath" variable
+                               (:pointer 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4800 4829]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4716 4830])
+                    ("setHadoopClassPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("hadoopClassPath" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4859 4894]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4835 4895])
+                    ("getHadoopClassPathPattern" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("hadoopHome" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4958 4988]))                          
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [4900 4989])
+                    ("extendHadoopClassPathPattern" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("pattern" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5035 5062])
+                            ("hadoopClassPath" variable
+                               (:pointer 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5076 5105]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4994 5106])
+                    ("getEnv" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5130 5154])
+                            ("value" variable
+                               (:pointer 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5155 5174]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [5111 5175])
+                    ("setEnv" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("name" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5199 5223])
+                            ("value" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5224 5249]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [5180 5250])
+                    ("readStream" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("stream" variable
+                               (:pointer 1
+                                :type ("FILE" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5278 5291])
+                            ("pattern" variable
+                               (:pointer 1
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5292 5313]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5255 5314])
+                    ("globPath" function
+                       (:prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("pathPattern" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "char")
+                                (reparse-symbol arg-sub-list) [5340 5364])
+                            ("paths" variable
+                               (:pointer 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("std::string" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [5391 5423]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5319 5424])
+                    ("private" label nil (reparse-symbol classsubparts) [5425 5433])
+                    ("_connectionMap" variable (:type ("std::map" type
+                         (:template-specifier 
+                            ( ("std::string" type (:constant-flag t) nil nil)
+                              ("HdfsConnectionPtr" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [5438 5500])
+                    ("_rwLock" variable (:type ("autil::ReadWriteLock" type (:type "class") nil nil)) (reparse-symbol classsubparts) [5505 5534]))                  
+                :type "class")
+                nil [883 5537])
+            ("HdfsFileSystemPtr" type
+               (:typedef ("std::auto_ptr" type
+                     (:template-specifier 
+                        ( ("HdfsFileSystem" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [5539 5595])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5624 5629]))                  
+                :type "int")
+                nil [5597 5630]))          
+      :file "HdfsFileSystem.h"
+      :pointmax 5671
+      :fsize 5670
+      :lastmodtime '(22552 24104 193142 59000)
+      :unmatched-syntax '((thing 1691 . 1692))
+      :lexical-table 
+        '(("FSLIB_PLUGIN_HDFSFILESYSTEM_H")
+          )
+)
+    (semanticdb-table "HdfsConnection.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("fslib/fs/hdfs/HdfsConnection.h" include nil nil [1 42])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [44 64])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [94 99]))                  
+                :type "int")
+                nil [65 100])
+            ("AUTIL_DECLARE_AND_SETUP_LOGGER" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [132 137])
+                    ("" variable (:type ("HdfsConnection" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [138 153]))                  
+                :type "int")
+                nil [101 154])
+            ("HdfsConnection" function
+               (:constructor-flag t
+                :parent "HdfsConnection"
+                :arguments 
+                  ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [187 197]))                  
+                :type ("HdfsConnection" type (:type "class") nil nil))
+                nil [156 238])
+            ("HdfsConnection" function
+               (:destructor-flag t
+                :parent "HdfsConnection"
+                :type "void")
+                nil [240 327])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [356 361]))                  
+                :type "int")
+                nil [329 362]))          
+      :file "HdfsConnection.cpp"
+      :pointmax 363
+      :fsize 362
+      :lastmodtime '(22552 24104 192142 60000)
+      :unmatched-syntax nil)
+    (semanticdb-table "HdfsConnection.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_PLUGIN_HDFSCONNECTION_H" variable (:constant-flag t) nil [47 76])
+            ("tr1/memory" include (:system-flag t) nil [78 99])
+            ("autil/Log.h" include (:system-flag t) nil [100 122])
+            ("hdfs/hdfs.h" include (:system-flag t) nil [123 145])
+            ("fslib/common.h" include nil nil [146 171])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [202 207]))                  
+                :type "int")
+                nil [173 208])
+            ("HdfsConnection" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [233 240])
+                    ("HdfsConnection" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [260 270]))                          
+                        :type ("HdfsConnection" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [245 271])
+                    ("HdfsConnection" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [276 294])
+                    ("getHdfsFs" function (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol classsubparts) [300 346])
+                    ("setError" function
+                       (:arguments 
+                          ( ("hasError" variable (:type "bool") (reparse-symbol arg-sub-list) [365 379]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [351 417])
+                    ("hasError" function (:type "bool") (reparse-symbol classsubparts) [422 471])
+                    ("private" label nil (reparse-symbol classsubparts) [477 485])
+                    ("_fs" variable (:type ("hdfsFS" type (:type "class") nil nil)) (reparse-symbol classsubparts) [490 501])
+                    ("_hasError" variable (:type "bool") (reparse-symbol classsubparts) [506 521]))                  
+                :type "class")
+                nil [210 524])
+            ("HdfsConnectionPtr" type
+               (:typedef ("std::tr1::shared_ptr" type
+                     (:template-specifier 
+                        ( ("HdfsConnection" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [526 589])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("fs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [618 621]))                  
+                :type "int")
+                nil [591 622]))          
+      :file "HdfsConnection.h"
+      :pointmax 663
+      :fsize 662
+      :lastmodtime '(22552 24104 192142 60000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("FSLIB_PLUGIN_HDFSCONNECTION_H")
+          )
+)
+    (semanticdb-table "HdfsFile.h"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("FSLIB_PLUGIN_HDFS_FILE_H" variable (:constant-flag t) nil [42 66])
+            ("fslib/common.h" include nil nil [68 93])
+            ("fslib/fs/hdfs/HdfsConnection.h" include nil nil [94 135])
+            ("FSLIB_PLUGIN_BEGIN_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [166 171]))                  
+                :type "int")
+                nil [137 172])
+            ("HdfsFile" type
+               (:superclasses 
+                  ( ("File" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [205 212])
+                    ("HdfsFile" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("path" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [226 250])
+                            ("connection" variable
+                               (:reference 1
+                                :type ("HdfsConnectionPtr" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [251 281])
+                            ("file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [298 312])
+                            ("curPos" variable
+                               (:default-value "0"
+                                :type ("int64_t" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [313 331])
+                            ("ec" variable
+                               (:default-value "EC_OK"
+                                :type ("ErrorCode" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [333 353]))                          
+                        :type ("HdfsFile" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [217 355])
+                    ("HdfsFile" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [360 372])
+                    ("HdfsFileTest" friend nil (reparse-symbol classsubparts) [378 403])
+                    ("public" label nil (reparse-symbol classsubparts) [405 412])
+                    ("read" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [443 456])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [457 471]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [430 472])
+                    ("write" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [505 524])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [525 539]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [491 540])
+                    ("pread" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [573 586])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [587 601])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [602 615]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [559 616])
+                    ("pwrite" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("buffer" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "void")
+                                (reparse-symbol arg-sub-list) [650 669])
+                            ("length" variable (:type ("size_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [670 684])
+                            ("offset" variable (:type ("off_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [685 698]))                          
+                        :type ("ssize_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [635 699])
+                    ("flush" function
+                       (:prototype-flag t
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [718 736])
+                    ("close" function
+                       (:prototype-flag t
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [755 773])
+                    ("seek" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("offset" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [807 822])
+                            ("flag" variable (:type ("SeekFlag" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [823 837]))                          
+                        :type ("ErrorCode" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [792 838])
+                    ("tell" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [857 872])
+                    ("isOpened" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [891 913])
+                    ("isEof" function
+                       (:prototype-flag t
+                        :type "bool")
+                        (reparse-symbol classsubparts) [932 945])
+                    ("private" label nil (reparse-symbol classsubparts) [947 955])
+                    ("getFileLen" function
+                       (:prototype-flag t
+                        :type ("int64_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [960 981])
+                    ("private" label nil (reparse-symbol classsubparts) [983 991])
+                    ("_connection" variable (:type ("HdfsConnectionPtr" type (:type "class") nil nil)) (reparse-symbol classsubparts) [996 1026])
+                    ("_file" variable (:type ("hdfsFile" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1031 1046])
+                    ("_curPos" variable (:type ("int64_t" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1051 1067])
+                    ("_isEof" variable (:type "bool") (reparse-symbol classsubparts) [1072 1084]))                  
+                :type "class")
+                nil [174 1087])
+            ("HdfsFilePtr" type
+               (:typedef ("std::auto_ptr" type
+                     (:template-specifier 
+                        ( ("HdfsFile" type nil nil nil))                        
+                      :type "class")
+                      nil nil)
+                :type "typedef")
+                nil [1089 1133])
+            ("FSLIB_PLUGIN_END_NAMESPACE" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("hdfs" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1162 1167]))                  
+                :type "int")
+                nil [1135 1168]))          
+      :file "HdfsFile.h"
+      :pointmax 1204
+      :fsize 1203
+      :lastmodtime '(22552 24104 193142 59000)
+      :unmatched-syntax '((thing 403 . 404))
+      :lexical-table 
+        '(("FSLIB_PLUGIN_HDFS_FILE_H")
+          )
+))
+  :file "!ssd!sdd!git!fs_lib!fslib_hdfs_plugin!fslib!fs!hdfs!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
