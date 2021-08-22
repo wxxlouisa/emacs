@@ -4,7 +4,7 @@
 startup_message off
 
 # replace C-a with C-t
-escape      ^Jj
+# escape      ^Jj
 
 # show original screen when exit from emacs/vi
 altscreen   on
@@ -17,3 +17,20 @@ vbell       off
 hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{= kG}%-w%{.cW}%n %t%{-}%+w %=%{= kG} %H %{..Y} %Y/%m/%d %c:%s "
+
+# Settings for Screen to allow better use of emacs
+#
+# Most important: rebind ctrl-A
+## Control-^ (usually Control-Shift-6) is traditional and the only key not used by emacs
+escape ^^^^
+#
+## do not trash BackSpace, usually DEL
+bindkey -k kb
+bindkey -d -k kb
+#
+## do not trash Delete, usually ESC [ 3 ~
+bindkey -k kD
+bindkey -d -k kD
+#
+# Allow bold colors - necessary for some reason
+attrcolor b ".I"
